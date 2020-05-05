@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePersonaEntidadTable extends Migration
+class CreateReclamanteNotasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePersonaEntidadTable extends Migration
      */
     public function up()
     {
-        Schema::create('persona_entidad', function (Blueprint $table) {
+        Schema::create('reclamante', function (Blueprint $table) {
             $table->string('enfodifervictima',5); 
             $table->string('genevictima',15);
             $table->integer('edadvictima');
@@ -34,6 +34,6 @@ class CreatePersonaEntidadTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('persona_entidad');
+        Schema::dropIfExists('reclamante');
     }
 }

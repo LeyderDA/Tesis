@@ -14,6 +14,7 @@ class CreatePersonaNotasTable extends Migration
     public function up()
     {
         Schema::create('notas', function (Blueprint $table) {
+            $table->bigInteger('cedula')->unique();
             $table->integer('notapricort');
             $table->integer('notasegcort');
             $table->integer('notateracort');
