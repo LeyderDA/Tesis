@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\Area;
+use App\Area;
 
 class AreaController extends Controller
 {
@@ -39,6 +39,7 @@ class AreaController extends Controller
         $areas=new Area();
         $areas->nombrearea=$request->nombrearea;
         $areas->save();
+        return  response()->json($areas);
     }
 
     /**

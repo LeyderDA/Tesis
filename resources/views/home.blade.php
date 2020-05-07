@@ -4,8 +4,14 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <example-component/>
+        <example-component/>
+        
         </div>
+        <div class="col-md-8">
+        <area-v/>
+        
+        </div>
+        
     </div>
 </div>
 @endsection
