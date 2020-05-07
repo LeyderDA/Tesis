@@ -20,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/area', 'AreaController@store')->name('areaGuardar');
 Route::get('/area', 'AreaController@index')->name('areaListar');
+Route::delete('/area/{id}', 'AreaController@destroy')->name('areaEliminar');
+Route::put('/area/{id}', 'AreaController@update')->name('areaActualizar');

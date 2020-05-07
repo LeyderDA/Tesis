@@ -1953,6 +1953,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1984,13 +2012,54 @@ __webpack_require__.r(__webpack_exports__);
       this.area.nombrearea = "";
       axios.post("/api/area", params).then(function (res) {
         if (res.data == null) {
-          alert('el tipo de documento no se ha registrado con exito');
+          alert("el tipo de documento no se ha registrado con exito");
         } else {
-          alert('el tipo de documento se ha registrado');
+          alert("el tipo de documento se ha registrado");
         }
 
         _this2.areas.push(res.data);
       }); //this.areas.push(ar);
+    },
+    eliminar: function eliminar(area, index) {
+      var _this3 = this;
+
+      var confirmacion = confirm("Confirma Eliminar Area: ".concat(area.nombrearea));
+
+      if (confirmacion) {
+        axios["delete"]("/api/area/" + area.id).then(function () {
+          _this3.areas.splice(index, 1);
+
+          alert("el area se ha eliminado con exito");
+        });
+      }
+    },
+    editarForm: function editarForm(area, index) {
+      this.area = area;
+      this.area.index = index;
+    },
+    editar: function editar() {
+      var _this4 = this;
+
+      var params = {
+        nombrearea: this.area.nombrearea
+      };
+      axios.put("/api/area/" + this.area.id, params).then(function (res) {
+        if (res.data == null) {
+          alert("el area no se ha actualizado");
+        } else {
+          alert("el area se ha actualizado");
+        } //alert(this.area.index)
+
+
+        _this4.areas[_this4.area.index] = res.data;
+        _this4.area.nombrearea = ''; //this.$refs.editarModal.modal('dispose');
+      })["catch"](function (error) {
+        if (error.response.status == 422) {
+          _this4.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
+
+          alert(_this4.errors.nombre[0]);
+        }
+      });
     }
   }
 });
@@ -37730,13 +37799,43 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "tbody",
-                  _vm._l(_vm.areas, function(area) {
-                    return _c("tr", { key: area.id }, [
+                  _vm._l(_vm.areas, function(area, index) {
+                    return _c("tr", { key: area.index }, [
                       _c("th", [_vm._v(_vm._s(area.id))]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(area.nombrearea))]),
                       _vm._v(" "),
-                      _vm._m(1, true)
+                      _c("td", [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-success btn-sm",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": "#editarModal"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.editarForm(area, index)
+                              }
+                            }
+                          },
+                          [_c("i", { staticClass: "fas fa-pencil-alt" })]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-danger btn-sm",
+                            on: {
+                              click: function($event) {
+                                return _vm.eliminar(area, index)
+                              }
+                            }
+                          },
+                          [_c("i", { staticClass: "fas fa-trash-alt" })]
+                        )
+                      ])
                     ])
                   }),
                   0
@@ -37746,7 +37845,81 @@ var render = function() {
           ])
         ])
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "editarModal",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog", attrs: { role: "document" } },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.area.nombrearea,
+                      expression: "area.nombrearea"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { placeholder: "nombre del Area" },
+                  domProps: { value: _vm.area.nombrearea },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.area, "nombrearea", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Cerrar")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "button", "data-dismiss": "modal" },
+                    on: {
+                      click: function($event) {
+                        return _vm.editar()
+                      }
+                    }
+                  },
+                  [_vm._v("Guardar Cambios")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -37768,8 +37941,25 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("button", { staticClass: "btn btn-s btn-primary" }, [_vm._v("ojo")])
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Editar Area")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
     ])
   }
 ]
