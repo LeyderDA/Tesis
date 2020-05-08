@@ -9,7 +9,7 @@
             <div class="col-6">
               <input
                 class="form-control"
-                placeholder="nombre del documento"
+                placeholder="nombre del area"
                 v-model="area.nombrearea"
               />
             </div>

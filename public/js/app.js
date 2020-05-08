@@ -37761,7 +37761,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control",
-                attrs: { placeholder: "nombre del documento" },
+                attrs: { placeholder: "nombre del area" },
                 domProps: { value: _vm.area.nombrearea },
                 on: {
                   input: function($event) {
@@ -50395,8 +50395,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\USUARIO\Documents\proyectos\Tesis\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\USUARIO\Documents\proyectos\Tesis\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\tesisderecho\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\tesisderecho\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
