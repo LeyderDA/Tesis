@@ -13,7 +13,7 @@ class CreateGestionTramiteTable extends Migration
      */
     public function up()
     {
-        Schema::create('gestion_tramite', function (Blueprint $table) {
+        Schema::create('gestion_tramites', function (Blueprint $table) {
             $table->string('amplhechos,50');
             $table->date('fechentrevasesor');
             $table->string('tipotramite',50);
@@ -27,7 +27,7 @@ class CreateGestionTramiteTable extends Migration
             $table->string('resulactuacion',50);
             $table->string('entidadelantramite',50);
             $table->unsignedBigInteger('recp_id');
-            $table->foreign('recp_id')->references('id')->on('recepcion');
+            $table->foreign('recp_id')->references('id')->on('recepciones');
         });
     }
 
@@ -38,6 +38,6 @@ class CreateGestionTramiteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gestion_tramite');
+        Schema::dropIfExists('gestion_tramites');
     }
 }

@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Area extends Model
 {
-    protected $table = 'area';
+    protected $table = 'areas';
     protected $fillable = [
-        'id', 'nombrearea',
+        'id', 'nombre',
     ];
 }

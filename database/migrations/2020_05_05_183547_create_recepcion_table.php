@@ -13,7 +13,7 @@ class CreateRecepcionTable extends Migration
      */
     public function up()
     {
-        Schema::create('recepcion', function (Blueprint $table) {
+        Schema::create('recepciones', function (Blueprint $table) {
             $table->BigIncrements('id');
             $table->string('recepcionado');
             $table->date('fecharadicado');
@@ -23,7 +23,7 @@ class CreateRecepcionTable extends Migration
             $table->date('fechapublicacion');
             $table->date('fecharetiro');
             $table->unsignedBigInteger('area_id');
-            $table->foreign('area_id')->references('id')->on('area');
+            $table->foreign('area_id')->references('id')->on('areas');
             
         });
     }
@@ -35,6 +35,6 @@ class CreateRecepcionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recepcion');
+        Schema::dropIfExists('recepciones');
     }
 }

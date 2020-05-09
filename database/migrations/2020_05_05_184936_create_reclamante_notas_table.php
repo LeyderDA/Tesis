@@ -13,7 +13,7 @@ class CreateReclamanteNotasTable extends Migration
      */
     public function up()
     {
-        Schema::create('reclamante', function (Blueprint $table) {
+        Schema::create('reclamantes', function (Blueprint $table) {
             $table->string('enfodifervictima',5); 
             $table->string('genevictima',15);
             $table->integer('edadvictima');
@@ -23,7 +23,7 @@ class CreateReclamanteNotasTable extends Migration
             $table->string('grupetnicovictima',20);
             $table->string('persoentidreclama',50);
             $table->unsignedBigInteger('recp_id');
-            $table->foreign('recp_id')->references('id')->on('recepcion');
+            $table->foreign('recp_id')->references('id')->on('recepciones');
         });
     }
 
@@ -34,6 +34,6 @@ class CreateReclamanteNotasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reclamante');
+        Schema::dropIfExists('reclamantes');
     }
 }

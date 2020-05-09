@@ -13,11 +13,11 @@ class CreateAdministrativoTable extends Migration
      */
     public function up()
     {
-        Schema::create('administrativo', function (Blueprint $table) {
+        Schema::create('administrativos', function (Blueprint $table) {
             $table->unsignedBigInteger('usu_id');
             $table->unsignedBigInteger('recp_id');            
             $table->foreign('usu_id')->references('id')->on('users');
-            $table->foreign('recp_id')->references('id')->on('recepcion');
+            $table->foreign('recp_id')->references('id')->on('recepciones');
         });
     }
 
@@ -28,6 +28,6 @@ class CreateAdministrativoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('administrativo');
+        Schema::dropIfExists('administrativos');
     }
 }

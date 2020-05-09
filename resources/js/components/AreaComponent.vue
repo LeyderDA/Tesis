@@ -10,7 +10,7 @@
               <input
                 class="form-control"
                 placeholder="nombre del area"
-                v-model="area.nombrearea"
+                v-model="areas.nombre"
               />
             </div>
             <div class="col-6" v-if="true">
@@ -27,14 +27,14 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(area,index) in areas" :key="area.index">
-                    <th>{{area.id}}</th>
-                    <td>{{area.nombrearea}}</td>
+                  <tr v-for="(areas,index) in areass" :key="areas.index">
+                    <th>{{areas.id}}</th>
+                    <td>{{areas.nombre}}</td>
                     <td>
-                      <button class="btn btn-success btn-sm"  data-toggle="modal" data-target="#editarModal" @click="editarForm(area,index)">
+                      <button class="btn btn-success btn-sm"  data-toggle="modal" data-target="#editarModal" @click="editarForm(areas,index)">
                         <i class="fas fa-pencil-alt"></i>
                       </button>
-                      <button class="btn btn-danger btn-sm" @click="eliminar(area,index)">
+                      <button class="btn btn-danger btn-sm" @click="eliminar(areas,index)">
                         <i class="fas fa-trash-alt"></i>
                       </button>
                     </td>
@@ -59,7 +59,7 @@
         <input
                 class="form-control"
                 placeholder="nombre del Area"
-                v-model="area.nombrearea"
+                v-model="areas.nombre"
               />
       </div>
       <div class="modal-footer">
@@ -75,26 +75,26 @@
 export default {
   data() {
     return {
-      area: {
+      areas: {
         id: "",
-        nombrearea: ""
+        nombre: ""
       },
-      areas: [],
+      areass: [],
       //registro: true, //me describe el compartamieto del boton si va a guardar o va a editar
       errors: []
     };
   },
   created() {
     axios.get("/api/area").then(res => {
-      this.areas = res.data;
+      this.areass = res.data;
     });
   },
   methods: {
     agregar() {
       //alert(this.area.nombrearea);
-      const params = { nombrearea: this.area.nombrearea };
+      const params = { nombre: this.areas.nombre };
       // let ar = { nombrearea: this.area.nombrearea, id: this.area.id };
-      this.area.nombrearea = "";
+      this.areas.nombre = "";
 
       axios.post("/api/area", params).then(res => {
         if (res.data == null) {
@@ -102,30 +102,30 @@ export default {
         } else {
           alert("el tipo de documento se ha registrado");
         }
-        this.areas.push(res.data);
+        this.areass.push(res.data);
       });
 
       //this.areas.push(ar);
     },
 
-    eliminar(area, index) {
+    eliminar(areas, index) {
       const confirmacion = confirm(
-        `Confirma Eliminar Area: ${area.nombrearea}`
+        `Confirma Eliminar Area: ${areas.nombre}`
       );
       if (confirmacion) {
-        axios.delete("/api/area/" + area.id).then(() => {
-          this.areas.splice(index, 1);
+        axios.delete("/api/area/" + areas.id).then(() => {
+          this.areass.splice(index, 1);
           alert("el area se ha eliminado con exito");
         });
       }
     },
-    editarForm(area,index){
-        this.area=area;
-        this.area.index=index;
+    editarForm(areas,index){
+        this.areas=areas;
+        this.areas.index=index;
     },
     editar() {
-      const params = { nombrearea: this.area.nombrearea };
-       axios.put("/api/area/" + this.area.id, params)
+      const params = { nombre: this.areas.nombre };
+       axios.put("/api/area/" + this.areas.id, params)
        .then(res => {
           if (res.data == null) {
             alert("el area no se ha actualizado");
@@ -133,8 +133,8 @@ export default {
             alert("el area se ha actualizado");
           }
           //alert(this.area.index)
-          this.areas[this.area.index] = res.data;
-          this.area.nombrearea='';
+          this.areass[this.areas.index] = res.data;
+          this.areas.nombre='';
           //this.$refs.editarModal.modal('dispose');
         })
         .catch(error => {

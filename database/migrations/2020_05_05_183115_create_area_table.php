@@ -13,9 +13,9 @@ class CreateAreaTable extends Migration
      */
     public function up()
     {
-        Schema::create('area', function (Blueprint $table) {
+        Schema::create('areas', function (Blueprint $table) {
             $table->BigIncrements('id');
-            $table->string('nombrearea',25);
+            $table->string('nombre',25);
             $table->timestamps();
 
         });
@@ -28,6 +28,6 @@ class CreateAreaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('area');
+        Schema::dropIfExists('areas');
     }
 }

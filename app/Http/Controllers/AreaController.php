@@ -37,7 +37,7 @@ class AreaController extends Controller
     public function store(Request $request)
     {
         $areas=new Area();
-        $areas->nombrearea=$request->nombrearea;
+        $areas->nombre=$request->nombre;
         $areas->save();
         return  response()->json($areas);
     }
@@ -65,7 +65,7 @@ class AreaController extends Controller
     public function update(Request $request, $id)
     {
         $areas=Area::find($id);
-        $areas->nombrearea=$request->nombrearea;
+        $areas->nombre=$request->nombre;
         $areas->save();
         return  response()->json($areas);
     }

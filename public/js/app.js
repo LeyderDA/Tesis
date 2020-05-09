@@ -1984,11 +1984,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      area: {
+      areas: {
         id: "",
-        nombrearea: ""
+        nombre: ""
       },
-      areas: [],
+      areass: [],
       //registro: true, //me describe el compartamieto del boton si va a guardar o va a editar
       errors: []
     };
@@ -1997,7 +1997,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.get("/api/area").then(function (res) {
-      _this.areas = res.data;
+      _this.areass = res.data;
     });
   },
   methods: {
@@ -2006,10 +2006,10 @@ __webpack_require__.r(__webpack_exports__);
 
       //alert(this.area.nombrearea);
       var params = {
-        nombrearea: this.area.nombrearea
+        nombre: this.areas.nombre
       }; // let ar = { nombrearea: this.area.nombrearea, id: this.area.id };
 
-      this.area.nombrearea = "";
+      this.areas.nombre = "";
       axios.post("/api/area", params).then(function (res) {
         if (res.data == null) {
           alert("el tipo de documento no se ha registrado con exito");
@@ -2017,33 +2017,33 @@ __webpack_require__.r(__webpack_exports__);
           alert("el tipo de documento se ha registrado");
         }
 
-        _this2.areas.push(res.data);
+        _this2.areass.push(res.data);
       }); //this.areas.push(ar);
     },
-    eliminar: function eliminar(area, index) {
+    eliminar: function eliminar(areas, index) {
       var _this3 = this;
 
-      var confirmacion = confirm("Confirma Eliminar Area: ".concat(area.nombrearea));
+      var confirmacion = confirm("Confirma Eliminar Area: ".concat(areas.nombre));
 
       if (confirmacion) {
-        axios["delete"]("/api/area/" + area.id).then(function () {
-          _this3.areas.splice(index, 1);
+        axios["delete"]("/api/area/" + areas.id).then(function () {
+          _this3.areass.splice(index, 1);
 
           alert("el area se ha eliminado con exito");
         });
       }
     },
-    editarForm: function editarForm(area, index) {
-      this.area = area;
-      this.area.index = index;
+    editarForm: function editarForm(areas, index) {
+      this.areas = areas;
+      this.areas.index = index;
     },
     editar: function editar() {
       var _this4 = this;
 
       var params = {
-        nombrearea: this.area.nombrearea
+        nombre: this.areas.nombre
       };
-      axios.put("/api/area/" + this.area.id, params).then(function (res) {
+      axios.put("/api/area/" + this.areas.id, params).then(function (res) {
         if (res.data == null) {
           alert("el area no se ha actualizado");
         } else {
@@ -2051,8 +2051,8 @@ __webpack_require__.r(__webpack_exports__);
         } //alert(this.area.index)
 
 
-        _this4.areas[_this4.area.index] = res.data;
-        _this4.area.nombrearea = ''; //this.$refs.editarModal.modal('dispose');
+        _this4.areass[_this4.areas.index] = res.data;
+        _this4.areas.nombre = ''; //this.$refs.editarModal.modal('dispose');
       })["catch"](function (error) {
         if (error.response.status == 422) {
           _this4.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
@@ -37756,19 +37756,19 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.area.nombrearea,
-                    expression: "area.nombrearea"
+                    value: _vm.areas.nombre,
+                    expression: "areas.nombre"
                   }
                 ],
                 staticClass: "form-control",
                 attrs: { placeholder: "nombre del area" },
-                domProps: { value: _vm.area.nombrearea },
+                domProps: { value: _vm.areas.nombre },
                 on: {
                   input: function($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.$set(_vm.area, "nombrearea", $event.target.value)
+                    _vm.$set(_vm.areas, "nombre", $event.target.value)
                   }
                 }
               })
@@ -37799,11 +37799,11 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "tbody",
-                  _vm._l(_vm.areas, function(area, index) {
-                    return _c("tr", { key: area.index }, [
-                      _c("th", [_vm._v(_vm._s(area.id))]),
+                  _vm._l(_vm.areass, function(areas, index) {
+                    return _c("tr", { key: areas.index }, [
+                      _c("th", [_vm._v(_vm._s(areas.id))]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(area.nombrearea))]),
+                      _c("td", [_vm._v(_vm._s(areas.nombre))]),
                       _vm._v(" "),
                       _c("td", [
                         _c(
@@ -37816,7 +37816,7 @@ var render = function() {
                             },
                             on: {
                               click: function($event) {
-                                return _vm.editarForm(area, index)
+                                return _vm.editarForm(areas, index)
                               }
                             }
                           },
@@ -37829,7 +37829,7 @@ var render = function() {
                             staticClass: "btn btn-danger btn-sm",
                             on: {
                               click: function($event) {
-                                return _vm.eliminar(area, index)
+                                return _vm.eliminar(areas, index)
                               }
                             }
                           },
@@ -37873,19 +37873,19 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.area.nombrearea,
-                      expression: "area.nombrearea"
+                      value: _vm.areas.nombre,
+                      expression: "areas.nombre"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: { placeholder: "nombre del Area" },
-                  domProps: { value: _vm.area.nombrearea },
+                  domProps: { value: _vm.areas.nombre },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(_vm.area, "nombrearea", $event.target.value)
+                      _vm.$set(_vm.areas, "nombre", $event.target.value)
                     }
                   }
                 })
