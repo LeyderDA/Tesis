@@ -8,8 +8,9 @@
         
         </div>
         <div class="col-md-8">
-        <area-v/>
         
+        <persona-v/>
+   
         </div>
         
     </div>

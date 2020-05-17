@@ -1,21 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Persona;
 
 use Illuminate\Http\Request;
-use App\Area;
 
-class AreaController extends Controller
+class PersonaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
-    {
-        $areas = Area::all();
-        return  response()->json($areas);
+    {   
+        $per = Persona::all();
+        return  response()->json($per);
+   
+      
     }
 
     /**
@@ -36,10 +33,15 @@ class AreaController extends Controller
      */
     public function store(Request $request)
     {
-        $areas=new Area();
-        $areas->nombre=$request->nombre;
-        $areas->save();
-        return  response()->json($areas);
+        $pers=new Persona();
+        $pers->prinom=$request->prinom;
+        $pers->segnom=$request->segnom;
+        $pers->priape=$request->priape;
+        $pers->segape=$request->segape;
+        $pers->tel=$request->tel;
+        $pers->direc=$request->direc;
+        $pers->save();
+        return  response()->json($pers);
     }
 
     /**
@@ -50,8 +52,8 @@ class AreaController extends Controller
      */
     public function show($id)
     {
-        $areas=Area::find($id);
-        return  response()->json($areas);
+        $pers=Persona::find($id);
+        return  response()->json($pers);
     }
 
 
@@ -64,10 +66,15 @@ class AreaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $areas=Area::find($id);
-        $areas->nombre=$request->nombre;
-        $areas->save();
-        return  response()->json($areas);
+        $pers=Persona::find($id);
+        $pers->prinom=$request->prinom;
+        $pers->segnom=$request->segnom;
+        $pers->priape=$request->priape;
+        $pers->segape=$request->segape;
+        $pers->tel=$request->tel;
+        $pers->direc=$request->direc;
+        $pers->save();
+        return  response()->json($pers);
     }
 
     /**
@@ -78,9 +85,9 @@ class AreaController extends Controller
      */
     public function destroy($id)
     {
-        $areas = Area::find($id);
-        $areas->delete();
-        return  response()->json($areas);
+        $pers = Persona::find($id);
+        $pers->delete();
+        return  response()->json($pers);
       
     }
 }

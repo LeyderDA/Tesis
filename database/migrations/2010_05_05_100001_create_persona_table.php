@@ -14,14 +14,14 @@ class CreatePersonaTable extends Migration
     public function up()
     {
         Schema::create('personas', function (Blueprint $table) {
-
-            $table->string('primernombre',20); 
-            $table->string('segundonombre',20); 
-            $table->string('primerapellido',20); 
-            $table->string('segundoapellido',20);
-            $table->unsignedBigInteger('usu_id');
-            $table->foreign('usu_id')->references('id')->on('users');
-          
+            $table->BigIncrements('id');
+            $table->string('prinom',20); 
+            $table->string('segnom',20); 
+            $table->string('priape',20); 
+            $table->string('segape',20);
+            $table->string('tel',15);
+            $table->string('direc',30);  
+            $table->timestamps(); 
         });
     }
 
