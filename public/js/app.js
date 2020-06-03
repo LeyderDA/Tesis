@@ -2042,6 +2042,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37853,410 +37878,428 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-8" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("Modulo Persona")]),
+  return _c("div", { staticClass: "card" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-body row" }, [
+      _c("form", [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-6 form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.personas.prinom,
+                  expression: "personas.prinom"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { placeholder: "primer nombre" },
+              domProps: { value: _vm.personas.prinom },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.personas, "prinom", $event.target.value)
+                }
+              }
+            })
+          ]),
           _vm._v(" "),
-          _c("div", { staticClass: "card-body row" }, [
-            _c("div", { staticClass: "col-6" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.personas.prinom,
-                    expression: "personas.prinom"
+          _c("div", { staticClass: "col-6 form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.personas.segnom,
+                  expression: "personas.segnom"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { placeholder: "segundo nombre" },
+              domProps: { value: _vm.personas.segnom },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
                   }
-                ],
-                staticClass: "form-control",
-                attrs: { placeholder: "primer nombre" },
-                domProps: { value: _vm.personas.prinom },
+                  _vm.$set(_vm.personas, "segnom", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-6 form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.personas.priape,
+                  expression: "personas.priape"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { placeholder: "primer apellido" },
+              domProps: { value: _vm.personas.priape },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.personas, "priape", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-6 form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.personas.segape,
+                  expression: "personas.segape"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { placeholder: "segundo apellido" },
+              domProps: { value: _vm.personas.segape },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.personas, "segape", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-6 form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.personas.tel,
+                  expression: "personas.tel"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { placeholder: "Teléfono" },
+              domProps: { value: _vm.personas.tel },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.personas, "tel", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-6 form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.personas.direc,
+                  expression: "personas.direc"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { placeholder: "Dirección" },
+              domProps: { value: _vm.personas.direc },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.personas, "direc", $event.target.value)
+                }
+              }
+            })
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      true
+        ? _c("div", { staticClass: "col-6 form-group" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary btn-block",
                 on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.personas, "prinom", $event.target.value)
+                  click: function($event) {
+                    return _vm.agregar()
                   }
                 }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.personas.segnom,
-                    expression: "personas.segnom"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { placeholder: "segundo nombre" },
-                domProps: { value: _vm.personas.segnom },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.personas, "segnom", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.personas.priape,
-                    expression: "personas.priape"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { placeholder: "primer apellido" },
-                domProps: { value: _vm.personas.priape },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.personas, "priape", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.personas.segape,
-                    expression: "personas.segape"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { placeholder: "segundo apellido" },
-                domProps: { value: _vm.personas.segape },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.personas, "segape", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.personas.tel,
-                    expression: "personas.tel"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { placeholder: "Teléfono" },
-                domProps: { value: _vm.personas.tel },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.personas, "tel", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.personas.direc,
-                    expression: "personas.direc"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { placeholder: "Dirección" },
-                domProps: { value: _vm.personas.direc },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.personas, "direc", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            true
-              ? _c("div", { staticClass: "col-6" }, [
+              },
+              [_vm._v("Guardar")]
+            )
+          ])
+        : undefined,
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", { staticClass: "container" }, [
+        _c("table", { staticClass: "table" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.personass, function(personas, index) {
+              return _c("tr", { key: personas.index }, [
+                _c("td", [_vm._v(_vm._s(personas.id))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(personas.prinom))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(personas.segnom))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(personas.priape))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(personas.segape))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(personas.tel))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(personas.direc))]),
+                _vm._v(" "),
+                _c("td", [
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-primary btn-block",
+                      staticClass: "btn btn-success btn-sm",
+                      attrs: {
+                        "data-toggle": "modal",
+                        "data-target": "#editarModal"
+                      },
                       on: {
                         click: function($event) {
-                          return _vm.agregar()
+                          return _vm.editarForm(personas, index)
                         }
                       }
                     },
-                    [_vm._v("Guardar")]
+                    [_c("i", { staticClass: "fas fa-pencil-alt" })]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger btn-sm",
+                      on: {
+                        click: function($event) {
+                          return _vm.eliminar(personas, index)
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fas fa-trash-alt" })]
                   )
                 ])
-              : undefined,
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("div", { staticClass: "container" }, [
-              _c("table", { staticClass: "table" }, [
-                _vm._m(0),
-                _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.personass, function(personas, index) {
-                    return _c("tr", { key: personas.index }, [
-                      _c("td", [_vm._v(_vm._s(personas.id))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(personas.prinom))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(personas.segnom))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(personas.priape))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(personas.segape))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(personas.tel))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(personas.direc))]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-success btn-sm",
-                            attrs: {
-                              "data-toggle": "modal",
-                              "data-target": "#editarModal"
-                            },
-                            on: {
-                              click: function($event) {
-                                return _vm.editarForm(personas, index)
-                              }
-                            }
-                          },
-                          [_c("i", { staticClass: "fas fa-pencil-alt" })]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-danger btn-sm",
-                            on: {
-                              click: function($event) {
-                                return _vm.eliminar(personas, index)
-                              }
-                            }
-                          },
-                          [_c("i", { staticClass: "fas fa-trash-alt" })]
-                        )
-                      ])
-                    ])
-                  }),
-                  0
-                )
               ])
-            ])
-          ])
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "editarModal",
-          tabindex: "-1",
-          role: "dialog",
-          "aria-labelledby": "exampleModalLabel",
-          "aria-hidden": "true"
-        }
-      },
-      [
+            }),
+            0
+          )
+        ]),
+        _vm._v(" "),
         _c(
           "div",
-          { staticClass: "modal-dialog", attrs: { role: "document" } },
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "editarModal",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "exampleModalLabel",
+              "aria-hidden": "true"
+            }
+          },
           [
-            _c("div", { staticClass: "modal-content" }, [
-              _vm._m(1),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-body" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.personas.prinom,
-                      expression: "personas.prinom"
-                    }
-                  ],
-                  attrs: { placeholder: "Primer nombre" },
-                  domProps: { value: _vm.personas.prinom },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+            _c(
+              "div",
+              { staticClass: "modal-dialog", attrs: { role: "document" } },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.personas.prinom,
+                          expression: "personas.prinom"
+                        }
+                      ],
+                      attrs: { placeholder: "Primer nombre" },
+                      domProps: { value: _vm.personas.prinom },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.personas, "prinom", $event.target.value)
+                        }
                       }
-                      _vm.$set(_vm.personas, "prinom", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.personas.segnom,
-                      expression: "personas.segnom"
-                    }
-                  ],
-                  attrs: { placeholder: "Segundo nombre" },
-                  domProps: { value: _vm.personas.segnom },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                    }),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.personas.segnom,
+                          expression: "personas.segnom"
+                        }
+                      ],
+                      attrs: { placeholder: "Segundo nombre" },
+                      domProps: { value: _vm.personas.segnom },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.personas, "segnom", $event.target.value)
+                        }
                       }
-                      _vm.$set(_vm.personas, "segnom", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.personas.priape,
-                      expression: "personas.priape"
-                    }
-                  ],
-                  attrs: { placeholder: "Primer apellido" },
-                  domProps: { value: _vm.personas.priape },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                    }),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.personas.priape,
+                          expression: "personas.priape"
+                        }
+                      ],
+                      attrs: { placeholder: "Primer apellido" },
+                      domProps: { value: _vm.personas.priape },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.personas, "priape", $event.target.value)
+                        }
                       }
-                      _vm.$set(_vm.personas, "priape", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.personas.segape,
-                      expression: "personas.segape"
-                    }
-                  ],
-                  attrs: { placeholder: "Segundo apellido" },
-                  domProps: { value: _vm.personas.segape },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                    }),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.personas.segape,
+                          expression: "personas.segape"
+                        }
+                      ],
+                      attrs: { placeholder: "Segundo apellido" },
+                      domProps: { value: _vm.personas.segape },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.personas, "segape", $event.target.value)
+                        }
                       }
-                      _vm.$set(_vm.personas, "segape", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.personas.tel,
-                      expression: "personas.tel"
-                    }
-                  ],
-                  attrs: { placeholder: "Teléfono" },
-                  domProps: { value: _vm.personas.tel },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                    }),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.personas.tel,
+                          expression: "personas.tel"
+                        }
+                      ],
+                      attrs: { placeholder: "Teléfono" },
+                      domProps: { value: _vm.personas.tel },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.personas, "tel", $event.target.value)
+                        }
                       }
-                      _vm.$set(_vm.personas, "tel", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.personas.direc,
-                      expression: "personas.direc"
-                    }
-                  ],
-                  attrs: { placeholder: "Dirección" },
-                  domProps: { value: _vm.personas.direc },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                    }),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.personas.direc,
+                          expression: "personas.direc"
+                        }
+                      ],
+                      attrs: { placeholder: "Dirección" },
+                      domProps: { value: _vm.personas.direc },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.personas, "direc", $event.target.value)
+                        }
                       }
-                      _vm.$set(_vm.personas, "direc", $event.target.value)
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-footer" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-danger",
-                    attrs: { type: "button", "data-dismiss": "modal" }
-                  },
-                  [_vm._v("Cerrar")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary",
-                    attrs: { type: "button", "data-dismiss": "modal" },
-                    on: {
-                      click: function($event) {
-                        return _vm.editar()
-                      }
-                    }
-                  },
-                  [_vm._v("Guardar Cambios")]
-                )
-              ])
-            ])
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-footer" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        attrs: { type: "button", "data-dismiss": "modal" }
+                      },
+                      [_vm._v("Cerrar")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "button", "data-dismiss": "modal" },
+                        on: {
+                          click: function($event) {
+                            return _vm.editar()
+                          }
+                        }
+                      },
+                      [_vm._v("Guardar Cambios")]
+                    )
+                  ])
+                ])
+              ]
+            )
           ]
         )
-      ]
-    )
+      ])
+    ])
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("h4", { staticClass: "text-center mb-2 card-title" }, [
+        _vm._v("Registrando Persona")
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

@@ -1,22 +1,44 @@
 <template>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header">Modulo Persona</div>
+  <div class="card">
+    <div>
+      <h4 class="text-center mb-2 card-title">Registrando Persona</h4>
+    </div>
 
           <div class="card-body row">
-            <div class="col-6">
-              <input class="form-control" placeholder="primer nombre" v-model="personas.prinom" />
-              <input class="form-control" placeholder="segundo nombre" v-model="personas.segnom" />
-              <input class="form-control" placeholder="primer apellido" v-model="personas.priape" />
-              <input class="form-control" placeholder="segundo apellido" v-model="personas.segape" />
-              <input class="form-control" placeholder="Teléfono" v-model="personas.tel" />
-              <input class="form-control" placeholder="Dirección" v-model="personas.direc" />
-            </div>
-            <div class="col-6" v-if="true">
-              <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
-            </div>
+
+
+            <form>
+                    <div class="row">
+                            <div class="col-6 form-group">
+                              <input class="form-control" placeholder="primer nombre" v-model="personas.prinom" />
+                            </div>
+
+                          <div class="col-6 form-group">
+                              <input class="form-control" placeholder="segundo nombre" v-model="personas.segnom" />
+                            </div>
+
+                            <div class="col-6 form-group">
+                              <input class="form-control" placeholder="primer apellido" v-model="personas.priape" />
+                            </div>
+
+                            <div class="col-6 form-group">
+                              <input class="form-control" placeholder="segundo apellido" v-model="personas.segape" />
+                            </div>
+
+                            <div class="col-6 form-group">
+                              <input class="form-control" placeholder="Teléfono" v-model="personas.tel" />
+                            </div>
+
+                            <div class="col-6 form-group">
+                              <input class="form-control" placeholder="Dirección" v-model="personas.direc" />
+                            </div>
+
+                            
+                    </div>                    
+             </form>
+ <div class="col-6 form-group" v-if="true">
+                      <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
+                    </div>         
             <br />
             <div class="container">
               <table class="table">
@@ -56,12 +78,8 @@
                   </tr>
                 </tbody>
               </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
+      
+        <div
       class="modal fade"
       id="editarModal"
       tabindex="-1"
@@ -69,6 +87,8 @@
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
+    
+ 
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -97,7 +117,12 @@
         </div>
       </div>
     </div>
+          </div>
+
   </div>
+  </div>
+
+  
 </template>
 <script>
 export default {
