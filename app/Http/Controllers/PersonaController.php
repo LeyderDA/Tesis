@@ -34,6 +34,7 @@ class PersonaController extends Controller
     public function store(Request $request)
     {
         $pers=new Persona();
+        $pers->cedula=$request->cedula;
         $pers->prinom=$request->prinom;
         $pers->segnom=$request->segnom;
         $pers->priape=$request->priape;
@@ -67,6 +68,7 @@ class PersonaController extends Controller
     public function update(Request $request, $id)
     {
         $pers=Persona::find($id);
+        $pers->cedula=$request->cedula;
         $pers->prinom=$request->prinom;
         $pers->segnom=$request->segnom;
         $pers->priape=$request->priape;

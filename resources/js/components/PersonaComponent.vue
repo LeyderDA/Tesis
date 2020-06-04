@@ -6,6 +6,9 @@
     <div class="card-body row">
       <form>
         <div class="row">
+           <div class="col-6 form-group">
+            <input class="form-control" placeholder="cedula" v-model="personas.cedula" />
+          </div>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="primer nombre" v-model="personas.prinom" />
           </div>
@@ -46,6 +49,7 @@
                   <thead>
                     <tr>
                       <th>Codigo</th>
+                      <th>Cedula</th>
                       <th>Primer nombre</th>
                       <th>segundo nombre</th>
                       <th>Primer apellido</th>
@@ -57,6 +61,7 @@
                   <tbody>
                     <tr v-for="(personas,index) in personass" :key="personas.index">
                       <td>{{personas.id}}</td>
+                      <td>{{personas.cedula}}</td>
                       <td>{{personas.prinom}}</td>
                       <td>{{personas.segnom}}</td>
                       <td>{{personas.priape}}</td>
@@ -101,6 +106,7 @@
                 </button>
               </div>
               <div class="modal-body">
+                <input placeholder="Cedula" v-model="personas.cedula" />
                 <input placeholder="Primer nombre" v-model="personas.prinom" />
                 <input placeholder="Segundo nombre" v-model="personas.segnom" />
                 <input placeholder="Primer apellido" v-model="personas.priape" />
@@ -130,6 +136,7 @@ export default {
     return {
       personas: {
         id: "",
+        cedula: "",
         prinom: "",
         segnom: "",
         priape: "",
@@ -151,6 +158,7 @@ export default {
     agregar() {
       // alert(this.personas.prinom);
       const params = {
+        cedula: this.personas.cedula,
         prinom: this.personas.prinom,
         segnom: this.personas.segnom,
         priape: this.personas.priape,
@@ -158,6 +166,7 @@ export default {
         tel: this.personas.tel,
         direc: this.personas.direc
       };
+      this.personas.cedula = "";
       this.personas.prinom = "";
       this.personas.segnom = "";
       this.personas.priape = "";
@@ -192,6 +201,7 @@ export default {
     },
     editar() {
       const params = {
+        prinom: this.personas.cedula,
         prinom: this.personas.prinom,
         segnom: this.personas.segnom,
         priape: this.personas.priape,
@@ -208,8 +218,11 @@ export default {
             alert("La persona se ha actualizado");
           }
           //alert(this.area.index)
-          this.personass[this.personas.index] = res.data;
+           this.personass[this.personas.index] = res.data;
           this.personas.id = "";
+
+          this.personass[this.personas.index] = res.data;
+          this.personas.cedula = "";
 
           this.personass[this.personas.index] = res.data;
           this.personas.prinom = "";
@@ -237,6 +250,7 @@ export default {
             //let mensaje='Error con alguno de los campos';
 
             alert(this.errors.id[0]);
+            alert(this.errors.cedula[0]);
             alert(this.errors.prinom[0]);
             alert(this.errors.segnom[0]);
             alert(this.errors.priape[0]);

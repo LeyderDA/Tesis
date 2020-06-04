@@ -15,6 +15,7 @@ class CreatePersonaTable extends Migration
     {
         Schema::create('personas', function (Blueprint $table) {
             $table->BigIncrements('id');
+            $table->string('cedula',20)->unique(); 
             $table->string('prinom',20); 
             $table->string('segnom',20); 
             $table->string('priape',20); 

@@ -1941,6 +1941,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2072,6 +2080,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       personas: {
         id: "",
+        cedula: "",
         prinom: "",
         segnom: "",
         priape: "",
@@ -2097,6 +2106,7 @@ __webpack_require__.r(__webpack_exports__);
 
       // alert(this.personas.prinom);
       var params = {
+        cedula: this.personas.cedula,
         prinom: this.personas.prinom,
         segnom: this.personas.segnom,
         priape: this.personas.priape,
@@ -2104,6 +2114,7 @@ __webpack_require__.r(__webpack_exports__);
         tel: this.personas.tel,
         direc: this.personas.direc
       };
+      this.personas.cedula = "";
       this.personas.prinom = "";
       this.personas.segnom = "";
       this.personas.priape = "";
@@ -2138,16 +2149,12 @@ __webpack_require__.r(__webpack_exports__);
       this.personas.index = index;
     },
     editar: function editar() {
-      var _this4 = this;
+      var _params,
+          _this4 = this;
 
-      var params = {
-        prinom: this.personas.prinom,
-        segnom: this.personas.segnom,
-        priape: this.personas.priape,
-        segape: this.personas.segape,
-        tel: this.personas.tel,
-        direc: this.personas.direc
-      };
+      var params = (_params = {
+        prinom: this.personas.cedula
+      }, _defineProperty(_params, "prinom", this.personas.prinom), _defineProperty(_params, "segnom", this.personas.segnom), _defineProperty(_params, "priape", this.personas.priape), _defineProperty(_params, "segape", this.personas.segape), _defineProperty(_params, "tel", this.personas.tel), _defineProperty(_params, "direc", this.personas.direc), _params);
       axios.put("/api/persona/" + this.personas.id, params).then(function (res) {
         if (res.data == null) {
           alert("La persona no se ha actualizado");
@@ -2158,6 +2165,8 @@ __webpack_require__.r(__webpack_exports__);
 
         _this4.personass[_this4.personas.index] = res.data;
         _this4.personas.id = "";
+        _this4.personass[_this4.personas.index] = res.data;
+        _this4.personas.cedula = "";
         _this4.personass[_this4.personas.index] = res.data;
         _this4.personas.prinom = "";
         _this4.personass[_this4.personas.index] = res.data;
@@ -2175,6 +2184,7 @@ __webpack_require__.r(__webpack_exports__);
           _this4.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
 
           alert(_this4.errors.id[0]);
+          alert(_this4.errors.cedula[0]);
           alert(_this4.errors.prinom[0]);
           alert(_this4.errors.segnom[0]);
           alert(_this4.errors.priape[0]);
@@ -37890,6 +37900,30 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
+                  value: _vm.personas.cedula,
+                  expression: "personas.cedula"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { placeholder: "cedula" },
+              domProps: { value: _vm.personas.cedula },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.personas, "cedula", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-6 form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
                   value: _vm.personas.prinom,
                   expression: "personas.prinom"
                 }
@@ -38065,6 +38099,8 @@ var render = function() {
                       return _c("tr", { key: personas.index }, [
                         _c("td", [_vm._v(_vm._s(personas.id))]),
                         _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(personas.cedula))]),
+                        _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(personas.prinom))]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(personas.segnom))]),
@@ -38139,6 +38175,27 @@ var render = function() {
                   _vm._m(2),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.personas.cedula,
+                          expression: "personas.cedula"
+                        }
+                      ],
+                      attrs: { placeholder: "Cedula" },
+                      domProps: { value: _vm.personas.cedula },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.personas, "cedula", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -38317,6 +38374,8 @@ var staticRenderFns = [
     return _c("thead", [
       _c("tr", [
         _c("th", [_vm._v("Codigo")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Cedula")]),
         _vm._v(" "),
         _c("th", [_vm._v("Primer nombre")]),
         _vm._v(" "),
