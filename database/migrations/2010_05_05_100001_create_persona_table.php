@@ -17,9 +17,9 @@ class CreatePersonaTable extends Migration
             $table->BigIncrements('id');
             $table->string('cedula',20)->unique(); 
             $table->string('prinom',20); 
-            $table->string('segnom',20); 
+            $table->string('segnom',20)->nullable();
             $table->string('priape',20); 
-            $table->string('segape',20);
+            $table->string('segape',20)->nullable();
             $table->string('tel',15);
             $table->string('direc',30);  
             $table->timestamps(); 

@@ -8,8 +8,9 @@
         
         </div>
         <div class="col-md-10">
+    
         
-        <persona-v/>
+            <persona-v/>
    
         </div>
         

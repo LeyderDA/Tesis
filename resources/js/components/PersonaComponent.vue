@@ -6,23 +6,23 @@
     <div class="card-body row">
       <form>
         <div class="row">
-           <div class="col-6 form-group">
-            <input class="form-control" placeholder="cedula" v-model="personas.cedula" />
+          <div class="col-6 form-group">
+            <input class="form-control" placeholder="Cédula" v-model="personas.cedula" />
           </div>
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="primer nombre" v-model="personas.prinom" />
-          </div>
-
-          <div class="col-6 form-group">
-            <input class="form-control" placeholder="segundo nombre" v-model="personas.segnom" />
+            <input class="form-control" placeholder="Primer Nombre" v-model="personas.prinom" />
           </div>
 
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="primer apellido" v-model="personas.priape" />
+            <input class="form-control" placeholder="Segundo Nombre" v-model="personas.segnom" />
           </div>
 
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="segundo apellido" v-model="personas.segape" />
+            <input class="form-control" placeholder="Primer Apellido" v-model="personas.priape" />
+          </div>
+
+          <div class="col-6 form-group">
+            <input class="form-control" placeholder="Segundo Apellido" v-model="personas.segape" />
           </div>
 
           <div class="col-6 form-group">
@@ -48,19 +48,18 @@
                 <table class="table text-center">
                   <thead>
                     <tr>
-                      <th>Codigo</th>
-                      <th>Cedula</th>
+                      <th>Cédula</th>
                       <th>Primer nombre</th>
-                      <th>segundo nombre</th>
+                      <th>Segundo nombre</th>
                       <th>Primer apellido</th>
                       <th>Segundo apellido</th>
                       <th>Teléfono</th>
                       <th>Dirección</th>
+                      <th>Opciones</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="(personas,index) in personass" :key="personas.index">
-                      <td>{{personas.id}}</td>
                       <td>{{personas.cedula}}</td>
                       <td>{{personas.prinom}}</td>
                       <td>{{personas.segnom}}</td>
@@ -145,7 +144,6 @@ export default {
         direc: ""
       },
       personass: [],
-      //registro: true, //me describe el compartamieto del boton si va a guardar o va a editar
       errors: []
     };
   },
@@ -218,7 +216,7 @@ export default {
             alert("La persona se ha actualizado");
           }
           //alert(this.area.index)
-           this.personass[this.personas.index] = res.data;
+          this.personass[this.personas.index] = res.data;
           this.personas.id = "";
 
           this.personass[this.personas.index] = res.data;
