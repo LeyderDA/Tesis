@@ -38030,82 +38030,92 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      true
-        ? _c("div", { staticClass: "col-6 form-group" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary btn-block",
-                on: {
-                  click: function($event) {
-                    return _vm.agregar()
+      _c("div", { staticClass: "row justify-content-center col" }, [
+        true
+          ? _c("div", { staticClass: "col-6 form-group" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-block",
+                  on: {
+                    click: function($event) {
+                      return _vm.agregar()
+                    }
                   }
-                }
-              },
-              [_vm._v("Guardar")]
-            )
-          ])
-        : undefined,
+                },
+                [_vm._v("Guardar")]
+              )
+            ])
+          : undefined
+      ]),
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
-        _c("table", { staticClass: "table" }, [
-          _vm._m(1),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.personass, function(personas, index) {
-              return _c("tr", { key: personas.index }, [
-                _c("td", [_vm._v(_vm._s(personas.id))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(personas.prinom))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(personas.segnom))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(personas.priape))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(personas.segape))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(personas.tel))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(personas.direc))]),
-                _vm._v(" "),
-                _c("td", [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-success btn-sm",
-                      attrs: {
-                        "data-toggle": "modal",
-                        "data-target": "#editarModal"
-                      },
-                      on: {
-                        click: function($event) {
-                          return _vm.editarForm(personas, index)
-                        }
-                      }
-                    },
-                    [_c("i", { staticClass: "fas fa-pencil-alt" })]
-                  ),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "card-body col" }, [
+            _c("div", { attrs: { clas: "container row" } }, [
+              _c("div", { staticClass: "table text-center table-reponsive" }, [
+                _c("table", { staticClass: "table text-center" }, [
+                  _vm._m(1),
                   _vm._v(" "),
                   _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-danger btn-sm",
-                      on: {
-                        click: function($event) {
-                          return _vm.eliminar(personas, index)
-                        }
-                      }
-                    },
-                    [_c("i", { staticClass: "fas fa-trash-alt" })]
+                    "tbody",
+                    _vm._l(_vm.personass, function(personas, index) {
+                      return _c("tr", { key: personas.index }, [
+                        _c("td", [_vm._v(_vm._s(personas.id))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(personas.prinom))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(personas.segnom))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(personas.priape))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(personas.segape))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(personas.tel))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(personas.direc))]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-success btn-sm",
+                              attrs: {
+                                "data-toggle": "modal",
+                                "data-target": "#editarModal"
+                              },
+                              on: {
+                                click: function($event) {
+                                  return _vm.editarForm(personas, index)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fas fa-pencil-alt" })]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-danger btn-sm",
+                              on: {
+                                click: function($event) {
+                                  return _vm.eliminar(personas, index)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fas fa-trash-alt" })]
+                          )
+                        ])
+                      ])
+                    }),
+                    0
                   )
                 ])
               ])
-            }),
-            0
-          )
+            ])
+          ])
         ]),
         _vm._v(" "),
         _c(
@@ -38306,19 +38316,19 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Cod.Usuario")]),
+        _c("th", [_vm._v("Codigo")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Primer nombre")]),
+        _c("th", [_vm._v("Primer nombre")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("segundo nombre")]),
+        _c("th", [_vm._v("segundo nombre")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Primer apellido")]),
+        _c("th", [_vm._v("Primer apellido")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("segundo apellido")]),
+        _c("th", [_vm._v("Segundo apellido")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("teléfono")]),
+        _c("th", [_vm._v("Teléfono")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("dirección")])
+        _c("th", [_vm._v("Dirección")])
       ])
     ])
   },

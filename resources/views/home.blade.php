@@ -7,7 +7,7 @@
     
         
         </div>
-        <div class="col-md-8">
+        <div class="col-md-10">
         
         <persona-v/>
    
