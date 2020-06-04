@@ -1941,8 +1941,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -2149,12 +2147,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.personas.index = index;
     },
     editar: function editar() {
-      var _params,
-          _this4 = this;
+      var _this4 = this;
 
-      var params = (_params = {
-        prinom: this.personas.cedula
-      }, _defineProperty(_params, "prinom", this.personas.prinom), _defineProperty(_params, "segnom", this.personas.segnom), _defineProperty(_params, "priape", this.personas.priape), _defineProperty(_params, "segape", this.personas.segape), _defineProperty(_params, "tel", this.personas.tel), _defineProperty(_params, "direc", this.personas.direc), _params);
+      var params = {
+        cedula: this.personas.cedula,
+        prinom: this.personas.prinom,
+        segnom: this.personas.segnom,
+        priape: this.personas.priape,
+        segape: this.personas.segape,
+        tel: this.personas.tel,
+        direc: this.personas.direc
+      };
       axios.put("/api/persona/" + this.personas.id, params).then(function (res) {
         if (res.data == null) {
           alert("La persona no se ha actualizado");

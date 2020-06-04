@@ -201,7 +201,7 @@ export default {
     },
     editar() {
       const params = {
-        prinom: this.personas.cedula,
+        cedula: this.personas.cedula,
         prinom: this.personas.prinom,
         segnom: this.personas.segnom,
         priape: this.personas.priape,
