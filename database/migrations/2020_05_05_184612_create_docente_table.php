@@ -15,8 +15,8 @@ class CreateDocenteTable extends Migration
     {
         Schema::create('docentes', function (Blueprint $table) {
             $table->unsignedBigInteger('usu_id');
-	        $table->unsignedBigInteger('area_id');
-	        $table->unsignedBigInteger('recp_id');
+	        $table->unsignedBigInteger('area_id')->nullable();
+	        $table->unsignedBigInteger('recp_id')->nullable();
 
 	        $table->foreign('usu_id')->references('id')->on('users');
 	        $table->foreign('area_id')->references('id')->on('areas');

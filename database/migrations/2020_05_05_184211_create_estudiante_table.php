@@ -15,10 +15,12 @@ class CreateEstudianteTable extends Migration
     {
         Schema::create('estudiantes', function (Blueprint $table) {
             $table->unsignedBigInteger('usu_id');
-            $table->unsignedBigInteger('recp_id');
+            $table->unsignedBigInteger('recp_id')->nullable();
+            $table->unsignedBigInteger('area_id')->nullable();
             
             $table->foreign('usu_id')->references('id')->on('users');
             $table->foreign('recp_id')->references('id')->on('recepciones');
+            $table->foreign('area_id')->references('id')->on('areas');
         });
     }
 

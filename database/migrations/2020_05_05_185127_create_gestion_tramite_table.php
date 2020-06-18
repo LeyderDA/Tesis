@@ -15,7 +15,7 @@ class CreateGestionTramiteTable extends Migration
     {
         Schema::create('gestion_tramites', function (Blueprint $table) {
             $table->BigIncrements('id');
-            $table->string('amplhechos,50');
+            $table->string('amplhechos',50);
             $table->date('fechentrevasesor');
             $table->string('tipotramite',50);
             $table->string('asuntotramite',50);
