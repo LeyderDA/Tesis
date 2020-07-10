@@ -30,3 +30,10 @@ Route::post('/persona', 'PersonaController@store')->name('personaGuardar');
 Route::get('/persona', 'PersonaController@index')->name('personaListar');
 Route::delete('/persona/{id}', 'PersonaController@destroy')->name('personaEliminar');
 Route::put('/persona/{id}', 'PersonaController@update')->name('personaActualizar');
+
+
+//RUTAS DE API PARA USUARIOS
+Route::post('/user', 'UsuarioController@store')->name('usuarioGuardar');
+Route::get('/user', 'UsuarioController@index')->name('usuarioListar');
+Route::delete('/user/{id}', 'UsuarioController@destroy')->name('usuarioEliminar');
+Route::put('/user/{id}', 'UsuarioController@update')->name('usuarioActualizar');

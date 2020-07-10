@@ -12,4 +12,9 @@ class Persona extends Model
     [
         'id','cedula','prinom','segnom','priape','segape','tel','direc',
     ];
+
+    public function user()
+    {
+        return $this->hasOne(User::class, 'per_id');
+    }
 }

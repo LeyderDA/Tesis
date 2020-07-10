@@ -1,15 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Persona;
 
+use App\User;
+use App\Persona;
 use Illuminate\Http\Request;
 
-class PersonaController extends Controller
+class UsuarioController extends Controller
 {
     public function index()
     {   
-        $per = Persona::all();
+        $per = User::all();
         return  response()->json($per);
    
       
@@ -33,16 +34,19 @@ class PersonaController extends Controller
      */
     public function store(Request $request)
     {
-        $pers=new Persona();
-        $pers->cedula=$request->cedula;
-        $pers->prinom=$request->prinom;
-        $pers->segnom=$request->segnom;
-        $pers->priape=$request->priape;
-        $pers->segape=$request->segape;
-        $pers->tel=$request->tel;
-        $pers->direc=$request->direc;
-        $pers->save();
-        return  response()->json($pers);
+        $usua=new User();
+        $usua->username=$request->username;
+        $usua->email=$request->email;
+        $usua->email_verified_at=$request->email_verified_at;
+        $usua->password=$request->password;
+        $usua->per_id=$request->per_id;
+            //$usua->save();
+            $pers = Persona::where("cedula","=",$request->cedula);
+        
+        $pers->user()->save($usua);
+        //$usua->Persona()->save($pers);
+        //$usua->save();
+        return  response()->json($usua);
     }
 
     /**
@@ -79,7 +83,7 @@ class PersonaController extends Controller
         return  response()->json($pers);
     }
 
-    /**s
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
@@ -91,12 +95,5 @@ class PersonaController extends Controller
         $pers->delete();
         return  response()->json($pers);
       
-    }
-
-    public function buscarced($cedula)
-    {
-        $pers = Persona::where("cedula","=",$cedula);
-        return  response()->json($pers);
-
     }
 }
