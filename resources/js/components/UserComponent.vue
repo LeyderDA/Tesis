@@ -8,21 +8,19 @@
         <div class="row">
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Nombre de Usuario" v-model="usuario.username"
-             v-if="estado == 'active'"
-             active
-             disabled />
+             />
           </div>
 
 
 
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Email" v-model="usuario.email"
-             disabled=esta />
+              />
           </div>
 
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Contraseña" v-model="usuario.password" 
-             disabled=esta/>
+           />
           </div>
 
           <div class="col-6 form-group">

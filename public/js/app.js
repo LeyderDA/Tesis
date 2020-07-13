@@ -2531,8 +2531,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -39152,33 +39150,27 @@ var render = function() {
       _c("form", [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-6 form-group" }, [
-            _vm.estado == "active"
-              ? _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.usuario.username,
-                      expression: "usuario.username"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    placeholder: "Nombre de Usuario",
-                    active: "",
-                    disabled: ""
-                  },
-                  domProps: { value: _vm.usuario.username },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.usuario, "username", $event.target.value)
-                    }
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.usuario.username,
+                  expression: "usuario.username"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { placeholder: "Nombre de Usuario" },
+              domProps: { value: _vm.usuario.username },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
                   }
-                })
-              : _vm._e()
+                  _vm.$set(_vm.usuario, "username", $event.target.value)
+                }
+              }
+            })
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -39192,7 +39184,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { placeholder: "Email", disabled: "esta" },
+              attrs: { placeholder: "Email" },
               domProps: { value: _vm.usuario.email },
               on: {
                 input: function($event) {
@@ -39216,7 +39208,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { placeholder: "Contraseña", disabled: "esta/" },
+              attrs: { placeholder: "Contraseña" },
               domProps: { value: _vm.usuario.password },
               on: {
                 input: function($event) {
