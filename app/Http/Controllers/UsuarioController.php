@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Persona;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
@@ -37,7 +38,7 @@ class UsuarioController extends Controller
         $usua=new User();
         $usua->username=$request->username;
         $usua->email=$request->email;
-        $usua->password=$request->password;
+        $usua->password=Hash::make($request->password);
         $usua->per_id=$request->per_id;
         $usua->save();
         return  response()->json($usua);
