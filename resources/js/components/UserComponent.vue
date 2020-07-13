@@ -7,19 +7,26 @@
       <form>
         <div class="row">
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Nombre de Usuario" v-model="usuario.username" />
+            <input class="form-control" placeholder="Nombre de Usuario" v-model="usuario.username"
+             v-if="estado == 'active'"
+             active
+             disabled />
+          </div>
+
+
+
+          <div class="col-6 form-group">
+            <input class="form-control" placeholder="Email" v-model="usuario.email"
+             disabled=esta />
           </div>
 
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Email" v-model="usuario.email" />
+            <input class="form-control" placeholder="Contraseña" v-model="usuario.password" 
+             disabled=esta/>
           </div>
 
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Contraseña" v-model="usuario.password" />
-          </div>
-
-          <div class="col-6 form-group">
-            <input class="form-control" placeholder="Cedula" v-model="persona.cedula" />
+            <input class="form-control" placeholder="Cedula" v-model="usuario.persona.cedula" />
           </div>
         </div>
       </form>
@@ -48,16 +55,17 @@
                     <tr>
                       <th>Username</th>
                       <th>Email</th>
-                      <th>Password</th>
                       <th>Nombre Persona</th>
                       <th>Apellido Persona</th>
+                       <th>Opciones</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="(usuario,index) in usuarioss" :key="usuario.index">
                       <td>{{usuario.username}}</td>
                       <td>{{usuario.email}}</td>
-                      <td>{{usuario.password}}</td>
+                      <td>{{usuario.persona.prinom}}</td>
+                      <td>{{usuario.persona.priape}}</td>
 
                       <td>
                         <button
@@ -132,8 +140,8 @@
                 </button>
               </div>
               <div class="modal-body">
-                <input placeholder="Nombre" v-model="persona.prinom" />
-                <input placeholder="Cedula" v-model="persona.cedula" />
+                <input placeholder="Nombre" v-model="usuario.persona.prinom" />
+                <input placeholder="Cedula" v-model="usuario.persona.cedula" />
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -156,9 +164,9 @@ export default {
         email: "",
         email_verified_at: "",
         password: "",
-        per_id: ""
-      },
-      persona: {
+        per_id: "",
+
+         persona: {
         id: "",
         cedula: "",
         prinom: "",
@@ -168,6 +176,10 @@ export default {
         tel: "",
         direc: ""
       },
+      },
+     
+      esta:false,
+      estado:'disable',
       usuarioss: [],
       errors: []
     };
@@ -178,16 +190,19 @@ export default {
     });
   },
   methods: {
+    
     buscar() {
-      axios.get("/api/persona/" + this.persona.cedula).then(res => {
+      axios.get("/api/persona/" + this.usuario.persona.cedula).then(res => {
         if (res.data[0] == null) {
-          this.persona.cedula = "";
-          this.persona.prinom = "";
-          console.log(this.persona.cedula);
+          this.usuario.persona.cedula = "";
+          this.usuario.persona.prinom = "";
+          console.log(this.usuario.persona.cedula);
+          this.esta=false
         } else {
           console.log(res.data[0]);
           let person = res.data[0];
-          this.persona = person;
+          this.usuario.persona = person;
+          this.esta=true
         }
       });
     },
@@ -197,7 +212,7 @@ export default {
         username: this.usuario.username,
         email: this.usuario.email,
         password: this.usuario.password,
-        per_id: this.persona.id
+        per_id: this.usuario.persona.id
       };
       this.usuario.username = "";
       this.usuario.email = "";

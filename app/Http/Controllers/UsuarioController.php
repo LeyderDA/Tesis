@@ -9,12 +9,17 @@ use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
-    public function index()
-    {   
-        $per = User::all();
-        return  response()->json($per);
-   
-      
+    public function index(Request $request)
+    {  
+        $usuarios = User::all();
+        if($request->ajax()){
+            foreach ($usuarios as $usua){
+                $usua->persona;
+            }
+            return $usuarios;
+        }else{
+            return  response()->json($usuarios);
+        }
     }
 
     /**

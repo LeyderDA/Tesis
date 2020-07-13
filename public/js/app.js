@@ -2525,6 +2525,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2534,18 +2542,20 @@ __webpack_require__.r(__webpack_exports__);
         email: "",
         email_verified_at: "",
         password: "",
-        per_id: ""
+        per_id: "",
+        persona: {
+          id: "",
+          cedula: "",
+          prinom: "",
+          segnom: "",
+          priape: "",
+          segape: "",
+          tel: "",
+          direc: ""
+        }
       },
-      persona: {
-        id: "",
-        cedula: "",
-        prinom: "",
-        segnom: "",
-        priape: "",
-        segape: "",
-        tel: "",
-        direc: ""
-      },
+      esta: false,
+      estado: 'disable',
       usuarioss: [],
       errors: []
     };
@@ -2561,15 +2571,17 @@ __webpack_require__.r(__webpack_exports__);
     buscar: function buscar() {
       var _this2 = this;
 
-      axios.get("/api/persona/" + this.persona.cedula).then(function (res) {
+      axios.get("/api/persona/" + this.usuario.persona.cedula).then(function (res) {
         if (res.data[0] == null) {
-          _this2.persona.cedula = "";
-          _this2.persona.prinom = "";
-          console.log(_this2.persona.cedula);
+          _this2.usuario.persona.cedula = "";
+          _this2.usuario.persona.prinom = "";
+          console.log(_this2.usuario.persona.cedula);
+          _this2.esta = false;
         } else {
           console.log(res.data[0]);
           var person = res.data[0];
-          _this2.persona = person;
+          _this2.usuario.persona = person;
+          _this2.esta = true;
         }
       });
     },
@@ -2581,7 +2593,7 @@ __webpack_require__.r(__webpack_exports__);
         username: this.usuario.username,
         email: this.usuario.email,
         password: this.usuario.password,
-        per_id: this.persona.id
+        per_id: this.usuario.persona.id
       };
       this.usuario.username = "";
       this.usuario.email = "";
@@ -39140,27 +39152,33 @@ var render = function() {
       _c("form", [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-6 form-group" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.usuario.username,
-                  expression: "usuario.username"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { placeholder: "Nombre de Usuario" },
-              domProps: { value: _vm.usuario.username },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+            _vm.estado == "active"
+              ? _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.usuario.username,
+                      expression: "usuario.username"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    placeholder: "Nombre de Usuario",
+                    active: "",
+                    disabled: ""
+                  },
+                  domProps: { value: _vm.usuario.username },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.usuario, "username", $event.target.value)
+                    }
                   }
-                  _vm.$set(_vm.usuario, "username", $event.target.value)
-                }
-              }
-            })
+                })
+              : _vm._e()
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -39174,7 +39192,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { placeholder: "Email" },
+              attrs: { placeholder: "Email", disabled: "esta" },
               domProps: { value: _vm.usuario.email },
               on: {
                 input: function($event) {
@@ -39198,7 +39216,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { placeholder: "Contraseña" },
+              attrs: { placeholder: "Contraseña", disabled: "esta/" },
               domProps: { value: _vm.usuario.password },
               on: {
                 input: function($event) {
@@ -39217,19 +39235,19 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.persona.cedula,
-                  expression: "persona.cedula"
+                  value: _vm.usuario.persona.cedula,
+                  expression: "usuario.persona.cedula"
                 }
               ],
               staticClass: "form-control",
               attrs: { placeholder: "Cedula" },
-              domProps: { value: _vm.persona.cedula },
+              domProps: { value: _vm.usuario.persona.cedula },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.persona, "cedula", $event.target.value)
+                  _vm.$set(_vm.usuario.persona, "cedula", $event.target.value)
                 }
               }
             })
@@ -39295,7 +39313,9 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(usuario.email))]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(usuario.password))]),
+                        _c("td", [_vm._v(_vm._s(usuario.persona.prinom))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(usuario.persona.priape))]),
                         _vm._v(" "),
                         _c("td", [
                           _c(
@@ -39479,18 +39499,22 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.persona.prinom,
-                          expression: "persona.prinom"
+                          value: _vm.usuario.persona.prinom,
+                          expression: "usuario.persona.prinom"
                         }
                       ],
                       attrs: { placeholder: "Nombre" },
-                      domProps: { value: _vm.persona.prinom },
+                      domProps: { value: _vm.usuario.persona.prinom },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.$set(_vm.persona, "prinom", $event.target.value)
+                          _vm.$set(
+                            _vm.usuario.persona,
+                            "prinom",
+                            $event.target.value
+                          )
                         }
                       }
                     }),
@@ -39500,18 +39524,22 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.persona.cedula,
-                          expression: "persona.cedula"
+                          value: _vm.usuario.persona.cedula,
+                          expression: "usuario.persona.cedula"
                         }
                       ],
                       attrs: { placeholder: "Cedula" },
-                      domProps: { value: _vm.persona.cedula },
+                      domProps: { value: _vm.usuario.persona.cedula },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.$set(_vm.persona, "cedula", $event.target.value)
+                          _vm.$set(
+                            _vm.usuario.persona,
+                            "cedula",
+                            $event.target.value
+                          )
                         }
                       }
                     })
@@ -39548,11 +39576,11 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Email")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Password")]),
-        _vm._v(" "),
         _c("th", [_vm._v("Nombre Persona")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Apellido Persona")])
+        _c("th", [_vm._v("Apellido Persona")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Opciones")])
       ])
     ])
   },
