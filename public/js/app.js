@@ -2487,6 +2487,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2520,20 +2558,33 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    agregar: function agregar() {
+    buscar: function buscar() {
       var _this2 = this;
+
+      axios.get("/api/persona/" + this.persona.cedula).then(function (res) {
+        if (res.data[0] == null) {
+          _this2.persona.cedula = "";
+          _this2.persona.prinom = "";
+          console.log(_this2.persona.cedula);
+        } else {
+          console.log(res.data[0]);
+          var person = res.data[0];
+          _this2.persona = person;
+        }
+      });
+    },
+    agregar: function agregar() {
+      var _this3 = this;
 
       // alert(this.personas.prinom);
       var params = {
         username: this.usuario.username,
         email: this.usuario.email,
-        email_verified_at: this.usuario.email_verified_at,
         password: this.usuario.password,
         per_id: this.usuario.per_id
       };
       this.usuario.username = "";
       this.usuario.email = "";
-      this.usuario.email_verified_at = "";
       this.usuario.password = "";
       this.usuario.per_id = "";
       axios.post("/api/user", params).then(function (res) {
@@ -2543,17 +2594,17 @@ __webpack_require__.r(__webpack_exports__);
           alert("El usuario se ha registrado");
         }
 
-        _this2.usuarioss.push(res.data);
+        _this3.usuarioss.push(res.data);
       });
     },
     eliminar: function eliminar(usuario, index) {
-      var _this3 = this;
+      var _this4 = this;
 
       var confirmacion = confirm("Confirma Eliminar Usuario: ".concat(usuario.username));
 
       if (confirmacion) {
         axios["delete"]("/api/user/" + usuario.id).then(function () {
-          _this3.usuarioss.splice(index, 1);
+          _this4.usuarioss.splice(index, 1);
 
           alert("El usuario se ha eliminado con exito");
         });
@@ -2564,7 +2615,7 @@ __webpack_require__.r(__webpack_exports__);
       this.usuario.index = index;
     },
     editar: function editar() {
-      var _this4 = this;
+      var _this5 = this;
 
       var params = {
         username: this.usuario.username,
@@ -2580,22 +2631,22 @@ __webpack_require__.r(__webpack_exports__);
         } //alert(this.area.index)
 
 
-        _this4.usuarioss[_this4.usuario.index] = res.data;
-        _this4.usuario.id = "";
-        _this4.usuarioss[_this4.usuario.index] = res.data;
-        _this4.usuario.username = "";
-        _this4.usuarioss[_this4.usuario.index] = res.data;
-        _this4.usuario.email = "";
-        _this4.usuarioss[_this4.usuario.index] = res.data;
-        _this4.usuario.password = "";
+        _this5.usuarioss[_this5.usuario.index] = res.data;
+        _this5.usuario.id = "";
+        _this5.usuarioss[_this5.usuario.index] = res.data;
+        _this5.usuario.username = "";
+        _this5.usuarioss[_this5.usuario.index] = res.data;
+        _this5.usuario.email = "";
+        _this5.usuarioss[_this5.usuario.index] = res.data;
+        _this5.usuario.password = "";
       })["catch"](function (error) {
         if (error.response.status == 422) {
-          _this4.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
+          _this5.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
 
-          alert(_this4.errors.id[0]);
-          alert(_this4.errors.username[0]);
-          alert(_this4.errors.email[0]);
-          alert(_this4.errors.password[0]);
+          alert(_this5.errors.id[0]);
+          alert(_this5.errors.username[0]);
+          alert(_this5.errors.email[0]);
+          alert(_this5.errors.password[0]);
         }
       });
     }
@@ -39158,11 +39209,56 @@ var render = function() {
                 }
               }
             })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-6 form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.persona.cedula,
+                  expression: "persona.cedula"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { placeholder: "Cedula" },
+              domProps: { value: _vm.persona.cedula },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.persona, "cedula", $event.target.value)
+                }
+              }
+            })
           ])
         ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row justify-content-center col" }, [
+        true
+          ? _c("div", { staticClass: "col-6 form-group" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-block",
+                  attrs: {
+                    "data-toggle": "modal",
+                    "data-target": "#buscarModal"
+                  },
+                  on: {
+                    click: function($event) {
+                      return _vm.buscar()
+                    }
+                  }
+                },
+                [_vm._v("Buscar")]
+              )
+            ])
+          : undefined,
+        _vm._v(" "),
         true
           ? _c("div", { staticClass: "col-6 form-group" }, [
               _c(
@@ -39355,6 +39451,77 @@ var render = function() {
               ]
             )
           ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "buscarModal",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "exampleModalLabel",
+              "aria-hidden": "true"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "modal-dialog", attrs: { role: "document" } },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.persona.prinom,
+                          expression: "persona.prinom"
+                        }
+                      ],
+                      attrs: { placeholder: "Nombre" },
+                      domProps: { value: _vm.persona.prinom },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.persona, "prinom", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.persona.cedula,
+                          expression: "persona.cedula"
+                        }
+                      ],
+                      attrs: { placeholder: "Cedula" },
+                      domProps: { value: _vm.persona.cedula },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.persona, "cedula", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(4)
+                ])
+              ]
+            )
+          ]
         )
       ])
     ])
@@ -39411,6 +39578,46 @@ var staticRenderFns = [
           }
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Mostrar Persona")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-danger",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Cerrar")]
       )
     ])
   }

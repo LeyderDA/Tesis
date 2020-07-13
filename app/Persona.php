@@ -15,6 +15,7 @@ class Persona extends Model
 
     public function user()
     {
-        return $this->hasOne(User::class, 'per_id');
+        return $this->belongsTo('App\User','id');
+    
     }
 }

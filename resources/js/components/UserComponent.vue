@@ -17,9 +17,22 @@
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Contraseña" v-model="usuario.password" />
           </div>
+
+          <div class="col-6 form-group">
+            <input class="form-control" placeholder="Cedula" v-model="persona.cedula" />
+          </div>
         </div>
       </form>
       <div class="row justify-content-center col">
+        <div class="col-6 form-group" v-if="true">
+          <button
+            class="btn btn-primary btn-block"
+            data-toggle="modal"
+            data-target="#buscarModal"
+            @click="buscar()"
+          >Buscar</button>
+        </div>
+
         <div class="col-6 form-group" v-if="true">
           <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
         </div>
@@ -87,7 +100,6 @@
                 <input placeholder="Username" v-model="usuario.username" />
                 <input placeholder="Email" v-model="usuario.email" />
                 <input placeholder="Contraseña" v-model="usuario.password" />
-                
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -101,12 +113,38 @@
             </div>
           </div>
         </div>
+
+        <!--segundo modal - el de buscar -->
+        <div
+          class="modal fade"
+          id="buscarModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mostrar Persona</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <input placeholder="Nombre" v-model="persona.prinom" />
+                <input placeholder="Cedula" v-model="persona.cedula" />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--cierro modal de buscar -->
       </div>
     </div>
   </div>
-
-
-
 </template>
 <script>
 export default {
@@ -140,18 +178,29 @@ export default {
     });
   },
   methods: {
+    buscar() {
+      axios.get("/api/persona/" + this.persona.cedula).then(res => {
+        if (res.data[0] == null) {
+          this.persona.cedula = "";
+          this.persona.prinom = "";
+          console.log(this.persona.cedula);
+        } else {
+          console.log(res.data[0]);
+          let person = res.data[0];
+          this.persona = person;
+        }
+      });
+    },
     agregar() {
       // alert(this.personas.prinom);
       const params = {
         username: this.usuario.username,
         email: this.usuario.email,
-        email_verified_at: this.usuario.email_verified_at,
         password: this.usuario.password,
         per_id: this.usuario.per_id
       };
       this.usuario.username = "";
       this.usuario.email = "";
-      this.usuario.email_verified_at = "";
       this.usuario.password = "";
       this.usuario.per_id = "";
 
@@ -207,7 +256,6 @@ export default {
 
           this.usuarioss[this.usuario.index] = res.data;
           this.usuario.password = "";
-          
         })
         .catch(error => {
           if (error.response.status == 422) {
@@ -219,7 +267,6 @@ export default {
             alert(this.errors.username[0]);
             alert(this.errors.email[0]);
             alert(this.errors.password[0]);
-
           }
         });
     }

@@ -44,7 +44,13 @@ class PersonaController extends Controller
         $pers->save();
         return  response()->json($pers);
     }
-
+    public function buscar($cedula)
+    {   
+        $pers = Persona::where("cedula",$cedula)->get();
+        
+            return  $pers;
+        
+    }
     /**
      * Display the specified resource.
      *

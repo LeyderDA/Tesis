@@ -22,7 +22,7 @@ class User extends Authenticatable
     ];
     public function Persona()
     {
-        return $this->belongsTo('App\\Persona','per_id');
+        return $this->belongsTo('App\Persona','per_id');
     }
 
     /**

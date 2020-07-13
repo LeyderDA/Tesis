@@ -30,6 +30,7 @@ Route::post('/persona', 'PersonaController@store')->name('personaGuardar');
 Route::get('/persona', 'PersonaController@index')->name('personaListar');
 Route::delete('/persona/{id}', 'PersonaController@destroy')->name('personaEliminar');
 Route::put('/persona/{id}', 'PersonaController@update')->name('personaActualizar');
+Route::get('/persona/{id}', 'PersonaController@buscar')->name('personabuscar');
 
 
 //RUTAS DE API PARA USUARIOS

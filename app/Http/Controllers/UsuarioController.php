@@ -49,6 +49,8 @@ class UsuarioController extends Controller
         return  response()->json($usua);
     }
 
+   
+
     /**
      * Display the specified resource.
      *
@@ -96,4 +98,7 @@ class UsuarioController extends Controller
         return  response()->json($pers);
       
     }
+
+
+    
 }
