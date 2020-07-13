@@ -197,7 +197,7 @@ export default {
         username: this.usuario.username,
         email: this.usuario.email,
         password: this.usuario.password,
-        per_id: this.usuario.per_id
+        per_id: this.persona.id
       };
       this.usuario.username = "";
       this.usuario.email = "";

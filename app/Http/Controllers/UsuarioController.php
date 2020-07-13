@@ -37,16 +37,11 @@ class UsuarioController extends Controller
         $usua=new User();
         $usua->username=$request->username;
         $usua->email=$request->email;
-        $usua->email_verified_at=$request->email_verified_at;
         $usua->password=$request->password;
         $usua->per_id=$request->per_id;
-            //$usua->save();
-            $pers = Persona::where("cedula","=",$request->cedula);
-        
-        $pers->user()->save($usua);
-        //$usua->Persona()->save($pers);
-        //$usua->save();
+        $usua->save();
         return  response()->json($usua);
+
     }
 
    
