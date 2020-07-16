@@ -23,8 +23,9 @@ class CreateReclamTable extends Migration
             $table->string('embaravictima',10);
             $table->string('grupetnicovictima',20);
             $table->string('persoentidreclama',50);
-            $table->unsignedBigInteger('recp_id');
-            $table->foreign('recp_id')->references('id')->on('recepciones');   
+
+            $table->unsignedBigInteger('per_id');             
+            $table->foreign('per_id')->references('id')->on('personas');
         });
     }
 

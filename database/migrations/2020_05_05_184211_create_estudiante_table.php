@@ -14,13 +14,9 @@ class CreateEstudianteTable extends Migration
     public function up()
     {
         Schema::create('estudiantes', function (Blueprint $table) {
-            $table->unsignedBigInteger('usu_id');
-            $table->unsignedBigInteger('recp_id')->nullable();
-            $table->unsignedBigInteger('area_id')->nullable();
-            
+            $table->BigIncrements('id');
+            $table->unsignedBigInteger('usu_id');         
             $table->foreign('usu_id')->references('id')->on('users');
-            $table->foreign('recp_id')->references('id')->on('recepciones');
-            $table->foreign('area_id')->references('id')->on('areas');
         });
     }
 

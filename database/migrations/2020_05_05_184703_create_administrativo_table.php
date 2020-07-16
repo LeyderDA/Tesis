@@ -14,10 +14,9 @@ class CreateAdministrativoTable extends Migration
     public function up()
     {
         Schema::create('administrativos', function (Blueprint $table) {
-            $table->unsignedBigInteger('usu_id');
-            $table->unsignedBigInteger('recp_id')->nullable();            
+            $table->BigIncrements('id');
+            $table->unsignedBigInteger('usu_id');             
             $table->foreign('usu_id')->references('id')->on('users');
-            $table->foreign('recp_id')->references('id')->on('recepciones');
         });
     }
 
