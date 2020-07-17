@@ -38,3 +38,24 @@ Route::post('/user', 'UsuarioController@store')->name('usuarioGuardar');
 Route::get('/user', 'UsuarioController@index')->name('usuarioListar');
 Route::delete('/user/{id}', 'UsuarioController@destroy')->name('usuarioEliminar');
 Route::put('/user/{id}', 'UsuarioController@update')->name('usuarioActualizar');
+
+
+//RUTAS DE API PARA DOCENTES
+Route::post('/docente', 'DocenteController@store')->name('docenteGuardar');
+Route::get('/docente', 'DocenteController@index')->name('docenteListar');
+Route::delete('/docente/{id}', 'DocenteController@destroy')->name('docenteEliminar');
+Route::put('/docente/{id}', 'DocenteController@update')->name('docenteActualizar');
+
+
+//RUTAS DE API PARA ESTUDIANTES
+Route::post('/estudiante', 'EstudianteController@store')->name('estudianteGuardar');
+Route::get('/estudiante', 'EstudianteController@index')->name('estudianteListar');
+Route::delete('/estudiante/{id}', 'EstudianteController@destroy')->name('estudianteEliminar');
+Route::put('/estudiante/{id}', 'EstudianteController@update')->name('estudianteActualizar');
+
+
+//RUTAS DE API PARA ADMINISTRATIVOS
+Route::post('/administrativo', 'AdministrativoController@store')->name('administrativoGuardar');
+Route::get('/administrativo', 'AdministrativoController@index')->name('administrativoListar');
+Route::delete('/administrativo/{id}', 'AdministrativoController@destroy')->name('administrativoEliminar');
+Route::put('/administrativo/{id}', 'AdministrativoController@update')->name('administrativoActualizar');

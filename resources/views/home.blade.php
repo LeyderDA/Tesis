@@ -10,7 +10,7 @@
         <div class="col-md-10">
     
         
-            <user-v/>
+            <persona-v/>
    
         </div>
         

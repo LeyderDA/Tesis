@@ -19,6 +19,7 @@ class CreatePersonaNotasTable extends Migration
             $table->integer('notasegcort');
             $table->integer('notateracort');
             $table->integer('notafinprom');
+            $table->timestamps(); 
             
             $table->unsignedBigInteger('recp_id');
             $table->foreign('recp_id')->references('id')->on('recepciones');

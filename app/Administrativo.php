@@ -9,6 +9,10 @@ class Administrativo extends Model
     protected $table = 'administrativos';
     protected $fillable = 
     [
-        'usu_id','recp_id',
+        'id','per_id',
     ];
+    public function Persona()
+    {
+        return $this->belongsTo('App\Persona','per_id');
+    }
 }

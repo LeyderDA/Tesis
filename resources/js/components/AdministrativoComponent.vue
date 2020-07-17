@@ -1,13 +1,13 @@
 <template>
   <div class="card">
     <div>
-      <h4 class="text-center mb-2 card-title">Registrando Docente</h4>
+      <h4 class="text-center mb-2 card-title">Registrando Administrativo</h4>
     </div>
     <div class="card-body row">
       <form>
         <div class="row">
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Cedula" v-model="docente.persona.cedula" />
+            <input class="form-control" placeholder="Cedula" v-model="administrativo.persona.cedula" />
           </div>
         </div>
       </form>
@@ -34,20 +34,20 @@
                 <table class="table text-center">
                   <thead>
                     <tr>
-                      <th>Id docente</th>
+                      <th>Id Administrativo</th>
                       <th>Nombre Persona</th>
                       <th>Apellido Persona</th>
                       <th>Opciones</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(docente,index) in docentess" :key="docente.index">
-                      <td>{{docente.id}}</td>
-                      <td>{{docente.persona.prinom}}</td>
-                      <td>{{docente.persona.priape}}</td>
+                    <tr v-for="(administrativo,index) in administrativoss" :key="administrativo.index">
+                      <td>{{administrativo.id}}</td>
+                      <td>{{administrativo.persona.prinom}}</td>
+                      <td>{{administrativo.persona.priape}}</td>
 
                       <td>   
-                        <button class="btn btn-danger btn-sm" @click="eliminar(docente,index)">
+                        <button class="btn btn-danger btn-sm" @click="eliminar(administrativo,index)">
                           <i class="fas fa-trash-alt"></i>
                         </button>
                       </td>
@@ -78,9 +78,9 @@
                 </button>
               </div>
               <div class="modal-body">
-                <input placeholder="Cedula" v-model="docente.persona.cedula" />
-                <input placeholder="Nombre" v-model="docente.persona.prinom" />
-                <input placeholder="Nombre" v-model="docente.persona.priape" />
+                <input placeholder="Cedula" v-model="administrativo.persona.cedula" />
+                <input placeholder="Nombre" v-model="administrativo.persona.prinom" />
+                <input placeholder="Nombre" v-model="administrativo.persona.priape" />
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -97,7 +97,7 @@
 export default {
   data() {
     return {
-      docente: {
+      administrativo: {
         id: "",
         per_id: "",
 
@@ -115,27 +115,27 @@ export default {
 
       esta: false,
       estado: "disable",
-      docentess: [],
+      administrativoss: [],
       errors: []
     };
   },
   created() {
-    axios.get("/api/docente").then(res => {
-      this.docentess = res.data;
+    axios.get("/api/administrativo").then(res => {
+      this.administrativoss = res.data;
     });
   },
   methods: {
     buscar() {
-      axios.get("/api/persona/" + this.docente.persona.cedula).then(res => {
+      axios.get("/api/persona/" + this.administrativo.persona.cedula).then(res => {
         if (res.data[0] == null) {
-          this.docente.persona.cedula = "";
-          this.docente.persona.prinom = "";
-          console.log(this.docente.persona.cedula);
+          this.administrativo.persona.cedula = "";
+          this.administrativo.persona.prinom = "";
+          console.log(this.administrativo.persona.cedula);
           this.esta = false;
         } else {
           console.log(res.data[0]);
           let person = res.data[0];
-          this.docente.persona = person;
+          this.administrativo.persona = person;
           this.esta = true;
         }
       });
@@ -144,28 +144,28 @@ export default {
    agregar() {
       const params = {
         
-        per_id: this.docente.persona.id
+        per_id: this.administrativo.persona.id
       };
-      this.docente.per_id = "";
+      this.administrativo.per_id = "";
 
-      axios.post("/api/docente", params).then(res => {
+      axios.post("/api/administrativo", params).then(res => {
         if (res.data == null) {
-          alert("El Docente no se ha registrado con exito");
+          alert("El Administrativo no se ha registrado con exito");
         } else {
-          alert("El Docente se ha registrado");
+          alert("El Administrativo se ha registrado");
         }
-        this.docentess.push(res.data);
+        this.administrativoss.push(res.data);
       });
     },
 
-    eliminar(docente, index) {
+    eliminar(administrativo, index) {
       const confirmacion = confirm(
-        `Confirma Eliminar Docente: ${docente.persona.prinom}`
+        `Confirma Eliminar Administrativo: ${administrativo.persona.prinom}`
       );
       if (confirmacion) {
-        axios.delete("/api/docente/" + docente.id).then(() => {
-          this.docentess.splice(index, 1);
-          alert("El docente se ha eliminado con exito");
+        axios.delete("/api/administrativo/" + administrativo.id).then(() => {
+          this.administrativoss.splice(index, 1);
+          alert("El Administrativo se ha eliminado con exito");
         });
       }
     }, 

@@ -94,7 +94,7 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        $pers = Persona::find($id);
+        $pers = User::find($id);
         $pers->delete();
         return  response()->json($pers);
       

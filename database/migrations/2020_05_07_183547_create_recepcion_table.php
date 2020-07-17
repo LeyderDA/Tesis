@@ -22,6 +22,7 @@ class CreateRecepcionTable extends Migration
             $table->date('fechareparto');
             $table->date('fechapublicacion');
             $table->date('fecharetiro');
+            $table->timestamps(); 
 
             $table->unsignedBigInteger('usu_id');
             $table->foreign('usu_id')->references('id')->on('estudiantes'); 

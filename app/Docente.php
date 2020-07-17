@@ -9,6 +9,12 @@ class Docente extends Model
     protected $table = 'docentes';
     protected $fillable = 
     [
-        'usu_id','area_id','recp_id',
+        'id','per_id',
     ];
+
+    public function Persona()
+    {
+        return $this->belongsTo('App\Persona','per_id');
+    }
+
 }

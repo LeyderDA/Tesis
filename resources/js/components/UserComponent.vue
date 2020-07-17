@@ -10,9 +10,7 @@
             <input class="form-control" placeholder="Nombre de Usuario" v-model="usuario.username"
              />
           </div>
-
-
-
+          
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Email" v-model="usuario.email"
               />

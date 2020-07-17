@@ -9,6 +9,11 @@ class Estudiante extends Model
     protected $table = 'estudiantes';
     protected $fillable = 
     [
-        'usu_id','recp_id','area_id',
+        'id','per_id',
     ];
+
+    public function Persona()
+    {
+        return $this->belongsTo('App\Persona','per_id');
+    }
 }
