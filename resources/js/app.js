@@ -12,6 +12,7 @@ Vue.component('user-v', require('./components/UserComponent.vue').default);
 Vue.component('docente-v', require('./components/DocenteComponent.vue').default);
 Vue.component('estudiante-v', require('./components/EstudianteComponent.vue').default);
 Vue.component('administrativo-v', require('./components/AdministrativoComponent.vue').default);
+Vue.component('recepcion-v', require('./components/RecepcionComponent.vue').default);
 
 
 

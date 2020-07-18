@@ -10,4 +10,10 @@ class Area extends Model
     protected $fillable = [
         'id', 'nombre',
     ];
+
+    public function recepcion()
+    {
+        return $this->belongsTo('App\Recepcion','id');
+    
+    }
 }

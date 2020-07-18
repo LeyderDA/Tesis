@@ -25,16 +25,16 @@ class CreateRecepcionTable extends Migration
             $table->timestamps(); 
 
             $table->unsignedBigInteger('usu_id');
-            $table->foreign('usu_id')->references('id')->on('estudiantes'); 
+            $table->foreign('usu_id')->references('id')->on('personas'); 
 
             $table->unsignedBigInteger('asig_id');
-            $table->foreign('asig_id')->references('id')->on('docentes');
+            $table->foreign('asig_id')->references('id')->on('personas');
 
             $table->unsignedBigInteger('recep_id');
-            $table->foreign('recep_id')->references('id')->on('administrativos');
+            $table->foreign('recep_id')->references('id')->on('personas');
 
             $table->unsignedBigInteger('recla_id');
-            $table->foreign('recla_id')->references('id')->on('reclamantes'); 
+            $table->foreign('recla_id')->references('id')->on('personas'); 
 
             $table->unsignedBigInteger('area_id');
             $table->foreign('area_id')->references('id')->on('areas');           

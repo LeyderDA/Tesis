@@ -20,21 +20,11 @@ class Persona extends Model
     
     }
 
-    public function docente()
+    public function recepcion()
     {
-        return $this->belongsTo('App\Docente','id');
+        return $this->belongsTo('App\Recepcion','id');
     
     }
 
-    public function estudiante()
-    {
-        return $this->belongsTo('App\Estudiante','id');
-    
-    }
-
-    public function administrativo()
-    {
-        return $this->belongsTo('App\Administrativo','id');
-    
-    }
+   
 }

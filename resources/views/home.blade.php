@@ -10,7 +10,7 @@
         <div class="col-md-10">
     
         
-            <persona-v/>
+            <recepcion-v/>
    
         </div>
         

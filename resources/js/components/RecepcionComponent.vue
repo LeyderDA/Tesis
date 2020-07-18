@@ -1,25 +1,111 @@
 <template>
   <div class="card">
     <div>
-      <h4 class="text-center mb-2 card-title">Registrando Usuario</h4>
+      <h2 class="text-center mb-2 card-title">Registrando Recepcion</h2>
     </div>
     <div class="card-body row">
       <form>
         <div class="row">
+          <label class="col-5 col-form-label">Escoge el area</label>
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Nombre de Usuario" v-model="usuario.username"
-             />
-          </div>
-          
-          <div class="col-6 form-group">
-            <input class="form-control" placeholder="Email" v-model="usuario.email"
-              />
+            <input class="form-control" placeholder="Area" v-model="receparea.area.nombre" />
           </div>
 
-
+          <label class="col-5 col-form-label">Fecha radicado</label>
 
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Cedula" v-model="usuario.persona.cedula" />
+            <input
+              class="form-control"
+              type="date"
+              placeholder="Fecha de radicado"
+              v-model="recepusu.fecharadicado"
+            />
+          </div>
+
+          <label class="col-5 col-form-label">Fecha recepcionado</label>
+          <div class="col-6 form-group">
+            <input
+              class="form-control"
+              type="date"
+              placeholder="Fecha recepcionado"
+              v-model="recepusu.fecharecepcionado"
+            />
+          </div>
+
+          <label class="col-5 col-form-label">Fecha reparto</label>
+          <div class="col-6 form-group">
+            <input
+              class="form-control"
+              type="date"
+              placeholder="Fecha reparto"
+              v-model="recepusu.fechareparto"
+            />
+          </div>
+
+          <label class="col-5 col-form-label">Fecha de publicación</label>
+          <div class="col-6 form-group">
+            <input
+              class="form-control"
+              type="date"
+              placeholder="Fecha de publicación"
+              v-model="recepusu.fechapublicacion"
+            />
+          </div>
+
+          <label class="col-5 col-form-label">Fecha de retiro</label>
+          <div class="col-6 form-group">
+            <input
+              class="form-control"
+              type="date"
+              placeholder="Fecha de retiro"
+              v-model="recepusu.fecharetiro"
+            />
+          </div>
+
+          <label class="col-5 col-form-label">Recepcionado en</label>
+          <div class="col-6 form-group">
+            <input
+              class="form-control"
+              placeholder="Recepcionado en"
+              v-model="recepusu.recepcionado"
+            />
+          </div>
+
+          <label class="col-5 col-form-label">Consultorio</label>
+          <div class="col-6 form-group">
+            <input class="form-control" placeholder="Consultorio" v-model="recepusu.consultorio" />
+          </div>
+
+          <label class="col-5 col-form-label">Digita la cedula del usuario</label>
+          <div class="col-6 form-group">
+            <input class="form-control" placeholder="Usuario" v-model="recepusu.personausu.cedula" />
+          </div>
+
+          <label class="col-5 col-form-label">Digita la cedula del asignado</label>
+          <div class="col-6 form-group">
+            <input
+              class="form-control"
+              placeholder="Asignado"
+              v-model="recepasig.personaasig.cedula"
+            />
+          </div>
+
+          <label class="col-5 col-form-label">Digita la cedula del Recepcionador</label>
+          <div class="col-6 form-group">
+            <input
+              class="form-control"
+              placeholder="Recepciona"
+              v-model=" receprecep.personarecep.cedula"
+            />
+          </div>
+
+          <label class="col-5 col-form-label">Digita la cedula del reclamante</label>
+          <div class="col-6 form-group">
+            <input
+              class="form-control"
+              placeholder="Reclamante"
+              v-model="receprecla.personarecla.cedula"
+            />
           </div>
         </div>
       </form>
@@ -50,7 +136,7 @@
                       <th>Email</th>
                       <th>Nombre Persona</th>
                       <th>Apellido Persona</th>
-                       <th>Opciones</th>
+                      <th>Opciones</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -159,26 +245,19 @@ export default {
         password: "",
         per_id: "",
 
-         persona: {
-        id: "",
-        cedula: "",
-        prinom: "",
-        segnom: "",
-        priape: "",
-        segape: "",
-        tel: "",
-        direc: ""
+        persona: {
+          id: "",
+          cedula: "",
+          prinom: "",
+          segnom: "",
+          priape: "",
+          segape: "",
+          tel: "",
+          direc: ""
+        }
       },
-      },
 
-
-
-
-
-
-
-
- recepusu: {
+      recepusu: {
         id: "",
         recepcionado: "",
         fecharadicado: "",
@@ -189,18 +268,18 @@ export default {
         fecharetiro: "",
         usu_id: "",
 
-         personausu: {
-        id: "",
-        cedula: "",
-        prinom: "",
-        segnom: "",
-        priape: "",
-        segape: "",
-        tel: "",
-        direc: ""
+        personausu: {
+          id: "",
+          cedula: "",
+          prinom: "",
+          segnom: "",
+          priape: "",
+          segape: "",
+          tel: "",
+          direc: ""
+        }
       },
-      },
-         recepasig: {
+      recepasig: {
         id: "",
         recepcionado: "",
         fecharadicado: "",
@@ -212,18 +291,18 @@ export default {
         asig_id: "",
 
         personaasig: {
-        id: "",
-        cedula: "",
-        prinom: "",
-        segnom: "",
-        priape: "",
-        segape: "",
-        tel: "",
-        direc: ""
-      },
+          id: "",
+          cedula: "",
+          prinom: "",
+          segnom: "",
+          priape: "",
+          segape: "",
+          tel: "",
+          direc: ""
+        }
       },
 
-       receprecep: {
+      receprecep: {
         id: "",
         recepcionado: "",
         fecharadicado: "",
@@ -235,18 +314,18 @@ export default {
         recep_id: "",
 
         personarecep: {
-        id: "",
-        cedula: "",
-        prinom: "",
-        segnom: "",
-        priape: "",
-        segape: "",
-        tel: "",
-        direc: ""
-      },
+          id: "",
+          cedula: "",
+          prinom: "",
+          segnom: "",
+          priape: "",
+          segape: "",
+          tel: "",
+          direc: ""
+        }
       },
 
-       receprecla: {
+      receprecla: {
         id: "",
         recepcionado: "",
         fecharadicado: "",
@@ -258,18 +337,18 @@ export default {
         recla_id: "",
 
         personarecla: {
-        id: "",
-        cedula: "",
-        prinom: "",
-        segnom: "",
-        priape: "",
-        segape: "",
-        tel: "",
-        direc: ""
-      },
+          id: "",
+          cedula: "",
+          prinom: "",
+          segnom: "",
+          priape: "",
+          segape: "",
+          tel: "",
+          direc: ""
+        }
       },
 
-        receparea: {
+      receparea: {
         id: "",
         recepcionado: "",
         fecharadicado: "",
@@ -281,14 +360,13 @@ export default {
         area_id: "",
 
         area: {
-        id: "",
-        nombre: ""     
-      },
+          id: "",
+          nombre: ""
+        }
       },
 
-     
-      esta:false,
-      estado:'disable',
+      esta: false,
+      estado: "disable",
       usuarioss: [],
       asignadoss: [],
       recepcionadoss: [],
@@ -302,19 +380,18 @@ export default {
     });
   },
   methods: {
-    
     buscar() {
       axios.get("/api/persona/" + this.usuario.persona.cedula).then(res => {
         if (res.data[0] == null) {
           this.usuario.persona.cedula = "";
           this.usuario.persona.prinom = "";
           console.log(this.usuario.persona.cedula);
-          this.esta=false
+          this.esta = false;
         } else {
           console.log(res.data[0]);
           let person = res.data[0];
           this.usuario.persona = person;
-          this.esta=true
+          this.esta = true;
         }
       });
     },
