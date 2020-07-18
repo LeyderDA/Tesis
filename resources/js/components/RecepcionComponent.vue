@@ -95,7 +95,7 @@
             <input
               class="form-control"
               placeholder="Recepciona"
-              v-model=" receprecep.personarecep.cedula"
+              v-model="receprecep.personarecep.cedula"
             />
           </div>
 
@@ -110,14 +110,59 @@
         </div>
       </form>
       <div class="row justify-content-center col">
-        <div class="col-6 form-group" v-if="true">
+        <!--buscar area -->
+        <div class="col-2 form-group" v-if="true">
+          <button
+            class="btn btn-primary btn-block"
+            data-toggle="modal"
+            data-target="#buscarModal"
+            @click="buscarusu()"
+          >Buscar Area</button>
+        </div>
+        <!--buscar area -->
+
+        <!--buscar usuario -->
+        <div class="col-2 form-group" v-if="true">
+          <button
+            class="btn btn-primary btn-block"
+            data-toggle="modal"
+            data-target="#buscarModalusu"
+            @click="buscarusu()"
+          >B.Usu</button>
+        </div>
+        <!--buscar usuario -->
+
+        <!--buscar asignado -->
+        <div class="col-2 form-group" v-if="true">
+          <button
+            class="btn btn-primary btn-block"
+            data-toggle="modal"
+            data-target="#buscarasig"
+            @click="buscarasig()"
+          >B.Asg</button>
+        </div>
+        <!--buscar asignado -->
+
+        <!--buscar recepcionador -->
+        <div class="col-2 form-group" v-if="true">
           <button
             class="btn btn-primary btn-block"
             data-toggle="modal"
             data-target="#buscarModal"
             @click="buscar()"
-          >Buscar</button>
+          >B.Rcp</button>
         </div>
+        <!--buscar recepcionador -->
+        <!--buscar reclamante -->
+        <div class="col-2 form-group" v-if="true">
+          <button
+            class="btn btn-primary btn-block"
+            data-toggle="modal"
+            data-target="#buscarModal"
+            @click="buscar()"
+          >B.Rcl</button>
+        </div>
+        <!--buscar reclamante -->
 
         <div class="col-6 form-group" v-if="true">
           <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
@@ -132,20 +177,35 @@
                 <table class="table text-center">
                   <thead>
                     <tr>
-                      <th>Username</th>
-                      <th>Email</th>
-                      <th>Nombre Persona</th>
-                      <th>Apellido Persona</th>
+                      <th>Area</th>
+                      <th>Fecha de Radicado</th>
+                      <th>Fecha de Recepcionado</th>
+                      <th>Fecha de Reparto</th>
+                      <th>Fecha de Publicación</th>
+                      <th>Fecha de Retiro</th>
+                      <th>Recepcionado en</th>
+                      <th>Consultorio</th>
+                      <th>Usuario</th>
+                      <th>Asignado</th>
+                      <th>Recepcionador</th>
+                      <th>Reclamante</th>
                       <th>Opciones</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(usuario,index) in usuarioss" :key="usuario.index">
-                      <td>{{usuario.username}}</td>
-                      <td>{{usuario.email}}</td>
-                      <td>{{usuario.persona.prinom}}</td>
-                      <td>{{usuario.persona.priape}}</td>
-
+                    <tr v-for="(recepusu,index) in usuarioss" :key="recepusu.index">
+                      <td>{{receparea.area.nombre}}</td>
+                      <td>{{recepusu.fecharadicado}}</td>
+                      <td>{{recepusu.fecharecepcionado}}</td>
+                      <td>{{recepusu.fechareparto}}</td>
+                      <td>{{recepusu.fechapublicacion}}</td>
+                      <td>{{recepusu.fecharetiro}}</td>
+                      <td>{{recepusu.recepcionado}}</td>
+                      <td>{{recepusu.consultorio}}</td>
+                      <td>{{recepusu.personausu.cedula}}</td>
+                      <td>{{recepasig.personaasig.cedula}}</td>
+                      <td>{{receprecep.personarecep.cedula}}</td>
+                      <td>{{receprecla.personarecla.cedula}}</td>
                       <td>
                         <button
                           class="btn btn-success btn-sm"
@@ -204,7 +264,7 @@
         <!--segundo modal - el de buscar -->
         <div
           class="modal fade"
-          id="buscarModal"
+          id="buscarModalusu"
           tabindex="-1"
           role="dialog"
           aria-labelledby="exampleModalLabel"
@@ -219,8 +279,8 @@
                 </button>
               </div>
               <div class="modal-body">
-                <input placeholder="Nombre" v-model="usuario.persona.prinom" />
-                <input placeholder="Cedula" v-model="usuario.persona.cedula" />
+                <input placeholder="Nombre" v-model="recepusu.personausu.prinom" />
+                <input placeholder="Cedula" v-model="recepusu.personausu.cedula" />
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -229,6 +289,52 @@
           </div>
         </div>
         <!--cierro modal de buscar -->
+
+
+        <div
+          class="modal fade"
+          id="buscarasig"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mostrar persona</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <input placeholder="Nombre" v-model="recepasig.personaasig.prinom" />
+                <input placeholder="Cedula" v-model="recepasig.personaasig.cedula" />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  @click="editar()"
+                  data-dismiss="modal"
+                >Guardar Cambios</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+
+
+
+
+
+
+
+
+
+     
       </div>
     </div>
   </div>
@@ -375,28 +481,42 @@ export default {
     };
   },
   created() {
-    axios.get("/api/user").then(res => {
+    axios.get("/api/recepcion").then(res => {
       this.usuarioss = res.data;
     });
   },
   methods: {
-    buscar() {
-      axios.get("/api/persona/" + this.usuario.persona.cedula).then(res => {
+    buscarusu() {
+      axios.get("/api/persona/" + this.recepusu.personausu.cedula).then(res => {
         if (res.data[0] == null) {
-          this.usuario.persona.cedula = "";
-          this.usuario.persona.prinom = "";
-          console.log(this.usuario.persona.cedula);
+          this.recepusu.personausu.cedula = "";
+          this.recepusu.personausu.prinom = "";
+          console.log(this.recepusu.personausu.cedula);
           this.esta = false;
         } else {
           console.log(res.data[0]);
           let person = res.data[0];
-          this.usuario.persona = person;
+          this.recepusu.personausu = person;
+          this.esta = true;
+        }
+      });
+    },
+       buscarasig() {
+      axios.get("/api/persona/" + this.recepasig.personaasig.cedula).then(res => {
+        if (res.data[0] == null) {
+          this.recepasig.personaasig.cedula = "";
+          this.recepasig.personaasig.prinom = "";
+          console.log(this.recepasig.personaasig.cedula);
+          this.esta = false;
+        } else {
+          console.log(res.data[0]);
+          let person = res.data[0];
+          this.recepasig.personaasig = person;
           this.esta = true;
         }
       });
     },
     agregar() {
-      // alert(this.personas.prinom);
       const params = {
         username: this.usuario.username,
         email: this.usuario.email,

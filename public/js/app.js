@@ -3173,6 +3173,112 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3305,32 +3411,48 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios.get("/api/user").then(function (res) {
+    axios.get("/api/recepcion").then(function (res) {
       _this.usuarioss = res.data;
     });
   },
   methods: {
-    buscar: function buscar() {
+    buscarusu: function buscarusu() {
       var _this2 = this;
 
-      axios.get("/api/persona/" + this.usuario.persona.cedula).then(function (res) {
+      axios.get("/api/persona/" + this.recepusu.personausu.cedula).then(function (res) {
         if (res.data[0] == null) {
-          _this2.usuario.persona.cedula = "";
-          _this2.usuario.persona.prinom = "";
-          console.log(_this2.usuario.persona.cedula);
+          _this2.recepusu.personausu.cedula = "";
+          _this2.recepusu.personausu.prinom = "";
+          console.log(_this2.recepusu.personausu.cedula);
           _this2.esta = false;
         } else {
           console.log(res.data[0]);
           var person = res.data[0];
-          _this2.usuario.persona = person;
+          _this2.recepusu.personausu = person;
           _this2.esta = true;
         }
       });
     },
-    agregar: function agregar() {
+    buscarasig: function buscarasig() {
       var _this3 = this;
 
-      // alert(this.personas.prinom);
+      axios.get("/api/persona/" + this.recepasig.personaasig.cedula).then(function (res) {
+        if (res.data[0] == null) {
+          _this3.recepasig.personaasig.cedula = "";
+          _this3.recepasig.personaasig.prinom = "";
+          console.log(_this3.recepasig.personaasig.cedula);
+          _this3.esta = false;
+        } else {
+          console.log(res.data[0]);
+          var person = res.data[0];
+          _this3.recepasig.personaasig = person;
+          _this3.esta = true;
+        }
+      });
+    },
+    agregar: function agregar() {
+      var _this4 = this;
+
       var params = {
         username: this.usuario.username,
         email: this.usuario.email,
@@ -3348,17 +3470,17 @@ __webpack_require__.r(__webpack_exports__);
           alert("El usuario se ha registrado");
         }
 
-        _this3.usuarioss.push(res.data);
+        _this4.usuarioss.push(res.data);
       });
     },
     eliminar: function eliminar(usuario, index) {
-      var _this4 = this;
+      var _this5 = this;
 
       var confirmacion = confirm("Confirma Eliminar Usuario: ".concat(usuario.username));
 
       if (confirmacion) {
         axios["delete"]("/api/user/" + usuario.id).then(function () {
-          _this4.usuarioss.splice(index, 1);
+          _this5.usuarioss.splice(index, 1);
 
           alert("El usuario se ha eliminado con exito");
         });
@@ -3369,7 +3491,7 @@ __webpack_require__.r(__webpack_exports__);
       this.usuario.index = index;
     },
     editar: function editar() {
-      var _this5 = this;
+      var _this6 = this;
 
       var params = {
         username: this.usuario.username,
@@ -3385,22 +3507,22 @@ __webpack_require__.r(__webpack_exports__);
         } //alert(this.area.index)
 
 
-        _this5.usuarioss[_this5.usuario.index] = res.data;
-        _this5.usuario.id = "";
-        _this5.usuarioss[_this5.usuario.index] = res.data;
-        _this5.usuario.username = "";
-        _this5.usuarioss[_this5.usuario.index] = res.data;
-        _this5.usuario.email = "";
-        _this5.usuarioss[_this5.usuario.index] = res.data;
-        _this5.usuario.password = "";
+        _this6.usuarioss[_this6.usuario.index] = res.data;
+        _this6.usuario.id = "";
+        _this6.usuarioss[_this6.usuario.index] = res.data;
+        _this6.usuario.username = "";
+        _this6.usuarioss[_this6.usuario.index] = res.data;
+        _this6.usuario.email = "";
+        _this6.usuarioss[_this6.usuario.index] = res.data;
+        _this6.usuario.password = "";
       })["catch"](function (error) {
         if (error.response.status == 422) {
-          _this5.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
+          _this6.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
 
-          alert(_this5.errors.id[0]);
-          alert(_this5.errors.username[0]);
-          alert(_this5.errors.email[0]);
-          alert(_this5.errors.password[0]);
+          alert(_this6.errors.id[0]);
+          alert(_this6.errors.username[0]);
+          alert(_this6.errors.email[0]);
+          alert(_this6.errors.password[0]);
         }
       });
     }
@@ -41545,7 +41667,7 @@ var render = function() {
                   name: "model",
                   rawName: "v-model",
                   value: _vm.receprecep.personarecep.cedula,
-                  expression: " receprecep.personarecep.cedula"
+                  expression: "receprecep.personarecep.cedula"
                 }
               ],
               staticClass: "form-control",
@@ -41602,7 +41724,70 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "row justify-content-center col" }, [
         true
-          ? _c("div", { staticClass: "col-6 form-group" }, [
+          ? _c("div", { staticClass: "col-2 form-group" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-block",
+                  attrs: {
+                    "data-toggle": "modal",
+                    "data-target": "#buscarModal"
+                  },
+                  on: {
+                    click: function($event) {
+                      return _vm.buscarusu()
+                    }
+                  }
+                },
+                [_vm._v("Buscar Area")]
+              )
+            ])
+          : undefined,
+        _vm._v(" "),
+        true
+          ? _c("div", { staticClass: "col-2 form-group" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-block",
+                  attrs: {
+                    "data-toggle": "modal",
+                    "data-target": "#buscarModalusu"
+                  },
+                  on: {
+                    click: function($event) {
+                      return _vm.buscarusu()
+                    }
+                  }
+                },
+                [_vm._v("B.Usu")]
+              )
+            ])
+          : undefined,
+        _vm._v(" "),
+        true
+          ? _c("div", { staticClass: "col-2 form-group" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-block",
+                  attrs: {
+                    "data-toggle": "modal",
+                    "data-target": "#buscarasig"
+                  },
+                  on: {
+                    click: function($event) {
+                      return _vm.buscarasig()
+                    }
+                  }
+                },
+                [_vm._v("B.Asg")]
+              )
+            ])
+          : undefined,
+        _vm._v(" "),
+        true
+          ? _c("div", { staticClass: "col-2 form-group" }, [
               _c(
                 "button",
                 {
@@ -41617,7 +41802,28 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("Buscar")]
+                [_vm._v("B.Rcp")]
+              )
+            ])
+          : undefined,
+        _vm._v(" "),
+        true
+          ? _c("div", { staticClass: "col-2 form-group" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-block",
+                  attrs: {
+                    "data-toggle": "modal",
+                    "data-target": "#buscarModal"
+                  },
+                  on: {
+                    click: function($event) {
+                      return _vm.buscar()
+                    }
+                  }
+                },
+                [_vm._v("B.Rcl")]
               )
             ])
           : undefined,
@@ -41652,15 +41858,37 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "tbody",
-                    _vm._l(_vm.usuarioss, function(usuario, index) {
-                      return _c("tr", { key: usuario.index }, [
-                        _c("td", [_vm._v(_vm._s(usuario.username))]),
+                    _vm._l(_vm.usuarioss, function(recepusu, index) {
+                      return _c("tr", { key: recepusu.index }, [
+                        _c("td", [_vm._v(_vm._s(_vm.receparea.area.nombre))]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(usuario.email))]),
+                        _c("td", [_vm._v(_vm._s(recepusu.fecharadicado))]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(usuario.persona.prinom))]),
+                        _c("td", [_vm._v(_vm._s(recepusu.fecharecepcionado))]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(usuario.persona.priape))]),
+                        _c("td", [_vm._v(_vm._s(recepusu.fechareparto))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(recepusu.fechapublicacion))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(recepusu.fecharetiro))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(recepusu.recepcionado))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(recepusu.consultorio))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(recepusu.personausu.cedula))]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(_vm._s(_vm.recepasig.personaasig.cedula))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(_vm._s(_vm.receprecep.personarecep.cedula))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(_vm._s(_vm.receprecla.personarecla.cedula))
+                        ]),
                         _vm._v(" "),
                         _c("td", [
                           _c(
@@ -41673,7 +41901,7 @@ var render = function() {
                               },
                               on: {
                                 click: function($event) {
-                                  return _vm.editarForm(usuario, index)
+                                  return _vm.editarForm(_vm.usuario, index)
                                 }
                               }
                             },
@@ -41686,7 +41914,7 @@ var render = function() {
                               staticClass: "btn btn-danger btn-sm",
                               on: {
                                 click: function($event) {
-                                  return _vm.eliminar(usuario, index)
+                                  return _vm.eliminar(_vm.usuario, index)
                                 }
                               }
                             },
@@ -41823,7 +42051,7 @@ var render = function() {
           {
             staticClass: "modal fade",
             attrs: {
-              id: "buscarModal",
+              id: "buscarModalusu",
               tabindex: "-1",
               role: "dialog",
               "aria-labelledby": "exampleModalLabel",
@@ -41844,19 +42072,19 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.usuario.persona.prinom,
-                          expression: "usuario.persona.prinom"
+                          value: _vm.recepusu.personausu.prinom,
+                          expression: "recepusu.personausu.prinom"
                         }
                       ],
                       attrs: { placeholder: "Nombre" },
-                      domProps: { value: _vm.usuario.persona.prinom },
+                      domProps: { value: _vm.recepusu.personausu.prinom },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(
-                            _vm.usuario.persona,
+                            _vm.recepusu.personausu,
                             "prinom",
                             $event.target.value
                           )
@@ -41869,19 +42097,19 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.usuario.persona.cedula,
-                          expression: "usuario.persona.cedula"
+                          value: _vm.recepusu.personausu.cedula,
+                          expression: "recepusu.personausu.cedula"
                         }
                       ],
                       attrs: { placeholder: "Cedula" },
-                      domProps: { value: _vm.usuario.persona.cedula },
+                      domProps: { value: _vm.recepusu.personausu.cedula },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(
-                            _vm.usuario.persona,
+                            _vm.recepusu.personausu,
                             "cedula",
                             $event.target.value
                           )
@@ -41891,6 +42119,108 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _vm._m(4)
+                ])
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "buscarasig",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "exampleModalLabel",
+              "aria-hidden": "true"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "modal-dialog", attrs: { role: "document" } },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _vm._m(5),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.recepasig.personaasig.prinom,
+                          expression: "recepasig.personaasig.prinom"
+                        }
+                      ],
+                      attrs: { placeholder: "Nombre" },
+                      domProps: { value: _vm.recepasig.personaasig.prinom },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.recepasig.personaasig,
+                            "prinom",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.recepasig.personaasig.cedula,
+                          expression: "recepasig.personaasig.cedula"
+                        }
+                      ],
+                      attrs: { placeholder: "Cedula" },
+                      domProps: { value: _vm.recepasig.personaasig.cedula },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.recepasig.personaasig,
+                            "cedula",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-footer" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        attrs: { type: "button", "data-dismiss": "modal" }
+                      },
+                      [_vm._v("Cerrar")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "button", "data-dismiss": "modal" },
+                        on: {
+                          click: function($event) {
+                            return _vm.editar()
+                          }
+                        }
+                      },
+                      [_vm._v("Guardar Cambios")]
+                    )
+                  ])
                 ])
               ]
             )
@@ -41917,13 +42247,29 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Username")]),
+        _c("th", [_vm._v("Area")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
+        _c("th", [_vm._v("Fecha de Radicado")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Nombre Persona")]),
+        _c("th", [_vm._v("Fecha de Recepcionado")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Apellido Persona")]),
+        _c("th", [_vm._v("Fecha de Reparto")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Fecha de Publicación")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Fecha de Retiro")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Recepcionado en")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Consultorio")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Usuario")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Asignado")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Recepcionador")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Reclamante")]),
         _vm._v(" "),
         _c("th", [_vm._v("Opciones")])
       ])
@@ -41991,6 +42337,31 @@ var staticRenderFns = [
           attrs: { type: "button", "data-dismiss": "modal" }
         },
         [_vm._v("Cerrar")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Mostrar persona")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
     ])
   }

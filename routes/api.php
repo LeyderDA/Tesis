@@ -59,3 +59,9 @@ Route::post('/administrativo', 'AdministrativoController@store')->name('administ
 Route::get('/administrativo', 'AdministrativoController@index')->name('administrativoListar');
 Route::delete('/administrativo/{id}', 'AdministrativoController@destroy')->name('administrativoEliminar');
 Route::put('/administrativo/{id}', 'AdministrativoController@update')->name('administrativoActualizar');
+
+//RUTAS DE API PARA RECEPCIONES
+Route::post('/recepcion', 'RecepcionController@store')->name('recepcionGuardar');
+Route::get('/recepcion', 'RecepcionControllerr@index')->name('recepcionListar');
+Route::delete('/recepcion/{id}', 'RecepcionControllerController@destroy')->name('recepcionEliminar');
+Route::put('/recepcion/{id}', 'RecepcionController@update')->name('recepcionActualizar');
