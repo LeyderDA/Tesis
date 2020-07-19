@@ -3351,7 +3351,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3578,20 +3577,36 @@ __webpack_require__.r(__webpack_exports__);
       var _this7 = this;
 
       var params = {
-        username: this.usuario.username,
-        email: this.usuario.email,
-        password: this.usuario.password,
-        per_id: this.usuario.persona.id
+        recepcionado: this.recepusu.recepcionado,
+        fecharadicado: this.recepusu.fecharadicado,
+        fecharecepcionado: this.recepusu.fecharecepcionado,
+        consultorio: this.recepusu.consultorio,
+        fechareparto: this.recepusu.fechareparto,
+        fechapublicacion: this.recepusu.fechapublicacion,
+        fecharetiro: this.recepusu.fecharetiro,
+        usu_id: this.recepusu.personausu.id,
+        asig_id: this.recepasig.personaasig.id,
+        recep_id: this.receprecep.personarecep.id,
+        recla_id: this.receprecla.personarecla.id,
+        area_id: this.receparea.area.id
       };
-      this.usuario.username = "";
-      this.usuario.email = "";
-      this.usuario.password = "";
-      this.usuario.per_id = "";
-      axios.post("/api/user", params).then(function (res) {
+      this.recepusu.recepcionado = "";
+      this.recepusu.fecharadicado = "";
+      this.recepusu.fecharecepcionado = "";
+      this.recepusu.consultorio = "";
+      this.recepusu.fechareparto = "";
+      this.recepusu.fechapublicacion = "";
+      this.recepusu.fecharetiro = "";
+      this.recepusu.personausu = "";
+      this.recepasig.personaasig = "";
+      this.receprecep.personarecep = "";
+      this.receprecla.personarecla = "";
+      this.receparea.area = "";
+      axios.post("/api/recepcion", params).then(function (res) {
         if (res.data == null) {
-          alert("El usuario no se ha registrado con exito");
+          alert("La recepcion No se registro porque tiene errores");
         } else {
-          alert("El usuario se ha registrado");
+          alert("L recepción se ha registrado con EXITO");
         }
 
         _this7.usuarioss.push(res.data);

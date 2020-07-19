@@ -167,6 +167,8 @@
         <div class="col-6 form-group" v-if="true">
           <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
         </div>
+
+        
       </div>
       <br />
       <div class="container">
@@ -261,7 +263,7 @@
           </div>
         </div>
 
-  <!--modal de area -->
+        <!--modal de area -->
         <div
           class="modal fade"
           id="buscararea"
@@ -289,8 +291,6 @@
           </div>
         </div>
         <!--cierro modal de area -->
-
-
 
         <!--segundo modal - el de buscar usuario -->
         <div
@@ -350,7 +350,7 @@
         </div>
         <!--cierro modal de buscar -->
 
-         <!--segundo modal - el de buscar recepcionador -->
+        <!--segundo modal - el de buscar recepcionador -->
         <div
           class="modal fade"
           id="buscarrecep"
@@ -378,7 +378,6 @@
           </div>
         </div>
         <!--cierro modal de buscar -->
-
 
         <!--modal de buscar reclamante -->
         <div
@@ -628,40 +627,54 @@ export default {
         });
     },
 
-       buscararea() {
-      axios
-        .get("/api/area/" + this.receparea.area.nombre)
-        .then(res => {
-          if (res.data[0] == null) {
-            this.receparea.area.nombre = "";
-            this.receparea.area.id = "";
-            console.log(this.receparea.area.nombre);
-            this.esta = false;
-          } else {
-            console.log(res.data[0]);
-            let are = res.data[0];
-            this.receparea.area = are;
-            this.esta = true;
-          }
-        });
+    buscararea() {
+      axios.get("/api/area/" + this.receparea.area.nombre).then(res => {
+        if (res.data[0] == null) {
+          this.receparea.area.nombre = "";
+          this.receparea.area.id = "";
+          console.log(this.receparea.area.nombre);
+          this.esta = false;
+        } else {
+          console.log(res.data[0]);
+          let are = res.data[0];
+          this.receparea.area = are;
+          this.esta = true;
+        }
+      });
     },
     agregar() {
       const params = {
-        username: this.usuario.username,
-        email: this.usuario.email,
-        password: this.usuario.password,
-        per_id: this.usuario.persona.id
+        recepcionado: this.recepusu.recepcionado,
+        fecharadicado: this.recepusu.fecharadicado,
+        fecharecepcionado: this.recepusu.fecharecepcionado,
+        consultorio: this.recepusu.consultorio,
+        fechareparto: this.recepusu.fechareparto,
+        fechapublicacion: this.recepusu.fechapublicacion,
+        fecharetiro: this.recepusu.fecharetiro,
+        usu_id: this.recepusu.personausu.id,
+        asig_id: this.recepasig.personaasig.id,
+        recep_id: this.receprecep.personarecep.id,
+        recla_id: this.receprecla.personarecla.id,
+        area_id: this.receparea.area.id
       };
-      this.usuario.username = "";
-      this.usuario.email = "";
-      this.usuario.password = "";
-      this.usuario.per_id = "";
+      this.recepusu.recepcionado = "";
+      this.recepusu.fecharadicado = "";
+      this.recepusu.fecharecepcionado = "";
+      this.recepusu.consultorio = "";
+      this.recepusu.fechareparto = "";
+      this.recepusu.fechapublicacion = "";
+      this.recepusu.fecharetiro = "";
+      this.recepusu.personausu = "";
+      this.recepasig.personaasig = "";
+      this.receprecep.personarecep = "";
+      this.receprecla.personarecla = "";
+      this.receparea.area = "";
 
-      axios.post("/api/user", params).then(res => {
+      axios.post("/api/recepcion", params).then(res => {
         if (res.data == null) {
-          alert("El usuario no se ha registrado con exito");
+          alert("La recepcion No se registro porque tiene errores");
         } else {
-          alert("El usuario se ha registrado");
+          alert("L recepción se ha registrado con EXITO");
         }
         this.usuarioss.push(res.data);
       });
