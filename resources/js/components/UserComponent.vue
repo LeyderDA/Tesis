@@ -171,128 +171,13 @@ export default {
       },
       },
 
-
-
-
-
-
-
-
- recepusu: {
-        id: "",
-        recepcionado: "",
-        fecharadicado: "",
-        fecharecepcionado: "",
-        consultorio: "",
-        fechareparto: "",
-        fechapublicacion: "",
-        fecharetiro: "",
-        usu_id: "",
-
-         personausu: {
-        id: "",
-        cedula: "",
-        prinom: "",
-        segnom: "",
-        priape: "",
-        segape: "",
-        tel: "",
-        direc: ""
-      },
-      },
-         recepasig: {
-        id: "",
-        recepcionado: "",
-        fecharadicado: "",
-        fecharecepcionado: "",
-        consultorio: "",
-        fechareparto: "",
-        fechapublicacion: "",
-        fecharetiro: "",
-        asig_id: "",
-
-        personaasig: {
-        id: "",
-        cedula: "",
-        prinom: "",
-        segnom: "",
-        priape: "",
-        segape: "",
-        tel: "",
-        direc: ""
-      },
-      },
-
-       receprecep: {
-        id: "",
-        recepcionado: "",
-        fecharadicado: "",
-        fecharecepcionado: "",
-        consultorio: "",
-        fechareparto: "",
-        fechapublicacion: "",
-        fecharetiro: "",
-        recep_id: "",
-
-        personarecep: {
-        id: "",
-        cedula: "",
-        prinom: "",
-        segnom: "",
-        priape: "",
-        segape: "",
-        tel: "",
-        direc: ""
-      },
-      },
-
-       receprecla: {
-        id: "",
-        recepcionado: "",
-        fecharadicado: "",
-        fecharecepcionado: "",
-        consultorio: "",
-        fechareparto: "",
-        fechapublicacion: "",
-        fecharetiro: "",
-        recla_id: "",
-
-        personarecla: {
-        id: "",
-        cedula: "",
-        prinom: "",
-        segnom: "",
-        priape: "",
-        segape: "",
-        tel: "",
-        direc: ""
-      },
-      },
-
-        receparea: {
-        id: "",
-        recepcionado: "",
-        fecharadicado: "",
-        fecharecepcionado: "",
-        consultorio: "",
-        fechareparto: "",
-        fechapublicacion: "",
-        fecharetiro: "",
-        area_id: "",
-
-        area: {
-        id: "",
-        nombre: ""     
-      },
-      },
+ 
 
      
       esta:false,
       estado:'disable',
       usuarioss: [],
-      asignadoss: [],
-      recepcionadoss: [],
-      reclamantess: [],
+
       errors: []
     };
   },

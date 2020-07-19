@@ -3,10 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\Recepcion;
+use App\Persona;
 use Illuminate\Http\Request;
 
 class RecepcionController extends Controller
 {
+
+    public function index(Request $request)
+
+    {   $usuarios = Recepcion::all();
+        if($request->ajax()){
+            foreach ($usuarios as $usua){
+                $usua->persona;
+            }
+            return $usuarios;
+        }else{
+            return  response()->json($usuarios);
+        }
+    }
+
+    
+  
+   
+
+
+
     public function store(Request $request)
     {
         $re = new Recepcion();
@@ -24,5 +45,11 @@ class RecepcionController extends Controller
         $re->area_id = $request->area_id;
         $re->save();
         return  response()->json($re);
+    }
+
+    public function show($id)
+    {
+        $pers=Persona::find($id);
+        return  response()->json($pers);
     }
 }

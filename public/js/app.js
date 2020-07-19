@@ -3342,15 +3342,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3473,10 +3464,7 @@ __webpack_require__.r(__webpack_exports__);
       },
       esta: false,
       estado: "disable",
-      usuarioss: [],
-      asignadoss: [],
-      recepcionadoss: [],
-      reclamantess: [],
+      recepcioness: [],
       errors: []
     };
   },
@@ -3484,7 +3472,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.get("/api/recepcion").then(function (res) {
-      _this.usuarioss = res.data;
+      _this.recepcioness = res.data;
     });
   },
   methods: {
@@ -3606,10 +3594,10 @@ __webpack_require__.r(__webpack_exports__);
         if (res.data == null) {
           alert("La recepcion No se registro porque tiene errores");
         } else {
-          alert("L recepción se ha registrado con EXITO");
+          alert("La recepción se ha registrado con EXITO");
         }
 
-        _this7.usuarioss.push(res.data);
+        _this7.recepcioness.push(res.data);
       });
     },
     eliminar: function eliminar(usuario, index) {
@@ -3849,111 +3837,9 @@ __webpack_require__.r(__webpack_exports__);
           direc: ""
         }
       },
-      recepusu: {
-        id: "",
-        recepcionado: "",
-        fecharadicado: "",
-        fecharecepcionado: "",
-        consultorio: "",
-        fechareparto: "",
-        fechapublicacion: "",
-        fecharetiro: "",
-        usu_id: "",
-        personausu: {
-          id: "",
-          cedula: "",
-          prinom: "",
-          segnom: "",
-          priape: "",
-          segape: "",
-          tel: "",
-          direc: ""
-        }
-      },
-      recepasig: {
-        id: "",
-        recepcionado: "",
-        fecharadicado: "",
-        fecharecepcionado: "",
-        consultorio: "",
-        fechareparto: "",
-        fechapublicacion: "",
-        fecharetiro: "",
-        asig_id: "",
-        personaasig: {
-          id: "",
-          cedula: "",
-          prinom: "",
-          segnom: "",
-          priape: "",
-          segape: "",
-          tel: "",
-          direc: ""
-        }
-      },
-      receprecep: {
-        id: "",
-        recepcionado: "",
-        fecharadicado: "",
-        fecharecepcionado: "",
-        consultorio: "",
-        fechareparto: "",
-        fechapublicacion: "",
-        fecharetiro: "",
-        recep_id: "",
-        personarecep: {
-          id: "",
-          cedula: "",
-          prinom: "",
-          segnom: "",
-          priape: "",
-          segape: "",
-          tel: "",
-          direc: ""
-        }
-      },
-      receprecla: {
-        id: "",
-        recepcionado: "",
-        fecharadicado: "",
-        fecharecepcionado: "",
-        consultorio: "",
-        fechareparto: "",
-        fechapublicacion: "",
-        fecharetiro: "",
-        recla_id: "",
-        personarecla: {
-          id: "",
-          cedula: "",
-          prinom: "",
-          segnom: "",
-          priape: "",
-          segape: "",
-          tel: "",
-          direc: ""
-        }
-      },
-      receparea: {
-        id: "",
-        recepcionado: "",
-        fecharadicado: "",
-        fecharecepcionado: "",
-        consultorio: "",
-        fechareparto: "",
-        fechapublicacion: "",
-        fecharetiro: "",
-        area_id: "",
-        area: {
-          id: "",
-          nombre: ""
-        }
-      },
       esta: false,
       estado: 'disable',
       usuarioss: [],
-      asignadoss: [],
-      recepcionadoss: [],
-      reclamantess: [],
       errors: []
     };
   },
@@ -41990,17 +41876,15 @@ var render = function() {
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "card-body col" }, [
-            _c("div", { attrs: { clas: "container row" } }, [
+            _c("div", { staticClass: "container row" }, [
               _c("div", { staticClass: "table text-center table-reponsive" }, [
                 _c("table", { staticClass: "table text-center" }, [
                   _vm._m(1),
                   _vm._v(" "),
                   _c(
                     "tbody",
-                    _vm._l(_vm.usuarioss, function(recepusu, index) {
+                    _vm._l(_vm.recepcioness, function(recepusu, index) {
                       return _c("tr", { key: recepusu.index }, [
-                        _c("td", [_vm._v(_vm._s(_vm.receparea.area.nombre))]),
-                        _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(recepusu.fecharadicado))]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(recepusu.fecharecepcionado))]),
@@ -42014,20 +41898,6 @@ var render = function() {
                         _c("td", [_vm._v(_vm._s(recepusu.recepcionado))]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(recepusu.consultorio))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(recepusu.personausu.cedula))]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(_vm._s(_vm.recepasig.personaasig.cedula))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(_vm._s(_vm.receprecep.personarecep.cedula))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(_vm._s(_vm.receprecla.personarecla.cedula))
-                        ]),
                         _vm._v(" "),
                         _c("td", [
                           _c(
@@ -42600,8 +42470,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Area")]),
-        _vm._v(" "),
         _c("th", [_vm._v("Fecha de Radicado")]),
         _vm._v(" "),
         _c("th", [_vm._v("Fecha de Recepcionado")]),
@@ -42615,14 +42483,6 @@ var staticRenderFns = [
         _c("th", [_vm._v("Recepcionado en")]),
         _vm._v(" "),
         _c("th", [_vm._v("Consultorio")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Usuario")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Asignado")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Recepcionador")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Reclamante")]),
         _vm._v(" "),
         _c("th", [_vm._v("Opciones")])
       ])

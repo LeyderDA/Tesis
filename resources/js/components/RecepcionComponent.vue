@@ -167,19 +167,16 @@
         <div class="col-6 form-group" v-if="true">
           <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
         </div>
-
-        
       </div>
       <br />
       <div class="container">
         <div class="row">
           <div class="card-body col">
-            <div clas="container row">
+            <div class="container row">
               <div class="table text-center table-reponsive">
                 <table class="table text-center">
                   <thead>
-                    <tr>
-                      <th>Area</th>
+                    <tr>  
                       <th>Fecha de Radicado</th>
                       <th>Fecha de Recepcionado</th>
                       <th>Fecha de Reparto</th>
@@ -187,16 +184,12 @@
                       <th>Fecha de Retiro</th>
                       <th>Recepcionado en</th>
                       <th>Consultorio</th>
-                      <th>Usuario</th>
-                      <th>Asignado</th>
-                      <th>Recepcionador</th>
-                      <th>Reclamante</th>
                       <th>Opciones</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(recepusu,index) in usuarioss" :key="recepusu.index">
-                      <td>{{receparea.area.nombre}}</td>
+                    <tr v-for="(recepusu,index) in recepcioness" :key="recepusu.index">   
+
                       <td>{{recepusu.fecharadicado}}</td>
                       <td>{{recepusu.fecharecepcionado}}</td>
                       <td>{{recepusu.fechareparto}}</td>
@@ -204,10 +197,8 @@
                       <td>{{recepusu.fecharetiro}}</td>
                       <td>{{recepusu.recepcionado}}</td>
                       <td>{{recepusu.consultorio}}</td>
-                      <td>{{recepusu.personausu.cedula}}</td>
-                      <td>{{recepasig.personaasig.cedula}}</td>
-                      <td>{{receprecep.personarecep.cedula}}</td>
-                      <td>{{receprecla.personarecla.cedula}}</td>
+                      
+                      
                       <td>
                         <button
                           class="btn btn-success btn-sm"
@@ -545,16 +536,13 @@ export default {
 
       esta: false,
       estado: "disable",
-      usuarioss: [],
-      asignadoss: [],
-      recepcionadoss: [],
-      reclamantess: [],
+      recepcioness: [],
       errors: []
     };
   },
   created() {
     axios.get("/api/recepcion").then(res => {
-      this.usuarioss = res.data;
+      this.recepcioness = res.data;
     });
   },
   methods: {
@@ -674,9 +662,9 @@ export default {
         if (res.data == null) {
           alert("La recepcion No se registro porque tiene errores");
         } else {
-          alert("L recepción se ha registrado con EXITO");
+          alert("La recepción se ha registrado con EXITO");
         }
-        this.usuarioss.push(res.data);
+        this.recepcioness.push(res.data);
       });
     },
 
