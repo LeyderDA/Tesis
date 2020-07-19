@@ -83,4 +83,19 @@ class AreaController extends Controller
         return  response()->json($areas);
       
     }
+
+    public function buscarced($nombre)
+    {
+        $are = Area::where("area","=",$nombre);
+        return  response()->json($are);
+
+    }
+
+    public function buscar($nombre)
+    {   
+        $ar = Area::where("nombre",$nombre)->get();
+        
+            return  $ar;
+        
+    }
 }

@@ -115,8 +115,8 @@
           <button
             class="btn btn-primary btn-block"
             data-toggle="modal"
-            data-target="#buscarModal"
-            @click="buscarusu()"
+            data-target="#buscararea"
+            @click="buscararea()"
           >Buscar Area</button>
         </div>
         <!--buscar area -->
@@ -148,8 +148,8 @@
           <button
             class="btn btn-primary btn-block"
             data-toggle="modal"
-            data-target="#buscarModal"
-            @click="buscar()"
+            data-target="#buscarrecep"
+            @click="buscarrecep()"
           >B.Rcp</button>
         </div>
         <!--buscar recepcionador -->
@@ -158,8 +158,8 @@
           <button
             class="btn btn-primary btn-block"
             data-toggle="modal"
-            data-target="#buscarModal"
-            @click="buscar()"
+            data-target="#buscarrecla"
+            @click="buscarrecla()"
           >B.Rcl</button>
         </div>
         <!--buscar reclamante -->
@@ -261,7 +261,38 @@
           </div>
         </div>
 
-        <!--segundo modal - el de buscar -->
+  <!--modal de area -->
+        <div
+          class="modal fade"
+          id="buscararea"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mostrar Area</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <input placeholder="Nombre" v-model="receparea.area.nombre" />
+                <input placeholder="Id" v-model="receparea.area.id" />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--cierro modal de area -->
+
+
+
+        <!--segundo modal - el de buscar usuario -->
         <div
           class="modal fade"
           id="buscarModalusu"
@@ -290,7 +321,7 @@
         </div>
         <!--cierro modal de buscar -->
 
-
+        <!--modal de buscar asignado -->
         <div
           class="modal fade"
           id="buscarasig"
@@ -313,28 +344,70 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  @click="editar()"
-                  data-dismiss="modal"
-                >Guardar Cambios</button>
               </div>
             </div>
           </div>
         </div>
+        <!--cierro modal de buscar -->
 
-        
+         <!--segundo modal - el de buscar recepcionador -->
+        <div
+          class="modal fade"
+          id="buscarrecep"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mostrar Persona</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <input placeholder="Nombre" v-model="receprecep.personarecep.prinom" />
+                <input placeholder="Cedula" v-model="receprecep.personarecep.cedula" />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--cierro modal de buscar -->
 
 
-
-
-
-
-
-
-
-     
+        <!--modal de buscar reclamante -->
+        <div
+          class="modal fade"
+          id="buscarrecla"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mostrar persona</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <input placeholder="Nombre" v-model="receprecla.personarecla.prinom" />
+                <input placeholder="Cedula" v-model="receprecla.personarecla.cedula" />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--cierro modal de buscar -->
       </div>
     </div>
   </div>
@@ -501,20 +574,76 @@ export default {
         }
       });
     },
-       buscarasig() {
-      axios.get("/api/persona/" + this.recepasig.personaasig.cedula).then(res => {
-        if (res.data[0] == null) {
-          this.recepasig.personaasig.cedula = "";
-          this.recepasig.personaasig.prinom = "";
-          console.log(this.recepasig.personaasig.cedula);
-          this.esta = false;
-        } else {
-          console.log(res.data[0]);
-          let person = res.data[0];
-          this.recepasig.personaasig = person;
-          this.esta = true;
-        }
-      });
+    buscarasig() {
+      axios
+        .get("/api/persona/" + this.recepasig.personaasig.cedula)
+        .then(res => {
+          if (res.data[0] == null) {
+            this.recepasig.personaasig.cedula = "";
+            this.recepasig.personaasig.prinom = "";
+            console.log(this.recepasig.personaasig.cedula);
+            this.esta = false;
+          } else {
+            console.log(res.data[0]);
+            let person = res.data[0];
+            this.recepasig.personaasig = person;
+            this.esta = true;
+          }
+        });
+    },
+
+    buscarrecep() {
+      axios
+        .get("/api/persona/" + this.receprecep.personarecep.cedula)
+        .then(res => {
+          if (res.data[0] == null) {
+            this.receprecep.personarecep.cedula = "";
+            this.receprecep.personarecep.prinom = "";
+            console.log(this.receprecep.personarecep.cedula);
+            this.esta = false;
+          } else {
+            console.log(res.data[0]);
+            let person = res.data[0];
+            this.receprecep.personarecep = person;
+            this.esta = true;
+          }
+        });
+    },
+
+    buscarrecla() {
+      axios
+        .get("/api/persona/" + this.receprecla.personarecla.cedula)
+        .then(res => {
+          if (res.data[0] == null) {
+            this.receprecla.personarecla.cedula = "";
+            this.receprecla.personarecla.prinom = "";
+            console.log(this.receprecla.personarecla.cedula);
+            this.esta = false;
+          } else {
+            console.log(res.data[0]);
+            let person = res.data[0];
+            this.receprecla.personarecla = person;
+            this.esta = true;
+          }
+        });
+    },
+
+       buscararea() {
+      axios
+        .get("/api/area/" + this.receparea.area.nombre)
+        .then(res => {
+          if (res.data[0] == null) {
+            this.receparea.area.nombre = "";
+            this.receparea.area.id = "";
+            console.log(this.receparea.area.nombre);
+            this.esta = false;
+          } else {
+            console.log(res.data[0]);
+            let are = res.data[0];
+            this.receparea.area = are;
+            this.esta = true;
+          }
+        });
     },
     agregar() {
       const params = {

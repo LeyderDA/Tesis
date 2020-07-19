@@ -23,6 +23,7 @@ Route::post('/area', 'AreaController@store')->name('areaGuardar');
 Route::get('/area', 'AreaController@index')->name('areaListar');
 Route::delete('/area/{id}', 'AreaController@destroy')->name('areaEliminar');
 Route::put('/area/{id}', 'AreaController@update')->name('areaActualizar');
+Route::get('/area/{id}', 'AreaController@buscar')->name('areabuscar');
 
 
 //RUTAS DE API PARA PERSONAS
