@@ -90,4 +90,12 @@ class EstudianteController extends Controller
       
     }
 
+    public function buscar($id)
+    {   
+        $est = Estudiante::where("id",$id)->get();
+        
+            return  $est;
+        
+    }
+
 }

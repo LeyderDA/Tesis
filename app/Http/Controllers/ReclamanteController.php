@@ -37,4 +37,12 @@ class ReclamanteController extends Controller
         return  response()->json($re);
     }
 
+    public function buscar($id)
+    {   
+        $est = Reclamante::where("id",$id)->get();
+        
+            return  $est;
+        
+    }
+
 }

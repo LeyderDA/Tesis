@@ -3268,6 +3268,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3284,35 +3322,79 @@ __webpack_require__.r(__webpack_exports__);
           prinom: "",
           segnom: "",
           priape: "",
-          segapne: "",
+          segape: "",
           tel: "",
           direc: ""
         }
       },
       recepcion: {
-        id: '',
-        recepcionado: '',
-        fecharadicado: '',
-        fecharecepcionado: '',
-        consultorio: '',
-        fechareparto: '',
-        fechapublicacion: '',
-        fecharetiro: '',
+        id: "",
+        recepcionado: "",
+        fecharadicado: "",
+        fecharecepcionado: "",
+        consultorio: "",
+        fechareparto: "",
+        fechapublicacion: "",
+        fecharetiro: "",
         estudiante: {
-          id: ''
+          id: "",
+          per_id: "",
+          persona: {
+            id: "",
+            cedula: "",
+            prinom: "",
+            segnom: "",
+            priape: "",
+            segape: "",
+            tel: "",
+            direc: ""
+          }
         },
         docente: {
-          id: ''
+          id: "",
+          per_id: "",
+          persona: {
+            id: "",
+            cedula: "",
+            prinom: "",
+            segnom: "",
+            priape: "",
+            segape: "",
+            tel: "",
+            direc: ""
+          }
         },
         administrativo: {
-          id: ''
+          id: "",
+          per_id: "",
+          persona: {
+            id: "",
+            cedula: "",
+            prinom: "",
+            segnom: "",
+            priape: "",
+            segape: "",
+            tel: "",
+            direc: ""
+          }
         },
         reclamante: {
-          id: ''
+          id: "",
+          per_id: "",
+          persona: {
+            id: "",
+            cedula: "",
+            prinom: "",
+            segnom: "",
+            priape: "",
+            segape: "",
+            tel: "",
+            direc: ""
+          }
         },
         area: {
-          id: '',
-          nombre: ''
+          id: "",
+          nombre: ""
         }
       },
       esta: false,
@@ -3329,25 +3411,59 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    buscarusu: function buscarusu() {
+    buscarest: function buscarest() {
       var _this2 = this;
 
-      axios.get("/api/persona/" + this.usuario.persona.cedula).then(function (res) {
+      axios.get("/api/estudiante/" + this.recepcion.estudiante.id).then(function (res) {
         if (res.data[0] == null) {
-          _this2.usuario.persona.cedula = "";
-          _this2.usuario.persona.prinom = "";
-          console.log(_this2.usuario.persona.cedula);
+          _this2.recepcion.estudiante.id = "";
+          _this2.recepcion.estudiante.per_id = "";
+          console.log(_this2.recepcion.estudiante);
           _this2.esta = false;
         } else {
           console.log(res.data[0]);
           var person = res.data[0];
-          _this2.usuario.persona = person;
+          _this2.recepcion.estudiante = person;
           _this2.esta = true;
         }
       });
     },
-    agregar: function agregar() {
+    buscardoc: function buscardoc() {
       var _this3 = this;
+
+      axios.get("/api/docente/" + this.recepcion.docente.id).then(function (res) {
+        if (res.data[0] == null) {
+          _this3.recepcion.docente.id = "";
+          _this3.recepcion.docente.per_id = "";
+          console.log(_this3.recepcion.docente);
+          _this3.esta = false;
+        } else {
+          console.log(res.data[0]);
+          var person = res.data[0];
+          _this3.recepcion.docente = person;
+          _this3.esta = true;
+        }
+      });
+    },
+    buscaradm: function buscaradm() {
+      var _this4 = this;
+
+      axios.get("/api/administrativo/" + this.recepcion.administrativo.id).then(function (res) {
+        if (res.data[0] == null) {
+          _this4.recepcion.administrativo.id = "";
+          _this4.recepcion.administrativo.per_id = "";
+          console.log(_this4.recepcion.administrativo);
+          _this4.esta = false;
+        } else {
+          console.log(res.data[0]);
+          var person = res.data[0];
+          _this4.recepcion.administrativo = person;
+          _this4.esta = true;
+        }
+      });
+    },
+    agregar: function agregar() {
+      var _this5 = this;
 
       var params = {
         recepcionado: this.recepcion.recepcionado,
@@ -3382,17 +3498,17 @@ __webpack_require__.r(__webpack_exports__);
           alert("La recepción se ha registrado con EXITO");
         }
 
-        _this3.recepcioness.push(res.data);
+        _this5.recepcioness.push(res.data);
       });
     },
     eliminar: function eliminar(usuario, index) {
-      var _this4 = this;
+      var _this6 = this;
 
       var confirmacion = confirm("Confirma Eliminar Usuario: ".concat(usuario.username));
 
       if (confirmacion) {
         axios["delete"]("/api/user/" + usuario.id).then(function () {
-          _this4.usuarioss.splice(index, 1);
+          _this6.usuarioss.splice(index, 1);
 
           alert("El usuario se ha eliminado con exito");
         });
@@ -3403,7 +3519,7 @@ __webpack_require__.r(__webpack_exports__);
       this.usuario.index = index;
     },
     editar: function editar() {
-      var _this5 = this;
+      var _this7 = this;
 
       var params = {
         username: this.usuario.username,
@@ -3419,22 +3535,22 @@ __webpack_require__.r(__webpack_exports__);
         } //alert(this.area.index)
 
 
-        _this5.usuarioss[_this5.usuario.index] = res.data;
-        _this5.usuario.id = "";
-        _this5.usuarioss[_this5.usuario.index] = res.data;
-        _this5.usuario.username = "";
-        _this5.usuarioss[_this5.usuario.index] = res.data;
-        _this5.usuario.email = "";
-        _this5.usuarioss[_this5.usuario.index] = res.data;
-        _this5.usuario.password = "";
+        _this7.usuarioss[_this7.usuario.index] = res.data;
+        _this7.usuario.id = "";
+        _this7.usuarioss[_this7.usuario.index] = res.data;
+        _this7.usuario.username = "";
+        _this7.usuarioss[_this7.usuario.index] = res.data;
+        _this7.usuario.email = "";
+        _this7.usuarioss[_this7.usuario.index] = res.data;
+        _this7.usuario.password = "";
       })["catch"](function (error) {
         if (error.response.status == 422) {
-          _this5.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
+          _this7.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
 
-          alert(_this5.errors.id[0]);
-          alert(_this5.errors.username[0]);
-          alert(_this5.errors.email[0]);
-          alert(_this5.errors.password[0]);
+          alert(_this7.errors.id[0]);
+          alert(_this7.errors.username[0]);
+          alert(_this7.errors.email[0]);
+          alert(_this7.errors.password[0]);
         }
       });
     }
@@ -41774,7 +41890,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("label", { staticClass: "col-5 col-form-label" }, [
-            _vm._v("Ingresa el ID del usuario")
+            _vm._v("Ingresa el ID del estudiante")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -41788,7 +41904,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { placeholder: "Usuario" },
+              attrs: { placeholder: "Estudiante" },
               domProps: { value: _vm.recepcion.estudiante.id },
               on: {
                 input: function($event) {
@@ -41921,15 +42037,15 @@ var render = function() {
                   staticClass: "btn btn-primary btn-block",
                   attrs: {
                     "data-toggle": "modal",
-                    "data-target": "#buscarModalusu"
+                    "data-target": "#buscarModalest"
                   },
                   on: {
                     click: function($event) {
-                      return _vm.buscarusu()
+                      return _vm.buscarest()
                     }
                   }
                 },
-                [_vm._v("B.Usu")]
+                [_vm._v("B.Estudiante Usu")]
               )
             ])
           : undefined,
@@ -41942,15 +42058,15 @@ var render = function() {
                   staticClass: "btn btn-primary btn-block",
                   attrs: {
                     "data-toggle": "modal",
-                    "data-target": "#buscarasig"
+                    "data-target": "#buscarModaldoc"
                   },
                   on: {
                     click: function($event) {
-                      return _vm.buscarasig()
+                      return _vm.buscardoc()
                     }
                   }
                 },
-                [_vm._v("B.Asg")]
+                [_vm._v("B.Docente Asig")]
               )
             ])
           : undefined,
@@ -41963,36 +42079,15 @@ var render = function() {
                   staticClass: "btn btn-primary btn-block",
                   attrs: {
                     "data-toggle": "modal",
-                    "data-target": "#buscarrecep"
+                    "data-target": "#buscarModaladm"
                   },
                   on: {
                     click: function($event) {
-                      return _vm.buscarrecep()
+                      return _vm.buscaradm()
                     }
                   }
                 },
-                [_vm._v("B.Rcp")]
-              )
-            ])
-          : undefined,
-        _vm._v(" "),
-        true
-          ? _c("div", { staticClass: "col-2 form-group" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary btn-block",
-                  attrs: {
-                    "data-toggle": "modal",
-                    "data-target": "#buscarrecla"
-                  },
-                  on: {
-                    click: function($event) {
-                      return _vm.buscarrecla()
-                    }
-                  }
-                },
-                [_vm._v("B.Rcl")]
+                [_vm._v("B.Admin Recep")]
               )
             ])
           : undefined,
@@ -42043,15 +42138,25 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(recepcion.consultorio))]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(recepcion.usu_id))]),
+                        _c("td", [
+                          _vm._v(_vm._s(recepcion.estudiante.persona.nombre))
+                        ]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(recepcion.asig_id))]),
+                        _c("td", [
+                          _vm._v(_vm._s(recepcion.docente.persona.nombre))
+                        ]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(recepcion.recep_id))]),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(recepcion.administrativo.persona.nombre)
+                          )
+                        ]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(recepcion.recla_id))]),
+                        _c("td", [
+                          _vm._v(_vm._s(recepcion.reclamante.persona.nombre))
+                        ]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(recepcion.area_id))]),
+                        _c("td", [_vm._v(_vm._s(recepcion.area.nombre))]),
                         _vm._v(" "),
                         _c("td", [
                           _c(
@@ -42293,7 +42398,7 @@ var render = function() {
           {
             staticClass: "modal fade",
             attrs: {
-              id: "buscarModalusu",
+              id: "buscarModalest",
               tabindex: "-1",
               role: "dialog",
               "aria-labelledby": "exampleModalLabel",
@@ -42314,20 +42419,20 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.usuario.persona.prinom,
-                          expression: "usuario.persona.prinom"
+                          value: _vm.recepcion.estudiante.id,
+                          expression: "recepcion.estudiante.id"
                         }
                       ],
-                      attrs: { placeholder: "Nombre" },
-                      domProps: { value: _vm.usuario.persona.prinom },
+                      attrs: { placeholder: "Id" },
+                      domProps: { value: _vm.recepcion.estudiante.id },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(
-                            _vm.usuario.persona,
-                            "prinom",
+                            _vm.recepcion.estudiante,
+                            "id",
                             $event.target.value
                           )
                         }
@@ -42339,20 +42444,20 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.usuario.persona.cedula,
-                          expression: "usuario.persona.cedula"
+                          value: _vm.recepcion.estudiante.per_id,
+                          expression: "recepcion.estudiante.per_id"
                         }
                       ],
-                      attrs: { placeholder: "Cedula" },
-                      domProps: { value: _vm.usuario.persona.cedula },
+                      attrs: { placeholder: "Nombre" },
+                      domProps: { value: _vm.recepcion.estudiante.per_id },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(
-                            _vm.usuario.persona,
-                            "cedula",
+                            _vm.recepcion.estudiante,
+                            "per_id",
                             $event.target.value
                           )
                         }
@@ -42361,6 +42466,164 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _vm._m(6)
+                ])
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "buscarModaldoc",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "exampleModalLabel",
+              "aria-hidden": "true"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "modal-dialog", attrs: { role: "document" } },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _vm._m(7),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.recepcion.docente.id,
+                          expression: "recepcion.docente.id"
+                        }
+                      ],
+                      attrs: { placeholder: "Id Docente" },
+                      domProps: { value: _vm.recepcion.docente.id },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.recepcion.docente,
+                            "id",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.recepcion.docente.per_id,
+                          expression: "recepcion.docente.per_id"
+                        }
+                      ],
+                      attrs: { placeholder: "Id Persona" },
+                      domProps: { value: _vm.recepcion.docente.per_id },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.recepcion.docente,
+                            "per_id",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(8)
+                ])
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "buscarModaladm",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "exampleModalLabel",
+              "aria-hidden": "true"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "modal-dialog", attrs: { role: "document" } },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _vm._m(9),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.recepcion.administrativo.id,
+                          expression: "recepcion.administrativo.id"
+                        }
+                      ],
+                      attrs: { placeholder: "Id Docente" },
+                      domProps: { value: _vm.recepcion.administrativo.id },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.recepcion.administrativo,
+                            "id",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.recepcion.administrativo.per_id,
+                          expression: "recepcion.administrativo.per_id"
+                        }
+                      ],
+                      attrs: { placeholder: "Id Persona" },
+                      domProps: { value: _vm.recepcion.administrativo.per_id },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.recepcion.administrativo,
+                            "per_id",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(10)
                 ])
               ]
             )
@@ -42376,7 +42639,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("h2", { staticClass: "text-center mb-2 card-title" }, [
+      _c("h1", { staticClass: "text-center mb-2 card-title" }, [
         _vm._v("Registrando Recepcion")
       ])
     ])
@@ -42449,6 +42712,86 @@ var staticRenderFns = [
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
         [_vm._v("Mostrar Area")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-danger",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Cerrar")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Mostrar Persona")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-danger",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Cerrar")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Mostrar Persona")]
       ),
       _vm._v(" "),
       _c(

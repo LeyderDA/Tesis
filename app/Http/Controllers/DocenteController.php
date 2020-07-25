@@ -89,6 +89,12 @@ class DocenteController extends Controller
         return  response()->json($pers);
       
     }
-
+    public function buscar($id)
+    {   
+        $est = Docente::where("id",$id)->get();
+        
+            return  $est;
+        
+    }
 
 }

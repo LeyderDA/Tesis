@@ -41,11 +41,14 @@ Route::delete('/user/{id}', 'UsuarioController@destroy')->name('usuarioEliminar'
 Route::put('/user/{id}', 'UsuarioController@update')->name('usuarioActualizar');
 
 
+
+
 //RUTAS DE API PARA DOCENTES
 Route::post('/docente', 'DocenteController@store')->name('docenteGuardar');
 Route::get('/docente', 'DocenteController@index')->name('docenteListar');
 Route::delete('/docente/{id}', 'DocenteController@destroy')->name('docenteEliminar');
 Route::put('/docente/{id}', 'DocenteController@update')->name('docenteActualizar');
+Route::get('/docente/{id}', 'DocenteController@buscar')->name('docentebuscar');
 
 
 //RUTAS DE API PARA ESTUDIANTES
@@ -53,6 +56,7 @@ Route::post('/estudiante', 'EstudianteController@store')->name('estudianteGuarda
 Route::get('/estudiante', 'EstudianteController@index')->name('estudianteListar');
 Route::delete('/estudiante/{id}', 'EstudianteController@destroy')->name('estudianteEliminar');
 Route::put('/estudiante/{id}', 'EstudianteController@update')->name('estudianteActualizar');
+Route::get('/estudiante/{id}', 'EstudianteController@buscar')->name('estudiantebuscar');
 
 
 //RUTAS DE API PARA ADMINISTRATIVOS
@@ -60,6 +64,7 @@ Route::post('/administrativo', 'AdministrativoController@store')->name('administ
 Route::get('/administrativo', 'AdministrativoController@index')->name('administrativoListar');
 Route::delete('/administrativo/{id}', 'AdministrativoController@destroy')->name('administrativoEliminar');
 Route::put('/administrativo/{id}', 'AdministrativoController@update')->name('administrativoActualizar');
+Route::get('/administrativo/{id}', 'AdministrativoController@buscar')->name('administrativobuscar');
 
 //RUTAS DE API PARA RECEPCIONES
 Route::post('/recepcion', 'RecepcionController@store')->name('recepcionGuardar');
@@ -72,3 +77,4 @@ Route::post('/reclamante', 'ReclamanteController@store')->name('reclamanteGuarda
 Route::get('/reclamante', 'ReclamanteController@index')->name('reclamanteListar');
 Route::delete('/reclamante/{id}', 'ReclamanteController@destroy')->name('reclamanteEliminar');
 Route::put('/reclamante/{id}', 'ReclamanteController@update')->name('reclamanteActualizar');
+Route::get('/reclamante/{id}', 'ReclamanteController@buscar')->name('reclamantebuscar');

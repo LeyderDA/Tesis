@@ -89,4 +89,12 @@ class AdministrativoController extends Controller
       
     }
 
+    public function buscar($id)
+    {   
+        $est = Administrativo::where("id",$id)->get();
+        
+            return  $est;
+        
+    }
+
 }

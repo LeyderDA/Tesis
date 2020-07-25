@@ -1,13 +1,11 @@
 <template>
   <div class="card">
     <div>
-      <h2 class="text-center mb-2 card-title">Registrando Recepcion</h2>
+      <h1 class="text-center mb-2 card-title">Registrando Recepcion</h1>
     </div>
     <div class="card-body row">
       <form>
         <div class="row">
-
-          
           <label class="col-5 col-form-label">Escoge el area</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Area" v-model="recepcion.area.nombre" />
@@ -78,18 +76,14 @@
             <input class="form-control" placeholder="Consultorio" v-model="recepcion.consultorio" />
           </div>
 
-          <label class="col-5 col-form-label">Ingresa el ID del usuario</label>
+          <label class="col-5 col-form-label">Ingresa el ID del estudiante</label>
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Usuario" v-model="recepcion.estudiante.id" />
+            <input class="form-control" placeholder="Estudiante" v-model="recepcion.estudiante.id" />
           </div>
 
           <label class="col-5 col-form-label">Ingresa el ID del asignado</label>
           <div class="col-6 form-group">
-            <input
-              class="form-control"
-              placeholder="Asignado"
-              v-model="recepcion.docente.id"
-            />
+            <input class="form-control" placeholder="Asignado" v-model="recepcion.docente.id" />
           </div>
 
           <label class="col-5 col-form-label">Ingresa el ID del Recepcionador</label>
@@ -103,11 +97,7 @@
 
           <label class="col-5 col-form-label">Ingresa el ID del reclamante</label>
           <div class="col-6 form-group">
-            <input
-              class="form-control"
-              placeholder="Reclamante"
-              v-model="recepcion.reclamante.id"
-            />
+            <input class="form-control" placeholder="Reclamante" v-model="recepcion.reclamante.id" />
           </div>
         </div>
       </form>
@@ -123,14 +113,14 @@
         </div>
         <!--buscar area -->
 
-        <!--buscar usuario -->
+        <!--buscar estudiante -->
         <div class="col-2 form-group" v-if="true">
           <button
             class="btn btn-primary btn-block"
             data-toggle="modal"
-            data-target="#buscarModalusu"
-            @click="buscarusu()"
-          >B.Usu</button>
+            data-target="#buscarModalest"
+            @click="buscarest()"
+          >B.Estudiante Usu</button>
         </div>
         <!--buscar usuario -->
 
@@ -139,9 +129,9 @@
           <button
             class="btn btn-primary btn-block"
             data-toggle="modal"
-            data-target="#buscarasig"
-            @click="buscarasig()"
-          >B.Asg</button>
+            data-target="#buscarModaldoc"
+            @click="buscardoc()"
+          >B.Docente Asig</button>
         </div>
         <!--buscar asignado -->
 
@@ -150,21 +140,13 @@
           <button
             class="btn btn-primary btn-block"
             data-toggle="modal"
-            data-target="#buscarrecep"
-            @click="buscarrecep()"
-          >B.Rcp</button>
+            data-target="#buscarModaladm"
+            @click="buscaradm()"
+          >B.Admin Recep</button>
         </div>
         <!--buscar recepcionador -->
-        <!--buscar reclamante -->
-        <div class="col-2 form-group" v-if="true">
-          <button
-            class="btn btn-primary btn-block"
-            data-toggle="modal"
-            data-target="#buscarrecla"
-            @click="buscarrecla()"
-          >B.Rcl</button>
-        </div>
-        <!--buscar reclamante -->
+
+    
 
         <div class="col-6 form-group" v-if="true">
           <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
@@ -178,7 +160,7 @@
               <div class="table text-center table-reponsive">
                 <table class="table text-center">
                   <thead>
-                    <tr>  
+                    <tr>
                       <th>Fecha de Radicado</th>
                       <th>Fecha de Recepcionado</th>
                       <th>Fecha de Reparto</th>
@@ -192,12 +174,10 @@
                       <th>Reclamante</th>
                       <th>Area</th>
                       <th>Opciones</th>
-
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(recepcion,index) in recepcioness" :key="recepcion.index">   
-
+                    <tr v-for="(recepcion,index) in recepcioness" :key="recepcion.index">
                       <td>{{recepcion.fecharadicado}}</td>
                       <td>{{recepcion.fecharecepcionado}}</td>
                       <td>{{recepcion.fechareparto}}</td>
@@ -205,11 +185,11 @@
                       <td>{{recepcion.fecharetiro}}</td>
                       <td>{{recepcion.recepcionado}}</td>
                       <td>{{recepcion.consultorio}}</td>
-                      <td>{{recepcion.usu_id}}</td>
-                      <td>{{recepcion.asig_id}}</td>
-                      <td>{{recepcion.recep_id}}</td>
-                      <td>{{recepcion.recla_id}}</td>
-                      <td>{{recepcion.area_id}}</td>
+                      <td>{{recepcion.estudiante.persona.nombre}}</td>
+                      <td>{{recepcion.docente.persona.nombre}}</td>
+                      <td>{{recepcion.administrativo.persona.nombre}}</td>
+                      <td>{{recepcion.reclamante.persona.nombre}}</td>
+                      <td>{{recepcion.area.nombre}}</td>
                       <td>
                         <button
                           class="btn btn-success btn-sm"
@@ -294,10 +274,10 @@
         </div>
         <!--cierro modal de area -->
 
-        <!--segundo modal - el de buscar usuario -->
+        <!--segundo modal - el de buscar estudiante -->
         <div
           class="modal fade"
-          id="buscarModalusu"
+          id="buscarModalest"
           tabindex="-1"
           role="dialog"
           aria-labelledby="exampleModalLabel"
@@ -312,8 +292,8 @@
                 </button>
               </div>
               <div class="modal-body">
-                <input placeholder="Nombre" v-model="usuario.persona.prinom" />
-                <input placeholder="Cedula" v-model="usuario.persona.cedula" />
+                <input placeholder="Id" v-model="recepcion.estudiante.id" />
+                <input placeholder="Nombre" v-model="recepcion.estudiante.per_id" />
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -323,8 +303,66 @@
         </div>
         <!--cierro modal de buscar -->
 
-       
-      </div>
+        <!--segundo modal - el de buscar docente -->
+        <div
+          class="modal fade"
+          id="buscarModaldoc"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mostrar Persona</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <input placeholder="Id Docente" v-model="recepcion.docente.id" />
+                <input placeholder="Id Persona" v-model="recepcion.docente.per_id" />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--cierro modal de buscar -->
+
+        <!--segundo modal - el de buscar Administrativo -->
+        <div
+          class="modal fade"
+          id="buscarModaladm"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mostrar Persona</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <input placeholder="Id Docente" v-model="recepcion.administrativo.id" />
+                <input placeholder="Id Persona" v-model="recepcion.administrativo.per_id" />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--cierro modal de buscar -->
+        
+
+       </div>  
     </div>
   </div>
 </template>
@@ -346,71 +384,151 @@ export default {
           prinom: "",
           segnom: "",
           priape: "",
-          segapne: "",
+          segape: "",
           tel: "",
-          direc: ""
-        }
+          direc: "",
+        },
       },
 
-      recepcion:{
-        id:'',
-        recepcionado:'',
-        fecharadicado:'',
-        fecharecepcionado:'',
-        consultorio:'',
-        fechareparto:'',
-        fechapublicacion:'',
-        fecharetiro:'',
+      recepcion: {
+        id: "",
+        recepcionado: "",
+        fecharadicado: "",
+        fecharecepcionado: "",
+        consultorio: "",
+        fechareparto: "",
+        fechapublicacion: "",
+        fecharetiro: "",
 
-        estudiante:{
-          id:'',
-
+        estudiante: {
+          id: "",
+          per_id: "",
+          persona: {
+            id: "",
+            cedula: "",
+            prinom: "",
+            segnom: "",
+            priape: "",
+            segape: "",
+            tel: "",
+            direc: "",
+          },
         },
-        docente:{
-          id:'',
-
+        docente: {
+          id: "",
+          per_id: "",
+          persona: {
+            id: "",
+            cedula: "",
+            prinom: "",
+            segnom: "",
+            priape: "",
+            segape: "",
+            tel: "",
+            direc: "",
+          },
         },
-        administrativo:{
-          id:'',
-
+        administrativo: {
+          id: "",
+          per_id: "",
+          persona: {
+            id: "",
+            cedula: "",
+            prinom: "",
+            segnom: "",
+            priape: "",
+            segape: "",
+            tel: "",
+            direc: "",
+          },
         },
-        reclamante:{
-          id:'',
-
+        reclamante: {
+          id: "",
+          per_id: "",
+          persona: {
+            id: "",
+            cedula: "",
+            prinom: "",
+            segnom: "",
+            priape: "",
+            segape: "",
+            tel: "",
+            direc: "",
+          },
         },
-        area:{
-          id:'',
-          nombre:'',
-        }
+        area: {
+          id: "",
+          nombre: "",
+        },
       },
 
       esta: false,
       estado: "disable",
       recepcioness: [],
-      errors: []
+      errors: [],
     };
   },
   created() {
-    axios.get("/api/recepcion").then(res => {
+    axios.get("/api/recepcion").then((res) => {
       this.recepcioness = res.data;
     });
   },
   methods: {
-    buscarusu() {
-      axios.get("/api/persona/" + this.usuario.persona.cedula).then(res => {
+    buscarest() {
+      axios
+        .get("/api/estudiante/" + this.recepcion.estudiante.id)
+        .then((res) => {
+          if (res.data[0] == null) {
+            this.recepcion.estudiante.id = "";
+            this.recepcion.estudiante.per_id = "";
+            console.log(this.recepcion.estudiante);
+            this.esta = false;
+          } else {
+            console.log(res.data[0]);
+            let person = res.data[0];
+            this.recepcion.estudiante = person;
+            this.esta = true;
+          }
+        });
+    },
+buscardoc() {
+      axios.get("/api/docente/" + this.recepcion.docente.id).then((res) => {
         if (res.data[0] == null) {
-          this.usuario.persona.cedula = "";
-          this.usuario.persona.prinom = "";
-          console.log(this.usuario.persona.cedula);
+          this.recepcion.docente.id = "";
+          this.recepcion.docente.per_id = "";
+          console.log(this.recepcion.docente);
           this.esta = false;
         } else {
           console.log(res.data[0]);
           let person = res.data[0];
-          this.usuario.persona = person;
+          this.recepcion.docente = person;
           this.esta = true;
         }
       });
     },
+
+
+buscaradm() {
+      axios
+        .get("/api/administrativo/" + this.recepcion.administrativo.id)
+        .then((res) => {
+          if (res.data[0] == null) {
+            this.recepcion.administrativo.id = "";
+            this.recepcion.administrativo.per_id = "";
+            console.log(this.recepcion.administrativo);
+            this.esta = false;
+          } else {
+            console.log(res.data[0]);
+            let person = res.data[0];
+            this.recepcion.administrativo = person;
+            this.esta = true;
+          }
+        });
+    },
+    
+    
+
+    
 
     agregar() {
       const params = {
@@ -425,7 +543,7 @@ export default {
         asig_id: this.recepcion.docente.id,
         recep_id: this.recepcion.administrativo.id,
         recla_id: this.recepcion.reclamante.id,
-        area_id: this.recepcion.area.id
+        area_id: this.recepcion.area.id,
       };
       this.recepcion.recepcionado = "";
       this.recepcion.fecharadicado = "";
@@ -440,7 +558,7 @@ export default {
       this.recepcion.reclamante = "";
       this.recepcion.area = "";
 
-      axios.post("/api/recepcion", params).then(res => {
+      axios.post("/api/recepcion", params).then((res) => {
         if (res.data == null) {
           alert("La recepcion No se registro porque tiene errores");
         } else {
@@ -470,11 +588,11 @@ export default {
         username: this.usuario.username,
         email: this.usuario.email,
         password: this.usuario.password,
-        per_id: this.usuario.per_id
+        per_id: this.usuario.per_id,
       };
       axios
         .put("/api/user/" + this.usuario.id, params)
-        .then(res => {
+        .then((res) => {
           if (res.data == null) {
             alert("El Usuario no se ha actualizado");
           } else {
@@ -493,7 +611,7 @@ export default {
           this.usuarioss[this.usuario.index] = res.data;
           this.usuario.password = "";
         })
-        .catch(error => {
+        .catch((error) => {
           if (error.response.status == 422) {
             this.errors = error.response.data.errors;
 
@@ -505,7 +623,7 @@ export default {
             alert(this.errors.password[0]);
           }
         });
-    }
-  }
+    },
+  },
 };
 </script>
