@@ -17,4 +17,10 @@ class Docente extends Model
         return $this->belongsTo('App\Persona','per_id');
     }
 
+    public function recepcion()
+    {
+        return $this->belongsTo('App\Recepcion','id');
+    
+    }
+
 }

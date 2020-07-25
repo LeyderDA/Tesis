@@ -6,9 +6,11 @@
     <div class="card-body row">
       <form>
         <div class="row">
+
+          
           <label class="col-5 col-form-label">Escoge el area</label>
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Area" v-model="receparea.area.nombre" />
+            <input class="form-control" placeholder="Area" v-model="recepcion.area.nombre" />
           </div>
 
           <label class="col-5 col-form-label">Fecha radicado</label>
@@ -18,7 +20,7 @@
               class="form-control"
               type="date"
               placeholder="Fecha de radicado"
-              v-model="recepusu.fecharadicado"
+              v-model="recepcion.fecharadicado"
             />
           </div>
 
@@ -28,7 +30,7 @@
               class="form-control"
               type="date"
               placeholder="Fecha recepcionado"
-              v-model="recepusu.fecharecepcionado"
+              v-model="recepcion.fecharecepcionado"
             />
           </div>
 
@@ -38,7 +40,7 @@
               class="form-control"
               type="date"
               placeholder="Fecha reparto"
-              v-model="recepusu.fechareparto"
+              v-model="recepcion.fechareparto"
             />
           </div>
 
@@ -48,7 +50,7 @@
               class="form-control"
               type="date"
               placeholder="Fecha de publicación"
-              v-model="recepusu.fechapublicacion"
+              v-model="recepcion.fechapublicacion"
             />
           </div>
 
@@ -58,7 +60,7 @@
               class="form-control"
               type="date"
               placeholder="Fecha de retiro"
-              v-model="recepusu.fecharetiro"
+              v-model="recepcion.fecharetiro"
             />
           </div>
 
@@ -67,44 +69,44 @@
             <input
               class="form-control"
               placeholder="Recepcionado en"
-              v-model="recepusu.recepcionado"
+              v-model="recepcion.recepcionado"
             />
           </div>
 
           <label class="col-5 col-form-label">Consultorio</label>
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Consultorio" v-model="recepusu.consultorio" />
+            <input class="form-control" placeholder="Consultorio" v-model="recepcion.consultorio" />
           </div>
 
-          <label class="col-5 col-form-label">Digita la cedula del usuario</label>
+          <label class="col-5 col-form-label">Ingresa el ID del usuario</label>
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Usuario" v-model="recepusu.personausu.cedula" />
+            <input class="form-control" placeholder="Usuario" v-model="recepcion.estudiante.id" />
           </div>
 
-          <label class="col-5 col-form-label">Digita la cedula del asignado</label>
+          <label class="col-5 col-form-label">Ingresa el ID del asignado</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
               placeholder="Asignado"
-              v-model="recepasig.personaasig.cedula"
+              v-model="recepcion.docente.id"
             />
           </div>
 
-          <label class="col-5 col-form-label">Digita la cedula del Recepcionador</label>
+          <label class="col-5 col-form-label">Ingresa el ID del Recepcionador</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
               placeholder="Recepciona"
-              v-model="receprecep.personarecep.cedula"
+              v-model="recepcion.administrativo.id"
             />
           </div>
 
-          <label class="col-5 col-form-label">Digita la cedula del reclamante</label>
+          <label class="col-5 col-form-label">Ingresa el ID del reclamante</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
               placeholder="Reclamante"
-              v-model="receprecla.personarecla.cedula"
+              v-model="recepcion.reclamante.id"
             />
           </div>
         </div>
@@ -194,30 +196,30 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(recepusu,index) in recepcioness" :key="recepusu.index">   
+                    <tr v-for="(recepcion,index) in recepcioness" :key="recepcion.index">   
 
-                      <td>{{recepusu.fecharadicado}}</td>
-                      <td>{{recepusu.fecharecepcionado}}</td>
-                      <td>{{recepusu.fechareparto}}</td>
-                      <td>{{recepusu.fechapublicacion}}</td>
-                      <td>{{recepusu.fecharetiro}}</td>
-                      <td>{{recepusu.recepcionado}}</td>
-                      <td>{{recepusu.consultorio}}</td>
-                      <td>{{recepusu.usu_id}}</td>
-                      <td>{{recepusu.asig_id}}</td>
-                      <td>{{recepusu.recep_id}}</td>
-                      <td>{{recepusu.recla_id}}</td>
-                      <td>{{recepusu.area_id}}</td>
+                      <td>{{recepcion.fecharadicado}}</td>
+                      <td>{{recepcion.fecharecepcionado}}</td>
+                      <td>{{recepcion.fechareparto}}</td>
+                      <td>{{recepcion.fechapublicacion}}</td>
+                      <td>{{recepcion.fecharetiro}}</td>
+                      <td>{{recepcion.recepcionado}}</td>
+                      <td>{{recepcion.consultorio}}</td>
+                      <td>{{recepcion.usu_id}}</td>
+                      <td>{{recepcion.asig_id}}</td>
+                      <td>{{recepcion.recep_id}}</td>
+                      <td>{{recepcion.recla_id}}</td>
+                      <td>{{recepcion.area_id}}</td>
                       <td>
                         <button
                           class="btn btn-success btn-sm"
                           data-toggle="modal"
                           data-target="#editarModal"
-                          @click="editarForm(usuario,index)"
+                          @click="editarForm(recepcion,index)"
                         >
                           <i class="fas fa-pencil-alt"></i>
                         </button>
-                        <button class="btn btn-danger btn-sm" @click="eliminar(usuario,index)">
+                        <button class="btn btn-danger btn-sm" @click="eliminar(recepcion,index)">
                           <i class="fas fa-trash-alt"></i>
                         </button>
                       </td>
@@ -281,8 +283,8 @@
                 </button>
               </div>
               <div class="modal-body">
-                <input placeholder="Nombre" v-model="receparea.area.nombre" />
-                <input placeholder="Id" v-model="receparea.area.id" />
+                <input placeholder="Nombre" v-model="recepcion.area.nombre" />
+                <input placeholder="Id" v-model="recepcion.area.id" />
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -310,8 +312,8 @@
                 </button>
               </div>
               <div class="modal-body">
-                <input placeholder="Nombre" v-model="recepusu.personausu.prinom" />
-                <input placeholder="Cedula" v-model="recepusu.personausu.cedula" />
+                <input placeholder="Nombre" v-model="usuario.persona.prinom" />
+                <input placeholder="Cedula" v-model="usuario.persona.cedula" />
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -321,92 +323,7 @@
         </div>
         <!--cierro modal de buscar -->
 
-        <!--modal de buscar asignado -->
-        <div
-          class="modal fade"
-          id="buscarasig"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mostrar persona</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <input placeholder="Nombre" v-model="recepasig.personaasig.prinom" />
-                <input placeholder="Cedula" v-model="recepasig.personaasig.cedula" />
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--cierro modal de buscar -->
-
-        <!--segundo modal - el de buscar recepcionador -->
-        <div
-          class="modal fade"
-          id="buscarrecep"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mostrar Persona</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <input placeholder="Nombre" v-model="receprecep.personarecep.prinom" />
-                <input placeholder="Cedula" v-model="receprecep.personarecep.cedula" />
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--cierro modal de buscar -->
-
-        <!--modal de buscar reclamante -->
-        <div
-          class="modal fade"
-          id="buscarrecla"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mostrar persona</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <input placeholder="Nombre" v-model="receprecla.personarecla.prinom" />
-                <input placeholder="Cedula" v-model="receprecla.personarecla.cedula" />
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--cierro modal de buscar -->
+       
       </div>
     </div>
   </div>
@@ -434,102 +351,36 @@ export default {
           direc: ""
         }
       },
+
       recepcion:{
         id:'',
+        recepcionado:'',
+        fecharadicado:'',
+        fecharecepcionado:'',
+        consultorio:'',
+        fechareparto:'',
+        fechapublicacion:'',
+        fecharetiro:'',
 
         estudiante:{
           id:'',
-          nombre:'',
+
         },
         docente:{
           id:'',
-          nombre:'',
+
         },
-        adminisstrativo:{
+        administrativo:{
           id:'',
-          nombre:'',
+
         },
         reclamante:{
           id:'',
-          nombre:'',
+
         },
         area:{
           id:'',
           nombre:'',
-        }
-      },
-
-
-      recepusu: {
-
-        usu_id: "",
-
-        personausu: {
-          id: "",
-          cedula: "",
-          prinom: "",
-          segnom: "",
-          priape: "",
-          segape: "",
-          tel: "",
-          direc: ""
-        }
-      },
-      recepasig: {
-
-        asig_id: "",
-
-        personaasig: {
-          id: "",
-          cedula: "",
-          prinom: "",
-          segnom: "",
-          priape: "",
-          segape: "",
-          tel: "",
-          direc: ""
-        }
-      },
-
-      receprecep: {
-
-        recep_id: "",
-
-        personarecep: {
-          id: "",
-          cedula: "",
-          prinom: "",
-          segnom: "",
-          priape: "",
-          segape: "",
-          tel: "",
-          direc: ""
-        }
-      },
-
-      receprecla: {
-
-        recla_id: "",
-
-        personarecla: {
-          id: "",
-          cedula: "",
-          prinom: "",
-          segnom: "",
-          priape: "",
-          segape: "",
-          tel: "",
-          direc: ""
-        }
-      },
-
-      receparea: {
-       
-        area_id: "",
-
-        area: {
-          id: "",
-          nombre: ""
         }
       },
 
@@ -546,116 +397,48 @@ export default {
   },
   methods: {
     buscarusu() {
-      axios.get("/api/persona/" + this.recepusu.personausu.cedula).then(res => {
+      axios.get("/api/persona/" + this.usuario.persona.cedula).then(res => {
         if (res.data[0] == null) {
-          this.recepusu.personausu.cedula = "";
-          this.recepusu.personausu.prinom = "";
-          console.log(this.recepusu.personausu.cedula);
+          this.usuario.persona.cedula = "";
+          this.usuario.persona.prinom = "";
+          console.log(this.usuario.persona.cedula);
           this.esta = false;
         } else {
           console.log(res.data[0]);
           let person = res.data[0];
-          this.recepusu.personausu = person;
+          this.usuario.persona = person;
           this.esta = true;
         }
       });
     },
-    buscarasig() {
-      axios
-        .get("/api/persona/" + this.recepasig.personaasig.cedula)
-        .then(res => {
-          if (res.data[0] == null) {
-            this.recepasig.personaasig.cedula = "";
-            this.recepasig.personaasig.prinom = "";
-            console.log(this.recepasig.personaasig.cedula);
-            this.esta = false;
-          } else {
-            console.log(res.data[0]);
-            let person = res.data[0];
-            this.recepasig.personaasig = person;
-            this.esta = true;
-          }
-        });
-    },
 
-    buscarrecep() {
-      axios
-        .get("/api/persona/" + this.receprecep.personarecep.cedula)
-        .then(res => {
-          if (res.data[0] == null) {
-            this.receprecep.personarecep.cedula = "";
-            this.receprecep.personarecep.prinom = "";
-            console.log(this.receprecep.personarecep.cedula);
-            this.esta = false;
-          } else {
-            console.log(res.data[0]);
-            let person = res.data[0];
-            this.receprecep.personarecep = person;
-            this.esta = true;
-          }
-        });
-    },
-
-    buscarrecla() {
-      axios
-        .get("/api/persona/" + this.receprecla.personarecla.cedula)
-        .then(res => {
-          if (res.data[0] == null) {
-            this.receprecla.personarecla.cedula = "";
-            this.receprecla.personarecla.prinom = "";
-            console.log(this.receprecla.personarecla.cedula);
-            this.esta = false;
-          } else {
-            console.log(res.data[0]);
-            let person = res.data[0];
-            this.receprecla.personarecla = person;
-            this.esta = true;
-          }
-        });
-    },
-
-    buscararea() {
-      axios.get("/api/area/" + this.receparea.area.nombre).then(res => {
-        if (res.data[0] == null) {
-          this.receparea.area.nombre = "";
-          this.receparea.area.id = "";
-          console.log(this.receparea.area.nombre);
-          this.esta = false;
-        } else {
-          console.log(res.data[0]);
-          let are = res.data[0];
-          this.receparea.area = are;
-          this.esta = true;
-        }
-      });
-    },
     agregar() {
       const params = {
-        recepcionado: this.recepusu.recepcionado,
-        fecharadicado: this.recepusu.fecharadicado,
-        fecharecepcionado: this.recepusu.fecharecepcionado,
-        consultorio: this.recepusu.consultorio,
-        fechareparto: this.recepusu.fechareparto,
-        fechapublicacion: this.recepusu.fechapublicacion,
-        fecharetiro: this.recepusu.fecharetiro,
-        usu_id: this.recepusu.personausu.id,
-        asig_id: this.recepasig.personaasig.id,
-        recep_id: this.receprecep.personarecep.id,
-        recla_id: this.receprecla.personarecla.id,
-        area_id: this.receparea.area.id
+        recepcionado: this.recepcion.recepcionado,
+        fecharadicado: this.recepcion.fecharadicado,
+        fecharecepcionado: this.recepcion.fecharecepcionado,
+        consultorio: this.recepcion.consultorio,
+        fechareparto: this.recepcion.fechareparto,
+        fechapublicacion: this.recepcion.fechapublicacion,
+        fecharetiro: this.recepcion.fecharetiro,
+        usu_id: this.recepcion.estudiante.id,
+        asig_id: this.recepcion.docente.id,
+        recep_id: this.recepcion.administrativo.id,
+        recla_id: this.recepcion.reclamante.id,
+        area_id: this.recepcion.area.id
       };
-      this.recepusu.recepcionado = "";
-      this.recepusu.fecharadicado = "";
-      this.recepusu.fecharecepcionado = "";
-      this.recepusu.consultorio = "";
-      this.recepusu.fechareparto = "";
-      this.recepusu.fechapublicacion = "";
-      this.recepusu.fecharetiro = "";
-      this.recepusu.personausu = "";
-      this.recepasig.personaasig = "";
-      this.receprecep.personarecep = "";
-      this.receprecla.personarecla = "";
-      this.receparea.area = "";
+      this.recepcion.recepcionado = "";
+      this.recepcion.fecharadicado = "";
+      this.recepcion.fecharecepcionado = "";
+      this.recepcion.consultorio = "";
+      this.recepcion.fechareparto = "";
+      this.recepcion.fechapublicacion = "";
+      this.recepcion.fecharetiro = "";
+      this.recepcion.estudiante = "";
+      this.recepcion.docente = "";
+      this.recepcion.administrativo = "";
+      this.recepcion.reclamante = "";
+      this.recepcion.area = "";
 
       axios.post("/api/recepcion", params).then(res => {
         if (res.data == null) {
