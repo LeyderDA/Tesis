@@ -107,7 +107,7 @@
           <button
             class="btn btn-primary btn-block"
             data-toggle="modal"
-            data-target="#buscararea"
+            data-target="#buscarModalarea"
             @click="buscararea()"
           >Buscar Area</button>
         </div>
@@ -143,6 +143,17 @@
             data-target="#buscarModaladm"
             @click="buscaradm()"
           >B.Admin Recep</button>
+        </div>
+        <!--buscar recepcionador -->
+
+          <!--buscar reclamante -->
+        <div class="col-2 form-group" v-if="true">
+          <button
+            class="btn btn-primary btn-block"
+            data-toggle="modal"
+            data-target="#buscarModalrecl"
+            @click="buscarrecl()"
+          >B.Reclamante</button>
         </div>
         <!--buscar recepcionador -->
 
@@ -248,7 +259,7 @@
         <!--modal de area -->
         <div
           class="modal fade"
-          id="buscararea"
+          id="buscarModalarea"
           tabindex="-1"
           role="dialog"
           aria-labelledby="exampleModalLabel"
@@ -263,8 +274,9 @@
                 </button>
               </div>
               <div class="modal-body">
-                <input placeholder="Nombre" v-model="recepcion.area.nombre" />
+                
                 <input placeholder="Id" v-model="recepcion.area.id" />
+                <input placeholder="Nombre" v-model="recepcion.area.nombre" />
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -361,6 +373,35 @@
         </div>
         <!--cierro modal de buscar -->
         
+
+           <!--segundo modal - el de buscar reclamante -->
+        <div
+          class="modal fade"
+          id="buscarModalrecl"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mostrar Persona</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <input placeholder="Id Docente" v-model="recepcion.reclamante.id" />
+                <input placeholder="Id Persona" v-model="recepcion.reclamante.per_id" />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--cierro modal de buscar -->
 
        </div>  
     </div>
@@ -521,6 +562,44 @@ buscaradm() {
             console.log(res.data[0]);
             let person = res.data[0];
             this.recepcion.administrativo = person;
+            this.esta = true;
+          }
+        });
+    },
+    
+
+    buscarrecl() {
+      axios
+        .get("/api/reclamante/" + this.recepcion.reclamante.id)
+        .then((res) => {
+          if (res.data[0] == null) {
+            this.recepcion.reclamante.id = "";
+            this.recepcion.reclamante.per_id = "";
+            console.log(this.recepcion.reclamante);
+            this.esta = false;
+          } else {
+            console.log(res.data[0]);
+            let person = res.data[0];
+            this.recepcion.reclamante = person;
+            this.esta = true;
+          }
+        });
+    },
+    
+
+    buscararea() {
+      axios
+        .get("/api/area/" + this.recepcion.area.nombre)
+        .then((res) => {
+          if (res.data[0] == null) {
+            this.recepcion.area.id = "";
+            this.recepcion.area.nombre = "";
+            console.log(this.recepcion.area);
+            this.esta = false;
+          } else {
+            console.log(res.data[0]);
+            let person = res.data[0];
+            this.recepcion.area = person;
             this.esta = true;
           }
         });
