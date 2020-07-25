@@ -11,7 +11,7 @@
         <div class="col-md-12">
     
         
-            <recepcion-v/>
+            <reclamante-v/>
    
         </div>
         

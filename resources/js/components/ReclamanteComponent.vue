@@ -1,25 +1,61 @@
 <template>
   <div class="card">
     <div>
-      <h4 class="text-center mb-2 card-title">Registrando Usuario</h4>
+      <h2 class="text-center mb-2 card-title">Registrando Reclamante</h2>
     </div>
     <div class="card-body row">
       <form>
         <div class="row">
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Nombre de Usuario" v-model="usuario.username" />
+            <input
+              class="form-control"
+              placeholder="Enfoque diferencial"
+              v-model="reclamante.enfodifervictima"
+            />
           </div>
 
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Email" v-model="usuario.email" />
+            <input class="form-control" placeholder="Genero" v-model="reclamante.genevictima" />
           </div>
 
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Password" v-model="usuario.password" />
+            <input class="form-control" placeholder="Edad" v-model="reclamante.edadvictima" />
           </div>
 
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Cedula" v-model="usuario.persona.cedula" />
+            <input
+              class="form-control"
+              placeholder="Discapacidad"
+              v-model="reclamante.discapavictima"
+            />
+          </div>
+
+          <div class="col-6 form-group">
+            <input class="form-control" placeholder="Estrato" v-model="reclamante.estravictima" />
+          </div>
+
+          <div class="col-6 form-group">
+            <input class="form-control" placeholder="Embarazo" v-model="reclamante.embaravictima" />
+          </div>
+
+          <div class="col-6 form-group">
+            <input
+              class="form-control"
+              placeholder="Grupo Etnico"
+              v-model="reclamante.grupetnicovictima"
+            />
+          </div>
+
+          <div class="col-6 form-group">
+            <input
+              class="form-control"
+              placeholder="Entidad o persona que reclama"
+              v-model="reclamante.persoentidreclama"
+            />
+          </div>
+
+          <div class="col-6 form-group">
+            <input class="form-control" placeholder="Cedula" v-model="reclamante.persona.cedula" />
           </div>
         </div>
       </form>
@@ -46,30 +82,40 @@
                 <table class="table text-center">
                   <thead>
                     <tr>
-                      <th>Username</th>
-                      <th>Email</th>
-                      <th>Nombre Persona</th>
-                      <th>Apellido Persona</th>
+                      <th>Enf.Diferencial</th>
+                      <th>Genero</th>
+                      <th>Edad</th>
+                      <th>Discapacidad</th>
+                      <th>Estrato</th>
+                      <th>Embarazo</th>
+                      <th>Grupo Etnico</th>
+                      <th>Entidad Reclamante</th>
+                      <th>Persona Relacionada</th>
                       <th>Opciones</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(usuario,index) in usuarioss" :key="usuario.index">
-                      <td>{{usuario.username}}</td>
-                      <td>{{usuario.email}}</td>
-                      <td>{{usuario.persona.prinom}}</td>
-                      <td>{{usuario.persona.priape}}</td>
+                    <tr v-for="(reclamante,index) in usuarioss" :key="reclamante.index">
+                      <td>{{reclamante.enfodifervictima}}</td>
+                      <td>{{reclamante.genevictima}}</td>
+                      <td>{{reclamante.edadvictima}}</td>
+                      <td>{{reclamante.discapavictima}}</td>
+                      <td>{{reclamante.estravictima}}</td>
+                      <td>{{reclamante.embaravictima}}</td>
+                      <td>{{reclamante.grupetnicovictima}}</td>
+                      <td>{{reclamante.persoentidreclama}}</td>
+                      <td>{{reclamante.persona.prinom}}</td>
 
                       <td>
                         <button
                           class="btn btn-success btn-sm"
                           data-toggle="modal"
                           data-target="#editarModal"
-                          @click="editarForm(usuario,index)"
+                          @click="editarForm(reclamante,index)"
                         >
                           <i class="fas fa-pencil-alt"></i>
                         </button>
-                        <button class="btn btn-danger btn-sm" @click="eliminar(usuario,index)">
+                        <button class="btn btn-danger btn-sm" @click="eliminar(reclamante,index)">
                           <i class="fas fa-trash-alt"></i>
                         </button>
                       </td>
@@ -92,7 +138,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Editar Reclamante</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -133,8 +179,8 @@
                 </button>
               </div>
               <div class="modal-body">
-                <input placeholder="Nombre" v-model="usuario.persona.prinom" />
-                <input placeholder="Cedula" v-model="usuario.persona.cedula" />
+                <input placeholder="Nombre" v-model="reclamante.persona.prinom" />
+                <input placeholder="Cedula" v-model="reclamante.persona.cedula" />
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -171,6 +217,30 @@ export default {
         }
       },
 
+      reclamante: {
+        id: "",
+        enfodifervictima: "",
+        genevictima: "",
+        edadvictima: "",
+        discapavictima: "",
+        estravictima: "",
+        embaravictima: "",
+        grupetnicovictima: "",
+        persoentidreclama: "",
+        per_id: "",
+
+        persona: {
+          id: "",
+          cedula: "",
+          prinom: "",
+          segnom: "",
+          priape: "",
+          segape: "",
+          tel: "",
+          direc: ""
+        }
+      },
+
       esta: false,
       estado: "disable",
       usuarioss: [],
@@ -179,46 +249,56 @@ export default {
     };
   },
   created() {
-    axios.get("/api/user").then(res => {
+    axios.get("/api/reclamante").then(res => {
       this.usuarioss = res.data;
     });
   },
   methods: {
     buscar() {
-      axios.get("/api/persona/" + this.usuario.persona.cedula).then(res => {
+      axios.get("/api/persona/" + this.reclamante.persona.cedula).then(res => {
         if (res.data[0] == null) {
-          this.usuario.persona.cedula = "";
-          this.usuario.persona.prinom = "";
-          console.log(this.usuario.persona.cedula);
+          this.reclamante.persona.cedula = "";
+          this.reclamante.persona.prinom = "";
+          console.log(this.reclamante.persona.cedula);
           this.esta = false;
         } else {
           console.log(res.data[0]);
           let person = res.data[0];
-          this.usuario.persona = person;
+          this.reclamante.persona = person;
           this.esta = true;
         }
       });
     },
     agregar() {
-      // alert(this.personas.prinom);
       const params = {
-        username: this.usuario.username,
-        email: this.usuario.email,
-        password: this.usuario.password,
-        per_id: this.usuario.persona.id
+        enfodifervictima: this.reclamante.enfodifervictima,
+        genevictima: this.reclamante.genevictima,
+        edadvictima: this.reclamante.edadvictima,
+        discapavictima: this.reclamante.discapavictima,
+        estravictima: this.reclamante.estravictima,
+        embaravictima: this.reclamante.embaravictima,
+        grupetnicovictima: this.reclamante.grupetnicovictima,
+        persoentidreclama: this.reclamante.persoentidreclama,
+        per_id: this.reclamante.persona.id
       };
-      this.usuario.username = "";
-      this.usuario.email = "";
-      this.usuario.password = "";
-      this.usuario.per_id = "";
 
-      axios.post("/api/user", params).then(res => {
+      this.reclamante.enfodifervictima = "";
+      this.reclamante.genevictima = "";
+      this.reclamante.edadvictima = "";
+      this.reclamante.discapavictima = "";
+      this.reclamante.estravictima = "";
+      this.reclamante.embaravictima = "";
+      this.reclamante.grupetnicovictima = "";
+      this.reclamante.persoentidreclama = "";
+      this.reclamante.per_id = "";
+
+      axios.post("/api/reclamante", params).then(res => {
         if (res.data == null) {
-          alert("El usuario no se ha registrado con exito");
+          alert("El reclamante no se ha registrado con exito");
         } else {
-          alert("El usuario se ha registrado");
+          alert("El reclamante se ha registrado");
         }
-        this.usuarioss.push(res.data);
+        this.usuarioss.push(res.data);s
       });
     },
 
@@ -227,7 +307,7 @@ export default {
         `Confirma Eliminar Usuario: ${usuario.username}`
       );
       if (confirmacion) {
-        axios.delete("/api/user/" + usuario.id).then(() => {
+        axios.delete("/api/reclamante/" + usuario.id).then(() => {
           this.usuarioss.splice(index, 1);
           alert("El usuario se ha eliminado con exito");
         });
@@ -245,7 +325,7 @@ export default {
         per_id: this.usuario.per_id
       };
       axios
-        .put("/api/user/" + this.usuario.id, params)
+        .put("/api/reclamante/" + this.usuario.id, params)
         .then(res => {
           if (res.data == null) {
             alert("El Usuario no se ha actualizado");

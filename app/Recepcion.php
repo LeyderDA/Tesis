@@ -38,4 +38,5 @@ class Recepcion extends Model
     {
         return $this->belongsTo('App\Area','area_id');
     }
+
 }

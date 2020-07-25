@@ -9,16 +9,20 @@ use Illuminate\Http\Request;
 class RecepcionController extends Controller
 {
 
-    public function index(Request $request)
-
-    {   $usuarios = Recepcion::all();
+    public function index(Request $request){
+        
+        $recepcion = Recepcion::all();
         if($request->ajax()){
-            foreach ($usuarios as $usua){
-                $usua->persona;
+            foreach ($recepcion as $rec){
+                $rec->estudiante;
+                $rec->docente;
+                $rec->administrativo;
+                $rec->reclamante;
+                $rec->area;
             }
-            return $usuarios;
+            return $recepcion;
         }else{
-            return  response()->json($usuarios);
+            return  response()->json($recepcion);
         }
     }
 

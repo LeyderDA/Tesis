@@ -110,7 +110,7 @@ export default {
           segape: "",
           tel: "",
           direc: ""
-        }
+        },
       },
 
       esta: false,

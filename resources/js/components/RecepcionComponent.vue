@@ -184,7 +184,13 @@
                       <th>Fecha de Retiro</th>
                       <th>Recepcionado en</th>
                       <th>Consultorio</th>
+                      <th>Usuario</th>
+                      <th>Asignado</th>
+                      <th>Recepcionista</th>
+                      <th>Reclamante</th>
+                      <th>Area</th>
                       <th>Opciones</th>
+
                     </tr>
                   </thead>
                   <tbody>
@@ -197,8 +203,11 @@
                       <td>{{recepusu.fecharetiro}}</td>
                       <td>{{recepusu.recepcionado}}</td>
                       <td>{{recepusu.consultorio}}</td>
-                      
-                      
+                      <td>{{recepusu.usu_id}}</td>
+                      <td>{{recepusu.asig_id}}</td>
+                      <td>{{recepusu.recep_id}}</td>
+                      <td>{{recepusu.recla_id}}</td>
+                      <td>{{recepusu.area_id}}</td>
                       <td>
                         <button
                           class="btn btn-success btn-sm"
@@ -420,21 +429,39 @@ export default {
           prinom: "",
           segnom: "",
           priape: "",
-          segape: "",
+          segapne: "",
           tel: "",
           direc: ""
         }
       },
+      recepcion:{
+        id:'',
+
+        estudiante:{
+          id:'',
+          nombre:'',
+        },
+        docente:{
+          id:'',
+          nombre:'',
+        },
+        adminisstrativo:{
+          id:'',
+          nombre:'',
+        },
+        reclamante:{
+          id:'',
+          nombre:'',
+        },
+        area:{
+          id:'',
+          nombre:'',
+        }
+      },
+
 
       recepusu: {
-        id: "",
-        recepcionado: "",
-        fecharadicado: "",
-        fecharecepcionado: "",
-        consultorio: "",
-        fechareparto: "",
-        fechapublicacion: "",
-        fecharetiro: "",
+
         usu_id: "",
 
         personausu: {
@@ -449,14 +476,7 @@ export default {
         }
       },
       recepasig: {
-        id: "",
-        recepcionado: "",
-        fecharadicado: "",
-        fecharecepcionado: "",
-        consultorio: "",
-        fechareparto: "",
-        fechapublicacion: "",
-        fecharetiro: "",
+
         asig_id: "",
 
         personaasig: {
@@ -472,14 +492,7 @@ export default {
       },
 
       receprecep: {
-        id: "",
-        recepcionado: "",
-        fecharadicado: "",
-        fecharecepcionado: "",
-        consultorio: "",
-        fechareparto: "",
-        fechapublicacion: "",
-        fecharetiro: "",
+
         recep_id: "",
 
         personarecep: {
@@ -495,14 +508,7 @@ export default {
       },
 
       receprecla: {
-        id: "",
-        recepcionado: "",
-        fecharadicado: "",
-        fecharecepcionado: "",
-        consultorio: "",
-        fechareparto: "",
-        fechapublicacion: "",
-        fecharetiro: "",
+
         recla_id: "",
 
         personarecla: {
@@ -518,14 +524,7 @@ export default {
       },
 
       receparea: {
-        id: "",
-        recepcionado: "",
-        fecharadicado: "",
-        fecharecepcionado: "",
-        consultorio: "",
-        fechareparto: "",
-        fechapublicacion: "",
-        fecharetiro: "",
+       
         area_id: "",
 
         area: {

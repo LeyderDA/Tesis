@@ -25,6 +25,10 @@ class Persona extends Model
         return $this->belongsTo('App\Recepcion','id');
     
     }
-
+    public function reclamante()
+    {
+        return $this->belongsTo('App\Reclamante','id');
+    
+    }
    
 }

@@ -66,3 +66,9 @@ Route::post('/recepcion', 'RecepcionController@store')->name('recepcionGuardar')
 Route::get('/recepcion', 'RecepcionController@index')->name('recepcionListar');
 Route::delete('/recepcion/{id}', 'RecepcionControllerController@destroy')->name('recepcionEliminar');
 Route::put('/recepcion/{id}', 'RecepcionController@update')->name('recepcionActualizar');
+
+//RUTAS DE API PARA RECLAMANTES
+Route::post('/reclamante', 'ReclamanteController@store')->name('reclamanteGuardar');
+Route::get('/reclamante', 'ReclamanteController@index')->name('reclamanteListar');
+Route::delete('/reclamante/{id}', 'ReclamanteController@destroy')->name('reclamanteEliminar');
+Route::put('/reclamante/{id}', 'ReclamanteController@update')->name('reclamanteActualizar');

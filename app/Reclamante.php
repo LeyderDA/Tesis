@@ -11,6 +11,11 @@ class Reclamante extends Model
     [
         'id','enfodifervictima','genevictima','edadvictima','discapavictima',
         'estravictima','embaravictima','grupetnicovictima','persoentidreclama',
-        'recp_id',
+        'per_id',
     ];
+
+    public function Persona()
+    {
+        return $this->belongsTo('App\Persona','per_id');
+    }
 }
