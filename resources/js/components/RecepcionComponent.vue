@@ -200,7 +200,7 @@
                       <td>{{recepcion.docente.id}}</td>
                       <td>{{recepcion.administrativo.id}}</td>
                       <td>{{recepcion.reclamante.id}}</td>
-                      <td>{{recepcion.area.id}}</td>
+                      <td>{{recepcion.area.nombre}}</td>
                       <td>
                         <button
                           class="btn btn-success btn-sm"
@@ -647,14 +647,14 @@ buscaradm() {
       });
     },
 
-    eliminar(usuario, index) {
+    eliminar(recepcion, index) {
       const confirmacion = confirm(
-        `Confirma Eliminar Usuario: ${usuario.username}`
+        `Confirma Eliminar Recepcion del area de: ${recepcion.area.nombre}`
       );
       if (confirmacion) {
-        axios.delete("/api/user/" + usuario.id).then(() => {
-          this.usuarioss.splice(index, 1);
-          alert("El usuario se ha eliminado con exito");
+        axios.delete("/api/recepcion/" + recepcion.id).then(() => {
+          this.recepcioness.splice(index, 1);
+          alert("La recepción se ha eliminado con exito");
         });
       }
     },

@@ -3576,16 +3576,16 @@ __webpack_require__.r(__webpack_exports__);
         _this7.recepcioness.push(res.data);
       });
     },
-    eliminar: function eliminar(usuario, index) {
+    eliminar: function eliminar(recepcion, index) {
       var _this8 = this;
 
-      var confirmacion = confirm("Confirma Eliminar Usuario: ".concat(usuario.username));
+      var confirmacion = confirm("Confirma Eliminar Recepcion del area de: ".concat(recepcion.area.nombre));
 
       if (confirmacion) {
-        axios["delete"]("/api/user/" + usuario.id).then(function () {
-          _this8.usuarioss.splice(index, 1);
+        axios["delete"]("/api/recepcion/" + recepcion.id).then(function () {
+          _this8.recepcioness.splice(index, 1);
 
-          alert("El usuario se ha eliminado con exito");
+          alert("La recepción se ha eliminado con exito");
         });
       }
     },
@@ -42232,7 +42232,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(recepcion.reclamante.id))]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(recepcion.area.id))]),
+                        _c("td", [_vm._v(_vm._s(recepcion.area.nombre))]),
                         _vm._v(" "),
                         _c("td", [
                           _c(

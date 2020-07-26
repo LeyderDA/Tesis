@@ -61,4 +61,12 @@ class RecepcionController extends Controller
         $pers=Persona::find($id);
         return  response()->json($pers);
     }
+
+    public function destroy($id)
+    {
+        $rec = Recepcion::find($id);
+        $rec->delete();
+        return  response()->json($rec);
+      
+    }
 }
