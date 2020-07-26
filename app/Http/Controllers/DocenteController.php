@@ -45,6 +45,7 @@ class DocenteController extends Controller
         $doc=new Docente();
         $doc->per_id=$request->per_id;
         $doc->save();
+        $doc->persona;
         return  response()->json($doc);
 
     }

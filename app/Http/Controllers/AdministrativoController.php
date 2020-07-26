@@ -44,6 +44,7 @@ class AdministrativoController extends Controller
         $admin=new Administrativo();
         $admin->per_id=$request->per_id;
         $admin->save();
+        $admin->persona;
         return  response()->json($admin);
 
     }

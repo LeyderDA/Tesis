@@ -45,6 +45,7 @@ class EstudianteController extends Controller
         $est=new Estudiante();
         $est->per_id=$request->per_id;
         $est->save();
+        $est->persona;
         return  response()->json($est);
 
     }

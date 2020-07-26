@@ -34,6 +34,7 @@ class ReclamanteController extends Controller
         $re->persoentidreclama= $request->persoentidreclama;
         $re->per_id= $request->per_id;
         $re->save();
+        $re->persona;
         return  response()->json($re);
     }
 

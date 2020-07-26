@@ -48,6 +48,11 @@ class RecepcionController extends Controller
         $re->recla_id = $request->recla_id;
         $re->area_id = $request->area_id;
         $re->save();
+        $re->estudiante;
+        $re->docente;
+        $re->administrativo;
+        $re->reclamante;
+        $re->area;
         return  response()->json($re);
     }
 
