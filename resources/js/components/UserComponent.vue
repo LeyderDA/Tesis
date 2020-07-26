@@ -100,7 +100,6 @@
               <div class="modal-body">
                 <input placeholder="Username" v-model="usuario.username" />
                 <input placeholder="Email" v-model="usuario.email" />
-                <input placeholder="Contraseña" v-model="usuario.password" />
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -241,8 +240,6 @@ export default {
       const params = {
         username: this.usuario.username,
         email: this.usuario.email,
-        password: this.usuario.password,
-        per_id: this.usuario.per_id
       };
       axios
         .put("/api/user/" + this.usuario.id, params)
@@ -252,9 +249,6 @@ export default {
           } else {
             alert("El Usuario se ha actualizado");
           }
-          //alert(this.area.index)
-          this.usuarioss[this.usuario.index] = res.data;
-          this.usuario.id = "";
 
           this.usuarioss[this.usuario.index] = res.data;
           this.usuario.username = "";
@@ -262,8 +256,6 @@ export default {
           this.usuarioss[this.usuario.index] = res.data;
           this.usuario.email = "";
 
-          this.usuarioss[this.usuario.index] = res.data;
-          this.usuario.password = "";
         })
         .catch(error => {
           if (error.response.status == 422) {
@@ -271,10 +263,10 @@ export default {
 
             //let mensaje='Error con alguno de los campos';
 
-            alert(this.errors.id[0]);
+
             alert(this.errors.username[0]);
             alert(this.errors.email[0]);
-            alert(this.errors.password[0]);
+
           }
         });
     }

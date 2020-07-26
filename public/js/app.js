@@ -4162,7 +4162,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4261,34 +4260,25 @@ __webpack_require__.r(__webpack_exports__);
 
       var params = {
         username: this.usuario.username,
-        email: this.usuario.email,
-        password: this.usuario.password,
-        per_id: this.usuario.per_id
+        email: this.usuario.email
       };
       axios.put("/api/user/" + this.usuario.id, params).then(function (res) {
         if (res.data == null) {
           alert("El Usuario no se ha actualizado");
         } else {
           alert("El Usuario se ha actualizado");
-        } //alert(this.area.index)
+        }
 
-
-        _this5.usuarioss[_this5.usuario.index] = res.data;
-        _this5.usuario.id = "";
         _this5.usuarioss[_this5.usuario.index] = res.data;
         _this5.usuario.username = "";
         _this5.usuarioss[_this5.usuario.index] = res.data;
         _this5.usuario.email = "";
-        _this5.usuarioss[_this5.usuario.index] = res.data;
-        _this5.usuario.password = "";
       })["catch"](function (error) {
         if (error.response.status == 422) {
           _this5.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
 
-          alert(_this5.errors.id[0]);
           alert(_this5.errors.username[0]);
           alert(_this5.errors.email[0]);
-          alert(_this5.errors.password[0]);
         }
       });
     }
@@ -44040,27 +44030,6 @@ var render = function() {
                             return
                           }
                           _vm.$set(_vm.usuario, "email", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.usuario.password,
-                          expression: "usuario.password"
-                        }
-                      ],
-                      attrs: { placeholder: "Contraseña" },
-                      domProps: { value: _vm.usuario.password },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.usuario, "password", $event.target.value)
                         }
                       }
                     })

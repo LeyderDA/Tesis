@@ -46,6 +46,7 @@ class UsuarioController extends Controller
         $usua->password=Hash::make($request->password);
         $usua->per_id=$request->per_id;
         $usua->save();
+        $usua->persona;
         return  response()->json($usua);
 
     }
@@ -74,16 +75,12 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pers=Persona::find($id);
-        $pers->cedula=$request->cedula;
-        $pers->prinom=$request->prinom;
-        $pers->segnom=$request->segnom;
-        $pers->priape=$request->priape;
-        $pers->segape=$request->segape;
-        $pers->tel=$request->tel;
-        $pers->direc=$request->direc;
-        $pers->save();
-        return  response()->json($pers);
+        $usua=User::find($id);
+        $usua->username=$request->username;
+        $usua->email=$request->email;
+        $usua->save();
+        $usua->persona;
+        return  response()->json($usua);
     }
 
     /**
