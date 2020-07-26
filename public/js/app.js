@@ -42234,25 +42234,15 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(recepcion.consultorio))]),
                         _vm._v(" "),
-                        _c("td", [
-                          _vm._v(_vm._s(recepcion.estudiante.persona.nombre))
-                        ]),
+                        _c("td", [_vm._v(_vm._s(recepcion.estudiante.id))]),
                         _vm._v(" "),
-                        _c("td", [
-                          _vm._v(_vm._s(recepcion.docente.persona.nombre))
-                        ]),
+                        _c("td", [_vm._v(_vm._s(recepcion.docente.id))]),
                         _vm._v(" "),
-                        _c("td", [
-                          _vm._v(
-                            _vm._s(recepcion.administrativo.persona.nombre)
-                          )
-                        ]),
+                        _c("td", [_vm._v(_vm._s(recepcion.administrativo.id))]),
                         _vm._v(" "),
-                        _c("td", [
-                          _vm._v(_vm._s(recepcion.reclamante.persona.nombre))
-                        ]),
+                        _c("td", [_vm._v(_vm._s(recepcion.reclamante.id))]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(recepcion.area.nombre))]),
+                        _c("td", [_vm._v(_vm._s(recepcion.area.id))]),
                         _vm._v(" "),
                         _c("td", [
                           _c(

@@ -196,11 +196,11 @@
                       <td>{{recepcion.fecharetiro}}</td>
                       <td>{{recepcion.recepcionado}}</td>
                       <td>{{recepcion.consultorio}}</td>
-                      <td>{{recepcion.estudiante.persona.nombre}}</td>
-                      <td>{{recepcion.docente.persona.nombre}}</td>
-                      <td>{{recepcion.administrativo.persona.nombre}}</td>
-                      <td>{{recepcion.reclamante.persona.nombre}}</td>
-                      <td>{{recepcion.area.nombre}}</td>
+                      <td>{{recepcion.estudiante.id}}</td>
+                      <td>{{recepcion.docente.id}}</td>
+                      <td>{{recepcion.administrativo.id}}</td>
+                      <td>{{recepcion.reclamante.id}}</td>
+                      <td>{{recepcion.area.id}}</td>
                       <td>
                         <button
                           class="btn btn-success btn-sm"
