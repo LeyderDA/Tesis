@@ -146,7 +146,7 @@
         </div>
         <!--buscar recepcionador -->
 
-          <!--buscar reclamante -->
+        <!--buscar reclamante -->
         <div class="col-2 form-group" v-if="true">
           <button
             class="btn btn-primary btn-block"
@@ -156,8 +156,6 @@
           >B.Reclamante</button>
         </div>
         <!--buscar recepcionador -->
-
-    
 
         <div class="col-6 form-group" v-if="true">
           <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
@@ -221,7 +219,7 @@
             </div>
           </div>
         </div>
-
+        <!--modal de editar -->
         <div
           class="modal fade"
           id="editarModal"
@@ -233,15 +231,102 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Editar Recepción</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                <input placeholder="Username" v-model="usuario.username" />
-                <input placeholder="Email" v-model="usuario.email" />
-                <input placeholder="Contraseña" v-model="usuario.password" />
+                <label class="col-5 col-form-label">Area</label>
+                <input placeholder="recepcion" v-model="recepcion.area.nombre" />
+
+                <!--buscar area -->
+                <div class="col-5 form-group" v-if="true">
+                  <button
+                    class="btn btn-primary btn-block"
+                    data-toggle="modal"
+                    data-target="#buscarModalarea"
+                    @click="buscararea()"
+                  >Buscar Area</button>
+                </div>
+                <!--buscar area -->
+
+                <label class="col-5 col-form-label">Fecha de radicado</label>
+                <input placeholder="recepcion" type="date" v-model="recepcion.fecharadicado" />
+
+                <label class="col-5 col-form-label">Fecha de recepcionado</label>
+                <input placeholder="recepcion" type="date" v-model="recepcion.fecharecepcionado" />
+
+                <label class="col-5 col-form-label">Fecha de reparto</label>
+                <input placeholder="recepcion" type="date" v-model="recepcion.fechareparto" />
+
+                <label class="col-5 col-form-label">Fecha de publicación</label>
+                <input placeholder="recepcion" type="date" v-model="recepcion.fechapublicacion" />
+
+                <label class="col-5 col-form-label">Fecha de retiro</label>
+                <input placeholder="recepcion" type="date" v-model="recepcion.fecharetiro" />
+
+                <label class="col-5 col-form-label">Recepcionado en</label>
+                <input placeholder="recepcion" v-model="recepcion.recepcionado" />
+
+                <label class="col-5 col-form-label">Consultorio</label>
+                <input placeholder="recepcion" v-model="recepcion.consultorio" />
+
+                <label class="col-5 col-form-label">ID Estudiante</label>
+                <input placeholder="recepcion" v-model="recepcion.estudiante.id" />
+
+                <!--buscar estudiante -->
+                <div class="col-5 form-group" v-if="true">
+                  <button
+                    class="btn btn-primary btn-block"
+                    data-toggle="modal"
+                    data-target="#buscarModalest"
+                    @click="buscarest()"
+                  >B.Estudiante Usu</button>
+                </div>
+                <!--buscar estudiante -->
+
+                <label class="col-5 col-form-label">ID Asignado</label>
+                <input placeholder="recepcion" v-model="recepcion.docente.id" />
+
+                <!--buscar asignado -->
+                <div class="col-5 form-group" v-if="true">
+                  <button
+                    class="btn btn-primary btn-block"
+                    data-toggle="modal"
+                    data-target="#buscarModaldoc"
+                    @click="buscardoc()"
+                  >B.Docente Asig</button>
+                </div>
+                <!--buscar asignado -->
+
+                <label class="col-5 col-form-label">ID Recepcionador</label>
+                <input placeholder="recepcion" v-model="recepcion.administrativo.id" />
+
+                <!--buscar recepcionador -->
+                <div class="col-5 form-group" v-if="true">
+                  <button
+                    class="btn btn-primary btn-block"
+                    data-toggle="modal"
+                    data-target="#buscarModaladm"
+                    @click="buscaradm()"
+                  >B.Admin Recep</button>
+                </div>
+                <!--buscar recepcionador -->
+
+                <label class="col-5 col-form-label">ID Reclamante</label>
+                <input placeholder="recepcion" v-model="recepcion.reclamante.id" />
+
+                <!--buscar reclamante -->
+                <div class="col-5 form-group" v-if="true">
+                  <button
+                    class="btn btn-primary btn-block"
+                    data-toggle="modal"
+                    data-target="#buscarModalrecl"
+                    @click="buscarrecl()"
+                  >B.Reclamante</button>
+                </div>
+                <!--buscar reclamante -->
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -255,6 +340,7 @@
             </div>
           </div>
         </div>
+        <!--modal de editar -->
 
         <!--modal de area -->
         <div
@@ -274,7 +360,6 @@
                 </button>
               </div>
               <div class="modal-body">
-                
                 <input placeholder="Id" v-model="recepcion.area.id" />
                 <input placeholder="Nombre" v-model="recepcion.area.nombre" />
               </div>
@@ -372,9 +457,8 @@
           </div>
         </div>
         <!--cierro modal de buscar -->
-        
 
-           <!--segundo modal - el de buscar reclamante -->
+        <!--segundo modal - el de buscar reclamante -->
         <div
           class="modal fade"
           id="buscarModalrecl"
@@ -402,8 +486,7 @@
           </div>
         </div>
         <!--cierro modal de buscar -->
-
-       </div>  
+      </div>
     </div>
   </div>
 </template>
@@ -532,7 +615,7 @@ export default {
           }
         });
     },
-buscardoc() {
+    buscardoc() {
       axios.get("/api/docente/" + this.recepcion.docente.id).then((res) => {
         if (res.data[0] == null) {
           this.recepcion.docente.id = "";
@@ -548,8 +631,7 @@ buscardoc() {
       });
     },
 
-
-buscaradm() {
+    buscaradm() {
       axios
         .get("/api/administrativo/" + this.recepcion.administrativo.id)
         .then((res) => {
@@ -566,7 +648,6 @@ buscaradm() {
           }
         });
     },
-    
 
     buscarrecl() {
       axios
@@ -585,29 +666,22 @@ buscaradm() {
           }
         });
     },
-    
 
     buscararea() {
-      axios
-        .get("/api/area/" + this.recepcion.area.nombre)
-        .then((res) => {
-          if (res.data[0] == null) {
-            this.recepcion.area.id = "";
-            this.recepcion.area.nombre = "";
-            console.log(this.recepcion.area);
-            this.esta = false;
-          } else {
-            console.log(res.data[0]);
-            let person = res.data[0];
-            this.recepcion.area = person;
-            this.esta = true;
-          }
-        });
+      axios.get("/api/area/" + this.recepcion.area.nombre).then((res) => {
+        if (res.data[0] == null) {
+          this.recepcion.area.id = "";
+          this.recepcion.area.nombre = "";
+          console.log(this.recepcion.area);
+          this.esta = false;
+        } else {
+          console.log(res.data[0]);
+          let person = res.data[0];
+          this.recepcion.area = person;
+          this.esta = true;
+        }
+      });
     },
-    
-    
-
-    
 
     agregar() {
       const params = {
@@ -658,37 +732,58 @@ buscaradm() {
         });
       }
     },
-    editarForm(usuario, index) {
-      this.usuario = usuario;
-      this.usuario.index = index;
+    editarForm(recepcion, index) {
+      this.recepcion = recepcion;
+      this.recepcion.index = index;
     },
     editar() {
       const params = {
-        username: this.usuario.username,
-        email: this.usuario.email,
-        password: this.usuario.password,
-        per_id: this.usuario.per_id,
+        recepcionado: this.recepcion.recepcionado,
+        fecharadicado: this.recepcion.fecharadicado,
+        fecharecepcionado: this.recepcion.fecharecepcionado,
+        consultorio: this.recepcion.consultorio,
+        fechareparto: this.recepcion.fechareparto,
+        fechapublicacion: this.recepcion.fechapublicacion,
+        fecharetiro: this.recepcion.fecharetiro,
+        usu_id: this.recepcion.estudiante.id,
+        asig_id: this.recepcion.docente.id,
+        recep_id: this.recepcion.administrativo.id,
+        recla_id: this.recepcion.reclamante.id,
+        area_id: this.recepcion.area.id,
       };
       axios
-        .put("/api/user/" + this.usuario.id, params)
+        .put("/api/recepcion/" + this.recepcion.id, params)
         .then((res) => {
           if (res.data == null) {
-            alert("El Usuario no se ha actualizado");
+            alert("La recepcion no se ha actualizado");
           } else {
-            alert("El Usuario se ha actualizado");
+            alert("La Recepción se ha actualizado");
           }
-          //alert(this.area.index)
-          this.usuarioss[this.usuario.index] = res.data;
-          this.usuario.id = "";
 
-          this.usuarioss[this.usuario.index] = res.data;
-          this.usuario.username = "";
-
-          this.usuarioss[this.usuario.index] = res.data;
-          this.usuario.email = "";
-
-          this.usuarioss[this.usuario.index] = res.data;
-          this.usuario.password = "";
+          this.recepcioness[this.recepcion.index] = res.data;
+          this.recepcion.recepcionado = "";
+          this.recepcioness[this.recepcion.index] = res.data;
+          this.recepcion.fecharadicado = "";
+          this.recepcioness[this.recepcion.index] = res.data;
+          this.recepcion.fecharecepcionado = "";
+          this.recepcioness[this.recepcion.index] = res.data;
+          this.recepcion.consultorio = "";
+          this.recepcioness[this.recepcion.index] = res.data;
+          this.recepcion.fechareparto = "";
+          this.recepcioness[this.recepcion.index] = res.data;
+          this.recepcion.fechapublicacion = "";
+          this.recepcioness[this.recepcion.index] = res.data;
+          this.recepcion.fecharetiro = "";
+          this.recepcioness[this.recepcion.index] = res.data;
+          this.recepcion.estudiante = "";
+          this.recepcioness[this.recepcion.index] = res.data;
+          this.recepcion.docente = "";
+          this.recepcioness[this.recepcion.index] = res.data;
+          this.recepcion.administrativo = "";
+          this.recepcioness[this.recepcion.index] = res.data;
+          this.recepcion.reclamante = "";
+          this.recepcioness[this.recepcion.index] = res.data;
+          this.recepcion.area = "";
         })
         .catch((error) => {
           if (error.response.status == 422) {
@@ -696,10 +791,8 @@ buscaradm() {
 
             //let mensaje='Error con alguno de los campos';
 
-            alert(this.errors.id[0]);
-            alert(this.errors.username[0]);
-            alert(this.errors.email[0]);
-            alert(this.errors.password[0]);
+            alert(this.errors.recepcionado[0]);
+
           }
         });
     },
