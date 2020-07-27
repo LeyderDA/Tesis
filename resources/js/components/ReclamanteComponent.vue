@@ -95,7 +95,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(reclamante,index) in usuarioss" :key="reclamante.index">
+                    <tr v-for="(reclamante,index) in reclamantess" :key="reclamante.index">
                       <td>{{reclamante.enfodifervictima}}</td>
                       <td>{{reclamante.genevictima}}</td>
                       <td>{{reclamante.edadvictima}}</td>
@@ -126,7 +126,7 @@
             </div>
           </div>
         </div>
-
+        <!--modal para editar -->
         <div
           class="modal fade"
           id="editarModal"
@@ -144,9 +144,40 @@
                 </button>
               </div>
               <div class="modal-body">
-                <input placeholder="Username" v-model="usuario.username" />
-                <input placeholder="Email" v-model="usuario.email" />
-                <input placeholder="Contraseña" v-model="usuario.password" />
+                <label class="col-5 col-form-label">Enfoque diferencial</label>
+                <input placeholder="enfoque diferencial" v-model="reclamante.enfodifervictima" />
+
+                <label class="col-5 col-form-label">Genero</label>
+                <input placeholder="genero" v-model="reclamante.genevictima" />
+
+                <label class="col-5 col-form-label">Edad</label>
+                <input placeholder="edad" v-model="reclamante.edadvictima" />
+
+                <label class="col-5 col-form-label">Discapacidad</label>
+                <input placeholder="discapacidad" v-model="reclamante.discapavictima" />
+
+                <label class="col-5 col-form-label">Estrato</label>
+                <input placeholder="estrato" v-model="reclamante.estravictima" />
+
+                <label class="col-5 col-form-label">Embarazo</label>
+                <input placeholder="embarazo" v-model="reclamante.embaravictima" />
+
+                <label class="col-5 col-form-label">Grupo Etnico</label>
+                <input placeholder="grupo etnico" v-model="reclamante.grupetnicovictima" />
+
+                <label class="col-5 col-form-label">Entidad que reclama</label>
+                <input placeholder="entidad" v-model="reclamante.persoentidreclama" />
+
+                <label class="col-5 col-form-label">Cedula</label>
+                <input placeholder="cedula" v-model="reclamante.persona.cedula" />
+                <div class="col-6 form-group" v-if="true">
+                  <button
+                    class="btn btn-primary btn-block"
+                    data-toggle="modal"
+                    data-target="#buscarModal"
+                    @click="buscar()"
+                  >Buscar</button>
+                </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -160,7 +191,7 @@
             </div>
           </div>
         </div>
-
+        <!--cierro modal de editar -->
         <!--segundo modal - el de buscar -->
         <div
           class="modal fade"
@@ -213,8 +244,8 @@ export default {
           priape: "",
           segape: "",
           tel: "",
-          direc: ""
-        }
+          direc: "",
+        },
       },
 
       reclamante: {
@@ -237,37 +268,39 @@ export default {
           priape: "",
           segape: "",
           tel: "",
-          direc: ""
-        }
+          direc: "",
+        },
       },
 
       esta: false,
       estado: "disable",
-      usuarioss: [],
+      reclamantess: [],
 
-      errors: []
+      errors: [],
     };
   },
   created() {
-    axios.get("/api/reclamante").then(res => {
-      this.usuarioss = res.data;
+    axios.get("/api/reclamante").then((res) => {
+      this.reclamantess = res.data;
     });
   },
   methods: {
     buscar() {
-      axios.get("/api/persona/" + this.reclamante.persona.cedula).then(res => {
-        if (res.data[0] == null) {
-          this.reclamante.persona.cedula = "";
-          this.reclamante.persona.prinom = "";
-          console.log(this.reclamante.persona.cedula);
-          this.esta = false;
-        } else {
-          console.log(res.data[0]);
-          let person = res.data[0];
-          this.reclamante.persona = person;
-          this.esta = true;
-        }
-      });
+      axios
+        .get("/api/persona/" + this.reclamante.persona.cedula)
+        .then((res) => {
+          if (res.data[0] == null) {
+            this.reclamante.persona.cedula = "";
+            this.reclamante.persona.prinom = "";
+            console.log(this.reclamante.persona.cedula);
+            this.esta = false;
+          } else {
+            console.log(res.data[0]);
+            let person = res.data[0];
+            this.reclamante.persona = person;
+            this.esta = true;
+          }
+        });
     },
     agregar() {
       const params = {
@@ -279,7 +312,7 @@ export default {
         embaravictima: this.reclamante.embaravictima,
         grupetnicovictima: this.reclamante.grupetnicovictima,
         persoentidreclama: this.reclamante.persoentidreclama,
-        per_id: this.reclamante.persona.id
+        per_id: this.reclamante.persona.id,
       };
 
       this.reclamante.enfodifervictima = "";
@@ -292,72 +325,81 @@ export default {
       this.reclamante.persoentidreclama = "";
       this.reclamante.per_id = "";
 
-      axios.post("/api/reclamante", params).then(res => {
+      axios.post("/api/reclamante", params).then((res) => {
         if (res.data == null) {
           alert("El reclamante no se ha registrado con exito");
         } else {
           alert("El reclamante se ha registrado");
         }
-        this.usuarioss.push(res.data);s
+        this.reclamantess.push(res.data);
+        s;
       });
     },
 
-    eliminar(usuario, index) {
+    eliminar(reclamante, index) {
       const confirmacion = confirm(
-        `Confirma Eliminar Usuario: ${usuario.username}`
+        `Confirma Eliminar al reclamante: ${reclamante.persona.prinom}`
       );
       if (confirmacion) {
-        axios.delete("/api/reclamante/" + usuario.id).then(() => {
-          this.usuarioss.splice(index, 1);
-          alert("El usuario se ha eliminado con exito");
+        axios.delete("/api/reclamante/" + reclamante.id).then(() => {
+          this.reclamantess.splice(index, 1);
+          alert("El Reclamante se ha eliminado con exito");
         });
       }
     },
-    editarForm(usuario, index) {
-      this.usuario = usuario;
-      this.usuario.index = index;
+    editarForm(reclamante, index) {
+      this.reclamante = reclamante;
+      this.reclamante.index = index;
     },
     editar() {
       const params = {
-        username: this.usuario.username,
-        email: this.usuario.email,
-        password: this.usuario.password,
-        per_id: this.usuario.per_id
+        enfodifervictima: this.reclamante.enfodifervictima,
+        genevictima: this.reclamante.genevictima,
+        edadvictima: this.reclamante.edadvictima,
+        discapavictima: this.reclamante.discapavictima,
+        estravictima: this.reclamante.estravictima,
+        embaravictima: this.reclamante.embaravictima,
+        grupetnicovictima: this.reclamante.grupetnicovictima,
+        persoentidreclama: this.reclamante.persoentidreclama,
+        per_id: this.reclamante.persona.id,
       };
       axios
-        .put("/api/reclamante/" + this.usuario.id, params)
-        .then(res => {
+        .put("/api/reclamante/" + this.reclamante.id, params)
+        .then((res) => {
           if (res.data == null) {
-            alert("El Usuario no se ha actualizado");
+            alert("El Reclamante no se ha actualizado");
           } else {
-            alert("El Usuario se ha actualizado");
+            alert("El Reclamante se ha actualizado");
           }
-          //alert(this.area.index)
-          this.usuarioss[this.usuario.index] = res.data;
-          this.usuario.id = "";
-
-          this.usuarioss[this.usuario.index] = res.data;
-          this.usuario.username = "";
-
-          this.usuarioss[this.usuario.index] = res.data;
-          this.usuario.email = "";
-
-          this.usuarioss[this.usuario.index] = res.data;
-          this.usuario.password = "";
+          this.reclamantess[this.reclamante.index] = res.data;
+          this.reclamante.enfodifervictima = "";
+          this.reclamantess[this.reclamante.index] = res.data;
+          this.reclamante.genevictima = "";
+          this.reclamantess[this.reclamante.index] = res.data;
+          this.reclamante.edadvictima = "";
+          this.reclamantess[this.reclamante.index] = res.data;
+          this.reclamante.discapavictima = "";
+          this.reclamantess[this.reclamante.index] = res.data;
+          this.reclamante.estravictima = "";
+          this.reclamantess[this.reclamante.index] = res.data;
+          this.reclamante.embaravictima = "";
+          this.reclamantess[this.reclamante.index] = res.data;
+          this.reclamante.grupetnicovictima = "";
+          this.reclamantess[this.reclamante.index] = res.data;
+          this.reclamante.persoentidreclama = "";
+          this.reclamantess[this.reclamante.index] = res.data;
+          this.reclamante.per_id = "";
         })
-        .catch(error => {
+        .catch((error) => {
           if (error.response.status == 422) {
             this.errors = error.response.data.errors;
 
             //let mensaje='Error con alguno de los campos';
 
             alert(this.errors.id[0]);
-            alert(this.errors.username[0]);
-            alert(this.errors.email[0]);
-            alert(this.errors.password[0]);
           }
         });
-    }
-  }
+    },
+  },
 };
 </script>

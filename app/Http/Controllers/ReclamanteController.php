@@ -46,4 +46,28 @@ class ReclamanteController extends Controller
         
     }
 
+    public function destroy($id)
+    {
+        $rec = Reclamante::find($id);
+        $rec->delete();
+        return  response()->json($rec);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $re = Reclamante::find($id);
+        $re->enfodifervictima = $request->enfodifervictima;
+        $re->genevictima= $request->genevictima;
+        $re->edadvictima= $request->edadvictima;
+        $re->discapavictima= $request->discapavictima;
+        $re->estravictima= $request->estravictima;
+        $re->embaravictima= $request->embaravictima;
+        $re->grupetnicovictima= $request->grupetnicovictima;
+        $re->persoentidreclama= $request->persoentidreclama;
+        $re->per_id= $request->per_id;
+        $re->save();
+        $re->persona;
+        return  response()->json($re);
+    }
+
 }
