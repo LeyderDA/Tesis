@@ -42400,56 +42400,6 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
                     _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("Area")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.recepcion.area.nombre,
-                          expression: "recepcion.area.nombre"
-                        }
-                      ],
-                      attrs: { placeholder: "recepcion" },
-                      domProps: { value: _vm.recepcion.area.nombre },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.recepcion.area,
-                            "nombre",
-                            $event.target.value
-                          )
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    true
-                      ? _c("div", { staticClass: "col-5 form-group" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-primary btn-block",
-                              attrs: {
-                                "data-toggle": "modal",
-                                "data-target": "#buscarModalarea"
-                              },
-                              on: {
-                                click: function($event) {
-                                  return _vm.buscararea()
-                                }
-                              }
-                            },
-                            [_vm._v("Buscar Area")]
-                          )
-                        ])
-                      : undefined,
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
                       _vm._v("Fecha de radicado")
                     ]),
                     _vm._v(" "),
@@ -42848,6 +42798,56 @@ var render = function() {
                               }
                             },
                             [_vm._v("B.Reclamante")]
+                          )
+                        ])
+                      : undefined,
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Area")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.recepcion.area.nombre,
+                          expression: "recepcion.area.nombre"
+                        }
+                      ],
+                      attrs: { placeholder: "recepcion" },
+                      domProps: { value: _vm.recepcion.area.nombre },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.recepcion.area,
+                            "nombre",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    true
+                      ? _c("div", { staticClass: "col-5 form-group" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary btn-block",
+                              attrs: {
+                                "data-toggle": "modal",
+                                "data-target": "#buscarModalarea"
+                              },
+                              on: {
+                                click: function($event) {
+                                  return _vm.buscararea()
+                                }
+                              }
+                            },
+                            [_vm._v("Buscar Area")]
                           )
                         ])
                       : undefined

@@ -237,20 +237,6 @@
                 </button>
               </div>
               <div class="modal-body">
-                <label class="col-5 col-form-label">Area</label>
-                <input placeholder="recepcion" v-model="recepcion.area.nombre" />
-
-                <!--buscar area -->
-                <div class="col-5 form-group" v-if="true">
-                  <button
-                    class="btn btn-primary btn-block"
-                    data-toggle="modal"
-                    data-target="#buscarModalarea"
-                    @click="buscararea()"
-                  >Buscar Area</button>
-                </div>
-                <!--buscar area -->
-
                 <label class="col-5 col-form-label">Fecha de radicado</label>
                 <input placeholder="recepcion" type="date" v-model="recepcion.fecharadicado" />
 
@@ -327,6 +313,20 @@
                   >B.Reclamante</button>
                 </div>
                 <!--buscar reclamante -->
+
+                <label class="col-5 col-form-label">Area</label>
+                <input placeholder="recepcion" v-model="recepcion.area.nombre" />
+
+                <!--buscar area -->
+                <div class="col-5 form-group" v-if="true">
+                  <button
+                    class="btn btn-primary btn-block"
+                    data-toggle="modal"
+                    data-target="#buscarModalarea"
+                    @click="buscararea()"
+                  >Buscar Area</button>
+                </div>
+                <!--buscar area -->
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -792,7 +792,6 @@ export default {
             //let mensaje='Error con alguno de los campos';
 
             alert(this.errors.recepcionado[0]);
-
           }
         });
     },
