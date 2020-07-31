@@ -13,4 +13,9 @@ class Gestion extends Model
         'estado','motivoarchivo','fechaarchivo','obsrvtramite','actuarealizadas',
         'actjuridirealzadas','resulactuacion','entidadelantramite','recp_id',
     ];
+
+    public function recepcion()
+    {
+        return $this->belongsTo('App\Recepcion','recp_id');
+    }
 }

@@ -14,7 +14,8 @@ Vue.component('estudiante-v', require('./components/EstudianteComponent.vue').de
 Vue.component('administrativo-v', require('./components/AdministrativoComponent.vue').default);
 Vue.component('recepcion-v', require('./components/RecepcionComponent.vue').default);
 Vue.component('reclamante-v', require('./components/ReclamanteComponent.vue').default);
-
+Vue.component('gestion-v', require('./components/GestionComponent.vue').default);
+   
 
 
 

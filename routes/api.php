@@ -41,8 +41,6 @@ Route::delete('/user/{id}', 'UsuarioController@destroy')->name('usuarioEliminar'
 Route::put('/user/{id}', 'UsuarioController@update')->name('usuarioActualizar');
 
 
-
-
 //RUTAS DE API PARA DOCENTES
 Route::post('/docente', 'DocenteController@store')->name('docenteGuardar');
 Route::get('/docente', 'DocenteController@index')->name('docenteListar');
@@ -71,6 +69,7 @@ Route::post('/recepcion', 'RecepcionController@store')->name('recepcionGuardar')
 Route::get('/recepcion', 'RecepcionController@index')->name('recepcionListar');
 Route::delete('/recepcion/{id}', 'RecepcionController@destroy')->name('recepcionEliminar');
 Route::put('/recepcion/{id}', 'RecepcionController@update')->name('recepcionActualizar');
+Route::get('/recepcion/{id}', 'RecepcionController@buscar')->name('recepcionbuscar');
 
 //RUTAS DE API PARA RECLAMANTES
 Route::post('/reclamante', 'ReclamanteController@store')->name('reclamanteGuardar');
@@ -78,3 +77,9 @@ Route::get('/reclamante', 'ReclamanteController@index')->name('reclamanteListar'
 Route::delete('/reclamante/{id}', 'ReclamanteController@destroy')->name('reclamanteEliminar');
 Route::put('/reclamante/{id}', 'ReclamanteController@update')->name('reclamanteActualizar');
 Route::get('/reclamante/{id}', 'ReclamanteController@buscar')->name('reclamantebuscar');
+
+//RUTAS DE API PARA LA GESTION
+Route::post('/gestion', 'GestionController@store')->name('gestionGuardar');
+Route::get('/gestion', 'GestionController@index')->name('gestionListar');
+Route::delete('/gestion/{id}', 'GestionController@destroy')->name('gestionEliminar');
+Route::put('/gestion/{id}', 'GestionController@update')->name('gestionActualizar');

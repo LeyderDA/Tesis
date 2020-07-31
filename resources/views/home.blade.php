@@ -11,7 +11,7 @@
         <div class="col-md-12">
     
         
-            <reclamante-v/>
+            <gestion-v/>
    
         </div>
         

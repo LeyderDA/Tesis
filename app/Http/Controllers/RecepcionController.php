@@ -91,4 +91,13 @@ class RecepcionController extends Controller
         $rec->delete();
         return  response()->json($rec);
     }
+
+
+    public function buscar($id)
+    {   
+        $recep = Recepcion::where("id",$id)->get();
+        
+            return  $recep;
+        
+    }
 }

@@ -42,4 +42,11 @@ class Recepcion extends Model
         return $this->belongsTo('App\Area','area_id');
     }
 
+
+    
+    public function gestion()
+    {
+        return $this->belongsTo('App\Gestion','id');
+    
+    }
 }
