@@ -2931,6 +2931,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3041,10 +3049,10 @@ __webpack_require__.r(__webpack_exports__);
     eliminar: function eliminar(gestion, index) {
       var _this4 = this;
 
-      var confirmacion = confirm("Confirma Eliminar la Gesti\xF3n: ".concat(gestion.asuntotramite));
+      var confirmacion = confirm("Confirma Eliminar la Gesti\xF3n con el asunto: ".concat(gestion.asuntotramite));
 
       if (confirmacion) {
-        axios["delete"]("/api/gestion/" + gestion.asuntotramite).then(function () {
+        axios["delete"]("/api/gestion/" + gestion.id).then(function () {
           _this4.gestioness.splice(index, 1);
 
           alert("La Gestión se ha eliminado con exito");
@@ -3080,38 +3088,37 @@ __webpack_require__.r(__webpack_exports__);
           alert("La Gestión se ha actualizado con EXITO");
         }
 
-        _this5.gestioness[_this5.usuario.index] = res.data;
+        _this5.gestioness[_this5.gestion.index] = res.data;
         _this5.gestion.amplhechos = "";
-        _this5.gestioness[_this5.usuario.index] = res.data;
+        _this5.gestioness[_this5.gestion.index] = res.data;
         _this5.gestion.fechentrevasesor = "";
-        _this5.gestioness[_this5.usuario.index] = res.data;
+        _this5.gestioness[_this5.gestion.index] = res.data;
         _this5.gestion.tipotramite = "";
-        _this5.gestioness[_this5.usuario.index] = res.data;
+        _this5.gestioness[_this5.gestion.index] = res.data;
         _this5.gestion.asuntotramite = "";
-        _this5.gestioness[_this5.usuario.index] = res.data;
+        _this5.gestioness[_this5.gestion.index] = res.data;
         _this5.gestion.estado = "";
-        _this5.gestioness[_this5.usuario.index] = res.data;
+        _this5.gestioness[_this5.gestion.index] = res.data;
         _this5.gestion.motivoarchivo = "";
-        _this5.gestioness[_this5.usuario.index] = res.data;
+        _this5.gestioness[_this5.gestion.index] = res.data;
         _this5.gestion.fechaarchivo = "";
-        _this5.gestioness[_this5.usuario.index] = res.data;
+        _this5.gestioness[_this5.gestion.index] = res.data;
         _this5.gestion.obsrvtramite = "";
-        _this5.gestioness[_this5.usuario.index] = res.data;
+        _this5.gestioness[_this5.gestion.index] = res.data;
         _this5.gestion.actuarealizadas = "";
-        _this5.gestioness[_this5.usuario.index] = res.data;
+        _this5.gestioness[_this5.gestion.index] = res.data;
         _this5.gestion.actjuridirealzadas = "";
-        _this5.gestioness[_this5.usuario.index] = res.data;
+        _this5.gestioness[_this5.gestion.index] = res.data;
         _this5.gestion.resulactuacion = "";
-        _this5.gestioness[_this5.usuario.index] = res.data;
+        _this5.gestioness[_this5.gestion.index] = res.data;
         _this5.gestion.entidadelantramite = "";
-        _this5.gestioness[_this5.usuario.index] = res.data;
+        _this5.gestioness[_this5.gestion.index] = res.data;
         _this5.gestion.recepcion.id = "";
       })["catch"](function (error) {
         if (error.response.status == 422) {
           _this5.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
 
-          alert(_this5.errors.username[0]);
-          alert(_this5.errors.email[0]);
+          alert(_this5.errors.asuntotramite[0]);
         }
       });
     }
@@ -42581,6 +42588,27 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
+                  true
+                    ? _c("div", { staticClass: "col-6 form-group" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary btn-block",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": "#buscarModal"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.buscar()
+                              }
+                            }
+                          },
+                          [_vm._v("Buscar")]
+                        )
+                      ])
+                    : undefined,
+                  _vm._v(" "),
                   _c("div", { staticClass: "modal-footer" }, [
                     _c(
                       "button",
@@ -42902,7 +42930,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Editar Usuario")]
+        [_vm._v("Editar Gestion")]
       ),
       _vm._v(" "),
       _c(

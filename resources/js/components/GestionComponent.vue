@@ -45,8 +45,8 @@
               type="boolean"
               v-model="gestion.estado"
             >
-              <option value=1>Activo</option>
-              <option value=0>Inactivo</option>
+              <option value="1">Activo</option>
+              <option value="0">Inactivo</option>
             </select>
           </div>
 
@@ -186,7 +186,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Editar Gestion</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -205,6 +205,14 @@
                 <input placeholder="Username" v-model="gestion.resulactuacion" />
                 <input placeholder="Username" v-model="gestion.entidadelantramite" />
                 <input placeholder="Username" v-model="gestion.recepcion.id" />
+              </div>
+              <div class="col-6 form-group" v-if="true">
+                <button
+                  class="btn btn-primary btn-block"
+                  data-toggle="modal"
+                  data-target="#buscarModal"
+                  @click="buscar()"
+                >Buscar</button>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -368,10 +376,10 @@ export default {
 
     eliminar(gestion, index) {
       const confirmacion = confirm(
-        `Confirma Eliminar la Gestión: ${gestion.asuntotramite}`
+        `Confirma Eliminar la Gestión con el asunto: ${gestion.asuntotramite}`
       );
       if (confirmacion) {
-        axios.delete("/api/gestion/" + gestion.asuntotramite).then(() => {
+        axios.delete("/api/gestion/" + gestion.id).then(() => {
           this.gestioness.splice(index, 1);
           alert("La Gestión se ha eliminado con exito");
         });
@@ -406,31 +414,31 @@ export default {
             alert("La Gestión se ha actualizado con EXITO");
           }
 
-          this.gestioness[this.usuario.index] = res.data;
+          this.gestioness[this.gestion.index] = res.data;
           this.gestion.amplhechos = "";
-          this.gestioness[this.usuario.index] = res.data;
+          this.gestioness[this.gestion.index] = res.data;
           this.gestion.fechentrevasesor = "";
-          this.gestioness[this.usuario.index] = res.data;
+          this.gestioness[this.gestion.index] = res.data;
           this.gestion.tipotramite = "";
-          this.gestioness[this.usuario.index] = res.data;
+          this.gestioness[this.gestion.index] = res.data;
           this.gestion.asuntotramite = "";
-          this.gestioness[this.usuario.index] = res.data;
+          this.gestioness[this.gestion.index] = res.data;
           this.gestion.estado = "";
-          this.gestioness[this.usuario.index] = res.data;
+          this.gestioness[this.gestion.index] = res.data;
           this.gestion.motivoarchivo = "";
-          this.gestioness[this.usuario.index] = res.data;
+          this.gestioness[this.gestion.index] = res.data;
           this.gestion.fechaarchivo = "";
-          this.gestioness[this.usuario.index] = res.data;
+          this.gestioness[this.gestion.index] = res.data;
           this.gestion.obsrvtramite = "";
-          this.gestioness[this.usuario.index] = res.data;
+          this.gestioness[this.gestion.index] = res.data;
           this.gestion.actuarealizadas = "";
-          this.gestioness[this.usuario.index] = res.data;
+          this.gestioness[this.gestion.index] = res.data;
           this.gestion.actjuridirealzadas = "";
-          this.gestioness[this.usuario.index] = res.data;
+          this.gestioness[this.gestion.index] = res.data;
           this.gestion.resulactuacion = "";
-          this.gestioness[this.usuario.index] = res.data;
+          this.gestioness[this.gestion.index] = res.data;
           this.gestion.entidadelantramite = "";
-          this.gestioness[this.usuario.index] = res.data;
+          this.gestioness[this.gestion.index] = res.data;
           this.gestion.recepcion.id = "";
         })
         .catch((error) => {
@@ -439,8 +447,7 @@ export default {
 
             //let mensaje='Error con alguno de los campos';
 
-            alert(this.errors.username[0]);
-            alert(this.errors.email[0]);
+            alert(this.errors.asuntotramite[0]);
           }
         });
     },
