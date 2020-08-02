@@ -40553,8 +40553,8 @@ var render = function() {
         _c(
           "li",
           [
-            _c("router-link", { attrs: { to: { name: "area" } } }, [
-              _vm._v("Area")
+            _c("router-link", { attrs: { to: { name: "persona" } } }, [
+              _vm._v(" Crear Personas")
             ])
           ],
           1
@@ -40563,8 +40563,78 @@ var render = function() {
         _c(
           "li",
           [
-            _c("router-link", { attrs: { to: { name: "persona" } } }, [
-              _vm._v("Personas")
+            _c("router-link", { attrs: { to: { name: "usuario" } } }, [
+              _vm._v("Crear Usuario")
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          [
+            _c("router-link", { attrs: { to: { name: "Asignardoc" } } }, [
+              _vm._v("Asignar Estudiante")
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          [
+            _c("router-link", { attrs: { to: { name: "Asignarest" } } }, [
+              _vm._v("Asignar Docente")
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          [
+            _c("router-link", { attrs: { to: { name: "Asignaradm" } } }, [
+              _vm._v("Asignar Administrativo")
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          [
+            _c("router-link", { attrs: { to: { name: "reclamante" } } }, [
+              _vm._v("Crear Reclamantes")
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          [
+            _c("router-link", { attrs: { to: { name: "area" } } }, [
+              _vm._v("Crear Areas")
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          [
+            _c("router-link", { attrs: { to: { name: "recepcion" } } }, [
+              _vm._v("Crear Recepción")
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          [
+            _c("router-link", { attrs: { to: { name: "gestion" } } }, [
+              _vm._v("Gestionar un Caso")
             ])
           ],
           1
@@ -62117,6 +62187,34 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     path: '/persona',
     name: 'persona',
     component: __webpack_require__(/*! ./views/PersonaComponent.vue */ "./resources/js/views/PersonaComponent.vue")["default"]
+  }, {
+    path: '/Usuario',
+    name: 'usuario',
+    component: __webpack_require__(/*! ./views/UserComponent.vue */ "./resources/js/views/UserComponent.vue")["default"]
+  }, {
+    path: '/AsignarDocente',
+    name: 'Asignardoc',
+    component: __webpack_require__(/*! ./views/DocenteComponent.vue */ "./resources/js/views/DocenteComponent.vue")["default"]
+  }, {
+    path: '/AsignarEstudiante',
+    name: 'Asignarest',
+    component: __webpack_require__(/*! ./views/EstudianteComponent.vue */ "./resources/js/views/EstudianteComponent.vue")["default"]
+  }, {
+    path: '/AsignarAdministrativos',
+    name: 'Asignaradm',
+    component: __webpack_require__(/*! ./views/AdministrativoComponent.vue */ "./resources/js/views/AdministrativoComponent.vue")["default"]
+  }, {
+    path: '/Reclamante',
+    name: 'reclamante',
+    component: __webpack_require__(/*! ./views/ReclamanteComponent.vue */ "./resources/js/views/ReclamanteComponent.vue")["default"]
+  }, {
+    path: '/Recepcion',
+    name: 'recepcion',
+    component: __webpack_require__(/*! ./views/RecepcionComponent.vue */ "./resources/js/views/RecepcionComponent.vue")["default"]
+  }, {
+    path: '/Gestion',
+    name: 'gestion',
+    component: __webpack_require__(/*! ./views/GestionComponent.vue */ "./resources/js/views/GestionComponent.vue")["default"]
   }],
   mode: 'history'
 }));
