@@ -1,20 +1,23 @@
 @extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-    
-        
-        </div>
+<body style="background-color:#003366;">
+    @section('content')
+    <div class="container">
         <div class="row justify-content-center">
-        <div class="col-md-12">
-    
+            <div class="col-md-12">
         
-            <gestion-v/>
-   
+            
+            </div>
+            <div class="row justify-content-center">
+            <div class="col-md-12">
+        
+            
+                <principal-v/>
+       
+            </div>
+            
         </div>
-        
     </div>
-</div>
-@endsection
+    @endsection
+
+</body>
+
