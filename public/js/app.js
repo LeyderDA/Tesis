@@ -2167,7 +2167,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -40574,7 +40573,7 @@ var render = function() {
           "li",
           [
             _c("router-link", { attrs: { to: { name: "Asignardoc" } } }, [
-              _vm._v("Asignar Estudiante")
+              _vm._v("Asignar Docente")
             ])
           ],
           1
@@ -40584,7 +40583,7 @@ var render = function() {
           "li",
           [
             _c("router-link", { attrs: { to: { name: "Asignarest" } } }, [
-              _vm._v("Asignar Docente")
+              _vm._v("Asignar Estudiante")
             ])
           ],
           1
@@ -40924,7 +40923,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("h4", { staticClass: "text-center mb-2 card-title" }, [
+      _c("h2", { staticClass: "text-center mb-2 card-title" }, [
         _vm._v("Registrando Administrativo")
       ])
     ])
@@ -41477,7 +41476,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("h4", { staticClass: "text-center mb-2 card-title" }, [
+      _c("h2", { staticClass: "text-center mb-2 card-title" }, [
         _vm._v("Registrando Docente")
       ])
     ])
@@ -41793,7 +41792,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("h4", { staticClass: "text-center mb-2 card-title" }, [
+      _c("h2", { staticClass: "text-center mb-2 card-title" }, [
         _vm._v("Registrando Estudiante")
       ])
     ])
@@ -43022,7 +43021,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("h4", { staticClass: "text-center mb-2 card-title" }, [
+      _c("h2", { staticClass: "text-center mb-2 card-title" }, [
         _vm._v("Registrando una nueva Gestión")
       ])
     ])
@@ -43622,7 +43621,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("h4", { staticClass: "text-center mb-2 card-title" }, [
+      _c("h2", { staticClass: "text-center mb-2 card-title" }, [
         _vm._v("Registrando Persona")
       ])
     ])
@@ -45166,7 +45165,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("h1", { staticClass: "text-center mb-2 card-title" }, [
+      _c("h2", { staticClass: "text-center mb-2 card-title" }, [
         _vm._v("Registrando Recepcion")
       ])
     ])
@@ -46744,7 +46743,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("h4", { staticClass: "text-center mb-2 card-title" }, [
+      _c("h2", { staticClass: "text-center mb-2 card-title" }, [
         _vm._v("Registrando Usuario")
       ])
     ])

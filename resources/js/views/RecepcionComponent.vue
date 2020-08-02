@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div>
-      <h1 class="text-center mb-2 card-title">Registrando Recepcion</h1>
+      <h2 class="text-center mb-2 card-title">Registrando Recepcion</h2>
     </div>
     <div class="card-body row">
       <form>

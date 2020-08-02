@@ -14,11 +14,11 @@
       </li>
 
           <li>
-        <router-link :to="{name: 'Asignardoc'}">Asignar Estudiante</router-link>
+        <router-link :to="{name: 'Asignardoc'}">Asignar Docente</router-link>
       </li>
      
      <li>
-        <router-link :to="{name: 'Asignarest'}">Asignar Docente</router-link>
+        <router-link :to="{name: 'Asignarest'}">Asignar Estudiante</router-link>
       </li>
 
       <li>
