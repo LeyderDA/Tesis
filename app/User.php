@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password','per_id',
+        'username', 'email', 'password','per_id','rol',
     ];
     public function Persona()
     {

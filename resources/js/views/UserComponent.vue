@@ -18,6 +18,15 @@
             <input class="form-control" placeholder="Password" v-model="usuario.password" />
           </div>
 
+          <div class="col-6">
+            <select class="form-control" placeholder="Rol" type="integer" v-model="usuario.rol">
+              <option value>Selecciona un Rol</option>
+              <option value="2">Administrativo</option>
+              <option value="3">Docente</option>
+              <option value="4">Estudiante</option>
+            </select>
+          </div>
+
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Cedula" v-model="usuario.persona.cedula" />
           </div>
@@ -100,6 +109,19 @@
               <div class="modal-body">
                 <input placeholder="Username" v-model="usuario.username" />
                 <input placeholder="Email" v-model="usuario.email" />
+                <div class="col-6">
+                  <select
+                    class="form-control"
+                    placeholder="Rol"
+                    type="integer"
+                    v-model="usuario.rol"
+                  >
+                    <option value>Selecciona un Rol</option>
+                    <option value="2">Administrativo</option>
+                    <option value="3">Docente</option>
+                    <option value="4">Estudiante</option>
+                  </select>
+                </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -156,6 +178,7 @@ export default {
         email: "",
         email_verified_at: "",
         password: "",
+        rol: "",
         per_id: "",
 
         persona: {
@@ -166,25 +189,25 @@ export default {
           priape: "",
           segape: "",
           tel: "",
-          direc: ""
-        }
+          direc: "",
+        },
       },
 
       esta: false,
       estado: "disable",
       usuarioss: [],
 
-      errors: []
+      errors: [],
     };
   },
   created() {
-    axios.get("/api/user").then(res => {
+    axios.get("/api/user").then((res) => {
       this.usuarioss = res.data;
     });
   },
   methods: {
     buscar() {
-      axios.get("/api/persona/" + this.usuario.persona.cedula).then(res => {
+      axios.get("/api/persona/" + this.usuario.persona.cedula).then((res) => {
         if (res.data[0] == null) {
           this.usuario.persona.cedula = "";
           this.usuario.persona.prinom = "";
@@ -204,14 +227,17 @@ export default {
         username: this.usuario.username,
         email: this.usuario.email,
         password: this.usuario.password,
-        per_id: this.usuario.persona.id
+        rol: this.usuario.rol,
+        per_id: this.usuario.persona.id,
       };
       this.usuario.username = "";
       this.usuario.email = "";
       this.usuario.password = "";
+      this.usuario.rol = "";
       this.usuario.per_id = "";
+      this.usuario.persona.cedula = "";
 
-      axios.post("/api/user", params).then(res => {
+      axios.post("/api/user", params).then((res) => {
         if (res.data == null) {
           alert("El usuario no se ha registrado con exito");
         } else {
@@ -240,10 +266,11 @@ export default {
       const params = {
         username: this.usuario.username,
         email: this.usuario.email,
+        rol: this.usuario.rol,
       };
       axios
         .put("/api/user/" + this.usuario.id, params)
-        .then(res => {
+        .then((res) => {
           if (res.data == null) {
             alert("El Usuario no se ha actualizado");
           } else {
@@ -256,20 +283,26 @@ export default {
           this.usuarioss[this.usuario.index] = res.data;
           this.usuario.email = "";
 
+          this.usuarioss[this.usuario.index] = res.data;
+          this.usuario.rol = "";
+
+          this.usuarioss[this.usuario.index] = res.data;
+          this.usuario.password = "";
+
+          this.usuarioss[this.usuario.index] = res.data;
+          this.usuario.persona.cedula = "";
         })
-        .catch(error => {
+        .catch((error) => {
           if (error.response.status == 422) {
             this.errors = error.response.data.errors;
 
             //let mensaje='Error con alguno de los campos';
 
-
             alert(this.errors.username[0]);
             alert(this.errors.email[0]);
-
           }
         });
-    }
-  }
+    },
+  },
 };
 </script>

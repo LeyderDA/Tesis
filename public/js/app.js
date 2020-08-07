@@ -4773,6 +4773,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4782,6 +4804,7 @@ __webpack_require__.r(__webpack_exports__);
         email: "",
         email_verified_at: "",
         password: "",
+        rol: "",
         per_id: "",
         persona: {
           id: "",
@@ -4833,12 +4856,15 @@ __webpack_require__.r(__webpack_exports__);
         username: this.usuario.username,
         email: this.usuario.email,
         password: this.usuario.password,
+        rol: this.usuario.rol,
         per_id: this.usuario.persona.id
       };
       this.usuario.username = "";
       this.usuario.email = "";
       this.usuario.password = "";
+      this.usuario.rol = "";
       this.usuario.per_id = "";
+      this.usuario.persona.cedula = "";
       axios.post("/api/user", params).then(function (res) {
         if (res.data == null) {
           alert("El usuario no se ha registrado con exito");
@@ -4871,7 +4897,8 @@ __webpack_require__.r(__webpack_exports__);
 
       var params = {
         username: this.usuario.username,
-        email: this.usuario.email
+        email: this.usuario.email,
+        rol: this.usuario.rol
       };
       axios.put("/api/user/" + this.usuario.id, params).then(function (res) {
         if (res.data == null) {
@@ -4884,6 +4911,12 @@ __webpack_require__.r(__webpack_exports__);
         _this5.usuario.username = "";
         _this5.usuarioss[_this5.usuario.index] = res.data;
         _this5.usuario.email = "";
+        _this5.usuarioss[_this5.usuario.index] = res.data;
+        _this5.usuario.rol = "";
+        _this5.usuarioss[_this5.usuario.index] = res.data;
+        _this5.usuario.password = "";
+        _this5.usuarioss[_this5.usuario.index] = res.data;
+        _this5.usuario.persona.cedula = "";
       })["catch"](function (error) {
         if (error.response.status == 422) {
           _this5.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
@@ -46432,6 +46465,54 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
+          _c("div", { staticClass: "col-6" }, [
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.usuario.rol,
+                    expression: "usuario.rol"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { placeholder: "Rol", type: "integer" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.usuario,
+                      "rol",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              [
+                _c("option", { attrs: { value: "" } }, [
+                  _vm._v("Selecciona un Rol")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "2" } }, [
+                  _vm._v("Administrativo")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "3" } }, [_vm._v("Docente")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "4" } }, [_vm._v("Estudiante")])
+              ]
+            )
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -46622,7 +46703,61 @@ var render = function() {
                           _vm.$set(_vm.usuario, "email", $event.target.value)
                         }
                       }
-                    })
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-6" }, [
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.usuario.rol,
+                              expression: "usuario.rol"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { placeholder: "Rol", type: "integer" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.usuario,
+                                "rol",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "" } }, [
+                            _vm._v("Selecciona un Rol")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "2" } }, [
+                            _vm._v("Administrativo")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "3" } }, [
+                            _vm._v("Docente")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "4" } }, [
+                            _vm._v("Estudiante")
+                          ])
+                        ]
+                      )
+                    ])
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-footer" }, [
