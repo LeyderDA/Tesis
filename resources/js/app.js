@@ -19,6 +19,10 @@ Vue.component('recepcion-v', require('./views/RecepcionComponent.vue').default);
 Vue.component('reclamante-v', require('./views/ReclamanteComponent.vue').default);
 Vue.component('gestion-v', require('./views/GestionComponent.vue').default);
 
+
+Vue.component('opcionesest-v', require('./views/OpcionesEstudiantes.vue').default);
+Vue.component('opcionesadmin-v', require('./views/OpcionesAdministrativo.vue').default);
+Vue.component('opcionesdoc-v', require('./views/OpcionesDocentes.vue').default);
    
 import router  from './routes'
 

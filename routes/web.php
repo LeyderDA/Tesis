@@ -20,4 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/estudiante', 'estopcController@index')->name('estudiante');
+Route::get('/administrativo', 'admopcController@index')->name('administrativo');
+Route::get('/docente', 'docopcController@index')->name('docente');
+
 
