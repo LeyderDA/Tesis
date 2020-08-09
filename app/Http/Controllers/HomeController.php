@@ -23,11 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if ((auth()->User()->rol) == 1) {
+        if ((auth()->User()->rol_id) == 1) {
             return view('home');
-        } elseif ((auth()->User()->rol) == 2) {
+        } elseif ((auth()->User()->rol_id) == 2) {
             return view('administrativo');
-        } elseif ((auth()->User()->rol) == 3) {
+        } elseif ((auth()->User()->rol_id) == 3) {
             return view('docente');
         } else {
             return view('estudiante');

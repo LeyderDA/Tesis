@@ -13,17 +13,6 @@
         <router-link :to="{name: 'usuario'}">Crear Usuario</router-link>
       </li>
 
-          <li>
-        <router-link :to="{name: 'Asignardoc'}">Asignar Docente</router-link>
-      </li>
-     
-     <li>
-        <router-link :to="{name: 'Asignarest'}">Asignar Estudiante</router-link>
-      </li>
-
-      <li>
-        <router-link :to="{name: 'Asignaradm'}">Asignar Administrativo</router-link>
-      </li>
 
        <li>
         <router-link :to="{name: 'reclamante'}">Crear Reclamantes</router-link>

@@ -19,11 +19,11 @@
           </div>
 
           <div class="col-6">
-            <select class="form-control" placeholder="Rol" type="integer" v-model="usuario.rol">
+            <select class="form-control" placeholder="Rol" type="integer" v-model="usuario.rol_id">
               <option value>Selecciona un Rol</option>
               <option value="2">Administrativo</option>
-              <option value="3">Docente</option>
-              <option value="4">Estudiante</option>
+              <option value="3">Estudiante</option>
+              <option value="4">Docente</option>
             </select>
           </div>
 
@@ -114,7 +114,7 @@
                     class="form-control"
                     placeholder="Rol"
                     type="integer"
-                    v-model="usuario.rol"
+                    v-model="usuario.rol_id"
                   >
                     <option value>Selecciona un Rol</option>
                     <option value="2">Administrativo</option>
@@ -178,7 +178,7 @@ export default {
         email: "",
         email_verified_at: "",
         password: "",
-        rol: "",
+        rol_id: "",
         per_id: "",
 
         persona: {
@@ -227,13 +227,13 @@ export default {
         username: this.usuario.username,
         email: this.usuario.email,
         password: this.usuario.password,
-        rol: this.usuario.rol,
+        rol_id: this.usuario.rol_id,
         per_id: this.usuario.persona.id,
       };
       this.usuario.username = "";
       this.usuario.email = "";
       this.usuario.password = "";
-      this.usuario.rol = "";
+      this.usuario.rol_id = "";
       this.usuario.per_id = "";
       this.usuario.persona.cedula = "";
 
@@ -266,7 +266,7 @@ export default {
       const params = {
         username: this.usuario.username,
         email: this.usuario.email,
-        rol: this.usuario.rol,
+        rol_id: this.usuario.rol_id,
       };
       axios
         .put("/api/user/" + this.usuario.id, params)
@@ -284,7 +284,7 @@ export default {
           this.usuario.email = "";
 
           this.usuarioss[this.usuario.index] = res.data;
-          this.usuario.rol = "";
+          this.usuario.rol_id = "";
 
           this.usuarioss[this.usuario.index] = res.data;
           this.usuario.password = "";
