@@ -40,30 +40,6 @@ Route::get('/user', 'UsuarioController@index')->name('usuarioListar');
 Route::delete('/user/{id}', 'UsuarioController@destroy')->name('usuarioEliminar');
 Route::put('/user/{id}', 'UsuarioController@update')->name('usuarioActualizar');
 
-
-//RUTAS DE API PARA DOCENTES
-Route::post('/docente', 'DocenteController@store')->name('docenteGuardar');
-Route::get('/docente', 'DocenteController@index')->name('docenteListar');
-Route::delete('/docente/{id}', 'DocenteController@destroy')->name('docenteEliminar');
-Route::put('/docente/{id}', 'DocenteController@update')->name('docenteActualizar');
-Route::get('/docente/{id}', 'DocenteController@buscar')->name('docentebuscar');
-
-
-//RUTAS DE API PARA ESTUDIANTES
-Route::post('/estudiante', 'EstudianteController@store')->name('estudianteGuardar');
-Route::get('/estudiante', 'EstudianteController@index')->name('estudianteListar');
-Route::delete('/estudiante/{id}', 'EstudianteController@destroy')->name('estudianteEliminar');
-Route::put('/estudiante/{id}', 'EstudianteController@update')->name('estudianteActualizar');
-Route::get('/estudiante/{id}', 'EstudianteController@buscar')->name('estudiantebuscar');
-
-
-//RUTAS DE API PARA ADMINISTRATIVOS
-Route::post('/administrativo', 'AdministrativoController@store')->name('administrativoGuardar');
-Route::get('/administrativo', 'AdministrativoController@index')->name('administrativoListar');
-Route::delete('/administrativo/{id}', 'AdministrativoController@destroy')->name('administrativoEliminar');
-Route::put('/administrativo/{id}', 'AdministrativoController@update')->name('administrativoActualizar');
-Route::get('/administrativo/{id}', 'AdministrativoController@buscar')->name('administrativobuscar');
-
 //RUTAS DE API PARA RECEPCIONES
 Route::post('/recepcion', 'RecepcionController@store')->name('recepcionGuardar');
 Route::get('/recepcion', 'RecepcionController@index')->name('recepcionListar');
@@ -83,3 +59,11 @@ Route::post('/gestion', 'GestionController@store')->name('gestionGuardar');
 Route::get('/gestion', 'GestionController@index')->name('gestionListar');
 Route::delete('/gestion/{id}', 'GestionController@destroy')->name('gestionEliminar');
 Route::put('/gestion/{id}', 'GestionController@update')->name('gestionActualizar');
+
+//RUTAS DE API PARA ASIGNAR RECEPCIONES
+Route::post('/asigrecep', 'AsigRecepController@store')->name('asigrecepGuardar');
+Route::get('/asigrecep', 'AsigRecepController@index')->name('asigrecepListar');
+Route::delete('/asigrecep/{id}', 'AsigRecepController@destroy')->name('asigrecepEliminar');
+Route::put('/asigrecep/{id}', 'AsigRecepController@update')->name('asigrecepActualizar');
+Route::get('/asigrecep/{id}', 'AsigRecepController@buscar')->name('asigrecepbuscar');
+

@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
         $user->username = 'Luiyi';
         $user->email = 'Leyder.universidad@gmail.com';
         $user->password = Hash::make('12345678');
-        $user->rol=1;
+        $user->rol_id=1;
         $user->per_id=$persona->id;
         $user->save();
 
@@ -48,7 +48,7 @@ class UserSeeder extends Seeder
         $user2->username = 'Joseito';
         $user2->email = 'joseito@gmail.com';
         $user2->password = Hash::make('123');
-        $user2->rol=2;
+        $user2->rol_id=2;
         $user2->per_id=$persona2->id;
         $user2->save();
 
@@ -66,7 +66,7 @@ class UserSeeder extends Seeder
         $user3->username = 'Cacique';
         $user3->email = 'cacique@gmail.com';
         $user3->password = Hash::make('321');
-        $user3->rol=3;
+        $user3->rol_id=3;
         $user3->per_id=$persona3->id;
         $user3->save();
 
@@ -85,7 +85,7 @@ class UserSeeder extends Seeder
         $user4->username = 'AlexCampos';
         $user4->email = 'alex@gmail.com';
         $user4->password = Hash::make('789');
-        $user4->rol=4;
+        $user4->rol_id=4;
         $user4->per_id=$persona4->id;
         $user4->save();
     }

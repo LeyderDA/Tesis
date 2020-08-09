@@ -46755,7 +46755,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { placeholder: "Password" },
+              attrs: { type: "password", placeholder: "Password" },
               domProps: { value: _vm.usuario.password },
               on: {
                 input: function($event) {

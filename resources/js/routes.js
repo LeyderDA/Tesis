@@ -24,27 +24,7 @@ export default new Router({
             component: require('./views/UserComponent.vue').default
 
         },
-
-        {
-            path: '/AsignarDocente',
-            name: 'Asignardoc',
-            component: require('./views/DocenteComponent.vue').default
-
-        },
-
-        {
-            path: '/AsignarEstudiante',
-            name: 'Asignarest',
-            component: require('./views/EstudianteComponent.vue').default
-
-        },
-
-        {
-            path: '/AsignarAdministrativos',
-            name: 'Asignaradm',
-            component: require('./views/AdministrativoComponent.vue').default
-
-        },
+  
 
         {
             path: '/Reclamante',

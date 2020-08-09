@@ -22,22 +22,11 @@ class CreateRecepcionTable extends Migration
             $table->date('fechareparto');
             $table->date('fechapublicacion');
             $table->date('fecharetiro');
-            $table->timestamps(); 
-
-            $table->unsignedBigInteger('usu_id');
-            $table->foreign('usu_id')->references('id')->on('estudiantes'); 
-
-            $table->unsignedBigInteger('asig_id');
-            $table->foreign('asig_id')->references('id')->on('docentes');
-
-            $table->unsignedBigInteger('recep_id');
-            $table->foreign('recep_id')->references('id')->on('administrativos');
-
             $table->unsignedBigInteger('recla_id');
             $table->foreign('recla_id')->references('id')->on('reclamantes'); 
-
             $table->unsignedBigInteger('area_id');
-            $table->foreign('area_id')->references('id')->on('areas');           
+            $table->foreign('area_id')->references('id')->on('areas');       
+            $table->timestamps();     
         });
     }
 

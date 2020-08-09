@@ -18,11 +18,22 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password','per_id','rol',
+        'username', 'email', 'password','per_id','rol_id',
     ];
     public function Persona()
     {
         return $this->belongsTo('App\Persona','per_id');
+    }
+
+    public function Rol()
+    {
+        return $this->belongsTo('App\Rol','rol_id');
+    }
+
+    public function intermedia()
+    {
+        return $this->belongsTo('App\UsuRecep','id');
+    
     }
 
     /**

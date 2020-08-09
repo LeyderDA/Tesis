@@ -15,7 +15,7 @@
           </div>
 
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Password" v-model="usuario.password" />
+            <input class="form-control" type="password" placeholder="Password" v-model="usuario.password" />
           </div>
 
           <div class="col-6">

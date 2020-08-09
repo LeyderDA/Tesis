@@ -10,26 +10,10 @@ class Recepcion extends Model
     protected $fillable = 
     [
         'id','recepcionado','fecharadicado','fecharecepcionado','consultorio','fechareparto',
-        'fechapublicacion','fecharetiro','usu_id','asig_id','recep_id','recla_id','area_id',
+        'fechapublicacion','fecharetiro','recla_id','area_id',
     ];
 
-    public function administrativo()
-    {
-        return $this->belongsTo('App\Administrativo','recep_id');
-    
-    }
-
-    public function docente()
-    {
-        return $this->belongsTo('App\Docente','asig_id');
-    
-    }
-
-    public function estudiante()
-    {
-        return $this->belongsTo('App\Estudiante','usu_id');
-    
-    }
+   
 
     public function reclamante()
     {
@@ -49,4 +33,12 @@ class Recepcion extends Model
         return $this->belongsTo('App\Gestion','id');
     
     }
+
+    public function intermedia()
+    {
+        return $this->belongsTo('App\UsuRecep','id');
+    
+    }
+
+
 }

@@ -26,11 +26,10 @@ class CreateGestionTramiteTable extends Migration
             $table->string('actuarealizadas',100);
             $table->string('actjuridirealzadas',100);
             $table->string('resulactuacion',50);
-            $table->string('entidadelantramite',50);
-            $table->timestamps(); 
-            
+            $table->string('entidadelantramite',50);         
             $table->unsignedBigInteger('recp_id');
             $table->foreign('recp_id')->references('id')->on('recepciones');
+            $table->timestamps(); 
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePersonaNotasTable extends Migration
+class CreateUsurecepTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreatePersonaNotasTable extends Migration
      */
     public function up()
     {
-        Schema::create('notas', function (Blueprint $table) {
+        Schema::create('usurecep', function (Blueprint $table) {
             $table->BigIncrements('id');
-            $table->integer('notapricort');
-            $table->integer('notasegcort');
-            $table->integer('notateracort');
-            $table->integer('notafinprom');
             $table->unsignedBigInteger('recp_id');
             $table->foreign('recp_id')->references('id')->on('recepciones');
-            $table->timestamps(); 
+            $table->unsignedBigInteger('usu_id');
+            $table->foreign('usu_id')->references('id')->on('users');
+            $table->timestamps();
         });
     }
 
@@ -32,6 +30,6 @@ class CreatePersonaNotasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notas');
+        Schema::dropIfExists('usurecep');
     }
 }

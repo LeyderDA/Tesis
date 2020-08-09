@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdministrativoTable extends Migration
+class CreateRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateAdministrativoTable extends Migration
      */
     public function up()
     {
-        Schema::create('administrativos', function (Blueprint $table) {
-            $table->BigIncrements('id');
-            $table->timestamps(); 
-            $table->unsignedBigInteger('per_id');
-	        $table->foreign('per_id')->references('id')->on('personas');
+        Schema::create('roles', function (Blueprint $table) {
+            $table->id();
+            $table->string('nombre');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +27,6 @@ class CreateAdministrativoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('administrativos');
+        Schema::dropIfExists('roles');
     }
 }
