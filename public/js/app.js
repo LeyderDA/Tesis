@@ -2303,7 +2303,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios.get("/api/user").then(function (res) {
+    axios.get("/api/asigrecep").then(function (res) {
       _this.usurecepss = res.data;
     });
   },
@@ -2311,7 +2311,7 @@ __webpack_require__.r(__webpack_exports__);
     buscarusu: function buscarusu() {
       var _this2 = this;
 
-      axios.get("/api/user/" + this.usurecep.usu_id).then(function (res) {
+      axios.get("/api/user/" + this.usurecep.usuario.id).then(function (res) {
         if (res.data[0] == null) {
           _this2.usurecep.usuario.id = "";
           _this2.usurecep.usuario.username = "";
@@ -2328,7 +2328,7 @@ __webpack_require__.r(__webpack_exports__);
     buscarrecep: function buscarrecep() {
       var _this3 = this;
 
-      axios.get("/api/recepcion/" + this.usurecep.usu_id).then(function (res) {
+      axios.get("/api/recepcion/" + this.usurecep.recepcion.id).then(function (res) {
         if (res.data[0] == null) {
           _this3.usurecep.recepcion.id = "";
           _this3.usurecep.recepcion.recepcionado = "";
@@ -2338,12 +2338,12 @@ __webpack_require__.r(__webpack_exports__);
           _this3.usurecep.recepcion.fechareparto = "";
           _this3.usurecep.recepcion.fechapublicacion = "";
           _this3.usurecep.recepcion.fecharetiro = "";
-          console.log(_this3.usurecep.usu_id);
+          console.log(_this3.usurecep.recepcion.id);
           _this3.esta = false;
         } else {
           console.log(res.data[0]);
           var person = res.data[0];
-          _this3.usurecep.precepcion = person;
+          _this3.usurecep.recepcion = person;
           _this3.esta = true;
         }
       });
@@ -2353,16 +2353,16 @@ __webpack_require__.r(__webpack_exports__);
 
       // alert(this.personas.prinom);
       var params = {
-        recp_id: this.usurecep.recp_id,
-        usu_id: this.usurecep.usu_id
+        recp_id: this.usurecep.recepcion.id,
+        usu_id: this.usurecep.usuario.id
       };
-      this.usurecep.recp_id = "";
-      this.usurecep.usu_id = "";
-      axios.post("/api/user", params).then(function (res) {
+      this.usurecep.recepcion.id = "";
+      this.usurecep.usuario.id = "";
+      axios.post("/api/asigrecep", params).then(function (res) {
         if (res.data == null) {
-          alert("El usuario no se ha registrado con exito");
+          alert("La asignacion no se ha registrado con exito");
         } else {
-          alert("El usuario se ha registrado");
+          alert("La asignacion se ha registrado");
         }
 
         _this4.usurecepss.push(res.data);
@@ -2374,7 +2374,7 @@ __webpack_require__.r(__webpack_exports__);
       var confirmacion = confirm("Confirma Eliminar la asignacion con id de usuario: ".concat(usurecep.usu_id));
 
       if (confirmacion) {
-        axios["delete"]("/api/user/" + usurecep.usu_id).then(function () {
+        axios["delete"]("/api/asigrecep/" + usurecep.id).then(function () {
           _this5.usurecepss.splice(index, 1);
 
           alert("La asignación se ha eliminado con exito");
@@ -2392,7 +2392,7 @@ __webpack_require__.r(__webpack_exports__);
         recp_id: this.usurecep.recp_id,
         usu_id: this.usurecep.usu_id
       };
-      axios.put("/api/user/" + this.usurecep.usu_id, params).then(function (res) {
+      axios.put("/api/asigrecep/" + this.usurecep.usu_id, params).then(function (res) {
         if (res.data == null) {
           alert("La asignación no se ha actualizado");
         } else {
@@ -40661,7 +40661,7 @@ var render = function() {
                               staticClass: "btn btn-primary btn-block",
                               attrs: {
                                 "data-toggle": "modal",
-                                "data-target": "#buscarModal2"
+                                "data-target": "#buscarModalRE"
                               },
                               on: {
                                 click: function($event) {
@@ -40703,7 +40703,7 @@ var render = function() {
                               staticClass: "btn btn-primary btn-block",
                               attrs: {
                                 "data-toggle": "modal",
-                                "data-target": "#buscarModal1"
+                                "data-target": "#buscarModalUSU"
                               },
                               on: {
                                 click: function($event) {
@@ -41160,7 +41160,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Mostrar Persona")]
+        [_vm._v("Mostrar Usuario")]
       ),
       _vm._v(" "),
       _c(

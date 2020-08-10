@@ -99,6 +99,12 @@ class UsuarioController extends Controller
       
     }
 
-
+    public function buscar($id)
+    {   
+        $pers = User::where("id",$id)->get();
+        
+            return  $pers;
+        
+    }
     
 }

@@ -99,7 +99,7 @@
                   <button
                     class="btn btn-primary btn-block"
                     data-toggle="modal"
-                    data-target="#buscarModal2"
+                    data-target="#buscarModalRE"
                     @click="buscarrecep()"
                   >Buscar Recepción</button>
                 </div>
@@ -108,7 +108,7 @@
                   <button
                     class="btn btn-primary btn-block"
                     data-toggle="modal"
-                    data-target="#buscarModal1"
+                    data-target="#buscarModalUSU"
                     @click="buscarusu()"
                   >Buscar Usuario</button>
                 </div>
@@ -173,7 +173,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mostrar Persona</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Mostrar Usuario</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -229,13 +229,13 @@ export default {
     };
   },
   created() {
-    axios.get("/api/user").then((res) => {
+    axios.get("/api/asigrecep").then((res) => {
       this.usurecepss = res.data;
     });
   },
   methods: {
     buscarusu() {
-      axios.get("/api/user/" + this.usurecep.usu_id).then((res) => {
+      axios.get("/api/user/" + this.usurecep.usuario.id).then((res) => {
         if (res.data[0] == null) {
           this.usurecep.usuario.id = "";
           this.usurecep.usuario.username = "";
@@ -251,7 +251,7 @@ export default {
     },
 
     buscarrecep() {
-      axios.get("/api/recepcion/" + this.usurecep.usu_id).then((res) => {
+      axios.get("/api/recepcion/" + this.usurecep.recepcion.id).then((res) => {
         if (res.data[0] == null) {
           this.usurecep.recepcion.id = "";
           this.usurecep.recepcion.recepcionado = "";
@@ -261,12 +261,12 @@ export default {
           this.usurecep.recepcion.fechareparto = "";
           this.usurecep.recepcion.fechapublicacion = "";
           this.usurecep.recepcion.fecharetiro = "";
-          console.log(this.usurecep.usu_id);
+          console.log(this.usurecep.recepcion.id);
           this.esta = false;
         } else {
           console.log(res.data[0]);
           let person = res.data[0];
-          this.usurecep.precepcion = person;
+          this.usurecep.recepcion = person;
           this.esta = true;
         }
       });
@@ -274,17 +274,17 @@ export default {
     agregar() {
       // alert(this.personas.prinom);
       const params = {
-        recp_id: this.usurecep.recp_id,
-        usu_id: this.usurecep.usu_id,
+        recp_id: this.usurecep.recepcion.id,
+        usu_id: this.usurecep.usuario.id,
       };
-      this.usurecep.recp_id = "";
-      this.usurecep.usu_id = "";
+      this.usurecep.recepcion.id = "";
+      this.usurecep.usuario.id = "";
 
-      axios.post("/api/user", params).then((res) => {
+      axios.post("/api/asigrecep", params).then((res) => {
         if (res.data == null) {
-          alert("El usuario no se ha registrado con exito");
+          alert("La asignacion no se ha registrado con exito");
         } else {
-          alert("El usuario se ha registrado");
+          alert("La asignacion se ha registrado");
         }
         this.usurecepss.push(res.data);
       });
@@ -295,7 +295,7 @@ export default {
         `Confirma Eliminar la asignacion con id de usuario: ${usurecep.usu_id}`
       );
       if (confirmacion) {
-        axios.delete("/api/user/" + usurecep.usu_id).then(() => {
+        axios.delete("/api/asigrecep/" + usurecep.id).then(() => {
           this.usurecepss.splice(index, 1);
           alert("La asignación se ha eliminado con exito");
         });
@@ -311,7 +311,7 @@ export default {
         usu_id: this.usurecep.usu_id,
       };
       axios
-        .put("/api/user/" + this.usurecep.usu_id, params)
+        .put("/api/asigrecep/" + this.usurecep.usu_id, params)
         .then((res) => {
           if (res.data == null) {
             alert("La asignación no se ha actualizado");
