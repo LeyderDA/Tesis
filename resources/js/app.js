@@ -19,7 +19,7 @@ Vue.component('gestion-v', require('./views/GestionComponent.vue').default);
 Vue.component('opcionesest-v', require('./views/OpcionesEstudiantes.vue').default);
 Vue.component('opcionesadmin-v', require('./views/OpcionesAdministrativo.vue').default);
 Vue.component('opcionesdoc-v', require('./views/OpcionesDocentes.vue').default);
-   
+Vue.component('asignar-v', require('./views/AsignarRecepcionComponent.vue').default);
 import router  from './routes'
 
 

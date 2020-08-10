@@ -30,6 +30,12 @@
         <router-link :to="{name: 'gestion'}">Gestionar un Caso</router-link>
       </li>
 
+      <li>
+        <router-link :to="{name: 'asignacion'}">Asignar Recepción</router-link>
+      </li>
+
+      
+
 
     </div>
 

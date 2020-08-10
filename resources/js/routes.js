@@ -47,6 +47,13 @@ export default new Router({
 
         },
 
+        {
+            path: '/Asignacion',
+            name: 'asignacion',
+            component: require('./views/AsignarRecepcionComponent.vue').default
+
+        },
+
         
 
 

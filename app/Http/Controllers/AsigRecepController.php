@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\UsuRecep;
 use Illuminate\Http\Request;
 
@@ -37,6 +38,14 @@ class AsigRecepController extends Controller
         $usrec->delete();
         return  response()->json($usrec);
       
+    }
+
+    public function buscar($id)
+    {   
+        $user = User::where("id",$id)->get();
+        
+            return  $user;
+        
     }
 
 }
