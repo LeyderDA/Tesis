@@ -33,7 +33,7 @@
         </div>
       </form>
       <div class="row justify-content-center col">
-        <div class="col-6 form-group" v-if="true">
+        <div class="col-12 form-group" v-if="true">
           <button
             class="btn btn-primary btn-block"
             data-toggle="modal"
@@ -42,7 +42,7 @@
           >Buscar</button>
         </div>
 
-        <div class="col-6 form-group" v-if="true">
+        <div class="col-12 form-group" v-if="true">
           <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
         </div>
       </div>

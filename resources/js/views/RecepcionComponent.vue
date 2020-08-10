@@ -76,24 +76,6 @@
             <input class="form-control" placeholder="Consultorio" v-model="recepcion.consultorio" />
           </div>
 
-          <label class="col-5 col-form-label">Ingresa el ID del estudiante</label>
-          <div class="col-6 form-group">
-            <input class="form-control" placeholder="Estudiante" v-model="recepcion.estudiante.id" />
-          </div>
-
-          <label class="col-5 col-form-label">Ingresa el ID del asignado</label>
-          <div class="col-6 form-group">
-            <input class="form-control" placeholder="Asignado" v-model="recepcion.docente.id" />
-          </div>
-
-          <label class="col-5 col-form-label">Ingresa el ID del Recepcionador</label>
-          <div class="col-6 form-group">
-            <input
-              class="form-control"
-              placeholder="Recepciona"
-              v-model="recepcion.administrativo.id"
-            />
-          </div>
 
           <label class="col-5 col-form-label">Ingresa el ID del reclamante</label>
           <div class="col-6 form-group">
@@ -113,38 +95,7 @@
         </div>
         <!--buscar area -->
 
-        <!--buscar estudiante -->
-        <div class="col-2 form-group" v-if="true">
-          <button
-            class="btn btn-primary btn-block"
-            data-toggle="modal"
-            data-target="#buscarModalest"
-            @click="buscarest()"
-          >B.Estudiante Usu</button>
-        </div>
-        <!--buscar usuario -->
-
-        <!--buscar asignado -->
-        <div class="col-2 form-group" v-if="true">
-          <button
-            class="btn btn-primary btn-block"
-            data-toggle="modal"
-            data-target="#buscarModaldoc"
-            @click="buscardoc()"
-          >B.Docente Asig</button>
-        </div>
-        <!--buscar asignado -->
-
-        <!--buscar recepcionador -->
-        <div class="col-2 form-group" v-if="true">
-          <button
-            class="btn btn-primary btn-block"
-            data-toggle="modal"
-            data-target="#buscarModaladm"
-            @click="buscaradm()"
-          >B.Admin Recep</button>
-        </div>
-        <!--buscar recepcionador -->
+       
 
         <!--buscar reclamante -->
         <div class="col-2 form-group" v-if="true">
@@ -177,9 +128,6 @@
                       <th>Fecha de Retiro</th>
                       <th>Recepcionado en</th>
                       <th>Consultorio</th>
-                      <th>Usuario</th>
-                      <th>Asignado</th>
-                      <th>Recepcionista</th>
                       <th>Reclamante</th>
                       <th>Area</th>
                       <th>Opciones</th>
@@ -194,9 +142,6 @@
                       <td>{{recepcion.fecharetiro}}</td>
                       <td>{{recepcion.recepcionado}}</td>
                       <td>{{recepcion.consultorio}}</td>
-                      <td>{{recepcion.estudiante.id}}</td>
-                      <td>{{recepcion.docente.id}}</td>
-                      <td>{{recepcion.administrativo.id}}</td>
                       <td>{{recepcion.reclamante.id}}</td>
                       <td>{{recepcion.area.nombre}}</td>
                       <td>
@@ -258,47 +203,6 @@
                 <label class="col-5 col-form-label">Consultorio</label>
                 <input placeholder="recepcion" v-model="recepcion.consultorio" />
 
-                <label class="col-5 col-form-label">ID Estudiante</label>
-                <input placeholder="recepcion" v-model="recepcion.estudiante.id" />
-
-                <!--buscar estudiante -->
-                <div class="col-5 form-group" v-if="true">
-                  <button
-                    class="btn btn-primary btn-block"
-                    data-toggle="modal"
-                    data-target="#buscarModalest"
-                    @click="buscarest()"
-                  >B.Estudiante Usu</button>
-                </div>
-                <!--buscar estudiante -->
-
-                <label class="col-5 col-form-label">ID Asignado</label>
-                <input placeholder="recepcion" v-model="recepcion.docente.id" />
-
-                <!--buscar asignado -->
-                <div class="col-5 form-group" v-if="true">
-                  <button
-                    class="btn btn-primary btn-block"
-                    data-toggle="modal"
-                    data-target="#buscarModaldoc"
-                    @click="buscardoc()"
-                  >B.Docente Asig</button>
-                </div>
-                <!--buscar asignado -->
-
-                <label class="col-5 col-form-label">ID Recepcionador</label>
-                <input placeholder="recepcion" v-model="recepcion.administrativo.id" />
-
-                <!--buscar recepcionador -->
-                <div class="col-5 form-group" v-if="true">
-                  <button
-                    class="btn btn-primary btn-block"
-                    data-toggle="modal"
-                    data-target="#buscarModaladm"
-                    @click="buscaradm()"
-                  >B.Admin Recep</button>
-                </div>
-                <!--buscar recepcionador -->
 
                 <label class="col-5 col-form-label">ID Reclamante</label>
                 <input placeholder="recepcion" v-model="recepcion.reclamante.id" />
@@ -371,94 +275,7 @@
         </div>
         <!--cierro modal de area -->
 
-        <!--segundo modal - el de buscar estudiante -->
-        <div
-          class="modal fade"
-          id="buscarModalest"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mostrar Persona</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <input placeholder="Id" v-model="recepcion.estudiante.id" />
-                <input placeholder="Nombre" v-model="recepcion.estudiante.per_id" />
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--cierro modal de buscar -->
-
-        <!--segundo modal - el de buscar docente -->
-        <div
-          class="modal fade"
-          id="buscarModaldoc"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mostrar Persona</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <input placeholder="Id Docente" v-model="recepcion.docente.id" />
-                <input placeholder="Id Persona" v-model="recepcion.docente.per_id" />
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--cierro modal de buscar -->
-
-        <!--segundo modal - el de buscar Administrativo -->
-        <div
-          class="modal fade"
-          id="buscarModaladm"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mostrar Persona</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <input placeholder="Id Docente" v-model="recepcion.administrativo.id" />
-                <input placeholder="Id Persona" v-model="recepcion.administrativo.per_id" />
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--cierro modal de buscar -->
-
-        <!--segundo modal - el de buscar reclamante -->
+        <!--modal - el de buscar reclamante -->
         <div
           class="modal fade"
           id="buscarModalrecl"
@@ -524,48 +341,6 @@ export default {
         fechapublicacion: "",
         fecharetiro: "",
 
-        estudiante: {
-          id: "",
-          per_id: "",
-          persona: {
-            id: "",
-            cedula: "",
-            prinom: "",
-            segnom: "",
-            priape: "",
-            segape: "",
-            tel: "",
-            direc: "",
-          },
-        },
-        docente: {
-          id: "",
-          per_id: "",
-          persona: {
-            id: "",
-            cedula: "",
-            prinom: "",
-            segnom: "",
-            priape: "",
-            segape: "",
-            tel: "",
-            direc: "",
-          },
-        },
-        administrativo: {
-          id: "",
-          per_id: "",
-          persona: {
-            id: "",
-            cedula: "",
-            prinom: "",
-            segnom: "",
-            priape: "",
-            segape: "",
-            tel: "",
-            direc: "",
-          },
-        },
         reclamante: {
           id: "",
           per_id: "",
@@ -598,57 +373,6 @@ export default {
     });
   },
   methods: {
-    buscarest() {
-      axios
-        .get("/api/estudiante/" + this.recepcion.estudiante.id)
-        .then((res) => {
-          if (res.data[0] == null) {
-            this.recepcion.estudiante.id = "";
-            this.recepcion.estudiante.per_id = "";
-            console.log(this.recepcion.estudiante);
-            this.esta = false;
-          } else {
-            console.log(res.data[0]);
-            let person = res.data[0];
-            this.recepcion.estudiante = person;
-            this.esta = true;
-          }
-        });
-    },
-    buscardoc() {
-      axios.get("/api/docente/" + this.recepcion.docente.id).then((res) => {
-        if (res.data[0] == null) {
-          this.recepcion.docente.id = "";
-          this.recepcion.docente.per_id = "";
-          console.log(this.recepcion.docente);
-          this.esta = false;
-        } else {
-          console.log(res.data[0]);
-          let person = res.data[0];
-          this.recepcion.docente = person;
-          this.esta = true;
-        }
-      });
-    },
-
-    buscaradm() {
-      axios
-        .get("/api/administrativo/" + this.recepcion.administrativo.id)
-        .then((res) => {
-          if (res.data[0] == null) {
-            this.recepcion.administrativo.id = "";
-            this.recepcion.administrativo.per_id = "";
-            console.log(this.recepcion.administrativo);
-            this.esta = false;
-          } else {
-            console.log(res.data[0]);
-            let person = res.data[0];
-            this.recepcion.administrativo = person;
-            this.esta = true;
-          }
-        });
-    },
-
     buscarrecl() {
       axios
         .get("/api/reclamante/" + this.recepcion.reclamante.id)
@@ -692,9 +416,6 @@ export default {
         fechareparto: this.recepcion.fechareparto,
         fechapublicacion: this.recepcion.fechapublicacion,
         fecharetiro: this.recepcion.fecharetiro,
-        usu_id: this.recepcion.estudiante.id,
-        asig_id: this.recepcion.docente.id,
-        recep_id: this.recepcion.administrativo.id,
         recla_id: this.recepcion.reclamante.id,
         area_id: this.recepcion.area.id,
       };
@@ -705,9 +426,6 @@ export default {
       this.recepcion.fechareparto = "";
       this.recepcion.fechapublicacion = "";
       this.recepcion.fecharetiro = "";
-      this.recepcion.estudiante = "";
-      this.recepcion.docente = "";
-      this.recepcion.administrativo = "";
       this.recepcion.reclamante = "";
       this.recepcion.area = "";
 
@@ -745,9 +463,6 @@ export default {
         fechareparto: this.recepcion.fechareparto,
         fechapublicacion: this.recepcion.fechapublicacion,
         fecharetiro: this.recepcion.fecharetiro,
-        usu_id: this.recepcion.estudiante.id,
-        asig_id: this.recepcion.docente.id,
-        recep_id: this.recepcion.administrativo.id,
         recla_id: this.recepcion.reclamante.id,
         area_id: this.recepcion.area.id,
       };
@@ -774,12 +489,6 @@ export default {
           this.recepcion.fechapublicacion = "";
           this.recepcioness[this.recepcion.index] = res.data;
           this.recepcion.fecharetiro = "";
-          this.recepcioness[this.recepcion.index] = res.data;
-          this.recepcion.estudiante = "";
-          this.recepcioness[this.recepcion.index] = res.data;
-          this.recepcion.docente = "";
-          this.recepcioness[this.recepcion.index] = res.data;
-          this.recepcion.administrativo = "";
           this.recepcioness[this.recepcion.index] = res.data;
           this.recepcion.reclamante = "";
           this.recepcioness[this.recepcion.index] = res.data;

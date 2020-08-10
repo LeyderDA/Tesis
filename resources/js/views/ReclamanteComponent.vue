@@ -332,7 +332,6 @@ export default {
           alert("El reclamante se ha registrado");
         }
         this.reclamantess.push(res.data);
-        s;
       });
     },
 
