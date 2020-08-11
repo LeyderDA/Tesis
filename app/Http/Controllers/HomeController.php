@@ -28,9 +28,9 @@ class HomeController extends Controller
         } elseif ((auth()->User()->rol_id) == 2) {
             return view('administrativo');
         } elseif ((auth()->User()->rol_id) == 3) {
-            return view('docente');
-        } else {
             return view('estudiante');
+        } else {
+            return view('docente');
         }
     }
 }

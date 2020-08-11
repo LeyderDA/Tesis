@@ -40003,8 +40003,18 @@ var render = function() {
         _c(
           "li",
           [
+            _c("router-link", { attrs: { to: { name: "home" } } }, [
+              _vm._v("Inicio")
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          [
             _c("router-link", { attrs: { to: { name: "persona" } } }, [
-              _vm._v(" Crear Personas")
+              _vm._v("Crear Personas")
             ])
           ],
           1
@@ -42240,8 +42250,18 @@ var render = function() {
         _c(
           "li",
           [
+            _c("router-link", { attrs: { to: { name: "home" } } }, [
+              _vm._v("Inicio")
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          [
             _c("router-link", { attrs: { to: { name: "persona" } } }, [
-              _vm._v(" Crear Personas")
+              _vm._v("Crear Personas")
             ])
           ],
           1
@@ -42351,6 +42371,16 @@ var render = function() {
         _c(
           "li",
           [
+            _c("router-link", { attrs: { to: { name: "home" } } }, [
+              _vm._v("Inicio")
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          [
             _c("router-link", { attrs: { to: { name: "recepcion" } } }, [
               _vm._v("Crear Recepción")
             ])
@@ -42422,8 +42452,18 @@ var render = function() {
         _c(
           "li",
           [
+            _c("router-link", { attrs: { to: { name: "home" } } }, [
+              _vm._v("Inicio")
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          [
             _c("router-link", { attrs: { to: { name: "persona" } } }, [
-              _vm._v(" Crear Personas")
+              _vm._v("Crear Personas")
             ])
           ],
           1
@@ -42434,16 +42474,6 @@ var render = function() {
           [
             _c("router-link", { attrs: { to: { name: "reclamante" } } }, [
               _vm._v("Crear Reclamantes")
-            ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          [
-            _c("router-link", { attrs: { to: { name: "area" } } }, [
-              _vm._v("Crear Areas")
             ])
           ],
           1
