@@ -2220,55 +2220,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2380,37 +2331,6 @@ __webpack_require__.r(__webpack_exports__);
           alert("La asignación se ha eliminado con exito");
         });
       }
-    },
-    editarForm: function editarForm(usurecep, index) {
-      this.usurecep = usurecep;
-      this.usurecep.index = index;
-    },
-    editar: function editar() {
-      var _this6 = this;
-
-      var params = {
-        recp_id: this.usurecep.recp_id,
-        usu_id: this.usurecep.usu_id
-      };
-      axios.put("/api/asigrecep/" + this.usurecep.usu_id, params).then(function (res) {
-        if (res.data == null) {
-          alert("La asignación no se ha actualizado");
-        } else {
-          alert("La asignación se ha actualizado");
-        }
-
-        _this6.usurecepss[_this6.usurecep.index] = res.data;
-        _this6.usurecep.recp_id = "";
-        _this6.usurecepss[_this6.usurecep.index] = res.data;
-        _this6.usurecep.usu_id = "";
-      })["catch"](function (error) {
-        if (error.response.status == 422) {
-          _this6.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
-
-          alert(_this6.errors.username[0]);
-          alert(_this6.errors.email[0]);
-        }
-      });
     }
   }
 });
@@ -40574,23 +40494,6 @@ var render = function() {
                           _c(
                             "button",
                             {
-                              staticClass: "btn btn-success btn-sm",
-                              attrs: {
-                                "data-toggle": "modal",
-                                "data-target": "#editarModal"
-                              },
-                              on: {
-                                click: function($event) {
-                                  return _vm.editarForm(usurecep, index)
-                                }
-                              }
-                            },
-                            [_c("i", { staticClass: "fas fa-pencil-alt" })]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
                               staticClass: "btn btn-danger btn-sm",
                               on: {
                                 click: function($event) {
@@ -40616,142 +40519,6 @@ var render = function() {
           {
             staticClass: "modal fade",
             attrs: {
-              id: "editarModal",
-              tabindex: "-1",
-              role: "dialog",
-              "aria-labelledby": "exampleModalLabel",
-              "aria-hidden": "true"
-            }
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "modal-dialog", attrs: { role: "document" } },
-              [
-                _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(2),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "modal-body" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.usurecep.recp_id,
-                          expression: "usurecep.recp_id"
-                        }
-                      ],
-                      attrs: { placeholder: "ID_RECEPCION" },
-                      domProps: { value: _vm.usurecep.recp_id },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.usurecep, "recp_id", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    true
-                      ? _c("div", { staticClass: "col-12 form-group" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-primary btn-block",
-                              attrs: {
-                                "data-toggle": "modal",
-                                "data-target": "#buscarModalRE"
-                              },
-                              on: {
-                                click: function($event) {
-                                  return _vm.buscarrecep()
-                                }
-                              }
-                            },
-                            [_vm._v("Buscar Recepción")]
-                          )
-                        ])
-                      : undefined,
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.usurecep.usu_id,
-                          expression: "usurecep.usu_id"
-                        }
-                      ],
-                      attrs: { placeholder: "ID_USUARIO" },
-                      domProps: { value: _vm.usurecep.usu_id },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.usurecep, "usu_id", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    true
-                      ? _c("div", { staticClass: "col-12 form-group" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-primary btn-block",
-                              attrs: {
-                                "data-toggle": "modal",
-                                "data-target": "#buscarModalUSU"
-                              },
-                              on: {
-                                click: function($event) {
-                                  return _vm.buscarusu()
-                                }
-                              }
-                            },
-                            [_vm._v("Buscar Usuario")]
-                          )
-                        ])
-                      : undefined
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "modal-footer" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-danger",
-                        attrs: { type: "button", "data-dismiss": "modal" }
-                      },
-                      [_vm._v("Cerrar")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        attrs: { type: "button", "data-dismiss": "modal" },
-                        on: {
-                          click: function($event) {
-                            return _vm.editar()
-                          }
-                        }
-                      },
-                      [_vm._v("Guardar Cambios")]
-                    )
-                  ])
-                ])
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "modal fade",
-            attrs: {
               id: "buscarModalRE",
               tabindex: "-1",
               role: "dialog",
@@ -40765,7 +40532,7 @@ var render = function() {
               { staticClass: "modal-dialog", attrs: { role: "document" } },
               [
                 _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(3),
+                  _vm._m(2),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
                     _c("input", {
@@ -40973,7 +40740,7 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _vm._m(4)
+                  _vm._m(3)
                 ])
               ]
             )
@@ -40998,7 +40765,7 @@ var render = function() {
               { staticClass: "modal-dialog", attrs: { role: "document" } },
               [
                 _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(5),
+                  _vm._m(4),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
                     _c("input", {
@@ -41052,7 +40819,7 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _vm._m(6)
+                  _vm._m(5)
                 ])
               ]
             )
@@ -41069,7 +40836,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("h2", { staticClass: "text-center mb-2 card-title" }, [
-        _vm._v("Registrando Usuario")
+        _vm._v("Registrando Asignación")
       ])
     ])
   },
@@ -41095,32 +40862,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Editar Asignacion")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Mostrar Persona")]
+        [_vm._v("Mostrar Recepción")]
       ),
       _vm._v(" "),
       _c(
