@@ -42260,36 +42260,6 @@ var render = function() {
         _c(
           "li",
           [
-            _c("router-link", { attrs: { to: { name: "Asignardoc" } } }, [
-              _vm._v("Asignar Docente")
-            ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          [
-            _c("router-link", { attrs: { to: { name: "Asignarest" } } }, [
-              _vm._v("Asignar Estudiante")
-            ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          [
-            _c("router-link", { attrs: { to: { name: "Asignaradm" } } }, [
-              _vm._v("Asignar Administrativo")
-            ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          [
             _c("router-link", { attrs: { to: { name: "reclamante" } } }, [
               _vm._v("Crear Reclamantes")
             ])
@@ -42312,6 +42282,16 @@ var render = function() {
           [
             _c("router-link", { attrs: { to: { name: "recepcion" } } }, [
               _vm._v("Crear Recepción")
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          [
+            _c("router-link", { attrs: { to: { name: "asignacion" } } }, [
+              _vm._v("Asignar Recepción")
             ])
           ],
           1
