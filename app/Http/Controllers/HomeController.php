@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\UsuRecep;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,10 +26,13 @@ class HomeController extends Controller
     {
         if ((auth()->User()->rol_id) == 1) {
             return view('home');
+
         } elseif ((auth()->User()->rol_id) == 2) {
             return view('administrativo');
+
         } elseif ((auth()->User()->rol_id) == 3) {
             return view('estudiante');
+            
         } else {
             return view('docente');
         }

@@ -34,6 +34,5 @@ Route::get('/administrativo', 'admopcController@index')->name('administrativo');
 
 Route::get('/docente', 'docopcController@index')->name('docente');
 
-s
 
 
