@@ -3,9 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
 
-class EstMiddleware
+class Usuario_Area_Asig_Middleware
 {
     /**
      * Handle an incoming request.
@@ -16,10 +15,9 @@ class EstMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(auth(Auth::check())){
-            if (Auth::User()->rol_id==3) {
-                return $next($request);
-            }
+        if (auth()->User()->rol_id == 1 || auth()->User()->rol_id ==  2) {
+            return $next($request);
+        }else{
             return redirect('/');
         }
     }
