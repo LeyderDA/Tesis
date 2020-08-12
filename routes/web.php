@@ -19,20 +19,23 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/area', 'HomeController@index')->name('area');
-Route::get('/persona', 'HomeController@index')->name('persona');
-Route::get('/Usuario', 'HomeController@index')->name('usuario');
-Route::get('/Reclamante', 'HomeController@index')->name('reclamante');
-Route::get('/Recepcion', 'HomeController@index')->name('recepcion');
-Route::get('/Gestion', 'HomeController@index')->name('gestion');
-Route::get('/Asignacion', 'HomeController@index')->name('asignacion');
+Route::get('/home', 'HomeController@index')->name('home')->middleware();
+Route::get('/area', 'HomeController@index')->name('area')->middleware();
+Route::get('/persona', 'HomeController@index')->name('persona')->middleware();
+Route::get('/Usuario', 'HomeController@index')->name('usuario')->middleware();
+Route::get('/Reclamante', 'HomeController@index')->name('reclamante')->middleware();
+Route::get('/Recepcion', 'HomeController@index')->name('recepcion')->middleware();
+Route::get('/Gestion', 'HomeController@index')->name('gestion')->middleware();
 
-Route::get('/estudiante', 'estopcController@index')->name('estudiante');
+Route::get('/Asignacion', 'HomeController@index')->name('asignacion')->middleware('super');
 
-Route::get('/administrativo', 'admopcController@index')->name('administrativo');
+Route::get('/estudiante', 'estopcController@index')->name('estudiante')->middleware();
 
-Route::get('/docente', 'docopcController@index')->name('docente');
+Route::get('/administrativo', 'admopcController@index')->name('administrativo')->middleware();
+
+Route::get('/docente', 'docopcController@index')->name('docente')->middleware();
+
+
 
 
 

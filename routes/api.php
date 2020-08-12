@@ -19,6 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 //RUTAS DE API PARA AREAS
 
+
+
+
 Route::post('/area', 'AreaController@store')->name('areaGuardar');
 Route::get('/area', 'AreaController@index')->name('areaListar');
 Route::delete('/area/{id}', 'AreaController@destroy')->name('areaEliminar');
