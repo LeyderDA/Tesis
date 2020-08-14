@@ -9,8 +9,12 @@
             </div>
             <div class="row justify-content-center">
             <div class="col-md-12">
+             <?php 
+                session_start();
+                $_SESSION['id_usuario'] = auth()->id();
+              ?>
         
-            <?php 
+           <?php 
                 if(auth()->User()->rol_id == 1){
                    echo '<principal-v/>';
                 }else if(auth()->User()->rol_id == 2){
@@ -19,8 +23,8 @@
                    echo '<opcionesest-v/>';
                 }else if(auth()->User()->rol_id == 4){
                    echo '<opcionesdoc-v/>';
-                }
-            ?>
+                } 
+            ?> 
 
             </div>
             

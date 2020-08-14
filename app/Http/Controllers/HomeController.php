@@ -25,8 +25,9 @@ class HomeController extends Controller
     public function index()
     {
         
-        
-            return view('home');
+        $datos['Asignacion']=UsuRecep::paginate(100)->where('usu_id',auth()->id());
+            return view('home',$datos);
 
     }
+
 }

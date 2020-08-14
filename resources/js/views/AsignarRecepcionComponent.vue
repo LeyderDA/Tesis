@@ -1,18 +1,20 @@
 <template>
   <div class="card">
     <div>
-      <h2 class="text-center mb-2 card-title">Registrando Asignación</h2>
+      <h1 class="text-center mb-2 card-title">Registrando Asignación</h1>
     </div>
     <div class="card-body row">
       <form>
         <div class="row">
+          <label class="col-5 col-form-label">ID RECEPCIÓN</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="ID_RECEPCION" v-model="usurecep.recepcion.id" />
           </div>
-
+          <label class="col-5 col-form-label">ID USUARIO ESTUDIANTE</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="ID_USUARIO" v-model="usurecep.usuario.id" />
           </div>
+
         </div>
       </form>
       <div class="row justify-content-center col">
@@ -57,7 +59,6 @@
                       <td>{{usurecep.recp_id}}</td>
                       <td>{{usurecep.usu_id}}</td>
                       <td>
-                        
                         <button class="btn btn-danger btn-sm" @click="eliminar(usurecep,index)">
                           <i class="fas fa-trash-alt"></i>
                         </button>
@@ -69,7 +70,6 @@
             </div>
           </div>
         </div>
-
 
         <!--segundo modal - el de buscar RECEPCION-->
         <div
@@ -143,7 +143,6 @@
       </div>
     </div>
   </div>
-
 </template>
 <script>
 export default {

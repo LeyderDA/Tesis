@@ -1,24 +1,59 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Gestion;
+use App\UsuRecep;
+use App\Recepcion;
+use App\Http\Controllers\request_id;
 use Illuminate\Http\Request;
 
 class GestionController extends Controller
 {
-
+/**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index(Request $request)
     {
-        $gestiones = Gestion::all();
-        if ($request->ajax()) {
-            foreach ($gestiones as $ges) {
-                $ges->recepcion;
+
+        $id = (new request_id)->get_id();
+        
+        $date = UsuRecep::all()->where('usu_id',$id);
+
+        foreach($date as $contenido){
+
+            //----------------------------------------
+            $gestiones = Gestion::all();//where('recp_id',$contenido2->id);
+            if ($request->ajax()) {
+             foreach ($gestiones as $ges) {
+               $ges->recepcion;
             }
             return $gestiones;
-        } else {
-            return  response()->json($gestiones);
+            } else {
+             return  response()->jsson($gestiones);
+            }
+            //-----------------------------------------
+
+            $date2 = Recepcion::where('id',$contenido->recp_id);
+            foreach($date2 as $contenido2){
+                
+                      //----------------------------------------
+                      $gestiones = Gestion::all();//where('recp_id',$contenido2->id);
+                      if ($request->ajax()) {
+                       foreach ($gestiones as $ges) {
+                         $ges->recepcion;
+                      }
+                      return $gestiones;
+                      } else {
+                       return  response()->jsson($gestiones);
+                      }
+                      //-----------------------------------------
+
+            }
+
         }
+
     }
     public function destroy($id)
     {

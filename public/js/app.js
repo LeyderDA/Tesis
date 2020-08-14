@@ -2220,7 +2220,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -40372,6 +40371,10 @@ var render = function() {
     _c("div", { staticClass: "card-body row" }, [
       _c("form", [
         _c("div", { staticClass: "row" }, [
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("ID RECEPCIÓN")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -40394,6 +40397,10 @@ var render = function() {
                 }
               }
             })
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("ID USUARIO ESTUDIANTE")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -40846,7 +40853,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("h2", { staticClass: "text-center mb-2 card-title" }, [
+      _c("h1", { staticClass: "text-center mb-2 card-title" }, [
         _vm._v("Registrando Asignación")
       ])
     ])

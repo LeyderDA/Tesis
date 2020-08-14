@@ -48,4 +48,14 @@ class AsigRecepController extends Controller
         
     }
 
+
+    public function mostrar($id)
+    {   
+        $user = User::where("id",$id)->get();
+        
+            return  $user;
+        
+    }
+
+
 }
