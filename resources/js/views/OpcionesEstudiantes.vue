@@ -8,15 +8,7 @@
         <router-link :to="{name: 'home'}">Inicio</router-link>
       </li>
       <li>
-        <router-link :to="{name: 'persona'}">Crear Personas</router-link>
-      </li>
-
-      <li>
-        <router-link :to="{name: 'reclamante'}">Crear Reclamantes</router-link>
-      </li>
-
-      <li>
-        <router-link :to="{name: 'recepcion'}">Crear Recepción</router-link>
+        <router-link :to="{name: 'recepest'}">Ver Recepciones</router-link>
       </li>
 
       <li>

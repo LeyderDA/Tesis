@@ -121,6 +121,7 @@
                 <table class="table text-center">
                   <thead>
                     <tr>
+                      <th>ID</th>
                       <th>Fecha de Radicado</th>
                       <th>Fecha de Recepcionado</th>
                       <th>Fecha de Reparto</th>
@@ -135,6 +136,7 @@
                   </thead>
                   <tbody>
                     <tr v-for="(recepcion,index) in recepcioness" :key="recepcion.index">
+                      <td>{{recepcion.id}}</td>
                       <td>{{recepcion.fecharadicado}}</td>
                       <td>{{recepcion.fecharecepcionado}}</td>
                       <td>{{recepcion.fechareparto}}</td>

@@ -27,6 +27,7 @@ Route::get('/Reclamante', 'HomeController@index')->name('reclamante')->middlewar
 Route::get('/Recepcion', 'HomeController@index')->name('recepcion')->middleware();
 Route::get('/Gestion', 'HomeController@index')->name('gestion')->middleware('Gestion');
 Route::get('/Asignacion', 'HomeController@index')->name('asignacion')->middleware('Usuario_Area_Asig');
+Route::get('/RecepEst', 'HomeController@index')->name('recepest')->middleware();
 
 
 Route::get('/estudiante', 'estopcController@index')->name('estudiante')->middleware();

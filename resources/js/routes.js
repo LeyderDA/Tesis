@@ -54,6 +54,14 @@ export default new Router({
 
         },
 
+        {
+            path: '/RecepEst',
+            name: 'recepest',
+            component: require('./views/RecepestComponent.vue').default
+
+        },
+
+
         
 
 

@@ -18,10 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 //RUTAS DE API PARA AREAS
-
-
-
-
 Route::post('/area', 'AreaController@store')->name('areaGuardar');
 Route::get('/area', 'AreaController@index')->name('areaListar');
 Route::delete('/area/{id}', 'AreaController@destroy')->name('areaEliminar');
@@ -70,4 +66,5 @@ Route::get('/asigrecep', 'AsigRecepController@index')->name('asigrecepListar');
 Route::delete('/asigrecep/{id}', 'AsigRecepController@destroy')->name('asigrecepEliminar');
 Route::put('/asigrecep/{id}', 'AsigRecepController@update')->name('asigrecepActualizar');
 Route::get('/asigrecep/{id}', 'AsigRecepController@buscar')->name('asigrecepbuscar');
+
 
