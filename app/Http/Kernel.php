@@ -53,13 +53,10 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
-        'Gestion'=> \App\Http\Middleware\Gestion_Middleware::class,
-        'Persona_Reclamante'=> \App\Http\Middleware\Persona_Reclamante_Middleware::class,
-        'Usuario_Area_Asig'=> \App\Http\Middleware\Usuario_Area_Asig_Middleware::class,
         //los middleware creados
-        'Administrativo_Middleware'=> \App\Http\Middleware\Administrativo_Middleware::class,
+        'Administrativo_Middleware'=> \App\Http\Middleware\AdministrativoMiddleware::class,
         'Docente_Middleware'=> \App\Http\Middleware\DocenteMiddleware::class,
-        'Estudiante_Middleware'=> \App\Http\Middleware\EstudianteMiddleware::class,
+        'EstudianteMiddleware'=> \App\Http\Middleware\EstudianteMiddleware::class,
         'Compartido_Middleware'=> \App\Http\Middleware\CompartidoDocEstMiddleware::class,
         //cerramos los middleware creados
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,

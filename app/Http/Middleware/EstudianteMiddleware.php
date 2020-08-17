@@ -20,6 +20,5 @@ class EstudianteMiddleware
         }else{
             return redirect('/');
         }
-    
     }
 }
