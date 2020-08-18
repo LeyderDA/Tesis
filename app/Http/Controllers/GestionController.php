@@ -17,42 +17,27 @@ class GestionController extends Controller
     public function index(Request $request)
     {
 
-        $id = (new request_id)->get_id();
-        
+        $id = (new request_id)->get_id();  
         $date = UsuRecep::all()->where('usu_id',$id);
 
-        foreach($date as $contenido){
+        $gestiones = Gestion::join("usurecep","gestion_tramites.recp_id","=","usurecep.recp_id")
+        ->where('usurecep.usu_id','=',$id)
+        ->get();
 
-            //----------------------------------------
-            $gestiones = Gestion::all();//where('recp_id',$contenido2->id);
-            if ($request->ajax()) {
-             foreach ($gestiones as $ges) {
-               $ges->recepcion;
-            }
-            return $gestiones;
-            } else {
-             return  response()->jsson($gestiones);
-            }
-            //-----------------------------------------
+            
+             //----------------------------------------
+             //$gestiones = Gestion::all()->where('recp_id',$contenido->id);
+             if ($request->ajax()) {
+              foreach ($gestiones as $ges) {
+                $ges->recepcion;
+             }
+             return $gestiones;
+             } else {
+              return  response()->jsson($gestiones);
+             }
+             //-----------------------------------------
 
-            $date2 = Recepcion::where('id',$contenido->recp_id);
-            foreach($date2 as $contenido2){
-                
-                      //----------------------------------------
-                      $gestiones = Gestion::all();//where('recp_id',$contenido2->id);
-                      if ($request->ajax()) {
-                       foreach ($gestiones as $ges) {
-                         $ges->recepcion;
-                      }
-                      return $gestiones;
-                      } else {
-                       return  response()->jsson($gestiones);
-                      }
-                      //-----------------------------------------
-
-            }
-
-        }
+        
 
     }
     public function destroy($id)

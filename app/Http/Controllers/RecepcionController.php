@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Recepcion;
 use App\Persona;
+use App\UsuRecep;
+use App\Http\Controllers\request_id;
 use Illuminate\Http\Request;
 
 class RecepcionController extends Controller
@@ -11,21 +13,30 @@ class RecepcionController extends Controller
 
     public function index(Request $request)
     {
+        
+        $id = (new request_id)->get_id();
+        $date = UsuRecep::all()->where('usu_id',$id);
+        
+        $recepcion = Recepcion::join("usurecep","recepciones.id","=","usurecep.recp_id")
+        ->where('usurecep.usu_id','=',$id)
+        ->get();
 
-        $recepcion = Recepcion::all();
-        if ($request->ajax()) {
-            foreach ($recepcion as $rec) {
-                $rec->estudiante;
-                $rec->docente;
-                $rec->administrativo;
-                $rec->reclamante;
-                $rec->area;
-            }
-            return $recepcion;
-        } else {
-            return  response()->json($recepcion);
-        }
+                      if ($request->ajax()) {
+                          foreach ($recepcion as $rec) {
+                              $rec->estudiante;
+                              $rec->docente;
+                              $rec->administrativo;
+                              $rec->reclamante;
+                              $rec->area;
+                          }
+                          return $recepcion;
+                      } else {
+                          return  response()->json($recepcion);
+                      }
+        
+
     }
+
 
 
     public function update(Request $request, $id)
