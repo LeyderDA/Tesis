@@ -9,11 +9,11 @@
       </li>
 
       <li>
-        <router-link :to="{name: 'recepcion'}">Crear Recepción</router-link>
+        <router-link :to="{name: 'recepest'}">Ver Recepciones</router-link>
       </li>
 
       <li>
-        <router-link :to="{name: 'gestion'}">Gestionar un Caso</router-link>
+        <router-link :to="{name: 'gestdocente'}">Gestionar un Caso</router-link>
       </li>
     </div>
 

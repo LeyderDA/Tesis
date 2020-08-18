@@ -18,10 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 //RUTAS DE API PARA AREAS
-
-
-
-
 Route::post('/area', 'AreaController@store')->name('areaGuardar');
 Route::get('/area', 'AreaController@index')->name('areaListar');
 Route::delete('/area/{id}', 'AreaController@destroy')->name('areaEliminar');
@@ -51,6 +47,8 @@ Route::delete('/recepcion/{id}', 'RecepcionController@destroy')->name('recepcion
 Route::put('/recepcion/{id}', 'RecepcionController@update')->name('recepcionActualizar');
 Route::get('/recepcion/{id}', 'RecepcionController@buscar')->name('recepcionbuscar');
 
+Route::get('/recepcionSUPER', 'SUPERADMINController@indexRecepcion')->name('recepcionSuperListar');
+
 //RUTAS DE API PARA RECLAMANTES
 Route::post('/reclamante', 'ReclamanteController@store')->name('reclamanteGuardar');
 Route::get('/reclamante', 'ReclamanteController@index')->name('reclamanteListar');
@@ -64,10 +62,13 @@ Route::get('/gestion', 'GestionController@index')->name('gestionListar');
 Route::delete('/gestion/{id}', 'GestionController@destroy')->name('gestionEliminar');
 Route::put('/gestion/{id}', 'GestionController@update')->name('gestionActualizar');
 
+Route::get('/gestionSUPER', 'SUPERADMINController@indexGestion')->name('gestionSuperListar');
+
 //RUTAS DE API PARA ASIGNAR RECEPCIONES
 Route::post('/asigrecep', 'AsigRecepController@store')->name('asigrecepGuardar');
 Route::get('/asigrecep', 'AsigRecepController@index')->name('asigrecepListar');
 Route::delete('/asigrecep/{id}', 'AsigRecepController@destroy')->name('asigrecepEliminar');
 Route::put('/asigrecep/{id}', 'AsigRecepController@update')->name('asigrecepActualizar');
-Route::get('/asigrecep/{id}', 'AsigRecepController@buscar')->name('asigrecepbuscar');
+Route::get('/asigrecep/{id}', 'AsigRecepController@indexRecepcion')->name('asigrecepbuscar');
+
 

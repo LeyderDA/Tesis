@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class Persona_Reclamante_Middleware
+class EstudianteMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,7 +15,7 @@ class Persona_Reclamante_Middleware
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->User()->rol_id == 1 || auth()->User()->rol_id ==  2 || auth()->User()->rol_id == 3) {
+        if (auth()->User()->rol_id == 3 || auth()->User()->rol_id == 1) {
             return $next($request);
         }else{
             return redirect('/');

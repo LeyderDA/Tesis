@@ -36,14 +36,14 @@ export default new Router({
         {
             path: '/Recepcion',
             name: 'recepcion',
-            component: require('./views/RecepcionComponent.vue').default
+            component: require('./views/SUPERrecepcionComponent.vue').default
 
         },
 
         {
             path: '/Gestion',
             name: 'gestion',
-            component: require('./views/GestionComponent.vue').default
+            component: require('./views/SUPERgestionComponent.vue').default
 
         },
 
@@ -53,6 +53,21 @@ export default new Router({
             component: require('./views/AsignarRecepcionComponent.vue').default
 
         },
+
+        {
+            path: '/RecepEst',
+            name: 'recepest',
+            component: require('./views/RecepestComponent.vue').default
+
+        },
+
+        {
+            path: '/DocGestion',
+            name: 'gestdocente',
+            component: require('./views/DOCgestionComponent.vue').default
+
+        },
+
 
         
 

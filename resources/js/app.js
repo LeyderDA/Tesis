@@ -20,6 +20,7 @@ Vue.component('opcionesest-v', require('./views/OpcionesEstudiantes.vue').defaul
 Vue.component('opcionesadmin-v', require('./views/OpcionesAdministrativo.vue').default);
 Vue.component('opcionesdoc-v', require('./views/OpcionesDocentes.vue').default);
 Vue.component('asignar-v', require('./views/AsignarRecepcionComponent.vue').default);
+Vue.component('recepest-v', require('./views/RecepestComponent.vue').default);
 import router  from './routes'
 
 

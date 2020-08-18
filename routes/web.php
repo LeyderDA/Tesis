@@ -20,18 +20,20 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware();
-Route::get('/area', 'HomeController@index')->name('area')->middleware('Usuario_Area_Asig');
-Route::get('/persona', 'HomeController@index')->name('persona')->middleware('Persona_Reclamante');
-Route::get('/Usuario', 'HomeController@index')->name('usuario')->middleware('Usuario_Area_Asig');
-Route::get('/Reclamante', 'HomeController@index')->name('reclamante')->middleware('Persona_Reclamante');
-Route::get('/Recepcion', 'HomeController@index')->name('recepcion')->middleware();
-Route::get('/Gestion', 'HomeController@index')->name('gestion')->middleware('Gestion');
-Route::get('/Asignacion', 'HomeController@index')->name('asignacion')->middleware('Usuario_Area_Asig');
+Route::get('/area', 'HomeController@index')->name('area')->middleware('Administrativo_Middleware');
+Route::get('/persona', 'HomeController@index')->name('persona')->middleware('Administrativo_Middleware');
+Route::get('/Usuario', 'HomeController@index')->name('usuario')->middleware('Administrativo_Middleware');
+Route::get('/Reclamante', 'HomeController@index')->name('reclamante')->middleware('Administrativo_Middleware');
+Route::get('/Recepcion', 'HomeController@index')->name('recepcion')->middleware('Administrativo_Middleware');
+Route::get('/Gestion', 'HomeController@index')->name('gestion')->middleware('EstudianteMiddleware');
+Route::get('/Asignacion', 'HomeController@index')->name('asignacion')->middleware('Administrativo_Middleware');
+Route::get('/RecepEst', 'HomeController@index')->name('recepest')->middleware('Compartido_Middleware');
+Route::get('/DocGestion', 'HomeController@index')->name('gestdoc')->middleware('Docente_Middleware');
 
 
-Route::get('/estudiante', 'estopcController@index')->name('estudiante')->middleware();
-Route::get('/administrativo', 'admopcController@index')->name('administrativo')->middleware();
-Route::get('/docente', 'docopcController@index')->name('docente')->middleware();
+Route::get('/estudiante', 'estopcController@index')->name('estudiante')->middleware('Estudiante_Middleware');
+Route::get('/administrativo', 'admopcController@index')->name('administrativo')->middleware('Administrativo_Middleware');
+Route::get('/docente', 'docopcController@index')->name('docente')->middleware('Docente_Middleware');
 
 
 

@@ -370,7 +370,7 @@ export default {
     };
   },
   created() {
-    axios.get("/api/recepcion").then((res) => {
+    axios.get("/api/recepcionSUPER").then((res) => {
       this.recepcioness = res.data;
     });
   },
