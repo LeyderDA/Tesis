@@ -23,10 +23,7 @@ class GestionController extends Controller
         $gestiones = Gestion::join("usurecep","gestion_tramites.recp_id","=","usurecep.recp_id")
         ->where('usurecep.usu_id','=',$id)
         ->get();
-
-            
-             //----------------------------------------
-             //$gestiones = Gestion::all()->where('recp_id',$contenido->id);
+        
              if ($request->ajax()) {
               foreach ($gestiones as $ges) {
                 $ges->recepcion;
@@ -35,7 +32,7 @@ class GestionController extends Controller
              } else {
               return  response()->jsson($gestiones);
              }
-             //-----------------------------------------
+
 
         
 
