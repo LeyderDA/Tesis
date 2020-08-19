@@ -32,13 +32,8 @@ class RecepcionController extends Controller
                           return $recepcion;
                       } else {
                           return  response()->json($recepcion);
-                      }
-        
-
+                      }   
     }
-
-
-
     public function update(Request $request, $id)
     {
         $re = Recepcion::find($id);
