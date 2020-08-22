@@ -3780,6 +3780,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3988,6 +3989,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -5263,10 +5268,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
 //
 //
 //
@@ -46801,6 +46802,12 @@ var render = function() {
                               }
                             },
                             [_c("i", { staticClass: "fas fa-trash-alt" })]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            { attrs: { href: "/recepcionqr/" + recepcion.id } },
+                            [_c("i", { staticClass: "fas fa-qrcode" })]
                           )
                         ])
                       ])
@@ -47532,6 +47539,14 @@ var render = function() {
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(recepcion.area.nombre))]),
                       _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          { attrs: { href: "/recepcionqr2/" + recepcion.id } },
+                          [_c("i", { staticClass: "fas fa-qrcode" })]
+                        )
+                      ]),
+                      _vm._v(" "),
                       _c("td")
                     ])
                   }),
@@ -48089,7 +48104,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Reclamante")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Area")])
+        _c("th", [_vm._v("Area")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Mostrar QR")])
       ])
     ])
   },
@@ -50749,7 +50766,7 @@ var render = function() {
                           _c(
                             "a",
                             { attrs: { href: "/recepcionqr/" + recepcion.id } },
-                            [_vm._v("hiii")]
+                            [_c("i", { staticClass: "fas fa-qrcode" })]
                           )
                         ])
                       ])

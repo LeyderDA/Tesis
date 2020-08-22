@@ -156,6 +156,7 @@
                         <button class="btn btn-danger btn-sm" @click="eliminar(recepcion,index)">
                           <i class="fas fa-trash-alt"></i>
                         </button>
+                         <a :href="'/recepcionqr/'+recepcion.id"><i class="fas fa-qrcode"></i></a>
                       </td>
                     </tr>
                   </tbody>

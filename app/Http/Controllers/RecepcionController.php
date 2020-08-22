@@ -100,4 +100,9 @@ class RecepcionController extends Controller
     {           
       return view("qr.qrcode",compact('id','id'));  
     }
+
+    public function qrcodedocest($id)
+    {           
+      return view("qr.qrcodedocest",compact('id','id'));  
+    }
 }

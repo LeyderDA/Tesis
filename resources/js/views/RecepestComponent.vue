@@ -22,6 +22,7 @@
                     <th>Consultorio</th>
                     <th>Reclamante</th>
                     <th>Area</th>
+                    <th>Mostrar QR</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -37,8 +38,11 @@
                     <td>{{recepcion.reclamante.id}}</td>
                     <td>{{recepcion.area.nombre}}</td>
                     <td>
-                                
+                      <a :href="'/recepcionqr2/'+recepcion.id">
+                        <i class="fas fa-qrcode"></i>
+                      </a>
                     </td>
+                    <td></td>
                   </tr>
                 </tbody>
               </table>

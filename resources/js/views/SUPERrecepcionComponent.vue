@@ -162,12 +162,8 @@
                         <button class="btn btn-danger btn-sm" @click="eliminar(recepcion,index)">
                           <i class="fas fa-trash-alt"></i>
                         </button>
-
-                       <!-- <button class="btn btn-sm" @click="qr(recepcion)">
-                          <i class="fa fa-check-circle verde"></i>
-                        </button>-->
                         
-                        <a :href="'/recepcionqr/'+recepcion.id">hiii</a>
+                        <a :href="'/recepcionqr/'+recepcion.id"><i class="fas fa-qrcode"></i></a>
 
                       </td>
                     </tr>

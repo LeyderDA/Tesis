@@ -37,4 +37,6 @@ Route::get('/docente', 'docopcController@index')->name('docente')->middleware('D
 
 
 Route::get('/recepcionqr/{id}', 'RecepcionController@qrcode');
+Route::get('/recepcionqr2/{id}', 'RecepcionController@qrcodedocest');
+
 
