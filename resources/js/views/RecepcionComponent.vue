@@ -76,7 +76,6 @@
             <input class="form-control" placeholder="Consultorio" v-model="recepcion.consultorio" />
           </div>
 
-
           <label class="col-5 col-form-label">Ingresa el ID del reclamante</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Reclamante" v-model="recepcion.reclamante.id" />
@@ -94,8 +93,6 @@
           >Buscar Area</button>
         </div>
         <!--buscar area -->
-
-       
 
         <!--buscar reclamante -->
         <div class="col-2 form-group" v-if="true">
@@ -146,6 +143,7 @@
                       <td>{{recepcion.consultorio}}</td>
                       <td>{{recepcion.reclamante.id}}</td>
                       <td>{{recepcion.area.nombre}}</td>
+                      
                       <td>
                         <button
                           class="btn btn-success btn-sm"
@@ -204,7 +202,6 @@
 
                 <label class="col-5 col-form-label">Consultorio</label>
                 <input placeholder="recepcion" v-model="recepcion.consultorio" />
-
 
                 <label class="col-5 col-form-label">ID Reclamante</label>
                 <input placeholder="recepcion" v-model="recepcion.reclamante.id" />

@@ -4,6 +4,7 @@ import Vue from 'vue'
 
 
 
+
 window.Vue = require('vue');
 
 Vue.component('principal-v', require('./components/PrincipalComponent.vue').default);
@@ -22,6 +23,11 @@ Vue.component('opcionesdoc-v', require('./views/OpcionesDocentes.vue').default);
 Vue.component('asignar-v', require('./views/AsignarRecepcionComponent.vue').default);
 Vue.component('recepest-v', require('./views/RecepestComponent.vue').default);
 import router  from './routes'
+
+//lo del codigo qr
+import VueQRCodeComponent from 'vue-qrcode-component'
+Vue.component('qr-code', VueQRCodeComponent)
+//lo del codigo qr
 
 
 const app = new Vue({

@@ -131,12 +131,13 @@
                       <th>Consultorio</th>
                       <th>Reclamante</th>
                       <th>Area</th>
+                      
                       <th>Opciones</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="(recepcion,index) in recepcioness" :key="recepcion.index">
-                      <td>{{recepcion.id}}</td>
+                      <td> {{recepcion.id}}</td>
                       <td>{{recepcion.fecharadicado}}</td>
                       <td>{{recepcion.fecharecepcionado}}</td>
                       <td>{{recepcion.fechareparto}}</td>
@@ -145,7 +146,10 @@
                       <td>{{recepcion.recepcionado}}</td>
                       <td>{{recepcion.consultorio}}</td>
                       <td>{{recepcion.reclamante.id}}</td>
-                      <td>{{recepcion.area.nombre}}</td>
+                      <td>{{recepcion.area.nombre}}</td>      
+                     <!-- <td>
+                       <qr-code size="150" text="recepcion.id"></qr-code>
+                      </td> -->
                       <td>
                         <button
                           class="btn btn-success btn-sm"
@@ -158,6 +162,13 @@
                         <button class="btn btn-danger btn-sm" @click="eliminar(recepcion,index)">
                           <i class="fas fa-trash-alt"></i>
                         </button>
+
+                       <!-- <button class="btn btn-sm" @click="qr(recepcion)">
+                          <i class="fa fa-check-circle verde"></i>
+                        </button>-->
+                        
+                        <a :href="'/recepcionqr/'+recepcion.id">hiii</a>
+
                       </td>
                     </tr>
                   </tbody>
@@ -451,6 +462,12 @@ export default {
           alert("La recepción se ha eliminado con exito");
         });
       }
+    },
+    qr(recepcion) {
+        windows.location.href("/recepcionqr/" + recepcion.id);
+        //this.$router.push("/recepcionqr/" + recepcion.id);
+        //axios.get("/api/recepcionqr/" + recepcion.id);
+        //alert("hiii");
     },
     editarForm(recepcion, index) {
       this.recepcion = recepcion;

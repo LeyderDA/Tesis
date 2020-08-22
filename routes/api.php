@@ -42,6 +42,7 @@ Route::get('/user/{id}', 'UsuarioController@buscar')->name('userbuscar');
 
 //RUTAS DE API PARA RECEPCIONES
 Route::post('/recepcion', 'RecepcionController@store')->name('recepcionGuardar');
+Route::get('/recepcionqr/{id}', 'RecepcionController@qrcode');
 Route::get('/recepcion', 'RecepcionController@index')->name('recepcionListar');
 Route::delete('/recepcion/{id}', 'RecepcionController@destroy')->name('recepcionEliminar');
 Route::put('/recepcion/{id}', 'RecepcionController@update')->name('recepcionActualizar');

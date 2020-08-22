@@ -70,6 +70,7 @@ class RecepcionController extends Controller
         $re->save();
         $re->reclamante;
         $re->area;
+        
         return  response()->json($re);
     }
 
@@ -93,5 +94,10 @@ class RecepcionController extends Controller
         
             return  $recep;
         
+    }
+
+    public function qrcode($id)
+    {           
+      return view("qr.qrcode",compact('id','id'));  
     }
 }

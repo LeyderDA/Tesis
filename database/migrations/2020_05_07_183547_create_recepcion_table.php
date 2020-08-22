@@ -15,17 +15,18 @@ class CreateRecepcionTable extends Migration
     {
         Schema::create('recepciones', function (Blueprint $table) {
             $table->BigIncrements('id');
-            $table->string('recepcionado');
+            $table->string('recepcionado',20);
             $table->date('fecharadicado');
             $table->date('fecharecepcionado');
-            $table->string('consultorio');
+            $table->string('consultorio',20);
             $table->date('fechareparto');
             $table->date('fechapublicacion');
             $table->date('fecharetiro');
             $table->unsignedBigInteger('recla_id');
             $table->foreign('recla_id')->references('id')->on('reclamantes'); 
             $table->unsignedBigInteger('area_id');
-            $table->foreign('area_id')->references('id')->on('areas');       
+            $table->foreign('area_id')->references('id')->on('areas');  
+
             $table->timestamps();     
         });
     }
