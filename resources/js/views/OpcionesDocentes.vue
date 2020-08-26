@@ -15,6 +15,11 @@
       <li>
         <router-link :to="{name: 'gestdocente'}">Gestionar un Caso</router-link>
       </li>
+
+       <li>
+        <router-link :to="{name: 'notas'}">Asignar Notas</router-link>
+      </li>
+
     </div>
 
     <transition name="slide-fade" mode="out-in">

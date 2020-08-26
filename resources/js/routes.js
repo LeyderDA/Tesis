@@ -68,6 +68,13 @@ export default new Router({
 
         },
 
+        {
+            path: '/Notas',
+            name: 'notas',
+            component: require('./views/NotasComponent.vue').default
+
+        },
+
 
         
 
