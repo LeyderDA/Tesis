@@ -3303,70 +3303,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3375,7 +3311,6 @@ __webpack_require__.r(__webpack_exports__);
         notapricort: "",
         notasegcort: "",
         notateracort: "",
-        notafinprom: "",
         usu_id: "",
         usuario: {
           id: "",
@@ -3387,8 +3322,6 @@ __webpack_require__.r(__webpack_exports__);
           per_id: ""
         }
       },
-      esta: false,
-      estado: "disable",
       notass: [],
       errors: []
     };
@@ -3426,13 +3359,11 @@ __webpack_require__.r(__webpack_exports__);
         notapricort: this.notas.notapricort,
         notasegcort: this.notas.notasegcort,
         notateracort: this.notas.notateracort,
-        notafinprom: this.notas.notafinprom,
         usu_id: this.notas.usuario.id
       };
       this.notas.notapricort = "";
       this.notas.notasegcort = "";
       this.notas.notateracort = "";
-      this.notas.notafinprom = "";
       this.notas.usuario.id = "";
       axios.post("/api/notas", params).then(function (res) {
         if (res.data == null) {
@@ -3447,10 +3378,10 @@ __webpack_require__.r(__webpack_exports__);
     eliminar: function eliminar(notas, index) {
       var _this4 = this;
 
-      var confirmacion = confirm("Confirma Eliminar Usuario: ".concat(notas.id));
+      var confirmacion = confirm("Confirma Eliminar Fila de Notas: ".concat(notas.id));
 
       if (confirmacion) {
-        axios["delete"]("/api/notas/" + usuario.id).then(function () {
+        axios["delete"]("/api/notas/" + notas.id).then(function () {
           _this4.notass.splice(index, 1);
 
           alert("Las Notas se han eliminado con exito");
@@ -3467,31 +3398,24 @@ __webpack_require__.r(__webpack_exports__);
       var params = {
         notapricort: this.notas.notapricort,
         notasegcort: this.notas.notasegcort,
-        notateracort: this.notas.notateracort,
-        notafinprom: this.notas.notafinprom,
-        usu_id: this.notas.usuario.id
+        notateracort: this.notas.notateracort
       };
       axios.put("/api/notas/" + this.notas.id, params).then(function (res) {
         if (res.data == null) {
-          alert("Las Notas no se ha actualizado");
+          alert("Las notas no se han actualizado");
         } else {
-          alert("Las Notas se ha actualizado");
+          alert("Las notas se han actualizado con EXITO");
         }
 
-        _this5.notass[_this5.notas.index] = res.data;
-        _this5.notas.usuario.id = "";
         _this5.notass[_this5.notas.index] = res.data;
         _this5.notas.notapricort = "";
         _this5.notass[_this5.notas.index] = res.data;
         _this5.notas.notasegcort = "";
         _this5.notass[_this5.notas.index] = res.data;
         notas.notateracort = "";
-        _this5.notass[_this5.notas.index] = res.data;
-        _this5.notas.notafinprom = "";
       })["catch"](function (error) {
         if (error.response.status == 422) {
-          _this5.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
-
+          _this5.errors = error.response.data.errors;
           alert(_this5.errors.username[0]);
           alert(_this5.errors.email[0]);
         }
@@ -45891,154 +45815,11 @@ var render = function() {
     _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "card-body row" }, [
-      _c("form", [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-6 form-group" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.notas.usuario.id,
-                  expression: "notas.usuario.id"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { placeholder: "Id Estudiante" },
-              domProps: { value: _vm.notas.usuario.id },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.notas.usuario, "id", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-6 form-group" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.notas.notapricort,
-                  expression: "notas.notapricort"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { placeholder: "Nota primer corte" },
-              domProps: { value: _vm.notas.notapricort },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.notas, "notapricort", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-6 form-group" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.notas.notasegcort,
-                  expression: "notas.notasegcort"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { placeholder: "Nota segundo corte" },
-              domProps: { value: _vm.notas.notasegcort },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.notas, "notasegcort", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-6 form-group" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.notas.notateracort,
-                  expression: "notas.notateracort"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { placeholder: "Nota tercer corte" },
-              domProps: { value: _vm.notas.notateracort },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.notas, "notateracort", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-6 form-group" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.notas.notafinprom,
-                  expression: "notas.notafinprom"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { placeholder: "Nota tercer corte" },
-              domProps: { value: _vm.notas.notafinprom },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.notas, "notafinprom", $event.target.value)
-                }
-              }
-            })
-          ])
-        ])
-      ]),
+      _vm._m(1),
       _vm._v(" "),
       _c("div", { staticClass: "row justify-content-center col" }, [
         true
-          ? _c("div", { staticClass: "col-12 form-group" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary btn-block",
-                  attrs: {
-                    "data-toggle": "modal",
-                    "data-target": "#buscarModal"
-                  },
-                  on: {
-                    click: function($event) {
-                      return _vm.buscar()
-                    }
-                  }
-                },
-                [_vm._v("Buscar Estudiante")]
-              )
-            ])
-          : undefined,
-        _vm._v(" "),
-        true
-          ? _c("div", { staticClass: "col-12 form-group" }, [
+          ? _c("div", { staticClass: "col-6 form-group" }, [
               _c(
                 "button",
                 {
@@ -46063,13 +45844,13 @@ var render = function() {
             _c("div", { attrs: { clas: "container row" } }, [
               _c("div", { staticClass: "table text-center table-reponsive" }, [
                 _c("table", { staticClass: "table text-center" }, [
-                  _vm._m(1),
+                  _vm._m(2),
                   _vm._v(" "),
                   _c(
                     "tbody",
                     _vm._l(_vm.notass, function(notas, index) {
                       return _c("tr", { key: notas.index }, [
-                        _c("td", [_vm._v(_vm._s(notas.usuario.username))]),
+                        _c("td", [_vm._v(_vm._s(notas.usu_id))]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(notas.notapricort))]),
                         _vm._v(" "),
@@ -46136,7 +45917,7 @@ var render = function() {
               { staticClass: "modal-dialog", attrs: { role: "document" } },
               [
                 _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(2),
+                  _vm._m(3),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
                     _c("input", {
@@ -46148,7 +45929,7 @@ var render = function() {
                           expression: "notas.notapricort"
                         }
                       ],
-                      attrs: { placeholder: "Nota 1" },
+                      attrs: { placeholder: "Nota primer corte" },
                       domProps: { value: _vm.notas.notapricort },
                       on: {
                         input: function($event) {
@@ -46173,7 +45954,7 @@ var render = function() {
                           expression: "notas.notasegcort"
                         }
                       ],
-                      attrs: { placeholder: "Nota 2" },
+                      attrs: { placeholder: "Nota segundo corte" },
                       domProps: { value: _vm.notas.notasegcort },
                       on: {
                         input: function($event) {
@@ -46198,7 +45979,7 @@ var render = function() {
                           expression: "notas.notateracort"
                         }
                       ],
-                      attrs: { placeholder: "Nota 3" },
+                      attrs: { placeholder: "Nota tercer corte" },
                       domProps: { value: _vm.notas.notateracort },
                       on: {
                         input: function($event) {
@@ -46208,31 +45989,6 @@ var render = function() {
                           _vm.$set(
                             _vm.notas,
                             "notateracort",
-                            $event.target.value
-                          )
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.notas.notafinprom,
-                          expression: "notas.notafinprom"
-                        }
-                      ],
-                      attrs: { placeholder: "Promedio" },
-                      domProps: { value: _vm.notas.notafinprom },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.notas,
-                            "notafinprom",
                             $event.target.value
                           )
                         }
@@ -46268,81 +46024,6 @@ var render = function() {
               ]
             )
           ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "modal fade",
-            attrs: {
-              id: "buscarModal",
-              tabindex: "-1",
-              role: "dialog",
-              "aria-labelledby": "exampleModalLabel",
-              "aria-hidden": "true"
-            }
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "modal-dialog", attrs: { role: "document" } },
-              [
-                _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(3),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "modal-body" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.notas.usuario.id,
-                          expression: "notas.usuario.id"
-                        }
-                      ],
-                      attrs: { placeholder: "Nombre" },
-                      domProps: { value: _vm.notas.usuario.id },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.notas.usuario, "id", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.notas.usuario.username,
-                          expression: "notas.usuario.username"
-                        }
-                      ],
-                      attrs: { placeholder: "Cedula" },
-                      domProps: { value: _vm.notas.usuario.username },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.notas.usuario,
-                            "username",
-                            $event.target.value
-                          )
-                        }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(4)
-                ])
-              ]
-            )
-          ]
         )
       ])
     ])
@@ -46355,9 +46036,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("h2", { staticClass: "text-center mb-2 card-title" }, [
-        _vm._v("Registrando Notas")
+        _vm._v("Registrando Persona")
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("form", [_c("div", { staticClass: "row" })])
   },
   function() {
     var _vm = this
@@ -46399,46 +46086,6 @@ var staticRenderFns = [
           }
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Mostrar Usuario")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-danger",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("Cerrar")]
       )
     ])
   }
@@ -68757,14 +68404,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************************!*\
   !*** ./resources/js/views/NotasComponent.vue ***!
   \***********************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NotasComponent_vue_vue_type_template_id_0509d317___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NotasComponent.vue?vue&type=template&id=0509d317& */ "./resources/js/views/NotasComponent.vue?vue&type=template&id=0509d317&");
 /* harmony import */ var _NotasComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NotasComponent.vue?vue&type=script&lang=js& */ "./resources/js/views/NotasComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _NotasComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _NotasComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -68794,7 +68442,7 @@ component.options.__file = "resources/js/views/NotasComponent.vue"
 /*!************************************************************************!*\
   !*** ./resources/js/views/NotasComponent.vue?vue&type=script&lang=js& ***!
   \************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

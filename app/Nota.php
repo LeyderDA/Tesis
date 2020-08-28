@@ -9,7 +9,7 @@ class Nota extends Model
     protected $table = 'notas';
     protected $fillable = 
     [
-        'id','notapricort','notasegcort','notateracort','notafinprom','usu_id',
+        'id','notapricort','notasegcort','notateracort','usu_id',
     ];
 
     public function User()

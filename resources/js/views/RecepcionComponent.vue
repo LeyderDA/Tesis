@@ -330,7 +330,7 @@ export default {
           direc: "",
         },
       },
-
+      
       recepcion: {
         id: "",
         recepcionado: "",

@@ -1,51 +1,19 @@
 <template>
   <div class="card">
     <div>
-      <h2 class="text-center mb-2 card-title">Registrando Notas</h2>
+      <h2 class="text-center mb-2 card-title">Registrando Persona</h2>
     </div>
     <div class="card-body row">
       <form>
         <div class="row">
-          <div class="col-6 form-group">
-            <input class="form-control" placeholder="Id Estudiante" v-model="notas.usuario.id" />
-          </div>
 
-          <div class="col-6 form-group">
-            <input class="form-control" placeholder="Nota primer corte" v-model="notas.notapricort" />
-          </div>
+          
 
-          <div class="col-6 form-group">
-            <input
-              class="form-control"
-              placeholder="Nota segundo corte"
-              v-model="notas.notasegcort"
-            />
-          </div>
 
-          <div class="col-6 form-group">
-            <input
-              class="form-control"
-              placeholder="Nota tercer corte"
-              v-model="notas.notateracort"
-            />
-          </div>
-
-          <div class="col-6 form-group">
-            <input class="form-control" placeholder="Nota tercer corte" v-model="notas.notafinprom" />
-          </div>
         </div>
       </form>
       <div class="row justify-content-center col">
-        <div class="col-12 form-group" v-if="true">
-          <button
-            class="btn btn-primary btn-block"
-            data-toggle="modal"
-            data-target="#buscarModal"
-            @click="buscar()"
-          >Buscar Estudiante</button>
-        </div>
-
-        <div class="col-12 form-group" v-if="true">
+        <div class="col-6 form-group" v-if="true">
           <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
         </div>
       </div>
@@ -58,22 +26,19 @@
                 <table class="table text-center">
                   <thead>
                     <tr>
-                       <th>Usuario</th>
+                      <th>Usuario</th>
                       <th>Primer Corte</th>
                       <th>Segundo Corte</th>
-                      <th>Tercer Corte</th>
-                      
+                      <th>Tercer Corte</th>             
                       <th>Opciones</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="(notas,index) in notass" :key="notas.index">
-                      <td>{{notas.usuario.username}}</td>
-                      <td>{{notas.notapricort}}</td>
-                       <td>{{notas.notasegcort}}</td>
+                        <td>{{notas.usu_id}}</td>
+                        <td>{{notas.notapricort}}</td>
+                        <td>{{notas.notasegcort}}</td>
                         <td>{{notas.notateracort}}</td>
-
-
                       <td>
                         <button
                           class="btn btn-success btn-sm"
@@ -95,7 +60,7 @@
           </div>
         </div>
 
-        <div
+    <div
           class="modal fade"
           id="editarModal"
           tabindex="-1"
@@ -112,10 +77,9 @@
                 </button>
               </div>
               <div class="modal-body">
-                <input placeholder="Nota 1" v-model="notas.notapricort" />
-                <input placeholder="Nota 2" v-model="notas.notasegcort" />
-                <input placeholder="Nota 3" v-model="notas.notateracort" />
-                <input placeholder="Promedio" v-model="notas.notafinprom" />
+                  <input placeholder="Nota primer corte" v-model="notas.notapricort" />
+                  <input  placeholder="Nota segundo corte" v-model="notas.notasegcort" />
+                  <input  placeholder="Nota tercer corte" v-model="notas.notateracort" />    
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -129,52 +93,22 @@
             </div>
           </div>
         </div>
-
-        <!--segundo modal - el de buscar -->
-        <div
-          class="modal fade"
-          id="buscarModal"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mostrar Usuario</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <input placeholder="Nombre" v-model="notas.usuario.id" />
-                <input placeholder="Cedula" v-model="notas.usuario.username" />
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--cierro modal de buscar -->
       </div>
     </div>
   </div>
+  
 </template>
 <script>
 export default {
   data() {
     return {
-
-      notas: {
+       notas: {
         id: "",
         notapricort: "",
         notasegcort: "",
         notateracort: "",
-        notafinprom: "",
         usu_id: "",
-        
+
         usuario: {
           id: "",
           username: "",
@@ -185,12 +119,9 @@ export default {
           per_id: "",
         },
       },
-
-      esta: false,
-      estado: "disable",
+  
       notass: [],
-
-      errors: [],
+      errors: []
     };
   },
   created() {
@@ -221,13 +152,11 @@ export default {
         notapricort: this.notas.notapricort,
         notasegcort: this.notas.notasegcort,
         notateracort: this.notas.notateracort,
-        notafinprom: this.notas.notafinprom,
         usu_id: this.notas.usuario.id,
       };
       this.notas.notapricort = "";
       this.notas.notasegcort = "";
       this.notas.notateracort = "";
-      this.notas.notafinprom = "";
       this.notas.usuario.id = "";
 
       axios.post("/api/notas", params).then((res) => {
@@ -241,38 +170,33 @@ export default {
     },
 
     eliminar(notas, index) {
-      const confirmacion = confirm(`Confirma Eliminar Usuario: ${notas.id}`);
+      const confirmacion = confirm(`Confirma Eliminar Fila de Notas: ${notas.id}`);
       if (confirmacion) {
-        axios.delete("/api/notas/" + usuario.id).then(() => {
+        axios.delete("/api/notas/" + notas.id).then(() => {
           this.notass.splice(index, 1);
           alert("Las Notas se han eliminado con exito");
         });
       }
-    },
+  },
     editarForm(notas, index) {
       this.notas = notas;
       this.notas.index = index;
     },
     editar() {
-      const params = {
+      const params = {            
         notapricort: this.notas.notapricort,
         notasegcort: this.notas.notasegcort,
-        notateracort: this.notas.notateracort,
-        notafinprom: this.notas.notafinprom,
-        usu_id: this.notas.usuario.id,
+        notateracort: this.notas.notateracort
       };
       axios
         .put("/api/notas/" + this.notas.id, params)
         .then((res) => {
+          
           if (res.data == null) {
-            alert("Las Notas no se ha actualizado");
+            alert("Las notas no se han actualizado");
           } else {
-            alert("Las Notas se ha actualizado");
+            alert("Las notas se han actualizado con EXITO");
           }
-
-          this.notass[this.notas.index] = res.data;
-          this.notas.usuario.id = "";
-
           this.notass[this.notas.index] = res.data;
           this.notas.notapricort = "";
 
@@ -281,15 +205,10 @@ export default {
 
           this.notass[this.notas.index] = res.data;
           notas.notateracort = "";
-
-          this.notass[this.notas.index] = res.data;
-          this.notas.notafinprom = "";
         })
         .catch((error) => {
           if (error.response.status == 422) {
             this.errors = error.response.data.errors;
-
-            //let mensaje='Error con alguno de los campos';
 
             alert(this.errors.username[0]);
             alert(this.errors.email[0]);

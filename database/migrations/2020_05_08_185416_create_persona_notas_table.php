@@ -15,13 +15,13 @@ class CreatePersonaNotasTable extends Migration
     {
         Schema::create('notas', function (Blueprint $table) {
             $table->BigIncrements('id');
-            $table->decimal('notapricort', 5, 10)->nullable();
-            $table->decimal('notasegcort', 5, 10)->nullable();
-            $table->decimal('notateracort', 5, 10)->nullable();
-            $table->decimal('notafinprom', 5, 10)->nullable();
+            $table->double('notapricort', 8, 2)->nullable();
+            $table->double('notasegcort', 8, 2)->nullable();
+            $table->double('notateracort', 8, 2)->nullable();
             $table->unsignedBigInteger('usu_id');
             $table->foreign('usu_id')->references('id')->on('users');
-            $table->timestamps();         
+            $table->timestamps();  
+      
         });
     }
 

@@ -30,7 +30,7 @@ class GestionController extends Controller
              }
              return $gestiones;
              } else {
-              return  response()->jsson($gestiones);
+              return  response()->json($gestiones);
              }
 
 

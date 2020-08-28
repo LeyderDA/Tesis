@@ -78,6 +78,6 @@ Route::get('/asigrecep/{id}', 'AsigRecepController@indexRecepcion')->name('asigr
 //RUTAS DE API PARA NOTAS
 Route::post('/notas', 'NotasController@store')->name('notasGuardar');
 Route::get('/notas', 'NotasController@index')->name('notasListar');
-Route::delete('/notas/{id}', 'NotasController@destroy')->name('usuarioEliminar');
-Route::put('/notas/{id}', 'NotasController@update')->name('usuarioActualizar');
-Route::get('/notas/{id}', 'NotasController@buscar')->name('userbuscar');
+Route::delete('/notas/{id}', 'NotasController@destroy')->name('notasEliminar');
+Route::put('/notas/{id}', 'NotasController@update')->name('NotasActualizar');
+
