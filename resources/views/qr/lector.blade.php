@@ -15,13 +15,33 @@
 </style>
   </head>
   <body>
+      <select class="form-control" id="exampleFormControlSelect1" >
+        <option value="1">Recepcion</option>
+        <option value="2">Gestion</option>
+      </select>
+
     <video id="preview"></video>
+    <!-- <script src="instascan.min.js"></script> -->
     <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
-<script type="text/javascript">
+    <script type="text/javascript">
+    
+    x = new Boolean(true);
+
     var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
     scanner.addListener('scan',function(content){
-        alert(content);
+        //alert(content);
         //window.location.href=content;
+        if(x){
+          x=false;  
+          var opc = document.getElementById('exampleFormControlSelect1').value;
+          if(opc==1){
+            window.location.replace('qr/'+content);
+          }else{
+            alert("gestion notoi");
+          }
+          
+        }
+       
     });
     Instascan.Camera.getCameras().then(function (cameras){
         if(cameras.length>0){
@@ -47,10 +67,10 @@
         }
     }).catch(function(e){
         console.error(e);
-        alert(e);
-       // window.location.replace(''+e);
+        //alert(e);
     });
 </script>
+
 <div class="btn-group btn-group-toggle mb-5" data-toggle="buttons">
   <label class="btn btn-primary active">
     <input type="radio" name="options" value="1" autocomplete="off" checked> Front Camera

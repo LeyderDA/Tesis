@@ -34,6 +34,7 @@ Route::get('/estudiante', 'estopcController@index')->name('estudiante')->middlew
 Route::get('/administrativo', 'admopcController@index')->name('administrativo')->middleware('Administrativo_Middleware');
 Route::get('/docente', 'docopcController@index')->name('docente')->middleware('Docente_Middleware');
 Route::get('/qr', 'QRCode@index');
+Route::get('/qr/{id}', 'QRCode@consultarRecepcion');
 
 
 
