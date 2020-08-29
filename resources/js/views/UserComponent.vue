@@ -1,10 +1,10 @@
 <template>
-  <div class="card">
-    <div>
-      <h2 class="text-center mb-2 card-title">Registrando Usuario</h2>
-    </div>
-    <div class="card-body row">
-      <form>
+    <div class="card">
+        <div>
+        <h2 class="text-center mb-2 card-title">Registrando Usuario</h2>
+        </div>
+        <div class="card-body row">
+       <form>
         <div class="row">
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Nombre de Usuario" v-model="usuario.username" />
@@ -31,8 +31,8 @@
             <input class="form-control" placeholder="Cedula" v-model="usuario.persona.cedula" />
           </div>
         </div>
-      </form>
-      <div class="row justify-content-center col">
+        </form>
+        <div class="row justify-content-center col">
         <div class="col-12 form-group" v-if="true">
           <button
             class="btn btn-primary btn-block"

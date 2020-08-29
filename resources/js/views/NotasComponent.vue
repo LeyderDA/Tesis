@@ -1,19 +1,49 @@
 <template>
   <div class="card">
     <div>
-      <h2 class="text-center mb-2 card-title">Registrando Persona</h2>
+      <h2 class="text-center mb-2 card-title">Registrando Notas</h2>
     </div>
     <div class="card-body row">
       <form>
         <div class="row">
+          <div class="col-6 form-group">
+            <input class="form-control" placeholder="Id Estudiante" v-model="notas.user.id" />
+          </div>
 
-          
+          <div class="col-6 form-group">
+            <input class="form-control" placeholder="Nota primer corte" v-model="notas.notapricort" />
+          </div>
 
+          <div class="col-6 form-group">
+            <input
+              class="form-control"
+              placeholder="Nota segundo corte"
+              v-model="notas.notasegcort"
+            />
+          </div>
 
+          <div class="col-6 form-group">
+            <input
+              class="form-control"
+              placeholder="Nota tercer corte"
+              v-model="notas.notateracort"
+            />
+          </div>
+
+        
         </div>
       </form>
       <div class="row justify-content-center col">
-        <div class="col-6 form-group" v-if="true">
+        <div class="col-12 form-group" v-if="true">
+          <button
+            class="btn btn-primary btn-block"
+            data-toggle="modal"
+            data-target="#buscarModal"
+            @click="buscar()"
+          >Buscar Estudiante</button>
+        </div>
+
+        <div class="col-12 form-group" v-if="true">
           <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
         </div>
       </div>
@@ -35,7 +65,7 @@
                   </thead>
                   <tbody>
                     <tr v-for="(notas,index) in notass" :key="notas.index">
-                        <td>{{notas.usu_id}}</td>
+                        <td>{{notas.user.id}}</td>
                         <td>{{notas.notapricort}}</td>
                         <td>{{notas.notasegcort}}</td>
                         <td>{{notas.notateracort}}</td>
@@ -59,8 +89,7 @@
             </div>
           </div>
         </div>
-
-    <div
+        <div
           class="modal fade"
           id="editarModal"
           tabindex="-1"
@@ -93,10 +122,38 @@
             </div>
           </div>
         </div>
+
+        <!--segundo modal - el de buscar -->
+        <div
+          class="modal fade"
+          id="buscarModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mostrar Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <input placeholder="Nombre" v-model="notas.user.id" />
+                <input placeholder="Cedula" v-model="notas.user.username" />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--cierro modal de buscar -->
       </div>
     </div>
   </div>
-  
 </template>
 <script>
 export default {
@@ -109,7 +166,7 @@ export default {
         notateracort: "",
         usu_id: "",
 
-        usuario: {
+        user: {
           id: "",
           username: "",
           email: "",
@@ -119,28 +176,32 @@ export default {
           per_id: "",
         },
       },
-  
+
+      esta: false,
+      estado: "disable",
       notass: [],
-      errors: []
+
+      errors: [],
     };
   },
   created() {
     axios.get("/api/notas").then((res) => {
       this.notass = res.data;
+      console.log(this.notass);
     });
   },
   methods: {
     buscar() {
-      axios.get("/api/user/" + this.notas.usuario.id).then((res) => {
+      axios.get("/api/user/" + this.notas.user.id).then((res) => {
         if (res.data[0] == null) {
-          this.notas.usuario.id = "";
-          this.notas.usuario.username = "";
-          console.log(this.notas.usuario.id);
+          this.notas.user.id = "";
+          this.notas.user.username = "";
+          console.log(this.notas.user.id);
           this.esta = false;
         } else {
           console.log(res.data[0]);
           let person = res.data[0];
-          this.notas.usuario = person;
+          this.notas.user = person;
           this.esta = true;
         }
       });
@@ -152,12 +213,12 @@ export default {
         notapricort: this.notas.notapricort,
         notasegcort: this.notas.notasegcort,
         notateracort: this.notas.notateracort,
-        usu_id: this.notas.usuario.id,
+        usu_id: this.notas.user.id,
       };
       this.notas.notapricort = "";
       this.notas.notasegcort = "";
       this.notas.notateracort = "";
-      this.notas.usuario.id = "";
+      this.notas.user.id = "";
 
       axios.post("/api/notas", params).then((res) => {
         if (res.data == null) {
@@ -197,6 +258,10 @@ export default {
           } else {
             alert("Las notas se han actualizado con EXITO");
           }
+
+          this.notass[this.notas.index] = res.data;
+          this.notas.user.id = "";
+
           this.notass[this.notas.index] = res.data;
           this.notas.notapricort = "";
 
@@ -204,7 +269,7 @@ export default {
           this.notas.notasegcort = "";
 
           this.notass[this.notas.index] = res.data;
-          notas.notateracort = "";
+          this.notas.notateracort = "";
         })
         .catch((error) => {
           if (error.response.status == 422) {

@@ -10,17 +10,18 @@ class NotasController extends Controller
 {
 
     public function index(Request $request)
-    {
-        $nota= Nota::all();
+    {  
+        $notas = Nota::all();
         if($request->ajax()){
-            foreach ($nota as $not){
-                $not->usuario;   
+            foreach ($notas as $nota){
+                $nota->user;
             }
-            return $nota;
+            return $notas;
         }else{
-            return  response()->json($nota);
-        }   
+            return  response()->json($notas);
+        }
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -46,7 +47,7 @@ class NotasController extends Controller
         $nota->notateracort=$request->notateracort;
         $nota->usu_id=$request->usu_id;
         $nota->save();
-        $nota->usuario;
+        $nota->user;
         return  response()->json($nota);
     }
 
@@ -78,7 +79,7 @@ class NotasController extends Controller
         $nota->notasegcort = $request->notasegcort;
         $nota->notateracort = $request->notateracort;
         $nota->save();
-        $nota->usuario;
+        $nota->user;
         return  response()->json($nota);
     }
 
