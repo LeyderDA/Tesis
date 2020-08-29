@@ -1,0 +1,2 @@
+
+{{ $recepcion->consultorio }}

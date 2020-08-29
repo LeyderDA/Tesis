@@ -56,19 +56,22 @@
                 <table class="table text-center">
                   <thead>
                     <tr>
-                      <th>Usuario</th>
+                      <th>ID Usuario</th>
+                      <th>Username</th>
                       <th>Primer Corte</th>
                       <th>Segundo Corte</th>
-                      <th>Tercer Corte</th>             
+                      <th>Tercer Corte</th>           
                       <th>Opciones</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="(notas,index) in notass" :key="notas.index">
                         <td>{{notas.user.id}}</td>
+                        <td>{{notas.user.username}}</td>
                         <td>{{notas.notapricort}}</td>
                         <td>{{notas.notasegcort}}</td>
                         <td>{{notas.notateracort}}</td>
+                    
                       <td>
                         <button
                           class="btn btn-success btn-sm"

@@ -33,6 +33,7 @@ Route::get('/Notas', 'HomeController@index')->name('gestdoc')->middleware('Docen
 Route::get('/estudiante', 'estopcController@index')->name('estudiante')->middleware('Estudiante_Middleware');
 Route::get('/administrativo', 'admopcController@index')->name('administrativo')->middleware('Administrativo_Middleware');
 Route::get('/docente', 'docopcController@index')->name('docente')->middleware('Docente_Middleware');
+Route::get('/qr', 'QRCode@index');
 
 
 
