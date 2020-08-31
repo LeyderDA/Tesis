@@ -150,13 +150,15 @@
                           data-toggle="modal"
                           data-target="#editarModal"
                           @click="editarForm(recepcion,index)"
-                        >
+                         >
                           <i class="fas fa-pencil-alt"></i>
                         </button>
                         <button class="btn btn-danger btn-sm" @click="eliminar(recepcion,index)">
                           <i class="fas fa-trash-alt"></i>
                         </button>
                          <a :href="'/recepcionqr/'+recepcion.id"><i class="fas fa-qrcode"></i></a>
+
+
                       </td>
                     </tr>
                   </tbody>
@@ -303,6 +305,11 @@
           </div>
         </div>
         <!--cierro modal de buscar -->
+
+
+
+
+
       </div>
     </div>
   </div>

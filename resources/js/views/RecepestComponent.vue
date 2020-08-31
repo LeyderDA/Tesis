@@ -41,6 +41,16 @@
                       <a :href="'/recepcionqr2/'+recepcion.id">
                         <i class="fas fa-qrcode"></i>
                       </a>
+             
+                        <button
+                          class="btn btn-success btn-sm"
+                          data-toggle="modal"
+                          data-target="#observacionModal"
+                          @click="editarForm(recepcion,index)"
+                           >
+                          <i class="fas fa-pencil-alt"></i>
+                        </button>
+
                     </td>
                     <td></td>
                   </tr>
@@ -68,6 +78,8 @@
               </button>
             </div>
             <div class="modal-body">
+              
+
               <label class="col-5 col-form-label">Fecha de radicado</label>
               <input placeholder="recepcion" type="date" v-model="recepcion.fecharadicado" />
 
@@ -188,6 +200,77 @@
         </div>
       </div>
       <!--cierro modal de buscar -->
+       <!--modal de asignar observacion -->
+        <div
+          class="modal fade"
+          id="observacionModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Observaciones</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <label class="col-5 col-form-label">Id de recepcion</label>
+                <input placeholder="recepcion"  v-model="recepcion.id" />
+
+                <label class="col-5 col-form-label">Fecha de radicado</label>
+                <input placeholder="recepcion" type="date" v-model="recepcion.fecharadicado" />
+
+                <label class="col-5 col-form-label">Fecha de recepcionado</label>
+                <input placeholder="recepcion" type="date" v-model="recepcion.fecharecepcionado" />
+
+                <label class="col-5 col-form-label">Fecha de reparto</label>
+                <input placeholder="recepcion" type="date" v-model="recepcion.fechareparto" />
+
+                <label class="col-5 col-form-label">Fecha de publicación</label>
+                <input placeholder="recepcion" type="date" v-model="recepcion.fechapublicacion" />
+
+                <label class="col-5 col-form-label">Fecha de retiro</label>
+                <input placeholder="recepcion" type="date" v-model="recepcion.fecharetiro" />
+
+                <label class="col-5 col-form-label">Recepcionado en</label>
+                <input placeholder="recepcion" v-model="recepcion.recepcionado" />
+
+                <label class="col-5 col-form-label">Consultorio</label>
+                <input placeholder="recepcion" v-model="recepcion.consultorio" />
+
+                <label class="col-5 col-form-label">ID Reclamante</label>
+                <input placeholder="recepcion" v-model="recepcion.reclamante.id" />
+
+                <label class="col-5 col-form-label">Area</label>
+                <input placeholder="recepcion" v-model="recepcion.area.nombre" />
+
+                <label class="col-12 col-form-label">------------------------------------------------------------------------------------------</label>
+                <h2 class="text-center mb-2 card-title">Agregar Observación</h2>
+                <label class="col-12 col-form-label">------------------------------------------------------------------------------------------</label>
+                <label class="col-5 col-form-label">Observacion: </label>
+                <input placeholder="recepcion" v-model="observaciones.obsrv" />
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  @click="editar()"
+                  data-dismiss="modal"
+                >Guardar Cambios</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--modal de asignar observacion -->
+
     </div>
   </div>
 </template>
@@ -214,6 +297,12 @@ export default {
           direc: "",
         },
       },
+
+      observaciones: {
+          id: "",
+          obsrv: "",
+          recp_id: "",
+        },
 
       recepcion: {
         id: "",
@@ -242,7 +331,7 @@ export default {
         area: {
           id: "",
           nombre: "",
-        },
+        },    
       },
 
       esta: false,
@@ -334,59 +423,29 @@ export default {
         });
       }
     },
+
     editarForm(recepcion, index) {
       this.recepcion = recepcion;
       this.recepcion.index = index;
     },
     editar() {
-      const params = {
-        recepcionado: this.recepcion.recepcionado,
-        fecharadicado: this.recepcion.fecharadicado,
-        fecharecepcionado: this.recepcion.fecharecepcionado,
-        consultorio: this.recepcion.consultorio,
-        fechareparto: this.recepcion.fechareparto,
-        fechapublicacion: this.recepcion.fechapublicacion,
-        fecharetiro: this.recepcion.fecharetiro,
-        recla_id: this.recepcion.reclamante.id,
-        area_id: this.recepcion.area.id,
+ 
+const params = {
+        obsrv: this.observaciones.obsrv,
+        recp_id: this.recepcion.id,
+        
       };
-      axios
-        .put("/api/recepcion/" + this.recepcion.id, params)
-        .then((res) => {
-          if (res.data == null) {
-            alert("La recepcion no se ha actualizado");
-          } else {
-            alert("La Recepción se ha actualizado");
-          }
-
-          this.recepcioness[this.recepcion.index] = res.data;
-          this.recepcion.recepcionado = "";
-          this.recepcioness[this.recepcion.index] = res.data;
-          this.recepcion.fecharadicado = "";
-          this.recepcioness[this.recepcion.index] = res.data;
-          this.recepcion.fecharecepcionado = "";
-          this.recepcioness[this.recepcion.index] = res.data;
-          this.recepcion.consultorio = "";
-          this.recepcioness[this.recepcion.index] = res.data;
-          this.recepcion.fechareparto = "";
-          this.recepcioness[this.recepcion.index] = res.data;
-          this.recepcion.fechapublicacion = "";
-          this.recepcioness[this.recepcion.index] = res.data;
-          this.recepcion.fecharetiro = "";
-          this.recepcioness[this.recepcion.index] = res.data;
-          this.recepcion.reclamante = "";
-          this.recepcioness[this.recepcion.index] = res.data;
-          this.recepcion.area = "";
-        })
-        .catch((error) => {
-          if (error.response.status == 422) {
-            this.errors = error.response.data.errors;
-
-            //let mensaje='Error con alguno de los campos';
-
-            alert(this.errors.recepcionado[0]);
-          }
-        });
+    
+      axios.post("/api/observaciones", params).then((res) => {
+        if (res.data == null) {
+          alert("La Observacion No se registro porque tiene errores");
+        } else {
+          alert("La Observacion se ha registrado con EXITO");
+        }
+       
+      });
+      
+     
     },
   },
 };

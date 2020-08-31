@@ -5,7 +5,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>facultad de Derecho</title>
+        
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -82,9 +83,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Facultad de Derecho
                 </div>
-
+                <h1 class="text-center mb-2 card-title">Consultorio Jurídico Y Centro De Conciliación </h1>
+ <!--
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
@@ -95,6 +97,7 @@
                     <a href="https://vapor.laravel.com">Vapor</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+ -->
             </div>
         </div>
     </body>

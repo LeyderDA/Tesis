@@ -81,3 +81,10 @@ Route::get('/notas', 'NotasController@index')->name('notasListar');
 Route::delete('/notas/{id}', 'NotasController@destroy')->name('notasEliminar');
 Route::put('/notas/{id}', 'NotasController@update')->name('NotasActualizar');
 
+
+//RUTAS DE API PARA OBSERVACIONES
+Route::post('/observaciones', 'ObservacionesController@store')->name('obsGuardar');
+Route::get('/observaciones', 'ObservacionesController@index')->name('obsListar');
+Route::delete('/observaciones/{id}', 'ObservacionesController@destroy')->name('obsEliminar');
+Route::put('/observaciones/{id}', 'ObservacionesController@update')->name('obsActualizar');
+
