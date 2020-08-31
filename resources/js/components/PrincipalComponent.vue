@@ -35,6 +35,9 @@
       <li>
         <router-link :to="{name: 'asignacion'}">Asignar Recepción</router-link>
       </li>
+
+       
+
     </div>
 
     <transition name="slide-fade" mode="out-in">

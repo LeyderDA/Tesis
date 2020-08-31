@@ -75,6 +75,15 @@ export default new Router({
 
         },
 
+        
+        {
+            path: '/Observaciones',
+            name: 'observaciones',
+            component: require('./views/ObservacionesComponent.vue').default
+
+        },
+
+
 
         
 

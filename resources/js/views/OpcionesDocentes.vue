@@ -20,6 +20,10 @@
         <router-link :to="{name: 'notas'}">Asignar Notas</router-link>
       </li>
 
+      <li>
+        <router-link :to="{name: 'observaciones'}">Ver Observaciones</router-link>
+      </li>
+
     </div>
 
     <transition name="slide-fade" mode="out-in">
