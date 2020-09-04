@@ -2,7 +2,7 @@
 <html>
   <head>
 
-    <title>Instascan</title>
+    <title>Lector QR</title>
 
 <style>
 
@@ -16,8 +16,8 @@
   </head>
   <body>
       <select class="form-control" id="exampleFormControlSelect1" >
-        <option value="1">Recepcion</option>
-        <option value="2">Gestion</option>
+        <option value="1">Buscar Gestiones de una Recepción</option>
+        <option value="2">Buscar Observaciones de una Recepción</option>
       </select>
 
     <video id="preview"></video>
@@ -78,6 +78,8 @@
   <label class="btn btn-secondary">
     <input type="radio" name="options" value="2" autocomplete="off"> Back Camera
   </label>
+ 
 </div>
+<a href="/RecepEst"  class="btn btn-primary">Volver</a>
   </body>
 </html>

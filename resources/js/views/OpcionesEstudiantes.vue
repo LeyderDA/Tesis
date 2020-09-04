@@ -15,6 +15,10 @@
         <router-link :to="{name: 'gestion'}">Gestionar un Caso</router-link>
       </li>
 
+       <li>
+        <router-link :to="{name: 'miusuario'}">Ver mi usuario</router-link>
+      </li>
+
     </div>
 
     <transition name="slide-fade" mode="out-in">

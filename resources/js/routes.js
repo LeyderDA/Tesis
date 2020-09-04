@@ -83,6 +83,13 @@ export default new Router({
 
         },
 
+        {
+            path: '/MiUsuario',
+            name: 'miusuario',
+            component: require('./views/MiUsuarioComponent.vue').default
+
+        },
+
 
 
         

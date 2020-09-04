@@ -10,7 +10,7 @@
           <div class="col-6 form-group">
             <input class="form-control" placeholder="ID_RECEPCION" v-model="usurecep.recepcion.id" />
           </div>
-          <label class="col-5 col-form-label">ID USUARIO ESTUDIANTE</label>
+            <label class="col-5 col-form-label">ID USUARIO ESTUDIANTE</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="ID_USUARIO" v-model="usurecep.usuario.id" />
           </div>

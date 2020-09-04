@@ -88,3 +88,5 @@ Route::get('/observaciones', 'ObservacionesController@index')->name('obsListar')
 Route::delete('/observaciones/{id}', 'ObservacionesController@destroy')->name('obsEliminar');
 Route::put('/observaciones/{id}', 'ObservacionesController@update')->name('obsActualizar');
 
+//RUTA PARA MOSTRAR EL QR DEL USUARIO LOGUEADO
+Route::get('/miusuario', 'MiUsuarioController@index')->name('Listar');

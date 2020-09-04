@@ -6,7 +6,7 @@
         <!--------------------------------------------->
         <div class="card" style="width: 350px;">
             <div class="card-header">
-              QR RECEPCION
+              MOSTRANDO QR LISTO PARA ESCANEAR
             </div>
             <div class="card-body">
               <h5 class="card-title"></h5>

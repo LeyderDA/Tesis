@@ -15,14 +15,14 @@
                 <table class="table text-center">
                   <thead>
                     <tr>
-                      <th>Recepcionado</th>
+                      <th>Id Recepción</th>
                       <th>Observación</th>
                       <th>Opciones</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="(observaciones,index) in observacioness" :key="observaciones.index">
-                      <td>{{observaciones.recepcion.recepcionado}}</td>
+                      <td>{{observaciones.recepcion.id}}</td>
                       <td>{{observaciones.obsrv}}</td>
 
                       <td>

@@ -3,6 +3,12 @@
     <div>
       <h2 class="text-center mb-2 card-title">Recepciones</h2>
     </div>
+<label class="col-5 col-form-label">Busca por QR</label>
+      <a :href="'/qr/'">
+                        <i class="fas fa-search"></i>
+                        <i class="fas fa-qrcode"></i>
+                      </a>
+                      
 
     <div class="container">
       <div class="row">
@@ -22,7 +28,7 @@
                     <th>Consultorio</th>
                     <th>Reclamante</th>
                     <th>Area</th>
-                    <th>Mostrar QR</th>
+                    <th>Mostrar QR y asignar Observación</th>
                   </tr>
                 </thead>
                 <tbody>

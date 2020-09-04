@@ -9,6 +9,7 @@ class ObservacionesController extends Controller
 
     public function index(Request $request)
     {  
+
         $obs = Observaciones::all();
         if($request->ajax()){
             foreach ($obs as $agg){
