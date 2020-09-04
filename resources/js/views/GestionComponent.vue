@@ -4,111 +4,6 @@
       <h2 class="text-center mb-2 card-title">Registrando una nueva Gestión</h2>
     </div>
     <div class="card-body row">
-      <form>
-        <div class="row">
-          <div class="col-6 form-group">
-            <input class="form-control" placeholder="Recepción" v-model="gestion.recepcion.id" />
-          </div>
-          <div class="col-6 form-group">
-            <input
-              class="form-control"
-              placeholder="Ampliación de hechos"
-              v-model="gestion.amplhechos"
-            />
-          </div>
-
-          <div class="col-6 form-group">
-            <input
-              class="form-control"
-              placeholder="Fecha entrevista"
-              type="date"
-              v-model="gestion.fechentrevasesor"
-            />
-          </div>
-
-          <div class="col-6 form-group">
-            <input class="form-control" placeholder="Tipo de tramite" v-model="gestion.tipotramite" />
-          </div>
-
-          <div class="col-6 form-group">
-            <input
-              class="form-control"
-              placeholder="Asunto de tramite"
-              v-model="gestion.asuntotramite"
-            />
-          </div>
-
-          <div class="col-6">
-            <select
-              class="form-control"
-              placeholder="Estado"
-              type="boolean"
-              v-model="gestion.estado"
-            >
-              <option value="1">Activo</option>
-              <option value="0">Inactivo</option>
-            </select>
-          </div>
-
-          <div class="col-6 form-group">
-            <input
-              class="form-control"
-              placeholder="Motivo de archivo"
-              v-model="gestion.motivoarchivo"
-            />
-          </div>
-
-          <div class="col-6 form-group">
-            <input
-              class="form-control"
-              placeholder="Fecha de archivo"
-              type="date"
-              v-model="gestion.fechaarchivo"
-            />
-          </div>
-
-          <div class="col-6 form-group">
-            <input class="form-control" placeholder="Observaciones" v-model="gestion.obsrvtramite" />
-          </div>
-
-          <div class="col-6 form-group">
-            <input class="form-control" placeholder="Actuaciones" v-model="gestion.actuarealizadas" />
-          </div>
-
-          <div class="col-6 form-group">
-            <input
-              class="form-control"
-              placeholder="Actuaciones Juridicas"
-              v-model="gestion.actjuridirealzadas"
-            />
-          </div>
-
-          <div class="col-6 form-group">
-            <input
-              class="form-control"
-              placeholder="Resultado de actuación"
-              v-model="gestion.resulactuacion"
-            />
-          </div>
-
-          <div class="col-6 form-group">
-            <input
-              class="form-control"
-              placeholder="Entidad del tramite"
-              v-model="gestion.entidadelantramite"
-            />
-          </div>
-        </div>
-      </form>
-      <div class="row justify-content-center col">
-        <div class="col-6 form-group" v-if="true">
-          <button
-            class="btn btn-primary btn-block"
-            data-toggle="modal"
-            data-target="#buscarModal"
-            @click="buscar()"
-          >Buscar</button>
-        </div>
 
         <div class="col-6 form-group" v-if="true">
           <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
@@ -266,7 +161,7 @@
         <!--cierro modal de buscar -->
       </div>
     </div>
-  </div>
+
 </template>
 <script>
 export default {

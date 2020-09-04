@@ -3,12 +3,11 @@
     <div>
       <h2 class="text-center mb-2 card-title">Recepciones</h2>
     </div>
-<label class="col-5 col-form-label">Busca por QR</label>
-      <a :href="'/qr/'">
-                        <i class="fas fa-search"></i>
-                        <i class="fas fa-qrcode"></i>
-                      </a>
-                      
+    <label class="col-5 col-form-label">Busca por QR</label>
+    <a :href="'/qr/'">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-qrcode"></i>
+    </a>
 
     <div class="container">
       <div class="row">
@@ -33,7 +32,7 @@
                 </thead>
                 <tbody>
                   <tr v-for="(recepcion) in recepcioness" :key="recepcion.index">
-                    <td>{{recepcion.id}}</td>
+                    <td>{{recepcion.recp_id}}</td>
                     <td>{{recepcion.fecharadicado}}</td>
                     <td>{{recepcion.fecharecepcionado}}</td>
                     <td>{{recepcion.fechareparto}}</td>
@@ -47,16 +46,24 @@
                       <a :href="'/recepcionqr2/'+recepcion.id">
                         <i class="fas fa-qrcode"></i>
                       </a>
-             
-                        <button
-                          class="btn btn-success btn-sm"
-                          data-toggle="modal"
-                          data-target="#observacionModal"
-                          @click="editarForm(recepcion,index)"
-                           >
-                          <i class="fas fa-pencil-alt"></i>
-                        </button>
 
+                      <button
+                        class="btn btn-success btn-sm"
+                        data-toggle="modal"
+                        data-target="#observacionModal"
+                        @click="editarForm(recepcion,index)"
+                      >
+                        <i class="fas fa-pencil-alt"></i>
+                      </button>
+                      <button
+                        class="btn btn-success btn-sm"
+                        data-toggle="modal"
+                        data-target="#AggModal"
+                        @click="editarForm(recepcion,index)"
+                      >
+                    
+                        <i class="fas fa-save"></i>
+                      </button>
                     </td>
                     <td></td>
                   </tr>
@@ -66,10 +73,11 @@
           </div>
         </div>
       </div>
-      <!--modal de editar -->
+
+      <!--modal de asignar observacion -->
       <div
         class="modal fade"
-        id="editarModal"
+        id="observacionModal"
         tabindex="-1"
         role="dialog"
         aria-labelledby="exampleModalLabel"
@@ -78,13 +86,14 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Editar Recepción</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Observaciones</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              
+              <label class="col-5 col-form-label">Id de recepcion</label>
+              <input placeholder="recepcion" v-model="recepcion.id" />
 
               <label class="col-5 col-form-label">Fecha de radicado</label>
               <input placeholder="recepcion" type="date" v-model="recepcion.fecharadicado" />
@@ -110,30 +119,18 @@
               <label class="col-5 col-form-label">ID Reclamante</label>
               <input placeholder="recepcion" v-model="recepcion.reclamante.id" />
 
-              <!--buscar reclamante -->
-              <div class="col-5 form-group" v-if="true">
-                <button
-                  class="btn btn-primary btn-block"
-                  data-toggle="modal"
-                  data-target="#buscarModalrecl"
-                  @click="buscarrecl()"
-                >B.Reclamante</button>
-              </div>
-              <!--buscar reclamante -->
-
               <label class="col-5 col-form-label">Area</label>
               <input placeholder="recepcion" v-model="recepcion.area.nombre" />
 
-              <!--buscar area -->
-              <div class="col-5 form-group" v-if="true">
-                <button
-                  class="btn btn-primary btn-block"
-                  data-toggle="modal"
-                  data-target="#buscarModalarea"
-                  @click="buscararea()"
-                >Buscar Area</button>
-              </div>
-              <!--buscar area -->
+              <label
+                class="col-12 col-form-label"
+              >------------------------------------------------------------------------------------------</label>
+              <h2 class="text-center mb-2 card-title">Agregar Observación</h2>
+              <label
+                class="col-12 col-form-label"
+              >------------------------------------------------------------------------------------------</label>
+              <label class="col-5 col-form-label">Observacion:</label>
+              <input placeholder="Observación" v-model="observaciones.obsrv" />
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -147,12 +144,12 @@
           </div>
         </div>
       </div>
-      <!--modal de editar -->
+      <!--modal de asignar observacion -->
 
-      <!--modal de area -->
+      <!--modal de asignar gestion -->
       <div
         class="modal fade"
-        id="buscarModalarea"
+        id="AggModal"
         tabindex="-1"
         role="dialog"
         aria-labelledby="exampleModalLabel"
@@ -161,122 +158,134 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Mostrar Area</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Guardar Gestion</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+
             <div class="modal-body">
-              <input placeholder="Id" v-model="recepcion.area.id" />
-              <input placeholder="Nombre" v-model="recepcion.area.nombre" />
+              <div class="col-6 form-group">
+                <input class="form-control" placeholder="Recepción" v-model="recepcion.recp_id" />
+              </div>
+
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Ampliación de hechos"
+                  v-model="gestion.amplhechos"
+                />
+              </div>
+
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Fecha entrevista"
+                  type="date"
+                  v-model="gestion.fechentrevasesor"
+                />
+              </div>
+
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Tipo de tramite"
+                  v-model="gestion.tipotramite"
+                />
+              </div>
+
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Asunto de tramite"
+                  v-model="gestion.asuntotramite"
+                />
+              </div>
+
+              <div class="col-6">
+                <select
+                  class="form-control"
+                  placeholder="Estado"
+                  type="boolean"
+                  v-model="gestion.estado"
+                >
+                  <option value="1">Activo</option>
+                  <option value="0">Inactivo</option>
+                </select>
+              </div>
+
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Motivo de archivo"
+                  v-model="gestion.motivoarchivo"
+                />
+              </div>
+
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Fecha de archivo"
+                  type="date"
+                  v-model="gestion.fechaarchivo"
+                />
+              </div>
+
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Observaciones"
+                  v-model="gestion.obsrvtramite"
+                />
+              </div>
+
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Actuaciones"
+                  v-model="gestion.actuarealizadas"
+                />
+              </div>
+
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Actuaciones Juridicas"
+                  v-model="gestion.actjuridirealzadas"
+                />
+              </div>
+
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Resultado de actuación"
+                  v-model="gestion.resulactuacion"
+                />
+              </div>
+
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Entidad del tramite"
+                  v-model="gestion.entidadelantramite"
+                />
+              </div>
             </div>
+
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                @click=" agregargestion()"
+                data-dismiss="modal"
+              >Guardar Cambios</button>
             </div>
           </div>
         </div>
       </div>
-      <!--cierro modal de area -->
 
-      <!--modal - el de buscar reclamante -->
-      <div
-        class="modal fade"
-        id="buscarModalrecl"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Mostrar Persona</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <input placeholder="Id Docente" v-model="recepcion.reclamante.id" />
-              <input placeholder="Id Persona" v-model="recepcion.reclamante.per_id" />
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--cierro modal de buscar -->
-       <!--modal de asignar observacion -->
-        <div
-          class="modal fade"
-          id="observacionModal"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Observaciones</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-
-                <label class="col-5 col-form-label">Id de recepcion</label>
-                <input placeholder="recepcion"  v-model="recepcion.id" />
-
-                <label class="col-5 col-form-label">Fecha de radicado</label>
-                <input placeholder="recepcion" type="date" v-model="recepcion.fecharadicado" />
-
-                <label class="col-5 col-form-label">Fecha de recepcionado</label>
-                <input placeholder="recepcion" type="date" v-model="recepcion.fecharecepcionado" />
-
-                <label class="col-5 col-form-label">Fecha de reparto</label>
-                <input placeholder="recepcion" type="date" v-model="recepcion.fechareparto" />
-
-                <label class="col-5 col-form-label">Fecha de publicación</label>
-                <input placeholder="recepcion" type="date" v-model="recepcion.fechapublicacion" />
-
-                <label class="col-5 col-form-label">Fecha de retiro</label>
-                <input placeholder="recepcion" type="date" v-model="recepcion.fecharetiro" />
-
-                <label class="col-5 col-form-label">Recepcionado en</label>
-                <input placeholder="recepcion" v-model="recepcion.recepcionado" />
-
-                <label class="col-5 col-form-label">Consultorio</label>
-                <input placeholder="recepcion" v-model="recepcion.consultorio" />
-
-                <label class="col-5 col-form-label">ID Reclamante</label>
-                <input placeholder="recepcion" v-model="recepcion.reclamante.id" />
-
-                <label class="col-5 col-form-label">Area</label>
-                <input placeholder="recepcion" v-model="recepcion.area.nombre" />
-
-                <label class="col-12 col-form-label">------------------------------------------------------------------------------------------</label>
-                <h2 class="text-center mb-2 card-title">Agregar Observación</h2>
-                <label class="col-12 col-form-label">------------------------------------------------------------------------------------------</label>
-                <label class="col-5 col-form-label">Observacion: </label>
-                <input placeholder="recepcion" v-model="observaciones.obsrv" />
-
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  @click="editar()"
-                  data-dismiss="modal"
-                >Guardar Cambios</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--modal de asignar observacion -->
-
+      <!--modal de asignar gestion -->
     </div>
   </div>
 </template>
@@ -305,10 +314,10 @@ export default {
       },
 
       observaciones: {
-          id: "",
-          obsrv: "",
-          recp_id: "",
-        },
+        id: "",
+        obsrv: "",
+        recp_id: "",
+      },
 
       recepcion: {
         id: "",
@@ -337,7 +346,22 @@ export default {
         area: {
           id: "",
           nombre: "",
-        },    
+        },
+      },
+      gestion: {
+        id: "",
+        amplhechos: "",
+        fechentrevasesor: "",
+        tipotramite: "",
+        asuntotramite: "",
+        motivoarchivo: "",
+        fechaarchivo: "",
+        obsrvtramite: "",
+        actuarealizadas: "",
+        actjuridirealzadas: "",
+        resulactuacion: "",
+        entidadelantramite: "",
+        recp_id: "",
       },
 
       esta: false,
@@ -418,6 +442,32 @@ export default {
       });
     },
 
+    agregargestion() {
+      const params = {
+        amplhechos: this.gestion.amplhechos,
+        fechentrevasesor: this.gestion.fechentrevasesor,
+        tipotramite: this.gestion.tipotramite,
+        asuntotramite: this.gestion.asuntotramite,
+        estado: this.gestion.estado,
+        motivoarchivo: this.gestion.motivoarchivo,
+        fechaarchivo: this.gestion.fechaarchivo,
+        obsrvtramite: this.gestion.obsrvtramite,
+        actuarealizadas: this.gestion.actuarealizadas,
+        actjuridirealzadas: this.gestion.actjuridirealzadas,
+        resulactuacion: this.gestion.resulactuacion,
+        entidadelantramite: this.gestion.entidadelantramite,
+        recp_id: this.recepcion.recp_id,
+      };
+
+      axios.post("/api/gestion", params).then((res) => {
+        if (res.data == null) {
+          alert("La Gestión NO se ha registrado");
+        } else {
+          alert("¡La Gestión se ha registrado Exitosamente en el Caso!!");
+        }
+      });
+    },
+
     eliminar(recepcion, index) {
       const confirmacion = confirm(
         `Confirma Eliminar Recepcion del area de: ${recepcion.area.nombre}`
@@ -435,23 +485,18 @@ export default {
       this.recepcion.index = index;
     },
     editar() {
- 
-const params = {
+      const params = {
         obsrv: this.observaciones.obsrv,
         recp_id: this.recepcion.id,
-        
       };
-    
+
       axios.post("/api/observaciones", params).then((res) => {
         if (res.data == null) {
           alert("La Observacion No se registro porque tiene errores");
         } else {
           alert("La Observacion se ha registrado con EXITO");
         }
-       
       });
-      
-     
     },
   },
 };

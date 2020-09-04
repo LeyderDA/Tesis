@@ -27,7 +27,7 @@ class RecepcionController extends Controller
                               $rec->docente;
                               $rec->administrativo;
                               $rec->reclamante;
-                              $rec->area;
+                              $rec->area;                        
                           }
                           return $recepcion;
                       } else {
