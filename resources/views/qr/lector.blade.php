@@ -18,6 +18,7 @@
       <select class="form-control" id="exampleFormControlSelect1" >
         <option value="1">Buscar Gestiones de una Recepción</option>
         <option value="2">Buscar Observaciones de una Recepción</option>
+        <option value="3">Buscar Recepciones de un Usuario</option>
       </select>
 
     <video id="preview"></video>
@@ -35,9 +36,11 @@
           x=false;  
           var opc = document.getElementById('exampleFormControlSelect1').value;
           if(opc==1){
-            window.location.replace('qr/'+content);
-          }else{
-            alert("gestion notoi");
+            window.location.replace('qr/1;'+content);
+          }else if(opc==2){
+            window.location.replace('qr/2;'+content);
+          }else if(opc==3){
+            window.location.replace('qr/3;'+content);
           }
           
         }
@@ -71,15 +74,7 @@
     });
 </script>
 
-<div class="btn-group btn-group-toggle mb-5" data-toggle="buttons">
-  <label class="btn btn-primary active">
-    <input type="radio" name="options" value="1" autocomplete="off" checked> Front Camera
-  </label>
-  <label class="btn btn-secondary">
-    <input type="radio" name="options" value="2" autocomplete="off"> Back Camera
-  </label>
- 
-</div>
-<a href="/RecepEst"  class="btn btn-primary">Volver</a>
+
+<a href="/RecepDoc"  class="btn btn-primary">Volver</a>
   </body>
 </html>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Observaciones;
+use App\UsuRecep;
+use App\Http\Controllers\request_id;
 use Illuminate\Http\Request;
 
 class ObservacionesController extends Controller
@@ -9,8 +11,13 @@ class ObservacionesController extends Controller
 
     public function index(Request $request)
     {  
+        $id = (new request_id)->get_id();  
+        $date = UsuRecep::all()->where('usu_id',$id);
 
-        $obs = Observaciones::all();
+        $obs = Observaciones::join("usurecep","observaciones.recp_id","=","usurecep.recp_id")
+        ->where('usurecep.usu_id','=',$id)
+        ->get();
+
         if($request->ajax()){
             foreach ($obs as $agg){
                 $agg->recepcion;
