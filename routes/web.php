@@ -28,6 +28,7 @@ Route::get('/Recepcion', 'HomeController@index')->name('recepcion')->middleware(
 Route::get('/Gestion', 'HomeController@index')->name('gestion')->middleware('EstudianteMiddleware');
 Route::get('/Asignacion', 'HomeController@index')->name('asignacion')->middleware('Administrativo_Middleware');
 Route::get('/RecepEst', 'HomeController@index')->name('recepest')->middleware('Compartido_Middleware');
+Route::get('/RecepDoc', 'HomeController@index')->name('recepdoc')->middleware('Compartido_Middleware');
 Route::get('/DocGestion', 'HomeController@index')->name('gestdoc')->middleware('Docente_Middleware');
 Route::get('/Notas', 'HomeController@index')->name('gestdoc')->middleware('Docente_Middleware');
 Route::get('/Observaciones', 'HomeController@index')->name('gestdoc')->middleware('Docente_Middleware');

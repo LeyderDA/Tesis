@@ -27,7 +27,7 @@
                     <th>Consultorio</th>
                     <th>Reclamante</th>
                     <th>Area</th>
-                    <th>Mostrar QR y agregar Gestión</th>
+                    <th>Mostrar QR y asignar Observación</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -45,14 +45,15 @@
                     <td>
                       <a :href="'/recepcionqr2/'+recepcion.id">
                         <i class="fas fa-qrcode"></i>
-                      </a>                      
+                      </a>
+
                       <button
                         class="btn btn-success btn-sm"
                         data-toggle="modal"
-                        data-target="#AggModal"
+                        data-target="#observacionModal"
                         @click="editarForm(recepcion,index)"
-                      >   
-                        <i class="fas fa-save"></i>
+                      >
+                        <i class="fas fa-pencil-alt"></i>
                       </button>
                     </td>
                     <td></td>

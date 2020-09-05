@@ -9,7 +9,7 @@
       </li>
 
       <li>
-        <router-link :to="{name: 'recepest'}">Ver Recepciones</router-link>
+        <router-link :to="{name: 'recepdoc'}">Ver Recepciones</router-link>
       </li>
 
       <li>

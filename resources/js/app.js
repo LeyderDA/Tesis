@@ -22,6 +22,7 @@ Vue.component('opcionesadmin-v', require('./views/OpcionesAdministrativo.vue').d
 Vue.component('opcionesdoc-v', require('./views/OpcionesDocentes.vue').default);
 Vue.component('asignar-v', require('./views/AsignarRecepcionComponent.vue').default);
 Vue.component('recepest-v', require('./views/RecepestComponent.vue').default);
+Vue.component('recepdoc-v', require('./views/recepDocenteComponent.vue').default);
 Vue.component('notas-v', require('./views/NotasComponent.vue').default);
 Vue.component('miusario-v', require('./views/MiUsuarioComponent.vue').default);
 import router  from './routes'

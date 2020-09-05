@@ -62,6 +62,15 @@ export default new Router({
         },
 
         {
+            path: '/RecepDoc',
+            name: 'recepdoc',
+            component: require('./views/recepDocenteComponent.vue').default
+
+        },
+
+
+
+        {
             path: '/DocGestion',
             name: 'gestdocente',
             component: require('./views/DOCgestionComponent.vue').default
