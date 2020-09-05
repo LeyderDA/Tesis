@@ -4707,12 +4707,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -49057,16 +49051,6 @@ var render = function() {
   return _c("div", { staticClass: "card" }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("label", { staticClass: "col-5 col-form-label" }, [
-      _vm._v("Busca por QR")
-    ]),
-    _vm._v(" "),
-    _c("a", { attrs: { href: "/qr/" } }, [
-      _c("i", { staticClass: "fas fa-search" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fas fa-qrcode" })
-    ]),
-    _vm._v(" "),
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "card-body col" }, [
@@ -49102,7 +49086,7 @@ var render = function() {
                       _c("td", [
                         _c(
                           "a",
-                          { attrs: { href: "/recepcionqr2/" + recepcion.id } },
+                          { attrs: { href: "/recepcionqr/" + recepcion.id } },
                           [_c("i", { staticClass: "fas fa-qrcode" })]
                         ),
                         _vm._v(" "),

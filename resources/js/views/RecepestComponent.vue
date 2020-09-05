@@ -3,12 +3,6 @@
     <div>
       <h2 class="text-center mb-2 card-title">Recepciones</h2>
     </div>
-    <label class="col-5 col-form-label">Busca por QR</label>
-    <a :href="'/qr/'">
-      <i class="fas fa-search"></i>
-      <i class="fas fa-qrcode"></i>
-    </a>
-
     <div class="container">
       <div class="row">
         <div class="card-body col">
@@ -43,7 +37,7 @@
                     <td>{{recepcion.reclamante.id}}</td>
                     <td>{{recepcion.area.nombre}}</td>
                     <td>
-                      <a :href="'/recepcionqr2/'+recepcion.id">
+                      <a :href="'/recepcionqr/'+recepcion.id">
                         <i class="fas fa-qrcode"></i>
                       </a>                      
                       <button
