@@ -21,8 +21,7 @@ class QRCode extends Controller
         $part1 = $porciones[0]; 
         $part2 = $porciones[1]; 
 
-        if($part1 == 1){
-         
+        if($part1 == 1){     
             $recepcion['recepcion'] = Gestion::join("recepciones","gestion_tramites.recp_id","=","recepciones.id")
             ->where("gestion_tramites.recp_id",$part2)
             ->get();
@@ -33,6 +32,7 @@ class QRCode extends Controller
             ->where("observaciones.recp_id",$part2)
             ->get();
             return view('qr.qrview',$recepcion);
+            
         }else if($part1 == 3){
             $recepcion['recepcion'] = Recepcion::join("usurecep","recepciones.id","=","usurecep.recp_id")
             ->join("users","usurecep.usu_id","=","users.id")
