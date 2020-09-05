@@ -78,6 +78,13 @@ export default new Router({
         },
 
         {
+            path: '/EstGestion',
+            name: 'gestest',
+            component: require('./views/gestionComponent.vue').default
+
+        },
+
+        {
             path: '/Notas',
             name: 'notas',
             component: require('./views/NotasComponent.vue').default

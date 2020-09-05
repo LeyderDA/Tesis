@@ -1,14 +1,9 @@
 <template>
   <div class="card">
-    <div>
-      <h2 class="text-center mb-2 card-title">Registrando una nueva Gestión</h2>
-    </div>
-    <div class="card-body row">
-
-        <div class="col-6 form-group" v-if="true">
-          <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
-        </div>
-      </div>
+          <div>
+      <h2 class="text-center mb-2 card-title">Visualizando Gestiones</h2>
+         </div>
+            <div class="card-body row">
       <br />
       <div class="container">
         <div class="row">
@@ -161,7 +156,7 @@
         <!--cierro modal de buscar -->
       </div>
     </div>
-
+  </div>
 </template>
 <script>
 export default {

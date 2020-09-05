@@ -26,11 +26,10 @@
                       <th>Resultados de la actuación</th>
                       <th>Entidad reclamante</th>
                       <th>ID de Recepción</th>
-                      <th>Opciones</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(gestion,index) in gestioness" :key="gestion.index">
+                    <tr v-for="(gestion) in gestioness" :key="gestion.index">
                       <td>{{gestion.amplhechos}}</td>
                       <td>{{gestion.fechentrevasesor}}</td>
                       <td>{{gestion.tipotramitee}}</td>
@@ -45,17 +44,8 @@
                       <td>{{gestion.entidadelantramite}}</td>
                       <td>{{gestion.recepcion.id}}</td>
                       <td>
-                        <button
-                          class="btn btn-success btn-sm"
-                          data-toggle="modal"
-                          data-target="#editarModal"
-                          @click="editarForm(gestion,index)"
-                        >
-                          <i class="fas fa-pencil-alt"></i>
-                        </button>
-                        <button class="btn btn-danger btn-sm" @click="eliminar(gestion,index)">
-                          <i class="fas fa-trash-alt"></i>
-                        </button>
+                        
+                        
                       </td>
                     </tr>
                   </tbody>
@@ -202,145 +192,8 @@ export default {
     });
   },
   methods: {
-    buscar() {
-      axios.get("/api/recepcion/" + this.gestion.recepcion.id).then((res) => {
-        if (res.data[0] == null) {
-          this.gestion.recepcion.id = "";
-          this.gestion.recepcion.recepcionado = "";
-          this.gestion.recepcion.fecharadicado = "";
-          this.gestion.recepcion.fecharecepcionado = "";
-          this.gestion.recepcion.consultorio = "";
-          this.gestion.recepcion.fechareparto = "";
-          this.gestion.recepcion.fechapublicacion = "";
-          this.gestion.recepcion.fecharetiro = "";
-          console.log(this.gestion.recepcion.id);
-          this.esta = false;
-        } else {
-          console.log(res.data[0]);
-          let recep = res.data[0];
-          this.gestion.recepcion = recep;
-          this.esta = true;
-        }
-      });
-    },
-    agregar() {
-      const params = {
-        amplhechos: this.gestion.amplhechos,
-        fechentrevasesor: this.gestion.fechentrevasesor,
-        tipotramite: this.gestion.tipotramite,
-        asuntotramite: this.gestion.asuntotramite,
-        estado: this.gestion.estado,
-        motivoarchivo: this.gestion.motivoarchivo,
-        fechaarchivo: this.gestion.fechaarchivo,
-        obsrvtramite: this.gestion.obsrvtramite,
-        actuarealizadas: this.gestion.actuarealizadas,
-        actjuridirealzadas: this.gestion.actjuridirealzadas,
-        resulactuacion: this.gestion.resulactuacion,
-        entidadelantramite: this.gestion.entidadelantramite,
-        recp_id: this.gestion.recepcion.id,
-      };
-      this.gestion.amplhechos = "";
-      this.gestion.fechentrevasesor = "";
-      this.gestion.tipotramite = "";
-      this.gestion.asuntotramite = "";
-      this.gestion.estado = "";
-      this.gestion.motivoarchivo = "";
-      this.gestion.fechaarchivo = "";
-      this.gestion.obsrvtramite = "";
-      this.gestion.actuarealizadas = "";
-      this.gestion.actjuridirealzadas = "";
-      this.gestion.resulactuacion = "";
-      this.gestion.entidadelantramite = "";
-      this.gestion.recepcion.id = "";
-      console.log(this.gestion.estado);
+   
 
-      axios.post("/api/gestion", params).then((res) => {
-        if (res.data == null) {
-          alert("La Gestión NO se ha registrado");
-        } else {
-          alert("¡La Gestión se ha registrado Exitosamente en el Caso!!");
-        }
-        this.gestioness.push(res.data);
-      });
-    },
-
-    eliminar(gestion, index) {
-      const confirmacion = confirm(
-        `Confirma Eliminar la Gestión con el asunto: ${gestion.asuntotramite}`
-      );
-      if (confirmacion) {
-        axios.delete("/api/gestion/" + gestion.id).then(() => {
-          this.gestioness.splice(index, 1);
-          alert("La Gestión se ha eliminado con exito");
-        });
-      }
-    },
-    editarForm(gestion, index) {
-      this.gestion = gestion;
-      this.gestion.index = index;
-    },
-    editar() {
-      const params = {
-        amplhechos: this.gestion.amplhechos,
-        fechentrevasesor: this.gestion.fechentrevasesor,
-        tipotramite: this.gestion.tipotramite,
-        asuntotramite: this.gestion.asuntotramite,
-        estado: this.gestion.estado,
-        motivoarchivo: this.gestion.motivoarchivo,
-        fechaarchivo: this.gestion.fechaarchivo,
-        obsrvtramite: this.gestion.obsrvtramite,
-        actuarealizadas: this.gestion.actuarealizadas,
-        actjuridirealzadas: this.gestion.actjuridirealzadas,
-        resulactuacion: this.gestion.resulactuacion,
-        entidadelantramite: this.gestion.entidadelantramite,
-        recp_id: this.gestion.recepcion.id,
-      };
-      axios
-        .put("/api/gestion/" + this.gestion.id, params)
-        .then((res) => {
-          if (res.data == null) {
-            alert("La gestión no se ha actualizado");
-          } else {
-            alert("La Gestión se ha actualizado con EXITO");
-          }
-
-          this.gestioness[this.gestion.index] = res.data;
-          this.gestion.amplhechos = "";
-          this.gestioness[this.gestion.index] = res.data;
-          this.gestion.fechentrevasesor = "";
-          this.gestioness[this.gestion.index] = res.data;
-          this.gestion.tipotramite = "";
-          this.gestioness[this.gestion.index] = res.data;
-          this.gestion.asuntotramite = "";
-          this.gestioness[this.gestion.index] = res.data;
-          this.gestion.estado = "";
-          this.gestioness[this.gestion.index] = res.data;
-          this.gestion.motivoarchivo = "";
-          this.gestioness[this.gestion.index] = res.data;
-          this.gestion.fechaarchivo = "";
-          this.gestioness[this.gestion.index] = res.data;
-          this.gestion.obsrvtramite = "";
-          this.gestioness[this.gestion.index] = res.data;
-          this.gestion.actuarealizadas = "";
-          this.gestioness[this.gestion.index] = res.data;
-          this.gestion.actjuridirealzadas = "";
-          this.gestioness[this.gestion.index] = res.data;
-          this.gestion.resulactuacion = "";
-          this.gestioness[this.gestion.index] = res.data;
-          this.gestion.entidadelantramite = "";
-          this.gestioness[this.gestion.index] = res.data;
-          this.gestion.recepcion.id = "";
-        })
-        .catch((error) => {
-          if (error.response.status == 422) {
-            this.errors = error.response.data.errors;
-
-            //let mensaje='Error con alguno de los campos';
-
-            alert(this.errors.asuntotramite[0]);
-          }
-        });
-    },
   },
 };
 </script>

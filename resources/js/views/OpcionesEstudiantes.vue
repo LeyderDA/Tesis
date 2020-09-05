@@ -12,7 +12,7 @@
       </li>
 
       <li>
-        <router-link :to="{name: 'gestdocente'}">Gestionar un Caso</router-link>
+        <router-link :to="{name: 'gestest'}">Ver Gestiones</router-link>
       </li>
 
        <li>
