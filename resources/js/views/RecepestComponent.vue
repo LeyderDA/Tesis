@@ -441,7 +441,7 @@ export default {
         resulactuacion: this.gestion.resulactuacion,
         entidadelantramite: this.gestion.entidadelantramite,
         recp_id: this.recepcion.recp_id,
-      };
+      };     
 
       axios.post("/api/gestion", params).then((res) => {
         if (res.data == null) {
@@ -449,6 +449,18 @@ export default {
         } else {
           alert("¡La Gestión se ha registrado Exitosamente en el Caso!!");
         }
+      this.gestion.amplhechos = "";
+      this.gestion.fechentrevasesor = "";
+      this.gestion.tipotramite = "";
+      this.gestion.asuntotramite = "";
+      this.gestion.estado = "";
+      this.gestion.motivoarchivo = "";
+      this.gestion.fechaarchivo = "";
+      this.gestion.obsrvtramite = "";
+      this.gestion.actuarealizadas = "";
+      this.gestion.actjuridirealzadas = "";
+      this.gestion.resulactuacion = "";
+      this.gestion.entidadelantramite = "";
       });
     },
 

@@ -4701,6 +4701,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     agregargestion: function agregargestion() {
+      var _this5 = this;
+
       var params = {
         amplhechos: this.gestion.amplhechos,
         fechentrevasesor: this.gestion.fechentrevasesor,
@@ -4722,16 +4724,29 @@ __webpack_require__.r(__webpack_exports__);
         } else {
           alert("¡La Gestión se ha registrado Exitosamente en el Caso!!");
         }
+
+        _this5.gestion.amplhechos = "";
+        _this5.gestion.fechentrevasesor = "";
+        _this5.gestion.tipotramite = "";
+        _this5.gestion.asuntotramite = "";
+        _this5.gestion.estado = "";
+        _this5.gestion.motivoarchivo = "";
+        _this5.gestion.fechaarchivo = "";
+        _this5.gestion.obsrvtramite = "";
+        _this5.gestion.actuarealizadas = "";
+        _this5.gestion.actjuridirealzadas = "";
+        _this5.gestion.resulactuacion = "";
+        _this5.gestion.entidadelantramite = "";
       });
     },
     eliminar: function eliminar(recepcion, index) {
-      var _this5 = this;
+      var _this6 = this;
 
       var confirmacion = confirm("Confirma Eliminar Recepcion del area de: ".concat(recepcion.area.nombre));
 
       if (confirmacion) {
         axios["delete"]("/api/recepcion/" + recepcion.id).then(function () {
-          _this5.recepcioness.splice(index, 1);
+          _this6.recepcioness.splice(index, 1);
 
           alert("La recepción se ha eliminado con exito");
         });
@@ -7281,30 +7296,6 @@ __webpack_require__.r(__webpack_exports__);
         _this4.recepcioness.push(res.data);
       });
     },
-    agregargestion: function agregargestion() {
-      var params = {
-        amplhechos: this.gestion.amplhechos,
-        fechentrevasesor: this.gestion.fechentrevasesor,
-        tipotramite: this.gestion.tipotramite,
-        asuntotramite: this.gestion.asuntotramite,
-        estado: this.gestion.estado,
-        motivoarchivo: this.gestion.motivoarchivo,
-        fechaarchivo: this.gestion.fechaarchivo,
-        obsrvtramite: this.gestion.obsrvtramite,
-        actuarealizadas: this.gestion.actuarealizadas,
-        actjuridirealzadas: this.gestion.actjuridirealzadas,
-        resulactuacion: this.gestion.resulactuacion,
-        entidadelantramite: this.gestion.entidadelantramite,
-        recp_id: this.recepcion.recp_id
-      };
-      axios.post("/api/gestion", params).then(function (res) {
-        if (res.data == null) {
-          alert("La Gestión NO se ha registrado");
-        } else {
-          alert("¡La Gestión se ha registrado Exitosamente en el Caso!!");
-        }
-      });
-    },
     eliminar: function eliminar(recepcion, index) {
       var _this5 = this;
 
@@ -7323,9 +7314,11 @@ __webpack_require__.r(__webpack_exports__);
       this.recepcion.index = index;
     },
     editar: function editar() {
+      var _this6 = this;
+
       var params = {
         obsrv: this.observaciones.obsrv,
-        recp_id: this.recepcion.id
+        recp_id: this.recepcion.recp_id
       };
       axios.post("/api/observaciones", params).then(function (res) {
         if (res.data == null) {
@@ -7333,6 +7326,8 @@ __webpack_require__.r(__webpack_exports__);
         } else {
           alert("La Observacion se ha registrado con EXITO");
         }
+
+        _this6.observaciones.obsrv = "";
       });
     }
   }
@@ -54995,18 +54990,18 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.recepcion.id,
-                        expression: "recepcion.id"
+                        value: _vm.recepcion.recp_id,
+                        expression: "recepcion.recp_id"
                       }
                     ],
                     attrs: { placeholder: "recepcion" },
-                    domProps: { value: _vm.recepcion.id },
+                    domProps: { value: _vm.recepcion.recp_id },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.recepcion, "id", $event.target.value)
+                        _vm.$set(_vm.recepcion, "recp_id", $event.target.value)
                       }
                     }
                   }),

@@ -84,7 +84,7 @@
             </div>
             <div class="modal-body">
               <label class="col-5 col-form-label">Id de recepcion</label>
-              <input placeholder="recepcion" v-model="recepcion.id" />
+              <input placeholder="recepcion" v-model="recepcion.recp_id" />
 
               <label class="col-5 col-form-label">Fecha de radicado</label>
               <input placeholder="recepcion" type="date" v-model="recepcion.fecharadicado" />
@@ -433,32 +433,6 @@ export default {
       });
     },
 
-    agregargestion() {
-      const params = {
-        amplhechos: this.gestion.amplhechos,
-        fechentrevasesor: this.gestion.fechentrevasesor,
-        tipotramite: this.gestion.tipotramite,
-        asuntotramite: this.gestion.asuntotramite,
-        estado: this.gestion.estado,
-        motivoarchivo: this.gestion.motivoarchivo,
-        fechaarchivo: this.gestion.fechaarchivo,
-        obsrvtramite: this.gestion.obsrvtramite,
-        actuarealizadas: this.gestion.actuarealizadas,
-        actjuridirealzadas: this.gestion.actjuridirealzadas,
-        resulactuacion: this.gestion.resulactuacion,
-        entidadelantramite: this.gestion.entidadelantramite,
-        recp_id: this.recepcion.recp_id,
-      };
-
-      axios.post("/api/gestion", params).then((res) => {
-        if (res.data == null) {
-          alert("La Gestión NO se ha registrado");
-        } else {
-          alert("¡La Gestión se ha registrado Exitosamente en el Caso!!");
-        }
-      });
-    },
-
     eliminar(recepcion, index) {
       const confirmacion = confirm(
         `Confirma Eliminar Recepcion del area de: ${recepcion.area.nombre}`
@@ -478,7 +452,7 @@ export default {
     editar() {
       const params = {
         obsrv: this.observaciones.obsrv,
-        recp_id: this.recepcion.id,
+        recp_id: this.recepcion.recp_id,
       };
 
       axios.post("/api/observaciones", params).then((res) => {
@@ -487,6 +461,7 @@ export default {
         } else {
           alert("La Observacion se ha registrado con EXITO");
         }
+        this.observaciones.obsrv = "";
       });
     },
   },
