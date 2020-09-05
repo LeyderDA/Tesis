@@ -49239,7 +49239,12 @@ var render = function() {
                         _c(
                           "a",
                           { attrs: { href: "/recepcionqr/" + recepcion.id } },
-                          [_c("i", { staticClass: "fas fa-qrcode" })]
+                          [
+                            _c("i", {
+                              staticClass: "fas fa-qrcode fa-3x",
+                              staticStyle: { color: "black" }
+                            })
+                          ]
                         ),
                         _vm._v(" "),
                         _c(
@@ -49256,7 +49261,12 @@ var render = function() {
                               }
                             }
                           },
-                          [_c("i", { staticClass: "fas fa-save" })]
+                          [
+                            _c("i", {
+                              staticClass: "fas fa-save fa-3x",
+                              staticStyle: { color: "black" }
+                            })
+                          ]
                         )
                       ]),
                       _vm._v(" "),
@@ -54886,10 +54896,11 @@ var render = function() {
       _vm._v("Busca por QR")
     ]),
     _vm._v(" "),
-    _c("a", { attrs: { href: "/qr/" } }, [
-      _c("i", { staticClass: "fas fa-search" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fas fa-qrcode" })
+    _c("a", { attrs: { href: "/qr" } }, [
+      _c("i", {
+        staticClass: "fas fa-search  fa-3x",
+        staticStyle: { color: "black" }
+      })
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "container" }, [
@@ -54928,7 +54939,12 @@ var render = function() {
                         _c(
                           "a",
                           { attrs: { href: "/recepcionqr2/" + recepcion.id } },
-                          [_c("i", { staticClass: "fas fa-qrcode" })]
+                          [
+                            _c("i", {
+                              staticClass: "fas fa-qrcode fa-3x",
+                              staticStyle: { color: "black" }
+                            })
+                          ]
                         ),
                         _vm._v(" "),
                         _c(
@@ -54945,7 +54961,12 @@ var render = function() {
                               }
                             }
                           },
-                          [_c("i", { staticClass: "fas fa-pencil-alt" })]
+                          [
+                            _c("i", {
+                              staticClass: "fas fa-thumbtack fa-3x",
+                              staticStyle: { color: "black" }
+                            })
+                          ]
                         )
                       ]),
                       _vm._v(" "),

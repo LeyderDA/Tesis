@@ -4,9 +4,8 @@
       <h2 class="text-center mb-2 card-title">Recepciones</h2>
     </div>
     <label class="col-5 col-form-label">Busca por QR</label>
-    <a :href="'/qr/'">
-      <i class="fas fa-search"></i>
-      <i class="fas fa-qrcode"></i>
+    <a :href="'/qr'">
+      <i class="fas fa-search  fa-3x" style="color: black;"></i>
     </a>
 
     <div class="container">
@@ -44,7 +43,7 @@
                     <td>{{recepcion.area.nombre}}</td>
                     <td>
                       <a :href="'/recepcionqr2/'+recepcion.id">
-                        <i class="fas fa-qrcode"></i>
+                        <i class="fas fa-qrcode fa-3x" style="color: black;"></i>
                       </a>
 
                       <button
@@ -53,7 +52,8 @@
                         data-target="#observacionModal"
                         @click="editarForm(recepcion,index)"
                       >
-                        <i class="fas fa-pencil-alt"></i>
+                        <i  class="fas fa-thumbtack fa-3x" style="color: black;"></i>
+                        
                       </button>
                     </td>
                     <td></td>

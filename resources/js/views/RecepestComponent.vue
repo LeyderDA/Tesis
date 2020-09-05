@@ -38,7 +38,7 @@
                     <td>{{recepcion.area.nombre}}</td>
                     <td>
                       <a :href="'/recepcionqr/'+recepcion.id">
-                        <i class="fas fa-qrcode"></i>
+                        <i class="fas fa-qrcode fa-3x" style="color: black;"></i>
                       </a>                      
                       <button
                         class="btn btn-success btn-sm"
@@ -46,7 +46,7 @@
                         data-target="#AggModal"
                         @click="editarForm(recepcion,index)"
                       >   
-                        <i class="fas fa-save"></i>
+                        <i class="fas fa-save fa-3x" style="color: black;"></i>
                       </button>
                     </td>
                     <td></td>
