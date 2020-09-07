@@ -42,7 +42,7 @@
                     <td>{{recepcion.reclamante.id}}</td>
                     <td>{{recepcion.area.nombre}}</td>
                     <td>
-                      <a :href="'/recepcionqr2/'+recepcion.id">
+                      <a :href="'/recepcionqr2/'+recepcion.recp_id">
                         <i class="fas fa-qrcode fa-3x" style="color: black;"></i>
                       </a>
 

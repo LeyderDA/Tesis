@@ -49193,7 +49193,7 @@ var render = function() {
                   "tbody",
                   _vm._l(_vm.recepcioness, function(recepcion) {
                     return _c("tr", { key: recepcion.index }, [
-                      _c("td", [_vm._v(_vm._s(recepcion.recp_id))]),
+                      _c("td", [_vm._v(_vm._s(recepcion.recp_sid))]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(recepcion.fecharadicado))]),
                       _vm._v(" "),
@@ -49216,7 +49216,9 @@ var render = function() {
                       _c("td", [
                         _c(
                           "a",
-                          { attrs: { href: "/recepcionqr/" + recepcion.id } },
+                          {
+                            attrs: { href: "/recepcionqr/" + recepcion.recp_id }
+                          },
                           [
                             _c("i", {
                               staticClass: "fas fa-qrcode fa-3x",
@@ -54916,7 +54918,11 @@ var render = function() {
                       _c("td", [
                         _c(
                           "a",
-                          { attrs: { href: "/recepcionqr2/" + recepcion.id } },
+                          {
+                            attrs: {
+                              href: "/recepcionqr2/" + recepcion.recp_id
+                            }
+                          },
                           [
                             _c("i", {
                               staticClass: "fas fa-qrcode fa-3x",

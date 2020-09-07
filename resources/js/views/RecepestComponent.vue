@@ -26,7 +26,7 @@
                 </thead>
                 <tbody>
                   <tr v-for="(recepcion) in recepcioness" :key="recepcion.index">
-                    <td>{{recepcion.recp_id}}</td>
+                    <td>{{recepcion.recp_sid}}</td>
                     <td>{{recepcion.fecharadicado}}</td>
                     <td>{{recepcion.fecharecepcionado}}</td>
                     <td>{{recepcion.fechareparto}}</td>
@@ -37,7 +37,7 @@
                     <td>{{recepcion.reclamante.id}}</td>
                     <td>{{recepcion.area.nombre}}</td>
                     <td>
-                      <a :href="'/recepcionqr/'+recepcion.id">
+                      <a :href="'/recepcionqr/'+recepcion.recp_id">
                         <i class="fas fa-qrcode fa-3x" style="color: black;"></i>
                       </a>                      
                       <button
