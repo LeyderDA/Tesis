@@ -32,14 +32,14 @@ class QRCode extends Controller
             $recepcion['recepcion'] = Observaciones::join("recepciones","observaciones.recp_id","=","recepciones.id")
             ->where("observaciones.recp_id",$part2)
             ->get();
-            return view('qr.qrview',$recepcion);
+            return view('qr.qrview2',$recepcion);
             
         }else if($part1 == 3){
             $recepcion['recepcion'] = Recepcion::join("usurecep","recepciones.id","=","usurecep.recp_id")
             ->join("users","usurecep.usu_id","=","users.id")
             ->where("users.id",$part2)
             ->get();    
-            return view('qr.qrview',$recepcion);
+            return view('qr.qrview3',$recepcion);
 
         }
         

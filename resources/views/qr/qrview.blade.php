@@ -49,5 +49,6 @@
       </div>
     </div>
   </div>
+  <a href="/home"  class="btn btn-primary">Volver</a>
 </div>
   @endsection

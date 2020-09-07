@@ -75,6 +75,6 @@
 </script>
 
 
-<a href="/RecepDoc"  class="btn btn-primary">Volver</a>
+<a href="/home"  class="btn btn-primary">Volver</a>
   </body>
 </html>

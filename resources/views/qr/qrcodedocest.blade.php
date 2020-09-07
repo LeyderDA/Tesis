@@ -13,7 +13,7 @@
               <p>
                 {!!QrCode::size(300)->generate("$id") !!}
               </p>
-                <a href="/RecepDoc"  class="btn btn-primary">Volver</a>
+                <a href="/home"   class="btn btn-primary">Volver</a>
             </div>
           </div>
         <!--------------------------------------------->
