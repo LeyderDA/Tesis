@@ -168,6 +168,7 @@ export default {
         fechentrevasesor: "",
         tipotramite: "",
         asuntotramite: "",
+        estado: "",
         motivoarchivo: "",
         fechaarchivo: "",
         obsrvtramite: "",
@@ -239,18 +240,7 @@ export default {
         entidadelantramite: this.gestion.entidadelantramite,
         recp_id: this.gestion.recepcion.id,
       };
-      this.gestion.amplhechos = "";
-      this.gestion.fechentrevasesor = "";
-      this.gestion.tipotramite = "";
-      this.gestion.asuntotramite = "";
-      this.gestion.estado = "";
-      this.gestion.motivoarchivo = "";
-      this.gestion.fechaarchivo = "";
-      this.gestion.obsrvtramite = "";
-      this.gestion.actuarealizadas = "";
-      this.gestion.actjuridirealzadas = "";
-      this.gestion.resulactuacion = "";
-      this.gestion.entidadelantramite = "";
+
       this.gestion.recepcion.id = "";
       console.log(this.gestion.estado);
 

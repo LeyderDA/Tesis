@@ -24,6 +24,7 @@ class QRCode extends Controller
         if($part1 == 1){     
             $recepcion['recepcion'] = Gestion::join("recepciones","gestion_tramites.recp_id","=","recepciones.id")
             ->where("gestion_tramites.recp_id",$part2)
+            
             ->get();
             return view('qr.qrview',$recepcion);
 
