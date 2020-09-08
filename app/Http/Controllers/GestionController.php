@@ -54,7 +54,6 @@ class GestionController extends Controller
         $ges->fechentrevasesor = $request->fechentrevasesor;
         $ges->tipotramite = $request->tipotramite;
         $ges->asuntotramite = $request->asuntotramite;
-        $ges->estado = $request->estado;
         $ges->motivoarchivo = $request->motivoarchivo;
         $ges->fechaarchivo = $request->fechaarchivo;
         $ges->obsrvtramite = $request->obsrvtramite;
@@ -75,7 +74,6 @@ class GestionController extends Controller
         $ges->fechentrevasesor = $request->fechentrevasesor;
         $ges->tipotramite = $request->tipotramite;
         $ges->asuntotramite = $request->asuntotramite;
-        $ges->estado = $request->estado;
         $ges->motivoarchivo = $request->motivoarchivo;
         $ges->fechaarchivo = $request->fechaarchivo;
         $ges->obsrvtramite = $request->obsrvtramite;

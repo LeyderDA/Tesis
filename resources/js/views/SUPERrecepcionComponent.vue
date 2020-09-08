@@ -6,6 +6,21 @@
     <div class="card-body row">
       <form>
         <div class="row">
+            <label class="col-5 col-form-label">Define el estado</label>
+          <div class="col-6">
+            <select
+              class="form-control"
+              placeholder="Estado"
+              type="boolean"
+              v-model="recepcion.estado"
+            >
+              <option value="1">Activo</option>
+              <option value="0">Inactivo</option>
+            </select>
+          </div>
+          <br>
+          <br>
+
           <label class="col-5 col-form-label">Escoge el area</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Area" v-model="recepcion.area.nombre" />
@@ -111,6 +126,7 @@
         <div class="col-6 form-group" v-if="true">
           <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
         </div>
+        
       </div>
       <br />
       <div class="container">
@@ -130,6 +146,7 @@
                       <th>Recepcionado en</th>
                       <th>Consultorio</th>
                       <th>Reclamante</th>
+                      <th>Estado</th>
                       <th>Area</th>
                       
                       <th>Opciones</th>
@@ -146,7 +163,8 @@
                       <td>{{recepcion.recepcionado}}</td>
                       <td>{{recepcion.consultorio}}</td>
                       <td>{{recepcion.reclamante.id}}</td>
-                      <td>{{recepcion.area.nombre}}</td>      
+                      <td>{{recepcion.area.nombre}}</td>     
+                      <td>{{recepcion.estado}}</td> 
                      <!-- <td>
                        <qr-code size="150" text="recepcion.id"></qr-code>
                       </td> -->
@@ -191,6 +209,20 @@
                 </button>
               </div>
               <div class="modal-body">
+
+                <label class="col-5 col-form-label">Define el estado</label>
+                  <div class="col-6">
+                 <select
+                  class="form-control"
+                  placeholder="Estado"
+                  type="boolean"
+                  v-model="recepcion.estado"
+                 >
+                  <option value="1">Activo</option>
+                  <option value="0">Inactivo</option>
+                  </select>
+                </div>
+
                 <label class="col-5 col-form-label">Fecha de radicado</label>
                 <input placeholder="recepcion" type="date" v-model="recepcion.fecharadicado" />
 
@@ -349,6 +381,7 @@ export default {
         fechareparto: "",
         fechapublicacion: "",
         fecharetiro: "",
+        estado: "",
 
         reclamante: {
           id: "",
@@ -425,6 +458,7 @@ export default {
         fechareparto: this.recepcion.fechareparto,
         fechapublicacion: this.recepcion.fechapublicacion,
         fecharetiro: this.recepcion.fecharetiro,
+        estado: this.recepcion.estado,
         recla_id: this.recepcion.reclamante.id,
         area_id: this.recepcion.area.id,
       };
@@ -436,6 +470,7 @@ export default {
       this.recepcion.fechapublicacion = "";
       this.recepcion.fecharetiro = "";
       this.recepcion.reclamante = "";
+      this.recepcion.estado = "";
       this.recepcion.area = "";
 
       axios.post("/api/recepcion", params).then((res) => {
@@ -478,6 +513,7 @@ export default {
         fechareparto: this.recepcion.fechareparto,
         fechapublicacion: this.recepcion.fechapublicacion,
         fecharetiro: this.recepcion.fecharetiro,
+        estado: this.recepcion.estado,
         recla_id: this.recepcion.reclamante.id,
         area_id: this.recepcion.area.id,
       };
@@ -508,6 +544,8 @@ export default {
           this.recepcion.reclamante = "";
           this.recepcioness[this.recepcion.index] = res.data;
           this.recepcion.area = "";
+          this.recepcioness[this.recepcion.index] = res.data;
+          this.recepcion.estado = "";
         })
         .catch((error) => {
           if (error.response.status == 422) {

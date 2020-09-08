@@ -38,17 +38,7 @@
             />
           </div>
 
-          <div class="col-6">
-            <select
-              class="form-control"
-              placeholder="Estado"
-              type="boolean"
-              v-model="gestion.estado"
-            >
-              <option value="1">Activo</option>
-              <option value="0">Inactivo</option>
-            </select>
-          </div>
+          
 
           <div class="col-6 form-group">
             <input
@@ -126,8 +116,7 @@
                       <th>Ampliación de hechos</th>
                       <th>Fecha entrevista Asesor</th>
                       <th>Tipo de tramite</th>
-                      <th>Asunto del tramite</th>
-                      <th>Estado del tramite</th>
+                      <th>Asunto del tramite</th>                   
                       <th>Motivo de archivo</th>
                       <th>Fecha del archivo</th>
                       <th>Observaciones</th>
@@ -143,9 +132,8 @@
                     <tr v-for="(gestion,index) in gestioness" :key="gestion.index">
                       <td>{{gestion.amplhechos}}</td>
                       <td>{{gestion.fechentrevasesor}}</td>
-                      <td>{{gestion.tipotramitee}}</td>
+                      <td>{{gestion.tipotramite}}</td>
                       <td>{{gestion.asuntotramite}}</td>
-                      <td>{{gestion.estado}}</td>
                       <td>{{gestion.motivoarchivo}}</td>
                       <td>{{gestion.fechaarchivo}}</td>
                       <td>{{gestion.obsrvtramite}}</td>
@@ -196,7 +184,6 @@
                 <input placeholder="Username" v-model="gestion.fechentrevasesor" />
                 <input placeholder="Username" v-model="gestion.tipotramite" />
                 <input placeholder="Username" v-model="gestion.asuntotramite" />
-                <input placeholder="Username" v-model="gestion.estado" />
                 <input placeholder="Username" v-model="gestion.motivoarchivo" />
                 <input placeholder="Username" v-model="gestion.fechaarchivo" />
                 <input placeholder="Username" v-model="gestion.obsrvtramite" />
@@ -300,7 +287,6 @@ export default {
       },
 
       esta: false,
-      estado: "disable",
       gestioness: [],
 
       errors: [],
@@ -339,7 +325,6 @@ export default {
         fechentrevasesor: this.gestion.fechentrevasesor,
         tipotramite: this.gestion.tipotramite,
         asuntotramite: this.gestion.asuntotramite,
-        estado: this.gestion.estado,
         motivoarchivo: this.gestion.motivoarchivo,
         fechaarchivo: this.gestion.fechaarchivo,
         obsrvtramite: this.gestion.obsrvtramite,
@@ -353,7 +338,6 @@ export default {
       this.gestion.fechentrevasesor = "";
       this.gestion.tipotramite = "";
       this.gestion.asuntotramite = "";
-      this.gestion.estado = "";
       this.gestion.motivoarchivo = "";
       this.gestion.fechaarchivo = "";
       this.gestion.obsrvtramite = "";
@@ -362,7 +346,6 @@ export default {
       this.gestion.resulactuacion = "";
       this.gestion.entidadelantramite = "";
       this.gestion.recepcion.id = "";
-      console.log(this.gestion.estado);
 
       axios.post("/api/gestion", params).then((res) => {
         if (res.data == null) {
@@ -395,7 +378,6 @@ export default {
         fechentrevasesor: this.gestion.fechentrevasesor,
         tipotramite: this.gestion.tipotramite,
         asuntotramite: this.gestion.asuntotramite,
-        estado: this.gestion.estado,
         motivoarchivo: this.gestion.motivoarchivo,
         fechaarchivo: this.gestion.fechaarchivo,
         obsrvtramite: this.gestion.obsrvtramite,
@@ -422,8 +404,6 @@ export default {
           this.gestion.tipotramite = "";
           this.gestioness[this.gestion.index] = res.data;
           this.gestion.asuntotramite = "";
-          this.gestioness[this.gestion.index] = res.data;
-          this.gestion.estado = "";
           this.gestioness[this.gestion.index] = res.data;
           this.gestion.motivoarchivo = "";
           this.gestioness[this.gestion.index] = res.data;

@@ -23,7 +23,7 @@
                     <th>{{user.id}}</th>
                     <td>{{user.username}}</td>
                     <td>
-                      <a :href="'/recepcionqr2/'+user.id">
+                      <a :href="'/recepcionqr/'+user.id">
                         <i class="fas fa-qrcode"></i>
                       </a>
                       </td>

@@ -10,7 +10,7 @@ class Recepcion extends Model
     protected $fillable = 
     [
         'id','recepcionado','fecharadicado','fecharecepcionado','consultorio','fechareparto',
-        'fechapublicacion','fecharetiro','recla_id','area_id',
+        'fechapublicacion','fecharetiro','estado','recla_id','area_id',
     ];
 
    

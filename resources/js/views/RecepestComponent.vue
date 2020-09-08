@@ -26,7 +26,7 @@
                 </thead>
                 <tbody>
                   <tr v-for="(recepcion) in recepcioness" :key="recepcion.index">
-                    <td>{{recepcion.recp_sid}}</td>
+                    <td>{{recepcion.recp_id}}</td>
                     <td>{{recepcion.fecharadicado}}</td>
                     <td>{{recepcion.fecharecepcionado}}</td>
                     <td>{{recepcion.fechareparto}}</td>
@@ -58,78 +58,7 @@
         </div>
       </div>
 
-      <!--modal de asignar observacion -->
-      <div
-        class="modal fade"
-        id="observacionModal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Observaciones</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <label class="col-5 col-form-label">Id de recepcion</label>
-              <input placeholder="recepcion" v-model="recepcion.id" />
-
-              <label class="col-5 col-form-label">Fecha de radicado</label>
-              <input placeholder="recepcion" type="date" v-model="recepcion.fecharadicado" />
-
-              <label class="col-5 col-form-label">Fecha de recepcionado</label>
-              <input placeholder="recepcion" type="date" v-model="recepcion.fecharecepcionado" />
-
-              <label class="col-5 col-form-label">Fecha de reparto</label>
-              <input placeholder="recepcion" type="date" v-model="recepcion.fechareparto" />
-
-              <label class="col-5 col-form-label">Fecha de publicación</label>
-              <input placeholder="recepcion" type="date" v-model="recepcion.fechapublicacion" />
-
-              <label class="col-5 col-form-label">Fecha de retiro</label>
-              <input placeholder="recepcion" type="date" v-model="recepcion.fecharetiro" />
-
-              <label class="col-5 col-form-label">Recepcionado en</label>
-              <input placeholder="recepcion" v-model="recepcion.recepcionado" />
-
-              <label class="col-5 col-form-label">Consultorio</label>
-              <input placeholder="recepcion" v-model="recepcion.consultorio" />
-
-              <label class="col-5 col-form-label">ID Reclamante</label>
-              <input placeholder="recepcion" v-model="recepcion.reclamante.id" />
-
-              <label class="col-5 col-form-label">Area</label>
-              <input placeholder="recepcion" v-model="recepcion.area.nombre" />
-
-              <label
-                class="col-12 col-form-label"
-              >------------------------------------------------------------------------------------------</label>
-              <h2 class="text-center mb-2 card-title">Agregar Observación</h2>
-              <label
-                class="col-12 col-form-label"
-              >------------------------------------------------------------------------------------------</label>
-              <label class="col-5 col-form-label">Observacion:</label>
-              <input placeholder="Observación" v-model="observaciones.obsrv" />
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                @click="editar()"
-                data-dismiss="modal"
-              >Guardar Cambios</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--modal de asignar observacion -->
-
+    
       <!--modal de asignar gestion -->
       <div
         class="modal fade"
@@ -184,18 +113,6 @@
                   placeholder="Asunto de tramite"
                   v-model="gestion.asuntotramite"
                 />
-              </div>
-
-              <div class="col-6">
-                <select
-                  class="form-control"
-                  placeholder="Estado"
-                  type="boolean"
-                  v-model="gestion.estado"
-                >
-                  <option value="1">Activo</option>
-                  <option value="0">Inactivo</option>
-                </select>
               </div>
 
               <div class="col-6 form-group">
@@ -312,6 +229,7 @@ export default {
         fechareparto: "",
         fechapublicacion: "",
         fecharetiro: "",
+        estado: "",
 
         reclamante: {
           id: "",
@@ -404,6 +322,7 @@ export default {
         fechapublicacion: this.recepcion.fechapublicacion,
         fecharetiro: this.recepcion.fecharetiro,
         recla_id: this.recepcion.reclamante.id,
+        estado: this.recepcion.estado,
         area_id: this.recepcion.area.id,
       };
       this.recepcion.recepcionado = "";
@@ -415,6 +334,7 @@ export default {
       this.recepcion.fecharetiro = "";
       this.recepcion.reclamante = "";
       this.recepcion.area = "";
+      this.recepcion.estado = "";
 
       axios.post("/api/recepcion", params).then((res) => {
         if (res.data == null) {
@@ -432,7 +352,6 @@ export default {
         fechentrevasesor: this.gestion.fechentrevasesor,
         tipotramite: this.gestion.tipotramite,
         asuntotramite: this.gestion.asuntotramite,
-        estado: this.gestion.estado,
         motivoarchivo: this.gestion.motivoarchivo,
         fechaarchivo: this.gestion.fechaarchivo,
         obsrvtramite: this.gestion.obsrvtramite,
@@ -453,7 +372,6 @@ export default {
       this.gestion.fechentrevasesor = "";
       this.gestion.tipotramite = "";
       this.gestion.asuntotramite = "";
-      this.gestion.estado = "";
       this.gestion.motivoarchivo = "";
       this.gestion.fechaarchivo = "";
       this.gestion.obsrvtramite = "";

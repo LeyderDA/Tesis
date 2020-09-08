@@ -18,8 +18,7 @@ class CreateGestionTramiteTable extends Migration
             $table->string('amplhechos',50);
             $table->date('fechentrevasesor');
             $table->string('tipotramite',50);
-            $table->string('asuntotramite',50);
-            $table->boolean('estado');
+            $table->string('asuntotramite',50);          
             $table->string('motivoarchivo',50);
             $table->date('fechaarchivo');
             $table->string('obsrvtramite',500);

@@ -17,7 +17,6 @@
                       <th>Fecha entrevista Asesor</th>
                       <th>Tipo de tramite</th>
                       <th>Asunto del tramite</th>
-                      <th>Estado del tramite</th>
                       <th>Motivo de archivo</th>
                       <th>Fecha del archivo</th>
                       <th>Observaciones</th>
@@ -32,9 +31,8 @@
                     <tr v-for="(gestion) in gestioness" :key="gestion.index">
                       <td>{{gestion.amplhechos}}</td>
                       <td>{{gestion.fechentrevasesor}}</td>
-                      <td>{{gestion.tipotramitee}}</td>
+                      <td>{{gestion.tipotramite}}</td>
                       <td>{{gestion.asuntotramite}}</td>
-                      <td>{{gestion.estado}}</td>
                       <td>{{gestion.motivoarchivo}}</td>
                       <td>{{gestion.fechaarchivo}}</td>
                       <td>{{gestion.obsrvtramite}}</td>
@@ -76,7 +74,6 @@
                 <input placeholder="Username" v-model="gestion.fechentrevasesor" />
                 <input placeholder="Username" v-model="gestion.tipotramite" />
                 <input placeholder="Username" v-model="gestion.asuntotramite" />
-                <input placeholder="Username" v-model="gestion.estado" />
                 <input placeholder="Username" v-model="gestion.motivoarchivo" />
                 <input placeholder="Username" v-model="gestion.fechaarchivo" />
                 <input placeholder="Username" v-model="gestion.obsrvtramite" />
@@ -180,7 +177,7 @@ export default {
       },
 
       esta: false,
-      estado: "disable",
+
       gestioness: [],
 
       errors: [],
