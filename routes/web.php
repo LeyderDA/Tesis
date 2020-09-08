@@ -43,6 +43,6 @@ Route::get('/MiUsuario', 'HomeController@index')->name('miusuario');
 
 
 Route::get('/recepcionqr/{id}', 'RecepcionController@qrcode');
-Route::get('/recepcionqr2/{id}', 'RecepcionController@qrcodedocest');
+
 
 

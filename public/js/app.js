@@ -54887,7 +54887,7 @@ var render = function() {
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "card-body col" }, [
           _c("div", { staticClass: "container row" }, [
-            _c("div", { staticClass: "table text-center table-reponsive" }, [
+            _c("div", { staticClass: "table-responsive" }, [
               _c("table", { staticClass: "table text-center" }, [
                 _vm._m(1),
                 _vm._v(" "),
@@ -54919,9 +54919,7 @@ var render = function() {
                         _c(
                           "a",
                           {
-                            attrs: {
-                              href: "/recepcionqr2/" + recepcion.recp_id
-                            }
+                            attrs: { href: "/recepcionqr/" + recepcion.recp_id }
                           },
                           [
                             _c("i", {

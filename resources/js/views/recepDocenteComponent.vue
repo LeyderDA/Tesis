@@ -11,8 +11,8 @@
     <div class="container">
       <div class="row">
         <div class="card-body col">
-          <div class="container row">
-            <div class="table text-center table-reponsive">
+          <div class="container row">            
+              <div class="table-responsive">
               <table class="table text-center">
                 <thead>
                   <tr>
@@ -42,7 +42,7 @@
                     <td>{{recepcion.reclamante.id}}</td>
                     <td>{{recepcion.area.nombre}}</td>
                     <td>
-                      <a :href="'/recepcionqr2/'+recepcion.recp_id">
+                      <a :href="'/recepcionqr/'+recepcion.recp_id">
                         <i class="fas fa-qrcode fa-3x" style="color: black;"></i>
                       </a>
 

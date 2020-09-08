@@ -1,20 +1,16 @@
+
 <!DOCTYPE html>
 <html>
   <head>
-
     <title>Lector QR</title>
+    
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-<style>
-
-#preview{
-   width:500px;
-   height: 500px;
-   margin:0px auto;
-}
-
-</style>
+    <link href="{{ asset('css/lector.css') }}" rel="stylesheet">
   </head>
+
   <body>
+
       <select class="form-control" id="exampleFormControlSelect1" >
         <option value="1">Buscar Gestiones de una Recepción</option>
         <option value="2">Buscar Observaciones de una Recepción</option>
@@ -43,8 +39,7 @@
             window.location.replace('qr/3;'+content);
           }
           
-        }
-       
+        }      
     });
     Instascan.Camera.getCameras().then(function (cameras){
         if(cameras.length>0){
@@ -72,9 +67,10 @@
         console.error(e);
         //alert(e);
     });
-</script>
-
-
-<a href="/home"  class="btn btn-primary">Volver</a>
+   </script>
+  <center>
+   <a href="/home"  id="btn" class="btn btn-primary">Volver</a>
+  </center>
   </body>
 </html>
+
