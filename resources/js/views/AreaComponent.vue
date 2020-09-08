@@ -5,6 +5,7 @@
         <div class="card">
           <div class="card-header">Modulo Area</div>
           <div class="card-body row">
+            <label class="col-5 col-form-label">Nombre del area</label>
             <div class="col-6">
               <input
                 class="form-control"
@@ -12,9 +13,11 @@
                 v-model="areas.nombre"
               />
             </div>
+
             <div class="col-6" v-if="true">
               <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
             </div>
+            
             <br />
             <div class="container">
               <table class="table">

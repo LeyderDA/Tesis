@@ -80,18 +80,41 @@
                 </button>
               </div>
               <div class="modal-body">
-                <input placeholder="Username" v-model="gestion.amplhechos" />
-                <input placeholder="Username" v-model="gestion.fechentrevasesor" />
-                <input placeholder="Username" v-model="gestion.tipotramite" />
-                <input placeholder="Username" v-model="gestion.asuntotramite" />
-                <input placeholder="Username" v-model="gestion.motivoarchivo" />
-                <input placeholder="Username" v-model="gestion.fechaarchivo" />
-                <input placeholder="Username" v-model="gestion.obsrvtramite" />
-                <input placeholder="Username" v-model="gestion.actuarealizadas" />
-                <input placeholder="Username" v-model="gestion.actjuridirealzadas" />
-                <input placeholder="Username" v-model="gestion.resulactuacion" />
-                <input placeholder="Username" v-model="gestion.entidadelantramite" />
-                <input placeholder="Username" v-model="gestion.recepcion.id" />
+                <label class="col-5 col-form-label">Ampliación de hechos</label>
+                <input placeholder="Ampliación de hechos" v-model="gestion.amplhechos" />
+
+                <label class="col-5 col-form-label">fecha entrevista asesor</label>
+                <input placeholder="fecha entrevista asesor" v-model="gestion.fechentrevasesor" />
+
+                <label class="col-5 col-form-label">Tipo de tramite</label>
+                <input placeholder="Tipo de tramite" v-model="gestion.tipotramite" />
+
+                <label class="col-5 col-form-label">Asunto tramite</label>
+                <input placeholder="Asunto tramite" v-model="gestion.asuntotramite" />
+
+                <label class="col-5 col-form-label">Motivo archivo</label>
+                <input placeholder="Motivo archivo" v-model="gestion.motivoarchivo" />
+
+                <label class="col-5 col-form-label">Fecha archivo</label>
+                <input placeholder="Fecha archivo" v-model="gestion.fechaarchivo" />
+
+                <label class="col-5 col-form-label">Observación del tramite</label>
+                <input placeholder="Observación del tramite" v-model="gestion.obsrvtramite" />
+
+                <label class="col-5 col-form-label">Actuaciones realizadas</label>
+                <input placeholder="Actuaciones realizadas" v-model="gestion.actuarealizadas" />
+
+                <label class="col-5 col-form-label">Atuaciones juridicas</label>
+                <input placeholder="Atuaciones juridicas" v-model="gestion.actjuridirealzadas" />
+
+                <label class="col-5 col-form-label">Resultados de la actuación</label>
+                <input placeholder="Resultados de la actuacion" v-model="gestion.resulactuacion" />
+
+                <label class="col-5 col-form-label">Entidad tramite</label>
+                <input placeholder="Entidad tramite" v-model="gestion.entidadelantramite" />
+                
+                <label class="col-5 col-form-label">Id de recepción</label>
+                <input placeholder="Id de recepción" v-model="gestion.recepcion.id" />
               </div>
               <div class="col-6 form-group" v-if="true">
                 <button
@@ -99,7 +122,7 @@
                   data-toggle="modal"
                   data-target="#buscarModal"
                   @click="buscar()"
-                >Buscar</button>
+                >Buscar Recepción</button>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>

@@ -70,11 +70,11 @@
                 </button>
               </div>
               <div class="modal-body">
-                <input placeholder="Username" v-model="gestion.amplhechos" />
-                <input placeholder="Username" v-model="gestion.fechentrevasesor" />
-                <input placeholder="Username" v-model="gestion.tipotramite" />
-                <input placeholder="Username" v-model="gestion.asuntotramite" />
-                <input placeholder="Username" v-model="gestion.motivoarchivo" />
+                <input placeholder="Ampliación de hechos" v-model="gestion.amplhechos" />
+                <input placeholder="Fecha entrevista" v-model="gestion.fechentrevasesor" />
+                <input placeholder="Tipo de tramite" v-model="gestion.tipotramite" />
+                <input placeholder="Asunto tramite" v-model="gestion.asuntotramite" />
+                <input placeholder="Motivo archivo" v-model="gestion.motivoarchivo" />
                 <input placeholder="Username" v-model="gestion.fechaarchivo" />
                 <input placeholder="Username" v-model="gestion.obsrvtramite" />
                 <input placeholder="Username" v-model="gestion.actuarealizadas" />

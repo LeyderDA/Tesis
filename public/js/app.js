@@ -1980,6 +1980,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2580,6 +2583,29 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4820,6 +4846,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5894,6 +5945,29 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -42991,6 +43065,10 @@ var render = function() {
           _c("div", { staticClass: "card-header" }, [_vm._v("Modulo Area")]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body row" }, [
+            _c("label", { staticClass: "col-5 col-form-label" }, [
+              _vm._v("Nombre del area")
+            ]),
+            _vm._v(" "),
             _c("div", { staticClass: "col-6" }, [
               _c("input", {
                 directives: [
@@ -43917,7 +43995,7 @@ var render = function() {
                           expression: "gestion.amplhechos"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Ampliación de hechos" },
                       domProps: { value: _vm.gestion.amplhechos },
                       on: {
                         input: function($event) {
@@ -43942,7 +44020,7 @@ var render = function() {
                           expression: "gestion.fechentrevasesor"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Fecha entrevista" },
                       domProps: { value: _vm.gestion.fechentrevasesor },
                       on: {
                         input: function($event) {
@@ -43967,7 +44045,7 @@ var render = function() {
                           expression: "gestion.tipotramite"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Tipo de tramite" },
                       domProps: { value: _vm.gestion.tipotramite },
                       on: {
                         input: function($event) {
@@ -43992,7 +44070,7 @@ var render = function() {
                           expression: "gestion.asuntotramite"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Asunto tramite" },
                       domProps: { value: _vm.gestion.asuntotramite },
                       on: {
                         input: function($event) {
@@ -44017,7 +44095,7 @@ var render = function() {
                           expression: "gestion.motivoarchivo"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Motivo archivo" },
                       domProps: { value: _vm.gestion.motivoarchivo },
                       on: {
                         input: function($event) {
@@ -44775,6 +44853,10 @@ var render = function() {
                   _vm._m(2),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Ampliación de hechos")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44784,7 +44866,7 @@ var render = function() {
                           expression: "gestion.amplhechos"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Ampliación de hechos" },
                       domProps: { value: _vm.gestion.amplhechos },
                       on: {
                         input: function($event) {
@@ -44800,6 +44882,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("fecha entrevista asesor")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44809,7 +44895,7 @@ var render = function() {
                           expression: "gestion.fechentrevasesor"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "fecha entrevista asesor" },
                       domProps: { value: _vm.gestion.fechentrevasesor },
                       on: {
                         input: function($event) {
@@ -44825,6 +44911,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Tipo de tramite")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44834,7 +44924,7 @@ var render = function() {
                           expression: "gestion.tipotramite"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Tipo de tramite" },
                       domProps: { value: _vm.gestion.tipotramite },
                       on: {
                         input: function($event) {
@@ -44850,6 +44940,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Asunto tramite")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44859,7 +44953,7 @@ var render = function() {
                           expression: "gestion.asuntotramite"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Asunto tramite" },
                       domProps: { value: _vm.gestion.asuntotramite },
                       on: {
                         input: function($event) {
@@ -44875,6 +44969,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Motivo archivo")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44884,7 +44982,7 @@ var render = function() {
                           expression: "gestion.motivoarchivo"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Motivo archivo" },
                       domProps: { value: _vm.gestion.motivoarchivo },
                       on: {
                         input: function($event) {
@@ -44900,6 +44998,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha archivo")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44909,7 +45011,7 @@ var render = function() {
                           expression: "gestion.fechaarchivo"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Fecha archivo" },
                       domProps: { value: _vm.gestion.fechaarchivo },
                       on: {
                         input: function($event) {
@@ -44925,6 +45027,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Observación del tramite")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44934,7 +45040,7 @@ var render = function() {
                           expression: "gestion.obsrvtramite"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Observación del tramite" },
                       domProps: { value: _vm.gestion.obsrvtramite },
                       on: {
                         input: function($event) {
@@ -44950,6 +45056,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Actuaciones realizadas")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44959,7 +45069,7 @@ var render = function() {
                           expression: "gestion.actuarealizadas"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Actuaciones realizadas" },
                       domProps: { value: _vm.gestion.actuarealizadas },
                       on: {
                         input: function($event) {
@@ -44975,6 +45085,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Atuaciones juridicas")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44984,7 +45098,7 @@ var render = function() {
                           expression: "gestion.actjuridirealzadas"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Atuaciones juridicas" },
                       domProps: { value: _vm.gestion.actjuridirealzadas },
                       on: {
                         input: function($event) {
@@ -45000,6 +45114,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Resultados de la actuación")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -45009,7 +45127,7 @@ var render = function() {
                           expression: "gestion.resulactuacion"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Resultados de la actuacion" },
                       domProps: { value: _vm.gestion.resulactuacion },
                       on: {
                         input: function($event) {
@@ -45025,6 +45143,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Entidad tramite")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -45034,7 +45156,7 @@ var render = function() {
                           expression: "gestion.entidadelantramite"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Entidad tramite" },
                       domProps: { value: _vm.gestion.entidadelantramite },
                       on: {
                         input: function($event) {
@@ -45050,6 +45172,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Id de recepción")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -45059,7 +45185,7 @@ var render = function() {
                           expression: "gestion.recepcion.id"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Id de recepción" },
                       domProps: { value: _vm.gestion.recepcion.id },
                       on: {
                         input: function($event) {
@@ -45092,7 +45218,7 @@ var render = function() {
                               }
                             }
                           },
-                          [_vm._v("Buscar")]
+                          [_vm._v("Buscar Recepción")]
                         )
                       ])
                     : undefined,
@@ -49112,6 +49238,10 @@ var render = function() {
                   _vm._m(2),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Ampliación de hechos")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -49121,7 +49251,7 @@ var render = function() {
                           expression: "gestion.amplhechos"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Ampliación de hechos" },
                       domProps: { value: _vm.gestion.amplhechos },
                       on: {
                         input: function($event) {
@@ -49137,6 +49267,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("fecha entrevista asesor")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -49146,7 +49280,7 @@ var render = function() {
                           expression: "gestion.fechentrevasesor"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "fecha entrevista asesor" },
                       domProps: { value: _vm.gestion.fechentrevasesor },
                       on: {
                         input: function($event) {
@@ -49162,6 +49296,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Tipo de tramite")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -49171,7 +49309,7 @@ var render = function() {
                           expression: "gestion.tipotramite"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Tipo de tramite" },
                       domProps: { value: _vm.gestion.tipotramite },
                       on: {
                         input: function($event) {
@@ -49187,6 +49325,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Asunto tramite")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -49196,7 +49338,7 @@ var render = function() {
                           expression: "gestion.asuntotramite"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Asunto tramite" },
                       domProps: { value: _vm.gestion.asuntotramite },
                       on: {
                         input: function($event) {
@@ -49212,6 +49354,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Motivo archivo")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -49221,7 +49367,7 @@ var render = function() {
                           expression: "gestion.motivoarchivo"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Motivo archivo" },
                       domProps: { value: _vm.gestion.motivoarchivo },
                       on: {
                         input: function($event) {
@@ -49237,6 +49383,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha archivo")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -49246,7 +49396,7 @@ var render = function() {
                           expression: "gestion.fechaarchivo"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Fecha archivo" },
                       domProps: { value: _vm.gestion.fechaarchivo },
                       on: {
                         input: function($event) {
@@ -49262,6 +49412,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Observación del tramite")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -49271,7 +49425,7 @@ var render = function() {
                           expression: "gestion.obsrvtramite"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Observación del tramite" },
                       domProps: { value: _vm.gestion.obsrvtramite },
                       on: {
                         input: function($event) {
@@ -49287,6 +49441,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Actuaciones realizadas")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -49296,7 +49454,7 @@ var render = function() {
                           expression: "gestion.actuarealizadas"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Actuaciones realizadas" },
                       domProps: { value: _vm.gestion.actuarealizadas },
                       on: {
                         input: function($event) {
@@ -49312,6 +49470,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Atuaciones juridicas")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -49321,7 +49483,7 @@ var render = function() {
                           expression: "gestion.actjuridirealzadas"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Atuaciones juridicas" },
                       domProps: { value: _vm.gestion.actjuridirealzadas },
                       on: {
                         input: function($event) {
@@ -49337,6 +49499,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Resultados de la actuación")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -49346,7 +49512,7 @@ var render = function() {
                           expression: "gestion.resulactuacion"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Resultados de la actuacion" },
                       domProps: { value: _vm.gestion.resulactuacion },
                       on: {
                         input: function($event) {
@@ -49362,6 +49528,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Entidad tramite")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -49371,7 +49541,7 @@ var render = function() {
                           expression: "gestion.entidadelantramite"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Entidad tramite" },
                       domProps: { value: _vm.gestion.entidadelantramite },
                       on: {
                         input: function($event) {
@@ -49387,6 +49557,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Id de recepción")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -49396,7 +49570,7 @@ var render = function() {
                           expression: "gestion.recepcion.id"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Id de recepción" },
                       domProps: { value: _vm.gestion.recepcion.id },
                       on: {
                         input: function($event) {
@@ -51733,6 +51907,10 @@ var render = function() {
                   _vm._m(2),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Ampliación de hechos")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -51742,7 +51920,7 @@ var render = function() {
                           expression: "gestion.amplhechos"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Ampliación de hechos" },
                       domProps: { value: _vm.gestion.amplhechos },
                       on: {
                         input: function($event) {
@@ -51758,6 +51936,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("fecha entrevista asesor")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -51767,7 +51949,7 @@ var render = function() {
                           expression: "gestion.fechentrevasesor"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "fecha entrevista asesor" },
                       domProps: { value: _vm.gestion.fechentrevasesor },
                       on: {
                         input: function($event) {
@@ -51783,6 +51965,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Tipo de tramite")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -51792,7 +51978,7 @@ var render = function() {
                           expression: "gestion.tipotramite"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Tipo de tramite" },
                       domProps: { value: _vm.gestion.tipotramite },
                       on: {
                         input: function($event) {
@@ -51808,6 +51994,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Asunto tramite")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -51817,7 +52007,7 @@ var render = function() {
                           expression: "gestion.asuntotramite"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Asunto tramite" },
                       domProps: { value: _vm.gestion.asuntotramite },
                       on: {
                         input: function($event) {
@@ -51833,6 +52023,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Motivo archivo")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -51842,7 +52036,7 @@ var render = function() {
                           expression: "gestion.motivoarchivo"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Motivo archivo" },
                       domProps: { value: _vm.gestion.motivoarchivo },
                       on: {
                         input: function($event) {
@@ -51858,6 +52052,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha archivo")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -51867,7 +52065,7 @@ var render = function() {
                           expression: "gestion.fechaarchivo"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Fecha archivo" },
                       domProps: { value: _vm.gestion.fechaarchivo },
                       on: {
                         input: function($event) {
@@ -51883,6 +52081,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Observación del tramite")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -51892,7 +52094,7 @@ var render = function() {
                           expression: "gestion.obsrvtramite"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Observación del tramite" },
                       domProps: { value: _vm.gestion.obsrvtramite },
                       on: {
                         input: function($event) {
@@ -51908,6 +52110,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Actuaciones realizadas")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -51917,7 +52123,7 @@ var render = function() {
                           expression: "gestion.actuarealizadas"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Actuaciones realizadas" },
                       domProps: { value: _vm.gestion.actuarealizadas },
                       on: {
                         input: function($event) {
@@ -51933,6 +52139,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Atuaciones juridicas")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -51942,7 +52152,7 @@ var render = function() {
                           expression: "gestion.actjuridirealzadas"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Atuaciones juridicas" },
                       domProps: { value: _vm.gestion.actjuridirealzadas },
                       on: {
                         input: function($event) {
@@ -51958,6 +52168,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Resultados de la actuación")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -51967,7 +52181,7 @@ var render = function() {
                           expression: "gestion.resulactuacion"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Resultados de la actuacion" },
                       domProps: { value: _vm.gestion.resulactuacion },
                       on: {
                         input: function($event) {
@@ -51983,6 +52197,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Entidad tramite")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -51992,7 +52210,7 @@ var render = function() {
                           expression: "gestion.entidadelantramite"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Entidad tramite" },
                       domProps: { value: _vm.gestion.entidadelantramite },
                       on: {
                         input: function($event) {
@@ -52008,6 +52226,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Id de recepción")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -52017,7 +52239,7 @@ var render = function() {
                           expression: "gestion.recepcion.id"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Id de recepción" },
                       domProps: { value: _vm.gestion.recepcion.id },
                       on: {
                         input: function($event) {
@@ -52050,7 +52272,7 @@ var render = function() {
                               }
                             }
                           },
-                          [_vm._v("Buscar")]
+                          [_vm._v("Buscar Recepción")]
                         )
                       ])
                     : undefined,
