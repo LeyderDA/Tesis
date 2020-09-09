@@ -41,9 +41,7 @@
                       <td>{{gestion.resulactuacion}}</td>
                       <td>{{gestion.entidadelantramite}}</td>
                       <td>{{gestion.recepcion.id}}</td>
-                      <td>
-                        
-                        
+                      <td>                                               
                       </td>
                     </tr>
                   </tbody>
@@ -70,18 +68,43 @@
                 </button>
               </div>
               <div class="modal-body">
+                <label class="col-5 col-form-label">Ampliación de hechos</label>
                 <input placeholder="Ampliación de hechos" v-model="gestion.amplhechos" />
+
+                <label class="col-5 col-form-label">Fecha entrevista</label>
                 <input placeholder="Fecha entrevista" v-model="gestion.fechentrevasesor" />
+
+                <label class="col-5 col-form-label">Tipo de tramite</label>
                 <input placeholder="Tipo de tramite" v-model="gestion.tipotramite" />
+
+                <label class="col-5 col-form-label">Asunto tramite</label>
                 <input placeholder="Asunto tramite" v-model="gestion.asuntotramite" />
+
+                <label class="col-5 col-form-label">Motivo archivo</label>
                 <input placeholder="Motivo archivo" v-model="gestion.motivoarchivo" />
-                <input placeholder="Username" v-model="gestion.fechaarchivo" />
-                <input placeholder="Username" v-model="gestion.obsrvtramite" />
-                <input placeholder="Username" v-model="gestion.actuarealizadas" />
-                <input placeholder="Username" v-model="gestion.actjuridirealzadas" />
-                <input placeholder="Username" v-model="gestion.resulactuacion" />
-                <input placeholder="Username" v-model="gestion.entidadelantramite" />
-                <input placeholder="Username" v-model="gestion.recepcion.id" />
+
+                <label class="col-5 col-form-label">Fecha archivo</label>
+                <input placeholder="Fecha archivo" v-model="gestion.fechaarchivo" />
+
+                <label class="col-5 col-form-label">Observacion del tramite</label>
+                <input placeholder="Observacion del tramite" v-model="gestion.obsrvtramite" />
+
+                <label class="col-5 col-form-label">Actuaciones</label>
+                <input placeholder="Actuaciones" v-model="gestion.actuarealizadas" />
+
+                <label class="col-5 col-form-label">Actuaciones juridicas</label>
+                <input placeholder="Actuaciones juridicas" v-model="gestion.actjuridirealzadas" />
+
+                <label class="col-5 col-form-label">Resultado de Actuación</label>
+                <input placeholder="Resultado de Actuación" v-model="gestion.resulactuacion" />
+
+                <label class="col-5 col-form-label">Entidad</label>
+                <input placeholder="Entidad" v-model="gestion.entidadelantramite" />
+
+                <label class="col-5 col-form-label">Recepción ID</label>
+                <input placeholder="Recepción ID" v-model="gestion.recepcion.id" />
+
+
               </div>
               <div class="col-6 form-group" v-if="true">
                 <button
@@ -122,17 +145,31 @@
                 </button>
               </div>
               <div class="modal-body">
+                <label class="col-5 col-form-label">ID</label>
                 <input placeholder="ID" v-model="gestion.recepcion.id" />
+
+                <label class="col-5 col-form-label">Recepcionado</label>
                 <input placeholder="Recepcionado" v-model="gestion.recepcion.recepcionado" />
+
+                <label class="col-5 col-form-label">Fecha de Radicado</label>
                 <input placeholder="Fecha de Radicado" v-model="gestion.recepcion.fecharadicado" />
-                <input
-                  placeholder="Fecha Recepcionado"
-                  v-model="gestion.recepcion. fecharecepcionado"
-                />
+
+                <label class="col-5 col-form-label">Fecha Recepcionado</label>
+                <input placeholder="Fecha Recepcionado" v-model="gestion.recepcion. fecharecepcionado" />
+
+                <label class="col-5 col-form-label">Consultorio</label>
                 <input placeholder="Consultorio" v-model="gestion.recepcion.consultorio" />
+
+                <label class="col-5 col-form-label">Fecha Reparto</label>
                 <input placeholder="Fecha Reparto" v-model="gestion.recepcion.fechareparto" />
+
+                <label class="col-5 col-form-label">Fecha Publicación</label>
                 <input placeholder="Fecha Publicación" v-model="gestion.recepcion.fechapublicacion" />
+
+                <label class="col-5 col-form-label">Fecha Retiro</label>
                 <input placeholder="Fecha Retiro" v-model="gestion.recepcion.fecharetiro" />
+
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>

@@ -1983,6 +1983,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2077,6 +2078,19 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2496,6 +2510,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2583,6 +2634,19 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3400,6 +3464,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3483,6 +3548,31 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3752,6 +3842,32 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4404,6 +4520,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4589,6 +4723,48 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5800,6 +5976,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5945,6 +6142,19 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -43187,6 +43397,10 @@ var render = function() {
               _vm._m(1),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
+                _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _vm._v("Nombre del area")
+                ]),
+                _vm._v(" "),
                 _c("input", {
                   directives: [
                     {
@@ -43491,6 +43705,10 @@ var render = function() {
                   _vm._m(2),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("RELLENAR")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -43515,6 +43733,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("RECEPCIONADO")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -43541,6 +43763,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("FECHA DE RADICADO")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -43565,6 +43791,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("FECHA DE RECEPCIONADO")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -43593,6 +43823,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("CONSULTORIO")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -43618,6 +43852,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("FECHA DE REPARTO")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -43642,6 +43880,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("FECHA DE PUBLICACIÓN")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -43669,6 +43911,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("FECHA DE RETIRO")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -43724,6 +43970,10 @@ var render = function() {
                   _vm._m(4),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("ID USUARIO")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -43748,6 +43998,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("USERNAME")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -43986,6 +44240,10 @@ var render = function() {
                   _vm._m(2),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Ampliación de hechos")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44010,6 +44268,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha entrevista")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -44036,6 +44298,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Tipo de tramite")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44060,6 +44326,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Asunto tramite")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -44086,6 +44356,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Motivo archivo")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44111,6 +44385,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha archivo")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44120,7 +44398,7 @@ var render = function() {
                           expression: "gestion.fechaarchivo"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Fecha archivo" },
                       domProps: { value: _vm.gestion.fechaarchivo },
                       on: {
                         input: function($event) {
@@ -44136,6 +44414,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Observacion del tramite")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44145,7 +44427,7 @@ var render = function() {
                           expression: "gestion.obsrvtramite"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Observacion del tramite" },
                       domProps: { value: _vm.gestion.obsrvtramite },
                       on: {
                         input: function($event) {
@@ -44161,6 +44443,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Actuaciones")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44170,7 +44456,7 @@ var render = function() {
                           expression: "gestion.actuarealizadas"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Actuaciones" },
                       domProps: { value: _vm.gestion.actuarealizadas },
                       on: {
                         input: function($event) {
@@ -44186,6 +44472,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Actuaciones juridicas")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44195,7 +44485,7 @@ var render = function() {
                           expression: "gestion.actjuridirealzadas"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Actuaciones juridicas" },
                       domProps: { value: _vm.gestion.actjuridirealzadas },
                       on: {
                         input: function($event) {
@@ -44211,6 +44501,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Resultado de Actuación")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44220,7 +44514,7 @@ var render = function() {
                           expression: "gestion.resulactuacion"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Resultado de Actuación" },
                       domProps: { value: _vm.gestion.resulactuacion },
                       on: {
                         input: function($event) {
@@ -44236,6 +44530,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Entidad")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44245,7 +44543,7 @@ var render = function() {
                           expression: "gestion.entidadelantramite"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Entidad" },
                       domProps: { value: _vm.gestion.entidadelantramite },
                       on: {
                         input: function($event) {
@@ -44261,6 +44559,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Recepción ID")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44270,7 +44572,7 @@ var render = function() {
                           expression: "gestion.recepcion.id"
                         }
                       ],
-                      attrs: { placeholder: "Username" },
+                      attrs: { placeholder: "Recepción ID" },
                       domProps: { value: _vm.gestion.recepcion.id },
                       on: {
                         input: function($event) {
@@ -44359,6 +44661,10 @@ var render = function() {
                   _vm._m(3),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("ID")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44383,6 +44689,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Recepcionado")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -44409,6 +44719,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha de Radicado")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44433,6 +44747,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha Recepcionado")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -44461,6 +44779,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Consultorio")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44486,6 +44808,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha Reparto")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -44510,6 +44836,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha Publicación")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -44537,6 +44867,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha Retiro")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -45274,6 +45608,10 @@ var render = function() {
                   _vm._m(3),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("ID")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -45298,6 +45636,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Recepcionado")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -45324,6 +45666,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha de Radicado")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -45348,6 +45694,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha Recepcionado")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -45376,6 +45726,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Consultorio")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -45401,6 +45755,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha Reparto")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -45425,6 +45783,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha Publicación")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -45452,6 +45814,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha Retiro")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -46328,6 +46694,10 @@ var render = function() {
                   _vm._m(2),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Observaciones")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -46788,6 +47158,10 @@ var render = function() {
     _c("div", { staticClass: "card-body row" }, [
       _c("form", [
         _c("div", { staticClass: "row" }, [
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Cédula")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -46810,6 +47184,10 @@ var render = function() {
                 }
               }
             })
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Primer Nombre")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -46836,6 +47214,10 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Segundo Nombre")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -46858,6 +47240,10 @@ var render = function() {
                 }
               }
             })
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Primer Apellido")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -46884,6 +47270,10 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Segundo Apellido")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -46908,6 +47298,10 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Teléfono")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -46930,6 +47324,10 @@ var render = function() {
                 }
               }
             })
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Dirección")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -47067,6 +47465,10 @@ var render = function() {
                   _vm._m(2),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Cedula")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -47087,6 +47489,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Primer nombre")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -47109,6 +47515,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Segundo nombre")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -47129,6 +47539,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Primer apellido")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -47151,6 +47565,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Segundo apellido")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -47172,6 +47590,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Teléfono")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -47192,6 +47614,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Dirección")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -47434,6 +47860,10 @@ var render = function() {
                 _vm._m(2),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Recepción")
+                  ]),
+                  _vm._v(" "),
                   _c("div", { staticClass: "col-6 form-group" }, [
                     _c("input", {
                       directives: [
@@ -47460,6 +47890,10 @@ var render = function() {
                         }
                       }
                     })
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Ampliación de hechos")
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-6 form-group" }, [
@@ -47490,6 +47924,10 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Fecha entrevista")
+                  ]),
+                  _vm._v(" "),
                   _c("div", { staticClass: "col-6 form-group" }, [
                     _c("input", {
                       directives: [
@@ -47516,6 +47954,10 @@ var render = function() {
                         }
                       }
                     })
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Tipo de tramite")
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-6 form-group" }, [
@@ -47546,6 +47988,10 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Asunto de tramite")
+                  ]),
+                  _vm._v(" "),
                   _c("div", { staticClass: "col-6 form-group" }, [
                     _c("input", {
                       directives: [
@@ -47572,6 +48018,10 @@ var render = function() {
                         }
                       }
                     })
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Motivo de archivo")
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-6 form-group" }, [
@@ -47602,6 +48052,10 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Fecha de archivo")
+                  ]),
+                  _vm._v(" "),
                   _c("div", { staticClass: "col-6 form-group" }, [
                     _c("input", {
                       directives: [
@@ -47628,6 +48082,10 @@ var render = function() {
                         }
                       }
                     })
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Observaciones")
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-6 form-group" }, [
@@ -47658,6 +48116,10 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Actuaciones")
+                  ]),
+                  _vm._v(" "),
                   _c("div", { staticClass: "col-6 form-group" }, [
                     _c("input", {
                       directives: [
@@ -47684,6 +48146,10 @@ var render = function() {
                         }
                       }
                     })
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Actuaciones Juridicas")
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-6 form-group" }, [
@@ -47714,6 +48180,10 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Resultado de actuación")
+                  ]),
+                  _vm._v(" "),
                   _c("div", { staticClass: "col-6 form-group" }, [
                     _c("input", {
                       directives: [
@@ -47740,6 +48210,10 @@ var render = function() {
                         }
                       }
                     })
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Entidad del tramite")
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-6 form-group" }, [
@@ -47897,6 +48371,10 @@ var render = function() {
     _c("div", { staticClass: "card-body row" }, [
       _c("form", [
         _c("div", { staticClass: "row" }, [
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Enfoque diferencial")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -47925,6 +48403,10 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Genero")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -47949,6 +48431,10 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Edad")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -47971,6 +48457,10 @@ var render = function() {
                 }
               }
             })
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Discapacidad")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -48001,6 +48491,10 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Estrato")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -48025,6 +48519,10 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Embarazo")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -48047,6 +48545,10 @@ var render = function() {
                 }
               }
             })
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Grupo Etnico")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -48077,6 +48579,10 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Entidad o persona que reclama")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -48103,6 +48609,10 @@ var render = function() {
                 }
               }
             })
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Cedula")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -48800,6 +49310,10 @@ var render = function() {
     _c("div", { staticClass: "card-body row" }, [
       _c("form", [
         _c("div", { staticClass: "row" }, [
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Recepción")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -48822,6 +49336,10 @@ var render = function() {
                 }
               }
             })
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Ampliación de hechos")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -48848,6 +49366,10 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Fecha entrevista")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -48870,6 +49392,10 @@ var render = function() {
                 }
               }
             })
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Tipo de tramite")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -48896,6 +49422,10 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Asunto de tramite")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -48918,6 +49448,10 @@ var render = function() {
                 }
               }
             })
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Motivo de archivo")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -48944,6 +49478,10 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Motivo de archivo")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -48955,7 +49493,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { placeholder: "Fecha de archivo", type: "date" },
+              attrs: { placeholder: "c", type: "date" },
               domProps: { value: _vm.gestion.fechaarchivo },
               on: {
                 input: function($event) {
@@ -48966,6 +49504,10 @@ var render = function() {
                 }
               }
             })
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Observaciones")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -48992,6 +49534,10 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Actuaciones")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -49014,6 +49560,10 @@ var render = function() {
                 }
               }
             })
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Actuaciones Juridicas")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -49044,6 +49594,10 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Resultado de actuación")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -49066,6 +49620,10 @@ var render = function() {
                 }
               }
             })
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Entidad del tramite")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -49659,6 +50217,10 @@ var render = function() {
                   _vm._m(3),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("ID")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -49683,6 +50245,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Recepcionado")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -49709,6 +50275,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha de Radicado")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -49733,6 +50303,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha Recepcionado")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -49761,6 +50335,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Consultorio")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -49786,6 +50364,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha Reparto")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -49810,6 +50392,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha Publicación")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -49837,6 +50423,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha Retiro")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -51208,6 +51798,10 @@ var render = function() {
     _c("div", { staticClass: "card-body row" }, [
       _c("form", [
         _c("div", { staticClass: "row" }, [
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Nombre de Usuario")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -51230,6 +51824,10 @@ var render = function() {
                 }
               }
             })
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Email")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -51256,6 +51854,10 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("password")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -51279,6 +51881,8 @@ var render = function() {
               }
             })
           ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [_vm._v("Rol")]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6" }, [
             _c(
@@ -51326,6 +51930,10 @@ var render = function() {
                 _c("option", { attrs: { value: "4" } }, [_vm._v("Docente")])
               ]
             )
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Cedula")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -51478,6 +52086,10 @@ var render = function() {
                   _vm._m(2),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Username")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -51499,6 +52111,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Email")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -51519,6 +52135,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Rol")
+                    ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-6" }, [
                       _c(
@@ -52328,6 +52948,10 @@ var render = function() {
                   _vm._m(3),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("ID")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -52352,6 +52976,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Recepcionado")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -52378,6 +53006,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha de Radicado")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -52402,6 +53034,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha Recepcionado")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -52430,6 +53066,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Consultorio")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -52455,6 +53095,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha Reparto")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -52479,6 +53123,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha Publicación")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -52506,6 +53154,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha Retiro")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [

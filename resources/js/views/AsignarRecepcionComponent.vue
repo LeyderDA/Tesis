@@ -89,20 +89,31 @@
                 </button>
               </div>
               <div class="modal-body">
+
+                 <label class="col-5 col-form-label">RELLENAR</label>
                 <input placeholder="ID" v-model="usurecep.recepcion.id" />
+
+                <label class="col-5 col-form-label">RECEPCIONADO</label>
                 <input placeholder="RECEPCIONADO" v-model="usurecep.recepcion.recepcionado" />
+
+                <label class="col-5 col-form-label">FECHA DE RADICADO</label>
                 <input placeholder="FECHA DE RADICADO" v-model="usurecep.recepcion.fecharadicado" />
-                <input
-                  placeholder="FECHA DE RECEPCIONADO"
-                  v-model="usurecep.recepcion.fecharecepcionado"
-                />
+
+                <label class="col-5 col-form-label">FECHA DE RECEPCIONADO</label>
+                <input placeholder="FECHA DE RECEPCIONADO" v-model="usurecep.recepcion.fecharecepcionado" />
+
+                <label class="col-5 col-form-label">CONSULTORIO</label>
                 <input placeholder="CONSULTORIO" v-model="usurecep.recepcion.consultorio" />
+
+                <label class="col-5 col-form-label">FECHA DE REPARTO</label>
                 <input placeholder="FECHA DE REPARTO" v-model="usurecep.recepcion.fechareparto" />
-                <input
-                  placeholder="FECHA DE PUBLICACIÓN"
-                  v-model="usurecep.recepcion.fechapublicacion"
-                />
+
+                <label class="col-5 col-form-label">FECHA DE PUBLICACIÓN</label>
+                <input placeholder="FECHA DE PUBLICACIÓN" v-model="usurecep.recepcion.fechapublicacion" />
+
+                <label class="col-5 col-form-label">FECHA DE RETIRO</label>
                 <input placeholder="FECHA DE RETIRO" v-model="usurecep.recepcion.fecharetiro" />
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -130,7 +141,9 @@
                 </button>
               </div>
               <div class="modal-body">
+                <label class="col-5 col-form-label">ID USUARIO</label>
                 <input placeholder="ID USUARIO" v-model="usurecep.usuario.id" />
+                <label class="col-5 col-form-label">USERNAME</label>
                 <input placeholder="USERNAME" v-model="usurecep.usuario.username" />
               </div>
               <div class="modal-footer">

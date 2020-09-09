@@ -78,10 +78,14 @@
             </div>
 
             <div class="modal-body">
+
+              <label class="col-5 col-form-label">Recepción</label>
               <div class="col-6 form-group">
                 <input class="form-control" placeholder="Recepción" v-model="recepcion.recp_id" />
               </div>
 
+
+              <label class="col-5 col-form-label">Ampliación de hechos</label>
               <div class="col-6 form-group">
                 <input
                   class="form-control"
@@ -90,6 +94,8 @@
                 />
               </div>
 
+
+              <label class="col-5 col-form-label">Fecha entrevista</label>
               <div class="col-6 form-group">
                 <input
                   class="form-control"
@@ -99,6 +105,8 @@
                 />
               </div>
 
+
+              <label class="col-5 col-form-label">Tipo de tramite</label>
               <div class="col-6 form-group">
                 <input
                   class="form-control"
@@ -107,6 +115,8 @@
                 />
               </div>
 
+
+              <label class="col-5 col-form-label">Asunto de tramite</label>
               <div class="col-6 form-group">
                 <input
                   class="form-control"
@@ -115,6 +125,8 @@
                 />
               </div>
 
+
+              <label class="col-5 col-form-label">Motivo de archivo</label>
               <div class="col-6 form-group">
                 <input
                   class="form-control"
@@ -123,6 +135,8 @@
                 />
               </div>
 
+
+              <label class="col-5 col-form-label">Fecha de archivo</label>
               <div class="col-6 form-group">
                 <input
                   class="form-control"
@@ -132,6 +146,8 @@
                 />
               </div>
 
+
+              <label class="col-5 col-form-label">Observaciones</label>
               <div class="col-6 form-group">
                 <input
                   class="form-control"
@@ -140,6 +156,8 @@
                 />
               </div>
 
+
+              <label class="col-5 col-form-label">Actuaciones</label>
               <div class="col-6 form-group">
                 <input
                   class="form-control"
@@ -148,6 +166,8 @@
                 />
               </div>
 
+
+              <label class="col-5 col-form-label">Actuaciones Juridicas</label>
               <div class="col-6 form-group">
                 <input
                   class="form-control"
@@ -156,6 +176,8 @@
                 />
               </div>
 
+
+              <label class="col-5 col-form-label">Resultado de actuación</label>
               <div class="col-6 form-group">
                 <input
                   class="form-control"
@@ -164,6 +186,8 @@
                 />
               </div>
 
+
+              <label class="col-5 col-form-label">Entidad del tramite</label>
               <div class="col-6 form-group">
                 <input
                   class="form-control"
@@ -172,6 +196,8 @@
                 />
               </div>
             </div>
+
+
 
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>

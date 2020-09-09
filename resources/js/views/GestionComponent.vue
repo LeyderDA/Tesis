@@ -155,16 +155,29 @@
                 </button>
               </div>
               <div class="modal-body">
+
+                <label class="col-5 col-form-label">ID</label>
                 <input placeholder="ID" v-model="gestion.recepcion.id" />
+
+                <label class="col-5 col-form-label">Recepcionado</label>
                 <input placeholder="Recepcionado" v-model="gestion.recepcion.recepcionado" />
+
+                <label class="col-5 col-form-label">Fecha de Radicado</label>
                 <input placeholder="Fecha de Radicado" v-model="gestion.recepcion.fecharadicado" />
-                <input
-                  placeholder="Fecha Recepcionado"
-                  v-model="gestion.recepcion. fecharecepcionado"
-                />
+
+                <label class="col-5 col-form-label">Fecha Recepcionado</label>
+                <input placeholder="Fecha Recepcionado" v-model="gestion.recepcion. fecharecepcionado" />
+
+                <label class="col-5 col-form-label">Consultorio</label>
                 <input placeholder="Consultorio" v-model="gestion.recepcion.consultorio" />
+
+                <label class="col-5 col-form-label">Fecha Reparto</label>
                 <input placeholder="Fecha Reparto" v-model="gestion.recepcion.fechareparto" />
+
+                <label class="col-5 col-form-label">Fecha Publicación</label>
                 <input placeholder="Fecha Publicación" v-model="gestion.recepcion.fechapublicacion" />
+
+                <label class="col-5 col-form-label">Fecha Retiro</label>
                 <input placeholder="Fecha Retiro" v-model="gestion.recepcion.fecharetiro" />
               </div>
               <div class="modal-footer">

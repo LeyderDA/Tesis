@@ -6,18 +6,27 @@
         <div class="card-body row">
        <form>
         <div class="row">
+
+
+<label class="col-5 col-form-label">Nombre de Usuario</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Nombre de Usuario" v-model="usuario.username" />
           </div>
 
+
+<label class="col-5 col-form-label">Email</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Email" v-model="usuario.email" />
           </div>
 
+
+<label class="col-5 col-form-label">password</label>
           <div class="col-6 form-group">
             <input class="form-control" type="password" placeholder="Password" v-model="usuario.password" />
           </div>
 
+
+<label class="col-5 col-form-label">Rol</label>
           <div class="col-6">
             <select class="form-control" placeholder="Rol" type="integer" v-model="usuario.rol_id">
               <option value>Selecciona un Rol</option>
@@ -27,9 +36,13 @@
             </select>
           </div>
 
+
+<label class="col-5 col-form-label">Cedula</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Cedula" v-model="usuario.persona.cedula" />
           </div>
+
+
         </div>
         </form>
         <div class="row justify-content-center col">
@@ -107,8 +120,14 @@
                 </button>
               </div>
               <div class="modal-body">
+
+<label class="col-5 col-form-label">Username</label>
                 <input placeholder="Username" v-model="usuario.username" />
+
+<label class="col-5 col-form-label">Email</label>
                 <input placeholder="Email" v-model="usuario.email" />
+
+<label class="col-5 col-form-label">Rol</label>
                 <div class="col-6">
                   <select
                     class="form-control"
@@ -122,6 +141,8 @@
                     <option value="4">Estudiante</option>
                   </select>
                 </div>
+
+                
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>

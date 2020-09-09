@@ -6,6 +6,8 @@
     <div class="card-body row">
       <form>
         <div class="row">
+
+          <label class="col-5 col-form-label">Enfoque diferencial</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -14,14 +16,20 @@
             />
           </div>
 
+
+          <label class="col-5 col-form-label">Genero</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Genero" v-model="reclamante.genevictima" />
           </div>
 
+
+          <label class="col-5 col-form-label">Edad</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Edad" v-model="reclamante.edadvictima" />
           </div>
 
+
+          <label class="col-5 col-form-label">Discapacidad</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -30,14 +38,20 @@
             />
           </div>
 
+
+          <label class="col-5 col-form-label">Estrato</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Estrato" v-model="reclamante.estravictima" />
           </div>
 
+
+          <label class="col-5 col-form-label">Embarazo</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Embarazo" v-model="reclamante.embaravictima" />
           </div>
 
+
+          <label class="col-5 col-form-label">Grupo Etnico</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -46,6 +60,8 @@
             />
           </div>
 
+
+          <label class="col-5 col-form-label">Entidad o persona que reclama</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -54,6 +70,8 @@
             />
           </div>
 
+
+          <label class="col-5 col-form-label">Cedula</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Cedula" v-model="reclamante.persona.cedula" />
           </div>

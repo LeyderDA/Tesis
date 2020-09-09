@@ -6,32 +6,42 @@
     <div class="card-body row">
       <form>
         <div class="row">
+          <label class="col-5 col-form-label">Cédula</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Cédula" v-model="personas.cedula" />
           </div>
+
+          <label class="col-5 col-form-label">Primer Nombre</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Primer Nombre" v-model="personas.prinom" />
           </div>
 
+          <label class="col-5 col-form-label">Segundo Nombre</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Segundo Nombre" v-model="personas.segnom" />
           </div>
 
+          <label class="col-5 col-form-label">Primer Apellido</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Primer Apellido" v-model="personas.priape" />
           </div>
 
+          <label class="col-5 col-form-label">Segundo Apellido</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Segundo Apellido" v-model="personas.segape" />
           </div>
 
+          <label class="col-5 col-form-label">Teléfono</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Teléfono" v-model="personas.tel" />
           </div>
 
+          <label class="col-5 col-form-label">Dirección</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Dirección" v-model="personas.direc" />
           </div>
+
+
         </div>
       </form>
       <div class="row justify-content-center col">
@@ -105,13 +115,28 @@
                 </button>
               </div>
               <div class="modal-body">
+
+                <label class="col-5 col-form-label">Cedula</label>
                 <input placeholder="Cedula" v-model="personas.cedula" />
+
+                <label class="col-5 col-form-label">Primer nombre</label>
                 <input placeholder="Primer nombre" v-model="personas.prinom" />
+
+                <label class="col-5 col-form-label">Segundo nombre</label>
                 <input placeholder="Segundo nombre" v-model="personas.segnom" />
+
+                <label class="col-5 col-form-label">Primer apellido</label>
                 <input placeholder="Primer apellido" v-model="personas.priape" />
+
+                <label class="col-5 col-form-label">Segundo apellido</label>
                 <input placeholder="Segundo apellido" v-model="personas.segape" />
+
+                <label class="col-5 col-form-label">Teléfono</label>
                 <input placeholder="Teléfono" v-model="personas.tel" />
+
+                <label class="col-5 col-form-label">Dirección</label>
                 <input placeholder="Dirección" v-model="personas.direc" />
+                
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>

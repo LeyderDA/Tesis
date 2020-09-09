@@ -66,10 +66,11 @@
                 </button>
               </div>
               <div class="modal-body">
+                <label class="col-5 col-form-label">Observaciones</label>
                 <input placeholder="Observación" v-model="observaciones.obsrv" />
-              </div>
+               </div>
 
-              <div class="modal-footer">
+               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                 <button
                   type="button"

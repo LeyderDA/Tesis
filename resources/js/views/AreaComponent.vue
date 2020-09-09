@@ -58,6 +58,7 @@
         </button>
       </div>
       <div class="modal-body">
+         <label class="col-5 col-form-label">Nombre del area</label>
         <input
                 class="form-control"
                 placeholder="nombre del Area"

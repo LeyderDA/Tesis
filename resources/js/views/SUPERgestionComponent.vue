@@ -6,9 +6,15 @@
     <div class="card-body row">
       <form>
         <div class="row">
+
+
+          <label class="col-5 col-form-label">Recepción</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Recepción" v-model="gestion.recepcion.id" />
           </div>
+
+
+         <label class="col-5 col-form-label">Ampliación de hechos</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -17,6 +23,8 @@
             />
           </div>
 
+
+          <label class="col-5 col-form-label">Fecha entrevista</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -26,10 +34,14 @@
             />
           </div>
 
+
+          <label class="col-5 col-form-label">Tipo de tramite</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Tipo de tramite" v-model="gestion.tipotramite" />
           </div>
 
+
+          <label class="col-5 col-form-label">Asunto de tramite</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -39,7 +51,7 @@
           </div>
 
           
-
+          <label class="col-5 col-form-label">Motivo de archivo</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -48,23 +60,31 @@
             />
           </div>
 
+
+          <label class="col-5 col-form-label">Motivo de archivo</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
-              placeholder="Fecha de archivo"
+              placeholder="c"
               type="date"
               v-model="gestion.fechaarchivo"
             />
           </div>
 
+
+          <label class="col-5 col-form-label">Observaciones</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Observaciones" v-model="gestion.obsrvtramite" />
           </div>
 
+
+          <label class="col-5 col-form-label">Actuaciones</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Actuaciones" v-model="gestion.actuarealizadas" />
           </div>
 
+
+          <label class="col-5 col-form-label">Actuaciones Juridicas</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -73,6 +93,8 @@
             />
           </div>
 
+
+          <label class="col-5 col-form-label">Resultado de actuación</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -81,6 +103,8 @@
             />
           </div>
 
+
+          <label class="col-5 col-form-label">Entidad del tramite</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -257,17 +281,35 @@
                 </button>
               </div>
               <div class="modal-body">
+
+                <label class="col-5 col-form-label">ID</label>
                 <input placeholder="ID" v-model="gestion.recepcion.id" />
+
+                <label class="col-5 col-form-label">Recepcionado</label>
                 <input placeholder="Recepcionado" v-model="gestion.recepcion.recepcionado" />
+
+                <label class="col-5 col-form-label">Fecha de Radicado</label>
                 <input placeholder="Fecha de Radicado" v-model="gestion.recepcion.fecharadicado" />
+
+                <label class="col-5 col-form-label">Fecha Recepcionado</label>
                 <input
                   placeholder="Fecha Recepcionado"
                   v-model="gestion.recepcion. fecharecepcionado"
                 />
+
+                <label class="col-5 col-form-label">Consultorio</label>
                 <input placeholder="Consultorio" v-model="gestion.recepcion.consultorio" />
+
+                <label class="col-5 col-form-label">Fecha Reparto</label>
                 <input placeholder="Fecha Reparto" v-model="gestion.recepcion.fechareparto" />
+
+                <label class="col-5 col-form-label">Fecha Publicación</label>
                 <input placeholder="Fecha Publicación" v-model="gestion.recepcion.fechapublicacion" />
+
+                <label class="col-5 col-form-label">Fecha Retiro</label>
                 <input placeholder="Fecha Retiro" v-model="gestion.recepcion.fecharetiro" />
+
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
