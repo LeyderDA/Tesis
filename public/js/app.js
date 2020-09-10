@@ -3309,6 +3309,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -46184,6 +46189,10 @@ var render = function() {
     _c("div", { staticClass: "card-body row" }, [
       _c("form", [
         _c("div", { staticClass: "row" }, [
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Id Estudiante")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -46206,6 +46215,10 @@ var render = function() {
                 }
               }
             })
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Id Recepción")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -46232,6 +46245,10 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Nota primer corte")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -46256,6 +46273,10 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Nota segundo corte")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
               directives: [
@@ -46278,6 +46299,10 @@ var render = function() {
                 }
               }
             })
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Nota tercer corte")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -46455,6 +46480,10 @@ var render = function() {
                   _vm._m(2),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Nota primer corte")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -46480,6 +46509,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Nota segundo corte")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -46504,6 +46537,10 @@ var render = function() {
                         }
                       }
                     }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Nota tercer corte")
+                    ]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -46582,6 +46619,10 @@ var render = function() {
                   _vm._m(3),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Nombre")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -46603,6 +46644,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Cédula")
+                    ]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -46612,7 +46657,7 @@ var render = function() {
                           expression: "notas.user.username"
                         }
                       ],
-                      attrs: { placeholder: "Cedula" },
+                      attrs: { placeholder: "Cédula" },
                       domProps: { value: _vm.notas.user.username },
                       on: {
                         input: function($event) {

@@ -6,18 +6,19 @@
     <div class="card-body row">
       <form>
         <div class="row">
+          <label class="col-5 col-form-label">Id Estudiante</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Id Estudiante" v-model="notas.user.id" />
           </div>
-
+          <label class="col-5 col-form-label">Id Recepción</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Id Recepción" v-model="notas.recepcion.id" />
           </div>
-
+          <label class="col-5 col-form-label">Nota primer corte</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Nota primer corte" v-model="notas.notapricort" />
           </div>
-
+          <label class="col-5 col-form-label">Nota segundo corte</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -25,7 +26,7 @@
               v-model="notas.notasegcort"
             />
           </div>
-
+          <label class="col-5 col-form-label">Nota tercer corte</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -34,7 +35,6 @@
             />
           </div>
 
-        
         </div>
       </form>
       <div class="row justify-content-center col">
@@ -124,8 +124,13 @@
                 </button>
               </div>
               <div class="modal-body">
+                <label class="col-5 col-form-label">Nota primer corte</label>
                   <input placeholder="Nota primer corte" v-model="notas.notapricort" />
+
+                  <label class="col-5 col-form-label">Nota segundo corte</label>
                   <input  placeholder="Nota segundo corte" v-model="notas.notasegcort" />
+
+                  <label class="col-5 col-form-label">Nota tercer corte</label>
                   <input  placeholder="Nota tercer corte" v-model="notas.notateracort" />    
               </div>
               <div class="modal-footer">
@@ -140,8 +145,7 @@
             </div>
           </div>
         </div>
-
-        <!--segundo modal - el de buscar -->
+        <!--segundo modal - el de buscar USUARIO-->
         <div
           class="modal fade"
           id="buscarModal"
@@ -159,8 +163,10 @@
                 </button>
               </div>
               <div class="modal-body">
+                <label class="col-5 col-form-label">Nombre</label>
                 <input placeholder="Nombre" v-model="notas.user.id" />
-                <input placeholder="Cedula" v-model="notas.user.username" />
+                <label class="col-5 col-form-label">Cédula</label>
+                <input placeholder="Cédula" v-model="notas.user.username" />
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -168,8 +174,7 @@
             </div>
           </div>
         </div>
-        <!--cierro modal de buscar -->
-
+        <!--cierro modal de buscar USUARIO-->
 
 <!--segundo modal - el de buscar recepcion -->
         <div
@@ -220,7 +225,7 @@
             </div>
           </div>
         </div>
-        <!--cierro modal de buscar -->
+        <!--cierro modal de buscar recepcion-->
 
 
       </div>
