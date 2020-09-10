@@ -15,6 +15,7 @@ class NotasController extends Controller
         if($request->ajax()){
             foreach ($notas as $nota){
                 $nota->user;
+                $nota->recepcion;
             }
             return $notas;
         }else{
@@ -46,8 +47,10 @@ class NotasController extends Controller
         $nota->notasegcort=$request->notasegcort;
         $nota->notateracort=$request->notateracort;
         $nota->usu_id=$request->usu_id;
+        $nota->recp_id=$request->recp_id;
         $nota->save();
         $nota->user;
+        $nota->recepcion;
         return  response()->json($nota);
     }
 
@@ -80,6 +83,7 @@ class NotasController extends Controller
         $nota->notateracort = $request->notateracort;
         $nota->save();
         $nota->user;
+        $nota->recepcion;
         return  response()->json($nota);
     }
 

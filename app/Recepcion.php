@@ -46,4 +46,10 @@ class Recepcion extends Model
     
     }
 
+    public function notas()
+    {
+        return $this->belongsTo('App\Nota','id');
+    
+    }
+
 }

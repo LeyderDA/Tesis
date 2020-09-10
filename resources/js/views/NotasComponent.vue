@@ -11,6 +11,10 @@
           </div>
 
           <div class="col-6 form-group">
+            <input class="form-control" placeholder="Id Recepción" v-model="notas.recepcion.id" />
+          </div>
+
+          <div class="col-6 form-group">
             <input class="form-control" placeholder="Nota primer corte" v-model="notas.notapricort" />
           </div>
 
@@ -43,6 +47,15 @@
           >Buscar Estudiante</button>
         </div>
 
+              <div class="col-12 form-group" v-if="true">
+                <button
+                  class="btn btn-primary btn-block"
+                  data-toggle="modal"
+                  data-target="#buscarModalRe"
+                  @click="buscarRe()"
+                >Buscar Recepción</button>
+              </div>
+        
         <div class="col-12 form-group" v-if="true">
           <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
         </div>
@@ -57,6 +70,7 @@
                   <thead>
                     <tr>
                       <th>ID Usuario</th>
+                      <th>ID Recepción</th>
                       <th>Username</th>
                       <th>Primer Corte</th>
                       <th>Segundo Corte</th>
@@ -67,6 +81,7 @@
                   <tbody>
                     <tr v-for="(notas,index) in notass" :key="notas.index">
                         <td>{{notas.user.id}}</td>
+                        <td>{{notas.recepcion.id}}</td>
                         <td>{{notas.user.username}}</td>
                         <td>{{notas.notapricort}}</td>
                         <td>{{notas.notasegcort}}</td>
@@ -154,6 +169,60 @@
           </div>
         </div>
         <!--cierro modal de buscar -->
+
+
+<!--segundo modal - el de buscar recepcion -->
+        <div
+          class="modal fade"
+          id="buscarModalRe"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mostrar Recepcion</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <label class="col-5 col-form-label">ID</label>
+                <input placeholder="ID" v-model="notas.recepcion.id" />
+
+                <label class="col-5 col-form-label">Recepcionado</label>
+                <input placeholder="Recepcionado" v-model="notas.recepcion.recepcionado" />
+
+                <label class="col-5 col-form-label">Fecha de Radicado</label>
+                <input placeholder="Fecha de Radicado" v-model="notas.recepcion.fecharadicado" />
+
+                <label class="col-5 col-form-label">Fecha Recepcionado</label>
+                <input placeholder="Fecha Recepcionado" v-model="notas.recepcion. fecharecepcionado" />
+
+                <label class="col-5 col-form-label">Consultorio</label>
+                <input placeholder="Consultorio" v-model="notas.recepcion.consultorio" />
+
+                <label class="col-5 col-form-label">Fecha Reparto</label>
+                <input placeholder="Fecha Reparto" v-model="notas.recepcion.fechareparto" />
+
+                <label class="col-5 col-form-label">Fecha Publicación</label>
+                <input placeholder="Fecha Publicación" v-model="notas.recepcion.fechapublicacion" />
+
+                <label class="col-5 col-form-label">Fecha Retiro</label>
+                <input placeholder="Fecha Retiro" v-model="notas.recepcion.fecharetiro" />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--cierro modal de buscar -->
+
+
       </div>
     </div>
   </div>
@@ -176,9 +245,19 @@ export default {
           email_verified_at: "",
           password: "",
           rol_id: "",
-          per_id: "",
-        },
+          per_id: "",         
       },
+      recepcion: {
+          id: "",
+          recepcionado: "",
+          fecharadicado: "",
+          fecharecepcionado: "",
+          consultorio: "",
+          fechareparto: "",
+          fechapublicacion: "",
+          fecharetiro: "",
+        },
+    },
 
       esta: false,
       estado: "disable",
@@ -210,17 +289,41 @@ export default {
       });
     },
 
+    buscarRe() {
+      axios.get("/api/recepcion/" + this.notas.recepcion.id).then((res) => {
+        if (res.data[0] == null) {
+          this.notas.recepcion.id = "";
+          this.notas.recepcion.recepcionado = "";
+          this.notas.recepcion.fecharadicado = "";
+          this.notas.recepcion.fecharecepcionado = "";
+          this.notas.recepcion.consultorio = "";
+          this.notas.recepcion.fechareparto = "";
+          this.notas.recepcion.fechapublicacion = "";
+          this.notas.recepcion.fecharetiro = "";
+          console.log(this.notas.recepcion.id);
+          this.esta = false;
+        } else {
+          console.log(res.data[0]);
+          let recep = res.data[0];
+          this.notas.recepcion = recep;
+          this.esta = true;
+        }
+      });
+    },
+
     agregar() {
       // alert(this.personas.prinom);
       const params = {
         notapricort: this.notas.notapricort,
         notasegcort: this.notas.notasegcort,
         notateracort: this.notas.notateracort,
+        recp_id: this.notas.recepcion.id,
         usu_id: this.notas.user.id,
       };
       this.notas.notapricort = "";
       this.notas.notasegcort = "";
       this.notas.notateracort = "";
+      this.notas.recepcion.id = "";
       this.notas.user.id = "";
 
       axios.post("/api/notas", params).then((res) => {
