@@ -47564,74 +47564,76 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "card" },
+    { staticStyle: { "margin-top": "-25px" } },
     [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-body row" }, [
-        _c(
-          "li",
-          [
-            _c("router-link", { attrs: { to: { name: "home" } } }, [
-              _vm._v("Inicio")
-            ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          [
-            _c("router-link", { attrs: { to: { name: "recepest" } } }, [
-              _vm._v("Ver Recepciones")
-            ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          [
-            _c("router-link", { attrs: { to: { name: "gestest" } } }, [
-              _vm._v("Ver Gestiones")
-            ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          [
-            _c("router-link", { attrs: { to: { name: "miusuario" } } }, [
-              _vm._v("Ver mi usuario")
-            ])
-          ],
-          1
-        )
-      ]),
+      _c(
+        "nav",
+        {
+          staticClass: "navbar navbar-expand-lg",
+          staticStyle: { "background-color": "#DADADA", color: "#000" }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "collapse navbar-collapse",
+              attrs: { id: "navbarNav" }
+            },
+            [
+              _c(
+                "router-link",
+                { staticClass: "nav-link", attrs: { to: { name: "home" } } },
+                [_vm._v("Inicio")]
+              ),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                {
+                  staticClass: "nav-link",
+                  attrs: { to: { name: "recepest" } }
+                },
+                [_vm._v("Ver Recepciones")]
+              ),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                { staticClass: "nav-link", attrs: { to: { name: "gestest" } } },
+                [_vm._v("Ver Gestiones")]
+              ),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                {
+                  staticClass: "nav-link",
+                  attrs: { to: { name: "miusuario" } }
+                },
+                [_vm._v("Ver mi usuario")]
+              )
+            ],
+            1
+          )
+        ]
+      ),
       _vm._v(" "),
       _c(
         "transition",
         { attrs: { name: "slide-fade", mode: "out-in" } },
         [_c("router-view")],
         1
-      )
+      ),
+      _vm._v(" "),
+      _c("div", {
+        staticStyle: {
+          height: "6px",
+          width: "100%",
+          "background-color": "#ad3333"
+        }
+      })
     ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("h1", { staticClass: "text-center mb-2 card-title" }, [
-        _vm._v("MENU DE OPCIONES")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

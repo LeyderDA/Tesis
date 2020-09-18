@@ -1,28 +1,33 @@
 <template>
-  <div class="card">
-    <div>
-      <h1 class="text-center mb-2 card-title">MENU DE OPCIONES</h1>
-    </div>
-    <div class="card-body row">
-      <li>
-        <router-link :to="{name: 'home'}">Inicio</router-link>
-      </li>
-      <li>
-        <router-link :to="{name: 'recepest'}">Ver Recepciones</router-link>
-      </li>
+  
 
-      <li>
-        <router-link :to="{name: 'gestest'}">Ver Gestiones</router-link>
-      </li>
+  <div style="margin-top:-25px; ">
 
-       <li>
-        <router-link :to="{name: 'miusuario'}">Ver mi usuario</router-link>
-      </li>
+    <nav class="navbar navbar-expand-lg" style="background-color:#DADADA; color:#000; ">
+      <div class="collapse navbar-collapse" id="navbarNav">
 
-    </div>
+        
+       
+    
+        <router-link class="nav-link" :to="{name: 'home'}" >Inicio</router-link>
+      
+        <router-link class="nav-link" :to="{name: 'recepest'}">Ver Recepciones</router-link>
+      
 
+      
+        <router-link class="nav-link" :to="{name: 'gestest'}">Ver Gestiones</router-link>
+      
+
+    
+        <router-link class="nav-link" :to="{name: 'miusuario'}">Ver mi usuario</router-link>
+      
+
+       </div>
+     </nav>
+  
     <transition name="slide-fade" mode="out-in">
       <router-view></router-view>
     </transition>
+     <div style="height:6px; width:100%; background-color:#ad3333"></div>
   </div>
 </template>

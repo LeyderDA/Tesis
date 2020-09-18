@@ -21,7 +21,18 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-   
+    <style>
+        .nav-link{
+            color:#000;
+        }
+        .nav-link:hover{
+            background-color: yellow;
+            border-radius: 5px;
+            color:#494242d8;
+            font-weight: bold;
+        }
+     
+    </style>
 
 </head>
 
@@ -78,6 +89,9 @@
                 </div>
             </div>
         </nav>
+      
+
+        
 
         <main class="py-4">
             @yield('content')
