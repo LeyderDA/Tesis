@@ -24,12 +24,15 @@
     <style>
         .nav-link{
             color:#000;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
         }
         .nav-link:hover{
-            background-color: yellow;
-            border-radius: 5px;
-            color:#494242d8;
+            background-color:#929292;
+            border-radius: 0px;
+            color:#fff;
             font-weight: bold;
+            height: 30px;
         }
      
     </style>

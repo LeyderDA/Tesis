@@ -47564,53 +47564,93 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticStyle: { "margin-top": "-25px" } },
     [
       _c(
         "nav",
         {
-          staticClass: "navbar navbar-expand-lg",
-          staticStyle: { "background-color": "#DADADA", color: "#000" }
+          staticClass: "navbar navbar-expand-sm",
+          staticStyle: {
+            "background-color": "#DADADA",
+            color: "#000",
+            height: "30px"
+          }
         },
         [
+          _vm._m(0),
+          _vm._v(" "),
           _c(
             "div",
             {
               staticClass: "collapse navbar-collapse",
-              attrs: { id: "navbarNav" }
+              attrs: { id: "navbarTogglerDemo01" }
             },
             [
-              _c(
-                "router-link",
-                { staticClass: "nav-link", attrs: { to: { name: "home" } } },
-                [_vm._v("Inicio")]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass: "nav-link",
-                  attrs: { to: { name: "recepest" } }
-                },
-                [_vm._v("Ver Recepciones")]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                { staticClass: "nav-link", attrs: { to: { name: "gestest" } } },
-                [_vm._v("Ver Gestiones")]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass: "nav-link",
-                  attrs: { to: { name: "miusuario" } }
-                },
-                [_vm._v("Ver mi usuario")]
-              )
-            ],
-            1
+              _c("ul", { staticClass: "navbar-nav mr-auto mt-2 mt-lg-0" }, [
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: { name: "home" } }
+                      },
+                      [_vm._v("Inicio")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: { name: "recepest" } }
+                      },
+                      [_vm._v("Ver Recepciones")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: { name: "gestest" } }
+                      },
+                      [_vm._v("Ver Gestiones")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: { name: "miusuario" } }
+                      },
+                      [_vm._v("Ver mi usuario")]
+                    )
+                  ],
+                  1
+                )
+              ])
+            ]
           )
         ]
       ),
@@ -47620,20 +47660,33 @@ var render = function() {
         { attrs: { name: "slide-fade", mode: "out-in" } },
         [_c("router-view")],
         1
-      ),
-      _vm._v(" "),
-      _c("div", {
-        staticStyle: {
-          height: "6px",
-          width: "100%",
-          "background-color": "#ad3333"
-        }
-      })
+      )
     ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navbarTogglerDemo01",
+          "aria-controls": "navbarTogglerDemo02",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation"
+        }
+      },
+      [_c("span", [_vm._v("MENÚ")])]
+    )
+  }
+]
 render._withStripped = true
 
 

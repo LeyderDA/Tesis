@@ -1,11 +1,12 @@
 @extends('layouts.app')
 <body style="background-color:#003366;">
     @section('content')
-    <div class="container" style="background-color: red">
-        <div class="row justify-content-center">
+    <div style="background-color:#dadada">
+    <div class="container" style="margin-top:-24px; height:30px">
+        <div class="row justify-content-center" >
 
             <div class="row justify-content-center">
-            <div class="col-md-12">
+            <!--<div class="col-md-12">-->
              <?php 
                 session_start();
                 $_SESSION['id_usuario'] = auth()->id();
@@ -23,10 +24,14 @@
                 } 
             ?> 
 
-            </div>
+            <!--</div>-->
             
         </div>
     </div>
+    
+   </div>
+   <div style="height:6px; width:100%; background-color:#ad3333"></div>
+
     @endsection
 
 </body>
