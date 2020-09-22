@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'username', 'email', 'password','per_id','rol_id',
+
     ];
     public function Persona()
     {
@@ -59,4 +60,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    
 }
