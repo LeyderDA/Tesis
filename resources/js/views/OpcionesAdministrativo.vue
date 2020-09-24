@@ -31,6 +31,14 @@
       <li>
         <router-link :to="{name: 'asignacion'}">Asignar Recepción</router-link>
       </li>
+
+      <li>
+        <router-link :to="{name: 'miusuario'}">Ver mi usuario</router-link>
+      </li>
+
+      <li>
+        <router-link :to="{name: 'reportes'}">Consultar Reportes</router-link>
+      </li>
     </div>
 
     <transition name="slide-fade" mode="out-in">

@@ -106,6 +106,14 @@ export default new Router({
 
         },
 
+        {
+            path: '/Reportes',
+            name: 'reportes',
+            component: require('./views/ReportesComponent.vue').default
+
+        },
+
+
 
 
         

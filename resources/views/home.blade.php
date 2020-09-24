@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<body style="background-color:#003366;">
+   <body style="background-color:#003366;">
     @section('content')
     <div style="background-color:#dadada">
     <div class="container" style="margin-top:-24px; height:30px">
@@ -27,10 +27,10 @@
             <!--</div>-->
             
         </div>
-    </div>
+      </div>
     
-   </div>
-   <div style="height:6px; width:100%; background-color:#ad3333"></div>
+      </div>
+      <div style="height:6px; width:100%; background-color:#ad3333"></div>
 
     @endsection
 
