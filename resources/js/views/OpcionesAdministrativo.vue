@@ -1,48 +1,60 @@
 <template>
-  <div class="card">
-    <div>
-      <h1 class="text-center mb-2 card-title">MENU DE OPCIONES</h1>
-    </div>
-    <div class="card-body row">
-      <li>
-        <router-link :to="{name: 'home'}">Inicio</router-link>
+  <div>
+   <nav class="navbar navbar-expand-sm" style="background-color:#DADADA; color:#000; height:30px">
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+     <span>MENÚ</span>
+   </button>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+ <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+     
+      <li class="nav-item">
+        <router-link class="nav-link" :to="{name: 'home'}">Inicio</router-link>
       </li>
 
-      <li>
-        <router-link :to="{name: 'persona'}">Crear Personas</router-link>
+      <li class="nav-item">
+        <router-link class="nav-link" :to="{name: 'persona'}">Crear Personas</router-link>
       </li>
 
-      <li>
-        <router-link :to="{name: 'usuario'}">Crear Usuario</router-link>
+      <li class="nav-item">
+        <router-link class="nav-link" :to="{name: 'usuario'}">Crear Usuario</router-link>
       </li>
 
-      <li>
-        <router-link :to="{name: 'reclamante'}">Crear Reclamantes</router-link>
+      <li class="nav-item">
+        <router-link class="nav-link" :to="{name: 'reclamante'}">Crear Reclamantes</router-link>
       </li>
 
-      <li>
-        <router-link :to="{name: 'area'}">Crear Areas</router-link>
+      <li class="nav-item">
+        <router-link class="nav-link" :to="{name: 'area'}">Crear Areas</router-link>
       </li>
 
-      <li>
-        <router-link :to="{name: 'recepcion'}">Crear Recepción</router-link>
+      <li class="nav-item">
+        <router-link class="nav-link" :to="{name: 'recepcion'}">Crear Recepción</router-link>
       </li>
 
-      <li>
-        <router-link :to="{name: 'asignacion'}">Asignar Recepción</router-link>
+      <li class="nav-item">
+        <router-link class="nav-link" :to="{name: 'asignacion'}">Asignar Recepción</router-link>
       </li>
 
-      <li>
-        <router-link :to="{name: 'miusuario'}">Ver mi usuario</router-link>
+      <li class="nav-item">
+        <router-link class="nav-link" :to="{name: 'miusuario'}">Ver mi usuario</router-link>
       </li>
 
-      <li>
-        <router-link :to="{name: 'reportes'}">Consultar Reportes</router-link>
+      <li class="nav-item">
+        <router-link class="nav-link" :to="{name: 'reportes'}">Consultar Reportes</router-link>
       </li>
-    </div>
 
+
+      </ul>
+       </div>
+     </nav>
+  
     <transition name="slide-fade" mode="out-in">
       <router-view></router-view>
     </transition>
+     
   </div>
+
 </template>

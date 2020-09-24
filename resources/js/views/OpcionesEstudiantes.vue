@@ -1,11 +1,6 @@
 <template>
-  
-
   <div>
-
-    <nav class="navbar navbar-expand-sm" style="background-color:#DADADA; color:#000; height:30px">
-      
-
+   <nav class="navbar navbar-expand-sm" style="background-color:#DADADA; color:#000; height:30px">
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
      <span>MENÚ</span>
    </button>
@@ -26,7 +21,6 @@
         <router-link class="nav-link" :to="{name: 'miusuario'}">Ver mi usuario</router-link>
          </li>
       </ul>
-
        </div>
      </nav>
   
