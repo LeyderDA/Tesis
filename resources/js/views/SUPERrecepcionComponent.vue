@@ -137,37 +137,25 @@
                 <table class="table text-center">
                   <thead>
                     <tr>
-                      <th>ID</th>
-                      <th>Fecha de Radicado</th>
-                      <th>Fecha de Recepcionado</th>
-                      <th>Fecha de Reparto</th>
-                      <th>Fecha de Publicación</th>
-                      <th>Fecha de Retiro</th>
+                      <th>ID</th>                  
                       <th>Recepcionado en</th>
                       <th>Consultorio</th>
                       <th>Reclamante</th>
                       <th>Estado</th>
                       <th>Area</th>
-                      
                       <th>Opciones</th>
+                      <th>Ver los otros campos</th>
+
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="(recepcion,index) in recepcioness" :key="recepcion.index">
-                      <td> {{recepcion.id}}</td>
-                      <td>{{recepcion.fecharadicado}}</td>
-                      <td>{{recepcion.fecharecepcionado}}</td>
-                      <td>{{recepcion.fechareparto}}</td>
-                      <td>{{recepcion.fechapublicacion}}</td>
-                      <td>{{recepcion.fecharetiro}}</td>
+                      <td> {{recepcion.id}}</td>                     
                       <td>{{recepcion.recepcionado}}</td>
                       <td>{{recepcion.consultorio}}</td>
                       <td>{{recepcion.reclamante.id}}</td>
                       <td>{{recepcion.area.nombre}}</td>     
                       <td>{{recepcion.estado}}</td> 
-                     <!-- <td>
-                       <qr-code size="150" text="recepcion.id"></qr-code>
-                      </td> -->
                       <td>
                         <button
                           class="btn btn-success btn-sm"
@@ -180,10 +168,19 @@
                         <button class="btn btn-danger btn-sm" @click="eliminar(recepcion,index)">
                           <i class="fas fa-trash-alt"></i>
                         </button>
-                        
+        
                         <a :href="'/recepcionqr/'+recepcion.id"><i class="fas fa-qrcode"></i></a>
-
                       </td>
+                      <td>
+                          <button
+                          class="btn btn-sm"
+                          data-toggle="modal"
+                          data-target="#MOSTRARModal"
+                          @click="editarForm(recepcion,index)"
+                        >
+                          <i class="fas fa-eye fa-2x" style="color: black;"></i>
+                        </button>                      
+                        </td> 
                     </tr>
                   </tbody>
                 </table>
@@ -286,6 +283,46 @@
           </div>
         </div>
         <!--modal de editar -->
+        <!--modal de MOSTRAR EL RESTO DE CAMPOS-->
+        <div
+          class="modal fade"
+          id="MOSTRARModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">FECHAS</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <label class="col-5 col-form-label">Fecha de radicado</label>
+                <input placeholder="recepcion" type="date"  readonly="readonly" v-model="recepcion.fecharadicado" />
+
+                <label class="col-5 col-form-label">Fecha de recepcionado</label>
+                <input placeholder="recepcion" type="date" readonly="readonly" v-model="recepcion.fecharecepcionado" />
+
+                <label class="col-5 col-form-label">Fecha de reparto</label>
+                <input placeholder="recepcion" type="date" readonly="readonly" v-model="recepcion.fechareparto" />
+
+                <label class="col-5 col-form-label">Fecha de publicación</label>
+                <input placeholder="recepcion" type="date" readonly="readonly" v-model="recepcion.fechapublicacion" />
+
+                <label class="col-5 col-form-label">Fecha de retiro</label>
+                <input placeholder="recepcion" type="date" readonly="readonly" v-model="recepcion.fecharetiro" />
+
+              </div>
+             
+            </div>
+          </div>
+        </div>
+        <!--modal de MOSTRAR EL RESTO DE CAMPOS -->
 
         <!--modal de area -->
         <div
