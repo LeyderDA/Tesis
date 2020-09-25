@@ -4,7 +4,7 @@
       <h2 class="text-center mb-2 card-title">Registrando Recepcion</h2>
     </div>
     <div class="card-body row">
-      <form>
+      <form id="miForm">
         <div class="row">
             <label class="col-5 col-form-label">Define el estado</label>
           <div class="col-6">
@@ -109,9 +109,6 @@
           >Buscar Area</button>
         </div>
         <!--buscar area -->
-
-       
-
         <!--buscar reclamante -->
         <div class="col-2 form-group" v-if="true">
           <button
@@ -122,6 +119,8 @@
           >B.Reclamante</button>
         </div>
         <!--buscar recepcionador -->
+        
+                
 
         <div class="col-6 form-group" v-if="true">
           <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
@@ -141,7 +140,6 @@
                       <th>Recepcionado en</th>
                       <th>Consultorio</th>
                       <th>Reclamante</th>
-                      <th>Estado</th>
                       <th>Area</th>
                       <th>Opciones</th>
                       <th>Ver los otros campos</th>
@@ -155,7 +153,6 @@
                       <td>{{recepcion.consultorio}}</td>
                       <td>{{recepcion.reclamante.id}}</td>
                       <td>{{recepcion.area.nombre}}</td>     
-                      <td>{{recepcion.estado}}</td> 
                       <td>
                         <button
                           class="btn btn-success btn-sm"
@@ -271,7 +268,7 @@
                 <!--buscar area -->
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-danger"  @click="limpiar()" data-dismiss="modal">Cerrar</button>
                 <button
                   type="button"
                   class="btn btn-primary"
@@ -296,13 +293,11 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">FECHAS</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
               </div>
               <div class="modal-body">
 
-                <label class="col-5 col-form-label">Fecha de radicado</label>
+
+               <label class="col-5 col-form-label">Fecha de radicado</label>
                 <input placeholder="recepcion" type="date"  readonly="readonly" v-model="recepcion.fecharadicado" />
 
                 <label class="col-5 col-form-label">Fecha de recepcionado</label>
@@ -316,9 +311,19 @@
 
                 <label class="col-5 col-form-label">Fecha de retiro</label>
                 <input placeholder="recepcion" type="date" readonly="readonly" v-model="recepcion.fecharetiro" />
+                  <br>
+                  <br>
+              <div class="col-12 form-group">
+                    <div style="width: 100px; height:30px; margin: 0 auto" > 
+                      <button name="CERRAR"  class="btn btn-primary"   data-dismiss="modal" 
+                       aria-label="Close" type="button" @click="limpiarFormulario()">
+                      CERRAR
+                      </button>  
+                    </div>   
+              </div>
 
               </div>
-             
+ 
             </div>
           </div>
         </div>
@@ -533,10 +538,26 @@ export default {
     },
     qr(recepcion) {
         windows.location.href("/recepcionqr/" + recepcion.id);
-        //this.$router.push("/recepcionqr/" + recepcion.id);
-        //axios.get("/api/recepcionqr/" + recepcion.id);
-        //alert("hiii");
     },
+
+        limpiar() {
+          this.recepcion.recepcionado = "";
+          this.recepcion.fecharadicado = "";
+          this.recepcion.fecharecepcionado = "";
+          this.recepcion.consultorio = "";
+          this.recepcion.fechareparto = "";
+          this.recepcion.fechapublicacion = "";
+          this.recepcion.fecharetiro = "";
+          this.recepcion.reclamante = "";
+          this.recepcion.area = "";
+          this.recepcion.estado = "";   
+    },
+
+    limpiarFormulario() {
+    document.getElementById("miForm").reset();
+  },
+  
+
     editarForm(recepcion, index) {
       this.recepcion = recepcion;
       this.recepcion.index = index;

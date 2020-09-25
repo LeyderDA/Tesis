@@ -5733,6 +5733,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5880,9 +5885,22 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     qr: function qr(recepcion) {
-      windows.location.href("/recepcionqr/" + recepcion.id); //this.$router.push("/recepcionqr/" + recepcion.id);
-      //axios.get("/api/recepcionqr/" + recepcion.id);
-      //alert("hiii");
+      windows.location.href("/recepcionqr/" + recepcion.id);
+    },
+    limpiar: function limpiar() {
+      this.recepcion.recepcionado = "";
+      this.recepcion.fecharadicado = "";
+      this.recepcion.fecharecepcionado = "";
+      this.recepcion.consultorio = "";
+      this.recepcion.fechareparto = "";
+      this.recepcion.fechapublicacion = "";
+      this.recepcion.fecharetiro = "";
+      this.recepcion.reclamante = "";
+      this.recepcion.area = "";
+      this.recepcion.estado = "";
+    },
+    limpiarFormulario: function limpiarFormulario() {
+      document.getElementById("miForm").reset();
     },
     editarForm: function editarForm(recepcion, index) {
       this.recepcion = recepcion;
@@ -51444,7 +51462,7 @@ var render = function() {
     _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "card-body row" }, [
-      _c("form", [
+      _c("form", { attrs: { id: "miForm" } }, [
         _c("div", { staticClass: "row" }, [
           _c("label", { staticClass: "col-5 col-form-label" }, [
             _vm._v("Define el estado")
@@ -51840,8 +51858,6 @@ var render = function() {
                         _c("td", [_vm._v(_vm._s(recepcion.reclamante.id))]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(recepcion.area.nombre))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(recepcion.estado))]),
                         _vm._v(" "),
                         _c("td", [
                           _c(
@@ -52294,7 +52310,12 @@ var render = function() {
                       "button",
                       {
                         staticClass: "btn btn-danger",
-                        attrs: { type: "button", "data-dismiss": "modal" }
+                        attrs: { type: "button", "data-dismiss": "modal" },
+                        on: {
+                          click: function($event) {
+                            return _vm.limpiar()
+                          }
+                        }
                       },
                       [_vm._v("Cerrar")]
                     ),
@@ -52503,7 +52524,48 @@ var render = function() {
                           )
                         }
                       }
-                    })
+                    }),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c(
+                        "div",
+                        {
+                          staticStyle: {
+                            width: "100px",
+                            height: "30px",
+                            margin: "0 auto"
+                          }
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary",
+                              attrs: {
+                                name: "CERRAR",
+                                "data-dismiss": "modal",
+                                "aria-label": "Close",
+                                type: "button"
+                              },
+                              on: {
+                                click: function($event) {
+                                  return _vm.limpiarFormulario()
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                    CERRAR\n                    "
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ])
                   ])
                 ])
               ]
@@ -52697,8 +52759,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Reclamante")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Estado")]),
-        _vm._v(" "),
         _c("th", [_vm._v("Area")]),
         _vm._v(" "),
         _c("th", [_vm._v("Opciones")]),
@@ -52741,19 +52801,6 @@ var staticRenderFns = [
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
         [_vm._v("FECHAS")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
     ])
   },
