@@ -151,7 +151,17 @@
                       <td> {{recepcion.id}}</td>                     
                       <td>{{recepcion.recepcionado}}</td>
                       <td>{{recepcion.consultorio}}</td>
-                      <td>{{recepcion.reclamante.id}}</td>
+
+                      <td>  <button
+                          class="btn btn-sm"
+                          data-toggle="modal"
+                          data-target="#MOSTRARModalRECLAMANTE"
+                          @click="editarForm(recepcion,index)"
+                        >
+                          <i class="fas fa-eye fa-2x" style="color: black;"></i>
+                        </button>
+                        </td>
+
                       <td>{{recepcion.area.nombre}}</td>     
                       <td>
                         <button
@@ -217,29 +227,29 @@
                   </select>
                 </div>
 
-                <label class="col-5 col-form-label">Fecha de radicado</label>
+                <label class="col-5 col-form-label">Fecha de radicado:</label>
                 <input placeholder="recepcion" type="date" v-model="recepcion.fecharadicado" />
 
-                <label class="col-5 col-form-label">Fecha de recepcionado</label>
+                <label class="col-5 col-form-label">Fecha de recepcionado:</label>
                 <input placeholder="recepcion" type="date" v-model="recepcion.fecharecepcionado" />
 
-                <label class="col-5 col-form-label">Fecha de reparto</label>
+                <label class="col-5 col-form-label">Fecha de reparto:</label>
                 <input placeholder="recepcion" type="date" v-model="recepcion.fechareparto" />
 
-                <label class="col-5 col-form-label">Fecha de publicación</label>
+                <label class="col-5 col-form-label">Fecha de publicación:</label>
                 <input placeholder="recepcion" type="date" v-model="recepcion.fechapublicacion" />
 
                 <label class="col-5 col-form-label">Fecha de retiro</label>
                 <input placeholder="recepcion" type="date" v-model="recepcion.fecharetiro" />
 
-                <label class="col-5 col-form-label">Recepcionado en</label>
+                <label class="col-5 col-form-label">Recepcionado en:</label>
                 <input placeholder="recepcion" v-model="recepcion.recepcionado" />
 
-                <label class="col-5 col-form-label">Consultorio</label>
+                <label class="col-5 col-form-label">Consultorio:</label>
                 <input placeholder="recepcion" v-model="recepcion.consultorio" />
 
 
-                <label class="col-5 col-form-label">ID Reclamante</label>
+                <label class="col-5 col-form-label">ID Reclamante:</label>
                 <input placeholder="recepcion" v-model="recepcion.reclamante.id" />
 
                 <!--buscar reclamante -->
@@ -253,7 +263,7 @@
                 </div>
                 <!--buscar reclamante -->
 
-                <label class="col-5 col-form-label">Area</label>
+                <label class="col-5 col-form-label">Area:</label>
                 <input placeholder="recepcion" v-model="recepcion.area.nombre" />
 
                 <!--buscar area -->
@@ -280,6 +290,8 @@
           </div>
         </div>
         <!--modal de editar -->
+
+
         <!--modal de MOSTRAR EL RESTO DE CAMPOS-->
         <div
           class="modal fade"
@@ -297,22 +309,23 @@
               <div class="modal-body">
 
 
-               <label class="col-5 col-form-label">Fecha de radicado</label>
+               <label class="col-5 col-form-label">Fecha de radicado:</label>
                 <input placeholder="recepcion" type="date"  readonly="readonly" v-model="recepcion.fecharadicado" />
 
-                <label class="col-5 col-form-label">Fecha de recepcionado</label>
+                <label class="col-5 col-form-label">Fecha de recepcionado:</label>
                 <input placeholder="recepcion" type="date" readonly="readonly" v-model="recepcion.fecharecepcionado" />
 
-                <label class="col-5 col-form-label">Fecha de reparto</label>
+                <label class="col-5 col-form-label">Fecha de reparto:</label>
                 <input placeholder="recepcion" type="date" readonly="readonly" v-model="recepcion.fechareparto" />
 
-                <label class="col-5 col-form-label">Fecha de publicación</label>
+                <label class="col-5 col-form-label">Fecha de publicación:</label>
                 <input placeholder="recepcion" type="date" readonly="readonly" v-model="recepcion.fechapublicacion" />
 
-                <label class="col-5 col-form-label">Fecha de retiro</label>
+                <label class="col-5 col-form-label">Fecha de retiro:</label>
                 <input placeholder="recepcion" type="date" readonly="readonly" v-model="recepcion.fecharetiro" />
                   <br>
                   <br>
+                  
               <div class="col-12 form-group">
                     <div style="width: 100px; height:30px; margin: 0 auto" > 
                       <button name="CERRAR"  class="btn btn-primary"   data-dismiss="modal" 
@@ -328,6 +341,68 @@
           </div>
         </div>
         <!--modal de MOSTRAR EL RESTO DE CAMPOS -->
+
+
+        <!--modal de MOSTRAR EL RECLAMANTE-->
+        <div
+          class="modal fade"
+          id="MOSTRARModalRECLAMANTE"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">FECHAS</h5>
+              </div>
+              <div class="modal-body">
+
+
+
+               <label class="col-5 col-form-label">Enfoque diferencial:</label>
+                <input placeholder="enfoque diferencial" v-model="recepcion.reclamante.enfodifervictima" />
+
+                <label class="col-5 col-form-label">Genero:</label>
+                <input placeholder="genero" v-model="recepcion.reclamante.genevictima" />
+
+                <label class="col-5 col-form-label">Edad:</label>
+                <input placeholder="edad" v-model="recepcion.reclamante.edadvictima" />
+
+                <label class="col-5 col-form-label">Discapacidad:</label>
+                <input placeholder="discapacidad" v-model="recepcion.reclamante.discapavictima" />
+
+                <label class="col-5 col-form-label">Estrato:</label>
+                <input placeholder="estrato" v-model="recepcion.reclamante.estravictima" />
+
+                <label class="col-5 col-form-label">Embarazo:</label>
+                <input placeholder="embarazo" v-model="recepcion.reclamante.embaravictima" />
+
+                <label class="col-5 col-form-label">Grupo Etnico:</label>
+                <input placeholder="grupo etnico" v-model="recepcion.reclamante.grupetnicovictima" />
+
+                <label class="col-5 col-form-label">Entidad que reclama:</label>
+                <input placeholder="entidad" v-model="recepcion.reclamante.persoentidreclama" />
+
+                  <br>
+                  <br>
+                  
+              <div class="col-12 form-group">
+                    <div style="width: 100px; height:30px; margin: 0 auto" > 
+                      <button name="CERRAR"  class="btn btn-primary"   data-dismiss="modal" 
+                       aria-label="Close" type="button" @click="limpiarFormulario()">
+                      CERRAR
+                      </button>  
+                    </div>   
+              </div>
+
+              </div>
+ 
+            </div>
+          </div>
+        </div>
+        <!--modal de MOSTRAR EL RECLAMANTE -->
 
         <!--modal de area -->
         <div
@@ -538,19 +613,6 @@ export default {
     },
     qr(recepcion) {
         windows.location.href("/recepcionqr/" + recepcion.id);
-    },
-
-        limpiar() {
-          this.recepcion.recepcionado = "";
-          this.recepcion.fecharadicado = "";
-          this.recepcion.fecharecepcionado = "";
-          this.recepcion.consultorio = "";
-          this.recepcion.fechareparto = "";
-          this.recepcion.fechapublicacion = "";
-          this.recepcion.fecharetiro = "";
-          this.recepcion.reclamante = "";
-          this.recepcion.area = "";
-          this.recepcion.estado = "";   
     },
 
     limpiarFormulario() {
