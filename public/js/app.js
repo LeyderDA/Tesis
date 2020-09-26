@@ -5813,27 +5813,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      usuario: {
-        id: "",
-        username: "",
-        email: "",
-        email_verified_at: "",
-        password: "",
-        per_id: "",
-        persona: {
-          id: "",
-          cedula: "",
-          prinom: "",
-          segnom: "",
-          priape: "",
-          segape: "",
-          tel: "",
-          direc: ""
-        }
-      },
       recepcion: {
         id: "",
         recepcionado: "",
@@ -5846,6 +5832,14 @@ __webpack_require__.r(__webpack_exports__);
         estado: "",
         reclamante: {
           id: "",
+          enfodifervictima: "",
+          genevictima: "",
+          edadvictima: "",
+          discapavictima: "",
+          estravictima: "",
+          embaravictima: "",
+          grupetnicovictima: "",
+          persoentidreclama: "",
           per_id: "",
           persona: {
             id: "",
@@ -52679,6 +52673,56 @@ var render = function() {
                   _vm._m(4),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Nombre del reclamante:")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.recepcion.prinom,
+                          expression: "recepcion.prinom"
+                        }
+                      ],
+                      attrs: { placeholder: "nombre de persona" },
+                      domProps: { value: _vm.recepcion.prinom },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.recepcion, "prinom", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Apellido del reclamante:")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.recepcion.priape,
+                          expression: "recepcion.priape"
+                        }
+                      ],
+                      attrs: { placeholder: "nombre de persona" },
+                      domProps: { value: _vm.recepcion.priape },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.recepcion, "priape", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
                     _c("label", { staticClass: "col-5 col-form-label" }, [
                       _vm._v("Enfoque diferencial:")
                     ]),

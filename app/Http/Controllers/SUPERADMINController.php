@@ -25,19 +25,20 @@ class SUPERADMINController extends Controller
     public function indexRecepcion(Request $request)
     {
      
-        $recepcion = Recepcion::all();
-        if ($request->ajax()) {
-            foreach ($recepcion as $rec) {
-                $rec->estudiante;
-                $rec->docente;
-                $rec->administrativo;
-                $rec->reclamante;
-                $rec->area;
-            }
-            return $recepcion;
-        } else {
-            return  response()->json($recepcion);
-        }
+        $recepcion = Recepcion::join("reclamantes","recepciones.recla_id","=","reclamantes.id")
+        ->join("personas","reclamantes.per_id","=","personas.id")
+        ->select('recepciones.*', 'reclamantes.*', 'personas.*')
+        ->get();
 
+                      if ($request->ajax()) {
+                          foreach ($recepcion as $rec) {
+                            $rec->persona;   
+                            $rec->reclamante;
+                            $rec->area;                          
+                          }
+                          return $recepcion;
+                      } else {
+                          return  response()->json($recepcion);
+                      }   
     }
 }

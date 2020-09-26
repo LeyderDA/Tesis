@@ -359,7 +359,11 @@
               </div>
               <div class="modal-body">
 
+                <label class="col-5 col-form-label">Nombre del reclamante:</label>
+                <input placeholder="nombre de persona" v-model="recepcion.prinom" />
 
+                <label class="col-5 col-form-label">Apellido del reclamante:</label>
+                <input placeholder="nombre de persona" v-model="recepcion.priape" />
 
                <label class="col-5 col-form-label">Enfoque diferencial:</label>
                 <input placeholder="enfoque diferencial" v-model="recepcion.reclamante.enfodifervictima" />
@@ -469,25 +473,6 @@
 export default {
   data() {
     return {
-      usuario: {
-        id: "",
-        username: "",
-        email: "",
-        email_verified_at: "",
-        password: "",
-        per_id: "",
-
-        persona: {
-          id: "",
-          cedula: "",
-          prinom: "",
-          segnom: "",
-          priape: "",
-          segape: "",
-          tel: "",
-          direc: "",
-        },
-      },
 
       recepcion: {
         id: "",
@@ -501,19 +486,29 @@ export default {
         estado: "",
 
         reclamante: {
+        id: "",
+        enfodifervictima: "",
+        genevictima: "",
+        edadvictima: "",
+        discapavictima: "",
+        estravictima: "",
+        embaravictima: "",
+        grupetnicovictima: "",
+        persoentidreclama: "",
+        per_id: "",
+
+        persona: {
           id: "",
-          per_id: "",
-          persona: {
-            id: "",
-            cedula: "",
-            prinom: "",
-            segnom: "",
-            priape: "",
-            segape: "",
-            tel: "",
-            direc: "",
-          },
+          cedula: "",
+          prinom: "",
+          segnom: "",
+          priape: "",
+          segape: "",
+          tel: "",
+          direc: "",
         },
+      },
+  
         area: {
           id: "",
           nombre: "",
