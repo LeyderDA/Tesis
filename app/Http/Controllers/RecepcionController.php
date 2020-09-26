@@ -22,10 +22,7 @@ class RecepcionController extends Controller
         ->get();
 
                       if ($request->ajax()) {
-                          foreach ($recepcion as $rec) {
-                              $rec->estudiante;
-                              $rec->docente;
-                              $rec->administrativo;
+                          foreach ($recepcion as $rec) {                        
                               $rec->reclamante;
                               $rec->area;
                               $rec->persona;                        
@@ -71,6 +68,8 @@ class RecepcionController extends Controller
         $re->recla_id = $request->recla_id;
         $re->area_id = $request->area_id;
         $re->save();
+        $re->recepcion;
+        $re->persona;
         $re->reclamante;
         $re->area;
         

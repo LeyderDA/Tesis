@@ -5817,6 +5817,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5928,8 +5930,8 @@ __webpack_require__.r(__webpack_exports__);
       this.recepcion.fechapublicacion = "";
       this.recepcion.fecharetiro = "";
       this.recepcion.reclamante = "";
-      this.recepcion.estado = "";
       this.recepcion.area = "";
+      this.recepcion.estado = "";
       axios.post("/api/recepcion", params).then(function (res) {
         if (res.data == null) {
           alert("La recepcion No se registro porque tiene errores");
@@ -5958,6 +5960,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     limpiarFormulario: function limpiarFormulario() {
       document.getElementById("miForm").reset();
+      this.recepcion = "";
     },
     editarForm: function editarForm(recepcion, index) {
       this.recepcion = recepcion;

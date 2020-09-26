@@ -5,6 +5,7 @@
     </div>
     <div class="card-body row">
       <form id="miForm">
+
         <div class="row">
             <label class="col-5 col-form-label">Define el estado</label>
           <div class="col-6">
@@ -97,8 +98,8 @@
             <input class="form-control" placeholder="Reclamante" v-model="recepcion.reclamante.id" />
           </div>
         </div>
-      </form>
-      <div class="row justify-content-center col">
+       </form>
+       <div class="row justify-content-center col">
         <!--buscar area -->
         <div class="col-2 form-group" v-if="true">
           <button
@@ -123,7 +124,8 @@
                 
 
         <div class="col-6 form-group" v-if="true">
-          <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
+          <button class="btn btn-primary btn-block" @click="agregar()" >Guardar</button>
+
         </div>
         
       </div>
@@ -574,24 +576,27 @@ export default {
         recla_id: this.recepcion.reclamante.id,
         area_id: this.recepcion.area.id,
       };
-      this.recepcion.recepcionado = "";
-      this.recepcion.fecharadicado = "";
-      this.recepcion.fecharecepcionado = "";
-      this.recepcion.consultorio = "";
-      this.recepcion.fechareparto = "";
-      this.recepcion.fechapublicacion = "";
-      this.recepcion.fecharetiro = "";
-      this.recepcion.reclamante = "";
-      this.recepcion.estado = "";
-      this.recepcion.area = "";
+
+          this.recepcion.recepcionado = "";
+          this.recepcion.fecharadicado = "";
+          this.recepcion.fecharecepcionado = "";
+          this.recepcion.consultorio = "";
+          this.recepcion.fechareparto = "";
+          this.recepcion.fechapublicacion = "";
+          this.recepcion.fecharetiro = "";
+          this.recepcion.reclamante = "";
+          this.recepcion.area = "";
+          this.recepcion.estado = "";   
 
       axios.post("/api/recepcion", params).then((res) => {
         if (res.data == null) {
           alert("La recepcion No se registro porque tiene errores");
-        } else {
-          alert("La recepción se ha registrado con EXITO");
+        } else {          
+          alert("La recepción se ha registrado con EXITO");  
         }
-        this.recepcioness.push(res.data);
+         this.recepcioness.push(res.data);
+
+                  
       });
     },
 
@@ -611,9 +616,10 @@ export default {
     },
 
     limpiarFormulario() {
-    document.getElementById("miForm").reset();
+        document.getElementById("miForm").reset();
+        this.recepcion = "";
+
   },
-  
 
     editarForm(recepcion, index) {
       this.recepcion = recepcion;
