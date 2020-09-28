@@ -5870,6 +5870,7 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get("/api/recepcionSUPER").then(function (res) {
       _this.recepcioness = res.data;
+      console.log(res.data);
     });
   },
   methods: {
@@ -5930,7 +5931,8 @@ __webpack_require__.r(__webpack_exports__);
       this.recepcion.fechapublicacion = "";
       this.recepcion.fecharetiro = "";
       this.recepcion.reclamante = "";
-      this.recepcion.area = "";
+      this.recepcion.area.id = "";
+      this.recepcion.area.nombre = "";
       this.recepcion.estado = "";
       axios.post("/api/recepcion", params).then(function (res) {
         if (res.data == null) {
@@ -5960,11 +5962,22 @@ __webpack_require__.r(__webpack_exports__);
     },
     limpiarFormulario: function limpiarFormulario() {
       document.getElementById("miForm").reset();
-      this.recepcion = "";
+      this.recepcion.recepcionado = "";
+      this.recepcion.fecharadicado = "";
+      this.recepcion.fecharecepcionado = "";
+      this.recepcion.consultorio = "";
+      this.recepcion.fechareparto = "";
+      this.recepcion.fechapublicacion = "";
+      this.recepcion.fecharetiro = "";
+      this.recepcion.reclamante.id = "";
+      this.recepcion.area.id = "";
+      this.recepcion.area.nombre = "";
+      this.recepcion.estado = "";
     },
     editarForm: function editarForm(recepcion, index) {
-      this.recepcion = recepcion;
+      //this.recepcion = recepcion;
       this.recepcion.index = index;
+      this.recepcion = Object.assign({}, recepcion);
     },
     editar: function editar() {
       var _this6 = this;

@@ -526,6 +526,7 @@ export default {
   created() {
     axios.get("/api/recepcionSUPER").then((res) => {
       this.recepcioness = res.data;
+        console.log(res.data);
     });
   },
   methods: {
@@ -585,7 +586,8 @@ export default {
           this.recepcion.fechapublicacion = "";
           this.recepcion.fecharetiro = "";
           this.recepcion.reclamante = "";
-          this.recepcion.area = "";
+          this.recepcion.area.id = "";
+          this.recepcion.area.nombre = "";
           this.recepcion.estado = "";   
 
       axios.post("/api/recepcion", params).then((res) => {
@@ -615,15 +617,26 @@ export default {
         windows.location.href("/recepcionqr/" + recepcion.id);
     },
 
-    limpiarFormulario() {
+    limpiarFormulario() {     
         document.getElementById("miForm").reset();
-        this.recepcion = "";
-
+        
+          this.recepcion.recepcionado = "";
+          this.recepcion.fecharadicado = "";
+          this.recepcion.fecharecepcionado = "";
+          this.recepcion.consultorio = "";
+          this.recepcion.fechareparto = "";
+          this.recepcion.fechapublicacion = "";
+          this.recepcion.fecharetiro = "";
+          this.recepcion.reclamante.id = "";
+          this.recepcion.area.id = "";
+          this.recepcion.area.nombre = "";
+          this.recepcion.estado = ""; 
   },
 
     editarForm(recepcion, index) {
-      this.recepcion = recepcion;
+      //this.recepcion = recepcion;
       this.recepcion.index = index;
+      this.recepcion = Object.assign({}, recepcion);
     },
     editar() {
       const params = {
