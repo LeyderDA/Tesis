@@ -44,7 +44,7 @@
                         class="btn btn-success btn-sm"
                         data-toggle="modal"
                         data-target="#AggModal"
-                        @click="editarForm(recepcion,index)"
+                        @click="editarForm(recepcion)"
                       >   
                         <i class="fas fa-save fa-3x" style="color: black;"></i>
                       </button>

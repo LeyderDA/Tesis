@@ -619,7 +619,6 @@ export default {
 
     limpiarFormulario() {     
         document.getElementById("miForm").reset();
-        
           this.recepcion.recepcionado = "";
           this.recepcion.fecharadicado = "";
           this.recepcion.fecharecepcionado = "";

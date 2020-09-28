@@ -48750,7 +48750,7 @@ var render = function() {
                             },
                             on: {
                               click: function($event) {
-                                return _vm.editarForm(recepcion, _vm.index)
+                                return _vm.editarForm(recepcion)
                               }
                             }
                           },
