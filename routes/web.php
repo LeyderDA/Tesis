@@ -41,10 +41,9 @@ Route::get('/qr', 'QRCode@index');
 Route::get('/qr/{id}', 'QRCode@consultarRecepcion');
 Route::get('/MiUsuario', 'HomeController@index')->name('miusuario');
 Route::get('/recepcionqr/{id}', 'RecepcionController@qrcode');
-
 Route::get('/Reportes', 'Controller@index')->name('reportes')->middleware('Administrativo_Middleware');
-
 Route::get('/Est', 'EstadisticosController@est_recepciones')->name('estadisticos');
+Route::get('tipo/{type}', 'SweetController@notification');
 
 
 

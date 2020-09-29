@@ -22,10 +22,7 @@
           <br>
           <br>
 
-          <label class="col-5 col-form-label">Escoge el area</label>
-          <div class="col-6 form-group">
-            <input class="form-control" placeholder="Area" v-model="recepcion.area.nombre" />
-          </div>
+         
 
           <label class="col-5 col-form-label">Fecha radicado</label>
 
@@ -92,11 +89,16 @@
             <input class="form-control" placeholder="Consultorio" v-model="recepcion.consultorio" />
           </div>
 
+           <label class="col-5 col-form-label">Escoge el area</label>
+          <div class="col-6 form-group">
+            <input class="form-control" id="campoarea" placeholder="Area"  v-model="recepcion.area.nombre" />
+          </div>
 
-          <label class="col-5 col-form-label">Ingresa el ID del reclamante</label>
+           <label class="col-5 col-form-label">Ingresa el ID del reclamante</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Reclamante" v-model="recepcion.reclamante.id" />
           </div>
+
         </div>
        </form>
        <div class="row justify-content-center col">
@@ -191,10 +193,15 @@
       </div>
     </div>
   </div>
+  
 </template>
+
 <script>
+
 export default {
+  
   data() {
+    
     return {
 
       recepcion: {
@@ -244,6 +251,7 @@ export default {
       errors: [],
     };
   },
+
 
   methods: {
     buscarrecl() {
@@ -309,8 +317,16 @@ export default {
       axios.post("/api/recepcion", params).then((res) => {
         if (res.data == null) {
           alert("La recepcion No se registro porque tiene errores");
-        } else {          
-          alert("La recepción se ha registrado con EXITO");  
+        } else {   
+          
+        swal({
+        type: 'success',
+        "timer":2800,
+        "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+        "text":"Se guardo la recepción",
+        "showConfirmButton":false
+    });
+         
         }
                  
       });

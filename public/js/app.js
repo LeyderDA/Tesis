@@ -5550,6 +5550,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5659,7 +5663,13 @@ __webpack_require__.r(__webpack_exports__);
         if (res.data == null) {
           alert("La recepcion No se registro porque tiene errores");
         } else {
-          alert("La recepción se ha registrado con EXITO");
+          swal({
+            type: 'success',
+            "timer": 2800,
+            "title": "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            "text": "Se guardo la recepción",
+            "showConfirmButton": false
+          });
         }
       });
     }
@@ -51916,34 +51926,6 @@ var render = function() {
           _c("br"),
           _vm._v(" "),
           _c("label", { staticClass: "col-5 col-form-label" }, [
-            _vm._v("Escoge el area")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-6 form-group" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.recepcion.area.nombre,
-                  expression: "recepcion.area.nombre"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { placeholder: "Area" },
-              domProps: { value: _vm.recepcion.area.nombre },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.recepcion.area, "nombre", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("label", { staticClass: "col-5 col-form-label" }, [
             _vm._v("Fecha radicado")
           ]),
           _vm._v(" "),
@@ -52142,6 +52124,34 @@ var render = function() {
                     return
                   }
                   _vm.$set(_vm.recepcion, "consultorio", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Escoge el area")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-6 form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.recepcion.area.nombre,
+                  expression: "recepcion.area.nombre"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { id: "campoarea", placeholder: "Area" },
+              domProps: { value: _vm.recepcion.area.nombre },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.recepcion.area, "nombre", $event.target.value)
                 }
               }
             })
@@ -72363,15 +72373,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************************!*\
   !*** ./resources/js/views/RecepestComponent.vue ***!
   \**************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _RecepestComponent_vue_vue_type_template_id_27d14a7a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RecepestComponent.vue?vue&type=template&id=27d14a7a& */ "./resources/js/views/RecepestComponent.vue?vue&type=template&id=27d14a7a&");
 /* harmony import */ var _RecepestComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RecepestComponent.vue?vue&type=script&lang=js& */ "./resources/js/views/RecepestComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _RecepestComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _RecepestComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -72401,7 +72410,7 @@ component.options.__file = "resources/js/views/RecepestComponent.vue"
 /*!***************************************************************************!*\
   !*** ./resources/js/views/RecepestComponent.vue?vue&type=script&lang=js& ***!
   \***************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
