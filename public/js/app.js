@@ -6325,31 +6325,6 @@ __webpack_require__.r(__webpack_exports__);
         } else {
           alert("La Recepción se ha actualizado");
         }
-
-        _this5.recepcioness[_this5.recepcion.index] = res.data;
-        _this5.recepcion.recepcionado = "";
-        _this5.recepcioness[_this5.recepcion.index] = res.data;
-        _this5.recepcion.fecharadicado = "";
-        _this5.recepcioness[_this5.recepcion.index] = res.data;
-        _this5.recepcion.fecharecepcionado = "";
-        _this5.recepcioness[_this5.recepcion.index] = res.data;
-        _this5.recepcion.consultorio = "";
-        _this5.recepcioness[_this5.recepcion.index] = res.data;
-        _this5.recepcion.fechareparto = "";
-        _this5.recepcioness[_this5.recepcion.index] = res.data;
-        _this5.recepcion.fechapublicacion = "";
-        _this5.recepcioness[_this5.recepcion.index] = res.data;
-        _this5.recepcion.fecharetiro = "";
-        _this5.recepcioness[_this5.recepcion.index] = res.data;
-        _this5.recepcion.reclamante = "";
-        _this5.recepcioness[_this5.recepcion.index] = res.data;
-        _this5.recepcion.area = "";
-        _this5.recepcioness[_this5.recepcion.index] = res.data;
-        _this5.recepcion.estado = "";
-        _this5.recepcioness[_this5.recepcion.index] = res.data;
-        _this5.recepcion.reclamante.id = "";
-        _this5.recepcioness[_this5.recepcion.index] = res.data;
-        _this5.recepcion.area.id = "";
       })["catch"](function (error) {
         if (error.response.status == 422) {
           _this5.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
