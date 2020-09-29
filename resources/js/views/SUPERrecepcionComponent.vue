@@ -108,7 +108,7 @@
             class="btn btn-primary btn-block"
             data-toggle="modal"
             data-target="#buscarModalarea"
-            @click="buscararea()"
+            @click="buscararea()"  :disabled="!isFormValidArea()"
           >Buscar Area <i class="fas fa-search fa-1x" style="color: black"></i> </button>
         </div>
         <!--buscar area -->
@@ -251,8 +251,6 @@ export default {
       errors: [],
     };
   },
-
-
   methods: {
     buscarrecl() {
       axios
@@ -271,6 +269,10 @@ export default {
           }
         });
     },
+
+      isFormValidArea: function(){
+            return this.recepcion.area.nombre!="";
+          },
 
     buscararea() {
       axios.get("/api/area/" + this.recepcion.area.nombre).then((res) => {

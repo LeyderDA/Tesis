@@ -5618,6 +5618,9 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
+    isFormValidArea: function isFormValidArea() {
+      return this.recepcion.area.nombre != "";
+    },
     buscararea: function buscararea() {
       var _this2 = this;
 
@@ -6343,6 +6346,10 @@ __webpack_require__.r(__webpack_exports__);
         _this5.recepcion.area = "";
         _this5.recepcioness[_this5.recepcion.index] = res.data;
         _this5.recepcion.estado = "";
+        _this5.recepcioness[_this5.recepcion.index] = res.data;
+        _this5.recepcion.reclamante.id = "";
+        _this5.recepcioness[_this5.recepcion.index] = res.data;
+        _this5.recepcion.area.id = "";
       })["catch"](function (error) {
         if (error.response.status == 422) {
           _this5.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
@@ -52196,7 +52203,8 @@ var render = function() {
                   staticClass: "btn btn-primary btn-block",
                   attrs: {
                     "data-toggle": "modal",
-                    "data-target": "#buscarModalarea"
+                    "data-target": "#buscarModalarea",
+                    disabled: !_vm.isFormValidArea()
                   },
                   on: {
                     click: function($event) {

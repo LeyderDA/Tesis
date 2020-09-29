@@ -612,7 +612,6 @@ export default {
     },
  
 
-
     editarForm(recepcion, index) {
       //this.recepcion = recepcion;
       this.recepcion.index = index;
@@ -660,6 +659,10 @@ export default {
           this.recepcion.area = "";
           this.recepcioness[this.recepcion.index] = res.data;
           this.recepcion.estado = "";
+ this.recepcioness[this.recepcion.index] = res.data;
+        this.recepcion.reclamante.id = "";
+         this.recepcioness[this.recepcion.index] = res.data;
+       this.recepcion.area.id = "";
         })
         .catch((error) => {
           if (error.response.status == 422) {
