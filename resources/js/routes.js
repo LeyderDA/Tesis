@@ -113,6 +113,12 @@ export default new Router({
 
         },
 
+        {
+            path: '/VistaReSu',
+            name: 'vistaresu',
+            component: require('./views/SUPERrecepcionvistaComponent.vue').default
+
+        },
 
 
 

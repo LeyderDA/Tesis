@@ -43,6 +43,7 @@ class SUPERADMINController extends Controller
         'personas.segape',
         'areas.nombre'
         )
+        ->orderBy('recepciones.id', 'asc')
         ->get();
                       if ($request->ajax()) {
                           foreach ($recepcion as $rec) {

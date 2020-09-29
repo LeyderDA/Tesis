@@ -38,13 +38,15 @@
                     <td>{{recepcion.area.nombre}}</td>
                     <td>
                       <a :href="'/recepcionqr/'+recepcion.recp_id">
-                        <i class="fas fa-qrcode fa-3x" style="color: black;"></i>
-                      </a>                      
+                        <i class="fas fa-qrcode fa-3x" style="color: black;" title="Mostrar QR de la gestión"></i>
+                      </a> 
+                                           
                       <button
                         class="btn btn-success btn-sm"
                         data-toggle="modal"
                         data-target="#AggModal"
                         @click="editarForm(recepcion)"
+                        title="Agregar Gestión"
                       >   
                         <i class="fas fa-save fa-3x" style="color: black;"></i>
                       </button>
@@ -58,7 +60,6 @@
         </div>
       </div>
 
-    
       <!--modal de asignar gestion -->
       <div
         class="modal fade"
@@ -211,12 +212,19 @@
           </div>
         </div>
       </div>
-
       <!--modal de asignar gestion -->
     </div>
   </div>
+  
+ 
+  
 </template>
-<script>
+
+
+
+
+<script >
+
 export default {
   data() {
     return {
@@ -299,8 +307,9 @@ export default {
     };
   },
   created() {
+
     axios.get("/api/recepcion").then((res) => {
-      this.recepcioness = res.data;
+      this.recepcioness = res.data;    
     });
   },
   methods: {
@@ -370,6 +379,14 @@ export default {
         }
         this.recepcioness.push(res.data);
       });
+    },
+
+    ver(){
+      Swal.fire(
+    'Good job!',
+    'You clicked the button!',
+    'success'
+  )
     },
 
     agregargestion() {

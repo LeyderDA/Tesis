@@ -35,6 +35,10 @@
       </li>
 
       <li class="nav-item">
+        <router-link class="nav-link" :to="{name: 'vistaresu'}">Lista de recepciones</router-link>
+      </li>
+
+      <li class="nav-item">
         <router-link class="nav-link" :to="{name: 'gestion'}">Gestionar un Caso</router-link>
       </li>
 

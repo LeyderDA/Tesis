@@ -27,6 +27,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.13.0",
         "instascan": "^1.0.0",
+        "sweetalert2": "^10.3.5",
         "vue-qrcode-component": "^2.1.1"
     }
 }
