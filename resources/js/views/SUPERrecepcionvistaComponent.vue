@@ -614,8 +614,10 @@ export default {
 
     editarForm(recepcion, index) {
       //this.recepcion = recepcion;
+      this.recepcion = recepcion;
+      
       this.recepcion.index = index;
-      this.recepcion = Object.assign({}, recepcion);
+      
     },
     editar() {
       const params = {

@@ -6301,8 +6301,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     editarForm: function editarForm(recepcion, index) {
       //this.recepcion = recepcion;
+      this.recepcion = recepcion;
       this.recepcion.index = index;
-      this.recepcion = Object.assign({}, recepcion);
     },
     editar: function editar() {
       var _this5 = this;
