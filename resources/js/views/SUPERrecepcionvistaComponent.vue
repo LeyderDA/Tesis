@@ -60,16 +60,18 @@
                           data-toggle="modal"
                           data-target="#editarModal"
                           @click="editarForm(recepcion, index)"
+                          title="Editar Recepción"
                         >
-                          <i class="fas fa-pencil-alt"></i>
+                          <i class="fas fa-pencil-alt fa-1.5x"></i>
                         </button>
-                       <button class="btn btn-danger btn-sm" @click="eliminar(recepcion,index)">
-                          <i class="fas fa-trash-alt"></i>
+                       <button class="btn btn-danger btn-sm" @click="eliminar(recepcion,index)" title="Eliminar Recepción">
+                          <i class="fas fa-trash-alt fa-1.5x"></i>
                         </button>
+ <br />
+                         <a :href="'/recepcionqr/'+recepcion.id">
+                        <i class="fas fa-qrcode fa-2x fa-align-center" style="color: black;" title="Mostrar QR de la Recepción"></i>
+                      </a> 
 
-                        <a :href="'/recepcionqr/' + recepcion.id"
-                          ><i class="fas fa-qrcode"></i
-                        ></a>
                       </td>
                       
                     </tr>
@@ -562,6 +564,41 @@ export default {
   },
   methods: {
 
+     buscarrecl() {
+      axios
+        .get("/api/reclamante/" + this.recepcion.reclamante.id)
+        .then((res) => {
+          if (res.data[0] == null) {
+            this.recepcion.reclamante.id = "";
+            this.recepcion.reclamante.per_id = "";
+            console.log(this.recepcion.reclamante);
+            this.esta = false;
+          } else {
+            console.log(res.data[0]);
+            let person = res.data[0];
+            this.recepcion.reclamante = person;
+            this.esta = true;
+          }
+        });
+    },
+
+    buscararea() {
+      axios.get("/api/area/" + this.recepcion.area.nombre).then((res) => {
+        if (res.data[0] == null) {
+          this.recepcion.area.id = "";
+          this.recepcion.area.nombre = "";
+          console.log(this.recepcion.area);
+          this.esta = false;
+        } else {
+          console.log(res.data[0]);
+          let person = res.data[0];
+          this.recepcion.area = person;
+          this.esta = true;
+        }
+      });
+    },
+
+
     eliminar(recepcion, index) {
       const confirmacion = confirm(
         `Confirma Eliminar Recepcion del area de: ${recepcion.area.nombre}`
@@ -573,10 +610,7 @@ export default {
         });
       }
     },
-    
-    qr(recepcion) {
-      windows.location.href("/recepcionqr/" + recepcion.id);
-    },
+ 
 
 
     editarForm(recepcion, index) {

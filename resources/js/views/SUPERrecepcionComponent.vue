@@ -107,7 +107,7 @@
             data-toggle="modal"
             data-target="#buscarModalarea"
             @click="buscararea()"
-          >Buscar Area</button>
+          >Buscar Area <i class="fas fa-search fa-1x" style="color: black"></i> </button>
         </div>
         <!--buscar area -->
         <!--buscar reclamante -->
@@ -117,14 +117,15 @@
             data-toggle="modal"
             data-target="#buscarModalrecl"
             @click="buscarrecl()"
-          >B.Reclamante</button>
+          >B.Reclamante <i class="fas fa-search fa-1x" style="color: black"></i></button>
         </div>
         <!--buscar recepcionador -->
         
                 
 
         <div class="col-6 form-group" v-if="true">
-          <button class="btn btn-primary btn-block" @click="agregar()" >Guardar</button>
+          <button class="btn btn-primary btn-block" @click="agregar()" 
+          >Guardar </button>
         </div>
         
       </div>
@@ -292,7 +293,6 @@ export default {
         recla_id: this.recepcion.reclamante.id,
         area_id: this.recepcion.area.id,
       };
-
           this.recepcion.recepcionado = "";
           this.recepcion.fecharadicado = "";
           this.recepcion.fecharecepcionado = "";
@@ -300,10 +300,11 @@ export default {
           this.recepcion.fechareparto = "";
           this.recepcion.fechapublicacion = "";
           this.recepcion.fecharetiro = "";
-          this.recepcion.reclamante = "";
+          this.recepcion.reclamante.id = "";
           this.recepcion.area.id = "";
           this.recepcion.area.nombre = "";
-          this.recepcion.estado = "";   
+          this.recepcion.estado = "";  
+     
 
       axios.post("/api/recepcion", params).then((res) => {
         if (res.data == null) {
@@ -311,7 +312,7 @@ export default {
         } else {          
           alert("La recepción se ha registrado con EXITO");  
         }
-         this.recepcioness.push(res.data);             
+                 
       });
     },
   },

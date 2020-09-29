@@ -5549,6 +5549,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5631,8 +5632,6 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     agregar: function agregar() {
-      var _this3 = this;
-
       var params = {
         recepcionado: this.recepcion.recepcionado,
         fecharadicado: this.recepcion.fecharadicado,
@@ -5652,7 +5651,7 @@ __webpack_require__.r(__webpack_exports__);
       this.recepcion.fechareparto = "";
       this.recepcion.fechapublicacion = "";
       this.recepcion.fecharetiro = "";
-      this.recepcion.reclamante = "";
+      this.recepcion.reclamante.id = "";
       this.recepcion.area.id = "";
       this.recepcion.area.nombre = "";
       this.recepcion.estado = "";
@@ -5662,8 +5661,6 @@ __webpack_require__.r(__webpack_exports__);
         } else {
           alert("La recepción se ha registrado con EXITO");
         }
-
-        _this3.recepcioness.push(res.data);
       });
     }
   }
@@ -5680,6 +5677,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -6240,21 +6239,52 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    eliminar: function eliminar(recepcion, index) {
+    buscarrecl: function buscarrecl() {
       var _this2 = this;
+
+      axios.get("/api/reclamante/" + this.recepcion.reclamante.id).then(function (res) {
+        if (res.data[0] == null) {
+          _this2.recepcion.reclamante.id = "";
+          _this2.recepcion.reclamante.per_id = "";
+          console.log(_this2.recepcion.reclamante);
+          _this2.esta = false;
+        } else {
+          console.log(res.data[0]);
+          var person = res.data[0];
+          _this2.recepcion.reclamante = person;
+          _this2.esta = true;
+        }
+      });
+    },
+    buscararea: function buscararea() {
+      var _this3 = this;
+
+      axios.get("/api/area/" + this.recepcion.area.nombre).then(function (res) {
+        if (res.data[0] == null) {
+          _this3.recepcion.area.id = "";
+          _this3.recepcion.area.nombre = "";
+          console.log(_this3.recepcion.area);
+          _this3.esta = false;
+        } else {
+          console.log(res.data[0]);
+          var person = res.data[0];
+          _this3.recepcion.area = person;
+          _this3.esta = true;
+        }
+      });
+    },
+    eliminar: function eliminar(recepcion, index) {
+      var _this4 = this;
 
       var confirmacion = confirm("Confirma Eliminar Recepcion del area de: ".concat(recepcion.area.nombre));
 
       if (confirmacion) {
         axios["delete"]("/api/recepcion/" + recepcion.id).then(function () {
-          _this2.recepcioness.splice(index, 1);
+          _this4.recepcioness.splice(index, 1);
 
           alert("La recepción se ha eliminado con exito");
         });
       }
-    },
-    qr: function qr(recepcion) {
-      windows.location.href("/recepcionqr/" + recepcion.id);
     },
     editarForm: function editarForm(recepcion, index) {
       //this.recepcion = recepcion;
@@ -6262,7 +6292,7 @@ __webpack_require__.r(__webpack_exports__);
       this.recepcion = Object.assign({}, recepcion);
     },
     editar: function editar() {
-      var _this3 = this;
+      var _this5 = this;
 
       var params = {
         recepcionado: this.recepcion.recepcionado,
@@ -6283,31 +6313,31 @@ __webpack_require__.r(__webpack_exports__);
           alert("La Recepción se ha actualizado");
         }
 
-        _this3.recepcioness[_this3.recepcion.index] = res.data;
-        _this3.recepcion.recepcionado = "";
-        _this3.recepcioness[_this3.recepcion.index] = res.data;
-        _this3.recepcion.fecharadicado = "";
-        _this3.recepcioness[_this3.recepcion.index] = res.data;
-        _this3.recepcion.fecharecepcionado = "";
-        _this3.recepcioness[_this3.recepcion.index] = res.data;
-        _this3.recepcion.consultorio = "";
-        _this3.recepcioness[_this3.recepcion.index] = res.data;
-        _this3.recepcion.fechareparto = "";
-        _this3.recepcioness[_this3.recepcion.index] = res.data;
-        _this3.recepcion.fechapublicacion = "";
-        _this3.recepcioness[_this3.recepcion.index] = res.data;
-        _this3.recepcion.fecharetiro = "";
-        _this3.recepcioness[_this3.recepcion.index] = res.data;
-        _this3.recepcion.reclamante = "";
-        _this3.recepcioness[_this3.recepcion.index] = res.data;
-        _this3.recepcion.area = "";
-        _this3.recepcioness[_this3.recepcion.index] = res.data;
-        _this3.recepcion.estado = "";
+        _this5.recepcioness[_this5.recepcion.index] = res.data;
+        _this5.recepcion.recepcionado = "";
+        _this5.recepcioness[_this5.recepcion.index] = res.data;
+        _this5.recepcion.fecharadicado = "";
+        _this5.recepcioness[_this5.recepcion.index] = res.data;
+        _this5.recepcion.fecharecepcionado = "";
+        _this5.recepcioness[_this5.recepcion.index] = res.data;
+        _this5.recepcion.consultorio = "";
+        _this5.recepcioness[_this5.recepcion.index] = res.data;
+        _this5.recepcion.fechareparto = "";
+        _this5.recepcioness[_this5.recepcion.index] = res.data;
+        _this5.recepcion.fechapublicacion = "";
+        _this5.recepcioness[_this5.recepcion.index] = res.data;
+        _this5.recepcion.fecharetiro = "";
+        _this5.recepcioness[_this5.recepcion.index] = res.data;
+        _this5.recepcion.reclamante = "";
+        _this5.recepcioness[_this5.recepcion.index] = res.data;
+        _this5.recepcion.area = "";
+        _this5.recepcioness[_this5.recepcion.index] = res.data;
+        _this5.recepcion.estado = "";
       })["catch"](function (error) {
         if (error.response.status == 422) {
-          _this3.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
+          _this5.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
 
-          alert(_this3.errors.recepcionado[0]);
+          alert(_this5.errors.recepcionado[0]);
         }
       });
     }
@@ -52164,7 +52194,13 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("Buscar Area")]
+                [
+                  _vm._v("Buscar Area "),
+                  _c("i", {
+                    staticClass: "fas fa-search fa-1x",
+                    staticStyle: { color: "black" }
+                  })
+                ]
               )
             ])
           : undefined,
@@ -52185,7 +52221,13 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("B.Reclamante")]
+                [
+                  _vm._v("B.Reclamante "),
+                  _c("i", {
+                    staticClass: "fas fa-search fa-1x",
+                    staticStyle: { color: "black" }
+                  })
+                ]
               )
             ])
           : undefined,
@@ -52202,7 +52244,7 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("Guardar")]
+                [_vm._v("Guardar ")]
               )
             ])
           : undefined
@@ -52565,7 +52607,8 @@ var render = function() {
                             staticClass: "btn btn-success btn-sm",
                             attrs: {
                               "data-toggle": "modal",
-                              "data-target": "#editarModal"
+                              "data-target": "#editarModal",
+                              title: "Editar Recepción"
                             },
                             on: {
                               click: function($event) {
@@ -52573,26 +52616,40 @@ var render = function() {
                               }
                             }
                           },
-                          [_c("i", { staticClass: "fas fa-pencil-alt" })]
+                          [
+                            _c("i", {
+                              staticClass: "fas fa-pencil-alt fa-1.5x"
+                            })
+                          ]
                         ),
                         _vm._v(" "),
                         _c(
                           "button",
                           {
                             staticClass: "btn btn-danger btn-sm",
+                            attrs: { title: "Eliminar Recepción" },
                             on: {
                               click: function($event) {
                                 return _vm.eliminar(recepcion, index)
                               }
                             }
                           },
-                          [_c("i", { staticClass: "fas fa-trash-alt" })]
+                          [_c("i", { staticClass: "fas fa-trash-alt fa-1.5x" })]
                         ),
+                        _vm._v(" "),
+                        _c("br"),
                         _vm._v(" "),
                         _c(
                           "a",
                           { attrs: { href: "/recepcionqr/" + recepcion.id } },
-                          [_c("i", { staticClass: "fas fa-qrcode" })]
+                          [
+                            _c("i", {
+                              staticClass:
+                                "fas fa-qrcode fa-2x fa-align-center",
+                              staticStyle: { color: "black" },
+                              attrs: { title: "Mostrar QR de la Recepción" }
+                            })
+                          ]
                         )
                       ])
                     ])
@@ -52926,7 +52983,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                  B.Reclamante\n                "
+                              "\n                   B.Reclamante\n                 "
                             )
                           ]
                         )
@@ -52980,7 +53037,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                  Buscar Area\n                "
+                              "\n                   Buscar Area\n                 "
                             )
                           ]
                         )
@@ -53000,7 +53057,11 @@ var render = function() {
                         type: "button"
                       }
                     },
-                    [_vm._v("\n                    CERRAR\n                  ")]
+                    [
+                      _vm._v(
+                        "\n                     CERRAR\n                   "
+                      )
+                    ]
                   ),
                   _vm._v(" "),
                   _c(
@@ -53016,7 +53077,7 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                Guardar Cambios\n              "
+                        "\n                 Guardar Cambios\n               "
                       )
                     ]
                   )
@@ -53745,7 +53806,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                Editar Recepción\n              ")]
+        [_vm._v("\n                 Editar Recepción\n               ")]
       ),
       _vm._v(" "),
       _c(
@@ -53794,7 +53855,7 @@ var staticRenderFns = [
                 type: "button"
               }
             },
-            [_vm._v("\n                    CERRAR\n                  ")]
+            [_vm._v("\n                     CERRAR\n                   ")]
           )
         ]
       )
@@ -53832,7 +53893,7 @@ var staticRenderFns = [
                 type: "button"
               }
             },
-            [_vm._v("\n                    CERRAR\n                  ")]
+            [_vm._v("\n                     CERRAR\n                   ")]
           )
         ]
       )
@@ -53874,7 +53935,7 @@ var staticRenderFns = [
           staticClass: "btn btn-danger",
           attrs: { type: "button", "data-dismiss": "modal" }
         },
-        [_vm._v("\n                Cerrar\n              ")]
+        [_vm._v("\n                 Cerrar\n               ")]
       )
     ])
   },
@@ -53886,7 +53947,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                Mostrar Persona\n              ")]
+        [_vm._v("\n                 Mostrar Persona\n               ")]
       ),
       _vm._v(" "),
       _c(
@@ -53914,7 +53975,7 @@ var staticRenderFns = [
           staticClass: "btn btn-danger",
           attrs: { type: "button", "data-dismiss": "modal" }
         },
-        [_vm._v("\n                Cerrar\n              ")]
+        [_vm._v("\n                 Cerrar\n               ")]
       )
     ])
   }
