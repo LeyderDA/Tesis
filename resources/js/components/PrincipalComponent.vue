@@ -18,6 +18,10 @@
         <router-link class="nav-link" :to="{name: 'persona'}">Crear Personas</router-link>
       </li>
 
+        <li class="nav-item">
+        <router-link class="nav-link" :to="{name: 'personavista'}">Ver lista de Personas</router-link>
+      </li>
+
       <li class="nav-item">
         <router-link class="nav-link" :to="{name: 'usuario'}">Crear Usuario</router-link>
       </li>

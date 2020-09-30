@@ -21,11 +21,7 @@
           </div>
           <br>
           <br>
-
-         
-
           <label class="col-5 col-form-label">Fecha radicado</label>
-
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -44,7 +40,6 @@
               v-model="recepcion.fecharecepcionado"
             />
           </div>
-
           <label class="col-5 col-form-label">Fecha reparto</label>
           <div class="col-6 form-group">
             <input
@@ -54,7 +49,6 @@
               v-model="recepcion.fechareparto"
             />
           </div>
-
           <label class="col-5 col-form-label">Fecha de publicación</label>
           <div class="col-6 form-group">
             <input
@@ -64,7 +58,6 @@
               v-model="recepcion.fechapublicacion"
             />
           </div>
-
           <label class="col-5 col-form-label">Fecha de retiro</label>
           <div class="col-6 form-group">
             <input
@@ -74,7 +67,6 @@
               v-model="recepcion.fecharetiro"
             />
           </div>
-
           <label class="col-5 col-form-label">Recepcionado en</label>
           <div class="col-6 form-group">
             <input
@@ -83,7 +75,6 @@
               v-model="recepcion.recepcionado"
             />
           </div>
-
           <label class="col-5 col-form-label">Consultorio</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Consultorio" v-model="recepcion.consultorio" />
@@ -118,18 +109,16 @@
             class="btn btn-primary btn-block"
             data-toggle="modal"
             data-target="#buscarModalrecl"
-            @click="buscarrecl()"
+            @click="buscarrecl()" :disabled="!isFormValidReclamante()"
           >B.Reclamante <i class="fas fa-search fa-1x" style="color: black"></i></button>
         </div>
         <!--buscar recepcionador -->
-        
-                
-
+ 
         <div class="col-6 form-group" v-if="true">
           <button class="btn btn-primary btn-block" @click="agregar()" 
           >Guardar </button>
         </div>
-        
+      
       </div>
       <br />
       <div class="container">
@@ -192,18 +181,12 @@
         <!--cierro modal de buscar -->
       </div>
     </div>
-  </div>
-  
+  </div>  
 </template>
-
 <script>
-
-export default {
-  
-  data() {
-    
+export default {  
+  data() {   
     return {
-
       recepcion: {
         id: "",
         recepcionado: "",
@@ -237,14 +220,12 @@ export default {
           tel: "",
           direc: "",
         },
-      },
-  
+      },  
         area: {
           id: "",
           nombre: "",
         },
       },
-
       esta: false,
       estado: "disable",
       recepcioness: [],
@@ -269,11 +250,12 @@ export default {
           }
         });
     },
-
       isFormValidArea: function(){
             return this.recepcion.area.nombre!="";
           },
-
+      isFormValidReclamante: function(){
+            return this.recepcion.reclamante.id!="";
+          },
     buscararea() {
       axios.get("/api/area/" + this.recepcion.area.nombre).then((res) => {
         if (res.data[0] == null) {
@@ -289,7 +271,6 @@ export default {
         }
       });
     },
-
     agregar() {
       const params = {
         recepcionado: this.recepcion.recepcionado,
@@ -314,21 +295,25 @@ export default {
           this.recepcion.area.id = "";
           this.recepcion.area.nombre = "";
           this.recepcion.estado = "";  
-     
-
       axios.post("/api/recepcion", params).then((res) => {
         if (res.data == null) {
-          alert("La recepcion No se registro porque tiene errores");
+              swal({
+        type: 'success',
+        "timer":3000,
+        "title":"PARECE QUE HAY UN ERROR",
+        "text":"La recepcion No se registro porque tiene errores",
+        "showConfirmButton":false
+        });
+
         } else {   
           
         swal({
         type: 'success',
-        "timer":2800,
+        "timer":3000,
         "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
         "text":"Se guardo la recepción",
         "showConfirmButton":false
     });
-         
         }
                  
       });

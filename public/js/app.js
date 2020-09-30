@@ -3709,6 +3709,87 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      personas: {
+        id: "",
+        cedula: "",
+        prinom: "",
+        segnom: "",
+        priape: "",
+        segape: "",
+        tel: "",
+        direc: ""
+      },
+      personass: [],
+      errors: []
+    };
+  },
+  methods: {
+    agregar: function agregar() {
+      var _this = this;
+
+      // alert(this.personas.prinom);
+      var params = {
+        cedula: this.personas.cedula,
+        prinom: this.personas.prinom,
+        segnom: this.personas.segnom,
+        priape: this.personas.priape,
+        segape: this.personas.segape,
+        tel: this.personas.tel,
+        direc: this.personas.direc
+      };
+      this.personas.cedula = "";
+      this.personas.prinom = "";
+      this.personas.segnom = "";
+      this.personas.priape = "";
+      this.personas.segape = "";
+      this.personas.tel = "";
+      this.personas.direc = "";
+      axios.post("/api/persona", params).then(function (res) {
+        if (res.data == null) {
+          swal({
+            type: 'error',
+            "timer": 3000,
+            "title": "PARECE QUE HAY UN ERROR",
+            "text": "La persona no se ha registrado con exito",
+            "showConfirmButton": false
+          });
+        } else {
+          swal({
+            type: 'success',
+            "timer": 3000,
+            "title": "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            "text": "La persona se ha creado y guardado",
+            "showConfirmButton": false
+          });
+        }
+
+        _this.personass.push(res.data);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/PersonavistaComponent.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/PersonavistaComponent.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3839,46 +3920,22 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    agregar: function agregar() {
-      var _this2 = this;
-
-      // alert(this.personas.prinom);
-      var params = {
-        cedula: this.personas.cedula,
-        prinom: this.personas.prinom,
-        segnom: this.personas.segnom,
-        priape: this.personas.priape,
-        segape: this.personas.segape,
-        tel: this.personas.tel,
-        direc: this.personas.direc
-      };
-      this.personas.cedula = "";
-      this.personas.prinom = "";
-      this.personas.segnom = "";
-      this.personas.priape = "";
-      this.personas.segape = "";
-      this.personas.tel = "";
-      this.personas.direc = "";
-      axios.post("/api/persona", params).then(function (res) {
-        if (res.data == null) {
-          alert("La persona no se ha registrado con exito");
-        } else {
-          alert("La persona se ha registrado");
-        }
-
-        _this2.personass.push(res.data);
-      });
-    },
     eliminar: function eliminar(personas, index) {
-      var _this3 = this;
+      var _this2 = this;
 
       var confirmacion = confirm("Confirma Eliminar Persona: ".concat(personas.prinom));
 
       if (confirmacion) {
         axios["delete"]("/api/persona/" + personas.id).then(function () {
-          _this3.personass.splice(index, 1);
+          _this2.personass.splice(index, 1);
 
-          alert("La persona se ha eliminado con exito");
+          swal({
+            type: 'success',
+            "timer": 3000,
+            "title": "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            "text": "La persona se ha eliminado con exito",
+            "showConfirmButton": false
+          });
         });
       }
     },
@@ -3887,7 +3944,7 @@ __webpack_require__.r(__webpack_exports__);
       this.personas.index = index;
     },
     editar: function editar() {
-      var _this4 = this;
+      var _this3 = this;
 
       var params = {
         cedula: this.personas.cedula,
@@ -3900,40 +3957,33 @@ __webpack_require__.r(__webpack_exports__);
       };
       axios.put("/api/persona/" + this.personas.id, params).then(function (res) {
         if (res.data == null) {
-          alert("La persona no se ha actualizado");
+          swal({
+            type: 'error',
+            "timer": 3000,
+            "title": "PARECE QUE HAY UN ERROR",
+            "text": "La persona no se ha actualizado",
+            "showConfirmButton": false
+          });
         } else {
-          alert("La persona se ha actualizado");
-        } //alert(this.area.index)
-
-
-        _this4.personass[_this4.personas.index] = res.data;
-        _this4.personas.id = "";
-        _this4.personass[_this4.personas.index] = res.data;
-        _this4.personas.cedula = "";
-        _this4.personass[_this4.personas.index] = res.data;
-        _this4.personas.prinom = "";
-        _this4.personass[_this4.personas.index] = res.data;
-        _this4.personas.segnom = "";
-        _this4.personass[_this4.personas.index] = res.data;
-        _this4.personas.priape = "";
-        _this4.personass[_this4.personas.index] = res.data;
-        _this4.personas.segape = "";
-        _this4.personass[_this4.personas.index] = res.data;
-        _this4.personas.tel = "";
-        _this4.personass[_this4.personas.index] = res.data;
-        _this4.personas.direc = ""; //this.$refs.editarModal.modal('dispose');
+          swal({
+            type: 'success',
+            "timer": 3000,
+            "title": "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            "text": "La persona se ha actualizado",
+            "showConfirmButton": false
+          });
+        }
       })["catch"](function (error) {
         if (error.response.status == 422) {
-          _this4.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
-
-          alert(_this4.errors.id[0]);
-          alert(_this4.errors.cedula[0]);
-          alert(_this4.errors.prinom[0]);
-          alert(_this4.errors.segnom[0]);
-          alert(_this4.errors.priape[0]);
-          alert(_this4.errors.segape[0]);
-          alert(_this4.errors.tel[0]);
-          alert(_this4.errors.direc[0]);
+          _this3.errors = error.response.data.errors;
+          alert(_this3.errors.id[0]);
+          alert(_this3.errors.cedula[0]);
+          alert(_this3.errors.prinom[0]);
+          alert(_this3.errors.segnom[0]);
+          alert(_this3.errors.priape[0]);
+          alert(_this3.errors.segape[0]);
+          alert(_this3.errors.tel[0]);
+          alert(_this3.errors.direc[0]);
         }
       });
     }
@@ -5541,19 +5591,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5621,6 +5658,9 @@ __webpack_require__.r(__webpack_exports__);
     isFormValidArea: function isFormValidArea() {
       return this.recepcion.area.nombre != "";
     },
+    isFormValidReclamante: function isFormValidReclamante() {
+      return this.recepcion.reclamante.id != "";
+    },
     buscararea: function buscararea() {
       var _this2 = this;
 
@@ -5664,11 +5704,17 @@ __webpack_require__.r(__webpack_exports__);
       this.recepcion.estado = "";
       axios.post("/api/recepcion", params).then(function (res) {
         if (res.data == null) {
-          alert("La recepcion No se registro porque tiene errores");
+          swal({
+            type: 'success',
+            "timer": 3000,
+            "title": "PARECE QUE HAY UN ERROR",
+            "text": "La recepcion No se registro porque tiene errores",
+            "showConfirmButton": false
+          });
         } else {
           swal({
             type: 'success',
-            "timer": 2800,
+            "timer": 3000,
             "title": "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
             "text": "Se guardo la recepción",
             "showConfirmButton": false
@@ -6295,7 +6341,13 @@ __webpack_require__.r(__webpack_exports__);
         axios["delete"]("/api/recepcion/" + recepcion.id).then(function () {
           _this4.recepcioness.splice(index, 1);
 
-          alert("La recepción se ha eliminado con exito");
+          swal({
+            type: 'success',
+            "timer": 3000,
+            "title": "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            "text": "La recepción se ha eliminado con exito",
+            "showConfirmButton": false
+          });
         });
       }
     },
@@ -6321,9 +6373,21 @@ __webpack_require__.r(__webpack_exports__);
       };
       axios.put("/api/recepcion/" + this.recepcion.id, params).then(function (res) {
         if (res.data == null) {
-          alert("La recepcion no se ha actualizado");
+          swal({
+            type: 'error',
+            "timer": 3000,
+            "title": "PARECE QUE HAY UN ERROR",
+            "text": "La Recepción NO se ha actualizado",
+            "showConfirmButton": false
+          });
         } else {
-          alert("La Recepción se ha actualizado");
+          swal({
+            type: 'success',
+            "timer": 3000,
+            "title": "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            "text": "La Recepción se ha actualizado",
+            "showConfirmButton": false
+          });
         }
       })["catch"](function (error) {
         if (error.response.status == 422) {
@@ -43742,6 +43806,22 @@ var render = function() {
                       "router-link",
                       {
                         staticClass: "nav-link",
+                        attrs: { to: { name: "personavista" } }
+                      },
+                      [_vm._v("Ver lista de Personas")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
                         attrs: { to: { name: "usuario" } }
                       },
                       [_vm._v("Crear Usuario")]
@@ -48414,7 +48494,7 @@ var render = function() {
       _c("form", [
         _c("div", { staticClass: "row" }, [
           _c("label", { staticClass: "col-5 col-form-label" }, [
-            _vm._v("Cédula")
+            _vm._v("Cédula:")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -48442,7 +48522,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("label", { staticClass: "col-5 col-form-label" }, [
-            _vm._v("Primer Nombre")
+            _vm._v("Primer Nombre:")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -48470,7 +48550,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("label", { staticClass: "col-5 col-form-label" }, [
-            _vm._v("Segundo Nombre")
+            _vm._v("Segundo Nombre:")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -48498,7 +48578,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("label", { staticClass: "col-5 col-form-label" }, [
-            _vm._v("Primer Apellido")
+            _vm._v("Primer Apellido:")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -48526,7 +48606,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("label", { staticClass: "col-5 col-form-label" }, [
-            _vm._v("Segundo Apellido")
+            _vm._v("Segundo Apellido:")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -48554,7 +48634,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("label", { staticClass: "col-5 col-form-label" }, [
-            _vm._v("Teléfono")
+            _vm._v("Teléfono:")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -48582,7 +48662,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("label", { staticClass: "col-5 col-form-label" }, [
-            _vm._v("Dirección")
+            _vm._v("Dirección:")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -48628,10 +48708,47 @@ var render = function() {
               )
             ])
           : undefined
-      ]),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("h2", { staticClass: "text-center mb-2 card-title" }, [
+        _vm._v("Registrando Persona")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/PersonavistaComponent.vue?vue&type=template&id=9693d3e6&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/PersonavistaComponent.vue?vue&type=template&id=9693d3e6& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-body row" }, [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "card-body col" }, [
@@ -48665,7 +48782,8 @@ var render = function() {
                               staticClass: "btn btn-success btn-sm",
                               attrs: {
                                 "data-toggle": "modal",
-                                "data-target": "#editarModal"
+                                "data-target": "#editarModal",
+                                title: "Editar datos de la persona"
                               },
                               on: {
                                 click: function($event) {
@@ -48680,6 +48798,7 @@ var render = function() {
                             "button",
                             {
                               staticClass: "btn btn-danger btn-sm",
+                              attrs: { title: "Eliminar una persona" },
                               on: {
                                 click: function($event) {
                                   return _vm.eliminar(personas, index)
@@ -48936,7 +49055,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("h2", { staticClass: "text-center mb-2 card-title" }, [
-        _vm._v("Registrando Persona")
+        _vm._v("Listado de personas")
       ])
     ])
   },
@@ -52206,7 +52325,8 @@ var render = function() {
                   staticClass: "btn btn-primary btn-block",
                   attrs: {
                     "data-toggle": "modal",
-                    "data-target": "#buscarModalrecl"
+                    "data-target": "#buscarModalrecl",
+                    disabled: !_vm.isFormValidReclamante()
                   },
                   on: {
                     click: function($event) {
@@ -71362,6 +71482,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('principal-v', __webpack_re
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('example-component', __webpack_require__(/*! ./views/ExampleComponent.vue */ "./resources/js/views/ExampleComponent.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('area-v', __webpack_require__(/*! ./views/AreaComponent.vue */ "./resources/js/views/AreaComponent.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('persona-v', __webpack_require__(/*! ./views/PersonaComponent.vue */ "./resources/js/views/PersonaComponent.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('personavista-v', __webpack_require__(/*! ./views/PersonavistaComponent.vue */ "./resources/js/views/PersonavistaComponent.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('user-v', __webpack_require__(/*! ./views/UserComponent.vue */ "./resources/js/views/UserComponent.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('asignarrecep-v', __webpack_require__(/*! ./views/AsignarRecepcionComponent */ "./resources/js/views/AsignarRecepcionComponent.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('reclamante-v', __webpack_require__(/*! ./views/ReclamanteComponent.vue */ "./resources/js/views/ReclamanteComponent.vue")["default"]);
@@ -71510,6 +71631,10 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     path: '/persona',
     name: 'persona',
     component: __webpack_require__(/*! ./views/PersonaComponent.vue */ "./resources/js/views/PersonaComponent.vue")["default"]
+  }, {
+    path: '/personavista',
+    name: 'personavista',
+    component: __webpack_require__(/*! ./views/PersonavistaComponent.vue */ "./resources/js/views/PersonavistaComponent.vue")["default"]
   }, {
     path: '/Usuario',
     name: 'usuario',
@@ -72347,6 +72472,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PersonaComponent_vue_vue_type_template_id_8301c960___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PersonaComponent_vue_vue_type_template_id_8301c960___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/PersonavistaComponent.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/views/PersonavistaComponent.vue ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PersonavistaComponent_vue_vue_type_template_id_9693d3e6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PersonavistaComponent.vue?vue&type=template&id=9693d3e6& */ "./resources/js/views/PersonavistaComponent.vue?vue&type=template&id=9693d3e6&");
+/* harmony import */ var _PersonavistaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PersonavistaComponent.vue?vue&type=script&lang=js& */ "./resources/js/views/PersonavistaComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PersonavistaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PersonavistaComponent_vue_vue_type_template_id_9693d3e6___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PersonavistaComponent_vue_vue_type_template_id_9693d3e6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/PersonavistaComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/PersonavistaComponent.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/views/PersonavistaComponent.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PersonavistaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./PersonavistaComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/PersonavistaComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PersonavistaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/PersonavistaComponent.vue?vue&type=template&id=9693d3e6&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/views/PersonavistaComponent.vue?vue&type=template&id=9693d3e6& ***!
+  \*************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PersonavistaComponent_vue_vue_type_template_id_9693d3e6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./PersonavistaComponent.vue?vue&type=template&id=9693d3e6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/PersonavistaComponent.vue?vue&type=template&id=9693d3e6&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PersonavistaComponent_vue_vue_type_template_id_9693d3e6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PersonavistaComponent_vue_vue_type_template_id_9693d3e6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

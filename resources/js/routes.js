@@ -17,6 +17,12 @@ export default new Router({
             component: require('./views/PersonaComponent.vue').default
 
         },
+        {
+            path: '/personavista',
+            name: 'personavista',
+            component: require('./views/PersonavistaComponent.vue').default
+
+        },
 
         {
             path: '/Usuario',

@@ -22,6 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware();
 Route::get('/area', 'HomeController@index')->name('area')->middleware('Administrativo_Middleware');
 Route::get('/persona', 'HomeController@index')->name('persona')->middleware('Administrativo_Middleware');
+Route::get('/personavista', 'HomeController@index')->name('personavista')->middleware('Administrativo_Middleware');
 Route::get('/Usuario', 'HomeController@index')->name('usuario')->middleware('Administrativo_Middleware');
 Route::get('/Reclamante', 'HomeController@index')->name('reclamante')->middleware('Administrativo_Middleware');
 Route::get('/Recepcion', 'HomeController@index')->name('recepcion')->middleware('Administrativo_Middleware');

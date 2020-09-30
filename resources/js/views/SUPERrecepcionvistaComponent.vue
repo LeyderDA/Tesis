@@ -605,8 +605,14 @@ export default {
       );
       if (confirmacion) {
         axios.delete("/api/recepcion/" + recepcion.id).then(() => {
-          this.recepcioness.splice(index, 1);
-          alert("La recepción se ha eliminado con exito");
+          this.recepcioness.splice(index, 1);        
+          swal({
+           type: 'success',
+         "timer":3000,
+          "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+          "text":"La recepción se ha eliminado con exito",
+          "showConfirmButton":false
+             });
         });
       }
     },
@@ -636,11 +642,23 @@ export default {
         .put("/api/recepcion/" + this.recepcion.id, params)
         .then((res) => {
           if (res.data == null) {
-            alert("La recepcion no se ha actualizado");
+            swal({
+            type: 'error',
+            "timer":3000,
+            "title":"PARECE QUE HAY UN ERROR",
+            "text":"La Recepción NO se ha actualizado",
+            "showConfirmButton":false
+             });
+            
           } else {
-            alert("La Recepción se ha actualizado");
+         swal({
+            type: 'success',
+            "timer":3000,
+            "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            "text":"La Recepción se ha actualizado",
+            "showConfirmButton":false
+             });
           }
-
         })
         .catch((error) => {
           if (error.response.status == 422) {

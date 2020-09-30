@@ -12,6 +12,7 @@ Vue.component('principal-v', require('./components/PrincipalComponent.vue').defa
 Vue.component('example-component', require('./views/ExampleComponent.vue').default);
 Vue.component('area-v', require('./views/AreaComponent.vue').default);
 Vue.component('persona-v', require('./views/PersonaComponent.vue').default);
+Vue.component('personavista-v', require('./views/PersonavistaComponent.vue').default);
 Vue.component('user-v', require('./views/UserComponent.vue').default);
 Vue.component('asignarrecep-v', require('./views/AsignarRecepcionComponent').default);
 Vue.component('reclamante-v', require('./views/ReclamanteComponent.vue').default);
