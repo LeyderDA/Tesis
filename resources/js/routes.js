@@ -30,6 +30,14 @@ export default new Router({
             component: require('./views/UserComponent.vue').default
 
         },
+
+        {
+            path: '/UsuarioVista',
+            name: 'usuariovista',
+            component: require('./views/UservistaComponent.vue').default
+
+        },
+  
   
 
         {

@@ -608,10 +608,10 @@ export default {
           this.recepcioness.splice(index, 1);        
           swal({
            type: 'success',
-         "timer":3000,
-          "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-          "text":"La recepción se ha eliminado con exito",
-          "showConfirmButton":false
+            "timer":3000,
+            "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            "text":"La recepción se ha eliminado con exito",
+            "showConfirmButton":false
              });
         });
       }

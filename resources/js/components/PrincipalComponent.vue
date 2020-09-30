@@ -9,22 +9,41 @@
 
  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
-
       <li class="nav-item">
         <router-link class="nav-link" :to="{name: 'home'}">Inicio</router-link>
       </li>
 
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle"
+          data-toggle="dropdown">
+    Personas <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
       <li class="nav-item">
         <router-link class="nav-link" :to="{name: 'persona'}">Crear Personas</router-link>
       </li>
-
         <li class="nav-item">
         <router-link class="nav-link" :to="{name: 'personavista'}">Ver lista de Personas</router-link>
       </li>
+  </ul>
+</div>
 
-      <li class="nav-item">
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle"
+          data-toggle="dropdown">
+    Usuarios <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+     <li class="nav-item">
         <router-link class="nav-link" :to="{name: 'usuario'}">Crear Usuario</router-link>
       </li>
+
+      <li class="nav-item">
+        <router-link class="nav-link" :to="{name: 'usuariovista'}">Ver lista de Usuarios</router-link>
+      </li>  
+ 
+  </ul>
+</div>
 
       <li class="nav-item">
         <router-link class="nav-link" :to="{name: 'reclamante'}">Crear Reclamantes</router-link>
@@ -34,13 +53,21 @@
         <router-link class="nav-link" :to="{name: 'area'}">Crear Areas</router-link>
       </li>
 
-      <li class="nav-item">
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle"
+          data-toggle="dropdown">
+    Recepciones <span></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+     <li class="nav-item">
         <router-link class="nav-link" :to="{name: 'recepcion'}">Crear Recepción</router-link>
       </li>
 
       <li class="nav-item">
         <router-link class="nav-link" :to="{name: 'vistaresu'}">Lista de recepciones</router-link>
       </li>
+  </ul>
+</div>
 
       <li class="nav-item">
         <router-link class="nav-link" :to="{name: 'gestion'}">Gestionar un Caso</router-link>
@@ -49,9 +76,6 @@
       <li class="nav-item">
         <router-link class="nav-link" :to="{name: 'asignacion'}">Asignar Recepción</router-link>
       </li>
-
-
-
       </ul>
        </div>
      </nav>
