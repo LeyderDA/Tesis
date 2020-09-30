@@ -10,8 +10,6 @@ class AsigRecepController extends Controller
 {
     public function index(Request $request)
     {
-
-        
         $usurecep = UsuRecep::join("recepciones","usurecep.recp_id","=","recepciones.id")
         ->join("users","usurecep.usu_id","=","users.id")
         ->join("personas","users.per_id","=","personas.id")

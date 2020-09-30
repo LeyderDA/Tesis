@@ -623,51 +623,7 @@ export default {
       this.recepcion.index = index;
       
     },
-    editar() {
-      const params = {
-        recepcionado: this.recepcion.recepcionado,
-        fecharadicado: this.recepcion.fecharadicado,
-        fecharecepcionado: this.recepcion.fecharecepcionado,
-        consultorio: this.recepcion.consultorio,
-        fechareparto: this.recepcion.fechareparto,
-        fechapublicacion: this.recepcion.fechapublicacion,
-        fecharetiro: this.recepcion.fecharetiro,
-        estado: this.recepcion.estado,
-        recla_id: this.recepcion.reclamante.id,
-        area_id: this.recepcion.area.id,
-      };
-      axios
-        .put("/api/recepcion/" + this.recepcion.id, params)
-        .then((res) => {
-          if (res.data == null) {
-            swal({
-            type: 'error',
-            "timer":3000,
-            "title":"PARECE QUE HAY UN ERROR",
-            "text":"La Recepción NO se ha actualizado",
-            "showConfirmButton":false
-             });
-            
-          } else {
-         swal({
-            type: 'success',
-            "timer":3000,
-            "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            "text":"La Recepción se ha actualizado",
-            "showConfirmButton":false
-             });
-          }
-        })
-        .catch((error) => {
-          if (error.response.status == 422) {
-            this.errors = error.response.data.errors;
 
-            //let mensaje='Error con alguno de los campos';
-
-            alert(this.errors.recepcionado[0]);
-          }
-        });
-    },
   },
 };
 </script>

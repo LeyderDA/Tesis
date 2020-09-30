@@ -15,6 +15,8 @@
                     <tr>
                       <th>Recepción</th>
                       <th>Usuario Asignado</th>
+                      <th>Datos del Asignado</th>
+
                       <th>Opciones</th>
                     </tr>
                   </thead>
@@ -22,6 +24,18 @@
                     <tr v-for="(usurecep,index) in usurecepss" :key="usurecep.index">
                       <td>{{usurecep.recp_id}}</td>
                       <td>{{usurecep.usu_id}}</td>
+
+                      <td>
+                           <button
+                          class="btn btn-sm"
+                          data-toggle="modal"
+                          data-target="#MOSTRARModalUSU"
+                          @click="editarForm(usurecep, index)"
+                          title="Mostrar los datos del Usuario"
+                        >
+                          <i class="fas fa-eye fa-2x" style="color: black"></i>
+                        </button>
+                      </td>
                       <td>
                         <button class="btn btn-danger btn-sm" @click="eliminar(usurecep,index)"
                          title="Eliminar asignación">
@@ -35,89 +49,6 @@
             </div>
           </div>
         </div>
-        <!--segundo modal - el de buscar RECEPCION-->
-        <div
-          class="modal fade"
-          id="buscarModalRE"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mostrar Recepción</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-
-                 <label class="col-5 col-form-label">RELLENAR</label>
-                <input placeholder="ID" v-model="usurecep.recepcion.id" />
-
-                <label class="col-5 col-form-label">RECEPCIONADO</label>
-                <input placeholder="RECEPCIONADO" v-model="usurecep.recepcion.recepcionado" />
-
-                <label class="col-5 col-form-label">FECHA DE RADICADO</label>
-                <input placeholder="FECHA DE RADICADO" v-model="usurecep.recepcion.fecharadicado" />
-
-                <label class="col-5 col-form-label">FECHA DE RECEPCIONADO</label>
-                <input placeholder="FECHA DE RECEPCIONADO" v-model="usurecep.recepcion.fecharecepcionado" />
-
-                <label class="col-5 col-form-label">CONSULTORIO</label>
-                <input placeholder="CONSULTORIO" v-model="usurecep.recepcion.consultorio" />
-
-                <label class="col-5 col-form-label">FECHA DE REPARTO</label>
-                <input placeholder="FECHA DE REPARTO" v-model="usurecep.recepcion.fechareparto" />
-
-                <label class="col-5 col-form-label">FECHA DE PUBLICACIÓN</label>
-                <input placeholder="FECHA DE PUBLICACIÓN" v-model="usurecep.recepcion.fechapublicacion" />
-
-                <label class="col-5 col-form-label">FECHA DE RETIRO</label>
-                <input placeholder="FECHA DE RETIRO" v-model="usurecep.recepcion.fecharetiro" />
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--cierro modal de buscar -->
-
-        <!--segundo modal - el de buscar USUARIO-->
-        <div
-          class="modal fade"
-          id="buscarModalUSU"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mostrar Usuario</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <label class="col-5 col-form-label">ID USUARIO</label>
-                <input placeholder="ID USUARIO" v-model="usurecep.usuario.id" />
-                <label class="col-5 col-form-label">USERNAME</label>
-                <input placeholder="USERNAME" v-model="usurecep.usuario.username" />
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--cierro modal de buscar -->
-
 
         <!--segundo modal - el de MOSTRAR USUARIO-->
         <div
@@ -138,29 +69,29 @@
               </div>
               <div class="modal-body">
 
-                <label class="col-5 col-form-label">username</label>
-                <input placeholder="USERNAME" v-model="usurecep.username" />
+                <label class="col-5 col-form-label">Username</label>
+                <input placeholder="USERNAME" v-model="usurecep.username" disabled />
 
                 <label class="col-5 col-form-label">Cedula</label>
-                <input placeholder="Cedula" v-model="usurecep.cedula" />
+                <input placeholder="Cedula" v-model="usurecep.cedula" disabled />
 
                 <label class="col-5 col-form-label">Primer nombre</label>
-                <input placeholder="Primer nombre" v-model="usurecep.prinom" />
+                <input placeholder="Primer nombre" v-model="usurecep.prinom" disabled />
 
                 <label class="col-5 col-form-label">Segundo nombre</label>
-                <input placeholder="Segundo nombre" v-model="usurecep.segnom" />
+                <input placeholder="Segundo nombre" v-model="usurecep.segnom" disabled />
 
                 <label class="col-5 col-form-label">Primer apellido</label>
-                <input placeholder="Primer apellido" v-model="usurecep.priape" />
+                <input placeholder="Primer apellido" v-model="usurecep.priape" disabled />
 
                 <label class="col-5 col-form-label">Segundo apellido</label>
-                <input placeholder="Segundo apellido" v-model="usurecep.segape" />
+                <input placeholder="Segundo apellido" v-model="usurecep.segape" disabled />
 
                 <label class="col-5 col-form-label">Teléfono</label>
-                <input placeholder="Teléfono" v-model="usurecep.tel" />
+                <input placeholder="Teléfono" v-model="usurecep.tel" disabled />
 
                 <label class="col-5 col-form-label">Dirección</label>
-                <input placeholder="Dirección" v-model="usurecep.direc" />
+                <input placeholder="Dirección" v-model="usurecep.direc" disabled />
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>

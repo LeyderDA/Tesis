@@ -2439,75 +2439,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -6885,47 +6816,6 @@ __webpack_require__.r(__webpack_exports__);
     editarForm: function editarForm(recepcion, index) {
       this.recepcion = recepcion;
       this.recepcion.index = index;
-    },
-    editar: function editar() {
-      var _this5 = this;
-
-      var params = {
-        recepcionado: this.recepcion.recepcionado,
-        fecharadicado: this.recepcion.fecharadicado,
-        fecharecepcionado: this.recepcion.fecharecepcionado,
-        consultorio: this.recepcion.consultorio,
-        fechareparto: this.recepcion.fechareparto,
-        fechapublicacion: this.recepcion.fechapublicacion,
-        fecharetiro: this.recepcion.fecharetiro,
-        estado: this.recepcion.estado,
-        recla_id: this.recepcion.reclamante.id,
-        area_id: this.recepcion.area.id
-      };
-      axios.put("/api/recepcion/" + this.recepcion.id, params).then(function (res) {
-        if (res.data == null) {
-          swal({
-            type: 'error',
-            "timer": 3000,
-            "title": "PARECE QUE HAY UN ERROR",
-            "text": "La Recepción NO se ha actualizado",
-            "showConfirmButton": false
-          });
-        } else {
-          swal({
-            type: 'success',
-            "timer": 3000,
-            "title": "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            "text": "La Recepción se ha actualizado",
-            "showConfirmButton": false
-          });
-        }
-      })["catch"](function (error) {
-        if (error.response.status == 422) {
-          _this5.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
-
-          alert(_this5.errors.recepcionado[0]);
-        }
-      });
     }
   }
 });
@@ -45755,6 +45645,31 @@ var render = function() {
                           _c(
                             "button",
                             {
+                              staticClass: "btn btn-sm",
+                              attrs: {
+                                "data-toggle": "modal",
+                                "data-target": "#MOSTRARModalUSU",
+                                title: "Mostrar los datos del Usuario"
+                              },
+                              on: {
+                                click: function($event) {
+                                  return _vm.editarForm(usurecep, index)
+                                }
+                              }
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "fas fa-eye fa-2x",
+                                staticStyle: { color: "black" }
+                              })
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "button",
+                            {
                               staticClass: "btn btn-danger btn-sm",
                               attrs: { title: "Eliminar asignación" },
                               on: {
@@ -45781,7 +45696,7 @@ var render = function() {
           {
             staticClass: "modal fade",
             attrs: {
-              id: "buscarModalRE",
+              id: "MOSTRARModalUSU",
               tabindex: "-1",
               role: "dialog",
               "aria-labelledby": "exampleModalLabel",
@@ -45798,359 +45713,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
                     _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("RELLENAR")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.usurecep.recepcion.id,
-                          expression: "usurecep.recepcion.id"
-                        }
-                      ],
-                      attrs: { placeholder: "ID" },
-                      domProps: { value: _vm.usurecep.recepcion.id },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.usurecep.recepcion,
-                            "id",
-                            $event.target.value
-                          )
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("RECEPCIONADO")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.usurecep.recepcion.recepcionado,
-                          expression: "usurecep.recepcion.recepcionado"
-                        }
-                      ],
-                      attrs: { placeholder: "RECEPCIONADO" },
-                      domProps: { value: _vm.usurecep.recepcion.recepcionado },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.usurecep.recepcion,
-                            "recepcionado",
-                            $event.target.value
-                          )
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("FECHA DE RADICADO")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.usurecep.recepcion.fecharadicado,
-                          expression: "usurecep.recepcion.fecharadicado"
-                        }
-                      ],
-                      attrs: { placeholder: "FECHA DE RADICADO" },
-                      domProps: { value: _vm.usurecep.recepcion.fecharadicado },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.usurecep.recepcion,
-                            "fecharadicado",
-                            $event.target.value
-                          )
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("FECHA DE RECEPCIONADO")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.usurecep.recepcion.fecharecepcionado,
-                          expression: "usurecep.recepcion.fecharecepcionado"
-                        }
-                      ],
-                      attrs: { placeholder: "FECHA DE RECEPCIONADO" },
-                      domProps: {
-                        value: _vm.usurecep.recepcion.fecharecepcionado
-                      },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.usurecep.recepcion,
-                            "fecharecepcionado",
-                            $event.target.value
-                          )
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("CONSULTORIO")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.usurecep.recepcion.consultorio,
-                          expression: "usurecep.recepcion.consultorio"
-                        }
-                      ],
-                      attrs: { placeholder: "CONSULTORIO" },
-                      domProps: { value: _vm.usurecep.recepcion.consultorio },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.usurecep.recepcion,
-                            "consultorio",
-                            $event.target.value
-                          )
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("FECHA DE REPARTO")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.usurecep.recepcion.fechareparto,
-                          expression: "usurecep.recepcion.fechareparto"
-                        }
-                      ],
-                      attrs: { placeholder: "FECHA DE REPARTO" },
-                      domProps: { value: _vm.usurecep.recepcion.fechareparto },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.usurecep.recepcion,
-                            "fechareparto",
-                            $event.target.value
-                          )
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("FECHA DE PUBLICACIÓN")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.usurecep.recepcion.fechapublicacion,
-                          expression: "usurecep.recepcion.fechapublicacion"
-                        }
-                      ],
-                      attrs: { placeholder: "FECHA DE PUBLICACIÓN" },
-                      domProps: {
-                        value: _vm.usurecep.recepcion.fechapublicacion
-                      },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.usurecep.recepcion,
-                            "fechapublicacion",
-                            $event.target.value
-                          )
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("FECHA DE RETIRO")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.usurecep.recepcion.fecharetiro,
-                          expression: "usurecep.recepcion.fecharetiro"
-                        }
-                      ],
-                      attrs: { placeholder: "FECHA DE RETIRO" },
-                      domProps: { value: _vm.usurecep.recepcion.fecharetiro },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.usurecep.recepcion,
-                            "fecharetiro",
-                            $event.target.value
-                          )
-                        }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(3)
-                ])
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "modal fade",
-            attrs: {
-              id: "buscarModalUSU",
-              tabindex: "-1",
-              role: "dialog",
-              "aria-labelledby": "exampleModalLabel",
-              "aria-hidden": "true"
-            }
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "modal-dialog", attrs: { role: "document" } },
-              [
-                _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(4),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "modal-body" }, [
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("ID USUARIO")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.usurecep.usuario.id,
-                          expression: "usurecep.usuario.id"
-                        }
-                      ],
-                      attrs: { placeholder: "ID USUARIO" },
-                      domProps: { value: _vm.usurecep.usuario.id },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.usurecep.usuario,
-                            "id",
-                            $event.target.value
-                          )
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("USERNAME")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.usurecep.usuario.username,
-                          expression: "usurecep.usuario.username"
-                        }
-                      ],
-                      attrs: { placeholder: "USERNAME" },
-                      domProps: { value: _vm.usurecep.usuario.username },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.usurecep.usuario,
-                            "username",
-                            $event.target.value
-                          )
-                        }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(5)
-                ])
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "modal fade",
-            attrs: {
-              id: "MOSTRARModalUSU",
-              tabindex: "-1",
-              role: "dialog",
-              "aria-labelledby": "exampleModalLabel",
-              "aria-hidden": "true"
-            }
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "modal-dialog", attrs: { role: "document" } },
-              [
-                _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(6),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "modal-body" }, [
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("username")
+                      _vm._v("Username")
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -46162,7 +45725,7 @@ var render = function() {
                           expression: "usurecep.username"
                         }
                       ],
-                      attrs: { placeholder: "USERNAME" },
+                      attrs: { placeholder: "USERNAME", disabled: "" },
                       domProps: { value: _vm.usurecep.username },
                       on: {
                         input: function($event) {
@@ -46191,7 +45754,7 @@ var render = function() {
                           expression: "usurecep.cedula"
                         }
                       ],
-                      attrs: { placeholder: "Cedula" },
+                      attrs: { placeholder: "Cedula", disabled: "" },
                       domProps: { value: _vm.usurecep.cedula },
                       on: {
                         input: function($event) {
@@ -46216,7 +45779,7 @@ var render = function() {
                           expression: "usurecep.prinom"
                         }
                       ],
-                      attrs: { placeholder: "Primer nombre" },
+                      attrs: { placeholder: "Primer nombre", disabled: "" },
                       domProps: { value: _vm.usurecep.prinom },
                       on: {
                         input: function($event) {
@@ -46241,7 +45804,7 @@ var render = function() {
                           expression: "usurecep.segnom"
                         }
                       ],
-                      attrs: { placeholder: "Segundo nombre" },
+                      attrs: { placeholder: "Segundo nombre", disabled: "" },
                       domProps: { value: _vm.usurecep.segnom },
                       on: {
                         input: function($event) {
@@ -46266,7 +45829,7 @@ var render = function() {
                           expression: "usurecep.priape"
                         }
                       ],
-                      attrs: { placeholder: "Primer apellido" },
+                      attrs: { placeholder: "Primer apellido", disabled: "" },
                       domProps: { value: _vm.usurecep.priape },
                       on: {
                         input: function($event) {
@@ -46291,7 +45854,7 @@ var render = function() {
                           expression: "usurecep.segape"
                         }
                       ],
-                      attrs: { placeholder: "Segundo apellido" },
+                      attrs: { placeholder: "Segundo apellido", disabled: "" },
                       domProps: { value: _vm.usurecep.segape },
                       on: {
                         input: function($event) {
@@ -46316,7 +45879,7 @@ var render = function() {
                           expression: "usurecep.tel"
                         }
                       ],
-                      attrs: { placeholder: "Teléfono" },
+                      attrs: { placeholder: "Teléfono", disabled: "" },
                       domProps: { value: _vm.usurecep.tel },
                       on: {
                         input: function($event) {
@@ -46341,7 +45904,7 @@ var render = function() {
                           expression: "usurecep.direc"
                         }
                       ],
-                      attrs: { placeholder: "Dirección" },
+                      attrs: { placeholder: "Dirección", disabled: "" },
                       domProps: { value: _vm.usurecep.direc },
                       on: {
                         input: function($event) {
@@ -46354,7 +45917,7 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _vm._m(7)
+                  _vm._m(3)
                 ])
               ]
             )
@@ -46385,88 +45948,10 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Usuario Asignado")]),
         _vm._v(" "),
+        _c("th", [_vm._v("Datos del Asignado")]),
+        _vm._v(" "),
         _c("th", [_vm._v("Opciones")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Mostrar Recepción")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-danger",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("Cerrar")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Mostrar Usuario")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-danger",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("Cerrar")]
-      )
     ])
   },
   function() {
