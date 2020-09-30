@@ -14,15 +14,26 @@
                   <thead>
                     <tr>
                       <th>Recepción</th>
+                      <th>Datos de la Recepción</th>
                       <th>Usuario Asignado</th>
                       <th>Datos del Asignado</th>
-
                       <th>Opciones</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="(usurecep,index) in usurecepss" :key="usurecep.index">
                       <td>{{usurecep.recp_id}}</td>
+                      <td>
+                           <button
+                          class="btn btn-sm"
+                          data-toggle="modal"
+                          data-target="#MOSTRARModalRE"
+                          @click="editarForm(usurecep, index)"
+                          title="Mostrar los datos del la recepción"
+                        >
+                          <i class="fas fa-eye fa-2x" style="color: black"></i>
+                        </button>
+                      </td>
                       <td>{{usurecep.usu_id}}</td>
 
                       <td>
@@ -100,6 +111,98 @@
           </div>
         </div>
         <!--cierro modal de MOSTRAR USUARIO -->
+         <!--segundo modal - el de MOSTRAR RECEPCION-->
+        <div
+          class="modal fade"
+          id="MOSTRARModalRE"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Datos de la Recepción</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+            <label class="col-5 col-form-label">Define el estado</label>
+                <div class="col-5">
+                  <select
+                    class="form-control"
+                    placeholder="Estado"
+                    type="boolean"
+                    v-model="usurecep.estado" disabled
+                  >
+                    <option value="1">Activo</option>
+                    <option value="0">Inactivo</option>
+                  </select>
+                </div>
+
+                <label class="col-5 col-form-label">Fecha de radicado:</label>
+                <input
+                  placeholder="recepcion"
+                  type="date"
+                  v-model="usurecep.fecharadicado" disabled
+                />
+
+                <label class="col-5 col-form-label"
+                  >Fecha de recepcionado:</label
+                >
+                <input
+                  placeholder="recepcion"
+                  type="date"
+                  v-model="usurecep.fecharecepcionado" disabled
+                />
+
+                <label class="col-5 col-form-label">Fecha de reparto:</label>
+                <input
+                  placeholder="recepcion"
+                  type="date"
+                  v-model="usurecep.fechareparto" disabled
+                />
+
+                <label class="col-5 col-form-label"
+                  >Fecha de publicación:</label
+                >
+                <input
+                  placeholder="recepcion"
+                  type="date"
+                  v-model="usurecep.fechapublicacion" disabled
+                />
+
+                <label class="col-5 col-form-label">Fecha de retiro</label>
+                <input
+                  placeholder="recepcion"
+                  type="date"
+                  v-model="usurecep.fecharetiro" disabled
+                />
+
+                <label class="col-5 col-form-label">Recepcionado en:</label>
+                <input
+                  placeholder="recepcion"
+                  v-model="usurecep.recepcionado" disabled
+                />
+
+                <label class="col-5 col-form-label">Consultorio:</label>
+                <input
+                  placeholder="recepcion"
+                  v-model="usurecep.consultorio" disabled
+                />
+
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--cierro modal de MOSTRAR RECEPCION -->
       </div>
     </div>
   </div>
