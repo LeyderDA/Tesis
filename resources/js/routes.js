@@ -48,6 +48,13 @@ export default new Router({
         },
 
         {
+            path: '/ReclamanteVista',
+            name: 'reclamantevista',
+            component: require('./views/ReclamantevistaComponent.vue').default
+
+        },
+
+        {
             path: '/Recepcion',
             name: 'recepcion',
             component: require('./views/SUPERrecepcionComponent.vue').default

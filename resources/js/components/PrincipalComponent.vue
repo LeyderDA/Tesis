@@ -45,9 +45,24 @@
   </ul>
 </div>
 
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle"
+          data-toggle="dropdown">
+    Reclamantes <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
       <li class="nav-item">
         <router-link class="nav-link" :to="{name: 'reclamante'}">Crear Reclamantes</router-link>
       </li>
+       <li class="nav-item">
+        <router-link class="nav-link" :to="{name: 'reclamantevista'}">Listado de Reclamantes</router-link>
+      </li>
+  </ul>
+</div>
+
+
+     
 
       <li class="nav-item">
         <router-link class="nav-link" :to="{name: 'area'}">Crear Areas</router-link>
