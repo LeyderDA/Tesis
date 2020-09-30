@@ -30,6 +30,7 @@ Route::get('/ReclamanteVista', 'HomeController@index')->name('reclamante')->midd
 Route::get('/Recepcion', 'HomeController@index')->name('recepcion')->middleware('Administrativo_Middleware');
 Route::get('/Gestion', 'HomeController@index')->name('gestion')->middleware('EstudianteMiddleware');
 Route::get('/Asignacion', 'HomeController@index')->name('asignacion')->middleware('Administrativo_Middleware');
+Route::get('/AsignacionVista', 'HomeController@index')->name('asignacionvista')->middleware('Administrativo_Middleware');
 Route::get('/RecepEst', 'HomeController@index')->name('recepest')->middleware('EstudianteMiddleware');
 Route::get('/VistaReSu', 'HomeController@index')->name('vistaresu')->middleware('Administrativo_Middleware');
 Route::get('/RecepDoc', 'HomeController@index')->name('recepdoc')->middleware('Docente_Middleware');

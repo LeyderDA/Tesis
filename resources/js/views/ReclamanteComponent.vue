@@ -83,7 +83,7 @@
             class="btn btn-primary btn-block"
             data-toggle="modal"
             data-target="#buscarModal"
-            @click="buscar()"
+            @click="buscar()" :disabled="!isFormValidPersona()"
           >Buscar</button>
         </div>
 
@@ -95,64 +95,17 @@
       <div class="container">
         <div class="row">
           <div class="card-body col">
-            <div clas="container row">
-              <div class="table text-center table-reponsive">
-                <table class="table text-center">
-                  <thead>
-                    <tr>
-                      <th>Enf.Diferencial</th>
-                      <th>Genero</th>
-                      <th>Edad</th>
-                      <th>Discapacidad</th>
-                      <th>Estrato</th>
-                      <th>Embarazo</th>
-                      <th>Grupo Etnico</th>
-                      <th>Entidad Reclamante</th>
-                      <th>Persona Relacionada</th>
-                      <th>Opciones</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr v-for="(reclamante,index) in reclamantess" :key="reclamante.index">
-                      <td>{{reclamante.enfodifervictima}}</td>
-                      <td>{{reclamante.genevictima}}</td>
-                      <td>{{reclamante.edadvictima}}</td>
-                      <td>{{reclamante.discapavictima}}</td>
-                      <td>{{reclamante.estravictima}}</td>
-                      <td>{{reclamante.embaravictima}}</td>
-                      <td>{{reclamante.grupetnicovictima}}</td>
-                      <td>{{reclamante.persoentidreclama}}</td>
-                      <td>{{reclamante.persona.prinom}}</td>
-
-                      <td>
-                        <button
-                          class="btn btn-success btn-sm"
-                          data-toggle="modal"
-                          data-target="#editarModal"
-                          @click="editarForm(reclamante,index)"
-                        >
-                          <i class="fas fa-pencil-alt"></i>
-                        </button>
-                        <button class="btn btn-danger btn-sm" @click="eliminar(reclamante,index)">
-                          <i class="fas fa-trash-alt"></i>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+             </div>
             </div>
-          </div>
-        </div>
-        <!--modal para editar -->
-        <div
+         <!--modal para editar -->
+         <div
           class="modal fade"
           id="editarModal"
           tabindex="-1"
           role="dialog"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
-        >
+         >
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -193,7 +146,7 @@
                     class="btn btn-primary btn-block"
                     data-toggle="modal"
                     data-target="#buscarModal"
-                    @click="buscar()"
+                    @click="buscar()" :disabled="!isFormValidPersona()"
                   >Buscar</button>
                 </div>
               </div>
@@ -208,10 +161,10 @@
               </div>
             </div>
           </div>
-        </div>
-        <!--cierro modal de editar -->
-        <!--segundo modal - el de buscar -->
-        <div
+         </div>
+         <!--cierro modal de editar -->
+         <!--segundo modal - el de buscar -->
+         <div
           class="modal fade"
           id="buscarModal"
           tabindex="-1"
@@ -297,11 +250,6 @@ export default {
       errors: [],
     };
   },
-  created() {
-    axios.get("/api/reclamante").then((res) => {
-      this.reclamantess = res.data;
-    });
-  },
   methods: {
     buscar() {
       axios
@@ -320,6 +268,11 @@ export default {
           }
         });
     },
+
+        isFormValidPersona: function(){
+            return this.reclamante.persona.cedula!="";
+          },
+
     agregar() {
       const params = {
         enfodifervictima: this.reclamante.enfodifervictima,
@@ -341,81 +294,29 @@ export default {
       this.reclamante.embaravictima = "";
       this.reclamante.grupetnicovictima = "";
       this.reclamante.persoentidreclama = "";
-      this.reclamante.per_id = "";
+      this.reclamante.persona.cedula= "";
+ 
 
       axios.post("/api/reclamante", params).then((res) => {
         if (res.data == null) {
-          alert("El reclamante no se ha registrado con exito");
+                      swal({
+            type: 'error',
+            "timer":3000,
+            "title":"PARECE QUE HAY UN ERROR",
+            "text":"El reclamante no se ha registrado con exito",
+            "showConfirmButton":false
+             });
         } else {
-          alert("El reclamante se ha registrado");
+            swal({
+            type: 'success',
+            "timer":3000,
+            "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            "text":"El reclamante se ha registrado",
+            "showConfirmButton":false
+             });
         }
         this.reclamantess.push(res.data);
       });
-    },
-
-    eliminar(reclamante, index) {
-      const confirmacion = confirm(
-        `Confirma Eliminar al reclamante: ${reclamante.persona.prinom}`
-      );
-      if (confirmacion) {
-        axios.delete("/api/reclamante/" + reclamante.id).then(() => {
-          this.reclamantess.splice(index, 1);
-          alert("El Reclamante se ha eliminado con exito");
-        });
-      }
-    },
-    editarForm(reclamante, index) {
-      this.reclamante = reclamante;
-      this.reclamante.index = index;
-    },
-    editar() {
-      const params = {
-        enfodifervictima: this.reclamante.enfodifervictima,
-        genevictima: this.reclamante.genevictima,
-        edadvictima: this.reclamante.edadvictima,
-        discapavictima: this.reclamante.discapavictima,
-        estravictima: this.reclamante.estravictima,
-        embaravictima: this.reclamante.embaravictima,
-        grupetnicovictima: this.reclamante.grupetnicovictima,
-        persoentidreclama: this.reclamante.persoentidreclama,
-        per_id: this.reclamante.persona.id,
-      };
-      axios
-        .put("/api/reclamante/" + this.reclamante.id, params)
-        .then((res) => {
-          if (res.data == null) {
-            alert("El Reclamante no se ha actualizado");
-          } else {
-            alert("El Reclamante se ha actualizado");
-          }
-          this.reclamantess[this.reclamante.index] = res.data;
-          this.reclamante.enfodifervictima = "";
-          this.reclamantess[this.reclamante.index] = res.data;
-          this.reclamante.genevictima = "";
-          this.reclamantess[this.reclamante.index] = res.data;
-          this.reclamante.edadvictima = "";
-          this.reclamantess[this.reclamante.index] = res.data;
-          this.reclamante.discapavictima = "";
-          this.reclamantess[this.reclamante.index] = res.data;
-          this.reclamante.estravictima = "";
-          this.reclamantess[this.reclamante.index] = res.data;
-          this.reclamante.embaravictima = "";
-          this.reclamantess[this.reclamante.index] = res.data;
-          this.reclamante.grupetnicovictima = "";
-          this.reclamantess[this.reclamante.index] = res.data;
-          this.reclamante.persoentidreclama = "";
-          this.reclamantess[this.reclamante.index] = res.data;
-          this.reclamante.per_id = "";
-        })
-        .catch((error) => {
-          if (error.response.status == 422) {
-            this.errors = error.response.data.errors;
-
-            //let mensaje='Error con alguno de los campos';
-
-            alert(this.errors.id[0]);
-          }
-        });
     },
   },
 };

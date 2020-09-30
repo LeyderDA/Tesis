@@ -8,10 +8,30 @@ use Illuminate\Http\Request;
 
 class AsigRecepController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $usrec = UsuRecep::all();
-        return  response()->json($usrec);
+
+        
+        $usurecep = UsuRecep::join("recepciones","usurecep.recp_id","=","recepciones.id")
+        ->join("users","usurecep.usu_id","=","users.id")
+        ->join("personas","users.per_id","=","personas.id")
+        ->join("areas","recepciones.area_id","=","areas.id")
+        ->select('usurecep.*','users.*','recepciones.*','areas.*','personas.*'
+        )
+        ->orderBy('usurecep.recp_id', 'asc')
+        ->get();
+
+         if ($request->ajax()) {
+                          foreach ($usurecep as $rec) {
+                            $rec->usurecep;
+                            $rec->persona;   
+                            $rec->reclamante;
+                            $rec->area;                          
+                          }
+                          return $usurecep;
+                      } else {
+                          return  response()->json($usurecep);
+                      }   
     }
 
     public function store(Request $request)

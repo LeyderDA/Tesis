@@ -2,47 +2,39 @@
   <div class="card">
     <div>
       <h1 class="text-center mb-2 card-title">Registrando Asignación</h1>
-    </div>
-    <div class="card-body row">
-      <form>
+     </div>
+     <div class="card-body row">  
+      <br />
+      <div class="container">
         <div class="row">
-          <label class="col-5 col-form-label">ID RECEPCIÓN:</label>
-          <div class="col-6 form-group">
-            <input class="form-control" placeholder="ID RECEPCION" v-model="usurecep.recepcion.id" />
+          <div class="card-body col">
+            <div clas="container row">
+              <div class="table text-center table-reponsive">
+                <table class="table text-center">
+                  <thead>
+                    <tr>
+                      <th>Recepción</th>
+                      <th>Usuario Asignado</th>
+                      <th>Opciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(usurecep,index) in usurecepss" :key="usurecep.index">
+                      <td>{{usurecep.recp_id}}</td>
+                      <td>{{usurecep.usu_id}}</td>
+                      <td>
+                        <button class="btn btn-danger btn-sm" @click="eliminar(usurecep,index)"
+                         title="Eliminar asignación">
+                          <i class="fas fa-trash-alt"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
-            <label class="col-5 col-form-label">ID USUARIO:</label>
-          <div class="col-6 form-group">
-            <input class="form-control" placeholder="ID USUARIO" v-model="usurecep.usuario.id" />
-          </div>
-
         </div>
-      </form>
-      <div class="row justify-content-center col">
-        <div class="col-12 form-group" v-if="true">
-          <button
-            class="btn btn-primary btn-block"
-            data-toggle="modal"
-            data-target="#buscarModalRE"
-            @click="buscarrecep()"  :disabled="!isFormValidrecepcion()"
-          >Buscar Recepción</button>
-        </div>
-
-        <div class="col-12 form-group" v-if="true">
-          <button
-            class="btn btn-primary btn-block"
-            data-toggle="modal"
-            data-target="#buscarModalUSU"
-            @click="buscarusu()" :disabled="!isFormValidusuario()"
-          >Buscar Usuario</button>
-        </div>
-
-        <div class="col-12 form-group" v-if="true">
-          <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
-        </div>
-        </div>
-        <br />
-
-
         <!--segundo modal - el de buscar RECEPCION-->
         <div
           class="modal fade"
@@ -125,9 +117,61 @@
           </div>
         </div>
         <!--cierro modal de buscar -->
+
+
+        <!--segundo modal - el de MOSTRAR USUARIO-->
+        <div
+          class="modal fade"
+          id="MOSTRARModalUSU"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mostrar Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <label class="col-5 col-form-label">username</label>
+                <input placeholder="USERNAME" v-model="usurecep.username" />
+
+                <label class="col-5 col-form-label">Cedula</label>
+                <input placeholder="Cedula" v-model="usurecep.cedula" />
+
+                <label class="col-5 col-form-label">Primer nombre</label>
+                <input placeholder="Primer nombre" v-model="usurecep.prinom" />
+
+                <label class="col-5 col-form-label">Segundo nombre</label>
+                <input placeholder="Segundo nombre" v-model="usurecep.segnom" />
+
+                <label class="col-5 col-form-label">Primer apellido</label>
+                <input placeholder="Primer apellido" v-model="usurecep.priape" />
+
+                <label class="col-5 col-form-label">Segundo apellido</label>
+                <input placeholder="Segundo apellido" v-model="usurecep.segape" />
+
+                <label class="col-5 col-form-label">Teléfono</label>
+                <input placeholder="Teléfono" v-model="usurecep.tel" />
+
+                <label class="col-5 col-form-label">Dirección</label>
+                <input placeholder="Dirección" v-model="usurecep.direc" />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--cierro modal de MOSTRAR USUARIO -->
       </div>
     </div>
-
+  </div>
 </template>
 <script>
 export default {
@@ -164,81 +208,34 @@ export default {
       errors: [],
     };
   },
+  created() {
+    axios.get("/api/asigrecep").then((res) => {
+      this.usurecepss = res.data;
+    });
+  },
   methods: {
-    buscarusu() {
-      axios.get("/api/user/" + this.usurecep.usuario.id).then((res) => {
-        if (res.data[0] == null) {
-          this.usurecep.usuario.id = "";
-          this.usurecep.usuario.username = "";
-          console.log(this.usurecep.usuario.id);
-          this.esta = false;
-        } else {
-          console.log(res.data[0]);
-          let person = res.data[0];
-          this.usurecep.usuario = person;
-          this.esta = true;
-        }
-      });
+
+  editarForm(usurecep, index) {
+      this.usurecep = usurecep;
+      this.usurecep.index = index;
     },
 
-           isFormValidusuario: function(){
-            return this.usurecep.usuario.id!="";
-          },
-
-           isFormValidrecepcion: function(){
-            return this.usurecep.recepcion.id!="";
-          },
-
-    buscarrecep() {
-      axios.get("/api/recepcion/" + this.usurecep.recepcion.id).then((res) => {
-        if (res.data[0] == null) {
-          this.usurecep.recepcion.id = "";
-          this.usurecep.recepcion.recepcionado = "";
-          this.usurecep.recepcion.fecharadicado = "";
-          this.usurecep.recepcion.fecharecepcionado = "";
-          this.usurecep.recepcion.consultorio = "";
-          this.usurecep.recepcion.fechareparto = "";
-          this.usurecep.recepcion.fechapublicacion = "";
-          this.usurecep.recepcion.fecharetiro = "";
-          console.log(this.usurecep.recepcion.id);
-          this.esta = false;
-        } else {
-          console.log(res.data[0]);
-          let person = res.data[0];
-          this.usurecep.recepcion = person;
-          this.esta = true;
-        }
-      });
-    },
-    agregar() {
-      // alert(this.personas.prinom);
-      const params = {
-        recp_id: this.usurecep.recepcion.id,
-        usu_id: this.usurecep.usuario.id,
-      };
-      this.usurecep.recepcion.id = "";
-      this.usurecep.usuario.id = "";
-
-      axios.post("/api/asigrecep", params).then((res) => {
-        if (res.data == null) {
-            swal({
-            type: 'error',
-            "timer":3000,
-            "title":"PARECE QUE HAY UN ERROR",
-            "text":"La asignacion no se ha registrado con exito",
-            "showConfirmButton":false
-             });
-        } else {
-            swal({
+    eliminar(usurecep, index) {
+      const confirmacion = confirm(
+        `Confirma Eliminar la asignacion con id de usuario: ${usurecep.usu_id}`
+      );
+      if (confirmacion) {
+        axios.delete("/api/asigrecep/" + usurecep.id).then(() => {
+          this.usurecepss.splice(index, 1);
+          swal({
             type: 'success',
             "timer":3000,
             "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            "text":"La asignacion se ha registrado",
+            "text":"La asignación se ha eliminado con exito",
             "showConfirmButton":false
              });
-        }
-        this.usurecepss.push(res.data);
-      });
+        });
+      }
     },
   },
 };

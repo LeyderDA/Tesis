@@ -4,8 +4,6 @@
       <h2 class="text-center mb-2 card-title">Registrando Reclamante</h2>
     </div>
     <div class="card-body row">
-
-
       <div class="container">
         <div class="row">
           <div class="card-body col">
@@ -36,7 +34,18 @@
                       <td>{{reclamante.embaravictima}}</td>
                       <td>{{reclamante.grupetnicovictima}}</td>
                       <td>{{reclamante.persoentidreclama}}</td>
-                      <td>{{reclamante.persona.prinom}}</td>
+
+                      <td>
+                        <button
+                          class="btn btn-sm"
+                          data-toggle="modal"
+                          data-target="#mostrarpersonaModal"
+                          @click="editarForm(reclamante, index)"
+                          title="Mostrar los datos del Reclamante"
+                        >
+                          <i class="fas fa-eye fa-2x" style="color: black"></i>
+                        </button>
+                      </td>
 
                       <td>
                         <button
@@ -154,6 +163,54 @@
           </div>
         </div>
         <!--cierro modal de buscar -->
+
+<!--segundo modal - mostrar persona -->
+        <div
+          class="modal fade"
+          id="mostrarpersonaModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mostrar Persona</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+   
+                <label class="col-5 col-form-label">Cedula</label>
+                <input placeholder="Cedula" v-model="reclamante.persona.cedula" disabled />
+
+                <label class="col-5 col-form-label">Primer nombre</label>
+                <input placeholder="Primer nombre" v-model="reclamante.persona.prinom" disabled />
+
+                <label class="col-5 col-form-label">Segundo nombre</label>
+                <input placeholder="Segundo nombre" v-model="reclamante.persona.segnom" disabled />
+
+                <label class="col-5 col-form-label">Primer apellido</label>
+                <input placeholder="Primer apellido" v-model="reclamante.persona.priape" disabled />
+
+                <label class="col-5 col-form-label">Segundo apellido</label>
+                <input placeholder="Segundo apellido" v-model="reclamante.persona.segape" disabled />
+
+                <label class="col-5 col-form-label">Teléfono</label>
+                <input placeholder="Teléfono" v-model="reclamante.persona.tel" disabled />
+
+                <label class="col-5 col-form-label">Dirección</label>
+                <input placeholder="Dirección" v-model="reclamante.persona.direc" disabled />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--cierro modal de mostrar persona -->
       </div>
     </div>
   </div>
@@ -261,16 +318,26 @@ export default {
 
       axios.post("/api/reclamante", params).then((res) => {
         if (res.data == null) {
-          alert("El reclamante no se ha registrado con exito");
+           swal({
+            type: 'error',
+            "timer":3000,
+            "title":"PARECE QUE HAY UN ERROR",
+            "text":"El reclamante NO se ha registrado con exito",
+            "showConfirmButton":false
+             });
         } else {
-          alert("El reclamante se ha registrado");
+          swal({
+            type: 'success',
+            "timer":3000,
+            "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            "text":"El reclamante se ha registrado",
+            "showConfirmButton":false
+             });
         }
         this.reclamantess.push(res.data);
       });
     },
-isFormValidPersona: function(){
-            return this.recepcion.reclamante.id!="";
-          },
+        
 
     eliminar(reclamante, index) {
       const confirmacion = confirm(
@@ -279,7 +346,13 @@ isFormValidPersona: function(){
       if (confirmacion) {
         axios.delete("/api/reclamante/" + reclamante.id).then(() => {
           this.reclamantess.splice(index, 1);
-          alert("El Reclamante se ha eliminado con exito");
+           swal({
+            type: 'success',
+            "timer":3000,
+            "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            "text":"El Reclamante se ha eliminado con exito",
+            "showConfirmButton":false
+             });
         });
       }
     },
@@ -303,28 +376,23 @@ isFormValidPersona: function(){
         .put("/api/reclamante/" + this.reclamante.id, params)
         .then((res) => {
           if (res.data == null) {
-            alert("El Reclamante no se ha actualizado");
+            swal({
+            type: 'error',
+            "timer":3000,
+            "title":"PARECE QUE HAY UN ERROR",
+            "text":"El Reclamante no se ha actualizado",
+            "showConfirmButton":false
+             });
           } else {
-            alert("El Reclamante se ha actualizado");
+            swal({
+            type: 'success',
+            "timer":3000,
+            "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            "text":"El Reclamante se ha actualizado",
+            "showConfirmButton":false
+             });
           }
-          this.reclamantess[this.reclamante.index] = res.data;
-          this.reclamante.enfodifervictima = "";
-          this.reclamantess[this.reclamante.index] = res.data;
-          this.reclamante.genevictima = "";
-          this.reclamantess[this.reclamante.index] = res.data;
-          this.reclamante.edadvictima = "";
-          this.reclamantess[this.reclamante.index] = res.data;
-          this.reclamante.discapavictima = "";
-          this.reclamantess[this.reclamante.index] = res.data;
-          this.reclamante.estravictima = "";
-          this.reclamantess[this.reclamante.index] = res.data;
-          this.reclamante.embaravictima = "";
-          this.reclamantess[this.reclamante.index] = res.data;
-          this.reclamante.grupetnicovictima = "";
-          this.reclamantess[this.reclamante.index] = res.data;
-          this.reclamante.persoentidreclama = "";
-          this.reclamantess[this.reclamante.index] = res.data;
-          this.reclamante.per_id = "";
+          
         })
         .catch((error) => {
           if (error.response.status == 422) {

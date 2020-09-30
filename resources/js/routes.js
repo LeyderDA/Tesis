@@ -61,6 +61,8 @@ export default new Router({
 
         },
 
+        
+
         {
             path: '/Gestion',
             name: 'gestion',
@@ -72,6 +74,13 @@ export default new Router({
             path: '/Asignacion',
             name: 'asignacion',
             component: require('./views/AsignarRecepcionComponent.vue').default
+
+        },
+
+        {
+            path: '/AsignacionVista',
+            name: 'asignacionvista',
+            component: require('./views/AsignarRecepcionvistaComponent.vue').default
 
         },
 
