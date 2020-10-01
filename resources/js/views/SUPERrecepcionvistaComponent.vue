@@ -617,13 +617,41 @@ export default {
       }
     },
  
-
-    editarForm(recepcion, index) {
+ editarForm(recepcion, index) {
       this.recepcion = recepcion;
       this.recepcion.index = index;
-      
     },
+    editar() {
+      const params = {
+        recepcionado: this.recepcion.recepcionado,
+        fecharadicado: this.recepcion.fecharadicado,
+        fecharecepcionado: this.recepcion.fecharecepcionado,
+        consultorio: this.recepcion.consultorio,
+        fechareparto: this.recepcion.fechareparto,
+        fechapublicacion: this.recepcion.fechapublicacion,
+        fecharetiro: this.recepcion.fecharetiro,
+        estado: this.recepcion.estado,      
+      };
+      axios
+        .put("/api/recepcion/" + this.recepcion.id, params)
+        .then((res) => {
+          if (res.data == null) {
+            alert("La recepcion no se ha actualizado");
+          } else {
+            alert("La Recepción se ha actualizado");
+          }
 
+        })
+        .catch((error) => {
+          if (error.response.status == 422) {
+            this.errors = error.response.data.errors;
+
+            //let mensaje='Error con alguno de los campos';
+
+            alert(this.errors.recepcionado[0]);
+          }
+        });
+    },
   },
 };
 </script>
