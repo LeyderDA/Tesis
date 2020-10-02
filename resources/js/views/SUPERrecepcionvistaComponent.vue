@@ -637,6 +637,7 @@ export default {
             text: "La recepcion no se ha actualizado",
             showConfirmButton: false,
           });
+
           } else {
             swal({
             type: "success",

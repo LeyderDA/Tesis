@@ -12,46 +12,64 @@
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Fecha de Radicado</th>
-                    <th>Fecha de Recepcionado</th>
-                    <th>Fecha de Reparto</th>
-                    <th>Fecha de Publicación</th>
-                    <th>Fecha de Retiro</th>
                     <th>Recepcionado en</th>
                     <th>Consultorio</th>
                     <th>Reclamante</th>
                     <th>Area</th>
-                    <th>Mostrar QR y agregar Gestión</th>
+                    <th>Fechas</th>
+                    <th>Agregar Gestión</th>
+                    <th>Mostrar QR</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(recepcion) in recepcioness" :key="recepcion.index">
-                    <td>{{recepcion.recp_id}}</td>
-                    <td>{{recepcion.fecharadicado}}</td>
-                    <td>{{recepcion.fecharecepcionado}}</td>
-                    <td>{{recepcion.fechareparto}}</td>
-                    <td>{{recepcion.fechapublicacion}}</td>
-                    <td>{{recepcion.fecharetiro}}</td>
-                    <td>{{recepcion.recepcionado}}</td>
-                    <td>{{recepcion.consultorio}}</td>
-                    <td>{{recepcion.reclamante.id}}</td>
-                    <td>{{recepcion.area.nombre}}</td>
+                  <tr v-for="recepcion in recepcioness" :key="recepcion.index">
+                    <td>{{ recepcion.id }}</td>
+                    <td>{{ recepcion.recepcionado }}</td>
+                    <td>{{ recepcion.consultorio }}</td>
                     <td>
-                      <a :href="'/recepcionqr/'+recepcion.recp_id">
-                        <i class="fas fa-qrcode fa-3x" style="color: black;" title="Mostrar QR de la gestión"></i>
-                      </a> 
-                                           
+                      <button
+                        class="btn btn-sm"
+                        data-toggle="modal"
+                        data-target="#MOSTRARModalRECLAMANTE"
+                        @click="editarForm(recepcion)"
+                        title="Mostrar los datos del Reclamante"
+                      >
+                        <i class="fas fa-eye fa-2x" style="color: black"></i>
+                      </button>
+                    </td>
+
+                    <td>{{ recepcion.area.nombre }}</td>
+                    <td>
+                      <button
+                        class="btn btn-sm"
+                        data-toggle="modal"
+                        data-target="#MOSTRARModal"
+                        @click="editarForm(recepcion)"
+                        title="Mostrar las fechas"
+                      >
+                        <i class="fas fa-eye fa-2x" style="color: black"></i>
+                      </button>
+                    </td>
+                    <td>
                       <button
                         class="btn btn-success btn-sm"
                         data-toggle="modal"
                         data-target="#AggModal"
                         @click="editarForm(recepcion)"
                         title="Agregar Gestión"
-                      >   
-                        <i class="fas fa-save fa-3x" style="color: black;"></i>
+                      >
+                        <i class="fas fa-save fa-3x" style="color: black"></i>
                       </button>
                     </td>
-                    <td></td>
+                    <td>
+                      <a :href="'/recepcionqr/' + recepcion.id">
+                        <i
+                          class="fas fa-qrcode fa-3x"
+                          style="color: black"
+                          title="Mostrar QR de la gestión"
+                        ></i>
+                      </a>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -72,19 +90,28 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Guardar Gestion</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Guardar Gestion
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
 
             <div class="modal-body">
-
               <label class="col-5 col-form-label">Recepción</label>
               <div class="col-6 form-group">
-                <input class="form-control" placeholder="Recepción" v-model="recepcion.recp_id" />
+                <input
+                  class="form-control"
+                  placeholder="Recepción"
+                  v-model="recepcion.id"
+                />
               </div>
-
 
               <label class="col-5 col-form-label">Ampliación de hechos</label>
               <div class="col-6 form-group">
@@ -94,7 +121,6 @@
                   v-model="gestion.amplhechos"
                 />
               </div>
-
 
               <label class="col-5 col-form-label">Fecha entrevista</label>
               <div class="col-6 form-group">
@@ -106,7 +132,6 @@
                 />
               </div>
 
-
               <label class="col-5 col-form-label">Tipo de tramite</label>
               <div class="col-6 form-group">
                 <input
@@ -115,7 +140,6 @@
                   v-model="gestion.tipotramite"
                 />
               </div>
-
 
               <label class="col-5 col-form-label">Asunto de tramite</label>
               <div class="col-6 form-group">
@@ -126,7 +150,6 @@
                 />
               </div>
 
-
               <label class="col-5 col-form-label">Motivo de archivo</label>
               <div class="col-6 form-group">
                 <input
@@ -135,7 +158,6 @@
                   v-model="gestion.motivoarchivo"
                 />
               </div>
-
 
               <label class="col-5 col-form-label">Fecha de archivo</label>
               <div class="col-6 form-group">
@@ -147,7 +169,6 @@
                 />
               </div>
 
-
               <label class="col-5 col-form-label">Observaciones</label>
               <div class="col-6 form-group">
                 <input
@@ -156,7 +177,6 @@
                   v-model="gestion.obsrvtramite"
                 />
               </div>
-
 
               <label class="col-5 col-form-label">Actuaciones</label>
               <div class="col-6 form-group">
@@ -167,7 +187,6 @@
                 />
               </div>
 
-
               <label class="col-5 col-form-label">Actuaciones Juridicas</label>
               <div class="col-6 form-group">
                 <input
@@ -177,7 +196,6 @@
                 />
               </div>
 
-
               <label class="col-5 col-form-label">Resultado de actuación</label>
               <div class="col-6 form-group">
                 <input
@@ -186,7 +204,6 @@
                   v-model="gestion.resulactuacion"
                 />
               </div>
-
 
               <label class="col-5 col-form-label">Entidad del tramite</label>
               <div class="col-6 form-group">
@@ -198,33 +215,222 @@
               </div>
             </div>
 
-
-
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">
+                Cerrar
+              </button>
               <button
                 type="button"
                 class="btn btn-primary"
-                @click=" agregargestion()"
+                @click="agregargestion()"
                 data-dismiss="modal"
-              >Guardar Cambios</button>
+              >
+                Guardar Cambios
+              </button>
             </div>
           </div>
         </div>
       </div>
       <!--modal de asignar gestion -->
+      <!--modal de MOSTRAR EL RESTO DE CAMPOS-->
+      <div
+        class="modal fade"
+        id="MOSTRARModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">FECHAS</h5>
+            </div>
+            <div class="modal-body">
+              <label class="col-5 col-form-label">Fecha de radicado:</label>
+              <input
+                placeholder="recepcion"
+                type="date"
+                readonly="readonly"
+                v-model="recepcion.fecharadicado"
+                disabled
+              />
+
+              <label class="col-5 col-form-label">Fecha de recepcionado:</label>
+              <input
+                placeholder="recepcion"
+                type="date"
+                readonly="readonly"
+                v-model="recepcion.fecharecepcionado"
+                disabled
+              />
+
+              <label class="col-5 col-form-label">Fecha de reparto:</label>
+              <input
+                placeholder="recepcion"
+                type="date"
+                readonly="readonly"
+                v-model="recepcion.fechareparto"
+                disabled
+              />
+
+              <label class="col-5 col-form-label">Fecha de publicación:</label>
+              <input
+                placeholder="recepcion"
+                type="date"
+                readonly="readonly"
+                v-model="recepcion.fechapublicacion"
+                disabled
+              />
+
+              <label class="col-5 col-form-label">Fecha de retiro:</label>
+              <input
+                placeholder="recepcion"
+                type="date"
+                readonly="readonly"
+                v-model="recepcion.fecharetiro"
+                disabled
+              />
+              <br />
+              <br />
+
+              <div class="col-12 form-group">
+                <div style="width: 100px; height: 30px; margin: 0 auto">
+                  <button
+                    name="CERRAR"
+                    class="btn btn-primary"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    type="button"
+                  >
+                    CERRAR
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal de MOSTRAR EL RESTO DE CAMPOS -->
+
+      <!--modal de MOSTRAR EL RECLAMANTE-->
+      <div
+        class="modal fade"
+        id="MOSTRARModalRECLAMANTE"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Datos del Reclamante
+              </h5>
+            </div>
+            <div class="modal-body">
+              <label class="col-5 col-form-label">Nombre del reclamante:</label>
+              <input
+                placeholder="nombre de persona"
+                v-model="recepcion.prinom"
+                disabled
+              />
+
+              <label class="col-5 col-form-label"
+                >Apellido del reclamante:</label
+              >
+              <input
+                placeholder="nombre de persona"
+                v-model="recepcion.priape"
+                disabled
+              />
+
+              <label class="col-5 col-form-label">Enfoque diferencial:</label>
+              <input
+                placeholder="enfoque diferencial"
+                v-model="recepcion.reclamante.enfodifervictima"
+                disabled
+              />
+
+              <label class="col-5 col-form-label">Genero:</label>
+              <input
+                placeholder="genero"
+                v-model="recepcion.reclamante.genevictima"
+                disabled
+              />
+
+              <label class="col-5 col-form-label">Edad:</label>
+              <input
+                placeholder="edad"
+                v-model="recepcion.reclamante.edadvictima"
+                disabled
+              />
+
+              <label class="col-5 col-form-label">Discapacidad:</label>
+              <input
+                placeholder="discapacidad"
+                v-model="recepcion.reclamante.discapavictima"
+                disabled
+              />
+
+              <label class="col-5 col-form-label">Estrato:</label>
+              <input
+                placeholder="estrato"
+                v-model="recepcion.reclamante.estravictima"
+                disabled
+              />
+
+              <label class="col-5 col-form-label">Embarazo:</label>
+              <input
+                placeholder="embarazo"
+                v-model="recepcion.reclamante.embaravictima"
+                disabled
+              />
+
+              <label class="col-5 col-form-label">Grupo Etnico:</label>
+              <input
+                placeholder="grupo etnico"
+                v-model="recepcion.reclamante.grupetnicovictima"
+                disabled
+              />
+
+              <label class="col-5 col-form-label">Entidad que reclama:</label>
+              <input
+                placeholder="entidad"
+                v-model="recepcion.reclamante.persoentidreclama"
+                disabled
+              />
+
+              <br />
+              <br />
+
+              <div class="col-12 form-group">
+                <div style="width: 100px; height: 30px; margin: 0 auto">
+                  <button
+                    name="CERRAR"
+                    class="btn btn-primary"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    type="button"
+                  >
+                    CERRAR
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal de MOSTRAR EL RECLAMANTE -->
     </div>
   </div>
-  
- 
-  
 </template>
 
 
 
 
 <script >
-
 export default {
   data() {
     return {
@@ -307,9 +513,8 @@ export default {
     };
   },
   created() {
-
     axios.get("/api/recepcion").then((res) => {
-      this.recepcioness = res.data;    
+      this.recepcioness = res.data;
     });
   },
   methods: {
@@ -381,12 +586,8 @@ export default {
       });
     },
 
-    ver(){
-      Swal.fire(
-    'Good job!',
-    'You clicked the button!',
-    'success'
-  )
+    ver() {
+      Swal.fire("Good job!", "You clicked the button!", "success");
     },
 
     agregargestion() {
@@ -402,8 +603,8 @@ export default {
         actjuridirealzadas: this.gestion.actjuridirealzadas,
         resulactuacion: this.gestion.resulactuacion,
         entidadelantramite: this.gestion.entidadelantramite,
-        recp_id: this.recepcion.recp_id,
-      };     
+        recp_id: this.recepcion.id,
+      };
 
       axios.post("/api/gestion", params).then((res) => {
         if (res.data == null) {
@@ -411,17 +612,17 @@ export default {
         } else {
           alert("¡La Gestión se ha registrado Exitosamente en el Caso!!");
         }
-      this.gestion.amplhechos = "";
-      this.gestion.fechentrevasesor = "";
-      this.gestion.tipotramite = "";
-      this.gestion.asuntotramite = "";
-      this.gestion.motivoarchivo = "";
-      this.gestion.fechaarchivo = "";
-      this.gestion.obsrvtramite = "";
-      this.gestion.actuarealizadas = "";
-      this.gestion.actjuridirealzadas = "";
-      this.gestion.resulactuacion = "";
-      this.gestion.entidadelantramite = "";
+        this.gestion.amplhechos = "";
+        this.gestion.fechentrevasesor = "";
+        this.gestion.tipotramite = "";
+        this.gestion.asuntotramite = "";
+        this.gestion.motivoarchivo = "";
+        this.gestion.fechaarchivo = "";
+        this.gestion.obsrvtramite = "";
+        this.gestion.actuarealizadas = "";
+        this.gestion.actjuridirealzadas = "";
+        this.gestion.resulactuacion = "";
+        this.gestion.entidadelantramite = "";
       });
     },
 
