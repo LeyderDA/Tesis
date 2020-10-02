@@ -42,8 +42,9 @@ class RecepcionController extends Controller
         $re->fechareparto = $request->fechareparto;
         $re->fechapublicacion = $request->fechapublicacion;
         $re->fecharetiro = $request->fecharetiro;
-
         $re->estado = $request->estado;
+        $re->recla_id = $request->recla_id;
+        $re->area_id = $request->area_id;
         $re->save();
         $re->reclamante;
         $re->area;

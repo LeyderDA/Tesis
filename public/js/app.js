@@ -6798,16 +6798,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -6821,6 +6811,8 @@ __webpack_require__.r(__webpack_exports__);
         fechapublicacion: "",
         fecharetiro: "",
         estado: "",
+        recla_id: "",
+        area_id: "",
         reclamante: {
           id: "",
           enfodifervictima: "",
@@ -6907,11 +6899,11 @@ __webpack_require__.r(__webpack_exports__);
           _this4.recepcioness.splice(index, 1);
 
           swal({
-            type: 'success',
-            "timer": 3000,
-            "title": "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            "text": "La recepción se ha eliminado con exito",
-            "showConfirmButton": false
+            type: "success",
+            timer: 3000,
+            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            text: "La recepción se ha eliminado con exito",
+            showConfirmButton: false
           });
         });
       }
@@ -6931,7 +6923,9 @@ __webpack_require__.r(__webpack_exports__);
         fechareparto: this.recepcion.fechareparto,
         fechapublicacion: this.recepcion.fechapublicacion,
         fecharetiro: this.recepcion.fecharetiro,
-        estado: this.recepcion.estado
+        estado: this.recepcion.estado,
+        recla_id: this.recepcion.recla_id,
+        area_id: this.recepcion.area_id
       };
       axios.put("/api/recepcion/" + this.recepcion.id, params).then(function (res) {
         if (res.data == null) {
@@ -6939,6 +6933,11 @@ __webpack_require__.r(__webpack_exports__);
         } else {
           alert("La Recepción se ha actualizado");
         }
+
+        axios.get("/api/recepcionSUPER").then(function (res) {
+          _this5.recepcioness = res.data;
+          console.log(res.data);
+        });
       })["catch"](function (error) {
         if (error.response.status == 422) {
           _this5.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
@@ -55523,22 +55522,18 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.recepcion.reclamante.id,
-                        expression: "recepcion.reclamante.id"
+                        value: _vm.recepcion.recla_id,
+                        expression: "recepcion.recla_id"
                       }
                     ],
                     attrs: { placeholder: "recepcion" },
-                    domProps: { value: _vm.recepcion.reclamante.id },
+                    domProps: { value: _vm.recepcion.recla_id },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(
-                          _vm.recepcion.reclamante,
-                          "id",
-                          $event.target.value
-                        )
+                        _vm.$set(_vm.recepcion, "recla_id", $event.target.value)
                       }
                     }
                   }),
@@ -55561,7 +55556,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                   B.Reclamante\n                 "
+                              "\n                B.Reclamante\n              "
                             )
                           ]
                         )
@@ -55615,7 +55610,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                   Buscar Area\n                 "
+                              "\n                Buscar Area\n              "
                             )
                           ]
                         )
@@ -55635,11 +55630,7 @@ var render = function() {
                         type: "button"
                       }
                     },
-                    [
-                      _vm._v(
-                        "\n                     CERRAR\n                   "
-                      )
-                    ]
+                    [_vm._v("\n              CERRAR\n            ")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -55653,11 +55644,7 @@ var render = function() {
                         }
                       }
                     },
-                    [
-                      _vm._v(
-                        "\n                 Guardar Cambios\n               "
-                      )
-                    ]
+                    [_vm._v("\n              Guardar Cambios\n            ")]
                   )
                 ])
               ])
@@ -56389,7 +56376,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                 Editar Recepción\n               ")]
+        [_vm._v("\n              Editar Recepción\n            ")]
       ),
       _vm._v(" "),
       _c(
@@ -56438,7 +56425,7 @@ var staticRenderFns = [
                 type: "button"
               }
             },
-            [_vm._v("\n                     CERRAR\n                   ")]
+            [_vm._v("\n                  CERRAR\n                ")]
           )
         ]
       )
@@ -56452,7 +56439,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Datos del Reclamante")]
+        [_vm._v("\n              Datos del Reclamante\n            ")]
       )
     ])
   },
@@ -56476,7 +56463,7 @@ var staticRenderFns = [
                 type: "button"
               }
             },
-            [_vm._v("\n                     CERRAR\n                   ")]
+            [_vm._v("\n                  CERRAR\n                ")]
           )
         ]
       )
@@ -56518,7 +56505,7 @@ var staticRenderFns = [
           staticClass: "btn btn-danger",
           attrs: { type: "button", "data-dismiss": "modal" }
         },
-        [_vm._v("\n                 Cerrar\n               ")]
+        [_vm._v("\n              Cerrar\n            ")]
       )
     ])
   },
@@ -56530,7 +56517,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                 Mostrar Persona\n               ")]
+        [_vm._v("\n              Mostrar Persona\n            ")]
       ),
       _vm._v(" "),
       _c(
@@ -56558,7 +56545,7 @@ var staticRenderFns = [
           staticClass: "btn btn-danger",
           attrs: { type: "button", "data-dismiss": "modal" }
         },
-        [_vm._v("\n                 Cerrar\n               ")]
+        [_vm._v("\n              Cerrar\n            ")]
       )
     ])
   }
