@@ -14,7 +14,25 @@ class AsigRecepController extends Controller
         ->join("users","usurecep.usu_id","=","users.id")
         ->join("personas","users.per_id","=","personas.id")
         ->join("areas","recepciones.area_id","=","areas.id")
-        ->select('usurecep.*','users.*','recepciones.*','areas.*','personas.*'
+        ->select('usurecep.*'
+        ,'users.username'
+
+        ,'recepciones.recepcionado'
+        ,'recepciones.fecharadicado'
+        ,'recepciones.fecharecepcionado'
+        ,'recepciones.consultorio'
+        ,'recepciones.fechareparto'
+        ,'recepciones.fechapublicacion'
+        ,'recepciones.fecharetiro'
+        ,'recepciones.estado'
+        ,'areas.nombre'
+        ,'personas.cedula'
+        ,'personas.prinom'
+        ,'personas.segnom'
+        ,'personas.priape'
+        ,'personas.segape'
+        ,'personas.tel'
+        ,'personas.direc'
         )
         ->orderBy('usurecep.recp_id', 'asc')
         ->get();

@@ -2542,6 +2542,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -44559,7 +44565,7 @@ var render = function() {
                               staticClass: "nav-link",
                               attrs: { to: { name: "persona" } }
                             },
-                            [_vm._v("Crear Personas")]
+                            [_vm._v("Registrar Personas")]
                           )
                         ],
                         1
@@ -46376,6 +46382,31 @@ var render = function() {
                             "consultorio",
                             $event.target.value
                           )
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Area:")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.usurecep.nombre,
+                          expression: "usurecep.nombre"
+                        }
+                      ],
+                      attrs: { placeholder: "recepcion", disabled: "" },
+                      domProps: { value: _vm.usurecep.nombre },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.usurecep, "nombre", $event.target.value)
                         }
                       }
                     })

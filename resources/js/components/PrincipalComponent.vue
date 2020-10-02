@@ -20,7 +20,7 @@
   </button>
   <ul class="dropdown-menu" role="menu">
       <li class="nav-item">
-        <router-link class="nav-link" :to="{name: 'persona'}">Crear Personas</router-link>
+        <router-link class="nav-link" :to="{name: 'persona'}">Registrar Personas</router-link>
       </li>
         <li class="nav-item">
         <router-link class="nav-link" :to="{name: 'personavista'}">Ver lista de Personas</router-link>
@@ -60,9 +60,6 @@
       </li>
   </ul>
 </div>
-
-
-     
 
       <li class="nav-item">
         <router-link class="nav-link" :to="{name: 'area'}">Crear Areas</router-link>

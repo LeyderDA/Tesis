@@ -193,6 +193,12 @@
                   v-model="usurecep.consultorio" disabled
                 />
 
+                <label class="col-5 col-form-label">Area:</label>
+                <input
+                  placeholder="recepcion"
+                  v-model="usurecep.nombre" disabled
+                />
+
 
 
               </div>
