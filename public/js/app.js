@@ -6924,7 +6924,7 @@ __webpack_require__.r(__webpack_exports__);
         fechapublicacion: this.recepcion.fechapublicacion,
         fecharetiro: this.recepcion.fecharetiro,
         estado: this.recepcion.estado,
-        recla_id: this.recepcion.recla_id,
+        recla_id: this.recepcion.reclamante.id,
         area_id: this.recepcion.area_id
       };
       axios.put("/api/recepcion/" + this.recepcion.id, params).then(function (res) {
@@ -55522,18 +55522,22 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.recepcion.recla_id,
-                        expression: "recepcion.recla_id"
+                        value: _vm.recepcion.reclamante.id,
+                        expression: "recepcion.reclamante.id"
                       }
                     ],
                     attrs: { placeholder: "recepcion" },
-                    domProps: { value: _vm.recepcion.recla_id },
+                    domProps: { value: _vm.recepcion.reclamante.id },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.recepcion, "recla_id", $event.target.value)
+                        _vm.$set(
+                          _vm.recepcion.reclamante,
+                          "id",
+                          $event.target.value
+                        )
                       }
                     }
                   }),

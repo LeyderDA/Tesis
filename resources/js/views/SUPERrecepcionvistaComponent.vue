@@ -165,7 +165,7 @@
               <input placeholder="recepcion" v-model="recepcion.consultorio" />
 
               <label class="col-5 col-form-label">ID Reclamante:</label>
-              <input placeholder="recepcion" v-model="recepcion.recla_id" />
+              <input placeholder="recepcion" v-model="recepcion.reclamante.id" />
 
               <!--buscar reclamante -->
               <div class="col-5 form-group" v-if="true">
@@ -621,7 +621,7 @@ export default {
         fechapublicacion: this.recepcion.fechapublicacion,
         fecharetiro: this.recepcion.fecharetiro,
         estado: this.recepcion.estado,
-        recla_id: this.recepcion.recla_id,
+        recla_id: this.recepcion.reclamante.id,
         area_id: this.recepcion.area_id,
       };
       axios
