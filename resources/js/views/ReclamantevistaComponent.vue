@@ -12,6 +12,7 @@
                 <table class="table text-center">
                   <thead>
                     <tr>
+                      <th>Id</th>
                       <th>Enf.Diferencial</th>
                       <th>Genero</th>
                       <th>Edad</th>
@@ -26,6 +27,7 @@
                   </thead>
                   <tbody>
                     <tr v-for="(reclamante,index) in reclamantess" :key="reclamante.index">
+                      <td>{{reclamante.id}}</td>
                       <td>{{reclamante.enfodifervictima}}</td>
                       <td>{{reclamante.genevictima}}</td>
                       <td>{{reclamante.edadvictima}}</td>

@@ -438,6 +438,7 @@
             <div class="modal-body">
               <input placeholder="Id" v-model="recepcion.area.id" />
               <input placeholder="Nombre" v-model="recepcion.area.nombre" />
+              <input placeholder="Area Id" v-model="recepcion.area_id" />
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">
@@ -482,6 +483,7 @@
                 placeholder="Id Persona"
                 v-model="recepcion.reclamante.per_id"
               />
+
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">
@@ -560,8 +562,10 @@ export default {
         .get("/api/reclamante/" + this.recepcion.reclamante.id)
         .then((res) => {
           if (res.data[0] == null) {
+           
             this.recepcion.reclamante.id = "";
             this.recepcion.reclamante.per_id = "";
+           
             console.log(this.recepcion.reclamante);
             this.esta = false;
           } else {
@@ -572,7 +576,6 @@ export default {
           }
         });
     },
-
     buscararea() {
       axios.get("/api/area/" + this.recepcion.area.nombre).then((res) => {
         if (res.data[0] == null) {
@@ -606,7 +609,6 @@ export default {
         });
       }
     },
-
     editarForm(recepcion, index) {
       this.recepcion = recepcion;
       this.recepcion.index = index;
@@ -622,7 +624,7 @@ export default {
         fecharetiro: this.recepcion.fecharetiro,
         estado: this.recepcion.estado,
         recla_id: this.recepcion.reclamante.id,
-        area_id: this.recepcion.area_id,
+        area_id: this.recepcion.area.id,
       };
       axios
         .put("/api/recepcion/" + this.recepcion.id, params)

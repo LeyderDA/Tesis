@@ -5261,6 +5261,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -6798,6 +6800,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -6925,7 +6929,7 @@ __webpack_require__.r(__webpack_exports__);
         fecharetiro: this.recepcion.fecharetiro,
         estado: this.recepcion.estado,
         recla_id: this.recepcion.reclamante.id,
-        area_id: this.recepcion.area_id
+        area_id: this.recepcion.area.id
       };
       axios.put("/api/recepcion/" + this.recepcion.id, params).then(function (res) {
         if (res.data == null) {
@@ -52242,6 +52246,8 @@ var render = function() {
                     "tbody",
                     _vm._l(_vm.reclamantess, function(reclamante, index) {
                       return _c("tr", { key: reclamante.index }, [
+                        _c("td", [_vm._v(_vm._s(reclamante.id))]),
+                        _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(reclamante.enfodifervictima))]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(reclamante.genevictima))]),
@@ -52995,6 +53001,8 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
+        _c("th", [_vm._v("Id")]),
+        _vm._v(" "),
         _c("th", [_vm._v("Enf.Diferencial")]),
         _vm._v(" "),
         _c("th", [_vm._v("Genero")]),
@@ -56246,6 +56254,27 @@ var render = function() {
                           "nombre",
                           $event.target.value
                         )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.area_id,
+                        expression: "recepcion.area_id"
+                      }
+                    ],
+                    attrs: { placeholder: "Area Id" },
+                    domProps: { value: _vm.recepcion.area_id },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.recepcion, "area_id", $event.target.value)
                       }
                     }
                   })
