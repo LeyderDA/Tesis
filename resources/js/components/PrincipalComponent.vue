@@ -1,131 +1,177 @@
 <template>
   <div>
-   <nav class="navbar navbar-expand-sm" style="background-color:#DADADA; color:#000; height:30px">
-   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-     <span>MENÚ</span>
-   </button>
+    <nav
+      class="navbar navbar-expand-sm"
+      style="background-color: #dadada; color: #000; height: 30px"
+    >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo02"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span>MENÚ</span>
+      </button>
 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <router-link class="nav-link" :to="{ name: 'home' }"
+              >Inicio</router-link
+            >
+          </li>
 
- <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-default dropdown-toggle"
+              data-toggle="dropdown"
+            >
+              Personas <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'persona' }"
+                  >Registrar Personas</router-link
+                >
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'personavista' }"
+                  >Ver lista de Personas</router-link
+                >
+              </li>
+            </ul>
+          </div>
 
-      <li class="nav-item">
-        <router-link class="nav-link" :to="{name: 'home'}">Inicio</router-link>
-      </li>
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-default dropdown-toggle"
+              data-toggle="dropdown"
+            >
+              Usuarios <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'usuario' }"
+                  >Crear Usuario</router-link
+                >
+              </li>
 
-<div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle"
-          data-toggle="dropdown">
-    Personas <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu">
-      <li class="nav-item">
-        <router-link class="nav-link" :to="{name: 'persona'}">Registrar Personas</router-link>
-      </li>
-        <li class="nav-item">
-        <router-link class="nav-link" :to="{name: 'personavista'}">Ver lista de Personas</router-link>
-      </li>
-  </ul>
-</div>
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'usuariovista' }"
+                  >Ver lista de Usuarios</router-link
+                >
+              </li>
+            </ul>
+          </div>
 
-<div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle"
-          data-toggle="dropdown">
-    Usuarios <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu">
-     <li class="nav-item">
-        <router-link class="nav-link" :to="{name: 'usuario'}">Crear Usuario</router-link>
-      </li>
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-default dropdown-toggle"
+              data-toggle="dropdown"
+            >
+              Reclamantes <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'reclamante' }"
+                  >Crear Reclamantes</router-link
+                >
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'reclamantevista' }"
+                  >Listado de Reclamantes</router-link
+                >
+              </li>
+            </ul>
+          </div>
 
-      <li class="nav-item">
-        <router-link class="nav-link" :to="{name: 'usuariovista'}">Ver lista de Usuarios</router-link>
-      </li>  
- 
-  </ul>
-</div>
+          <li class="nav-item">
+            <router-link class="nav-link" :to="{ name: 'area' }"
+              >Crear Areas</router-link
+            >
+          </li>
 
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-default dropdown-toggle"
+              data-toggle="dropdown"
+            >
+              Recepciones <span></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'recepcion' }"
+                  >Crear Recepción</router-link
+                >
+              </li>
 
-<div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle"
-          data-toggle="dropdown">
-    Reclamantes <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu">
-      <li class="nav-item">
-        <router-link class="nav-link" :to="{name: 'reclamante'}">Crear Reclamantes</router-link>
-      </li>
-       <li class="nav-item">
-        <router-link class="nav-link" :to="{name: 'reclamantevista'}">Listado de Reclamantes</router-link>
-      </li>
-  </ul>
-</div>
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'vistaresu' }"
+                  >Lista de recepciones</router-link
+                >
+              </li>
+            </ul>
+          </div>
 
-      <li class="nav-item">
-        <router-link class="nav-link" :to="{name: 'area'}">Crear Areas</router-link>
-      </li>
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-default dropdown-toggle"
+              data-toggle="dropdown"
+            >
+              Gestiones <span></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'gestion' }"
+                  >Agregar Gestión</router-link
+                >
+              </li>
 
-<div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle"
-          data-toggle="dropdown">
-    Recepciones <span></span>
-  </button>
-  <ul class="dropdown-menu" role="menu">
-     <li class="nav-item">
-        <router-link class="nav-link" :to="{name: 'recepcion'}">Crear Recepción</router-link>
-      </li>
+              <li class="nav-item">
+                <router-link
+                  class="nav-link"
+                  :to="{ name: 'gestionvistasuper' }"
+                  >Listar las Gestiones</router-link
+                >
+              </li>
+            </ul>
+          </div>
 
-      <li class="nav-item">
-        <router-link class="nav-link" :to="{name: 'vistaresu'}">Lista de recepciones</router-link>
-      </li>
-  </ul>
-</div>
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-default dropdown-toggle"
+              data-toggle="dropdown"
+            >
+              Asignacion de Casos <span></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'asignacion' }"
+                  >Asignar Recepción</router-link
+                >
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'asignacionvista' }"
+                  >Lista de Asignaciones</router-link
+                >
+              </li>
+            </ul>
+          </div>
+        </ul>
+      </div>
+    </nav>
 
-<div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle"
-          data-toggle="dropdown">
-    Gestiones <span></span>
-  </button>
-  <ul class="dropdown-menu" role="menu">
-     <li class="nav-item">
-        <router-link class="nav-link" :to="{name: 'gestion'}">Agregar Gestión</router-link>
-      </li>
-
-      <li class="nav-item">
-        <router-link class="nav-link" :to="{name: 'gestionvistasuper'}">Listar las Gestiones</router-link>
-      </li>
-  </ul>
-</div>
-
-
-
-      
-
-
-      
-<div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle"
-          data-toggle="dropdown">
-    Asignacion de Casos <span></span>
-  </button>
-  <ul class="dropdown-menu" role="menu">
-     <li class="nav-item">
-        <router-link class="nav-link" :to="{name: 'asignacion'}">Asignar Recepción</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link class="nav-link" :to="{name: 'asignacionvista'}">Lista de Asignaciones</router-link>
-      </li>
-  </ul>
-</div>
-
-      </ul>
-       </div>
-     </nav>
-  
     <transition name="slide-fade" mode="out-in">
       <router-view></router-view>
     </transition>
-     
   </div>
-
 </template>

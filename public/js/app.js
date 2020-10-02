@@ -44942,7 +44942,7 @@ var render = function() {
         {
           staticClass: "navbar navbar-expand-sm",
           staticStyle: {
-            "background-color": "#DADADA",
+            "background-color": "#dadada",
             color: "#000",
             height: "30px"
           }
@@ -45288,7 +45288,7 @@ var staticRenderFns = [
         staticClass: "btn btn-default dropdown-toggle",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
-      [_vm._v("\n    Personas "), _c("span", { staticClass: "caret" })]
+      [_vm._v("\n            Personas "), _c("span", { staticClass: "caret" })]
     )
   },
   function() {
@@ -45301,7 +45301,7 @@ var staticRenderFns = [
         staticClass: "btn btn-default dropdown-toggle",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
-      [_vm._v("\n    Usuarios "), _c("span", { staticClass: "caret" })]
+      [_vm._v("\n            Usuarios "), _c("span", { staticClass: "caret" })]
     )
   },
   function() {
@@ -45314,7 +45314,10 @@ var staticRenderFns = [
         staticClass: "btn btn-default dropdown-toggle",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
-      [_vm._v("\n    Reclamantes "), _c("span", { staticClass: "caret" })]
+      [
+        _vm._v("\n            Reclamantes "),
+        _c("span", { staticClass: "caret" })
+      ]
     )
   },
   function() {
@@ -45327,7 +45330,7 @@ var staticRenderFns = [
         staticClass: "btn btn-default dropdown-toggle",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
-      [_vm._v("\n    Recepciones "), _c("span")]
+      [_vm._v("\n            Recepciones "), _c("span")]
     )
   },
   function() {
@@ -45340,7 +45343,7 @@ var staticRenderFns = [
         staticClass: "btn btn-default dropdown-toggle",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
-      [_vm._v("\n    Gestiones "), _c("span")]
+      [_vm._v("\n            Gestiones "), _c("span")]
     )
   },
   function() {
@@ -45353,7 +45356,7 @@ var staticRenderFns = [
         staticClass: "btn btn-default dropdown-toggle",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
-      [_vm._v("\n    Asignacion de Casos "), _c("span")]
+      [_vm._v("\n            Asignacion de Casos "), _c("span")]
     )
   }
 ]
@@ -51660,7 +51663,7 @@ var render = function() {
         {
           staticClass: "navbar navbar-expand-sm",
           staticStyle: {
-            "background-color": "#DADADA",
+            "background-color": "#dadada",
             color: "#000",
             height: "30px"
           }
@@ -51692,53 +51695,131 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "nav-item" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link",
-                        attrs: { to: { name: "persona" } }
-                      },
-                      [_vm._v("Crear Personas")]
-                    )
-                  ],
-                  1
-                ),
+                _c("div", { staticClass: "btn-group" }, [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    { staticClass: "dropdown-menu", attrs: { role: "menu" } },
+                    [
+                      _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "nav-link",
+                              attrs: { to: { name: "persona" } }
+                            },
+                            [_vm._v("Registrar Personas")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "nav-link",
+                              attrs: { to: { name: "personavista" } }
+                            },
+                            [_vm._v("Ver lista de Personas")]
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "nav-item" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link",
-                        attrs: { to: { name: "usuario" } }
-                      },
-                      [_vm._v("Crear Usuario")]
-                    )
-                  ],
-                  1
-                ),
+                _c("div", { staticClass: "btn-group" }, [
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    { staticClass: "dropdown-menu", attrs: { role: "menu" } },
+                    [
+                      _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "nav-link",
+                              attrs: { to: { name: "usuario" } }
+                            },
+                            [_vm._v("Crear Usuario")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "nav-link",
+                              attrs: { to: { name: "usuariovista" } }
+                            },
+                            [_vm._v("Ver lista de Usuarios")]
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "nav-item" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link",
-                        attrs: { to: { name: "reclamante" } }
-                      },
-                      [_vm._v("Crear Reclamantes")]
-                    )
-                  ],
-                  1
-                ),
+                _c("div", { staticClass: "btn-group" }, [
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    { staticClass: "dropdown-menu", attrs: { role: "menu" } },
+                    [
+                      _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "nav-link",
+                              attrs: { to: { name: "reclamante" } }
+                            },
+                            [_vm._v("Crear Reclamantes")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "nav-link",
+                              attrs: { to: { name: "reclamantevista" } }
+                            },
+                            [_vm._v("Listado de Reclamantes")]
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]),
                 _vm._v(" "),
                 _c(
                   "li",
@@ -51756,37 +51837,89 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "nav-item" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link",
-                        attrs: { to: { name: "recepcion" } }
-                      },
-                      [_vm._v("Crear Recepción")]
-                    )
-                  ],
-                  1
-                ),
+                _c("div", { staticClass: "btn-group" }, [
+                  _vm._m(4),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    { staticClass: "dropdown-menu", attrs: { role: "menu" } },
+                    [
+                      _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "nav-link",
+                              attrs: { to: { name: "recepcion" } }
+                            },
+                            [_vm._v("Crear Recepción")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "nav-link",
+                              attrs: { to: { name: "vistaresu" } }
+                            },
+                            [_vm._v("Lista de recepciones")]
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "nav-item" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link",
-                        attrs: { to: { name: "asignacion" } }
-                      },
-                      [_vm._v("Asignar Recepción")]
-                    )
-                  ],
-                  1
-                ),
+                _c("div", { staticClass: "btn-group" }, [
+                  _vm._m(5),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    { staticClass: "dropdown-menu", attrs: { role: "menu" } },
+                    [
+                      _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "nav-link",
+                              attrs: { to: { name: "asignacion" } }
+                            },
+                            [_vm._v("Asignar Recepción")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "nav-link",
+                              attrs: { to: { name: "asignacionvista" } }
+                            },
+                            [_vm._v("Lista de Asignaciones")]
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]),
                 _vm._v(" "),
                 _c(
                   "li",
@@ -51799,22 +51932,6 @@ var render = function() {
                         attrs: { to: { name: "miusuario" } }
                       },
                       [_vm._v("Ver mi usuario")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "nav-item" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link",
-                        attrs: { to: { name: "reportes" } }
-                      },
-                      [_vm._v("Consultar Reportes")]
                     )
                   ],
                   1
@@ -51854,6 +51971,74 @@ var staticRenderFns = [
         }
       },
       [_c("span", [_vm._v("MENÚ")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-default dropdown-toggle",
+        attrs: { type: "button", "data-toggle": "dropdown" }
+      },
+      [_vm._v("\n            Personas "), _c("span", { staticClass: "caret" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-default dropdown-toggle",
+        attrs: { type: "button", "data-toggle": "dropdown" }
+      },
+      [_vm._v("\n            Usuarios "), _c("span", { staticClass: "caret" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-default dropdown-toggle",
+        attrs: { type: "button", "data-toggle": "dropdown" }
+      },
+      [
+        _vm._v("\n            Reclamantes "),
+        _c("span", { staticClass: "caret" })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-default dropdown-toggle",
+        attrs: { type: "button", "data-toggle": "dropdown" }
+      },
+      [_vm._v("\n            Recepciones "), _c("span")]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-default dropdown-toggle",
+        attrs: { type: "button", "data-toggle": "dropdown" }
+      },
+      [_vm._v("\n            Asignacion de Casos "), _c("span")]
     )
   }
 ]
