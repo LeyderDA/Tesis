@@ -21,6 +21,20 @@ class GestionController extends Controller
         $date = UsuRecep::all()->where('usu_id',$id);
 
         $gestiones = Gestion::join("usurecep","gestion_tramites.recp_id","=","usurecep.recp_id")
+        ->join("recepciones","gestion_tramites.recp_id","=","recepciones.id")
+        ->join("areas","recepciones.area_id","=","areas.id")      
+        ->select('gestion_tramites.*', 
+        'recepciones.recepcionado',
+        'recepciones.fecharadicado',
+        'recepciones.fecharecepcionado',
+        'recepciones.consultorio',
+        'recepciones.fechareparto',
+        'recepciones.fechapublicacion',
+        'recepciones.fecharetiro',
+        'recepciones.estado',
+        'areas.nombre'
+        )
+        ->orderBy('gestion_tramites.id', 'asc')
         ->where('usurecep.usu_id','=',$id)
         ->get();
         

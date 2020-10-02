@@ -117,7 +117,7 @@ export default new Router({
         {
             path: '/EstGestion',
             name: 'gestest',
-            component: require('./views/gestionComponent.vue').default
+            component: require('./views/GestionComponent.vue').default
 
         },
 
