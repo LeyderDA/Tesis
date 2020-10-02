@@ -10,7 +10,22 @@ class SUPERADMINController extends Controller
 {
     public function indexGestion(Request $request)
     {
-        $gestiones = Gestion::all();
+        $gestiones = Gestion::join("recepciones","gestion_tramites.recp_id","=","recepciones.id")
+        ->join("areas","recepciones.area_id","=","areas.id")      
+        ->select('gestion_tramites.*', 
+        'recepciones.recepcionado',
+        'recepciones.fecharadicado',
+        'recepciones.fecharecepcionado',
+        'recepciones.consultorio',
+        'recepciones.fechareparto',
+        'recepciones.fechapublicacion',
+        'recepciones.fecharetiro',
+        'recepciones.estado',
+        'areas.nombre'
+        )
+        ->orderBy('gestion_tramites.id', 'asc')
+        ->get();
+
         if ($request->ajax()) {
          foreach ($gestiones as $ges) {
            $ges->recepcion;

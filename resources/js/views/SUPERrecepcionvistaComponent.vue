@@ -630,9 +630,22 @@ export default {
         .put("/api/recepcion/" + this.recepcion.id, params)
         .then((res) => {
           if (res.data == null) {
-            alert("La recepcion no se ha actualizado");
+              swal({
+            type: "error",
+            timer: 3000,
+            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            text: "La recepcion no se ha actualizado",
+            showConfirmButton: false,
+          });
           } else {
-            alert("La Recepción se ha actualizado");
+            swal({
+            type: "success",
+            timer: 3000,
+            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            text: "La Recepción se ha actualizado",
+            showConfirmButton: false,
+          });
+
           }
           axios.get("/api/recepcionSUPER").then((res) => {
             this.recepcioness = res.data;

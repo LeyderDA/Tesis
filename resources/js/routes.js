@@ -71,6 +71,13 @@ export default new Router({
         },
 
         {
+            path: '/GestionVistaSuper',
+            name: 'gestionvistasuper',
+            component: require('./views/GestionSupervistaComponent.vue').default
+
+        },
+
+        {
             path: '/Asignacion',
             name: 'asignacion',
             component: require('./views/AsignarRecepcionComponent.vue').default

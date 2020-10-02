@@ -81,9 +81,25 @@
   </ul>
 </div>
 
-      <li class="nav-item">
-        <router-link class="nav-link" :to="{name: 'gestion'}">Gestionar un Caso</router-link>
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle"
+          data-toggle="dropdown">
+    Gestiones <span></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+     <li class="nav-item">
+        <router-link class="nav-link" :to="{name: 'gestion'}">Agregar Gestión</router-link>
       </li>
+
+      <li class="nav-item">
+        <router-link class="nav-link" :to="{name: 'gestionvistasuper'}">Listar las Gestiones</router-link>
+      </li>
+  </ul>
+</div>
+
+
+
+      
 
 
       

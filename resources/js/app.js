@@ -29,6 +29,7 @@ Vue.component('notas-v', require('./views/NotasComponent.vue').default);
 Vue.component('miusario-v', require('./views/MiUsuarioComponent.vue').default);
 Vue.component('reportes-v', require('./views/ReportesComponent.vue').default);
 Vue.component('vistaReSuper-v', require('./views/SUPERrecepcionvistaComponent.vue').default);
+Vue.component('gestionsuperV-v', require('./views/GestionSupervistaComponent.vue').default);
 import router  from './routes'
 
 //lo del codigo qr

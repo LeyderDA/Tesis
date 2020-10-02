@@ -298,7 +298,7 @@ export default {
       axios.post("/api/recepcion", params).then((res) => {
         if (res.data == null) {
               swal({
-        type: 'success',
+        type: 'error',
         "timer":3000,
         "title":"PARECE QUE HAY UN ERROR",
         "text":"La recepcion No se registro porque tiene errores",
