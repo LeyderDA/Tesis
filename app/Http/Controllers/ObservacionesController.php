@@ -15,6 +15,19 @@ class ObservacionesController extends Controller
         $date = UsuRecep::all()->where('usu_id',$id);
 
         $obs = Observaciones::join("usurecep","observaciones.recp_id","=","usurecep.recp_id")
+        ->join("recepciones","observaciones.recp_id","=","recepciones.id")
+        ->join("areas","recepciones.area_id","=","areas.id")   
+        ->select('observaciones.*',
+        'recepciones.recepcionado',
+        'recepciones.fecharadicado',
+        'recepciones.fecharecepcionado',
+        'recepciones.consultorio',
+        'recepciones.fechareparto',
+        'recepciones.fechapublicacion',
+        'recepciones.fecharetiro',
+        'recepciones.estado',
+        'areas.nombre'
+        )
         ->where('usurecep.usu_id','=',$id)
         ->get();
 

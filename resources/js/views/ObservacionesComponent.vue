@@ -15,14 +15,24 @@
                 <table class="table text-center">
                   <thead>
                     <tr>
-                      <th>Id Recepción</th>
+                      <th>Ver Recepción</th>
                       <th>Observación</th>
                       <th>Opciones</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="(observaciones,index) in observacioness" :key="observaciones.index">
-                      <td>{{observaciones.recepcion.id}}</td>
+                      <td>
+                        <button
+                        class="btn btn-sm"
+                        data-toggle="modal"
+                        data-target="#MOSTRARModalRecp"
+                        @click="editarForm(observaciones, index)"
+                        title="Mostrar Recepción"
+                      >
+                        <i class="fas fa-eye fa-2x" style="color: black"></i>
+                      </button>
+                      </td>
                       <td>{{observaciones.obsrv}}</td>
 
                       <td>
@@ -31,12 +41,14 @@
                           data-toggle="modal"
                           data-target="#editarModal"
                           @click="editarForm(observaciones,index)"
+                          title="Editar Observación"
                         >
                           <i class="fas fa-pencil-alt"></i>
                         </button>
                         <button
                           class="btn btn-danger btn-sm"
                           @click="eliminar(observaciones,index)"
+                          title="Eliminar Observación"
                         >
                           <i class="fas fa-trash-alt"></i>
                         </button>
@@ -49,6 +61,99 @@
           </div>
         </div>
 
+<!--modal de MOSTRAR recepcion-->
+      <div
+        class="modal fade"
+        id="MOSTRARModalRecp"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Recepción</h5>
+            </div>
+            <div class="modal-body">
+              <label class="col-5 col-form-label">Estado</label>
+              <div class="col-6">
+                <select
+                  class="form-control"
+                  placeholder="Estado"
+                  type="boolean"
+                  v-model="observaciones.estado" disabled
+                >
+                  <option value="1">Activo</option>
+                  <option value="0">Inactivo</option>
+                </select>
+              </div>
+
+              <label class="col-5 col-form-label">Fecha de radicado:</label>
+              <input
+                placeholder="recepcion"
+                type="date"
+                v-model="observaciones.fecharadicado" disabled
+              />
+
+              <label class="col-5 col-form-label">Fecha de recepcionado:</label>
+              <input
+                placeholder="recepcion"
+                type="date"
+                v-model="observaciones.fecharecepcionado" disabled
+              />
+
+              <label class="col-5 col-form-label">Fecha de reparto:</label>
+              <input
+                placeholder="recepcion"
+                type="date"
+                v-model="observaciones.fechareparto" disabled
+              />
+
+              <label class="col-5 col-form-label">Fecha de publicación:</label>
+              <input
+                placeholder="recepcion"
+                type="date"
+                v-model="observaciones.fechapublicacion" disabled
+              />
+
+              <label class="col-5 col-form-label">Fecha de retiro</label>
+              <input
+                placeholder="recepcion"
+                type="date"
+                v-model="observaciones.fecharetiro" disabled
+              />
+
+              <label class="col-5 col-form-label">Recepcionado en:</label>
+              <input placeholder="recepcion" v-model="observaciones.recepcionado" disabled />
+
+              <label class="col-5 col-form-label">Consultorio:</label>
+              <input placeholder="recepcion" v-model="observaciones.consultorio" disabled />
+
+              <label class="col-5 col-form-label">Area:</label>
+              <input placeholder="recepcion" v-model="observaciones.nombre" disabled />
+
+              <br />
+              <br />
+
+              <div class="col-12 form-group">
+                <div style="width: 100px; height: 30px; margin: 0 auto">
+                  <button
+                    name="CERRAR"
+                    class="btn btn-primary"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    type="button"
+                  >
+                    CERRAR
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal de MOSTRAR recepcion -->
         <div
           class="modal fade"
           id="editarModal"
@@ -127,7 +232,14 @@ export default {
       if (confirmacion) {
         axios.delete("/api/observaciones/" + observaciones.id).then(() => {
           this.observacioness.splice(index, 1);
-          alert("La Observación se ha eliminado con exito");
+
+             swal({
+        type: 'success',
+        "timer":3000,
+        "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+        "text":"¡La Observación se ha eliminado con exito!!",
+        "showConfirmButton":false
+        });
         });
       }
     },
@@ -145,7 +257,13 @@ export default {
           if (res.data == null) {
             alert("La Observación no se ha actualizado");
           } else {
-            alert("La Observación se ha actualizado con EXITO");
+            swal({
+        type: 'success',
+        "timer":3000,
+        "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+        "text":"¡La Observación se ha actualizado con EXITO!!",
+        "showConfirmButton":false
+        });
           }
         })
         .catch((error) => {

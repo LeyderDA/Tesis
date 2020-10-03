@@ -48,7 +48,7 @@
                         data-toggle="modal"
                         data-target="#MOSTRARModalRecp"
                         @click="editarForm(gestion, index)"
-                        title="Mostrar el resto de datos de la Gestión"
+                        title="Mostrar Recepción"
                       >
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>

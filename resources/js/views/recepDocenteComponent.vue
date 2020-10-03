@@ -451,7 +451,13 @@ export default {
         if (res.data == null) {
           alert("La Observacion No se registro porque tiene errores");
         } else {
-          alert("La Observacion se ha registrado con EXITO");
+           swal({
+        type: 'success',
+        "timer":3000,
+        "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+        "text":"¡La Observacion se ha registrado con EXITO!!",
+        "showConfirmButton":false
+        });
         }
         this.observaciones.obsrv = "";
       });

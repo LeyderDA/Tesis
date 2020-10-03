@@ -580,7 +580,13 @@ export default {
         if (res.data == null) {
           alert("La recepcion No se registro porque tiene errores");
         } else {
-          alert("La recepción se ha registrado con EXITO");
+           swal({
+        type: 'success',
+        "timer":3000,
+        "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+        "text":"¡La recepción se ha registrado con EXITO!!",
+        "showConfirmButton":false
+        });
         }
         this.recepcioness.push(res.data);
       });
@@ -610,7 +616,13 @@ export default {
         if (res.data == null) {
           alert("La Gestión NO se ha registrado");
         } else {
-          alert("¡La Gestión se ha registrado Exitosamente en el Caso!!");
+                     swal({
+        type: 'success',
+        "timer":3000,
+        "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+        "text":"¡La Gestión se ha registrado Exitosamente en el Caso!!",
+        "showConfirmButton":false
+        });
         }
         this.gestion.amplhechos = "";
         this.gestion.fechentrevasesor = "";
