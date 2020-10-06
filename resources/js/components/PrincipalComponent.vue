@@ -120,20 +120,6 @@
             </ul>
           </div>
 
-          <div class="btn-group">
-            <button
-              type="button"
-              class="btn btn-default dropdown-toggle"
-              data-toggle="dropdown"
-            >
-              Gestiones <span></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li class="nav-item">
-                <router-link class="nav-link" :to="{ name: 'gestion' }"
-                  >Agregar Gestión</router-link
-                >
-              </li>
 
               <li class="nav-item">
                 <router-link
@@ -142,30 +128,12 @@
                   >Listar las Gestiones</router-link
                 >
               </li>
-            </ul>
-          </div>
-
-          <div class="btn-group">
-            <button
-              type="button"
-              class="btn btn-default dropdown-toggle"
-              data-toggle="dropdown"
-            >
-              Asignacion de Casos <span></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li class="nav-item">
-                <router-link class="nav-link" :to="{ name: 'asignacion' }"
-                  >Asignar Recepción</router-link
-                >
-              </li>
               <li class="nav-item">
                 <router-link class="nav-link" :to="{ name: 'asignacionvista' }"
                   >Lista de Asignaciones</router-link
                 >
               </li>
-            </ul>
-          </div>
+           
         </ul>
       </div>
     </nav>

@@ -13,16 +13,17 @@
                 <table class="table text-center">
                   <thead>
                     <tr>
-                      <th>Recepción</th>
+                      <th>ID</th>
+                      <th>Area</th>
                       <th>Datos de la Recepción</th>
-                      <th>Usuario Asignado</th>
                       <th>Datos del Asignado</th>
                       <th>Opciones</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="(usurecep,index) in usurecepss" :key="usurecep.index">
-                      <td>{{usurecep.recp_id}}</td>
+                      <td>{{usurecep.id}}</td>
+                      <td>{{usurecep.nombre}}</td>
                       <td>
                            <button
                           class="btn btn-sm"
@@ -34,8 +35,6 @@
                           <i class="fas fa-eye fa-2x" style="color: black"></i>
                         </button>
                       </td>
-                      <td>{{usurecep.usu_id}}</td>
-
                       <td>
                            <button
                           class="btn btn-sm"

@@ -34,7 +34,7 @@ class AsigRecepController extends Controller
         ,'personas.tel'
         ,'personas.direc'
         )
-        ->orderBy('usurecep.recp_id', 'asc')
+        ->orderBy('usurecep.id', 'asc')
         ->get();
 
          if ($request->ajax()) {

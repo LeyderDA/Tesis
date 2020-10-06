@@ -2596,7 +2596,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3747,15 +3746,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -8166,6 +8156,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -8261,6 +8252,9 @@ __webpack_require__.r(__webpack_exports__);
           _this2.esta = true;
         }
       });
+    },
+    limpiar: function limpiar() {
+      this.usuario.persona.cedula = "";
     },
     GUARDARASIGNACION: function GUARDARASIGNACION() {
       var _this3 = this;
@@ -46018,89 +46012,37 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "btn-group" }, [
-                  _vm._m(5),
-                  _vm._v(" "),
-                  _c(
-                    "ul",
-                    { staticClass: "dropdown-menu", attrs: { role: "menu" } },
-                    [
-                      _c(
-                        "li",
-                        { staticClass: "nav-item" },
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "nav-link",
-                              attrs: { to: { name: "gestion" } }
-                            },
-                            [_vm._v("Agregar Gestión")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "li",
-                        { staticClass: "nav-item" },
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "nav-link",
-                              attrs: { to: { name: "gestionvistasuper" } }
-                            },
-                            [_vm._v("Listar las Gestiones")]
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  )
-                ]),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: { name: "gestionvistasuper" } }
+                      },
+                      [_vm._v("Listar las Gestiones")]
+                    )
+                  ],
+                  1
+                ),
                 _vm._v(" "),
-                _c("div", { staticClass: "btn-group" }, [
-                  _vm._m(6),
-                  _vm._v(" "),
-                  _c(
-                    "ul",
-                    { staticClass: "dropdown-menu", attrs: { role: "menu" } },
-                    [
-                      _c(
-                        "li",
-                        { staticClass: "nav-item" },
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "nav-link",
-                              attrs: { to: { name: "asignacion" } }
-                            },
-                            [_vm._v("Asignar Recepción")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "li",
-                        { staticClass: "nav-item" },
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "nav-link",
-                              attrs: { to: { name: "asignacionvista" } }
-                            },
-                            [_vm._v("Lista de Asignaciones")]
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  )
-                ])
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: { name: "asignacionvista" } }
+                      },
+                      [_vm._v("Lista de Asignaciones")]
+                    )
+                  ],
+                  1
+                )
               ])
             ]
           )
@@ -46191,32 +46133,6 @@ var staticRenderFns = [
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
       [_vm._v("\n            Recepciones "), _c("span")]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-default dropdown-toggle",
-        attrs: { type: "button", "data-toggle": "dropdown" }
-      },
-      [_vm._v("\n            Gestiones "), _c("span")]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-default dropdown-toggle",
-        attrs: { type: "button", "data-toggle": "dropdown" }
-      },
-      [_vm._v("\n            Asignacion de Casos "), _c("span")]
     )
   }
 ]
@@ -47187,7 +47103,9 @@ var render = function() {
                     "tbody",
                     _vm._l(_vm.usurecepss, function(usurecep, index) {
                       return _c("tr", { key: usurecep.index }, [
-                        _c("td", [_vm._v(_vm._s(usurecep.recp_id))]),
+                        _c("td", [_vm._v(_vm._s(usurecep.id))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(usurecep.nombre))]),
                         _vm._v(" "),
                         _c("td", [
                           _c(
@@ -47213,8 +47131,6 @@ var render = function() {
                             ]
                           )
                         ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(usurecep.usu_id))]),
                         _vm._v(" "),
                         _c("td", [
                           _c(
@@ -47850,11 +47766,11 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Recepción")]),
+        _c("th", [_vm._v("ID")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Area")]),
         _vm._v(" "),
         _c("th", [_vm._v("Datos de la Recepción")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Usuario Asignado")]),
         _vm._v(" "),
         _c("th", [_vm._v("Datos del Asignado")]),
         _vm._v(" "),
@@ -51592,58 +51508,8 @@ var render = function() {
                           )
                         }
                       }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("Id de recepción")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.gestion.recepcion.id,
-                          expression: "gestion.recepcion.id"
-                        }
-                      ],
-                      attrs: { placeholder: "Id de recepción" },
-                      domProps: { value: _vm.gestion.recepcion.id },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.gestion.recepcion,
-                            "id",
-                            $event.target.value
-                          )
-                        }
-                      }
                     })
                   ]),
-                  _vm._v(" "),
-                  true
-                    ? _c("div", { staticClass: "col-6 form-group" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-primary btn-block",
-                            attrs: {
-                              "data-toggle": "modal",
-                              "data-target": "#buscarModal"
-                            },
-                            on: {
-                              click: function($event) {
-                                return _vm.buscar()
-                              }
-                            }
-                          },
-                          [_vm._v("Buscar")]
-                        )
-                      ])
-                    : undefined,
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-footer" }, [
                     _c(
@@ -61276,6 +61142,11 @@ var render = function() {
                         "data-dismiss": "modal",
                         "aria-label": "Close",
                         type: "button"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.limpiar()
+                        }
                       }
                     },
                     [_vm._v("\n                CERRAR\n              ")]

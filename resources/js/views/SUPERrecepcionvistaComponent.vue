@@ -286,6 +286,7 @@
               <button
                 name="CERRAR"
                 class="btn btn-danger"
+                @click="limpiar()"
                 data-dismiss="modal"
                 aria-label="Close"
                 type="button"
@@ -724,7 +725,9 @@ export default {
         }
       });
     },
-
+limpiar(){
+  this.usuario.persona.cedula="";
+},
 
 GUARDARASIGNACION(){
       const params = {
