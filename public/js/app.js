@@ -2209,9 +2209,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      usuario: {
+        id: "",
+        username: "",
+        email: "",
+        email_verified_at: "",
+        password: "",
+        rol_id: "",
+        per_id: "",
+        persona: {
+          id: "",
+          cedula: "",
+          prinom: "",
+          segnom: "",
+          priape: "",
+          segape: "",
+          tel: "",
+          direc: ""
+        }
+      },
       usurecep: {
         id: "",
         recp_id: "",
@@ -2258,37 +2287,57 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
+    buscarusuced: function buscarusuced() {
+      var _this2 = this;
+
+      axios.get("/api/user2/" + this.usuario.persona.cedula).then(function (res) {
+        if (res.data[0] == null) {
+          _this2.usuario.id = "";
+          _this2.usuario.username = "";
+          _this2.usuario.cedula = "";
+          _this2.usuario.prinom = "";
+          _this2.usuario.priape = "";
+          console.log(_this2.usuario);
+          _this2.esta = false;
+        } else {
+          console.log(res.data[0]);
+          var person = res.data[0];
+          _this2.usuario.persona = person;
+          _this2.esta = true;
+        }
+      });
+    },
     isFormValidusuario: function isFormValidusuario() {
-      return this.usurecep.usuario.id != "";
+      return this.usuario.persona.cedula != "";
     },
     isFormValidrecepcion: function isFormValidrecepcion() {
       return this.usurecep.recepcion.id != "";
     },
     buscarrecep: function buscarrecep() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.get("/api/recepcion/" + this.usurecep.recepcion.id).then(function (res) {
         if (res.data[0] == null) {
-          _this2.usurecep.recepcion.id = "";
-          _this2.usurecep.recepcion.recepcionado = "";
-          _this2.usurecep.recepcion.fecharadicado = "";
-          _this2.usurecep.recepcion.fecharecepcionado = "";
-          _this2.usurecep.recepcion.consultorio = "";
-          _this2.usurecep.recepcion.fechareparto = "";
-          _this2.usurecep.recepcion.fechapublicacion = "";
-          _this2.usurecep.recepcion.fecharetiro = "";
-          console.log(_this2.usurecep.recepcion.id);
-          _this2.esta = false;
+          _this3.usurecep.recepcion.id = "";
+          _this3.usurecep.recepcion.recepcionado = "";
+          _this3.usurecep.recepcion.fecharadicado = "";
+          _this3.usurecep.recepcion.fecharecepcionado = "";
+          _this3.usurecep.recepcion.consultorio = "";
+          _this3.usurecep.recepcion.fechareparto = "";
+          _this3.usurecep.recepcion.fechapublicacion = "";
+          _this3.usurecep.recepcion.fecharetiro = "";
+          console.log(_this3.usurecep.recepcion.id);
+          _this3.esta = false;
         } else {
           console.log(res.data[0]);
           var person = res.data[0];
-          _this2.usurecep.recepcion = person;
-          _this2.esta = true;
+          _this3.usurecep.recepcion = person;
+          _this3.esta = true;
         }
       });
     },
     agregar: function agregar() {
-      var _this3 = this;
+      var _this4 = this;
 
       // alert(this.personas.prinom);
       var params = {
@@ -2316,7 +2365,7 @@ __webpack_require__.r(__webpack_exports__);
           });
         }
 
-        _this3.usurecepss.push(res.data);
+        _this4.usurecepss.push(res.data);
       });
     }
   }
@@ -46245,7 +46294,7 @@ var render = function() {
       _c("form", [
         _c("div", { staticClass: "row" }, [
           _c("label", { staticClass: "col-5 col-form-label" }, [
-            _vm._v("ID RECEPCIÓN:")
+            _vm._v("RECEPCIÓN:")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -46273,7 +46322,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("label", { staticClass: "col-5 col-form-label" }, [
-            _vm._v("ID USUARIO:")
+            _vm._v("USUARIO:")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
@@ -46282,19 +46331,19 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.usurecep.usuario.id,
-                  expression: "usurecep.usuario.id"
+                  value: _vm.usuario.persona.cedula,
+                  expression: "usuario.persona.cedula"
                 }
               ],
               staticClass: "form-control",
-              attrs: { placeholder: "ID USUARIO" },
-              domProps: { value: _vm.usurecep.usuario.id },
+              attrs: { placeholder: "USUARIO" },
+              domProps: { value: _vm.usuario.persona.cedula },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.usurecep.usuario, "id", $event.target.value)
+                  _vm.$set(_vm.usuario.persona, "cedula", $event.target.value)
                 }
               }
             })
@@ -46338,7 +46387,7 @@ var render = function() {
                   },
                   on: {
                     click: function($event) {
-                      return _vm.buscarusu()
+                      return _vm.buscarusuced()
                     }
                   }
                 },
@@ -46662,22 +46711,18 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.usurecep.usuario.id,
-                        expression: "usurecep.usuario.id"
+                        value: _vm.usuario.persona.id,
+                        expression: "usuario.persona.id"
                       }
                     ],
                     attrs: { placeholder: "ID USUARIO" },
-                    domProps: { value: _vm.usurecep.usuario.id },
+                    domProps: { value: _vm.usuario.persona.id },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(
-                          _vm.usurecep.usuario,
-                          "id",
-                          $event.target.value
-                        )
+                        _vm.$set(_vm.usuario.persona, "id", $event.target.value)
                       }
                     }
                   }),
@@ -46691,20 +46736,107 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.usurecep.usuario.username,
-                        expression: "usurecep.usuario.username"
+                        value: _vm.usuario.persona.username,
+                        expression: "usuario.persona.username"
                       }
                     ],
                     attrs: { placeholder: "USERNAME" },
-                    domProps: { value: _vm.usurecep.usuario.username },
+                    domProps: { value: _vm.usuario.persona.username },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
                         _vm.$set(
-                          _vm.usurecep.usuario,
+                          _vm.usuario.persona,
                           "username",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("CEDULA")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.usuario.persona.cedula,
+                        expression: "usuario.persona.cedula"
+                      }
+                    ],
+                    attrs: { placeholder: "USERNAME" },
+                    domProps: { value: _vm.usuario.persona.cedula },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.usuario.persona,
+                          "cedula",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("NOMBRE")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.usuario.persona.prinom,
+                        expression: "usuario.persona.prinom"
+                      }
+                    ],
+                    attrs: { placeholder: "USERNAME" },
+                    domProps: { value: _vm.usuario.persona.prinom },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.usuario.persona,
+                          "prinom",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("APELLIDO")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.usuario.persona.priape,
+                        expression: "usuario.persona.priape"
+                      }
+                    ],
+                    attrs: { placeholder: "USERNAME" },
+                    domProps: { value: _vm.usuario.persona.priape },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.usuario.persona,
+                          "priape",
                           $event.target.value
                         )
                       }

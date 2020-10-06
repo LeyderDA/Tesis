@@ -39,6 +39,7 @@ Route::get('/user', 'UsuarioController@index')->name('usuarioListar');
 Route::delete('/user/{id}', 'UsuarioController@destroy')->name('usuarioEliminar');
 Route::put('/user/{id}', 'UsuarioController@update')->name('usuarioActualizar');
 Route::get('/user/{id}', 'UsuarioController@buscar')->name('userbuscar');
+Route::get('/user2/{id}', 'UsuarioController@buscarusuced')->name('userbuscarcedu');
 
 //RUTAS DE API PARA RECEPCIONES
 Route::post('/recepcion', 'RecepcionController@store')->name('recepcionGuardar');

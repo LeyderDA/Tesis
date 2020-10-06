@@ -6,13 +6,13 @@
     <div class="card-body row">
       <form>
         <div class="row">
-          <label class="col-5 col-form-label">ID RECEPCIÓN:</label>
+          <label class="col-5 col-form-label">RECEPCIÓN:</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="ID RECEPCION" v-model="usurecep.recepcion.id" />
           </div>
-            <label class="col-5 col-form-label">ID USUARIO:</label>
+            <label class="col-5 col-form-label">USUARIO:</label>
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="ID USUARIO" v-model="usurecep.usuario.id" />
+            <input class="form-control" placeholder="USUARIO" v-model="usuario.persona.cedula" />
           </div>
 
         </div>
@@ -32,7 +32,7 @@
             class="btn btn-primary btn-block"
             data-toggle="modal"
             data-target="#buscarModalUSU"
-            @click="buscarusu()" :disabled="!isFormValidusuario()"
+            @click="buscarusuced()" :disabled="!isFormValidusuario()"
           >Buscar Usuario</button>
         </div>
 
@@ -114,9 +114,19 @@
               </div>
               <div class="modal-body">
                 <label class="col-5 col-form-label">ID USUARIO</label>
-                <input placeholder="ID USUARIO" v-model="usurecep.usuario.id" />
+                <input placeholder="ID USUARIO" v-model="usuario.persona.id" />
+
                 <label class="col-5 col-form-label">USERNAME</label>
-                <input placeholder="USERNAME" v-model="usurecep.usuario.username" />
+                <input placeholder="USERNAME" v-model="usuario.persona.username" />
+
+                <label class="col-5 col-form-label">CEDULA</label>
+                <input placeholder="USERNAME" v-model="usuario.persona.cedula" />
+
+                <label class="col-5 col-form-label">NOMBRE</label>
+                <input placeholder="USERNAME" v-model="usuario.persona.prinom" />
+
+                <label class="col-5 col-form-label">APELLIDO</label>
+                <input placeholder="USERNAME" v-model="usuario.persona.priape" />
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -133,6 +143,30 @@
 export default {
   data() {
     return {
+usuario: {
+        id: "",
+        username: "",
+        email: "",
+        email_verified_at: "",
+        password: "",
+        rol_id: "",
+        per_id: "",
+
+        persona: {
+          id: "",
+          cedula: "",
+          prinom: "",
+          segnom: "",
+          priape: "",
+          segape: "",
+          tel: "",
+          direc: "",
+        },
+      },
+
+
+
+
       usurecep: {
         id: "",
         recp_id: "",
@@ -181,8 +215,28 @@ export default {
       });
     },
 
+
+        buscarusuced() {
+      axios.get("/api/user2/" + this.usuario.persona.cedula).then((res) => {
+        if (res.data[0] == null) {
+          this.usuario.id = "";
+          this.usuario.username = "";
+          this.usuario.cedula = "";
+          this.usuario.prinom = "";
+          this.usuario.priape = "";
+          console.log(this.usuario);
+          this.esta = false;
+        } else {
+          console.log(res.data[0]);
+          let person = res.data[0];
+          this.usuario.persona = person;
+          this.esta = true;
+        }
+      });
+    },
+
            isFormValidusuario: function(){
-            return this.usurecep.usuario.id!="";
+            return this.usuario.persona.cedula!="";
           },
 
            isFormValidrecepcion: function(){

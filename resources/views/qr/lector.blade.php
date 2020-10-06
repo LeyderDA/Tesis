@@ -2,28 +2,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Lector QR</title>
-    
+    <title>Lector QR</title>   
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
     <link href="{{ asset('css/lector.css') }}" rel="stylesheet">
   </head>
-
   <body>
-
       <select class="form-control" id="exampleFormControlSelect1" >
         <option value="1">Buscar Gestiones de una Recepción</option>
         <option value="2">Buscar Observaciones de una Recepción</option>
         <option value="3">Buscar Recepciones de un Usuario</option>
       </select>
-
     <video id="preview"></video>
     <!-- <script src="instascan.min.js"></script> -->
+    <!-- {{ asset('js/instascan.min.js') }} -->
     <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
     <script type="text/javascript">
     
     x = new Boolean(true);
-
+   
     var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
     scanner.addListener('scan',function(content){
         //alert(content);

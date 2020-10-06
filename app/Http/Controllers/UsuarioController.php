@@ -106,5 +106,22 @@ class UsuarioController extends Controller
             return  $pers;
         
     }
+
+
+    public function buscarusuced($cedula)
+    {
+        $usuario = User::join("personas","users.per_id","=","personas.id")
+        ->select('users.*',
+        'personas.cedula',
+        'personas.prinom',
+        'personas.segnom',
+        'personas.priape',
+        'personas.segape'
+        )
+        ->where("personas.cedula","=",$cedula)
+        ->get(); 
+        return  $usuario;   
+
+    }
     
 }
