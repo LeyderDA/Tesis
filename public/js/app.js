@@ -6606,13 +6606,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -51323,7 +51316,10 @@ var render = function() {
                           expression: "gestion.fechentrevasesor"
                         }
                       ],
-                      attrs: { placeholder: "fecha entrevista asesor" },
+                      attrs: {
+                        placeholder: "fecha entrevista asesor",
+                        type: "date"
+                      },
                       domProps: { value: _vm.gestion.fechentrevasesor },
                       on: {
                         input: function($event) {
@@ -51439,7 +51435,7 @@ var render = function() {
                           expression: "gestion.fechaarchivo"
                         }
                       ],
-                      attrs: { placeholder: "Fecha archivo" },
+                      attrs: { placeholder: "Fecha archivo", type: "date" },
                       domProps: { value: _vm.gestion.fechaarchivo },
                       on: {
                         input: function($event) {
@@ -52475,7 +52471,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("h2", { staticClass: "text-center mb-2 card-title" }, [
-        _vm._v("Registrando una nueva Gestión")
+        _vm._v("Listado de Gestiones")
       ])
     ])
   },
@@ -58139,7 +58135,7 @@ var render = function() {
                           expression: "reclamante.persona.cedula"
                         }
                       ],
-                      attrs: { placeholder: "cedula" },
+                      attrs: { placeholder: "cedula", disabled: "" },
                       domProps: { value: _vm.reclamante.persona.cedula },
                       on: {
                         input: function($event) {
@@ -58153,28 +58149,7 @@ var render = function() {
                           )
                         }
                       }
-                    }),
-                    _vm._v(" "),
-                    true
-                      ? _c("div", { staticClass: "col-6 form-group" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-primary btn-block",
-                              attrs: {
-                                "data-toggle": "modal",
-                                "data-target": "#buscarModal"
-                              },
-                              on: {
-                                click: function($event) {
-                                  return _vm.buscar()
-                                }
-                              }
-                            },
-                            [_vm._v("Buscar")]
-                          )
-                        ])
-                      : undefined
+                    })
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-footer" }, [

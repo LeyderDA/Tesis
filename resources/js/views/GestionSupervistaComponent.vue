@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div>
-      <h2 class="text-center mb-2 card-title">Registrando una nueva Gestión</h2>
+      <h2 class="text-center mb-2 card-title">Listado de Gestiones</h2>
     </div>
     <div class="card-body row">
       <br />
@@ -94,11 +94,11 @@
               </div>
               <div class="modal-body">
 
-                 <label class="col-5 col-form-label">Ampliación de hechos</label>
+                 <label class="col-5 col-form-label" >Ampliación de hechos</label>
                 <input placeholder="Ampliación de hechos" v-model="gestion.amplhechos" />
 
                 <label class="col-5 col-form-label">fecha entrevista asesor</label>
-                <input placeholder="fecha entrevista asesor" v-model="gestion.fechentrevasesor" />
+                <input placeholder="fecha entrevista asesor"  type="date" v-model="gestion.fechentrevasesor" />
 
                 <label class="col-5 col-form-label">Tipo de tramite</label>
                 <input placeholder="Tipo de tramite" v-model="gestion.tipotramite" />
@@ -110,7 +110,7 @@
                 <input placeholder="Motivo archivo" v-model="gestion.motivoarchivo" />
 
                 <label class="col-5 col-form-label">Fecha archivo</label>
-                <input placeholder="Fecha archivo" v-model="gestion.fechaarchivo" />
+                <input placeholder="Fecha archivo" type="date" v-model="gestion.fechaarchivo" />
 
                 <label class="col-5 col-form-label">Observación del tramite</label>
                 <input placeholder="Observación del tramite" v-model="gestion.obsrvtramite" />

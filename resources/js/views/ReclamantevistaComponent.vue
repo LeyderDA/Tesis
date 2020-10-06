@@ -114,15 +114,8 @@
                 <input placeholder="entidad" v-model="reclamante.persoentidreclama" />
 
                 <label class="col-5 col-form-label">Cedula</label>
-                <input placeholder="cedula" v-model="reclamante.persona.cedula" />
-                <div class="col-6 form-group" v-if="true">
-                  <button
-                    class="btn btn-primary btn-block"
-                    data-toggle="modal"
-                    data-target="#buscarModal"
-                    @click="buscar()"
-                  >Buscar</button>
-                </div>
+                <input placeholder="cedula" v-model="reclamante.persona.cedula" disabled/>
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
