@@ -9452,26 +9452,114 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      usuario: {
+      notas: {
         id: "",
-        username: "",
-        email: "",
-        email_verified_at: "",
-        password: "",
-        per_id: "",
-        persona: {
-          id: "",
-          cedula: "",
-          prinom: "",
-          segnom: "",
-          priape: "",
-          segape: "",
-          tel: "",
-          direc: ""
-        }
+        notapricort: "",
+        notasegcort: "",
+        notateracort: "",
+        usu_id: ""
       },
       observaciones: {
         id: "",
@@ -9536,12 +9624,38 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
+    agregarNOTAS: function agregarNOTAS() {
+      var _this2 = this;
+
+      // alert(this.personas.prinom);
+      var params = {
+        notapricort: this.notas.notapricort,
+        notasegcort: this.notas.notasegcort,
+        notateracort: this.notas.notateracort,
+        recp_id: this.recepcion.id
+      };
+      this.notas.notapricort = "";
+      this.notas.notasegcort = "";
+      this.notas.notateracort = "";
+      this.notas.recepcion.id = "";
+      this.notas.user.id = "";
+      axios.post("/api/notas", params).then(function (res) {
+        if (res.data == null) {
+          alert("La nota no se ha registrado con exito");
+        } else {
+          alert("La nota se ha registrado");
+        }
+
+        _this2.notass.push(res.data);
+      });
+    },
+    limpiar: function limpiar() {},
     editarForm: function editarForm(recepcion, index) {
       this.recepcion = recepcion;
       this.recepcion.index = index;
     },
     editar: function editar() {
-      var _this2 = this;
+      var _this3 = this;
 
       var params = {
         obsrv: this.observaciones.obsrv,
@@ -9560,7 +9674,7 @@ __webpack_require__.r(__webpack_exports__);
           });
         }
 
-        _this2.observaciones.obsrv = "";
+        _this3.observaciones.obsrv = "";
       });
     }
   }
@@ -63878,28 +63992,55 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-success btn-sm",
-                          attrs: {
-                            "data-toggle": "modal",
-                            "data-target": "#observacionModal",
-                            title: "Agregar una Observación"
-                          },
-                          on: {
-                            click: function($event) {
-                              return _vm.editarForm(recepcion)
+                      _c("td", [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-success btn-sm",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": "#observacionModal",
+                              title: "Agregar una Observación"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.editarForm(recepcion)
+                              }
                             }
-                          }
-                        },
-                        [
-                          _c("i", {
-                            staticClass: "fas fa-thumbtack fa-3x",
-                            staticStyle: { color: "black" }
-                          })
-                        ]
-                      ),
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "fas fa-thumbtack fa-3x",
+                              staticStyle: { color: "black" }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-success btn-sm",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": "#aggnotasmodal",
+                              title: "Agregar Calificación"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.editarForm(recepcion)
+                              }
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "fas fa-plus fa-3x",
+                              staticStyle: { color: "black" }
+                            })
+                          ]
+                        )
+                      ]),
                       _vm._v(" "),
                       _c("td", [
                         _c(
@@ -64852,6 +64993,192 @@ var render = function() {
             ]
           )
         ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "aggnotasmodal",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "exampleModalLabel",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(7),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Id Recepción")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.recepcion.id,
+                          expression: "recepcion.id"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { placeholder: "Recepción", disabled: "" },
+                      domProps: { value: _vm.recepcion.id },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.recepcion, "id", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Nota primer corte")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.notas.notapricort,
+                          expression: "notas.notapricort"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { placeholder: "Nota primer corte" },
+                      domProps: { value: _vm.notas.notapricort },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.notas,
+                            "notapricort",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Nota segundo corte")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.notas.notasegcort,
+                          expression: "notas.notasegcort"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { placeholder: "Nota segundo corte" },
+                      domProps: { value: _vm.notas.notasegcort },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.notas,
+                            "notasegcort",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Nota tercer corte")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.notas.notateracort,
+                          expression: "notas.notateracort"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { placeholder: "Nota tercer corte" },
+                      domProps: { value: _vm.notas.notateracort },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.notas,
+                            "notateracort",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      attrs: {
+                        name: "CERRAR",
+                        "data-dismiss": "modal",
+                        "aria-label": "Close",
+                        type: "button"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.limpiar()
+                        }
+                      }
+                    },
+                    [_vm._v("\n              CERRAR\n            ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "button", "data-dismiss": "modal" },
+                      on: {
+                        click: function($event) {
+                          return _vm.agregarNOTAS()
+                        }
+                      }
+                    },
+                    [_vm._v("\n              Guardar Cambios\n            ")]
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
       )
     ])
   ])
@@ -64886,6 +65213,8 @@ var staticRenderFns = [
         _c("th", [_vm._v("Fechas")]),
         _vm._v(" "),
         _c("th", [_vm._v("Agregar observación")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Agregar Calificación")]),
         _vm._v(" "),
         _c("th", [_vm._v("Mostrar QR")])
       ])
@@ -64989,6 +65318,31 @@ var staticRenderFns = [
             [_vm._v("\n                  CERRAR\n                ")]
           )
         ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("\n              Agregar Notas\n            ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
     ])
   }

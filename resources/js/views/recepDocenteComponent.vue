@@ -23,6 +23,7 @@
                     <th>Area</th>
                     <th>Fechas</th>
                     <th>Agregar observación</th>
+                    <th>Agregar Calificación</th>
                     <th>Mostrar QR</th>
                   </tr>
                 </thead>
@@ -55,7 +56,8 @@
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
                     </td>
-                        <button
+                    <td>
+                           <button
                         class="btn btn-success btn-sm"
                         data-toggle="modal"
                         data-target="#observacionModal"
@@ -64,12 +66,24 @@
                       >
                         <i  class="fas fa-thumbtack fa-3x" style="color: black;"></i>                       
                       </button>
+
+                    </td>
+
+                    <td>
+                       <button
+                        class="btn btn-success btn-sm"
+                        data-toggle="modal"
+                        data-target="#aggnotasmodal"
+                        @click="editarForm(recepcion)"
+                        title="Agregar Calificación"
+                      >
+                        <i  class="fas fa-plus fa-3x" style="color: black;"></i>                       
+                      </button>
+                    </td>                       
                     <td>
                       <a :href="'/recepcionqr/'+recepcion.id"> 
                         <i class="fas fa-qrcode fa-3x" style="color: black;"></i>
-                      </a>
-
-                      
+                      </a> 
                     </td>
                     <td></td>
                   </tr>
@@ -344,7 +358,92 @@
       </div>
       <!--modal de MOSTRAR EL RECLAMANTE -->
 
-     
+
+
+       <!--modal de agg NOTAS AL ESTUDIANTE -->
+      <div
+        class="modal fade"
+        id="aggnotasmodal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Agregar Notas
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+            <label class="col-5 col-form-label">Id Recepción</label>
+          <div class="col-6 form-group">
+            <input class="form-control" placeholder="Recepción" v-model="recepcion.id" disabled />
+          </div>
+
+
+          <label class="col-5 col-form-label">Nota primer corte</label>
+          <div class="col-6 form-group">
+            <input class="form-control" placeholder="Nota primer corte" v-model="notas.notapricort" />
+          </div>
+
+
+          <label class="col-5 col-form-label">Nota segundo corte</label>
+          <div class="col-6 form-group">
+            <input
+              class="form-control"
+              placeholder="Nota segundo corte"
+              v-model="notas.notasegcort"
+            />
+          </div>
+          <label class="col-5 col-form-label">Nota tercer corte</label>
+          <div class="col-6 form-group">
+            <input
+              class="form-control"
+              placeholder="Nota tercer corte"
+              v-model="notas.notateracort"
+            />
+          </div>
+        
+             
+            </div>
+            <div class="modal-footer">
+              <button
+                name="CERRAR"
+                class="btn btn-danger"
+                @click="limpiar()"
+                data-dismiss="modal"
+                aria-label="Close"
+                type="button"
+              >
+                CERRAR
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-primary"
+                @click="agregarNOTAS()"
+                data-dismiss="modal"
+              >
+                Guardar Cambios
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal de agg NOTAS AL ESTUDIANTE -->
+
+
     </div>
   </div>
 </template>
@@ -352,25 +451,13 @@
 export default {
   data() {
     return {
-      usuario: {
+       notas: {
         id: "",
-        username: "",
-        email: "",
-        email_verified_at: "",
-        password: "",
-        per_id: "",
-
-        persona: {
-          id: "",
-          cedula: "",
-          prinom: "",
-          segnom: "",
-          priape: "",
-          segape: "",
-          tel: "",
-          direc: "",
-        },
-      },
+        notapricort: "",
+        notasegcort: "",
+        notateracort: "",
+        usu_id: "",
+       },
 
       observaciones: {
         id: "",
@@ -437,6 +524,36 @@ export default {
   },
   methods: {
     
+
+    agregarNOTAS() {
+      // alert(this.personas.prinom);
+      const params = {
+        notapricort: this.notas.notapricort,
+        notasegcort: this.notas.notasegcort,
+        notateracort: this.notas.notateracort,
+        recp_id: this.recepcion.id,
+      };
+      this.notas.notapricort = "";
+      this.notas.notasegcort = "";
+      this.notas.notateracort = "";
+      this.notas.recepcion.id = "";
+      this.notas.user.id = "";
+
+      axios.post("/api/notas", params).then((res) => {
+        if (res.data == null) {
+          alert("La nota no se ha registrado con exito");
+        } else {
+          alert("La nota se ha registrado");
+        }
+        this.notass.push(res.data);
+      });
+    },
+      limpiar(){
+
+},
+
+
+
     editarForm(recepcion, index) {
       this.recepcion = recepcion;
       this.recepcion.index = index;
