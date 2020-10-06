@@ -70,4 +70,19 @@ class ReclamanteController extends Controller
         return  response()->json($re);
     }
 
+    public function buscarreclaced($cedula)
+    {
+        $usuario = Reclamante::join("personas","reclamantes.per_id","=","personas.id")
+        ->select('reclamantes.*',
+        'personas.cedula',
+        'personas.prinom',
+        'personas.segnom',
+        'personas.priape',
+        'personas.segape'
+        )
+        ->where("personas.cedula","=",$cedula)
+        ->get(); 
+        return  $usuario;   
+    }
+
 }

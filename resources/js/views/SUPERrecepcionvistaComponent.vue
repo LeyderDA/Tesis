@@ -630,6 +630,8 @@
 export default {
   data() {
     return {
+
+      
       recepcion: {
         id: "",
         recepcionado: "",

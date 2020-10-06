@@ -121,7 +121,6 @@ class UsuarioController extends Controller
         ->where("personas.cedula","=",$cedula)
         ->get(); 
         return  $usuario;   
-
     }
     
 }

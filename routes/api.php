@@ -59,6 +59,7 @@ Route::get('/reclamante', 'ReclamanteController@index')->name('reclamanteListar'
 Route::delete('/reclamante/{id}', 'ReclamanteController@destroy')->name('reclamanteEliminar');
 Route::put('/reclamante/{id}', 'ReclamanteController@update')->name('reclamanteActualizar');
 Route::get('/reclamante/{id}', 'ReclamanteController@buscar')->name('reclamantebuscar');
+Route::get('/reclamante2/{id}', 'ReclamanteController@buscarreclaced')->name('reclamantebuscar2');
 
 //RUTAS DE API PARA LA GESTION
 Route::post('/gestion', 'GestionController@store')->name('gestionGuardar');

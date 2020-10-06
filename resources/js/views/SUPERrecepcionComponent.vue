@@ -87,7 +87,7 @@
 
            <label class="col-5 col-form-label">Ingresa el ID del reclamante</label>
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Reclamante" v-model="recepcion.reclamante.id" />
+            <input class="form-control" placeholder="Reclamante" v-model="usuario.persona.cedula" />
           </div>
 
         </div>
@@ -108,8 +108,8 @@
           <button
             class="btn btn-primary btn-block"
             data-toggle="modal"
-            data-target="#buscarModalrecl"
-            @click="buscarrecl()" :disabled="!isFormValidReclamante()"
+            data-target="#buscarModalUSU"
+            @click="buscarreclaced()" :disabled="!isFormValidReclamante()"
           >B.Reclamante <i class="fas fa-search fa-1x" style="color: black"></i></button>
         </div>
         <!--buscar recepcionador -->
@@ -179,6 +179,47 @@
           </div>
         </div>
         <!--cierro modal de buscar -->
+
+  <!--segundo modal - el de buscar RECLAMANTE-->
+        <div
+          class="modal fade"
+          id="buscarModalUSU"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mostrar Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <label class="col-5 col-form-label">ID RECLAMANTE</label>
+                <input placeholder="ID USUARIO" v-model="usuario.persona.id" />
+
+                <label class="col-5 col-form-label">CEDULA</label>
+                <input placeholder="USERNAME" v-model="usuario.persona.cedula" />
+
+                <label class="col-5 col-form-label">NOMBRE</label>
+                <input placeholder="USERNAME" v-model="usuario.persona.prinom" />
+
+                <label class="col-5 col-form-label">APELLIDO</label>
+                <input placeholder="USERNAME" v-model="usuario.persona.priape" />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger"  data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--cierro modal de buscar RECLAMANTE-->
+
+
+
       </div>
     </div>
   </div>  
@@ -187,6 +228,28 @@
 export default {  
   data() {   
     return {
+
+      usuario: {
+        id: "",
+        username: "",
+        email: "",
+        email_verified_at: "",
+        password: "",
+        rol_id: "",
+        per_id: "",
+
+        persona: {
+          id: "",
+          cedula: "",
+          prinom: "",
+          segnom: "",
+          priape: "",
+          segape: "",
+          tel: "",
+          direc: "",
+        },
+      },
+
       recepcion: {
         id: "",
         recepcionado: "",
@@ -233,6 +296,31 @@ export default {
     };
   },
   methods: {
+
+    
+      buscarreclaced() {
+      axios.get("/api/reclamante2/" + this.usuario.persona.cedula).then((res) => {
+        if (res.data[0] == null) {
+          this.usuario.persona.id = "";
+          this.usuario.persona.username = "";
+          this.usuario.persona.cedula = "";
+          this.usuario.persona.prinom = "";
+          this.usuario.persona.priape = "";
+          console.log(this.usuario);
+          this.esta = false;
+        } else {
+          console.log(res.data[0]);
+          let person = res.data[0];
+          this.usuario.persona = person;
+          this.esta = true;
+        }
+      });
+    },
+
+    limpiar(){
+  this.usuario.persona.cedula="";
+},
+
     buscarrecl() {
       axios
         .get("/api/reclamante/" + this.recepcion.reclamante.id)
@@ -254,7 +342,7 @@ export default {
             return this.recepcion.area.nombre!="";
           },
       isFormValidReclamante: function(){
-            return this.recepcion.reclamante.id!="";
+            return this.usuario.persona.cedula!="";
           },
     buscararea() {
       axios.get("/api/area/" + this.recepcion.area.nombre).then((res) => {
@@ -281,7 +369,7 @@ export default {
         fechapublicacion: this.recepcion.fechapublicacion,
         fecharetiro: this.recepcion.fecharetiro,
         estado: this.recepcion.estado,
-        recla_id: this.recepcion.reclamante.id,
+        recla_id: this.usuario.persona.id,
         area_id: this.recepcion.area.id,
       };
           this.recepcion.recepcionado = "";
@@ -294,7 +382,9 @@ export default {
           this.recepcion.reclamante.id = "";
           this.recepcion.area.id = "";
           this.recepcion.area.nombre = "";
-          this.recepcion.estado = "";  
+          this.recepcion.estado = "";
+          this.usuario.persona.cedula="";
+
       axios.post("/api/recepcion", params).then((res) => {
         if (res.data == null) {
               swal({
