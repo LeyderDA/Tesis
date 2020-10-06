@@ -133,6 +133,13 @@
                   >Lista de Asignaciones</router-link
                 >
               </li>
+
+
+
+              <li class="nav-item">
+                <a :href="'/Est'">Estadisticas
+                      </a>
+                </li>
            
         </ul>
       </div>

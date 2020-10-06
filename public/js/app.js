@@ -46042,7 +46042,13 @@ var render = function() {
                     )
                   ],
                   1
-                )
+                ),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-item" }, [
+                  _c("a", { attrs: { href: "/Est" } }, [
+                    _vm._v("Estadisticas\n                    ")
+                  ])
+                ])
               ])
             ]
           )

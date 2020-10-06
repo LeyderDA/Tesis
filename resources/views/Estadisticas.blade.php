@@ -1,3 +1,4 @@
+
 <div class="row col-5" style="width: 500px; height:500px">
     <canvas id="myChart" width="400" height="400"></canvas>  
 </div>
@@ -5,3 +6,10 @@
 <script>
 <?php echo $script_graficar ?>
 </script>
+
+
+<a href="/home"  class="btn btn-primary">Volver</a>
+
+
+
+
