@@ -216,7 +216,7 @@ usuario: {
     },
 
 
-        buscarusuced() {
+      buscarusuced() {
       axios.get("/api/user2/" + this.usuario.persona.cedula).then((res) => {
         if (res.data[0] == null) {
           this.usuario.id = "";
