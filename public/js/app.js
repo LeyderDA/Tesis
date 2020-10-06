@@ -8269,6 +8269,7 @@ __webpack_require__.r(__webpack_exports__);
         recp_id: this.recepcion.id,
         usu_id: this.usuario.persona.id
       };
+      this.usuario.persona.cedula = "";
       axios.post("/api/asigrecep", params).then(function (res) {
         if (res.data == null) {
           swal({
