@@ -7606,6 +7606,49 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+var _methods;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -8236,7 +8279,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {
+    var _ref;
+
+    return _ref = {
+      usuario: {
+        id: "",
+        username: "",
+        email: "",
+        email_verified_at: "",
+        password: "",
+        rol_id: "",
+        per_id: "",
+        persona: {
+          id: "",
+          cedula: "",
+          prinom: "",
+          segnom: "",
+          priape: "",
+          segape: "",
+          tel: "",
+          direc: ""
+        }
+      },
       recepcion: {
         id: "",
         recepcionado: "",
@@ -8275,31 +8339,26 @@ __webpack_require__.r(__webpack_exports__);
           id: "",
           nombre: ""
         }
-      },
-      usuario: {
+      }
+    }, _defineProperty(_ref, "usuario", {
+      id: "",
+      username: "",
+      email: "",
+      email_verified_at: "",
+      password: "",
+      rol_id: "",
+      per_id: "",
+      persona: {
         id: "",
-        username: "",
-        email: "",
-        email_verified_at: "",
-        password: "",
-        rol_id: "",
-        per_id: "",
-        persona: {
-          id: "",
-          cedula: "",
-          prinom: "",
-          segnom: "",
-          priape: "",
-          segape: "",
-          tel: "",
-          direc: ""
-        }
-      },
-      esta: false,
-      estado: "disable",
-      recepcioness: [],
-      errors: []
-    };
+        cedula: "",
+        prinom: "",
+        segnom: "",
+        priape: "",
+        segape: "",
+        tel: "",
+        direc: ""
+      }
+    }), _defineProperty(_ref, "esta", false), _defineProperty(_ref, "estado", "disable"), _defineProperty(_ref, "recepcioness", []), _defineProperty(_ref, "errors", []), _ref;
   },
   created: function created() {
     var _this = this;
@@ -8309,7 +8368,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log(res.data);
     });
   },
-  methods: {
+  methods: (_methods = {
     buscarusuced: function buscarusuced() {
       var _this2 = this;
 
@@ -8333,146 +8392,163 @@ __webpack_require__.r(__webpack_exports__);
     limpiar: function limpiar() {
       this.usuario.persona.cedula = "";
     },
-    GUARDARASIGNACION: function GUARDARASIGNACION() {
+    buscarreclaced: function buscarreclaced() {
       var _this3 = this;
 
-      var params = {
-        recp_id: this.recepcion.id,
-        usu_id: this.usuario.persona.id
-      };
-      this.usuario.persona.cedula = "";
-      axios.post("/api/asigrecep", params).then(function (res) {
-        if (res.data == null) {
-          swal({
-            type: 'error',
-            "timer": 3000,
-            "title": "PARECE QUE HAY UN ERROR",
-            "text": "La asignacion no se ha registrado con exito",
-            "showConfirmButton": false
-          });
-        } else {
-          swal({
-            type: 'success',
-            "timer": 3000,
-            "title": "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            "text": "La asignacion del caso se ha registrado",
-            "showConfirmButton": false
-          });
-        }
-
-        axios.get("/api/recepcionSUPER").then(function (res) {
-          _this3.recepcioness = res.data;
-          console.log(res.data);
-        });
-      });
-    },
-    buscarrecl: function buscarrecl() {
-      var _this4 = this;
-
-      axios.get("/api/reclamante/" + this.recepcion.reclamante.id).then(function (res) {
+      axios.get("/api/reclamante2/" + this.usuario.persona.cedula).then(function (res) {
         if (res.data[0] == null) {
-          _this4.recepcion.reclamante.id = "";
-          _this4.recepcion.reclamante.per_id = "";
-          console.log(_this4.recepcion.reclamante);
-          _this4.esta = false;
+          _this3.usuario.persona.id = "";
+          _this3.usuario.persona.username = "";
+          _this3.usuario.persona.cedula = "";
+          _this3.usuario.persona.prinom = "";
+          _this3.usuario.persona.priape = "";
+          console.log(_this3.usuario);
+          _this3.esta = false;
         } else {
           console.log(res.data[0]);
           var person = res.data[0];
-          _this4.recepcion.reclamante = person;
-          _this4.esta = true;
-        }
-      });
-    },
-    buscararea: function buscararea() {
-      var _this5 = this;
-
-      axios.get("/api/area/" + this.recepcion.area.nombre).then(function (res) {
-        if (res.data[0] == null) {
-          _this5.recepcion.area.id = "";
-          _this5.recepcion.area.nombre = "";
-          console.log(_this5.recepcion.area);
-          _this5.esta = false;
-        } else {
-          console.log(res.data[0]);
-          var person = res.data[0];
-          _this5.recepcion.area = person;
-          _this5.esta = true;
-        }
-      });
-    },
-    eliminar: function eliminar(recepcion, index) {
-      var _this6 = this;
-
-      var confirmacion = confirm("Confirma Eliminar Recepcion del area de: ".concat(recepcion.area.nombre));
-
-      if (confirmacion) {
-        axios["delete"]("/api/recepcion/" + recepcion.id).then(function () {
-          _this6.recepcioness.splice(index, 1);
-
-          swal({
-            type: "success",
-            timer: 3000,
-            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            text: "La recepción se ha eliminado con exito",
-            showConfirmButton: false
-          });
-        });
-      }
-    },
-    isFormValidusuario: function isFormValidusuario() {
-      return this.usuario.persona.cedula != "";
-    },
-    editarForm: function editarForm(recepcion, index) {
-      this.recepcion = recepcion;
-      this.recepcion.index = index;
-    },
-    editar: function editar() {
-      var _this7 = this;
-
-      var params = {
-        recepcionado: this.recepcion.recepcionado,
-        fecharadicado: this.recepcion.fecharadicado,
-        fecharecepcionado: this.recepcion.fecharecepcionado,
-        consultorio: this.recepcion.consultorio,
-        fechareparto: this.recepcion.fechareparto,
-        fechapublicacion: this.recepcion.fechapublicacion,
-        fecharetiro: this.recepcion.fecharetiro,
-        estado: this.recepcion.estado,
-        recla_id: this.recepcion.reclamante.id,
-        area_id: this.recepcion.area.id
-      };
-      axios.put("/api/recepcion/" + this.recepcion.id, params).then(function (res) {
-        if (res.data == null) {
-          swal({
-            type: "error",
-            timer: 3000,
-            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            text: "La recepcion no se ha actualizado",
-            showConfirmButton: false
-          });
-        } else {
-          swal({
-            type: "success",
-            timer: 3000,
-            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            text: "La Recepción se ha actualizado",
-            showConfirmButton: false
-          });
-        }
-
-        axios.get("/api/recepcionSUPER").then(function (res) {
-          _this7.recepcioness = res.data;
-          console.log(res.data);
-        });
-      })["catch"](function (error) {
-        if (error.response.status == 422) {
-          _this7.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
-
-          alert(_this7.errors.recepcionado[0]);
+          _this3.usuario.persona = person;
+          _this3.esta = true;
         }
       });
     }
-  }
+  }, _defineProperty(_methods, "limpiar", function limpiar() {
+    this.usuario.persona.cedula = "";
+  }), _defineProperty(_methods, "isFormValidReclamante", function isFormValidReclamante() {
+    return this.usuario.persona.cedula != "";
+  }), _defineProperty(_methods, "GUARDARASIGNACION", function GUARDARASIGNACION() {
+    var _this4 = this;
+
+    var params = {
+      recp_id: this.recepcion.id,
+      usu_id: this.usuario.persona.id
+    };
+    this.usuario.persona.cedula = "";
+    axios.post("/api/asigrecep", params).then(function (res) {
+      if (res.data == null) {
+        swal({
+          type: 'error',
+          "timer": 3000,
+          "title": "PARECE QUE HAY UN ERROR",
+          "text": "La asignacion no se ha registrado con exito",
+          "showConfirmButton": false
+        });
+      } else {
+        swal({
+          type: 'success',
+          "timer": 3000,
+          "title": "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+          "text": "La asignacion del caso se ha registrado",
+          "showConfirmButton": false
+        });
+      }
+
+      axios.get("/api/recepcionSUPER").then(function (res) {
+        _this4.recepcioness = res.data;
+        console.log(res.data);
+      });
+    });
+  }), _defineProperty(_methods, "buscarrecl", function buscarrecl() {
+    var _this5 = this;
+
+    axios.get("/api/reclamante/" + this.recepcion.reclamante.id).then(function (res) {
+      if (res.data[0] == null) {
+        _this5.recepcion.reclamante.id = "";
+        _this5.recepcion.reclamante.per_id = "";
+        console.log(_this5.recepcion.reclamante);
+        _this5.esta = false;
+      } else {
+        console.log(res.data[0]);
+        var person = res.data[0];
+        _this5.recepcion.reclamante = person;
+        _this5.esta = true;
+      }
+    });
+  }), _defineProperty(_methods, "buscararea", function buscararea() {
+    var _this6 = this;
+
+    axios.get("/api/area/" + this.recepcion.area.nombre).then(function (res) {
+      if (res.data[0] == null) {
+        _this6.recepcion.area.id = "";
+        _this6.recepcion.area.nombre = "";
+        console.log(_this6.recepcion.area);
+        _this6.esta = false;
+      } else {
+        console.log(res.data[0]);
+        var person = res.data[0];
+        _this6.recepcion.area = person;
+        _this6.esta = true;
+      }
+    });
+  }), _defineProperty(_methods, "eliminar", function eliminar(recepcion, index) {
+    var _this7 = this;
+
+    var confirmacion = confirm("Confirma Eliminar Recepcion del area de: ".concat(recepcion.area.nombre));
+
+    if (confirmacion) {
+      axios["delete"]("/api/recepcion/" + recepcion.id).then(function () {
+        _this7.recepcioness.splice(index, 1);
+
+        swal({
+          type: "success",
+          timer: 3000,
+          title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+          text: "La recepción se ha eliminado con exito",
+          showConfirmButton: false
+        });
+      });
+    }
+  }), _defineProperty(_methods, "isFormValidusuario", function isFormValidusuario() {
+    return this.usuario.persona.cedula != "";
+  }), _defineProperty(_methods, "editarForm", function editarForm(recepcion, index) {
+    this.recepcion = recepcion;
+    this.recepcion.index = index;
+  }), _defineProperty(_methods, "editar", function editar() {
+    var _this8 = this;
+
+    var params = {
+      recepcionado: this.recepcion.recepcionado,
+      fecharadicado: this.recepcion.fecharadicado,
+      fecharecepcionado: this.recepcion.fecharecepcionado,
+      consultorio: this.recepcion.consultorio,
+      fechareparto: this.recepcion.fechareparto,
+      fechapublicacion: this.recepcion.fechapublicacion,
+      fecharetiro: this.recepcion.fecharetiro,
+      estado: this.recepcion.estado,
+      recla_id: this.usuario.persona.id,
+      area_id: this.recepcion.area.id
+    };
+    axios.put("/api/recepcion/" + this.recepcion.id, params).then(function (res) {
+      if (res.data == null) {
+        swal({
+          type: "error",
+          timer: 3000,
+          title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+          text: "La recepcion no se ha actualizado",
+          showConfirmButton: false
+        });
+      } else {
+        swal({
+          type: "success",
+          timer: 3000,
+          title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+          text: "La Recepción se ha actualizado",
+          showConfirmButton: false
+        });
+      }
+
+      axios.get("/api/recepcionSUPER").then(function (res) {
+        _this8.recepcioness = res.data;
+        console.log(res.data);
+      });
+    })["catch"](function (error) {
+      if (error.response.status == 422) {
+        _this8.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
+
+        alert(_this8.errors.recepcionado[0]);
+      }
+    });
+  }), _methods)
 });
 
 /***/ }),
@@ -61134,60 +61210,6 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("label", { staticClass: "col-5 col-form-label" }, [
-                    _vm._v("ID Reclamante:")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.recepcion.reclamante.id,
-                        expression: "recepcion.reclamante.id"
-                      }
-                    ],
-                    attrs: { placeholder: "recepcion" },
-                    domProps: { value: _vm.recepcion.reclamante.id },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.recepcion.reclamante,
-                          "id",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  true
-                    ? _c("div", { staticClass: "col-5 form-group" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-primary btn-block",
-                            attrs: {
-                              "data-toggle": "modal",
-                              "data-target": "#buscarModalrecl"
-                            },
-                            on: {
-                              click: function($event) {
-                                return _vm.buscarrecl()
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                  B.Reclamante\n                "
-                            )
-                          ]
-                        )
-                      ])
-                    : undefined,
-                  _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
                     _vm._v("Area:")
                   ]),
                   _vm._v(" "),
@@ -61236,6 +61258,71 @@ var render = function() {
                             _vm._v(
                               "\n                  Buscar Area\n                "
                             )
+                          ]
+                        )
+                      ])
+                    : undefined,
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
+                    _vm._v(
+                      "En caso de que quieras cambiar el reclamante digita la cédula "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Cédula Reclamante:")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.usuario.persona.cedula,
+                        expression: "usuario.persona.cedula"
+                      }
+                    ],
+                    attrs: { placeholder: "Cédula del Reclamante" },
+                    domProps: { value: _vm.usuario.persona.cedula },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.usuario.persona,
+                          "cedula",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  true
+                    ? _c("div", { staticClass: "col-5 form-group" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary btn-block",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": "#buscarModalReclam",
+                              disabled: !_vm.isFormValidReclamante()
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.buscarreclaced()
+                              }
+                            }
+                          },
+                          [
+                            _vm._v("B.Reclamante "),
+                            _c("i", {
+                              staticClass: "fas fa-search fa-1x",
+                              staticStyle: { color: "black" }
+                            })
                           ]
                         )
                       ])
@@ -62295,6 +62382,147 @@ var render = function() {
             ]
           )
         ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "buscarModalReclam",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "exampleModalLabel",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(14),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("ID RECLAMANTE")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.usuario.persona.id,
+                        expression: "usuario.persona.id"
+                      }
+                    ],
+                    attrs: { placeholder: "ID USUARIO" },
+                    domProps: { value: _vm.usuario.persona.id },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.usuario.persona, "id", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("CEDULA")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.usuario.persona.cedula,
+                        expression: "usuario.persona.cedula"
+                      }
+                    ],
+                    attrs: { placeholder: "USERNAME" },
+                    domProps: { value: _vm.usuario.persona.cedula },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.usuario.persona,
+                          "cedula",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("NOMBRE")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.usuario.persona.prinom,
+                        expression: "usuario.persona.prinom"
+                      }
+                    ],
+                    attrs: { placeholder: "USERNAME" },
+                    domProps: { value: _vm.usuario.persona.prinom },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.usuario.persona,
+                          "prinom",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("APELLIDO")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.usuario.persona.priape,
+                        expression: "usuario.persona.priape"
+                      }
+                    ],
+                    attrs: { placeholder: "USERNAME" },
+                    domProps: { value: _vm.usuario.persona.priape },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.usuario.persona,
+                          "priape",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _vm._m(15)
+              ])
+            ]
+          )
+        ]
       )
     ])
   ])
@@ -62537,6 +62765,46 @@ var staticRenderFns = [
           attrs: { type: "button", "data-dismiss": "modal" }
         },
         [_vm._v("\n                Cerrar\n              ")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Mostrar Usuario")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-danger",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Cerrar")]
       )
     ])
   },

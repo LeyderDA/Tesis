@@ -179,21 +179,7 @@
               <label class="col-5 col-form-label">Consultorio:</label>
               <input placeholder="recepcion" v-model="recepcion.consultorio" />
 
-              <label class="col-5 col-form-label">ID Reclamante:</label>
-              <input placeholder="recepcion" v-model="recepcion.reclamante.id" />
-
-              <!--buscar reclamante -->
-              <div class="col-5 form-group" v-if="true">
-                <button
-                  class="btn btn-primary btn-block"
-                  data-toggle="modal"
-                  data-target="#buscarModalrecl"
-                  @click="buscarrecl()"
-                >
-                  B.Reclamante
-                </button>
-              </div>
-              <!--buscar reclamante -->
+             
 
               <label class="col-5 col-form-label">Area:</label>
               <input placeholder="recepcion" v-model="recepcion.area.nombre" />
@@ -210,6 +196,22 @@
                 </button>
               </div>
               <!--buscar area -->
+              <label class="col-12 col-form-label">En caso de que quieras cambiar el reclamante digita la cédula </label>
+
+               <label class="col-5 col-form-label">Cédula Reclamante:</label>
+              <input placeholder="Cédula del Reclamante" v-model="usuario.persona.cedula" />
+              <br>
+
+              <!--buscar reclamante -->
+              <div class="col-5 form-group" v-if="true">
+          <button
+            class="btn btn-primary btn-block"
+            data-toggle="modal"
+            data-target="#buscarModalReclam"
+            @click="buscarreclaced()" :disabled="!isFormValidReclamante()"
+          >B.Reclamante <i class="fas fa-search fa-1x" style="color: black"></i></button>
+        </div>
+              <!--buscar reclamante -->
             </div>
             <div class="modal-footer">
               <button
@@ -622,6 +624,43 @@
           </div>
         </div>
         <!--cierro modal de buscar -->
+        <!--segundo modal - el de buscar RECLAMANTE-->
+        <div
+          class="modal fade"
+          id="buscarModalReclam"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mostrar Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <label class="col-5 col-form-label">ID RECLAMANTE</label>
+                <input placeholder="ID USUARIO" v-model="usuario.persona.id" />
+
+                <label class="col-5 col-form-label">CEDULA</label>
+                <input placeholder="USERNAME" v-model="usuario.persona.cedula" />
+
+                <label class="col-5 col-form-label">NOMBRE</label>
+                <input placeholder="USERNAME" v-model="usuario.persona.prinom" />
+
+                <label class="col-5 col-form-label">APELLIDO</label>
+                <input placeholder="USERNAME" v-model="usuario.persona.priape" />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger"  data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--cierro modal de buscar RECLAMANTE-->
 
     </div>
   </div>
@@ -629,9 +668,28 @@
 <script>
 export default {
   data() {
-    return {
+    return {    
+      usuario: {
+        id: "",
+        username: "",
+        email: "",
+        email_verified_at: "",
+        password: "",
+        rol_id: "",
+        per_id: "",
 
-      
+        persona: {
+          id: "",
+          cedula: "",
+          prinom: "",
+          segnom: "",
+          priape: "",
+          segape: "",
+          tel: "",
+          direc: "",
+        },
+      },
+
       recepcion: {
         id: "",
         recepcionado: "",
@@ -730,6 +788,32 @@ export default {
 limpiar(){
   this.usuario.persona.cedula="";
 },
+ buscarreclaced() {
+      axios.get("/api/reclamante2/" + this.usuario.persona.cedula).then((res) => {
+        if (res.data[0] == null) {
+          this.usuario.persona.id = "";
+          this.usuario.persona.username = "";
+          this.usuario.persona.cedula = "";
+          this.usuario.persona.prinom = "";
+          this.usuario.persona.priape = "";
+          console.log(this.usuario);
+          this.esta = false;
+        } else {
+          console.log(res.data[0]);
+          let person = res.data[0];
+          this.usuario.persona = person;
+          this.esta = true;
+        }
+      });
+    },
+
+    limpiar(){
+  this.usuario.persona.cedula="";
+},
+
+ isFormValidReclamante: function(){
+            return this.usuario.persona.cedula!="";
+          },
 
 GUARDARASIGNACION(){
       const params = {
@@ -837,7 +921,7 @@ GUARDARASIGNACION(){
         fechapublicacion: this.recepcion.fechapublicacion,
         fecharetiro: this.recepcion.fecharetiro,
         estado: this.recepcion.estado,
-        recla_id: this.recepcion.reclamante.id,
+        recla_id: this.usuario.persona.id,
         area_id: this.recepcion.area.id,
       };
       axios
