@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div>
-      <h2 class="text-center mb-2 card-title">Registrando una nueva Gestión</h2>
+      <h2 class="text-center mb-2 card-title">Listado de gestiones</h2>
     </div>
     <div class="card-body row">
       <br />
@@ -126,9 +126,7 @@
 
                 <label class="col-5 col-form-label">Entidad tramite</label>
                 <input placeholder="Entidad tramite" v-model="gestion.entidadelantramite" />
-                
-                <label class="col-5 col-form-label">Id de recepción</label>
-                <input placeholder="Id de recepción" v-model="gestion.recepcion.id" />
+                               
 
               </div>
               <div class="col-6 form-group" v-if="true">
@@ -488,7 +486,6 @@ export default {
         actjuridirealzadas: this.gestion.actjuridirealzadas,
         resulactuacion: this.gestion.resulactuacion,
         entidadelantramite: this.gestion.entidadelantramite,
-        recp_id: this.gestion.recepcion.id,
       };
       axios
         .put("/api/gestion/" + this.gestion.id, params)

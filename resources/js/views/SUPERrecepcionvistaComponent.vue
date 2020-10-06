@@ -196,7 +196,7 @@
                 </button>
               </div>
               <!--buscar area -->
-              <label class="col-12 col-form-label">En caso de que quieras cambiar el reclamante digita la cédula </label>
+              <label class="col-12 col-form-label">En caso de que quieras cambiar el reclamante digita la cédula: </label>
 
                <label class="col-5 col-form-label">Cédula Reclamante:</label>
               <input placeholder="Cédula del Reclamante" v-model="usuario.persona.cedula" />

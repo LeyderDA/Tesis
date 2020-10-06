@@ -91,7 +91,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
-                Guardar Gestion
+                Agregar Gestion
               </h5>
               <button
                 type="button"
@@ -109,7 +109,7 @@
                 <input
                   class="form-control"
                   placeholder="Recepción"
-                  v-model="recepcion.id"
+                  v-model="recepcion.id" disabled
                 />
               </div>
 

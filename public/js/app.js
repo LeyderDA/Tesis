@@ -3596,8 +3596,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3699,8 +3697,7 @@ __webpack_require__.r(__webpack_exports__);
         actuarealizadas: this.gestion.actuarealizadas,
         actjuridirealzadas: this.gestion.actjuridirealzadas,
         resulactuacion: this.gestion.resulactuacion,
-        entidadelantramite: this.gestion.entidadelantramite,
-        recp_id: this.gestion.recepcion.id
+        entidadelantramite: this.gestion.entidadelantramite
       };
       axios.put("/api/gestion/" + this.gestion.id, params).then(function (res) {
         if (res.data == null) {
@@ -50088,35 +50085,6 @@ var render = function() {
                           )
                         }
                       }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("Id de recepción")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.gestion.recepcion.id,
-                          expression: "gestion.recepcion.id"
-                        }
-                      ],
-                      attrs: { placeholder: "Id de recepción" },
-                      domProps: { value: _vm.gestion.recepcion.id },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.gestion.recepcion,
-                            "id",
-                            $event.target.value
-                          )
-                        }
-                      }
                     })
                   ]),
                   _vm._v(" "),
@@ -51015,7 +50983,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("h2", { staticClass: "text-center mb-2 card-title" }, [
-        _vm._v("Registrando una nueva Gestión")
+        _vm._v("Listado de gestiones")
       ])
     ])
   },
@@ -54600,47 +54568,21 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "btn-group" }, [
-                  _vm._m(5),
-                  _vm._v(" "),
-                  _c(
-                    "ul",
-                    { staticClass: "dropdown-menu", attrs: { role: "menu" } },
-                    [
-                      _c(
-                        "li",
-                        { staticClass: "nav-item" },
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "nav-link",
-                              attrs: { to: { name: "asignacion" } }
-                            },
-                            [_vm._v("Asignar Recepción")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "li",
-                        { staticClass: "nav-item" },
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "nav-link",
-                              attrs: { to: { name: "asignacionvista" } }
-                            },
-                            [_vm._v("Lista de Asignaciones")]
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  )
-                ]),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: { name: "asignacionvista" } }
+                      },
+                      [_vm._v("Lista de Asignaciones")]
+                    )
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _c(
                   "li",
@@ -54747,19 +54689,6 @@ var staticRenderFns = [
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
       [_vm._v("\n            Recepciones "), _c("span")]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-default dropdown-toggle",
-        attrs: { type: "button", "data-toggle": "dropdown" }
-      },
-      [_vm._v("\n            Asignacion de Casos "), _c("span")]
     )
   }
 ]
@@ -55908,7 +55837,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { placeholder: "Recepción" },
+                      attrs: { placeholder: "Recepción", disabled: "" },
                       domProps: { value: _vm.recepcion.id },
                       on: {
                         input: function($event) {
@@ -56875,7 +56804,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n              Guardar Gestion\n            ")]
+        [_vm._v("\n              Agregar Gestion\n            ")]
       ),
       _vm._v(" "),
       _c(
@@ -61265,7 +61194,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v(
-                      "En caso de que quieras cambiar el reclamante digita la cédula "
+                      "En caso de que quieras cambiar el reclamante digita la cédula: "
                     )
                   ]),
                   _vm._v(" "),
@@ -64030,7 +63959,7 @@ var render = function() {
                         expression: "recepcion.id"
                       }
                     ],
-                    attrs: { placeholder: "recepcion" },
+                    attrs: { placeholder: "recepcion", disabled: "" },
                     domProps: { value: _vm.recepcion.id },
                     on: {
                       input: function($event) {
@@ -64055,7 +63984,11 @@ var render = function() {
                         expression: "recepcion.fecharadicado"
                       }
                     ],
-                    attrs: { placeholder: "recepcion", type: "date" },
+                    attrs: {
+                      placeholder: "recepcion",
+                      type: "date",
+                      disabled: ""
+                    },
                     domProps: { value: _vm.recepcion.fecharadicado },
                     on: {
                       input: function($event) {
@@ -64084,7 +64017,11 @@ var render = function() {
                         expression: "recepcion.fecharecepcionado"
                       }
                     ],
-                    attrs: { placeholder: "recepcion", type: "date" },
+                    attrs: {
+                      placeholder: "recepcion",
+                      type: "date",
+                      disabled: ""
+                    },
                     domProps: { value: _vm.recepcion.fecharecepcionado },
                     on: {
                       input: function($event) {
@@ -64113,7 +64050,11 @@ var render = function() {
                         expression: "recepcion.fechareparto"
                       }
                     ],
-                    attrs: { placeholder: "recepcion", type: "date" },
+                    attrs: {
+                      placeholder: "recepcion",
+                      type: "date",
+                      disabled: ""
+                    },
                     domProps: { value: _vm.recepcion.fechareparto },
                     on: {
                       input: function($event) {
@@ -64142,7 +64083,11 @@ var render = function() {
                         expression: "recepcion.fechapublicacion"
                       }
                     ],
-                    attrs: { placeholder: "recepcion", type: "date" },
+                    attrs: {
+                      placeholder: "recepcion",
+                      type: "date",
+                      disabled: ""
+                    },
                     domProps: { value: _vm.recepcion.fechapublicacion },
                     on: {
                       input: function($event) {
@@ -64171,7 +64116,11 @@ var render = function() {
                         expression: "recepcion.fecharetiro"
                       }
                     ],
-                    attrs: { placeholder: "recepcion", type: "date" },
+                    attrs: {
+                      placeholder: "recepcion",
+                      type: "date",
+                      disabled: ""
+                    },
                     domProps: { value: _vm.recepcion.fecharetiro },
                     on: {
                       input: function($event) {
@@ -64200,7 +64149,7 @@ var render = function() {
                         expression: "recepcion.recepcionado"
                       }
                     ],
-                    attrs: { placeholder: "recepcion" },
+                    attrs: { placeholder: "recepcion", disabled: "" },
                     domProps: { value: _vm.recepcion.recepcionado },
                     on: {
                       input: function($event) {
@@ -64229,7 +64178,7 @@ var render = function() {
                         expression: "recepcion.consultorio"
                       }
                     ],
-                    attrs: { placeholder: "recepcion" },
+                    attrs: { placeholder: "recepcion", disabled: "" },
                     domProps: { value: _vm.recepcion.consultorio },
                     on: {
                       input: function($event) {
@@ -64258,7 +64207,7 @@ var render = function() {
                         expression: "recepcion.reclamante.id"
                       }
                     ],
-                    attrs: { placeholder: "recepcion" },
+                    attrs: { placeholder: "recepcion", disabled: "" },
                     domProps: { value: _vm.recepcion.reclamante.id },
                     on: {
                       input: function($event) {
@@ -64287,7 +64236,7 @@ var render = function() {
                         expression: "recepcion.area.nombre"
                       }
                     ],
-                    attrs: { placeholder: "recepcion" },
+                    attrs: { placeholder: "recepcion", disabled: "" },
                     domProps: { value: _vm.recepcion.area.nombre },
                     on: {
                       input: function($event) {

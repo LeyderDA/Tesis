@@ -95,7 +95,6 @@ class GestionController extends Controller
         $ges->actjuridirealzadas = $request->actjuridirealzadas;
         $ges->resulactuacion = $request->resulactuacion;
         $ges->entidadelantramite = $request->entidadelantramite;
-        $ges->recp_id = $request->recp_id;
         $ges->save();
         $ges->recepcion;
         return  response()->json($ges);

@@ -99,34 +99,34 @@
             </div>
             <div class="modal-body">
               <label class="col-5 col-form-label">Id de recepcion</label>
-              <input placeholder="recepcion" v-model="recepcion.id" />
+              <input placeholder="recepcion" v-model="recepcion.id" disabled />
 
               <label class="col-5 col-form-label">Fecha de radicado</label>
-              <input placeholder="recepcion" type="date" v-model="recepcion.fecharadicado" />
+              <input placeholder="recepcion" type="date" v-model="recepcion.fecharadicado" disabled />
 
               <label class="col-5 col-form-label">Fecha de recepcionado</label>
-              <input placeholder="recepcion" type="date" v-model="recepcion.fecharecepcionado" />
+              <input placeholder="recepcion" type="date" v-model="recepcion.fecharecepcionado" disabled />
 
               <label class="col-5 col-form-label">Fecha de reparto</label>
-              <input placeholder="recepcion" type="date" v-model="recepcion.fechareparto" />
+              <input placeholder="recepcion" type="date" v-model="recepcion.fechareparto" disabled />
 
               <label class="col-5 col-form-label">Fecha de publicación</label>
-              <input placeholder="recepcion" type="date" v-model="recepcion.fechapublicacion" />
+              <input placeholder="recepcion" type="date" v-model="recepcion.fechapublicacion" disabled />
 
               <label class="col-5 col-form-label">Fecha de retiro</label>
-              <input placeholder="recepcion" type="date" v-model="recepcion.fecharetiro" />
+              <input placeholder="recepcion" type="date" v-model="recepcion.fecharetiro" disabled />
 
               <label class="col-5 col-form-label">Recepcionado en</label>
-              <input placeholder="recepcion" v-model="recepcion.recepcionado" />
+              <input placeholder="recepcion" v-model="recepcion.recepcionado" disabled />
 
               <label class="col-5 col-form-label">Consultorio</label>
-              <input placeholder="recepcion" v-model="recepcion.consultorio" />
+              <input placeholder="recepcion" v-model="recepcion.consultorio" disabled />
 
               <label class="col-5 col-form-label">ID Reclamante</label>
-              <input placeholder="recepcion" v-model="recepcion.reclamante.id" />
+              <input placeholder="recepcion" v-model="recepcion.reclamante.id" disabled />
 
               <label class="col-5 col-form-label">Area</label>
-              <input placeholder="recepcion" v-model="recepcion.area.nombre" />
+              <input placeholder="recepcion" v-model="recepcion.area.nombre" disabled />
 
               <label
                 class="col-12 col-form-label"
