@@ -16,7 +16,7 @@
                     <tr>
                       <th>Area</th>
                       <th>Recepcion</th>
-
+                      <th>Estudiante</th>
                       <th>Primer Corte</th>
                       <th>Segundo Corte</th>
                       <th>Tercer Corte</th>           
@@ -25,8 +25,9 @@
                   </thead>
                   <tbody>
                     <tr v-for="(notas,index) in notass" :key="notas.index"> 
-
-                        <td>  <button
+                        <td>{{notas.nombre}}</td>
+                        <td>  
+                          <button
                         class="btn btn-sm"
                         data-toggle="modal"
                         data-target="#MOSTRARModalRecp"
@@ -35,10 +36,18 @@
                       >
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
-                      
                       </td> 
-                   
-                        <td>{{notas.nombre}}</td>
+                      <td>  
+                          <button
+                        class="btn btn-sm"
+                        data-toggle="modal"
+                        data-target="#MOSTRARModalEstudiante"
+                        @click="editarForm(notas, index)"
+                        title="Mostrar Estudiante"
+                      >
+                        <i class="fas fa-eye fa-2x" style="color: black"></i>
+                      </button>                     
+                      </td>                   
                         <td>{{notas.notapricort}}</td>
                         <td>{{notas.notasegcort}}</td>
                         <td>{{notas.notateracort}}</td>                    
@@ -194,6 +203,79 @@
         </div>
       </div>
       <!--modal de MOSTRAR recepcion -->
+
+
+      <!--modal de MOSTRAR estudiante-->
+      <div
+        class="modal fade"
+        id="MOSTRARModalEstudiante"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Recepción</h5>
+            </div>
+            <div class="modal-body">
+              
+            <label class="col-5 col-form-label">Cédula:</label>
+              <input
+                placeholder="recepcion"
+
+                v-model="notas.cedula" disabled
+              />
+
+              <label class="col-5 col-form-label">Primer Nombre:</label>
+              <input
+                placeholder="recepcion"
+
+                v-model="notas.prinom" disabled
+              />
+
+              <label class="col-5 col-form-label">Segundo Nombre:</label>
+              <input
+                placeholder="recepcion"
+
+                v-model="notas.segnom" disabled
+              />
+
+              <label class="col-5 col-form-label">Primer Apellido:</label>
+              <input
+                placeholder="recepcion"
+                v-model="notas.priape" disabled
+              />
+
+              <label class="col-5 col-form-label">Segundo Apellido:</label>
+              <input
+                placeholder="recepcion"
+
+                v-model="notas.segape" disabled
+              />
+
+              <br />
+              <br />
+
+              <div class="col-12 form-group">
+                <div style="width: 100px; height: 30px; margin: 0 auto">
+                  <button
+                    name="CERRAR"
+                    class="btn btn-primary"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    type="button"
+                  >
+                    CERRAR
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal de MOSTRAR estudiante -->
       </div>
     </div>
   </div>
