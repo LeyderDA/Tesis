@@ -61,13 +61,14 @@ class RecepcionController extends Controller
         ->join("users","usurecep.usu_id","=","users.id")
         ->join("personas","users.per_id","=","personas.id")
         ->join("areas","recepciones.area_id","=","areas.id")
-        ->select('recepciones.*', 
-        
+        ->select('recepciones.*',        
         'personas.cedula',
         'personas.prinom',
         'personas.segnom',
         'personas.priape',
         'personas.segape',
+        'personas.direc',
+        'personas.tel',
         'areas.nombre'
         )
         ->orderBy('recepciones.id', 'asc')

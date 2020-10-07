@@ -3,10 +3,7 @@
     <div>
       <h2 class="text-center mb-2 card-title">Recepciones</h2>
     </div>
-    <label class="col-5 col-form-label">Busca por QR</label>
-    <a :href="'/qr'">
-      <i class="fas fa-search  fa-3x" style="color: black;"></i>
-    </a>
+    
     <div class="container">
       <div class="row">
         <div class="card-body col">
@@ -15,17 +12,54 @@
               <table class="table text-center">
                 <thead>
                   <tr>
-
-                    <th>Recepcionado en</th>
-                    <th>Consultorio</th>
-                    
+                    <th>Area</th>
+                    <th>Recepción</th> 
+                    <th>Nombre Estudiante</th>  
+                    <th>Apellido Estudiante</th> 
+                    <th>Datos Estudiante</th>    
+                    <th>Agregar Calificación</th>         
                   </tr>
                 </thead>
                 <tbody>       
-                  <tr v-for="(recepcion) in recepcioness" :key="recepcion.index">                        
+                  <tr v-for="(recepcion) in recepcioness" :key="recepcion.index">                                     
+                    <td>{{ recepcion.nombre }}</td>
+                     <td>
+                      <button
+                        class="btn btn-sm"
+                        data-toggle="modal"
+                        data-target="#MOSTRARModal"
+                        @click="editarForm(recepcion)"
+                        title="Mostrar las fechas"
+                      >
+                        <i class="fas fa-eye fa-2x" style="color: black"></i>
+                      </button>
+                    </td>
+                    <td>{{ recepcion.prinom }}</td>
+                    <td>{{ recepcion.priape }}</td>
+                    <td>
+                        <button
+                        class="btn btn-sm"
+                        data-toggle="modal"
+                        data-target="#estudiante"
+                        @click="editarForm(recepcion)"
+                        title="Mostrar los datos del Estudiante"
+                      >
+                        <i class="fas fa-eye fa-2x" style="color: black"></i>
+                      </button>
+                    </td>
+                    <td>
+                       <button
+                        class="btn btn-success btn-sm"
+                        data-toggle="modal"
+                        data-target="#aggnotasmodal"
+                        @click="editarForm(recepcion)"
+                        title="Agregar Calificación"
+                      >
+                        <i  class="fas fa-plus fa-3x" style="color: black;"></i>                       
+                      </button>
+
+                    </td>
                     
-                    <td>{{ recepcion.recepcionado }}</td>
-                    <td>{{ recepcion.consultorio }}</td>
  
                   </tr>
                  
@@ -52,6 +86,32 @@
               <h5 class="modal-title" id="exampleModalLabel">FECHAS</h5>
             </div>
             <div class="modal-body">
+
+
+              <label class="col-5 col-form-label">Estado de la Recepción</label>
+              <div class="col-6">
+                <select
+                  class="form-control"
+                  placeholder="Estado"
+                  type="boolean"
+                  v-model="recepcion.estado" disabled
+                >
+                  <option value="1">Activo</option>
+                  <option value="0">Inactivo</option>
+                </select>
+              </div>
+
+
+              <label class="col-5 col-form-label">Recepcionado en:</label>
+              <input placeholder="recepcion" v-model="recepcion.recepcionado" disabled />
+
+              <label class="col-5 col-form-label">Consultorio:</label>
+              <input placeholder="recepcion" v-model="recepcion.consultorio" disabled />
+
+
+
+
+                
               <label class="col-5 col-form-label">Fecha de radicado:</label>
               <input
                 placeholder="recepcion"
@@ -200,6 +260,108 @@
         </div>
       </div>
       <!--modal de agg NOTAS AL ESTUDIANTE -->
+
+
+       <!--modal de mostrar AL ESTUDIANTE -->
+
+        <div
+        class="modal fade"
+        id="estudiante"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Datos del estudiante
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+
+
+          
+
+
+                           <label class="col-5 col-form-label">Cédula</label>
+          <div class="col-6 form-group">
+            <input class="form-control" placeholder="cédula" v-model="recepcion.cedula" disabled />
+          </div>
+
+
+            <label class="col-5 col-form-label">Primer Nombre</label>
+          <div class="col-6 form-group">
+            <input class="form-control" placeholder="Primer Nombre" v-model="recepcion.prinom" disabled />
+          </div>
+
+
+          <label class="col-5 col-form-label">Segundo Nombre</label>
+          <div class="col-6 form-group">
+            <input class="form-control" placeholder="Segundo Nombre" v-model="recepcion.segnom" disabled />
+          </div>
+
+          
+          <label class="col-5 col-form-label">Primer Apellido</label>
+          <div class="col-6 form-group">
+            <input class="form-control" placeholder="Primer Apellido" v-model="recepcion.priape" disabled />
+          </div>
+
+          
+          <label class="col-5 col-form-label">Segundo Apellido</label>
+          <div class="col-6 form-group">
+            <input class="form-control" placeholder="Segundo Apellido" v-model="recepcion.segape" disabled />
+          </div>
+
+          <label class="col-5 col-form-label">Dirección</label>
+          <div class="col-6 form-group">
+            <input class="form-control" placeholder="Dirección" v-model="recepcion.direc" disabled />
+          </div>
+
+          <label class="col-5 col-form-label">Teléfono</label>
+          <div class="col-6 form-group">
+            <input class="form-control" placeholder="Teléfono" v-model="recepcion.tel" disabled />
+          </div>
+        
+             
+            </div>
+            <div class="modal-footer">
+              <button
+                name="CERRAR"
+                class="btn btn-danger"
+                @click="limpiar()"
+                data-dismiss="modal"
+                aria-label="Close"
+                type="button"
+              >
+                CERRAR
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-primary"
+                @click="agregarNOTAS()"
+                data-dismiss="modal"
+              >
+                Guardar Cambios
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!--modal de mostrar AL ESTUDIANTE -->
+
 
 
     </div>
