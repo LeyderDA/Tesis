@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Recepcion;
 use App\Persona;
 use App\UsuRecep;
+use App\Nota;
+use App\User;
+use App\Area;
 use App\Http\Controllers\request_id;
 use Illuminate\Http\Request;
 
@@ -52,6 +55,42 @@ class RecepcionController extends Controller
                           return  response()->json($recepcion);
                       }   
     }
+    public function index2(Request $request)
+    {  
+        $notas = Nota::join("usurecep","notas.recp_id","=","usurecep.recp_id")
+        ->join("recepciones","usurecep.recp_id","=","recepciones.id")
+        ->join("users","usurecep.usu_id","=","users.id")   
+        ->join("personas","users.per_id","=","personas.id")
+        ->join("areas","recepciones.area_id","=","areas.id")
+        ->select(
+    
+        'personas.*'
+        )
+        ->where('users.rol_id','=',3)
+        ->get();
+
+        if($request->ajax()){
+            foreach ($notas as $agg){
+                $agg->recepcion;
+            }
+            return $notas;
+        }else{
+            return  response()->json($notas);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function update(Request $request, $id)
     {
         $re = Recepcion::find($id);

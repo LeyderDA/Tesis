@@ -21,6 +21,7 @@
                     <th>Consultorio</th>
                     <th>Reclamante</th>
                     <th>Area</th>
+                    <th>Estudiante</th>
                     <th>Fechas</th>
                     <th>Agregar observación</th>
                     <th>Agregar Calificación</th>
@@ -28,9 +29,84 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(recepcion) in recepcioness" :key="recepcion.index">
+                   
+                  <tr v-for="(notas) in notass" :key="notas.index">
+                     <!--modal de MOSTRAR estudiante-->
+      <div
+        class="modal fade"
+        id="MOSTRARModalEstudiante"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Recepción</h5>
+            </div>
+            <div class="modal-body">
+              
+            <label class="col-5 col-form-label">Cédula:</label>
+              <input
+                placeholder="cedula"
 
+                v-model="notas.cedula" disabled
+              />
+
+              <label class="col-5 col-form-label">Primer Nombre:</label>
+              <input
+                placeholder="primer nombre"
+
+                v-model="notas.prinom" disabled
+              />
+
+              <label class="col-5 col-form-label">Segundo Nombre:</label>
+              <input
+                placeholder="segundo nombre"
+
+                v-model="notas.segnom" disabled
+              />
+
+              <label class="col-5 col-form-label">Primer Apellido:</label>
+              <input
+                placeholder="primer apellido"
+                v-model="notas.priape" disabled
+              />
+
+              <label class="col-5 col-form-label">Segundo Apellido:</label>
+              <input
+                placeholder="segundo apellido"
+
+                v-model="notas.segape" disabled
+              />
+
+              <br />
+              <br />
+
+              <div class="col-12 form-group">
+                <div style="width: 100px; height: 30px; margin: 0 auto">
+                  <button
+                    name="CERRAR"
+                    class="btn btn-primary"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    type="button"
+                  >
+                    CERRAR
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal de MOSTRAR estudiante -->
+        
+                  <tr v-for="(recepcion) in recepcioness" :key="recepcion.index">
+                    
                     <td>{{ recepcion.id }}</td>
+                    
                     <td>{{ recepcion.recepcionado }}</td>
                     <td>{{ recepcion.consultorio }}</td>
                      <td>
@@ -45,6 +121,21 @@
                       </button>
                     </td>
                     <td>{{ recepcion.area.nombre }}</td>
+                    <td>    
+                      <button
+                        class="btn btn-sm"
+                        data-toggle="modal"
+                        data-target="#MOSTRARModalEstudiante"
+                        @click="estForm(notas)"
+                        title="Mostrar Estudiante"
+                      >
+                        <i class="fas fa-eye fa-2x" style="color: black"></i>
+                      </button>  
+
+                    </td>
+
+
+
                       <td>
                       <button
                         class="btn btn-sm"
@@ -165,6 +256,7 @@
         </div>
       </div>
       <!--modal de asignar observacion -->
+     
 
       <!--modal de MOSTRAR EL RESTO DE CAMPOS-->
       <div
@@ -452,11 +544,16 @@ export default {
   data() {
     return {
        notas: {
-        id: "",
-        notapricort: "",
-        notasegcort: "",
-        notateracort: "",
-        usu_id: "",
+        persona: {
+            id: "",
+            cedula: "",
+            prinom: "",
+            segnom: "",
+            priape: "",
+            segape: "",
+            tel: "",
+            direc: "",
+          },
        },
 
       observaciones: {
@@ -514,13 +611,20 @@ export default {
       esta: false,
       estado: "disable",
       recepcioness: [],
+      notass: [],
       errors: [],
     };
   },
   created() {
     axios.get("/api/recepcion").then((res) => {
       this.recepcioness = res.data;
+      console.log(this.recepcioness);
     });
+   axios.get("/api/recepcion2").then((res) => {
+      this.notass = res.data;
+      console.log(this.notass);
+    }); 
+    
   },
   methods: {
     
@@ -545,8 +649,10 @@ export default {
       limpiar(){
 
 },
-
-
+    estForm(notas, index) {
+      this.notas = notas;
+      this.notas.index = index;
+    },
 
     editarForm(recepcion, index) {
       this.recepcion = recepcion;

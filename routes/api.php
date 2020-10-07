@@ -47,6 +47,7 @@ Route::get('/recepcionqr/{id}', 'RecepcionController@qrcode');
 Route::get('/recepcionqr2/{id}', 'RecepcionController@qrcodedocest');
 
 Route::get('/recepcion', 'RecepcionController@index')->name('recepcionListar');
+Route::get('/recepcion2', 'RecepcionController@index2')->name('recepcionListar2');
 Route::delete('/recepcion/{id}', 'RecepcionController@destroy')->name('recepcionEliminar');
 Route::put('/recepcion/{id}', 'RecepcionController@update')->name('recepcionActualizar');
 Route::get('/recepcion/{id}', 'RecepcionController@buscar')->name('recepcionbuscar');

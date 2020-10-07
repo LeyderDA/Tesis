@@ -322,9 +322,10 @@ export default {
   created() {
     axios.get("/api/notas").then((res) => {
       this.notass = res.data;
-      console.log(this.notass);
+      console.log(this.notas);
     });
   },
+  
   methods: {
 
     eliminar(notas, index) {
@@ -355,7 +356,7 @@ export default {
           } else {
             alert("Las notas se han actualizado con EXITO");
           }
-axios.get("/api/notas").then((res) => {
+    axios.get("/api/notas").then((res) => {
       this.notass = res.data;
       console.log(this.notass);
     });

@@ -8,21 +8,6 @@ use Illuminate\Http\Request;
 
 class NotasController extends Controller
 {
-
-    public function index1(Request $request)
-    {  
-        $notas = Nota::all();
-        if($request->ajax()){
-            foreach ($notas as $nota){
-                $nota->user;
-                $nota->recepcion;
-            }
-            return $notas;
-        }else{
-            return  response()->json($notas);
-        }
-    }
-
     public function index(Request $request)
     {  
         $notas = Nota::join("usurecep","notas.recp_id","=","usurecep.recp_id")
