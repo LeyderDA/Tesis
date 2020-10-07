@@ -18,11 +18,11 @@
       </li>
 
       <li class="nav-item">
-        <router-link class="nav-link" :to="{name: 'gestdocente'}">Ver Gestiones</router-link>
+        <router-link class="nav-link" :to="{name: 'gestdocente'}">Ver Listado de Gestiones</router-link>
       </li>
 
        <li class="nav-item">
-        <router-link class="nav-link" :to="{name: 'notas'}">Asignar Notas</router-link>
+        <router-link class="nav-link" :to="{name: 'notas'}">Ver  Listado de Notas</router-link>
       </li>
 
       <li class="nav-item">

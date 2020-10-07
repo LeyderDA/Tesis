@@ -77,11 +77,9 @@ class NotasController extends Controller
     {
         $nota = Nota::find($id);
         $nota->notapricort = $request->notapricort;
-        $nota->notapricort = $request->notapricort;
         $nota->notasegcort = $request->notasegcort;
         $nota->notateracort = $request->notateracort;
         $nota->save();
-        $nota->user;
         $nota->recepcion;
         return  response()->json($nota);
     }
