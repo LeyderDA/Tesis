@@ -35,6 +35,7 @@ Route::get('/AsignacionVista', 'HomeController@index')->name('asignacionvista')-
 Route::get('/RecepEst', 'HomeController@index')->name('recepest')->middleware('EstudianteMiddleware');
 Route::get('/VistaReSu', 'HomeController@index')->name('vistaresu')->middleware('Administrativo_Middleware');
 Route::get('/RecepDoc', 'HomeController@index')->name('recepdoc')->middleware('Docente_Middleware');
+Route::get('/AggCalificaciones', 'HomeController@index')->name('calificaciones')->middleware('Docente_Middleware');
 Route::get('/DocGestion', 'HomeController@index')->name('gestdocente')->middleware('Docente_Middleware');
 Route::get('/EstGestion', 'HomeController@index')->name('gestdocente')->middleware('EstudianteMiddleware');
 Route::get('/Notas', 'HomeController@index')->name('gestdoc')->middleware('Docente_Middleware');

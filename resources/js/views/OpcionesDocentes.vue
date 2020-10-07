@@ -8,6 +8,8 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">   
+
+
       
       <li class="nav-item">
         <router-link class="nav-link" :to="{name: 'home'}">Inicio</router-link>
@@ -21,9 +23,7 @@
         <router-link class="nav-link" :to="{name: 'gestdocente'}">Ver Listado de Gestiones</router-link>
       </li>
 
-       <li class="nav-item">
-        <router-link class="nav-link" :to="{name: 'notas'}">Ver  Listado de Notas</router-link>
-      </li>
+ 
 
       <li class="nav-item">
         <router-link class="nav-link" :to="{name: 'observaciones'}">Ver Observaciones</router-link>
@@ -32,6 +32,28 @@
       <li class="nav-item">
         <router-link class="nav-link" :to="{name: 'miusuario'}">Ver mi usuario</router-link>
       </li>
+
+           <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-default dropdown-toggle"
+              data-toggle="dropdown"
+            >
+              Calificaciones <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'calificaciones' }"
+                  >Agregar Calificaciones</router-link
+                >
+              </li>
+           <li class="nav-item">
+        <router-link class="nav-link" :to="{name: 'notas'}">Ver  Listado de Notas</router-link>
+      </li>
+
+
+            </ul>
+          </div>
 
       </ul>
        </div>

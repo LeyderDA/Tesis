@@ -1899,6 +1899,590 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/AggCalificacionesComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/AggCalificacionesComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      notas: {},
+      observaciones: {
+        id: "",
+        obsrv: "",
+        recp_id: ""
+      },
+      recepcion: {
+        id: "",
+        recepcionado: "",
+        fecharadicado: "",
+        fecharecepcionado: "",
+        consultorio: "",
+        fechareparto: "",
+        fechapublicacion: "",
+        fecharetiro: "",
+        estado: "",
+        reclamante: {
+          id: "",
+          per_id: "",
+          persona: {
+            id: "",
+            cedula: "",
+            prinom: "",
+            segnom: "",
+            priape: "",
+            segape: "",
+            tel: "",
+            direc: ""
+          }
+        },
+        area: {
+          id: "",
+          nombre: ""
+        }
+      },
+      gestion: {
+        id: "",
+        amplhechos: "",
+        fechentrevasesor: "",
+        tipotramite: "",
+        asuntotramite: "",
+        motivoarchivo: "",
+        fechaarchivo: "",
+        obsrvtramite: "",
+        actuarealizadas: "",
+        actjuridirealzadas: "",
+        resulactuacion: "",
+        entidadelantramite: "",
+        recp_id: ""
+      },
+      esta: false,
+      estado: "disable",
+      recepcioness: [],
+      notass: [],
+      errors: []
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("/api/recepcion").then(function (res) {
+      _this.recepcioness = res.data;
+      console.log(_this.recepcioness);
+    });
+    axios.get("/api/recepcion2").then(function (res) {
+      _this.notass = res.data;
+      console.log(_this.notass);
+    });
+  },
+  methods: {
+    agregarNOTAS: function agregarNOTAS() {
+      var params = {
+        notapricort: this.notas.notapricort,
+        notasegcort: this.notas.notasegcort,
+        notateracort: this.notas.notateracort,
+        recp_id: this.recepcion.id
+      };
+      axios.post("/api/notas", params).then(function (res) {
+        if (res.data == null) {
+          alert("La nota no se ha registrado con exito");
+        } else {
+          alert("La nota se ha registrado");
+        }
+      });
+    },
+    limpiar: function limpiar() {},
+    estForm: function estForm(notas, index) {
+      this.notas = notas;
+      this.notas.index = index;
+    },
+    editarForm: function editarForm(recepcion, index) {
+      this.recepcion = recepcion;
+      this.recepcion.index = index;
+    },
+    editar: function editar() {
+      var _this2 = this;
+
+      var params = {
+        obsrv: this.observaciones.obsrv,
+        recp_id: this.recepcion.id
+      };
+      axios.post("/api/observaciones", params).then(function (res) {
+        if (res.data == null) {
+          alert("La Observacion No se registro porque tiene errores");
+        } else {
+          swal({
+            type: 'success',
+            "timer": 3000,
+            "title": "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            "text": "¡La Observacion se ha registrado con EXITO!!",
+            "showConfirmButton": false
+          });
+        }
+
+        _this2.observaciones.obsrv = "";
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/AreaComponent.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/AreaComponent.vue?vue&type=script&lang=js& ***!
@@ -9080,98 +9664,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -46477,6 +46969,1464 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/AggCalificacionesComponent.vue?vue&type=template&id=188b24ec&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/AggCalificacionesComponent.vue?vue&type=template&id=188b24ec& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("label", { staticClass: "col-5 col-form-label" }, [
+      _vm._v("Busca por QR")
+    ]),
+    _vm._v(" "),
+    _c("a", { attrs: { href: "/qr" } }, [
+      _c("i", {
+        staticClass: "fas fa-search  fa-3x",
+        staticStyle: { color: "black" }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "card-body col" }, [
+          _c("div", { staticClass: "container row" }, [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c("table", { staticClass: "table text-center" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.recepcioness, function(recepcion) {
+                    return _c("tr", { key: recepcion.index }, [
+                      _c("td", [_vm._v(_vm._s(recepcion.id))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(recepcion.recepcionado))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(recepcion.consultorio))]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-sm",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": "#MOSTRARModalRECLAMANTE",
+                              title: "Mostrar los datos del Reclamante"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.editarForm(recepcion)
+                              }
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "fas fa-eye fa-2x",
+                              staticStyle: { color: "black" }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(recepcion.area.nombre))]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-sm",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": "#MOSTRARModal",
+                              title: "Mostrar las fechas"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.editarForm(recepcion)
+                              }
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "fas fa-eye fa-2x",
+                              staticStyle: { color: "black" }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-success btn-sm",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": "#observacionModal",
+                              title: "Agregar una Observación"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.editarForm(recepcion)
+                              }
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "fas fa-thumbtack fa-3x",
+                              staticStyle: { color: "black" }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-success btn-sm",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": "#aggnotasmodal",
+                              title: "Agregar Calificación"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.editarForm(recepcion)
+                              }
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "fas fa-plus fa-3x",
+                              staticStyle: { color: "black" }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          { attrs: { href: "/recepcionqr/" + recepcion.id } },
+                          [
+                            _c("i", {
+                              staticClass: "fas fa-qrcode fa-3x",
+                              staticStyle: { color: "black" }
+                            })
+                          ]
+                        )
+                      ])
+                    ])
+                  }),
+                  0
+                )
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "observacionModal",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "exampleModalLabel",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(2),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Id de recepcion")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.id,
+                        expression: "recepcion.id"
+                      }
+                    ],
+                    attrs: { placeholder: "recepcion", disabled: "" },
+                    domProps: { value: _vm.recepcion.id },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.recepcion, "id", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Fecha de radicado")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.fecharadicado,
+                        expression: "recepcion.fecharadicado"
+                      }
+                    ],
+                    attrs: {
+                      placeholder: "recepcion",
+                      type: "date",
+                      disabled: ""
+                    },
+                    domProps: { value: _vm.recepcion.fecharadicado },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recepcion,
+                          "fecharadicado",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Fecha de recepcionado")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.fecharecepcionado,
+                        expression: "recepcion.fecharecepcionado"
+                      }
+                    ],
+                    attrs: {
+                      placeholder: "recepcion",
+                      type: "date",
+                      disabled: ""
+                    },
+                    domProps: { value: _vm.recepcion.fecharecepcionado },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recepcion,
+                          "fecharecepcionado",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Fecha de reparto")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.fechareparto,
+                        expression: "recepcion.fechareparto"
+                      }
+                    ],
+                    attrs: {
+                      placeholder: "recepcion",
+                      type: "date",
+                      disabled: ""
+                    },
+                    domProps: { value: _vm.recepcion.fechareparto },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recepcion,
+                          "fechareparto",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Fecha de publicación")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.fechapublicacion,
+                        expression: "recepcion.fechapublicacion"
+                      }
+                    ],
+                    attrs: {
+                      placeholder: "recepcion",
+                      type: "date",
+                      disabled: ""
+                    },
+                    domProps: { value: _vm.recepcion.fechapublicacion },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recepcion,
+                          "fechapublicacion",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Fecha de retiro")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.fecharetiro,
+                        expression: "recepcion.fecharetiro"
+                      }
+                    ],
+                    attrs: {
+                      placeholder: "recepcion",
+                      type: "date",
+                      disabled: ""
+                    },
+                    domProps: { value: _vm.recepcion.fecharetiro },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recepcion,
+                          "fecharetiro",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Recepcionado en")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.recepcionado,
+                        expression: "recepcion.recepcionado"
+                      }
+                    ],
+                    attrs: { placeholder: "recepcion", disabled: "" },
+                    domProps: { value: _vm.recepcion.recepcionado },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recepcion,
+                          "recepcionado",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Consultorio")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.consultorio,
+                        expression: "recepcion.consultorio"
+                      }
+                    ],
+                    attrs: { placeholder: "recepcion", disabled: "" },
+                    domProps: { value: _vm.recepcion.consultorio },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recepcion,
+                          "consultorio",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("ID Reclamante")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.reclamante.id,
+                        expression: "recepcion.reclamante.id"
+                      }
+                    ],
+                    attrs: { placeholder: "recepcion", disabled: "" },
+                    domProps: { value: _vm.recepcion.reclamante.id },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recepcion.reclamante,
+                          "id",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Area")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.area.nombre,
+                        expression: "recepcion.area.nombre"
+                      }
+                    ],
+                    attrs: { placeholder: "recepcion", disabled: "" },
+                    domProps: { value: _vm.recepcion.area.nombre },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recepcion.area,
+                          "nombre",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
+                    _vm._v(
+                      "-----------------------------------------------------------------------"
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("h2", { staticClass: "text-center mb-2 card-title" }, [
+                    _vm._v("Agregar Observación")
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
+                    _vm._v(
+                      "-----------------------------------------------------------------------"
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Observacion:")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.observaciones.obsrv,
+                        expression: "observaciones.obsrv"
+                      }
+                    ],
+                    attrs: { placeholder: "Observación" },
+                    domProps: { value: _vm.observaciones.obsrv },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.observaciones,
+                          "obsrv",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      attrs: { type: "button", "data-dismiss": "modal" }
+                    },
+                    [_vm._v("Cerrar")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "button", "data-dismiss": "modal" },
+                      on: {
+                        click: function($event) {
+                          return _vm.editar()
+                        }
+                      }
+                    },
+                    [_vm._v("Guardar Cambios")]
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "MOSTRARModal",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "exampleModalLabel",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(3),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Fecha de radicado:")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.fecharadicado,
+                        expression: "recepcion.fecharadicado"
+                      }
+                    ],
+                    attrs: {
+                      placeholder: "recepcion",
+                      type: "date",
+                      readonly: "readonly",
+                      disabled: ""
+                    },
+                    domProps: { value: _vm.recepcion.fecharadicado },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recepcion,
+                          "fecharadicado",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Fecha de recepcionado:")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.fecharecepcionado,
+                        expression: "recepcion.fecharecepcionado"
+                      }
+                    ],
+                    attrs: {
+                      placeholder: "recepcion",
+                      type: "date",
+                      readonly: "readonly",
+                      disabled: ""
+                    },
+                    domProps: { value: _vm.recepcion.fecharecepcionado },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recepcion,
+                          "fecharecepcionado",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Fecha de reparto:")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.fechareparto,
+                        expression: "recepcion.fechareparto"
+                      }
+                    ],
+                    attrs: {
+                      placeholder: "recepcion",
+                      type: "date",
+                      readonly: "readonly",
+                      disabled: ""
+                    },
+                    domProps: { value: _vm.recepcion.fechareparto },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recepcion,
+                          "fechareparto",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Fecha de publicación:")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.fechapublicacion,
+                        expression: "recepcion.fechapublicacion"
+                      }
+                    ],
+                    attrs: {
+                      placeholder: "recepcion",
+                      type: "date",
+                      readonly: "readonly",
+                      disabled: ""
+                    },
+                    domProps: { value: _vm.recepcion.fechapublicacion },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recepcion,
+                          "fechapublicacion",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Fecha de retiro:")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.fecharetiro,
+                        expression: "recepcion.fecharetiro"
+                      }
+                    ],
+                    attrs: {
+                      placeholder: "recepcion",
+                      type: "date",
+                      readonly: "readonly",
+                      disabled: ""
+                    },
+                    domProps: { value: _vm.recepcion.fecharetiro },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recepcion,
+                          "fecharetiro",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _vm._m(4)
+                ])
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "MOSTRARModalRECLAMANTE",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "exampleModalLabel",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(5),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Nombre del reclamante:")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.prinom,
+                        expression: "recepcion.prinom"
+                      }
+                    ],
+                    attrs: { placeholder: "nombre de persona", disabled: "" },
+                    domProps: { value: _vm.recepcion.prinom },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.recepcion, "prinom", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Apellido del reclamante:")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.priape,
+                        expression: "recepcion.priape"
+                      }
+                    ],
+                    attrs: { placeholder: "nombre de persona", disabled: "" },
+                    domProps: { value: _vm.recepcion.priape },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.recepcion, "priape", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Enfoque diferencial:")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.reclamante.enfodifervictima,
+                        expression: "recepcion.reclamante.enfodifervictima"
+                      }
+                    ],
+                    attrs: { placeholder: "enfoque diferencial", disabled: "" },
+                    domProps: {
+                      value: _vm.recepcion.reclamante.enfodifervictima
+                    },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recepcion.reclamante,
+                          "enfodifervictima",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Genero:")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.reclamante.genevictima,
+                        expression: "recepcion.reclamante.genevictima"
+                      }
+                    ],
+                    attrs: { placeholder: "genero", disabled: "" },
+                    domProps: { value: _vm.recepcion.reclamante.genevictima },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recepcion.reclamante,
+                          "genevictima",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Edad:")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.reclamante.edadvictima,
+                        expression: "recepcion.reclamante.edadvictima"
+                      }
+                    ],
+                    attrs: { placeholder: "edad", disabled: "" },
+                    domProps: { value: _vm.recepcion.reclamante.edadvictima },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recepcion.reclamante,
+                          "edadvictima",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Discapacidad:")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.reclamante.discapavictima,
+                        expression: "recepcion.reclamante.discapavictima"
+                      }
+                    ],
+                    attrs: { placeholder: "discapacidad", disabled: "" },
+                    domProps: {
+                      value: _vm.recepcion.reclamante.discapavictima
+                    },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recepcion.reclamante,
+                          "discapavictima",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Estrato:")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.reclamante.estravictima,
+                        expression: "recepcion.reclamante.estravictima"
+                      }
+                    ],
+                    attrs: { placeholder: "estrato", disabled: "" },
+                    domProps: { value: _vm.recepcion.reclamante.estravictima },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recepcion.reclamante,
+                          "estravictima",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Embarazo:")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.reclamante.embaravictima,
+                        expression: "recepcion.reclamante.embaravictima"
+                      }
+                    ],
+                    attrs: { placeholder: "embarazo", disabled: "" },
+                    domProps: { value: _vm.recepcion.reclamante.embaravictima },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recepcion.reclamante,
+                          "embaravictima",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Grupo Etnico:")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.reclamante.grupetnicovictima,
+                        expression: "recepcion.reclamante.grupetnicovictima"
+                      }
+                    ],
+                    attrs: { placeholder: "grupo etnico", disabled: "" },
+                    domProps: {
+                      value: _vm.recepcion.reclamante.grupetnicovictima
+                    },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recepcion.reclamante,
+                          "grupetnicovictima",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Entidad que reclama:")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recepcion.reclamante.persoentidreclama,
+                        expression: "recepcion.reclamante.persoentidreclama"
+                      }
+                    ],
+                    attrs: { placeholder: "entidad", disabled: "" },
+                    domProps: {
+                      value: _vm.recepcion.reclamante.persoentidreclama
+                    },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recepcion.reclamante,
+                          "persoentidreclama",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _vm._m(6)
+                ])
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "aggnotasmodal",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "exampleModalLabel",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(7),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Id Recepción")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.recepcion.id,
+                          expression: "recepcion.id"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { placeholder: "Recepción", disabled: "" },
+                      domProps: { value: _vm.recepcion.id },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.recepcion, "id", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Nota primer corte")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.notas.notapricort,
+                          expression: "notas.notapricort"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { placeholder: "Nota primer corte" },
+                      domProps: { value: _vm.notas.notapricort },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.notas,
+                            "notapricort",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Nota segundo corte")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.notas.notasegcort,
+                          expression: "notas.notasegcort"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { placeholder: "Nota segundo corte" },
+                      domProps: { value: _vm.notas.notasegcort },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.notas,
+                            "notasegcort",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Nota tercer corte")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.notas.notateracort,
+                          expression: "notas.notateracort"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { placeholder: "Nota tercer corte" },
+                      domProps: { value: _vm.notas.notateracort },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.notas,
+                            "notateracort",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      attrs: {
+                        name: "CERRAR",
+                        "data-dismiss": "modal",
+                        "aria-label": "Close",
+                        type: "button"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.limpiar()
+                        }
+                      }
+                    },
+                    [_vm._v("\n              CERRAR\n            ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "button", "data-dismiss": "modal" },
+                      on: {
+                        click: function($event) {
+                          return _vm.agregarNOTAS()
+                        }
+                      }
+                    },
+                    [_vm._v("\n              Guardar Cambios\n            ")]
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("h2", { staticClass: "text-center mb-2 card-title" }, [
+        _vm._v("Recepciones")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("ID")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Recepcionado en")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Consultorio")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Reclamante")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Area")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Fechas")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Agregar observación")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Agregar Calificación")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Mostrar QR")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Observaciones")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("FECHAS")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 form-group" }, [
+      _c(
+        "div",
+        { staticStyle: { width: "100px", height: "30px", margin: "0 auto" } },
+        [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              attrs: {
+                name: "CERRAR",
+                "data-dismiss": "modal",
+                "aria-label": "Close",
+                type: "button"
+              }
+            },
+            [_vm._v("\n                  CERRAR\n                ")]
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("\n              Datos del Reclamante\n            ")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 form-group" }, [
+      _c(
+        "div",
+        { staticStyle: { width: "100px", height: "30px", margin: "0 auto" } },
+        [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              attrs: {
+                name: "CERRAR",
+                "data-dismiss": "modal",
+                "aria-label": "Close",
+                type: "button"
+              }
+            },
+            [_vm._v("\n                  CERRAR\n                ")]
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("\n              Agregar Notas\n            ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/AreaComponent.vue?vue&type=template&id=06900061&":
 /*!***********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/AreaComponent.vue?vue&type=template&id=06900061& ***!
@@ -54956,22 +56906,6 @@ var render = function() {
                       "router-link",
                       {
                         staticClass: "nav-link",
-                        attrs: { to: { name: "notas" } }
-                      },
-                      [_vm._v("Ver  Listado de Notas")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "nav-item" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link",
                         attrs: { to: { name: "observaciones" } }
                       },
                       [_vm._v("Ver Observaciones")]
@@ -54994,7 +56928,49 @@ var render = function() {
                     )
                   ],
                   1
-                )
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "btn-group" }, [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    { staticClass: "dropdown-menu", attrs: { role: "menu" } },
+                    [
+                      _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "nav-link",
+                              attrs: { to: { name: "calificaciones" } }
+                            },
+                            [_vm._v("Agregar Calificaciones")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "nav-link",
+                              attrs: { to: { name: "notas" } }
+                            },
+                            [_vm._v("Ver  Listado de Notas")]
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ])
               ])
             ]
           )
@@ -55030,6 +57006,22 @@ var staticRenderFns = [
         }
       },
       [_c("span", [_vm._v("MENÚ")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-default dropdown-toggle",
+        attrs: { type: "button", "data-toggle": "dropdown" }
+      },
+      [
+        _vm._v("\n             Calificaciones "),
+        _c("span", { staticClass: "caret" })
+      ]
     )
   }
 ]
@@ -63981,372 +65973,131 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "tbody",
-                  [
-                    _vm._l(_vm.notass, function(notas) {
-                      return _c("tr", { key: notas.index }, [
-                        _c("td", [_vm._v(_vm._s(notas.prinom))]),
-                        _vm._v(" "),
+                  _vm._l(_vm.recepcioness, function(recepcion) {
+                    return _c("tr", { key: recepcion.index }, [
+                      _c("td", [_vm._v(_vm._s(recepcion.id))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(recepcion.recepcionado))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(recepcion.consultorio))]),
+                      _vm._v(" "),
+                      _c("td", [
                         _c(
-                          "div",
+                          "button",
                           {
-                            staticClass: "modal fade",
+                            staticClass: "btn btn-sm",
                             attrs: {
-                              id: "MOSTRARModalEstudiante",
-                              tabindex: "-1",
-                              role: "dialog",
-                              "aria-labelledby": "exampleModalLabel",
-                              "aria-hidden": "true"
+                              "data-toggle": "modal",
+                              "data-target": "#MOSTRARModalRECLAMANTE",
+                              title: "Mostrar los datos del Reclamante"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.editarForm(recepcion)
+                              }
                             }
                           },
                           [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "modal-dialog",
-                                attrs: { role: "document" }
-                              },
-                              [
-                                _c("div", { staticClass: "modal-content" }, [
-                                  _vm._m(2, true),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "modal-body" }, [
-                                    _c(
-                                      "label",
-                                      { staticClass: "col-5 col-form-label" },
-                                      [_vm._v("Cédula:")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: notas.cedula,
-                                          expression: "notas.cedula"
-                                        }
-                                      ],
-                                      attrs: {
-                                        placeholder: "cedula",
-                                        disabled: ""
-                                      },
-                                      domProps: { value: notas.cedula },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            notas,
-                                            "cedula",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      { staticClass: "col-5 col-form-label" },
-                                      [_vm._v("Primer Nombre:")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: notas.prinom,
-                                          expression: "notas.prinom"
-                                        }
-                                      ],
-                                      attrs: {
-                                        placeholder: "primer nombre",
-                                        disabled: ""
-                                      },
-                                      domProps: { value: notas.prinom },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            notas,
-                                            "prinom",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      { staticClass: "col-5 col-form-label" },
-                                      [_vm._v("Segundo Nombre:")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: notas.segnom,
-                                          expression: "notas.segnom"
-                                        }
-                                      ],
-                                      attrs: {
-                                        placeholder: "segundo nombre",
-                                        disabled: ""
-                                      },
-                                      domProps: { value: notas.segnom },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            notas,
-                                            "segnom",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      { staticClass: "col-5 col-form-label" },
-                                      [_vm._v("Primer Apellido:")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: notas.priape,
-                                          expression: "notas.priape"
-                                        }
-                                      ],
-                                      attrs: {
-                                        placeholder: "primer apellido",
-                                        disabled: ""
-                                      },
-                                      domProps: { value: notas.priape },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            notas,
-                                            "priape",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      { staticClass: "col-5 col-form-label" },
-                                      [_vm._v("Segundo Apellido:")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: notas.segape,
-                                          expression: "notas.segape"
-                                        }
-                                      ],
-                                      attrs: {
-                                        placeholder: "segundo apellido",
-                                        disabled: ""
-                                      },
-                                      domProps: { value: notas.segape },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            notas,
-                                            "segape",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c("br"),
-                                    _vm._v(" "),
-                                    _c("br"),
-                                    _vm._v(" "),
-                                    _vm._m(3, true)
-                                  ])
-                                ])
-                              ]
-                            )
+                            _c("i", {
+                              staticClass: "fas fa-eye fa-2x",
+                              staticStyle: { color: "black" }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(recepcion.area.nombre))]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-sm",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": "#MOSTRARModal",
+                              title: "Mostrar las fechas"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.editarForm(recepcion)
+                              }
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "fas fa-eye fa-2x",
+                              staticStyle: { color: "black" }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-success btn-sm",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": "#observacionModal",
+                              title: "Agregar una Observación"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.editarForm(recepcion)
+                              }
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "fas fa-thumbtack fa-3x",
+                              staticStyle: { color: "black" }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-success btn-sm",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": "#aggnotasmodal",
+                              title: "Agregar Calificación"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.editarForm(recepcion)
+                              }
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "fas fa-plus fa-3x",
+                              staticStyle: { color: "black" }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          { attrs: { href: "/recepcionqr/" + recepcion.id } },
+                          [
+                            _c("i", {
+                              staticClass: "fas fa-qrcode fa-3x",
+                              staticStyle: { color: "black" }
+                            })
                           ]
                         )
                       ])
-                    }),
-                    _vm._v(" "),
-                    _vm._l(_vm.recepcioness, function(recepcion) {
-                      return _c("tr", { key: recepcion.index }, [
-                        _c("td", [_vm._v(_vm._s(recepcion.id))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(recepcion.recepcionado))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(recepcion.consultorio))]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-sm",
-                              attrs: {
-                                "data-toggle": "modal",
-                                "data-target": "#MOSTRARModalRECLAMANTE",
-                                title: "Mostrar los datos del Reclamante"
-                              },
-                              on: {
-                                click: function($event) {
-                                  return _vm.editarForm(recepcion)
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "fas fa-eye fa-2x",
-                                staticStyle: { color: "black" }
-                              })
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(recepcion.area.nombre))]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-sm",
-                              attrs: {
-                                "data-toggle": "modal",
-                                "data-target": "#MOSTRARModalEstudiante",
-                                title: "Mostrar Estudiante"
-                              },
-                              on: {
-                                click: function($event) {
-                                  return _vm.estForm(_vm.notas)
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "fas fa-eye fa-2x",
-                                staticStyle: { color: "black" }
-                              })
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-sm",
-                              attrs: {
-                                "data-toggle": "modal",
-                                "data-target": "#MOSTRARModal",
-                                title: "Mostrar las fechas"
-                              },
-                              on: {
-                                click: function($event) {
-                                  return _vm.editarForm(recepcion)
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "fas fa-eye fa-2x",
-                                staticStyle: { color: "black" }
-                              })
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-success btn-sm",
-                              attrs: {
-                                "data-toggle": "modal",
-                                "data-target": "#observacionModal",
-                                title: "Agregar una Observación"
-                              },
-                              on: {
-                                click: function($event) {
-                                  return _vm.editarForm(recepcion)
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "fas fa-thumbtack fa-3x",
-                                staticStyle: { color: "black" }
-                              })
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-success btn-sm",
-                              attrs: {
-                                "data-toggle": "modal",
-                                "data-target": "#aggnotasmodal",
-                                title: "Agregar Calificación"
-                              },
-                              on: {
-                                click: function($event) {
-                                  return _vm.editarForm(recepcion)
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "fas fa-plus fa-3x",
-                                staticStyle: { color: "black" }
-                              })
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "a",
-                            { attrs: { href: "/recepcionqr/" + recepcion.id } },
-                            [
-                              _c("i", {
-                                staticClass: "fas fa-qrcode fa-3x",
-                                staticStyle: { color: "black" }
-                              })
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td")
-                      ])
-                    })
-                  ],
-                  2
+                    ])
+                  }),
+                  0
                 )
               ])
             ])
@@ -64372,7 +66123,7 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(4),
+                _vm._m(2),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("label", { staticClass: "col-5 col-form-label" }, [
@@ -64775,7 +66526,7 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(5),
+                _vm._m(3),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("label", { staticClass: "col-5 col-form-label" }, [
@@ -64952,7 +66703,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
-                  _vm._m(6)
+                  _vm._m(4)
                 ])
               ])
             ]
@@ -64978,7 +66729,7 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(7),
+                _vm._m(5),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("label", { staticClass: "col-5 col-form-label" }, [
@@ -65275,7 +67026,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
-                  _vm._m(8)
+                  _vm._m(6)
                 ])
               ])
             ]
@@ -65301,7 +67052,7 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(9),
+                _vm._m(7),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("label", { staticClass: "col-5 col-form-label" }, [
@@ -65498,8 +67249,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Area")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Estudiante")]),
-        _vm._v(" "),
         _c("th", [_vm._v("Fechas")]),
         _vm._v(" "),
         _c("th", [_vm._v("Agregar observación")]),
@@ -65508,44 +67257,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Mostrar QR")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Recepción")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 form-group" }, [
-      _c(
-        "div",
-        { staticStyle: { width: "100px", height: "30px", margin: "0 auto" } },
-        [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary",
-              attrs: {
-                name: "CERRAR",
-                "data-dismiss": "modal",
-                "aria-label": "Close",
-                type: "button"
-              }
-            },
-            [_vm._v("\n                  CERRAR\n                ")]
-          )
-        ]
-      )
     ])
   },
   function() {
@@ -81176,6 +82887,10 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     name: 'notas',
     component: __webpack_require__(/*! ./views/NotasComponent.vue */ "./resources/js/views/NotasComponent.vue")["default"]
   }, {
+    path: '/AggCalificaciones',
+    name: 'calificaciones',
+    component: __webpack_require__(/*! ./views/AggCalificacionesComponent.vue */ "./resources/js/views/AggCalificacionesComponent.vue")["default"]
+  }, {
     path: '/Observaciones',
     name: 'observaciones',
     component: __webpack_require__(/*! ./views/ObservacionesComponent.vue */ "./resources/js/views/ObservacionesComponent.vue")["default"]
@@ -81194,6 +82909,75 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
   }],
   mode: 'history'
 }));
+
+/***/ }),
+
+/***/ "./resources/js/views/AggCalificacionesComponent.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/views/AggCalificacionesComponent.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AggCalificacionesComponent_vue_vue_type_template_id_188b24ec___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AggCalificacionesComponent.vue?vue&type=template&id=188b24ec& */ "./resources/js/views/AggCalificacionesComponent.vue?vue&type=template&id=188b24ec&");
+/* harmony import */ var _AggCalificacionesComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AggCalificacionesComponent.vue?vue&type=script&lang=js& */ "./resources/js/views/AggCalificacionesComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AggCalificacionesComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AggCalificacionesComponent_vue_vue_type_template_id_188b24ec___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AggCalificacionesComponent_vue_vue_type_template_id_188b24ec___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/AggCalificacionesComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/AggCalificacionesComponent.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/views/AggCalificacionesComponent.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AggCalificacionesComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./AggCalificacionesComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/AggCalificacionesComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AggCalificacionesComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/AggCalificacionesComponent.vue?vue&type=template&id=188b24ec&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/views/AggCalificacionesComponent.vue?vue&type=template&id=188b24ec& ***!
+  \******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AggCalificacionesComponent_vue_vue_type_template_id_188b24ec___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./AggCalificacionesComponent.vue?vue&type=template&id=188b24ec& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/AggCalificacionesComponent.vue?vue&type=template&id=188b24ec&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AggCalificacionesComponent_vue_vue_type_template_id_188b24ec___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AggCalificacionesComponent_vue_vue_type_template_id_188b24ec___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 

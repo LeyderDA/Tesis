@@ -130,6 +130,14 @@ export default new Router({
 
         
         {
+            path: '/AggCalificaciones',
+            name: 'calificaciones',
+            component: require('./views/AggCalificacionesComponent.vue').default
+
+        },
+
+        
+        {
             path: '/Observaciones',
             name: 'observaciones',
             component: require('./views/ObservacionesComponent.vue').default
