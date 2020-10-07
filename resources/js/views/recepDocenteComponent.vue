@@ -30,8 +30,9 @@
                 </thead>
                 <tbody>
                    
-                  <tr v-for="(notas) in notass" :key="notas.index">
-                     <!--modal de MOSTRAR estudiante-->
+      <tr v-for="(notas) in notass" :key="notas.index">
+         <td>{{ notas.prinom }}</td>
+         <!--modal de MOSTRAR estudiante-->
       <div
         class="modal fade"
         id="MOSTRARModalEstudiante"
@@ -102,11 +103,11 @@
         </div>
       </div>
       <!--modal de MOSTRAR estudiante -->
+       </tr>
         
                   <tr v-for="(recepcion) in recepcioness" :key="recepcion.index">
                     
-                    <td>{{ recepcion.id }}</td>
-                    
+                    <td>{{ recepcion.id }}</td>                   
                     <td>{{ recepcion.recepcionado }}</td>
                     <td>{{ recepcion.consultorio }}</td>
                      <td>
@@ -544,16 +545,7 @@ export default {
   data() {
     return {
        notas: {
-        persona: {
-            id: "",
-            cedula: "",
-            prinom: "",
-            segnom: "",
-            priape: "",
-            segape: "",
-            tel: "",
-            direc: "",
-          },
+        
        },
 
       observaciones: {

@@ -57,21 +57,17 @@ class RecepcionController extends Controller
     }
     public function index2(Request $request)
     {  
-        $notas = Nota::join("usurecep","notas.recp_id","=","usurecep.recp_id")
-        ->join("recepciones","usurecep.recp_id","=","recepciones.id")
+        $notas = Recepcion::join("usurecep","usurecep.recp_id","=","recepciones.id")
         ->join("users","usurecep.usu_id","=","users.id")   
         ->join("personas","users.per_id","=","personas.id")
-        ->join("areas","recepciones.area_id","=","areas.id")
         ->select(
-    
         'personas.*'
         )
         ->where('users.rol_id','=',3)
         ->get();
-
         if($request->ajax()){
             foreach ($notas as $agg){
-                $agg->recepcion;
+                $agg->personas;
             }
             return $notas;
         }else{

@@ -9621,21 +9621,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      notas: {
-        persona: {
-          id: "",
-          cedula: "",
-          prinom: "",
-          segnom: "",
-          priape: "",
-          segape: "",
-          tel: "",
-          direc: ""
-        }
-      },
+      notas: {},
       observaciones: {
         id: "",
         obsrv: "",
@@ -63994,6 +63984,8 @@ var render = function() {
                   [
                     _vm._l(_vm.notass, function(notas) {
                       return _c("tr", { key: notas.index }, [
+                        _c("td", [_vm._v(_vm._s(notas.prinom))]),
+                        _vm._v(" "),
                         _c(
                           "div",
                           {
@@ -64201,6 +64193,7 @@ var render = function() {
                         )
                       ])
                     }),
+                    _vm._v(" "),
                     _vm._l(_vm.recepcioness, function(recepcion) {
                       return _c("tr", { key: recepcion.index }, [
                         _c("td", [_vm._v(_vm._s(recepcion.id))]),
