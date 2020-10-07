@@ -46,7 +46,6 @@ class NotasController extends Controller
         $nota->notapricort=$request->notapricort;
         $nota->notasegcort=$request->notasegcort;
         $nota->notateracort=$request->notateracort;
-        $nota->usu_id=$request->usu_id;
         $nota->recp_id=$request->recp_id;
         $nota->save();
         $nota->user;

@@ -37,12 +37,6 @@ class User extends Authenticatable
     
     }
 
-    public function Notas()
-    {
-        return $this->belongsTo('App\Nota','id');
-    
-    }
-
     /**
      * The attributes that should be hidden for arrays.
      *

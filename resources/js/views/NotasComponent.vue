@@ -69,9 +69,7 @@
                 <table class="table text-center">
                   <thead>
                     <tr>
-                      <th>ID Usuario</th>
                       <th>ID Recepción</th>
-                      <th>Username</th>
                       <th>Primer Corte</th>
                       <th>Segundo Corte</th>
                       <th>Tercer Corte</th>           
@@ -80,9 +78,8 @@
                   </thead>
                   <tbody>
                     <tr v-for="(notas,index) in notass" :key="notas.index">
-                        <td>{{notas.user.id}}</td>
+
                         <td>{{notas.recepcion.id}}</td>
-                        <td>{{notas.user.username}}</td>
                         <td>{{notas.notapricort}}</td>
                         <td>{{notas.notasegcort}}</td>
                         <td>{{notas.notateracort}}</td>

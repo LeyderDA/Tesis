@@ -4577,9 +4577,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -9625,28 +9622,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     agregarNOTAS: function agregarNOTAS() {
-      var _this2 = this;
-
-      // alert(this.personas.prinom);
       var params = {
         notapricort: this.notas.notapricort,
         notasegcort: this.notas.notasegcort,
         notateracort: this.notas.notateracort,
         recp_id: this.recepcion.id
       };
-      this.notas.notapricort = "";
-      this.notas.notasegcort = "";
-      this.notas.notateracort = "";
-      this.notas.recepcion.id = "";
-      this.notas.user.id = "";
       axios.post("/api/notas", params).then(function (res) {
         if (res.data == null) {
           alert("La nota no se ha registrado con exito");
         } else {
           alert("La nota se ha registrado");
         }
-
-        _this2.notass.push(res.data);
       });
     },
     limpiar: function limpiar() {},
@@ -9655,7 +9642,7 @@ __webpack_require__.r(__webpack_exports__);
       this.recepcion.index = index;
     },
     editar: function editar() {
-      var _this3 = this;
+      var _this2 = this;
 
       var params = {
         obsrv: this.observaciones.obsrv,
@@ -9674,7 +9661,7 @@ __webpack_require__.r(__webpack_exports__);
           });
         }
 
-        _this3.observaciones.obsrv = "";
+        _this2.observaciones.obsrv = "";
       });
     }
   }
@@ -53132,11 +53119,7 @@ var render = function() {
                     "tbody",
                     _vm._l(_vm.notass, function(notas, index) {
                       return _c("tr", { key: notas.index }, [
-                        _c("td", [_vm._v(_vm._s(notas.user.id))]),
-                        _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(notas.recepcion.id))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(notas.user.username))]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(notas.notapricort))]),
                         _vm._v(" "),
@@ -53690,11 +53673,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("ID Usuario")]),
-        _vm._v(" "),
         _c("th", [_vm._v("ID Recepción")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Username")]),
         _vm._v(" "),
         _c("th", [_vm._v("Primer Corte")]),
         _vm._v(" "),

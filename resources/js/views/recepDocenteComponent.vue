@@ -526,18 +526,13 @@ export default {
     
 
     agregarNOTAS() {
-      // alert(this.personas.prinom);
       const params = {
         notapricort: this.notas.notapricort,
         notasegcort: this.notas.notasegcort,
         notateracort: this.notas.notateracort,
         recp_id: this.recepcion.id,
       };
-      this.notas.notapricort = "";
-      this.notas.notasegcort = "";
-      this.notas.notateracort = "";
-      this.notas.recepcion.id = "";
-      this.notas.user.id = "";
+
 
       axios.post("/api/notas", params).then((res) => {
         if (res.data == null) {
@@ -545,7 +540,6 @@ export default {
         } else {
           alert("La nota se ha registrado");
         }
-        this.notass.push(res.data);
       });
     },
       limpiar(){
