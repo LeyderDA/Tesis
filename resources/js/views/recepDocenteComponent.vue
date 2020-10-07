@@ -23,7 +23,6 @@
                     <th>Area</th>           
                     <th>Fechas</th>
                     <th>Agregar observación</th>
-                    <th>Agregar Calificación</th>
                     <th>Mostrar QR</th>
                   </tr>
                 </thead>
@@ -68,17 +67,7 @@
 
                     </td>
 
-                    <td>
-                       <button
-                        class="btn btn-success btn-sm"
-                        data-toggle="modal"
-                        data-target="#aggnotasmodal"
-                        @click="editarForm(recepcion)"
-                        title="Agregar Calificación"
-                      >
-                        <i  class="fas fa-plus fa-3x" style="color: black;"></i>                       
-                      </button>
-                    </td>                       
+                           
                     <td>
                       <a :href="'/recepcionqr/'+recepcion.id"> 
                         <i class="fas fa-qrcode fa-3x" style="color: black;"></i>
@@ -519,10 +508,6 @@ export default {
     axios.get("/api/recepcion").then((res) => {
       this.recepcioness = res.data;
       console.log(this.recepcioness);
-    });
-   axios.get("/api/recepcion2").then((res) => {
-      this.notass = res.data;
-      console.log(this.notass);
     }); 
     
   },
@@ -549,10 +534,7 @@ export default {
       limpiar(){
 
 },
-    estForm(notas, index) {
-      this.notas = notas;
-      this.notas.index = index;
-    },
+
 
     editarForm(recepcion, index) {
       this.recepcion = recepcion;

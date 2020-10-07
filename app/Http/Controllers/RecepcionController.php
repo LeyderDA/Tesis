@@ -55,24 +55,37 @@ class RecepcionController extends Controller
                           return  response()->json($recepcion);
                       }   
     }
-    public function index2(Request $request)
+    public function indexx(Request $request)
     {  
-        $notas = Recepcion::join("usurecep","usurecep.recp_id","=","recepciones.id")
-        ->join("users","usurecep.usu_id","=","users.id")   
+        $recepcion = Recepcion::join("usurecep","recepciones.id","=","usurecep.recp_id")
+        ->join("users","usurecep.usu_id","=","users.id")
         ->join("personas","users.per_id","=","personas.id")
-        ->select(
-        'personas.*'
+        ->join("areas","recepciones.area_id","=","areas.id")
+        ->select('recepciones.*', 
+        
+        'personas.cedula',
+        'personas.prinom',
+        'personas.segnom',
+        'personas.priape',
+        'personas.segape',
+        'areas.nombre'
         )
+        ->orderBy('recepciones.id', 'asc')
         ->where('users.rol_id','=',3)
         ->get();
-        if($request->ajax()){
-            foreach ($notas as $agg){
-                $agg->personas;
-            }
-            return $notas;
-        }else{
-            return  response()->json($notas);
-        }
+
+                      if ($request->ajax()) {
+                          foreach ($recepcion as $rec) {                        
+                              $rec->reclamante;
+                              $rec->area;
+                              $rec->persona;                        
+                          }
+                          return $recepcion;
+                      } else {
+                          return  response()->json($recepcion);
+                      }   
+        
+       
     }
 
 
