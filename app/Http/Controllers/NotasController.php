@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class NotasController extends Controller
 {
 
-    public function index(Request $request)
+    public function index1(Request $request)
     {  
         $notas = Nota::all();
         if($request->ajax()){
@@ -22,6 +22,45 @@ class NotasController extends Controller
             return  response()->json($notas);
         }
     }
+
+    public function index(Request $request)
+    {  
+        $notas = Nota::join("usurecep","notas.recp_id","=","usurecep.recp_id")
+        ->join("recepciones","usurecep.recp_id","=","recepciones.id")
+        ->join("users","usurecep.usu_id","=","users.id")   
+        ->join("personas","users.per_id","=","personas.id")
+        ->join("areas","recepciones.area_id","=","areas.id")
+        ->select('notas.*'
+        ,'recepciones.recepcionado'
+        ,'recepciones.fecharadicado'
+        ,'recepciones.fecharecepcionado'
+        ,'recepciones.consultorio'
+        ,'recepciones.fechareparto'
+        ,'recepciones.fechapublicacion'
+        ,'recepciones.fecharetiro'
+        ,'recepciones.estado'
+        ,'areas.nombre'
+        ,'personas.cedula'
+        ,'personas.prinom'
+        ,'personas.segnom'
+        ,'personas.priape'
+        ,'personas.segape'
+        ,'personas.tel'
+        ,'personas.direc'
+        )
+        ->where('users.rol_id','=',3)
+        ->get();
+
+        if($request->ajax()){
+            foreach ($notas as $agg){
+                $agg->recepcion;
+            }
+            return $notas;
+        }else{
+            return  response()->json($notas);
+        }
+    }
+
 
 
     /**
@@ -97,6 +136,8 @@ class NotasController extends Controller
         return  response()->json($notas);
       
     }
+
+
 }
 
 

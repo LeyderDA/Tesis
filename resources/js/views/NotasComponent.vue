@@ -14,6 +14,8 @@
                 <table class="table text-center">
                   <thead>
                     <tr>
+                      <th>Area</th>
+                      <th>Recepcion</th>
 
                       <th>Primer Corte</th>
                       <th>Segundo Corte</th>
@@ -22,13 +24,24 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(notas,index) in notass" :key="notas.index">
+                    <tr v-for="(notas,index) in notass" :key="notas.index"> 
 
-                        
+                        <td>  <button
+                        class="btn btn-sm"
+                        data-toggle="modal"
+                        data-target="#MOSTRARModalRecp"
+                        @click="editarForm(notas, index)"
+                        title="Mostrar Recepción"
+                      >
+                        <i class="fas fa-eye fa-2x" style="color: black"></i>
+                      </button>
+                      
+                      </td> 
+                   
+                        <td>{{notas.nombre}}</td>
                         <td>{{notas.notapricort}}</td>
                         <td>{{notas.notasegcort}}</td>
-                        <td>{{notas.notateracort}}</td>
-                    
+                        <td>{{notas.notateracort}}</td>                    
                       <td>
                         <button
                           class="btn btn-success btn-sm"
@@ -87,10 +100,100 @@
             </div>
           </div>
         </div>
-        
+         <!--segundo modal-->
+         <!--modal de MOSTRAR recepcion-->
+      <div
+        class="modal fade"
+        id="MOSTRARModalRecp"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Recepción</h5>
+            </div>
+            <div class="modal-body">
+              <label class="col-5 col-form-label">Estado</label>
+              <div class="col-6">
+                <select
+                  class="form-control"
+                  placeholder="Estado"
+                  type="boolean"
+                  v-model="notas.estado" disabled
+                >
+                  <option value="1">Activo</option>
+                  <option value="0">Inactivo</option>
+                </select>
+              </div>
 
+              <label class="col-5 col-form-label">Fecha de radicado:</label>
+              <input
+                placeholder="recepcion"
+                type="date"
+                v-model="notas.fecharadicado" disabled
+              />
 
+              <label class="col-5 col-form-label">Fecha de recepcionado:</label>
+              <input
+                placeholder="recepcion"
+                type="date"
+                v-model="notas.fecharecepcionado" disabled
+              />
 
+              <label class="col-5 col-form-label">Fecha de reparto:</label>
+              <input
+                placeholder="recepcion"
+                type="date"
+                v-model="notas.fechareparto" disabled
+              />
+
+              <label class="col-5 col-form-label">Fecha de publicación:</label>
+              <input
+                placeholder="recepcion"
+                type="date"
+                v-model="notas.fechapublicacion" disabled
+              />
+
+              <label class="col-5 col-form-label">Fecha de retiro</label>
+              <input
+                placeholder="recepcion"
+                type="date"
+                v-model="notas.fecharetiro" disabled
+              />
+
+              <label class="col-5 col-form-label">Recepcionado en:</label>
+              <input placeholder="recepcion" v-model="notas.recepcionado" disabled />
+
+              <label class="col-5 col-form-label">Consultorio:</label>
+              <input placeholder="recepcion" v-model="notas.consultorio" disabled />
+
+              <label class="col-5 col-form-label">Area:</label>
+              <input placeholder="recepcion" v-model="notas.nombre" disabled />
+
+              <br />
+              <br />
+
+              <div class="col-12 form-group">
+                <div style="width: 100px; height: 30px; margin: 0 auto">
+                  <button
+                    name="CERRAR"
+                    class="btn btn-primary"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    type="button"
+                  >
+                    CERRAR
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal de MOSTRAR recepcion -->
       </div>
     </div>
   </div>
