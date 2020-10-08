@@ -57,6 +57,9 @@ class RecepcionController extends Controller
     }
     public function indexx(Request $request)
     {  
+        $id = (new request_id)->get_id();
+        $date = UsuRecep::all()->where('usu_id',$id);
+
         $recepcion = Recepcion::join("usurecep","recepciones.id","=","usurecep.recp_id")
         ->join("users","usurecep.usu_id","=","users.id")
         ->join("personas","users.per_id","=","personas.id")

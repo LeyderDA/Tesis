@@ -17,7 +17,7 @@
                     <th>Nombre Estudiante</th>  
                     <th>Apellido Estudiante</th> 
                     <th>Datos Estudiante</th>    
-                    <th>Agregar Calificación</th>         
+                    <th>Agregar Calificación</th>        
                   </tr>
                 </thead>
                 <tbody>       
