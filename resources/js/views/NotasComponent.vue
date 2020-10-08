@@ -33,9 +33,9 @@
                         data-toggle="modal"
                         data-target="#aggnotasmodal"
                         @click="editarForm(recepcion)"
-                        title="Agregar Calificación"
+                        title="Mostrar Calificaciónes"
                       >
-                        <i  class="fas fa-plus fa-3x" style="color: black;"></i>                       
+                       <i class="fas fa-eye fa-2x" style="color: black"></i>                       
                       </button>
                     </td>                
                   </tr> 

@@ -54138,7 +54138,7 @@ var render = function() {
                             attrs: {
                               "data-toggle": "modal",
                               "data-target": "#aggnotasmodal",
-                              title: "Agregar Calificación"
+                              title: "Mostrar Calificaciónes"
                             },
                             on: {
                               click: function($event) {
@@ -54148,7 +54148,7 @@ var render = function() {
                           },
                           [
                             _c("i", {
-                              staticClass: "fas fa-plus fa-3x",
+                              staticClass: "fas fa-eye fa-2x",
                               staticStyle: { color: "black" }
                             })
                           ]
