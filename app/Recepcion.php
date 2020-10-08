@@ -10,7 +10,7 @@ class Recepcion extends Model
     protected $fillable = 
     [
         'id','recepcionado','fecharadicado','fecharecepcionado','consultorio','fechareparto',
-        'fechapublicacion','fecharetiro','estado','recla_id','area_id',
+        'fechapublicacion','fecharetiro','estado','notpricort','notsegcort','nottercort','recla_id','area_id',
     ];
 
    
@@ -46,10 +46,6 @@ class Recepcion extends Model
     
     }
 
-    public function notas()
-    {
-        return $this->belongsTo('App\Nota','id');
-    
-    }
+
 
 }

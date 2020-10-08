@@ -2276,11 +2276,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      notas: {},
       recepcion: {
         id: "",
         recepcionado: "",
@@ -2311,25 +2309,48 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    agregarNOTAS: function agregarNOTAS() {
-      var params = {
-        notapricort: this.notas.notapricort,
-        notasegcort: this.notas.notasegcort,
-        notateracort: this.notas.notateracort,
-        recp_id: this.recepcion.id
-      };
-      axios.post("/api/notas", params).then(function (res) {
-        if (res.data == null) {
-          alert("La nota no se ha registrado con exito");
-        } else {
-          alert("La nota se ha registrado");
-        }
-      });
-    },
-    limpiar: function limpiar() {},
     editarForm: function editarForm(recepcion, index) {
       this.recepcion = recepcion;
       this.recepcion.index = index;
+    },
+    editar: function editar() {
+      var _this2 = this;
+
+      var params = {
+        notpricort: this.recepcion.notpricort,
+        notsegcort: this.recepcion.notsegcort,
+        nottercort: this.recepcion.nottercort
+      };
+      axios.put("/api/recepcion2/" + this.recepcion.id, params).then(function (res) {
+        if (res.data == null) {
+          swal({
+            type: "error",
+            timer: 3000,
+            title: "EL PROCESO SE NO REALIZÓ PORQUE TIENE ERRORES",
+            text: "La Calificación NO se ha realizado",
+            showConfirmButton: false
+          });
+        } else {
+          swal({
+            type: "success",
+            timer: 3000,
+            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            text: "La Calificación se ha realizado",
+            showConfirmButton: false
+          });
+        }
+
+        axios.get("/api/recepcionn").then(function (res) {
+          _this2.recepcioness = res.data;
+          console.log(_this2.recepcioness);
+        });
+      })["catch"](function (error) {
+        if (error.response.status == 422) {
+          _this2.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
+
+          alert(_this2.errors.recepcionado[0]);
+        }
+      });
     }
   }
 });
@@ -47297,21 +47318,21 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.notas.notapricort,
-                          expression: "notas.notapricort"
+                          value: _vm.recepcion.notpricort,
+                          expression: "recepcion.notpricort"
                         }
                       ],
                       staticClass: "form-control",
                       attrs: { placeholder: "Nota primer corte" },
-                      domProps: { value: _vm.notas.notapricort },
+                      domProps: { value: _vm.recepcion.notpricort },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(
-                            _vm.notas,
-                            "notapricort",
+                            _vm.recepcion,
+                            "notpricort",
                             $event.target.value
                           )
                         }
@@ -47329,21 +47350,21 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.notas.notasegcort,
-                          expression: "notas.notasegcort"
+                          value: _vm.recepcion.notsegcort,
+                          expression: "recepcion.notsegcort"
                         }
                       ],
                       staticClass: "form-control",
                       attrs: { placeholder: "Nota segundo corte" },
-                      domProps: { value: _vm.notas.notasegcort },
+                      domProps: { value: _vm.recepcion.notsegcort },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(
-                            _vm.notas,
-                            "notasegcort",
+                            _vm.recepcion,
+                            "notsegcort",
                             $event.target.value
                           )
                         }
@@ -47361,21 +47382,21 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.notas.notateracort,
-                          expression: "notas.notateracort"
+                          value: _vm.recepcion.nottercort,
+                          expression: "recepcion.nottercort"
                         }
                       ],
                       staticClass: "form-control",
                       attrs: { placeholder: "Nota tercer corte" },
-                      domProps: { value: _vm.notas.notateracort },
+                      domProps: { value: _vm.recepcion.nottercort },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(
-                            _vm.notas,
-                            "notateracort",
+                            _vm.recepcion,
+                            "nottercort",
                             $event.target.value
                           )
                         }
@@ -47394,11 +47415,6 @@ var render = function() {
                         "data-dismiss": "modal",
                         "aria-label": "Close",
                         type: "button"
-                      },
-                      on: {
-                        click: function($event) {
-                          return _vm.limpiar()
-                        }
                       }
                     },
                     [_vm._v("\n              CERRAR\n            ")]
@@ -47411,7 +47427,7 @@ var render = function() {
                       attrs: { type: "button", "data-dismiss": "modal" },
                       on: {
                         click: function($event) {
-                          return _vm.agregarNOTAS()
+                          return _vm.editar()
                         }
                       }
                     },
@@ -47652,11 +47668,6 @@ var render = function() {
                         "data-dismiss": "modal",
                         "aria-label": "Close",
                         type: "button"
-                      },
-                      on: {
-                        click: function($event) {
-                          return _vm.limpiar()
-                        }
                       }
                     },
                     [_vm._v("\n              CERRAR\n            ")]

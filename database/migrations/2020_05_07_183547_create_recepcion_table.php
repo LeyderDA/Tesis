@@ -23,6 +23,9 @@ class CreateRecepcionTable extends Migration
             $table->date('fechapublicacion');
             $table->date('fecharetiro');
             $table->boolean('estado');
+            $table->double('notpricort', 8,2)->nullable();
+            $table->double('notsegcort', 8,2)->nullable();
+            $table->double('nottercort', 8,2)->nullable();          
             $table->unsignedBigInteger('recla_id');
             $table->foreign('recla_id')->references('id')->on('reclamantes'); 
             $table->unsignedBigInteger('area_id');

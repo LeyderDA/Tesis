@@ -212,7 +212,7 @@
 
           <label class="col-5 col-form-label">Nota primer corte</label>
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Nota primer corte" v-model="notas.notapricort" />
+            <input class="form-control" placeholder="Nota primer corte" v-model="recepcion.notpricort" />
           </div>
 
 
@@ -221,7 +221,7 @@
             <input
               class="form-control"
               placeholder="Nota segundo corte"
-              v-model="notas.notasegcort"
+              v-model="recepcion.notsegcort"
             />
           </div>
           <label class="col-5 col-form-label">Nota tercer corte</label>
@@ -229,7 +229,7 @@
             <input
               class="form-control"
               placeholder="Nota tercer corte"
-              v-model="notas.notateracort"
+              v-model="recepcion.nottercort"
             />
           </div>
         
@@ -239,7 +239,7 @@
               <button
                 name="CERRAR"
                 class="btn btn-danger"
-                @click="limpiar()"
+          
                 data-dismiss="modal"
                 aria-label="Close"
                 type="button"
@@ -250,7 +250,7 @@
               <button
                 type="button"
                 class="btn btn-primary"
-                @click="agregarNOTAS()"
+                @click="editar()"
                 data-dismiss="modal"
               >
                 Guardar Cambios
@@ -339,7 +339,6 @@
               <button
                 name="CERRAR"
                 class="btn btn-danger"
-                @click="limpiar()"
                 data-dismiss="modal"
                 aria-label="Close"
                 type="button"
@@ -371,9 +370,6 @@
 export default {
   data() {
     return {
-       notas: {
-        
-       },
 
       recepcion: {
         id: "",
@@ -406,27 +402,55 @@ export default {
     
   },
   methods: {   
-    agregarNOTAS() {
-      const params = {
-        notapricort: this.notas.notapricort,
-        notasegcort: this.notas.notasegcort,
-        notateracort: this.notas.notateracort,
-        recp_id: this.recepcion.id,
-      };
-      axios.post("/api/notas", params).then((res) => {
-        if (res.data == null) {
-          alert("La nota no se ha registrado con exito");
-        } else {
-          alert("La nota se ha registrado");
-        }
-      });
-    },
-      limpiar(){
-
-},
+   
     editarForm(recepcion, index) {
       this.recepcion = recepcion;
       this.recepcion.index = index;
+    },
+    editar() {
+      const params = {
+
+        notpricort: this.recepcion.notpricort,
+        notsegcort: this.recepcion.notsegcort,
+        nottercort: this.recepcion.nottercort,
+      };
+
+     axios
+        .put("/api/recepcion2/" + this.recepcion.id, params)
+        .then((res) => {
+          if (res.data == null) {
+              swal({
+            type: "error",
+            timer: 3000,
+            title: "EL PROCESO SE NO REALIZÓ PORQUE TIENE ERRORES",
+            text: "La Calificación NO se ha realizado",
+            showConfirmButton: false,
+          });
+
+          } else {
+            swal({
+            type: "success",
+            timer: 3000,
+            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            text: "La Calificación se ha realizado",
+            showConfirmButton: false,
+          });
+
+          }
+          axios.get("/api/recepcionn").then((res) => {
+      this.recepcioness = res.data;
+      console.log(this.recepcioness);
+    });
+        })
+        .catch((error) => {
+          if (error.response.status == 422) {
+            this.errors = error.response.data.errors;
+
+            //let mensaje='Error con alguno de los campos';
+
+            alert(this.errors.recepcionado[0]);
+          }
+        });
     },
   },
 };

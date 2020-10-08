@@ -89,18 +89,6 @@ class RecepcionController extends Controller
        
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
     public function update(Request $request, $id)
     {
         $re = Recepcion::find($id);
@@ -112,6 +100,11 @@ class RecepcionController extends Controller
         $re->fechapublicacion = $request->fechapublicacion;
         $re->fecharetiro = $request->fecharetiro;
         $re->estado = $request->estado;
+
+        $re->notpricort = $request->notpricort;
+        $re->notsegcort = $request->notsegcort;
+        $re->nottercort = $request->nottercort;
+
         $re->recla_id = $request->recla_id;
         $re->area_id = $request->area_id;
         $re->save();
@@ -119,6 +112,17 @@ class RecepcionController extends Controller
         $re->area;
         return  response()->json($re);
     }
+
+    public function update2(Request $request, $id)
+    {
+        $re = Recepcion::find($id);
+        $re->notpricort = $request->notpricort;
+        $re->notsegcort = $request->notsegcort;
+        $re->nottercort = $request->nottercort;
+        $re->save();
+        return  response()->json($re);
+    }
+
 
 
 
@@ -133,7 +137,10 @@ class RecepcionController extends Controller
         $re->fechareparto = $request->fechareparto;
         $re->fechapublicacion = $request->fechapublicacion;
         $re->fecharetiro = $request->fecharetiro;
-        $re->estado = $request->estado;
+        $re->estado = $request->estado;      
+        $re->notpricort = $request->notpricort;
+        $re->notsegcort = $request->notsegcort;
+        $re->nottercort = $request->nottercort;
         $re->recla_id = $request->recla_id;
         $re->area_id = $request->area_id;
         $re->save();
