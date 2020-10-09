@@ -12,6 +12,7 @@
               <table class="table text-center">
                 <thead>
                   <tr>
+                    <th>Area</th>
                     <th>Cédula</th>
                     <th>Primer Nombre</th> 
                     <th>Segundo Nombre</th> 
@@ -22,6 +23,7 @@
                 </thead>
                 <tbody>       
                   <tr v-for="(recepcion) in recepcioness" :key="recepcion.index">                                     
+                    <td>{{ recepcion.nombre }}</td>
                     <td>{{ recepcion.cedula }}</td>
                     <td>{{ recepcion.prinom }}</td>
                     <td>{{ recepcion.segnom }}</td>

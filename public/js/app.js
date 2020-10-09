@@ -4924,6 +4924,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -54181,6 +54183,8 @@ var render = function() {
                   "tbody",
                   _vm._l(_vm.recepcioness, function(recepcion) {
                     return _c("tr", { key: recepcion.index }, [
+                      _c("td", [_vm._v(_vm._s(recepcion.nombre))]),
+                      _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(recepcion.cedula))]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(recepcion.prinom))]),
@@ -54372,6 +54376,8 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
+        _c("th", [_vm._v("Area")]),
+        _vm._v(" "),
         _c("th", [_vm._v("Cédula")]),
         _vm._v(" "),
         _c("th", [_vm._v("Primer Nombre")]),

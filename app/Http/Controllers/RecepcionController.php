@@ -92,13 +92,9 @@ class RecepcionController extends Controller
 
 
     public function indexEst(Request $request)
-    {
-        
-        $id = (new request_id)->get_id();
-        
-        
-        $recepcion = Recepcion::
-        join("reclamantes","recepciones.recla_id","=","reclamantes.id")
+    {       
+        $id = (new request_id)->get_id();               
+        $recepcion = Recepcion::join("reclamantes","recepciones.recla_id","=","reclamantes.id")
         ->join("personas","reclamantes.per_id","=","personas.id")
         ->join("areas","recepciones.area_id","=","areas.id")
         ->select('recepciones.*', 
@@ -118,8 +114,7 @@ class RecepcionController extends Controller
         'areas.nombre'
         )
         ->orderBy('recepciones.id', 'asc')
-        ->where('recepciones.usu_id','=',$id)
-        ->distinct()
+        ->where('recepciones.usu_id','=',$id)        
         ->get();
 
                       if ($request->ajax()) {
