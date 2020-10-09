@@ -60,22 +60,21 @@ class RecepcionController extends Controller
         $id = (new request_id)->get_id();
         $date = UsuRecep::all()->where('usu_id',$id);
 
+        
         $recepcion = Recepcion::join("usurecep","recepciones.id","=","usurecep.recp_id")
-        ->join("users","usurecep.usu_id","=","users.id")
+        ->join("users","users.id","=","recepciones.usu_id")
         ->join("personas","users.per_id","=","personas.id")
         ->join("areas","recepciones.area_id","=","areas.id")
-        ->select('recepciones.*',        
+        ->select('recepciones.*', 
         'personas.cedula',
         'personas.prinom',
         'personas.segnom',
         'personas.priape',
         'personas.segape',
-        'personas.direc',
-        'personas.tel',
         'areas.nombre'
         )
         ->orderBy('recepciones.id', 'asc')
-        ->where('users.rol_id','=',3)
+        ->where('usurecep.usu_id','=',$id)
         ->get();
 
                       if ($request->ajax()) {
@@ -88,7 +87,6 @@ class RecepcionController extends Controller
                       } else {
                           return  response()->json($recepcion);
                       }   
-        
        
     }
 
