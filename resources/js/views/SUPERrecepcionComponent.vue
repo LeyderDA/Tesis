@@ -85,9 +85,14 @@
             <input class="form-control" id="campoarea" placeholder="Area"  v-model="recepcion.area.nombre" />
           </div>
 
-           <label class="col-5 col-form-label">Ingresa el ID del reclamante</label>
+           <label class="col-5 col-form-label">Ingresa el cedula del reclamante</label>
           <div class="col-6 form-group">
             <input class="form-control" placeholder="Reclamante" v-model="usuario.persona.cedula" />
+          </div>
+
+          <label class="col-5 col-form-label">Ingresa el cedula del estudiante</label>
+          <div class="col-6 form-group">
+            <input class="form-control" placeholder="Estudiante" v-model="usuarioo.persona.cedula" />
           </div>
 
         </div>
@@ -108,11 +113,21 @@
           <button
             class="btn btn-primary btn-block"
             data-toggle="modal"
-            data-target="#buscarModalUSU"
+            data-target="#buscarModalRE"
             @click="buscarreclaced()" :disabled="!isFormValidReclamante()"
           >B.Reclamante <i class="fas fa-search fa-1x" style="color: black"></i></button>
         </div>
         <!--buscar recepcionador -->
+
+        
+        <div class="col-12 form-group" v-if="true">
+          <button
+            class="btn btn-primary btn-block"
+            data-toggle="modal"
+            data-target="#buscarModalUSU"
+            @click="buscarusuced()"
+          >Buscar Usuario</button>
+        </div>
  
         <div class="col-6 form-group" v-if="true">
           <button class="btn btn-primary btn-block" @click="agregar()" 
@@ -151,39 +166,11 @@
         </div>
         <!--cierro modal de area -->
 
-        <!--modal - el de buscar reclamante -->
-        <div
-          class="modal fade"
-          id="buscarModalrecl"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mostrar Persona</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <input placeholder="Id Docente" v-model="recepcion.reclamante.id" />
-                <input placeholder="Id Persona" v-model="recepcion.reclamante.per_id" />
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--cierro modal de buscar -->
-
+       
   <!--segundo modal - el de buscar RECLAMANTE-->
         <div
           class="modal fade"
-          id="buscarModalUSU"
+          id="buscarModalRE"
           tabindex="-1"
           role="dialog"
           aria-labelledby="exampleModalLabel"
@@ -217,6 +204,44 @@
           </div>
         </div>
         <!--cierro modal de buscar RECLAMANTE-->
+         <!--segundo modal - el de buscar USUARIO-->
+        <div
+          class="modal fade"
+          id="buscarModalUSU"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mostrar Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                 <label class="col-5 col-form-label">ID</label>
+                <input placeholder="USERNAME" v-model="usuarioo.persona.id" />
+
+                <label class="col-5 col-form-label">CEDULA</label>
+                <input placeholder="USERNAME" v-model="usuarioo.persona.cedula" />
+
+                <label class="col-5 col-form-label">NOMBRE</label>
+                <input placeholder="USERNAME" v-model="usuarioo.persona.prinom" />
+
+                <label class="col-5 col-form-label">APELLIDO</label>
+                <input placeholder="USERNAME" v-model="usuarioo.persona.priape" />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--cierro modal de buscar -->
 
 
 
@@ -249,6 +274,30 @@ export default {
           direc: "",
         },
       },
+
+      usuarioo: {
+        id: "",
+        username: "",
+        email: "",
+        email_verified_at: "",
+        password: "",
+        rol_id: "",
+        per_id: "",
+
+        persona: {
+          id: "",
+          cedula: "",
+          prinom: "",
+          segnom: "",
+          priape: "",
+          segape: "",
+          tel: "",
+          direc: "",
+        },
+      },
+
+
+      
 
       recepcion: {
         id: "",
@@ -297,7 +346,22 @@ export default {
   },
   methods: {
 
-    
+buscarusuced() {
+      axios.get("/api/user3/" + this.usuarioo.persona.cedula).then((res) => {
+        if (res.data[0] == null) {
+        this.usuarioo.persona.id = "";
+        this.usuarioo.persona.cedula = ""; 
+        this.usuarioo.persona.prinom = "";         
+        this.usuarioo.persona.priape = "";
+          this.esta = false;
+        } else {
+          console.log(res.data[0]);
+          let personn = res.data[0];
+          this.usuarioo.persona = personn;
+          this.esta = true;
+        }
+      });
+    },   
       buscarreclaced() {
       axios.get("/api/reclamante2/" + this.usuario.persona.cedula).then((res) => {
         if (res.data[0] == null) {
@@ -370,6 +434,7 @@ export default {
         fecharetiro: this.recepcion.fecharetiro,
         estado: this.recepcion.estado,
         recla_id: this.usuario.persona.id,
+        usu_id: this.usuarioo.persona.id,
         area_id: this.recepcion.area.id,
       };
           this.recepcion.recepcionado = "";
@@ -384,6 +449,7 @@ export default {
           this.recepcion.area.nombre = "";
           this.recepcion.estado = "";
           this.usuario.persona.cedula="";
+          this.usuarioo.persona.cedula="";
 
       axios.post("/api/recepcion", params).then((res) => {
         if (res.data == null) {

@@ -25,12 +25,13 @@ class CreateRecepcionTable extends Migration
             $table->boolean('estado');
             $table->double('notpricort', 8,2)->nullable();
             $table->double('notsegcort', 8,2)->nullable();
-            $table->double('nottercort', 8,2)->nullable();          
+            $table->double('nottercort', 8,2)->nullable();   
             $table->unsignedBigInteger('recla_id');
-            $table->foreign('recla_id')->references('id')->on('reclamantes'); 
+            $table->foreign('recla_id')->references('id')->on('reclamantes');            
             $table->unsignedBigInteger('area_id');
-            $table->foreign('area_id')->references('id')->on('areas');  
-
+            $table->foreign('area_id')->references('id')->on('areas');
+            $table->unsignedBigInteger('usu_id');
+            $table->foreign('usu_id')->references('id')->on('users');  
             $table->timestamps();     
         });
     }

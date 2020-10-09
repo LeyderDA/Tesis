@@ -165,8 +165,6 @@ usuario: {
       },
 
 
-
-
       usurecep: {
         id: "",
         recp_id: "",

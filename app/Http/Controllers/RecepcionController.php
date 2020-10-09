@@ -107,7 +107,7 @@ class RecepcionController extends Controller
         $re->notpricort = $request->notpricort;
         $re->notsegcort = $request->notsegcort;
         $re->nottercort = $request->nottercort;
-
+        $re->usu_id = $request->usu_id;
         $re->recla_id = $request->recla_id;
         $re->area_id = $request->area_id;
         $re->save();
@@ -126,10 +126,6 @@ class RecepcionController extends Controller
         return  response()->json($re);
     }
 
-
-
-
-
     public function store(Request $request)
     {
         $re = new Recepcion();
@@ -144,6 +140,7 @@ class RecepcionController extends Controller
         $re->notpricort = $request->notpricort;
         $re->notsegcort = $request->notsegcort;
         $re->nottercort = $request->nottercort;
+        $re->usu_id = $request->usu_id;
         $re->recla_id = $request->recla_id;
         $re->area_id = $request->area_id;
         $re->save();
