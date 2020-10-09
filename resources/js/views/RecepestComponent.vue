@@ -427,9 +427,6 @@
   </div>
 </template>
 
-
-
-
 <script >
 export default {
   data() {
@@ -513,7 +510,7 @@ export default {
     };
   },
   created() {
-    axios.get("/api/recepcion").then((res) => {
+    axios.get("/api/recepcionest").then((res) => {
       this.recepcioness = res.data;
     });
   },

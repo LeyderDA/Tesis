@@ -90,6 +90,49 @@ class RecepcionController extends Controller
        
     }
 
+
+    public function indexEst(Request $request)
+    {
+        
+        $id = (new request_id)->get_id();
+        $date = UsuRecep::all()->where('usu_id',$id);
+        
+        $recepcion = Recepcion::join("usurecep","recepciones.id","=","usurecep.recp_id")
+        ->join("reclamantes","recepciones.recla_id","=","reclamantes.id")
+        ->join("personas","reclamantes.per_id","=","personas.id")
+        ->join("areas","recepciones.area_id","=","areas.id")
+        ->select('recepciones.*', 
+        'reclamantes.enfodifervictima',
+        'reclamantes.genevictima',
+        'reclamantes.edadvictima',
+        'reclamantes.discapavictima',
+        'reclamantes.estravictima',
+        'reclamantes.embaravictima',
+        'reclamantes.grupetnicovictima',
+        'reclamantes.persoentidreclama',
+        'personas.cedula',
+        'personas.prinom',
+        'personas.segnom',
+        'personas.priape',
+        'personas.segape',
+        'areas.nombre'
+        )
+        ->orderBy('recepciones.id', 'asc')
+        ->where('recepciones.usu_id','=',$id)
+        ->get();
+
+                      if ($request->ajax()) {
+                          foreach ($recepcion as $rec) {                        
+                              $rec->reclamante;
+                              $rec->area;
+                              $rec->persona;                        
+                          }
+                          return $recepcion;
+                      } else {
+                          return  response()->json($recepcion);
+                      }   
+    }
+
     public function update(Request $request, $id)
     {
         $re = Recepcion::find($id);

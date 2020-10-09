@@ -6036,9 +6036,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -6118,7 +6115,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios.get("/api/recepcion").then(function (res) {
+    axios.get("/api/recepcionest").then(function (res) {
       _this.recepcioness = res.data;
     });
   },
