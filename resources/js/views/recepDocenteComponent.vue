@@ -17,7 +17,7 @@
                 <thead>
                   <tr>
                     <th>Estudiante</th>
-                    <th>Recepcionado en</th>
+                    <th>Recepcionado</th>
                     <th>Consultorio</th>
                     <th>Reclamante</th>
                     <th>Recepcionista</th>

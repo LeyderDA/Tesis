@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div>
-      <h2 class="text-center mb-2 card-title">Registrando una nueva Gestión</h2>
+      <h2 class="text-center mb-2 card-title">Lista de Gestiones</h2>
     </div>
     <div class="card-body row">
       <br />

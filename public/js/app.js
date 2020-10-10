@@ -51560,7 +51560,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("h2", { staticClass: "text-center mb-2 card-title" }, [
-        _vm._v("Registrando una nueva Gestión")
+        _vm._v("Lista de Gestiones")
       ])
     ])
   },
@@ -68109,7 +68109,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Estudiante")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Recepcionado en")]),
+        _c("th", [_vm._v("Recepcionado")]),
         _vm._v(" "),
         _c("th", [_vm._v("Consultorio")]),
         _vm._v(" "),
