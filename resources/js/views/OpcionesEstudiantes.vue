@@ -20,6 +20,10 @@
          <li class="nav-item">
         <router-link class="nav-link" :to="{name: 'miusuario'}">Ver mi usuario</router-link>
          </li>
+
+         <li class="nav-item"> 
+        <router-link class="nav-link" :to="{name: 'prueba'}">prueba</router-link>
+        </li> 
       </ul>
        </div>
      </nav>

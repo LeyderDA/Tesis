@@ -128,6 +128,13 @@ export default new Router({
 
         },
 
+        {
+            path: '/Prueba',
+            name: 'prueba',
+            component: require('./views/prueba.vue').default
+
+        },
+
         
         {
             path: '/AggCalificaciones',

@@ -7,6 +7,7 @@
       <div class="row">
         <div class="card-body col">
           <div class="container row">
+            
             <div class="table text-center table-reponsive">
               <table class="table text-center">
                 <thead>
@@ -50,6 +51,7 @@
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
                     </td>
+
                     <td>
                       <button
                         class="btn btn-success btn-sm"
@@ -423,6 +425,8 @@
         </div>
       </div>
       <!--modal de MOSTRAR EL RECLAMANTE -->
+    
+          
     </div>
   </div>
 </template>
@@ -431,6 +435,20 @@
 export default {
   data() {
     return {
+      usurecep: {
+         usuario: {
+          persona: {
+          id: "",
+          cedula: "",
+          prinom: "",
+          segnom: "",
+          priape: "",
+          segape: "",
+          tel: "",
+          direc: "",
+        },
+        }, 
+      },
       usuario: {
         id: "",
         username: "",
@@ -467,7 +485,6 @@ export default {
         fechapublicacion: "",
         fecharetiro: "",
         estado: "",
-
         reclamante: {
           id: "",
           per_id: "",
@@ -482,6 +499,8 @@ export default {
             direc: "",
           },
         },
+        
+        
         area: {
           id: "",
           nombre: "",
@@ -502,6 +521,8 @@ export default {
         entidadelantramite: "",
         recp_id: "",
       },
+   
+       
 
       esta: false,
       estado: "disable",
@@ -512,9 +533,12 @@ export default {
   created() {
     axios.get("/api/recepcionest").then((res) => {
       this.recepcioness = res.data;
+     
     });
   },
   methods: {
+
+
     buscarrecl() {
       axios
         .get("/api/reclamante/" + this.recepcion.reclamante.id)
@@ -525,6 +549,7 @@ export default {
             console.log(this.recepcion.reclamante);
             this.esta = false;
           } else {
+            
             console.log(res.data[0]);
             let person = res.data[0];
             this.recepcion.reclamante = person;
@@ -646,6 +671,8 @@ export default {
         });
       }
     },
+
+ 
 
     editarForm(recepcion, index) {
       this.recepcion = recepcion;

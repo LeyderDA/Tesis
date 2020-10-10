@@ -52,6 +52,9 @@ Route::get('/Est', 'EstadisticosController@est_recepciones')->name('estadisticos
 Route::get('tipo/{type}', 'SweetController@notification');
 
 
+Route::get('/Prueba', 'HomeController@index')->name('prueba');
+
+
 
 
 

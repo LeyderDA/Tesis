@@ -216,4 +216,18 @@ class RecepcionController extends Controller
       return view("qr.qrcode",compact('id','id'));  
     }
 
+    
+
+    public function MostrarR($id)
+    {
+        $usurecep = UsuRecep::join("recepciones","recepciones.id","=","usurecep.recp_id")
+        ->join("users","users.id","=","usurecep.usu_id")
+        ->join("personas","users.per_id","=","personas.id")
+        ->select('personas.*')
+        ->where("recepciones.id","=",$id) 
+        ->where("users.rol_id","=",2)      
+        ->get(); 
+        return  $usurecep;   
+    }
+
 }
