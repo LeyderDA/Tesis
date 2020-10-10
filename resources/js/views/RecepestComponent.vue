@@ -468,20 +468,21 @@
                 v-model="recepcion.id"
                 disabled
               />
-              <label class="col-12 col-form-label">Oprima el ícono para ver todos los datos de su Recepcionador</label>
-              <center>
-                 <button
-                class="btn btn-sm"
-                data-toggle="modal"
-                data-target="#MOSTRARModalRE"
-                @click="buscarrecep()"
-                title="Mostrar recepcionista"
+              <label class="col-12 col-form-label"
+                >Oprima el ícono para ver todos los datos de su
+                Recepcionador</label
               >
-                <i class="fas fa-eye fa-5x" style="color: black"></i>
-              </button>
-
-</center>
-             
+              <center>
+                <button
+                  class="btn btn-sm"
+                  data-toggle="modal"
+                  data-target="#MOSTRARModalRE"
+                  @click="buscarrecep()"
+                  title="Mostrar recepcionista"
+                >
+                  <i class="fas fa-eye fa-5x" style="color: black"></i>
+                </button>
+              </center>
 
               <br />
 
@@ -511,6 +512,8 @@
         role="dialog"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
+         data-backdrop="static"
+        data-keyboard="false"
       >
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -523,6 +526,7 @@
                 class="close"
                 data-dismiss="modal"
                 aria-label="Close"
+                
               >
                 <span aria-hidden="true">&times;</span>
               </button>

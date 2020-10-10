@@ -91,6 +91,7 @@ class RecepcionController extends Controller
     }
 
 
+
     public function indexEst(Request $request)
     {       
         $id = (new request_id)->get_id();               
@@ -228,6 +229,18 @@ class RecepcionController extends Controller
         ->where("users.rol_id","=",2)      
         ->get(); 
         return  $usurecep;   
+    }
+
+
+    public function MostraESTUDIANTE($id)
+    {
+        $estudiante = Recepcion::join("users","users.id","=","recepciones.usu_id")
+        ->join("personas","users.per_id","=","personas.id")
+        ->select('personas.*')
+        ->where("recepciones.id","=",$id) 
+        ->where("users.rol_id","=",3)      
+        ->get(); 
+        return  $estudiante;   
     }
 
 }

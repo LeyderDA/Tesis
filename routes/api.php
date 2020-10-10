@@ -47,11 +47,8 @@ Route::post('/recepcion', 'RecepcionController@store')->name('recepcionGuardar')
 Route::get('/recepcionqr/{id}', 'RecepcionController@qrcode');
 Route::get('/recepcionqr2/{id}', 'RecepcionController@qrcodedocest');
 Route::get('/recepcionest', 'RecepcionController@indexEst')->name('recepcionListarest');
-
-
 Route::get('/recepcionRE/{id}', 'RecepcionController@MostrarR')->name('recep');
-
-
+Route::get('/recepcionEST/{id}', 'RecepcionController@MostraESTUDIANTE')->name('recepEST');
 Route::get('/recepcion', 'RecepcionController@index')->name('recepcionListar');
 Route::get('/recepcionn', 'RecepcionController@indexx')->name('recepcionListar2');
 Route::delete('/recepcion/{id}', 'RecepcionController@destroy')->name('recepcionEliminar');

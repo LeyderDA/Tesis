@@ -16,10 +16,11 @@
               <table class="table text-center">
                 <thead>
                   <tr>
-                    <th>ID</th>
+                    <th>Estudiante</th>
                     <th>Recepcionado en</th>
                     <th>Consultorio</th>
                     <th>Reclamante</th>
+                    <th>Recepcionista</th>
                     <th>Area</th>           
                     <th>Fechas</th>
                     <th>Agregar observación</th>
@@ -28,7 +29,18 @@
                 </thead>
                 <tbody>       
                   <tr v-for="(recepcion) in recepcioness" :key="recepcion.index">                        
-                    <td>{{ recepcion.id }}</td>                   
+                    <td>  
+                                            <button
+                        class="btn btn-sm"
+                        data-toggle="modal"
+                        data-target="#MOSTRARModalEST"
+                        @click="editarForm(recepcion)"
+                        title="Mostrar Estudiante"
+                      >
+                        <i class="fas fa-eye fa-2x" style="color: black"></i>
+                      </button>
+                      
+                      </td>                   
                     <td>{{ recepcion.recepcionado }}</td>
                     <td>{{ recepcion.consultorio }}</td>
                      <td>
@@ -38,6 +50,17 @@
                         data-target="#MOSTRARModalRECLAMANTE"
                         @click="editarForm(recepcion)"
                         title="Mostrar los datos del Reclamante"
+                      >
+                        <i class="fas fa-eye fa-2x" style="color: black"></i>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="btn btn-sm"
+                        data-toggle="modal"
+                        data-target="#MOSTRARModalRECEP"
+                        @click="editarForm(recepcion)"
+                        title="Mostrar recepcionista"
                       >
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
@@ -82,6 +105,294 @@
           </div>
         </div>
       </div>
+      <!--modal de MOSTRAR EL RECEPCIONISTA-->
+      <div
+        class="modal fade"
+        id="MOSTRARModalRECEP"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Buscar Recepcionador
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input
+                type="hidden"
+                placeholder="id recep"
+                v-model="recepcion.id"
+                disabled
+              />
+              <label class="col-12 col-form-label"
+                >Oprima el ícono para ver todos los datos de su
+                Recepcionador</label
+              >
+              <center>
+                <button
+                  class="btn btn-sm"
+                  data-toggle="modal"
+                  data-target="#MOSTRARModalRE"
+                  @click="buscarrecep()"
+                  title="Mostrar recepcionista"
+                >
+                  <i class="fas fa-eye fa-5x" style="color: black"></i>
+                </button>
+              </center>
+
+              <br />
+
+              <div class="col-12 form-group">
+                <div style="width: 100px; height: 30px; margin: 0 auto">
+                  <button
+                    name="CERRAR"
+                    class="btn btn-primary"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    type="button"
+                  >
+                    CERRAR
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal de MOSTRAR EL RECE -->
+      <!--modal de MOSTRAR EL RECE -->
+      <div
+      
+        class="modal fade"
+        id="MOSTRARModalRE"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+        data-backdrop="static"
+        data-keyboard="false"
+      >
+     
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Datos del Recepcionista
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <label class="col-5 col-form-label">Primer nombre:</label>
+              <input
+                placeholder="Nombre de persona"
+                v-model="usurecep.usuario.persona.prinom"
+                disabled
+              />
+              <label class="col-5 col-form-label">Segundo nombre:</label>
+              <input
+                placeholder="Nombre de persona"
+                v-model="usurecep.usuario.persona.segnom"
+                disabled
+              />
+              <label class="col-5 col-form-label">Primer Apellido:</label>
+              <input
+                placeholder="Apellido de persona"
+                v-model="usurecep.usuario.persona.priape"
+                disabled
+              />
+              <label class="col-5 col-form-label">Segundo Apellido:</label>
+              <input
+                placeholder="Apellido de persona"
+                v-model="usurecep.usuario.persona.segape"
+                disabled
+              />
+
+              <br />
+              <br />
+
+              <div class="col-12 form-group">
+                <div style="width: 100px; height: 30px; margin: 0 auto">
+                  <button
+                    name="CERRAR"
+                    class="btn btn-primary"
+                    @click="limpiar()"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    type="button"
+                  >
+                    CERRAR
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal de MOSTRAR EL RECEP -->
+      
+       <!--modal de MOSTRAR EL ESTUDIANTE-->
+      <div
+        class="modal fade"
+        id="MOSTRARModalEST"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Buscar Estudiante
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input
+                type="hidden"
+                placeholder="id recep"
+                v-model="recepcion.id"
+                disabled
+              />
+              <label class="col-12 col-form-label"
+                >Oprima el ícono para ver todos los datos de su
+                Estudiante</label
+              >
+              <center>
+                <button
+                  class="btn btn-sm"
+                  data-toggle="modal"
+                  data-target="#MOSTRARModalES"
+                  @click="buscarestudiante()"
+                  title="Mostrar Estudiante"
+                >
+                  <i class="fas fa-eye fa-5x" style="color: black"></i>
+                </button>
+              </center>
+
+              <br />
+
+              <div class="col-12 form-group">
+                <div style="width: 100px; height: 30px; margin: 0 auto">
+                  <button
+                    name="CERRAR"
+                    class="btn btn-primary"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    type="button"
+                  >
+                    CERRAR
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal de MOSTRAR EL ESTUDIANTE -->
+      <!--modal de MOSTRAR EL ESTUDIANTE -->
+      <div
+      
+        class="modal fade"
+        id="MOSTRARModalES"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+        data-backdrop="static"
+        data-keyboard="false"
+      >
+     
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Datos del Recepcionista
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <label class="col-5 col-form-label">Primer nombre:</label>
+              <input
+                placeholder="Nombre de persona"
+                v-model="estudiante.usuario.persona.prinom"
+                disabled
+              />
+              <label class="col-5 col-form-label">Segundo nombre:</label>
+              <input
+                placeholder="Nombre de persona"
+                v-model="estudiante.usuario.persona.segnom"
+                disabled
+              />
+              <label class="col-5 col-form-label">Primer Apellido:</label>
+              <input
+                placeholder="Apellido de persona"
+                v-model="estudiante.usuario.persona.priape"
+                disabled
+              />
+              <label class="col-5 col-form-label">Segundo Apellido:</label>
+              <input
+                placeholder="Apellido de persona"
+                v-model="estudiante.usuario.persona.segape"
+                disabled
+              />
+
+              <br />
+              <br />
+
+              <div class="col-12 form-group">
+                <div style="width: 100px; height: 30px; margin: 0 auto">
+                  <button
+                    name="CERRAR"
+                    class="btn btn-primary"
+                    @click="limpiar()"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    type="button"
+                  >
+                    CERRAR
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal de MOSTRAR EL ESTUDIANTE -->
+
 
       <!--modal de asignar observacion -->
       <div
@@ -348,8 +659,6 @@
       </div>
       <!--modal de MOSTRAR EL RECLAMANTE -->
 
-
-
        <!--modal de agg NOTAS AL ESTUDIANTE -->
       <div
         class="modal fade"
@@ -411,7 +720,7 @@
               <button
                 name="CERRAR"
                 class="btn btn-danger"
-                @click="limpiar()"
+              
                 data-dismiss="modal"
                 aria-label="Close"
                 type="button"
@@ -441,6 +750,38 @@
 export default {
   data() {
     return {
+
+       estudiante: {
+        id: "",
+        usuario: {
+          persona: {
+            id: "",
+            cedula: "",
+            prinom: "",
+            segnom: "",
+            priape: "",
+            segape: "",
+            tel: "",
+            direc: "",
+          },
+        },
+      },
+
+            usurecep: {
+        id: "",
+        usuario: {
+          persona: {
+            id: "",
+            cedula: "",
+            prinom: "",
+            segnom: "",
+            priape: "",
+            segape: "",
+            tel: "",
+            direc: "",
+          },
+        },
+      },
        notas: {
         
        },
@@ -512,7 +853,41 @@ export default {
     
   },
   methods: {
-    
+     buscarrecep() {
+      axios.get("/api/recepcionRE/" + this.recepcion.id).then((res) => {
+        if (res.data[0] == null) {
+          console.log(res.data[0]);
+          this.esta = false;
+        } else {
+          console.log(res.data[0]);
+          let person = res.data[0];
+          this.usurecep.usuario.persona = person;
+          this.esta = true;
+        }
+      });
+    },
+
+    buscarestudiante() {
+      axios.get("/api/recepcionEST/" + this.recepcion.id).then((res) => {
+        if (res.data[0] == null) {
+          console.log(res.data[0]);
+          this.esta = false;
+        } else {
+          console.log(res.data[0]);
+          let person = res.data[0];
+          this.estudiante.usuario.persona = person;
+          this.esta = true;
+        }
+      });
+    },
+
+    limpiar() {
+      (this.usurecep.usuario.persona.cedula = ""),
+        (this.usurecep.usuario.persona.prinom = ""),
+        (this.usurecep.usuario.persona.segnom = ""),
+        (this.usurecep.usuario.persona.priape = ""),
+        (this.usurecep.usuario.persona.segape = "");
+    },
 
     agregarNOTAS() {
       const params = {
@@ -531,10 +906,6 @@ export default {
         }
       });
     },
-      limpiar(){
-
-},
-
 
     editarForm(recepcion, index) {
       this.recepcion = recepcion;
