@@ -6195,21 +6195,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -6312,7 +6297,7 @@ __webpack_require__.r(__webpack_exports__);
     buscarrecep: function buscarrecep() {
       var _this2 = this;
 
-      axios.get("/api/recepcionRE/" + this.usurecep.id).then(function (res) {
+      axios.get("/api/recepcionRE/" + this.recepcion.id).then(function (res) {
         if (res.data[0] == null) {
           console.log(res.data[0]);
           _this2.esta = false;
@@ -6391,11 +6376,11 @@ __webpack_require__.r(__webpack_exports__);
           alert("La recepcion No se registro porque tiene errores");
         } else {
           swal({
-            type: 'success',
-            "timer": 3000,
-            "title": "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            "text": "¡La recepción se ha registrado con EXITO!!",
-            "showConfirmButton": false
+            type: "success",
+            timer: 3000,
+            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            text: "¡La recepción se ha registrado con EXITO!!",
+            showConfirmButton: false
           });
         }
 
@@ -6427,11 +6412,11 @@ __webpack_require__.r(__webpack_exports__);
           alert("La Gestión NO se ha registrado");
         } else {
           swal({
-            type: 'success',
-            "timer": 3000,
-            "title": "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            "text": "¡La Gestión se ha registrado Exitosamente en el Caso!!",
-            "showConfirmButton": false
+            type: "success",
+            timer: 3000,
+            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            text: "¡La Gestión se ha registrado Exitosamente en el Caso!!",
+            showConfirmButton: false
           });
         }
 
@@ -56934,27 +56919,6 @@ var render = function() {
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "card-body col" }, [
           _c("div", { staticClass: "container row" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.recepcion.id,
-                  expression: "recepcion.id"
-                }
-              ],
-              attrs: { placeholder: "nombre de persona" },
-              domProps: { value: _vm.recepcion.id },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.recepcion, "id", $event.target.value)
-                }
-              }
-            }),
-            _vm._v(" "),
             _c("div", { staticClass: "table text-center table-reponsive" }, [
               _c("table", { staticClass: "table text-center" }, [
                 _vm._m(1),
@@ -56994,7 +56958,30 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _vm._m(2, true),
+                      _c("td", [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-sm",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": "#MOSTRARModalRECEP",
+                              title: "Mostrar recepcionista"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.editarForm(recepcion)
+                              }
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "fas fa-eye fa-2x",
+                              staticStyle: { color: "black" }
+                            })
+                          ]
+                        )
+                      ]),
                       _vm._v(" "),
                       _c("td", [
                         _c(
@@ -57114,7 +57101,7 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(3),
+                _vm._m(2),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("label", { staticClass: "col-5 col-form-label" }, [
@@ -57505,7 +57492,7 @@ var render = function() {
                       staticClass: "btn btn-danger",
                       attrs: { type: "button", "data-dismiss": "modal" }
                     },
-                    [_vm._v("\n                Cerrar\n              ")]
+                    [_vm._v("\n              Cerrar\n            ")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -57519,11 +57506,7 @@ var render = function() {
                         }
                       }
                     },
-                    [
-                      _vm._v(
-                        "\n                Guardar Cambios\n              "
-                      )
-                    ]
+                    [_vm._v("\n              Guardar Cambios\n            ")]
                   )
                 ])
               ])
@@ -57550,7 +57533,7 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(4),
+                _vm._m(3),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("label", { staticClass: "col-5 col-form-label" }, [
@@ -57727,7 +57710,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
-                  _vm._m(5)
+                  _vm._m(4)
                 ])
               ])
             ]
@@ -57753,7 +57736,7 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(6),
+                _vm._m(5),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("label", { staticClass: "col-5 col-form-label" }, [
@@ -58050,7 +58033,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
-                  _vm._m(7)
+                  _vm._m(6)
                 ])
               ])
             ]
@@ -58076,7 +58059,7 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(8),
+                _vm._m(7),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("label", { staticClass: "col-5 col-form-label" }, [
@@ -58088,18 +58071,18 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.usurecep.id,
-                        expression: "usurecep.id"
+                        value: _vm.recepcion.id,
+                        expression: "recepcion.id"
                       }
                     ],
                     attrs: { placeholder: "id recep" },
-                    domProps: { value: _vm.usurecep.id },
+                    domProps: { value: _vm.recepcion.id },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.usurecep, "id", $event.target.value)
+                        _vm.$set(_vm.recepcion, "id", $event.target.value)
                       }
                     }
                   }),
@@ -58131,7 +58114,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
-                  _vm._m(9)
+                  _vm._m(8)
                 ])
               ])
             ]
@@ -58157,7 +58140,7 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(10),
+                _vm._m(9),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("label", { staticClass: "col-5 col-form-label" }, [
@@ -58309,7 +58292,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                    CERRAR\n                  "
+                              "\n                  CERRAR\n                "
                             )
                           ]
                         )
@@ -58366,35 +58349,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-sm",
-          attrs: {
-            "data-toggle": "modal",
-            "data-target": "#MOSTRARModalRECEP",
-            title: "Mostrar recepcionista"
-          }
-        },
-        [
-          _c("i", {
-            staticClass: "fas fa-eye fa-2x",
-            staticStyle: { color: "black" }
-          })
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                Agregar Gestion\n              ")]
+        [_vm._v("\n              Agregar Gestion\n            ")]
       ),
       _vm._v(" "),
       _c(
@@ -58443,7 +58402,7 @@ var staticRenderFns = [
                 type: "button"
               }
             },
-            [_vm._v("\n                    CERRAR\n                  ")]
+            [_vm._v("\n                  CERRAR\n                ")]
           )
         ]
       )
@@ -58457,7 +58416,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                Datos del Reclamante\n              ")]
+        [_vm._v("\n              Datos del Reclamante\n            ")]
       )
     ])
   },
@@ -58481,7 +58440,7 @@ var staticRenderFns = [
                 type: "button"
               }
             },
-            [_vm._v("\n                    CERRAR\n                  ")]
+            [_vm._v("\n                  CERRAR\n                ")]
           )
         ]
       )
@@ -58495,7 +58454,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n               Buscar Recepcionador\n              ")]
+        [_vm._v("\n              Buscar Recepcionador\n            ")]
       ),
       _vm._v(" "),
       _c(
@@ -58532,7 +58491,7 @@ var staticRenderFns = [
                 type: "button"
               }
             },
-            [_vm._v("\n                    CERRAR\n                  ")]
+            [_vm._v("\n                  CERRAR\n                ")]
           )
         ]
       )
@@ -58546,7 +58505,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                Datos del Recepcionista\n              ")]
+        [_vm._v("\n              Datos del Recepcionista\n            ")]
       ),
       _vm._v(" "),
       _c(

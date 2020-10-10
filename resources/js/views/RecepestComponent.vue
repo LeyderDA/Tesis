@@ -7,11 +7,6 @@
       <div class="row">
         <div class="card-body col">
           <div class="container row">
-            <input
-                placeholder="nombre de persona"
-                v-model="recepcion.id"
-                
-              />
             <div class="table text-center table-reponsive">
               <table class="table text-center">
                 <thead>
@@ -43,17 +38,17 @@
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
                     </td>
-<td>
+                    <td>
                       <button
                         class="btn btn-sm"
                         data-toggle="modal"
                         data-target="#MOSTRARModalRECEP"
-                        
+                        @click="editarForm(recepcion)"
                         title="Mostrar recepcionista"
                       >
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
- </td>
+                    </td>
 
                     <td>
                       <button
@@ -66,9 +61,6 @@
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
                     </td>
-
-
-
 
                     <td>{{ recepcion.area.nombre }}</td>
                     <td>
@@ -142,7 +134,8 @@
                 <input
                   class="form-control"
                   placeholder="Recepción"
-                  v-model="recepcion.id" disabled
+                  v-model="recepcion.id"
+                  disabled
                 />
               </div>
 
@@ -457,7 +450,6 @@
       </div>
       <!--modal de MOSTRAR EL RECLAMANTE -->
 
-
       <!--modal de MOSTRAR EL RECEPCIONISTA-->
       <div
         class="modal fade"
@@ -471,7 +463,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
-               Buscar Recepcionador
+                Buscar Recepcionador
               </h5>
               <button
                 type="button"
@@ -484,20 +476,16 @@
             </div>
             <div class="modal-body">
               <label class="col-5 col-form-label">Recepcion:</label>
-              <input
-                placeholder="id recep"
-                v-model="usurecep.id"
-               
-              />
-                     <button
-                        class="btn btn-sm"
-                        data-toggle="modal"
-                        data-target="#MOSTRARModalRE"
-                        @click="buscarrecep()"
-                        title="Mostrar recepcionista"
-                      >
-                        <i class="fas fa-eye fa-2x" style="color: black"></i>
-                      </button>
+              <input placeholder="id recep" v-model="recepcion.id" />
+              <button
+                class="btn btn-sm"
+                data-toggle="modal"
+                data-target="#MOSTRARModalRE"
+                @click="buscarrecep()"
+                title="Mostrar recepcionista"
+              >
+                <i class="fas fa-eye fa-2x" style="color: black"></i>
+              </button>
 
               <br />
               <br />
@@ -551,25 +539,25 @@
                 v-model="usurecep.usuario.persona.prinom"
                 disabled
               />
-             <label class="col-5 col-form-label">Segundo nombre:</label>
+              <label class="col-5 col-form-label">Segundo nombre:</label>
               <input
                 placeholder="nombre de persona"
                 v-model="usurecep.usuario.persona.segnom"
                 disabled
               />
-             <label class="col-5 col-form-label">Primer Apellido:</label>
+              <label class="col-5 col-form-label">Primer Apellido:</label>
               <input
                 placeholder="nombre de persona"
                 v-model="usurecep.usuario.persona.priape"
                 disabled
               />
-             <label class="col-5 col-form-label">Segundo Apellido:</label>
+              <label class="col-5 col-form-label">Segundo Apellido:</label>
               <input
                 placeholder="nombre de persona"
                 v-model="usurecep.usuario.persona.segape"
                 disabled
               />
-                           
+
               <br />
               <br />
 
@@ -592,9 +580,6 @@
         </div>
       </div>
       <!--modal de MOSTRAR EL RECEP -->
-       
-    
-          
     </div>
   </div>
 </template>
@@ -603,20 +588,20 @@
 export default {
   data() {
     return {
-    usurecep: {
-          id: "",
-         usuario: {
+      usurecep: {
+        id: "",
+        usuario: {
           persona: {
-          id: "",
-          cedula: "",
-          prinom: "",
-          segnom: "",
-          priape: "",
-          segape: "",
-          tel: "",
-          direc: "",
+            id: "",
+            cedula: "",
+            prinom: "",
+            segnom: "",
+            priape: "",
+            segape: "",
+            tel: "",
+            direc: "",
+          },
         },
-        }, 
       },
       usuario: {
         id: "",
@@ -668,8 +653,7 @@ export default {
             direc: "",
           },
         },
-        
-        
+
         area: {
           id: "",
           nombre: "",
@@ -690,8 +674,6 @@ export default {
         entidadelantramite: "",
         recp_id: "",
       },
-   
-       
 
       esta: false,
       estado: "disable",
@@ -702,36 +684,30 @@ export default {
   created() {
     axios.get("/api/recepcionest").then((res) => {
       this.recepcioness = res.data;
-     
     });
   },
   methods: {
-
     buscarrecep() {
-      axios.get("/api/recepcionRE/" + this.usurecep.id)
-        .then((res) => {
-          if (res.data[0] == null) {
-            console.log(res.data[0]);
-            this.esta = false;
-          } else {
-            console.log(res.data[0]);
-            let person = res.data[0];
-            this.usurecep.usuario.persona = person;
-            this.esta = true;
-            
-          }
-        });
+      axios.get("/api/recepcionRE/" + this.recepcion.id).then((res) => {
+        if (res.data[0] == null) {
+          console.log(res.data[0]);
+          this.esta = false;
+        } else {
+          console.log(res.data[0]);
+          let person = res.data[0];
+          this.usurecep.usuario.persona = person;
+          this.esta = true;
+        }
+      });
     },
 
-    limpiar(){
- this.usurecep.usuario.persona.cedula= "",
-            this.usurecep.usuario.persona.prinom= "",
-            this.usurecep.usuario.persona.segnom= "",
-            this.usurecep.usuario.persona.priape= "",
-            this.usurecep.usuario.persona.segape= ""
-
+    limpiar() {
+      (this.usurecep.usuario.persona.cedula = ""),
+        (this.usurecep.usuario.persona.prinom = ""),
+        (this.usurecep.usuario.persona.segnom = ""),
+        (this.usurecep.usuario.persona.priape = ""),
+        (this.usurecep.usuario.persona.segape = "");
     },
-
 
     buscarrecl() {
       axios
@@ -743,7 +719,6 @@ export default {
             console.log(this.recepcion.reclamante);
             this.esta = false;
           } else {
-            
             console.log(res.data[0]);
             let person = res.data[0];
             this.recepcion.reclamante = person;
@@ -796,13 +771,13 @@ export default {
         if (res.data == null) {
           alert("La recepcion No se registro porque tiene errores");
         } else {
-           swal({
-        type: 'success',
-        "timer":3000,
-        "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-        "text":"¡La recepción se ha registrado con EXITO!!",
-        "showConfirmButton":false
-        });
+          swal({
+            type: "success",
+            timer: 3000,
+            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            text: "¡La recepción se ha registrado con EXITO!!",
+            showConfirmButton: false,
+          });
         }
         this.recepcioness.push(res.data);
       });
@@ -832,13 +807,13 @@ export default {
         if (res.data == null) {
           alert("La Gestión NO se ha registrado");
         } else {
-                     swal({
-        type: 'success',
-        "timer":3000,
-        "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-        "text":"¡La Gestión se ha registrado Exitosamente en el Caso!!",
-        "showConfirmButton":false
-        });
+          swal({
+            type: "success",
+            timer: 3000,
+            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            text: "¡La Gestión se ha registrado Exitosamente en el Caso!!",
+            showConfirmButton: false,
+          });
         }
         this.gestion.amplhechos = "";
         this.gestion.fechentrevasesor = "";
@@ -865,8 +840,6 @@ export default {
         });
       }
     },
-
- 
 
     editarForm(recepcion, index) {
       this.recepcion = recepcion;
