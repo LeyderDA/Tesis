@@ -7,7 +7,11 @@
       <div class="row">
         <div class="card-body col">
           <div class="container row">
-            
+            <input
+                placeholder="nombre de persona"
+                v-model="recepcion.id"
+                
+              />
             <div class="table text-center table-reponsive">
               <table class="table text-center">
                 <thead>
@@ -16,6 +20,7 @@
                     <th>Recepcionado en</th>
                     <th>Consultorio</th>
                     <th>Reclamante</th>
+                    <th>Recepcionista</th>
                     <th>Area</th>
                     <th>Fechas</th>
                     <th>Agregar Gestión</th>
@@ -38,6 +43,32 @@
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
                     </td>
+<td>
+                      <button
+                        class="btn btn-sm"
+                        data-toggle="modal"
+                        data-target="#MOSTRARModalRECEP"
+                        
+                        title="Mostrar recepcionista"
+                      >
+                        <i class="fas fa-eye fa-2x" style="color: black"></i>
+                      </button>
+ </td>
+
+                    <td>
+                      <button
+                        class="btn btn-sm"
+                        data-toggle="modal"
+                        data-target="#MOSTRARModalRECLAMANTE"
+                        @click="editarForm(recepcion)"
+                        title="Mostrar los datos del Reclamante"
+                      >
+                        <i class="fas fa-eye fa-2x" style="color: black"></i>
+                      </button>
+                    </td>
+
+
+
 
                     <td>{{ recepcion.area.nombre }}</td>
                     <td>
@@ -425,6 +456,143 @@
         </div>
       </div>
       <!--modal de MOSTRAR EL RECLAMANTE -->
+
+
+      <!--modal de MOSTRAR EL RECEPCIONISTA-->
+      <div
+        class="modal fade"
+        id="MOSTRARModalRECEP"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+               Buscar Recepcionador
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <label class="col-5 col-form-label">Recepcion:</label>
+              <input
+                placeholder="id recep"
+                v-model="usurecep.id"
+               
+              />
+                     <button
+                        class="btn btn-sm"
+                        data-toggle="modal"
+                        data-target="#MOSTRARModalRE"
+                        @click="buscarrecep()"
+                        title="Mostrar recepcionista"
+                      >
+                        <i class="fas fa-eye fa-2x" style="color: black"></i>
+                      </button>
+
+              <br />
+              <br />
+
+              <div class="col-12 form-group">
+                <div style="width: 100px; height: 30px; margin: 0 auto">
+                  <button
+                    name="CERRAR"
+                    class="btn btn-primary"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    type="button"
+                  >
+                    CERRAR
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal de MOSTRAR EL RECE -->
+      <!--modal de MOSTRAR EL RECE -->
+      <div
+        class="modal fade"
+        id="MOSTRARModalRE"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Datos del Recepcionista
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <label class="col-5 col-form-label">Primer nombre:</label>
+              <input
+                placeholder="nombre de persona"
+                v-model="usurecep.usuario.persona.prinom"
+                disabled
+              />
+             <label class="col-5 col-form-label">Segundo nombre:</label>
+              <input
+                placeholder="nombre de persona"
+                v-model="usurecep.usuario.persona.segnom"
+                disabled
+              />
+             <label class="col-5 col-form-label">Primer Apellido:</label>
+              <input
+                placeholder="nombre de persona"
+                v-model="usurecep.usuario.persona.priape"
+                disabled
+              />
+             <label class="col-5 col-form-label">Segundo Apellido:</label>
+              <input
+                placeholder="nombre de persona"
+                v-model="usurecep.usuario.persona.segape"
+                disabled
+              />
+                           
+              <br />
+              <br />
+
+              <div class="col-12 form-group">
+                <div style="width: 100px; height: 30px; margin: 0 auto">
+                  <button
+                    name="CERRAR"
+                    class="btn btn-primary"
+                    @click="limpiar()"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    type="button"
+                  >
+                    CERRAR
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal de MOSTRAR EL RECEP -->
+       
     
           
     </div>
@@ -435,7 +603,8 @@
 export default {
   data() {
     return {
-      usurecep: {
+    usurecep: {
+          id: "",
          usuario: {
           persona: {
           id: "",
@@ -537,6 +706,31 @@ export default {
     });
   },
   methods: {
+
+    buscarrecep() {
+      axios.get("/api/recepcionRE/" + this.usurecep.id)
+        .then((res) => {
+          if (res.data[0] == null) {
+            console.log(res.data[0]);
+            this.esta = false;
+          } else {
+            console.log(res.data[0]);
+            let person = res.data[0];
+            this.usurecep.usuario.persona = person;
+            this.esta = true;
+            
+          }
+        });
+    },
+
+    limpiar(){
+ this.usurecep.usuario.persona.cedula= "",
+            this.usurecep.usuario.persona.prinom= "",
+            this.usurecep.usuario.persona.segnom= "",
+            this.usurecep.usuario.persona.priape= "",
+            this.usurecep.usuario.persona.segape= ""
+
+    },
 
 
     buscarrecl() {

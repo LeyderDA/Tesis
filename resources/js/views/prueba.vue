@@ -113,14 +113,31 @@
               </h5>
             </div>
             <div class="modal-body">
-              <label class="col-5 col-form-label">nombre:</label>
+              <label class="col-5 col-form-label">Primer nombre:</label>
               <input
                 placeholder="nombre de persona"
                 v-model="usurecep.usuario.persona.prinom"
                 disabled
               />
-              
-              
+             <label class="col-5 col-form-label">Segundo nombre:</label>
+              <input
+                placeholder="nombre de persona"
+                v-model="usurecep.usuario.persona.segnom"
+                disabled
+              />
+             <label class="col-5 col-form-label">Primer Apellido:</label>
+              <input
+                placeholder="nombre de persona"
+                v-model="usurecep.usuario.persona.priape"
+                disabled
+              />
+             <label class="col-5 col-form-label">Segundo Apellido:</label>
+              <input
+                placeholder="nombre de persona"
+                v-model="usurecep.usuario.persona.segape"
+                disabled
+              />
+                           
               <br />
               <br />
 
