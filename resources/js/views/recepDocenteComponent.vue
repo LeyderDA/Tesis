@@ -882,11 +882,10 @@ export default {
     },
 
     limpiar() {
-      (this.usurecep.usuario.persona.cedula = ""),
-        (this.usurecep.usuario.persona.prinom = ""),
-        (this.usurecep.usuario.persona.segnom = ""),
-        (this.usurecep.usuario.persona.priape = ""),
-        (this.usurecep.usuario.persona.segape = "");
+        this.usurecep.usuario.persona.prinom = "";
+        this.usurecep.usuario.persona.segnom = "";
+        this.usurecep.usuario.persona.priape = "";
+        this.usurecep.usuario.persona.segape = "";
     },
 
     agregarNOTAS() {
