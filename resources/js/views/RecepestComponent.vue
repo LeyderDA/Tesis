@@ -49,10 +49,7 @@
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
                     </td>
-<td>{{ recepcion.area.nombre }}</td>
-                   
-
-                    
+                    <td>{{ recepcion.area.nombre }}</td>
                     <td>
                       <button
                         class="btn btn-sm"
@@ -471,7 +468,9 @@
                 v-model="recepcion.id"
                 disabled
               />
-              <button
+              <label class="col-12 col-form-label">Oprima el ícono para ver todos los datos de su Recepcionador</label>
+              <center>
+                 <button
                 class="btn btn-sm"
                 data-toggle="modal"
                 data-target="#MOSTRARModalRE"
@@ -480,6 +479,9 @@
               >
                 <i class="fas fa-eye fa-5x" style="color: black"></i>
               </button>
+
+</center>
+             
 
               <br />
 
@@ -528,25 +530,25 @@
             <div class="modal-body">
               <label class="col-5 col-form-label">Primer nombre:</label>
               <input
-                placeholder="nombre de persona"
+                placeholder="Nombre de persona"
                 v-model="usurecep.usuario.persona.prinom"
                 disabled
               />
               <label class="col-5 col-form-label">Segundo nombre:</label>
               <input
-                placeholder="nombre de persona"
+                placeholder="Nombre de persona"
                 v-model="usurecep.usuario.persona.segnom"
                 disabled
               />
               <label class="col-5 col-form-label">Primer Apellido:</label>
               <input
-                placeholder="nombre de persona"
+                placeholder="Apellido de persona"
                 v-model="usurecep.usuario.persona.priape"
                 disabled
               />
               <label class="col-5 col-form-label">Segundo Apellido:</label>
               <input
-                placeholder="nombre de persona"
+                placeholder="Apellido de persona"
                 v-model="usurecep.usuario.persona.segape"
                 disabled
               />

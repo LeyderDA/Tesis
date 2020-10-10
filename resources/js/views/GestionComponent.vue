@@ -129,14 +129,7 @@
                                
 
               </div>
-              <div class="col-6 form-group" v-if="true">
-                <button
-                  class="btn btn-primary btn-block"
-                  data-toggle="modal"
-                  data-target="#buscarModal"
-                  @click="buscar()"
-                >Buscar</button>
-              </div>
+              
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                 <button
