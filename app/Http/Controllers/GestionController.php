@@ -20,8 +20,8 @@ class GestionController extends Controller
         $id = (new request_id)->get_id();  
         $date = UsuRecep::all()->where('usu_id',$id);
 
-        $gestiones = Gestion::join("usurecep","gestion_tramites.recp_id","=","usurecep.recp_id")
-        ->join("recepciones","gestion_tramites.recp_id","=","recepciones.id")
+        $gestiones = Gestion::
+        join("recepciones","gestion_tramites.recp_id","=","recepciones.id")
         ->join("areas","recepciones.area_id","=","areas.id")      
         ->select('gestion_tramites.*', 
         'recepciones.recepcionado',
@@ -35,7 +35,7 @@ class GestionController extends Controller
         'areas.nombre'
         )
         ->orderBy('gestion_tramites.id', 'asc')
-        ->where('usurecep.usu_id','=',$id)
+        ->where('recepciones.usu_id','=',$id)
         ->get();
         
              if ($request->ajax()) {

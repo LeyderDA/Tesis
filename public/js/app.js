@@ -6188,13 +6188,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -56115,7 +56108,7 @@ var render = function() {
         {
           staticClass: "navbar navbar-expand-sm",
           staticStyle: {
-            "background-color": "#DADADA",
+            "background-color": "#dadada",
             color: "#000",
             height: "30px"
           }
@@ -56190,22 +56183,6 @@ var render = function() {
                         attrs: { to: { name: "miusuario" } }
                       },
                       [_vm._v("Ver mi usuario")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "nav-item" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link",
-                        attrs: { to: { name: "prueba" } }
-                      },
-                      [_vm._v("prueba")]
                     )
                   ],
                   1
@@ -56983,31 +56960,6 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-sm",
-                            attrs: {
-                              "data-toggle": "modal",
-                              "data-target": "#MOSTRARModalRECLAMANTE",
-                              title: "Mostrar los datos del Reclamante"
-                            },
-                            on: {
-                              click: function($event) {
-                                return _vm.editarForm(recepcion)
-                              }
-                            }
-                          },
-                          [
-                            _c("i", {
-                              staticClass: "fas fa-eye fa-2x",
-                              staticStyle: { color: "black" }
-                            })
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(recepcion.area.nombre))]),
                       _vm._v(" "),
                       _c("td", [
@@ -57492,7 +57444,7 @@ var render = function() {
                       staticClass: "btn btn-danger",
                       attrs: { type: "button", "data-dismiss": "modal" }
                     },
-                    [_vm._v("\n              Cerrar\n            ")]
+                    [_vm._v("\n                Cerrar\n              ")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -57506,7 +57458,11 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("\n              Guardar Cambios\n            ")]
+                    [
+                      _vm._v(
+                        "\n                Guardar Cambios\n              "
+                      )
+                    ]
                   )
                 ])
               ])
@@ -58062,10 +58018,6 @@ var render = function() {
                 _vm._m(7),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
-                    _vm._v("Recepcion:")
-                  ]),
-                  _vm._v(" "),
                   _c("input", {
                     directives: [
                       {
@@ -58075,7 +58027,11 @@ var render = function() {
                         expression: "recepcion.id"
                       }
                     ],
-                    attrs: { placeholder: "id recep" },
+                    attrs: {
+                      type: "hidden",
+                      placeholder: "id recep",
+                      disabled: ""
+                    },
                     domProps: { value: _vm.recepcion.id },
                     on: {
                       input: function($event) {
@@ -58104,13 +58060,11 @@ var render = function() {
                     },
                     [
                       _c("i", {
-                        staticClass: "fas fa-eye fa-2x",
+                        staticClass: "fas fa-eye fa-5x",
                         staticStyle: { color: "black" }
                       })
                     ]
                   ),
-                  _vm._v(" "),
-                  _c("br"),
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
@@ -58292,7 +58246,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                  CERRAR\n                "
+                              "\n                    CERRAR\n                  "
                             )
                           ]
                         )
@@ -58327,7 +58281,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("ID")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Recepcionado en")]),
+        _c("th", [_vm._v("Recepcionado")]),
         _vm._v(" "),
         _c("th", [_vm._v("Consultorio")]),
         _vm._v(" "),
@@ -58353,7 +58307,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n              Agregar Gestion\n            ")]
+        [_vm._v("\n                Agregar Gestion\n              ")]
       ),
       _vm._v(" "),
       _c(
@@ -58402,7 +58356,7 @@ var staticRenderFns = [
                 type: "button"
               }
             },
-            [_vm._v("\n                  CERRAR\n                ")]
+            [_vm._v("\n                    CERRAR\n                  ")]
           )
         ]
       )
@@ -58416,7 +58370,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n              Datos del Reclamante\n            ")]
+        [_vm._v("\n                Datos del Reclamante\n              ")]
       )
     ])
   },
@@ -58440,7 +58394,7 @@ var staticRenderFns = [
                 type: "button"
               }
             },
-            [_vm._v("\n                  CERRAR\n                ")]
+            [_vm._v("\n                    CERRAR\n                  ")]
           )
         ]
       )
@@ -58454,7 +58408,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n              Buscar Recepcionador\n            ")]
+        [_vm._v("\n                Buscar Recepcionador\n              ")]
       ),
       _vm._v(" "),
       _c(
@@ -58491,7 +58445,7 @@ var staticRenderFns = [
                 type: "button"
               }
             },
-            [_vm._v("\n                  CERRAR\n                ")]
+            [_vm._v("\n                    CERRAR\n                  ")]
           )
         ]
       )
@@ -58505,7 +58459,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n              Datos del Recepcionista\n            ")]
+        [_vm._v("\n                Datos del Recepcionista\n              ")]
       ),
       _vm._v(" "),
       _c(

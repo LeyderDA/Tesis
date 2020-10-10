@@ -12,7 +12,7 @@
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Recepcionado en</th>
+                    <th>Recepcionado</th>
                     <th>Consultorio</th>
                     <th>Reclamante</th>
                     <th>Recepcionista</th>
@@ -49,20 +49,10 @@
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
                     </td>
+<td>{{ recepcion.area.nombre }}</td>
+                   
 
-                    <td>
-                      <button
-                        class="btn btn-sm"
-                        data-toggle="modal"
-                        data-target="#MOSTRARModalRECLAMANTE"
-                        @click="editarForm(recepcion)"
-                        title="Mostrar los datos del Reclamante"
-                      >
-                        <i class="fas fa-eye fa-2x" style="color: black"></i>
-                      </button>
-                    </td>
-
-                    <td>{{ recepcion.area.nombre }}</td>
+                    
                     <td>
                       <button
                         class="btn btn-sm"
@@ -475,8 +465,12 @@
               </button>
             </div>
             <div class="modal-body">
-              <label class="col-5 col-form-label">Recepcion:</label>
-              <input placeholder="id recep" v-model="recepcion.id" />
+              <input
+                type="hidden"
+                placeholder="id recep"
+                v-model="recepcion.id"
+                disabled
+              />
               <button
                 class="btn btn-sm"
                 data-toggle="modal"
@@ -484,10 +478,9 @@
                 @click="buscarrecep()"
                 title="Mostrar recepcionista"
               >
-                <i class="fas fa-eye fa-2x" style="color: black"></i>
+                <i class="fas fa-eye fa-5x" style="color: black"></i>
               </button>
 
-              <br />
               <br />
 
               <div class="col-12 form-group">
