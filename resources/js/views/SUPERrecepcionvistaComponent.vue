@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div>
-      <h2 class="text-center mb-2 card-title">Listado de Recepciones</h2>
+      <h2 class="text-center mb-2 card-title">Lista General de Recepciones</h2>
     </div>
     <div class="container">
       <div class="row">
@@ -28,7 +28,7 @@
                     :key="recepcion.index"
                   >
                     <td>
-                       <button
+                      <button
                         class="btn btn-sm"
                         data-toggle="modal"
                         data-target="#MOSTRARModalEST"
@@ -37,7 +37,6 @@
                       >
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
-                      
                     </td>
                     <td>{{ recepcion.recepcionado }}</td>
                     <td>{{ recepcion.consultorio }}</td>
@@ -52,7 +51,7 @@
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
                     </td>
-                     <td>
+                    <td>
                       <button
                         class="btn btn-sm"
                         data-toggle="modal"
@@ -76,19 +75,17 @@
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
                     </td>
-<td>
- <button
+                    <td>
+                      <button
                         class="btn btn-success btn-sm"
                         data-toggle="modal"
-                        data-target="#aggusuModal"
+                        data-target="#PUENTE"
                         @click="editarForm(recepcion)"
                         title="Asignar caso"
                       >
                         <i class="fas fa-save fa-3x" style="color: black"></i>
                       </button>
-
-
-</td>
+                    </td>
 
                     <td>
                       <button
@@ -124,8 +121,7 @@
         </div>
       </div>
 
-
-       <!--modal de MOSTRAR EL RECEPCIONISTA-->
+      <!--modal de MOSTRAR EL RECEPCIONISTA-->
       <div
         class="modal fade"
         id="MOSTRARModalRECEP"
@@ -194,7 +190,6 @@
       <!--modal de MOSTRAR EL RECE -->
       <!--modal de MOSTRAR EL RECE -->
       <div
-      
         class="modal fade"
         id="MOSTRARModalRE"
         tabindex="-1"
@@ -204,7 +199,6 @@
         data-backdrop="static"
         data-keyboard="false"
       >
-     
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -268,7 +262,7 @@
         </div>
       </div>
       <!--modal de MOSTRAR EL RECEP -->
-                  <!--modal de MOSTRAR EL ESTUDIANTE-->
+      <!--modal de MOSTRAR EL ESTUDIANTE-->
       <div
         class="modal fade"
         id="MOSTRARModalEST"
@@ -337,7 +331,6 @@
       <!--modal de MOSTRAR EL ESTUDIANTE -->
       <!--modal de MOSTRAR EL ESTUDIANTE -->
       <div
-      
         class="modal fade"
         id="MOSTRARModalES"
         tabindex="-1"
@@ -347,7 +340,6 @@
         data-backdrop="static"
         data-keyboard="false"
       >
-     
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -411,7 +403,7 @@
         </div>
       </div>
       <!--modal de MOSTRAR EL ESTUDIANTE -->
-  
+
       <!--modal de editar -->
       <div
         class="modal fade"
@@ -491,8 +483,6 @@
               <label class="col-5 col-form-label">Consultorio:</label>
               <input placeholder="recepcion" v-model="recepcion.consultorio" />
 
-             
-
               <label class="col-5 col-form-label">Area:</label>
               <input placeholder="recepcion" v-model="recepcion.area.nombre" />
 
@@ -508,21 +498,30 @@
                 </button>
               </div>
               <!--buscar area -->
-              <label class="col-12 col-form-label">En caso de que quieras cambiar el reclamante digita la cédula: </label>
+              <label class="col-12 col-form-label"
+                >En caso de que quieras cambiar el reclamante digita la cédula:
+              </label>
 
-               <label class="col-5 col-form-label">Cédula Reclamante:</label>
-              <input placeholder="Cédula del Reclamante" v-model="usuario.persona.cedula" />
-              <br>
+              <label class="col-5 col-form-label">Cédula Reclamante:</label>
+              <input
+                placeholder="Cédula del Reclamante"
+                v-model="usuario.persona.cedula"
+              />
+              <br />
 
               <!--buscar reclamante -->
               <div class="col-5 form-group" v-if="true">
-          <button
-            class="btn btn-primary btn-block"
-            data-toggle="modal"
-            data-target="#buscarModalReclam"
-            @click="buscarreclaced()" :disabled="!isFormValidReclamante()"
-          >B.Reclamante <i class="fas fa-search fa-1x" style="color: black"></i></button>
-        </div>
+                <button
+                  class="btn btn-primary btn-block"
+                  data-toggle="modal"
+                  data-target="#buscarModalReclam"
+                  @click="buscarreclaced()"
+                  :disabled="!isFormValidReclamante()"
+                >
+                  B.Reclamante
+                  <i class="fas fa-search fa-1x" style="color: black"></i>
+                </button>
+              </div>
               <!--buscar reclamante -->
             </div>
             <div class="modal-footer">
@@ -550,10 +549,10 @@
       </div>
       <!--modal de editar -->
 
-       <!--modal de agg usuario -->
-      <div
+ <!--MODAL PARA ASIGNAR MI CASO COMO RECEPCIONISTA-->
+<div
         class="modal fade"
-        id="aggusuModal"
+        id="PUENTE"
         tabindex="-1"
         role="dialog"
         aria-labelledby="exampleModalLabel"
@@ -563,7 +562,66 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
-                Asignar Recepción
+                Elige que tipo de usuario vas a asignar a la recepción
+              </h5>
+            </div>
+            <div class="modal-body">
+              <div class="col-12 form-group" v-if="true">
+                    <button
+                        class="btn btn-primary"
+                        data-toggle="modal"
+                        data-target="#aggusuModal"
+                        title="Asignar caso al recepcionista"
+                      >
+                      
+                         Asignar Recepcionista
+
+                      </button>
+
+                      <button
+                        class="btn btn-primary"
+                        data-toggle="modal"
+                        data-target="#aggusuPROFModal"
+                        title="Asignar caso al Docente"
+                      >
+                        Asignar Docente
+                      </button>
+
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                name="CERRAR"
+                class="btn btn-danger"
+                data-dismiss="modal"
+                aria-label="Close"
+                type="button"
+              >
+                CERRAR
+              </button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+  <!--MODAL PARA ASIGNAR MI CASO COMO RECEPCIONISTA-->
+
+      <!--modal de agg usuario -->
+      <div
+        class="modal fade"
+        id="aggusuModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+        data-backdrop="static"
+        data-keyboard="false"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Asignar Administrativo a la Recepción
               </h5>
               <button
                 type="button"
@@ -575,32 +633,28 @@
               </button>
             </div>
             <div class="modal-body">
-
               <label class="col-5 col-form-label">ID RECEPCIÓN:</label>
-              <input
-                placeholder="recepcion"
-                v-model="recepcion.id"
-              />
-          <label class="col-5 col-form-label">USUARIO:</label>
-          <div class="col-6 form-group">
-            <input class="form-control" placeholder="USUARIO" v-model="usuario.persona.cedula" />
-          </div>
-          
-        <div class="col-12 form-group" v-if="true">
-          <button
-            class="btn btn-primary btn-block"
-            data-toggle="modal"
-            data-target="#buscarModalUSU"
-            @click="buscarusuced()" :disabled="!isFormValidusuario()"
-          >Buscar Usuario</button>
-        </div>
-             
+              <input placeholder="recepcion" v-model="recepcion.id" />
+              <label class="col-5 col-form-label">CÉDULA:</label>
+              <input placeholder="CC.RECEPCIONISTA" v-model="usuario.persona.cedula" />
+
+              <div class="col-12 form-group" v-if="true">
+                <button
+                  class="btn btn-primary btn-block"
+                  data-toggle="modal"
+                  data-target="#buscarModalUSU"
+                  @click="buscarusucedADM()"
+                  :disabled="!isFormValidusuario()"
+                >
+                  BUSCAR ADMINISTRATIVO
+                </button>
+              </div>
             </div>
             <div class="modal-footer">
               <button
                 name="CERRAR"
                 class="btn btn-danger"
-                @click="limpiarr()"
+                @click="limpiatodo()"
                 data-dismiss="modal"
                 aria-label="Close"
                 type="button"
@@ -614,13 +668,87 @@
                 @click="GUARDARASIGNACION()"
                 data-dismiss="modal"
               >
-                Guardar Cambios
+                ASIGNAR
               </button>
             </div>
           </div>
         </div>
       </div>
       <!--modal de agg usuario -->
+
+      <!--modal de agg PROFESOR -->
+      <div
+        class="modal fade"
+        id="aggusuPROFModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+        data-backdrop="static"
+        data-keyboard="false"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Asignar Docente Recepción
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <label class="col-5 col-form-label">ID RECEPCIÓN:</label>
+              <input placeholder="recepcion" v-model="recepcion.id" />
+
+              <label class="col-5 col-form-label">CÉDULA:</label>
+              <input placeholder="CC.DOCENTE" v-model="usuario.persona.cedula" />
+
+              
+
+              <div class="col-12 form-group" v-if="true">
+                <button
+                  class="btn btn-primary btn-block"
+                  data-toggle="modal"
+                  data-target="#buscarModalUSU"
+                  @click="buscarusucedPROF()"
+                  :disabled="!isFormValidusuario()"
+                >
+                  BUSCAR DOCENTE
+                </button>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                name="CERRAR"
+                class="btn btn-danger"
+                @click="limpiatodo()"
+                data-dismiss="modal"
+                aria-label="Close"
+                type="button"
+              >
+                CERRAR
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-primary"
+                @click="GUARDARASIGNACION()"
+                data-dismiss="modal"
+              >
+                ASIGNAR
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal de agg PROFESOR -->
+
 
       <!--modal de MOSTRAR EL RESTO DE CAMPOS-->
       <div
@@ -884,7 +1012,6 @@
                 placeholder="Id Persona"
                 v-model="recepcion.reclamante.per_id"
               />
-
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">
@@ -896,93 +1023,111 @@
       </div>
       <!--cierro modal de buscar -->
 
-  <!--segundo modal - el de buscar usuario-->
-        <div
-          class="modal fade"
-          id="buscarModalUSU"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mostrar Usuario</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <label class="col-5 col-form-label">ID USUARIO</label>
-                <input placeholder="ID USUARIO" v-model="usuario.persona.id" />
+      <!--segundo modal - el de buscar usuario-->
+      <div
+        class="modal fade"
+        id="buscarModalUSU"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Mostrar Usuario
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              
 
-                <label class="col-5 col-form-label">USERNAME</label>
-                <input placeholder="USERNAME" v-model="usuario.persona.username" />
+              <label class="col-5 col-form-label">USERNAME</label>
+              <input
+                placeholder="USERNAME"
+                v-model="usuario.persona.username"
+              />
 
-                <label class="col-5 col-form-label">CEDULA</label>
-                <input placeholder="USERNAME" v-model="usuario.persona.cedula" />
+              <label class="col-5 col-form-label">CEDULA</label>
+              <input placeholder="USERNAME" v-model="usuario.persona.cedula" />
 
-                <label class="col-5 col-form-label">NOMBRE</label>
-                <input placeholder="USERNAME" v-model="usuario.persona.prinom" />
+              <label class="col-5 col-form-label">NOMBRE</label>
+              <input placeholder="USERNAME" v-model="usuario.persona.prinom" />
 
-                <label class="col-5 col-form-label">APELLIDO</label>
-                <input placeholder="USERNAME" v-model="usuario.persona.priape" />
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-              </div>
+              <label class="col-5 col-form-label">APELLIDO</label>
+              <input placeholder="USERNAME" v-model="usuario.persona.priape" />
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" @click="limpiatodo()" data-dismiss="modal">
+                Cerrar
+              </button>
             </div>
           </div>
         </div>
-        <!--cierro modal de buscar -->
-        <!--segundo modal - el de buscar RECLAMANTE-->
-        <div
-          class="modal fade"
-          id="buscarModalReclam"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mostrar Usuario</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <label class="col-5 col-form-label">ID RECLAMANTE</label>
-                <input placeholder="ID USUARIO" v-model="usuario.persona.id" />
+      </div>
+      <!--cierro modal de buscar -->
+      <!--segundo modal - el de buscar RECLAMANTE-->
+      <div
+        class="modal fade"
+        id="buscarModalReclam"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Mostrar Usuario
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <label class="col-5 col-form-label">ID RECLAMANTE</label>
+              <input placeholder="ID USUARIO" v-model="usuario.persona.id" />
 
-                <label class="col-5 col-form-label">CEDULA</label>
-                <input placeholder="USERNAME" v-model="usuario.persona.cedula" />
+              <label class="col-5 col-form-label">CEDULA</label>
+              <input placeholder="USERNAME" v-model="usuario.persona.cedula" />
 
-                <label class="col-5 col-form-label">NOMBRE</label>
-                <input placeholder="USERNAME" v-model="usuario.persona.prinom" />
+              <label class="col-5 col-form-label">NOMBRE</label>
+              <input placeholder="USERNAME" v-model="usuario.persona.prinom" />
 
-                <label class="col-5 col-form-label">APELLIDO</label>
-                <input placeholder="USERNAME" v-model="usuario.persona.priape" />
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger"  data-dismiss="modal">Cerrar</button>
-              </div>
+              <label class="col-5 col-form-label">APELLIDO</label>
+              <input placeholder="USERNAME" v-model="usuario.persona.priape" />
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">
+                Cerrar
+              </button>
             </div>
           </div>
         </div>
-        <!--cierro modal de buscar RECLAMANTE-->
-
+      </div>
+      <!--cierro modal de buscar RECLAMANTE-->
     </div>
   </div>
 </template>
 <script>
 export default {
   data() {
-    return { 
-      
-       estudiante: {
+    return {
+      estudiante: {
         id: "",
         usuario: {
           persona: {
@@ -998,7 +1143,7 @@ export default {
         },
       },
 
-            usurecep: {
+      usurecep: {
         id: "",
         usuario: {
           persona: {
@@ -1138,19 +1283,19 @@ export default {
         }
       });
     },
-    limpiame() {   
-        this.usurecep.usuario.persona = "";
+
+    limpiame() {
+      this.usurecep.usuario.persona = "";
     },
 
     limpiar2() {
- 
-        this.estudiante.usuario.persona.prinom = "";
-        this.estudiante.usuario.persona.segnom = "";
-        this.estudiante.usuario.persona.priape = "";
-        this.estudiante.usuario.persona.segape = "";
+      this.estudiante.usuario.persona.prinom = "";
+      this.estudiante.usuario.persona.segnom = "";
+      this.estudiante.usuario.persona.priape = "";
+      this.estudiante.usuario.persona.segape = "";
     },
 
- buscarusuced() {
+    buscarusuced() {
       axios.get("/api/user2/" + this.usuario.persona.cedula).then((res) => {
         if (res.data[0] == null) {
           this.usuario.id = "";
@@ -1168,17 +1313,14 @@ export default {
         }
       });
     },
-limpiar(){
-  this.usuario.persona.cedula="";
-},
- buscarreclaced() {
-      axios.get("/api/reclamante2/" + this.usuario.persona.cedula).then((res) => {
+     buscarusucedPROF() {
+      axios.get("/api/user4/" + this.usuario.persona.cedula).then((res) => {
         if (res.data[0] == null) {
-          this.usuario.persona.id = "";
-          this.usuario.persona.username = "";
-          this.usuario.persona.cedula = "";
-          this.usuario.persona.prinom = "";
-          this.usuario.persona.priape = "";
+          this.usuario.id = "";
+          this.usuario.username = "";
+          this.usuario.cedula = "";
+          this.usuario.prinom = "";
+          this.usuario.priape = "";
           console.log(this.usuario);
           this.esta = false;
         } else {
@@ -1190,59 +1332,102 @@ limpiar(){
       });
     },
 
-    limpiarr(){
-  this.usuario.persona.cedula="";
-},
+     buscarusucedADM() {
+      axios.get("/api/user5/" + this.usuario.persona.cedula).then((res) => {
+        if (res.data[0] == null) {
+          this.usuario.id = "";
+          this.usuario.username = "";
+          this.usuario.cedula = "";
+          this.usuario.prinom = "";
+          this.usuario.priape = "";
+          console.log(this.usuario);
+          this.esta = false;
+        } else {
+          console.log(res.data[0]);
+          let person = res.data[0];
+          this.usuario.persona = person;
+          this.esta = true;
+        }
+      });
+    },
+    limpiar() {
+      this.usuario.persona.cedula = "";
+    },
+    buscarreclaced() {
+      axios
+        .get("/api/reclamante2/" + this.usuario.persona.cedula)
+        .then((res) => {
+          if (res.data[0] == null) {
+            this.usuario.persona.id = "";
+            this.usuario.persona.username = "";
+            this.usuario.persona.cedula = "";
+            this.usuario.persona.prinom = "";
+            this.usuario.persona.priape = "";
+            console.log(this.usuario);
+            this.esta = false;
+          } else {
+            console.log(res.data[0]);
+            let person = res.data[0];
+            this.usuario.persona = person;
+            this.esta = true;
+          }
+        });
+    },
 
- isFormValidReclamante: function(){
-            return this.usuario.persona.cedula!="";
-          },
+    limpiarr() {
+      this.usuario.persona = "";
+    },
 
-GUARDARASIGNACION(){
+     limpiatodo() {     
+      this.usuario.persona.username = "";
+      this.usuario.persona.prinom = "";
+      this.usuario.persona.priape = "";
+    },
+
+    isFormValidReclamante: function () {
+      return this.usuario.persona.cedula != "";
+    },
+
+    GUARDARASIGNACION() {
       const params = {
         recp_id: this.recepcion.id,
         usu_id: this.usuario.persona.id,
       };
-      this.usuario.persona.cedula="";
+      this.usuario.persona.cedula = "";
 
       axios.post("/api/asigrecep", params).then((res) => {
         if (res.data == null) {
-            swal({
-            type: 'error',
-            "timer":3000,
-            "title":"PARECE QUE HAY UN ERROR",
-            "text":"La asignacion no se ha registrado con exito",
-            "showConfirmButton":false
-             });
+          swal({
+            type: "error",
+            timer: 3000,
+            title: "PARECE QUE HAY UN ERROR",
+            text: "La asignacion no se ha registrado con exito",
+            showConfirmButton: false,
+          });
         } else {
-            swal({
-            type: 'success',
-            "timer":3000,
-            "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            "text":"La asignacion del caso se ha registrado",
-            "showConfirmButton":false
-             });
+          swal({
+            type: "success",
+            timer: 3000,
+            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            text: "La asignacion del caso se ha registrado",
+            showConfirmButton: false,
+          });
         }
-      axios.get("/api/recepcionSUPER").then((res) => {
-      this.recepcioness = res.data;
-      console.log(res.data);
-    });
+        axios.get("/api/recepcionSUPER").then((res) => {
+          this.recepcioness = res.data;
+          console.log(res.data);
+        });
       });
-
-
-},
-
-
+    },
 
     buscarrecl() {
       axios
         .get("/api/reclamante/" + this.recepcion.reclamante.id)
         .then((res) => {
           if (res.data[0] == null) {
-           
             this.recepcion.reclamante.id = "";
             this.recepcion.reclamante.per_id = "";
-           
+
             console.log(this.recepcion.reclamante);
             this.esta = false;
           } else {
@@ -1287,9 +1472,9 @@ GUARDARASIGNACION(){
       }
     },
 
-            isFormValidusuario: function(){
-            return this.usuario.persona.cedula!="";
-          },
+    isFormValidusuario: function () {
+      return this.usuario.persona.cedula != "";
+    },
     editarForm(recepcion, index) {
       this.recepcion = recepcion;
       this.recepcion.index = index;
@@ -1311,23 +1496,21 @@ GUARDARASIGNACION(){
         .put("/api/recepcion/" + this.recepcion.id, params)
         .then((res) => {
           if (res.data == null) {
-              swal({
-            type: "error",
-            timer: 3000,
-            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            text: "La recepcion no se ha actualizado",
-            showConfirmButton: false,
-          });
-
+            swal({
+              type: "error",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "La recepcion no se ha actualizado",
+              showConfirmButton: false,
+            });
           } else {
             swal({
-            type: "success",
-            timer: 3000,
-            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            text: "La Recepción se ha actualizado",
-            showConfirmButton: false,
-          });
-
+              type: "success",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "La Recepción se ha actualizado",
+              showConfirmButton: false,
+            });
           }
           axios.get("/api/recepcionSUPER").then((res) => {
             this.recepcioness = res.data;

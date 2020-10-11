@@ -41,6 +41,9 @@ Route::put('/user/{id}', 'UsuarioController@update')->name('usuarioActualizar');
 Route::get('/user/{id}', 'UsuarioController@buscar')->name('userbuscar');
 Route::get('/user2/{id}', 'UsuarioController@buscarusuced')->name('userbuscarcedu');
 Route::get('/user3/{id}', 'UsuarioController@aggestudianteRe')->name('buscarestud');
+Route::get('/user4/{id}', 'UsuarioController@buscarusucedPRO')->name('userbuscarceduPRO');
+Route::get('/user5/{id}', 'UsuarioController@buscarusucedADM')->name('userbuscarceduADM');
+
 
 //RUTAS DE API PARA RECEPCIONES
 Route::post('/recepcion', 'RecepcionController@store')->name('recepcionGuardar');

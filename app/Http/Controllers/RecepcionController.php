@@ -18,8 +18,7 @@ class RecepcionController extends Controller
     {
         
         $id = (new request_id)->get_id();
-        $date = UsuRecep::all()->where('usu_id',$id);
-        
+        $date = UsuRecep::all()->where('usu_id',$id);        
         $recepcion = Recepcion::join("usurecep","recepciones.id","=","usurecep.recp_id")
         ->join("reclamantes","recepciones.recla_id","=","reclamantes.id")
         ->join("personas","reclamantes.per_id","=","personas.id")

@@ -122,6 +122,39 @@ class UsuarioController extends Controller
         ->get(); 
         return  $usuario;   
     }
+
+    public function buscarusucedPRO($cedula)
+    {       
+        $usuario = User::join("personas","users.per_id","=","personas.id")
+        ->select('users.*',
+        'personas.cedula',
+        'personas.prinom',
+        'personas.segnom',
+        'personas.priape',
+        'personas.segape'
+        )
+        ->where("personas.cedula","=",$cedula)
+        ->where("users.rol_id","=",4)
+        ->get(); 
+        return  $usuario;   
+    }
+
+    public function buscarusucedADM($cedula)
+    {
+        $id = (new request_id)->get_id();
+        $usuario = User::join("personas","users.per_id","=","personas.id")
+        ->select('users.*',
+        'personas.cedula',
+        'personas.prinom',
+        'personas.segnom',
+        'personas.priape',
+        'personas.segape'
+        )
+        ->where("personas.cedula","=",$cedula)
+        ->where("users.id","=",$id)
+        ->get(); 
+        return  $usuario;   
+    }
     public function aggestudiante($cedula)
     {
         $usuario = User::join("personas","users.per_id","=","personas.id")
