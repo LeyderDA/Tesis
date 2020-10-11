@@ -114,7 +114,13 @@
 
               <li class="nav-item">
                 <router-link class="nav-link" :to="{ name: 'vistaresu' }"
-                  >Lista de recepciones</router-link
+                  >Lista General de Recepciones</router-link
+                >
+              </li>
+
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'misrecepciones' }"
+                  >Mis Recepciones</router-link
                 >
               </li>
             </ul>

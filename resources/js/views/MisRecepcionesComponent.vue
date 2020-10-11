@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div>
-      <h2 class="text-center mb-2 card-title">Listado de Recepciones</h2>
+      <h2 class="text-center mb-2 card-title">Mis Recepciones</h2>
     </div>
     <div class="container">
       <div class="row">
@@ -1105,7 +1105,7 @@ export default {
     };
   },
   created() {
-    axios.get("/api/recepcionSUPER").then((res) => {
+    axios.get("/api/recepcion").then((res) => {
       this.recepcioness = res.data;
       console.log(res.data);
     });
@@ -1138,6 +1138,7 @@ export default {
         }
       });
     },
+
     limpiame() {   
         this.usurecep.usuario.persona = "";
     },

@@ -172,11 +172,12 @@ export default new Router({
 
         },
 
+        {
+            path: '/MisRecepciones',
+            name: 'misrecepciones',
+            component: require('./views/MisRecepcionesComponent.vue').default
 
-
-        
-
-
+        },
     ],
     mode: 'history'
 
