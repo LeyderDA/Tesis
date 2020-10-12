@@ -40,6 +40,7 @@ class RecepcionController extends Controller
         'areas.nombre'
         )
         ->orderBy('recepciones.id', 'asc')
+        ->where('recepciones.estado','=',1)
         ->where('usurecep.usu_id','=',$id)
         ->get();
 
@@ -54,6 +55,9 @@ class RecepcionController extends Controller
                           return  response()->json($recepcion);
                       }   
     }
+
+    
+
     public function indexx(Request $request)
     {  
         $id = (new request_id)->get_id();
@@ -74,6 +78,7 @@ class RecepcionController extends Controller
         )
         ->orderBy('recepciones.id', 'asc')
         ->where('usurecep.usu_id','=',$id)
+        ->where('recepciones.estado','=',1)
         ->get();
 
                       if ($request->ajax()) {
@@ -114,7 +119,8 @@ class RecepcionController extends Controller
         'areas.nombre'
         )
         ->orderBy('recepciones.id', 'asc')
-        ->where('recepciones.usu_id','=',$id)        
+        ->where('recepciones.usu_id','=',$id)
+        ->where('recepciones.estado','=',1)        
         ->get();
 
                       if ($request->ajax()) {
@@ -140,11 +146,6 @@ class RecepcionController extends Controller
         $re->fechapublicacion = $request->fechapublicacion;
         $re->fecharetiro = $request->fecharetiro;
         $re->estado = $request->estado;
-
-        $re->notpricort = $request->notpricort;
-        $re->notsegcort = $request->notsegcort;
-        $re->nottercort = $request->nottercort;
-        $re->usu_id = $request->usu_id;
         $re->recla_id = $request->recla_id;
         $re->area_id = $request->area_id;
         $re->save();

@@ -111,36 +111,34 @@
                   >Crear Recepción</router-link
                 >
               </li>
-
               <li class="nav-item">
                 <router-link class="nav-link" :to="{ name: 'vistaresu' }"
-                  >Lista de recepciones</router-link
+                  >Recepciones Activas</router-link
+                >
+              </li>
+
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'recepestadosuper' }"
+                  >Recepciones Inactivas</router-link
                 >
               </li>
             </ul>
           </div>
 
+          <li class="nav-item">
+            <router-link class="nav-link" :to="{ name: 'gestionvistasuper' }"
+              >Listar las Gestiones</router-link
+            >
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" :to="{ name: 'asignacionvista' }"
+              >Lista de Asignaciones</router-link
+            >
+          </li>
 
-              <li class="nav-item">
-                <router-link
-                  class="nav-link"
-                  :to="{ name: 'gestionvistasuper' }"
-                  >Listar las Gestiones</router-link
-                >
-              </li>
-              <li class="nav-item">
-                <router-link class="nav-link" :to="{ name: 'asignacionvista' }"
-                  >Lista de Asignaciones</router-link
-                >
-              </li>
-
-
-
-              <li class="nav-item">
-                <a :href="'/Est'">Estadisticas
-                      </a>
-                </li>
-           
+          <li class="nav-item">
+            <a :href="'/Est'">Estadisticas </a>
+          </li>
         </ul>
       </div>
     </nav>

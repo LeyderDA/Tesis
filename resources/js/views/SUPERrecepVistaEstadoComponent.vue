@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div>
-      <h2 class="text-center mb-2 card-title">Lista de Recepciones Activas</h2>
+      <h2 class="text-center mb-2 card-title">Lista de Recepciones Inactivas</h2>
     </div>
     <div class="container">
       <div class="row">
@@ -1252,7 +1252,7 @@ export default {
     };
   },
   created() {
-    axios.get("/api/recepcionSUPER").then((res) => {
+    axios.get("/api/recepcionSUPEREsta").then((res) => {
       this.recepcioness = res.data;
       console.log(res.data);
     });
@@ -1480,7 +1480,6 @@ export default {
     editarForm(recepcion, index) {
       this.recepcion = recepcion;
       this.recepcion.index = index;
-     console.log(recepcion);
     },
     editar() {
       const params = {
@@ -1515,7 +1514,7 @@ export default {
               showConfirmButton: false,
             });
           }
-          axios.get("/api/recepcionSUPER").then((res) => {
+          axios.get("/api/recepcionSUPEREsta").then((res) => {
             this.recepcioness = res.data;
             console.log(res.data);
           });

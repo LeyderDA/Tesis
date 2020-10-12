@@ -58,9 +58,8 @@ Route::delete('/recepcion/{id}', 'RecepcionController@destroy')->name('recepcion
 Route::put('/recepcion/{id}', 'RecepcionController@update')->name('recepcionActualizar');
 Route::put('/recepcion2/{id}', 'RecepcionController@update2')->name('recepcionActualizar2');
 Route::get('/recepcion/{id}', 'RecepcionController@buscar')->name('recepcionbuscar');
-
 Route::get('/recepcionSUPER', 'SUPERADMINController@indexRecepcion')->name('recepcionSuperListar');
-
+Route::get('/recepcionSUPEREsta', 'SUPERADMINController@indexRecepcionEstado')->name('recepcionSuperListarEsta');
 //RUTAS DE API PARA RECLAMANTES
 Route::post('/reclamante', 'ReclamanteController@store')->name('reclamanteGuardar');
 Route::get('/reclamante', 'ReclamanteController@index')->name('reclamanteListar');

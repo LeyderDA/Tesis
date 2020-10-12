@@ -173,6 +173,13 @@ export default new Router({
         },
 
         {
+            path: '/RECEPESTADOSUPER',
+            name: 'recepestadosuper',
+            component: require('./views/SUPERrecepVistaEstadoComponent.vue').default
+
+        },
+
+        {
             path: '/MisRecepciones',
             name: 'misrecepciones',
             component: require('./views/MisRecepcionesComponent.vue').default
