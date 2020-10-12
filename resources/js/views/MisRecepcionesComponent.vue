@@ -18,7 +18,8 @@
                     <th>Recepcionista</th>
                     <th>Area</th>
                     <th>Fechas</th>
-                    <th>Opciones</th>
+                    <th>Mostrar QR</th>
+                   
                   </tr>
                 </thead>
                 <tbody>
@@ -76,23 +77,7 @@
                     </td>
 
                     <td>
-                      <button
-                        class="btn btn-success btn-sm"
-                        data-toggle="modal"
-                        data-target="#editarModal"
-                        @click="editarForm(recepcion, index)"
-                        title="Editar Recepción"
-                      >
-                        <i class="fas fa-pencil-alt fa-1.5x"></i>
-                      </button>
-                      <button
-                        class="btn btn-danger btn-sm"
-                        @click="eliminar(recepcion, index)"
-                        title="Eliminar Recepción"
-                      >
-                        <i class="fas fa-trash-alt fa-1.5x"></i>
-                      </button>
-                      <br />
+                                        
                       <a :href="'/recepcionqr/' + recepcion.id">
                         <i
                           class="fas fa-qrcode fa-2x fa-align-center"

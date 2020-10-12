@@ -111,18 +111,28 @@
                   >Crear Recepción</router-link
                 >
               </li>
-
-              <li class="nav-item">
-                <router-link class="nav-link" :to="{ name: 'vistaresu' }"
-                  >Lista General de Recepciones</router-link
-                >
-              </li>
-
-              <li class="nav-item">
+              
+               <li class="nav-item">
                 <router-link class="nav-link" :to="{ name: 'misrecepciones' }"
                   >Mis Recepciones</router-link
                 >
               </li>
+
+               <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'vistaresu' }"
+                  >Recepciones Activas</router-link
+                >
+              </li>
+
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'recepestadosuper' }"
+                  >Recepciones Inactivas</router-link
+                >
+              </li>
+
+             
+
+
             </ul>
           </div>
 

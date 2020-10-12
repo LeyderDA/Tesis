@@ -5897,21 +5897,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     var _ref;
@@ -58728,44 +58713,6 @@ var render = function() {
                       _vm._v(" "),
                       _c("td", [
                         _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-success btn-sm",
-                            attrs: {
-                              "data-toggle": "modal",
-                              "data-target": "#editarModal",
-                              title: "Editar Recepción"
-                            },
-                            on: {
-                              click: function($event) {
-                                return _vm.editarForm(recepcion, index)
-                              }
-                            }
-                          },
-                          [
-                            _c("i", {
-                              staticClass: "fas fa-pencil-alt fa-1.5x"
-                            })
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-danger btn-sm",
-                            attrs: { title: "Eliminar Recepción" },
-                            on: {
-                              click: function($event) {
-                                return _vm.eliminar(recepcion, index)
-                              }
-                            }
-                          },
-                          [_c("i", { staticClass: "fas fa-trash-alt fa-1.5x" })]
-                        ),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c(
                           "a",
                           { attrs: { href: "/recepcionqr/" + recepcion.id } },
                           [
@@ -61168,7 +61115,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Fechas")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Opciones")])
+        _c("th", [_vm._v("Mostrar QR")])
       ])
     ])
   },
@@ -62811,9 +62758,9 @@ var render = function() {
                             "router-link",
                             {
                               staticClass: "nav-link",
-                              attrs: { to: { name: "vistaresu" } }
+                              attrs: { to: { name: "misrecepciones" } }
                             },
-                            [_vm._v("Lista General de Recepciones")]
+                            [_vm._v("Mis Recepciones")]
                           )
                         ],
                         1
@@ -62827,9 +62774,25 @@ var render = function() {
                             "router-link",
                             {
                               staticClass: "nav-link",
-                              attrs: { to: { name: "misrecepciones" } }
+                              attrs: { to: { name: "vistaresu" } }
                             },
-                            [_vm._v("Mis Recepciones")]
+                            [_vm._v("Recepciones Activas")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "nav-link",
+                              attrs: { to: { name: "recepestadosuper" } }
+                            },
+                            [_vm._v("Recepciones Inactivas")]
                           )
                         ],
                         1
