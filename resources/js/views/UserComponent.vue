@@ -9,6 +9,7 @@
           <label class="col-5 col-form-label">Nombre de Usuario:</label>
           <div class="col-6 form-group">
             <input
+            type="text"
               class="form-control"
               placeholder="Nombre de Usuario"
               v-model="usuario.username"
@@ -18,6 +19,7 @@
           <label class="col-5 col-form-label">Email:</label>
           <div class="col-6 form-group">
             <input
+            
               class="form-control"
               placeholder="Email"
               v-model="usuario.email"

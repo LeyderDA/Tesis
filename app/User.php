@@ -61,5 +61,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function rules(){     
+        return [
+            'username'=>'required|max:10',
+            'email'=>'required|email',
+            'password'=>'required',
+            'per_id'=>'required',
+            'rol_id'=>'required',
+        ];
+
+
+    }
+
     
 }

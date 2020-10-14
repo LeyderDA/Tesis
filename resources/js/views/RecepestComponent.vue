@@ -99,7 +99,7 @@
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
@@ -116,9 +116,9 @@
             </div>
 
             <div class="modal-body">
-              <label class="col-5 col-form-label">Recepción</label>
               <div class="col-6 form-group">
                 <input
+                type="hidden"
                   class="form-control"
                   placeholder="Recepción"
                   v-model="recepcion.id"
@@ -181,43 +181,6 @@
                   v-model="gestion.fechaarchivo"
                 />
               </div>
-
-              <label class="col-5 col-form-label">Observaciones</label>
-              <div class="col-6 form-group">
-                <input
-                  class="form-control"
-                  placeholder="Observaciones"
-                  v-model="gestion.obsrvtramite"
-                />
-              </div>
-
-              <label class="col-5 col-form-label">Actuaciones</label>
-              <div class="col-6 form-group">
-                <input
-                  class="form-control"
-                  placeholder="Actuaciones"
-                  v-model="gestion.actuarealizadas"
-                />
-              </div>
-
-              <label class="col-5 col-form-label">Actuaciones Juridicas</label>
-              <div class="col-6 form-group">
-                <input
-                  class="form-control"
-                  placeholder="Actuaciones Juridicas"
-                  v-model="gestion.actjuridirealzadas"
-                />
-              </div>
-
-              <label class="col-5 col-form-label">Resultado de actuación</label>
-              <div class="col-6 form-group">
-                <input
-                  class="form-control"
-                  placeholder="Resultado de actuación"
-                  v-model="gestion.resulactuacion"
-                />
-              </div>
-
               <label class="col-5 col-form-label">Entidad del tramite</label>
               <div class="col-6 form-group">
                 <input
@@ -226,6 +189,58 @@
                   v-model="gestion.entidadelantramite"
                 />
               </div>
+
+              <label class="col-5 col-form-label">Observaciones</label>
+               <div class="col-12 form-group">
+                <textarea
+                  rows="3"
+                  cols="50"
+                  type="text"
+                   class="form-control"
+                  v-model="gestion.obsrvtramite"
+                >
+                </textarea>
+          </div>
+             
+
+              <label class="col-5 col-form-label">Actuaciones realizadas</label>
+               <div class="col-12 form-group">
+                <textarea
+                  rows="3"
+                  cols="50"
+                  type="text"
+                   class="form-control"
+                  v-model="gestion.actuarealizadas"
+                >
+                </textarea>
+          </div>
+             
+
+              <label class="col-5 col-form-label">Actuaciones jurídicas realizadas </label>
+               <div class="col-12 form-group">
+                <textarea
+                  rows="3"
+                  cols="50"
+                  type="text"
+                   class="form-control"
+                  v-model="gestion.actjuridirealzadas"
+                >
+                </textarea>
+          </div>
+            
+              <label class="col-5 col-form-label">Resultado de actuación</label>
+               <div class="col-12 form-group">
+                <textarea
+                  rows="3"
+                  cols="50"
+                  type="text"
+                   class="form-control"
+                  v-model="gestion.resulactuacion"
+                >
+                </textarea>
+          </div>
+              
+              
             </div>
 
             <div class="modal-footer">
