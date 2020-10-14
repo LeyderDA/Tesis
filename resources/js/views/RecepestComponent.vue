@@ -118,7 +118,7 @@
             <div class="modal-body">
               <div class="col-6 form-group">
                 <input
-                type="hidden"
+                  type="hidden"
                   class="form-control"
                   placeholder="Recepción"
                   v-model="recepcion.id"
@@ -191,56 +191,54 @@
               </div>
 
               <label class="col-5 col-form-label">Observaciones</label>
-               <div class="col-12 form-group">
+              <div class="col-12 form-group">
                 <textarea
                   rows="3"
                   cols="50"
                   type="text"
-                   class="form-control"
+                  class="form-control"
                   v-model="gestion.obsrvtramite"
                 >
                 </textarea>
-          </div>
-             
+              </div>
 
               <label class="col-5 col-form-label">Actuaciones realizadas</label>
-               <div class="col-12 form-group">
+              <div class="col-12 form-group">
                 <textarea
                   rows="3"
                   cols="50"
                   type="text"
-                   class="form-control"
+                  class="form-control"
                   v-model="gestion.actuarealizadas"
                 >
                 </textarea>
-          </div>
-             
+              </div>
 
-              <label class="col-5 col-form-label">Actuaciones jurídicas realizadas </label>
-               <div class="col-12 form-group">
+              <label class="col-5 col-form-label"
+                >Actuaciones jurídicas realizadas
+              </label>
+              <div class="col-12 form-group">
                 <textarea
                   rows="3"
                   cols="50"
                   type="text"
-                   class="form-control"
+                  class="form-control"
                   v-model="gestion.actjuridirealzadas"
                 >
                 </textarea>
-          </div>
-            
+              </div>
+
               <label class="col-5 col-form-label">Resultado de actuación</label>
-               <div class="col-12 form-group">
+              <div class="col-12 form-group">
                 <textarea
                   rows="3"
                   cols="50"
                   type="text"
-                   class="form-control"
+                  class="form-control"
                   v-model="gestion.resulactuacion"
                 >
                 </textarea>
-          </div>
-              
-              
+              </div>
             </div>
 
             <div class="modal-footer">
@@ -276,49 +274,64 @@
             </div>
             <div class="modal-body">
               <label class="col-5 col-form-label">Fecha de radicado:</label>
-              <input
-                placeholder="recepcion"
-                type="date"
-                readonly="readonly"
-                v-model="recepcion.fecharadicado"
-                disabled
-              />
+              <div class="col-6 form-group">
+                <input
+                  placeholder="recepcion"
+                  type="date"
+                  class="form-control"
+                  readonly="readonly"
+                  v-model="recepcion.fecharadicado"
+                  disabled
+                />
+              </div>
 
               <label class="col-5 col-form-label">Fecha de recepcionado:</label>
-              <input
-                placeholder="recepcion"
-                type="date"
-                readonly="readonly"
-                v-model="recepcion.fecharecepcionado"
-                disabled
-              />
+              <div class="col-6 form-group">
+                <input
+                  placeholder="recepcion"
+                  class="form-control"
+                  type="date"
+                  readonly="readonly"
+                  v-model="recepcion.fecharecepcionado"
+                  disabled
+                />
+              </div>
 
               <label class="col-5 col-form-label">Fecha de reparto:</label>
-              <input
-                placeholder="recepcion"
-                type="date"
-                readonly="readonly"
-                v-model="recepcion.fechareparto"
-                disabled
-              />
+              <div class="col-6 form-group">
+                <input
+                  placeholder="recepcion"
+                  class="form-control"
+                  type="date"
+                  readonly="readonly"
+                  v-model="recepcion.fechareparto"
+                  disabled
+                />
+              </div>
 
               <label class="col-5 col-form-label">Fecha de publicación:</label>
-              <input
-                placeholder="recepcion"
-                type="date"
-                readonly="readonly"
-                v-model="recepcion.fechapublicacion"
-                disabled
-              />
+              <div class="col-6 form-group">
+                <input
+                  placeholder="recepcion"
+                  class="form-control"
+                  type="date"
+                  readonly="readonly"
+                  v-model="recepcion.fechapublicacion"
+                  disabled
+                />
+              </div>
 
               <label class="col-5 col-form-label">Fecha de retiro:</label>
-              <input
-                placeholder="recepcion"
-                type="date"
-                readonly="readonly"
-                v-model="recepcion.fecharetiro"
-                disabled
-              />
+              <div class="col-6 form-group">
+                <input
+                  placeholder="recepcion"
+                  class="form-control"
+                  type="date"
+                  readonly="readonly"
+                  v-model="recepcion.fecharetiro"
+                  disabled
+                />
+              </div>
               <br />
               <br />
 
@@ -359,76 +372,114 @@
             </div>
             <div class="modal-body">
               <label class="col-5 col-form-label">Nombre del reclamante:</label>
-              <input
-                placeholder="nombre de persona"
-                v-model="recepcion.prinom"
-                disabled
-              />
+              <div class="col-6 form-group">
+                <input
+                  placeholder="nombre de persona"
+                  class="form-control"
+                  v-model="recepcion.prinom"
+                  disabled
+                />
+              </div>
 
               <label class="col-5 col-form-label"
                 >Apellido del reclamante:</label
               >
-              <input
-                placeholder="nombre de persona"
-                v-model="recepcion.priape"
-                disabled
-              />
+              <div class="col-6 form-group">
+                <input
+                  placeholder="nombre de persona"
+                  class="form-control"
+                  v-model="recepcion.priape"
+                  disabled
+                />
+              </div>
 
               <label class="col-5 col-form-label">Enfoque diferencial:</label>
-              <input
-                placeholder="enfoque diferencial"
-                v-model="recepcion.reclamante.enfodifervictima"
-                disabled
-              />
+
+              <div class="col-6 form-group">
+                <input
+                  placeholder="enfoque diferencial"
+                  class="form-control"
+                  v-model="recepcion.reclamante.enfodifervictima"
+                  disabled
+                />
+              </div>
 
               <label class="col-5 col-form-label">Genero:</label>
-              <input
-                placeholder="genero"
-                v-model="recepcion.reclamante.genevictima"
-                disabled
-              />
+
+              <div class="col-6 form-group">
+                <input
+                  placeholder="genero"
+                  class="form-control"
+                  v-model="recepcion.reclamante.genevictima"
+                  disabled
+                />
+              </div>
 
               <label class="col-5 col-form-label">Edad:</label>
-              <input
-                placeholder="edad"
-                v-model="recepcion.reclamante.edadvictima"
-                disabled
-              />
+
+              <div class="col-6 form-group">
+                <input
+                  placeholder="edad"
+                  class="form-control"
+                  v-model="recepcion.reclamante.edadvictima"
+                  disabled
+                />
+              </div>
 
               <label class="col-5 col-form-label">Discapacidad:</label>
-              <input
-                placeholder="discapacidad"
-                v-model="recepcion.reclamante.discapavictima"
-                disabled
-              />
+
+              <div class="col-6 form-group">
+                <input
+                  placeholder="discapacidad"
+                  class="form-control"
+                  v-model="recepcion.reclamante.discapavictima"
+                  disabled
+                />
+              </div>
 
               <label class="col-5 col-form-label">Estrato:</label>
-              <input
-                placeholder="estrato"
-                v-model="recepcion.reclamante.estravictima"
-                disabled
-              />
+
+              <div class="col-6 form-group">
+                <input
+                  placeholder="estrato"
+                  class="form-control"
+                  v-model="recepcion.reclamante.estravictima"
+                  disabled
+                />
+              </div>
 
               <label class="col-5 col-form-label">Embarazo:</label>
-              <input
-                placeholder="embarazo"
-                v-model="recepcion.reclamante.embaravictima"
-                disabled
-              />
+
+              <div class="col-6 form-group">
+                <input
+                  placeholder="embarazo"
+                  class="form-control"
+                  v-model="recepcion.reclamante.embaravictima"
+                  disabled
+                />
+              </div>
 
               <label class="col-5 col-form-label">Grupo Etnico:</label>
-              <input
-                placeholder="grupo etnico"
-                v-model="recepcion.reclamante.grupetnicovictima"
-                disabled
-              />
+
+              <div class="col-6 form-group">
+                <input
+                  placeholder="grupo etnico"
+                  class="form-control"
+                  v-model="recepcion.reclamante.grupetnicovictima"
+                  disabled
+                />
+              </div>
 
               <label class="col-5 col-form-label">Entidad que reclama:</label>
-              <input
-                placeholder="entidad"
-                v-model="recepcion.reclamante.persoentidreclama"
-                disabled
-              />
+
+              <div class="col-6 form-group">
+                <input
+                  placeholder="entidad"
+                  class="form-control"
+                  v-model="recepcion.reclamante.persoentidreclama"
+                  disabled
+                />
+              </div>
 
               <br />
               <br />
@@ -478,6 +529,7 @@
             </div>
             <div class="modal-body">
               <input
+                class="form-control"
                 type="hidden"
                 placeholder="id recep"
                 v-model="recepcion.id"
@@ -527,7 +579,7 @@
         role="dialog"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
-         data-backdrop="static"
+        data-backdrop="static"
         data-keyboard="false"
       >
         <div class="modal-dialog" role="document">
@@ -541,37 +593,48 @@
                 class="close"
                 data-dismiss="modal"
                 aria-label="Close"
-                
               >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
               <label class="col-5 col-form-label">Primer nombre:</label>
-              <input
-                placeholder="Nombre de persona"
-                v-model="usurecep.usuario.persona.prinom"
-                disabled
-              />
-              <label class="col-5 col-form-label">Segundo nombre:</label>
-              <input
-                placeholder="Nombre de persona"
-                v-model="usurecep.usuario.persona.segnom"
-                disabled
-              />
-              <label class="col-5 col-form-label">Primer Apellido:</label>
-              <input
-                placeholder="Apellido de persona"
-                v-model="usurecep.usuario.persona.priape"
-                disabled
-              />
-              <label class="col-5 col-form-label">Segundo Apellido:</label>
-              <input
-                placeholder="Apellido de persona"
-                v-model="usurecep.usuario.persona.segape"
-                disabled
-              />
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Nombre de persona"
+                  v-model="usurecep.usuario.persona.prinom"
+                  disabled
+                />
+              </div>
 
+              <label class="col-5 col-form-label">Segundo nombre:</label>
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Nombre de persona"
+                  v-model="usurecep.usuario.persona.segnom"
+                  disabled
+                />
+              </div>
+              <label class="col-5 col-form-label">Primer Apellido:</label>
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Apellido de persona"
+                  v-model="usurecep.usuario.persona.priape"
+                  disabled
+                />
+              </div>
+              <label class="col-5 col-form-label">Segundo Apellido:</label>
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Apellido de persona"
+                  v-model="usurecep.usuario.persona.segape"
+                  disabled
+                />
+              </div>
               <br />
               <br />
 
