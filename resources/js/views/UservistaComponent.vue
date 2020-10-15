@@ -1,12 +1,11 @@
 <template>
-    <div class="card">
-        <div>
+  <div class="card">
+    <div>
       <br />
-        <h2 class="text-center mb-2 card-title">Listado de usuarios</h2>
-        </div>
-        <div class="card-body row">      
-        <div class="row justify-content-center col">   
-      </div>
+      <h2 class="text-center mb-2 card-title">Listado de usuarios</h2>
+    </div>
+    <div class="card-body row">
+      <div class="row justify-content-center col"></div>
       <br />
       <div class="container">
         <div class="row">
@@ -24,24 +23,30 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(usuario,index) in usuarioss" :key="usuario.index">
-                      <td>{{usuario.username}}</td>
-                      <td>{{usuario.email}}</td>
-                      <td>{{usuario.persona.prinom}}</td>
-                      <td>{{usuario.persona.priape}}</td>
+                    <tr
+                      v-for="(usuario, index) in usuarioss"
+                      :key="usuario.index"
+                    >
+                      <td>{{ usuario.username }}</td>
+                      <td>{{ usuario.email }}</td>
+                      <td>{{ usuario.persona.prinom }}</td>
+                      <td>{{ usuario.persona.priape }}</td>
 
                       <td>
                         <button
                           class="btn btn-success btn-sm"
                           data-toggle="modal"
                           data-target="#editarModal"
-                          @click="editarForm(usuario,index)"
+                          @click="editarForm(usuario, index)"
                           title="Editar los datos del usuario"
                         >
                           <i class="fas fa-pencil-alt"></i>
                         </button>
-                        <button class="btn btn-danger btn-sm" @click="eliminar(usuario,index)"
-                        title="Eliminar reclamante">
+                        <button
+                          class="btn btn-danger btn-sm"
+                          @click="eliminar(usuario, index)"
+                          title="Eliminar reclamante"
+                        >
                           <i class="fas fa-trash-alt"></i>
                         </button>
                       </td>
@@ -63,44 +68,62 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Editar Usuario
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
+                <label class="col-8 col-form-label">Username</label>
+                <div class="col-8 form-group">
 
-<label class="col-5 col-form-label">Username</label>
-                <input placeholder="Username" v-model="usuario.username" />
+                <input class="form-control" placeholder="Username" v-model="usuario.username" />
+                </div>
 
-<label class="col-5 col-form-label">Email</label>
-                <input placeholder="Email" v-model="usuario.email" />
+                <label class="col-8 col-form-label">Email</label>
+                <div class="col-8 form-group">
 
-<label class="col-5 col-form-label">Rol</label>
-                <div class="col-6">
+                <input class="form-control" placeholder="Email" v-model="usuario.email" />
+                </div>
+
+                <label class="col-8 col-form-label">Rol</label>
+                <div class="col-8">
                   <select
                     class="form-control"
                     placeholder="Rol"
                     type="integer"
                     v-model="usuario.rol_id"
                   >
-                    <option value>Selecciona un Rol</option>
+                    <option>Selecciona un Rol</option>
                     <option value="2">Administrativo</option>
                     <option value="3">Docente</option>
                     <option value="4">Estudiante</option>
                   </select>
                 </div>
-
-                
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  data-dismiss="modal"
+                >
+                  Cerrar
+                </button>
                 <button
                   type="button"
                   class="btn btn-primary"
                   @click="editar()"
                   data-dismiss="modal"
-                >Guardar Cambios</button>
+                >
+                  Guardar Cambios
+                </button>
               </div>
             </div>
           </div>
@@ -118,8 +141,15 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mostrar Persona</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Mostrar Persona
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
@@ -128,7 +158,13 @@
                 <input placeholder="Cedula" v-model="usuario.persona.cedula" />
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  data-dismiss="modal"
+                >
+                  Cerrar
+                </button>
               </div>
             </div>
           </div>
@@ -176,7 +212,6 @@ export default {
     });
   },
   methods: {
-    
     eliminar(usuario, index) {
       const confirmacion = confirm(
         `Confirma Eliminar Usuario: ${usuario.username}`
@@ -185,12 +220,12 @@ export default {
         axios.delete("/api/user/" + usuario.id).then(() => {
           this.usuarioss.splice(index, 1);
           swal({
-           type: 'success',
-            "timer":3000,
-            "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            "text":"El usuario se ha eliminado con exito",
-            "showConfirmButton":false
-             });
+            type: "success",
+            timer: 3000,
+            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            text: "El usuario se ha eliminado con exito",
+            showConfirmButton: false,
+          });
         });
       }
     },
@@ -208,21 +243,21 @@ export default {
         .put("/api/user/" + this.usuario.id, params)
         .then((res) => {
           if (res.data == null) {
-              swal({
-            type: 'error',
-            "timer":3000,
-            "title":"PARECE QUE HAY UN ERROR",
-            "text":"El Usuario no se ha actualizado",
-            "showConfirmButton":false
-             });
+            swal({
+              type: "error",
+              timer: 3000,
+              title: "PARECE QUE HAY UN ERROR",
+              text: "El Usuario no se ha actualizado",
+              showConfirmButton: false,
+            });
           } else {
-                 swal({
-           type: 'success',
-            "timer":3000,
-            "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            "text":"El Usuario se ha actualizado",
-            "showConfirmButton":false
-             });
+            swal({
+              type: "success",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "El Usuario se ha actualizado",
+              showConfirmButton: false,
+            });
           }
         })
         .catch((error) => {

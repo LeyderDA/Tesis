@@ -5,9 +5,8 @@
     </div>
     <div class="card-body row">
       <form id="miForm">
-
         <div class="row">
-            <label class="col-5 col-form-label">Define el estado</label>
+          <label class="col-5 col-form-label">Define el estado</label>
           <div class="col-6">
             <select
               class="form-control"
@@ -19,8 +18,8 @@
               <option value="0">Inactivo</option>
             </select>
           </div>
-          <br>
-          <br>
+          <br />
+          <br />
           <label class="col-5 col-form-label">Fecha radicado</label>
           <div class="col-6 form-group">
             <input
@@ -77,35 +76,58 @@
           </div>
           <label class="col-5 col-form-label">Consultorio</label>
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Consultorio" v-model="recepcion.consultorio" />
+            <input
+              class="form-control"
+              placeholder="Consultorio"
+              v-model="recepcion.consultorio"
+            />
           </div>
 
-           <label class="col-5 col-form-label">Escoge el area</label>
+          <label class="col-5 col-form-label">Escoge el area</label>
           <div class="col-6 form-group">
-            <input class="form-control" id="campoarea" placeholder="Area"  v-model="recepcion.area.nombre" />
+            <input
+              class="form-control"
+              id="campoarea"
+              placeholder="Area"
+              v-model="recepcion.area.nombre"
+            />
           </div>
 
-           <label class="col-5 col-form-label">Ingresa el cedula del reclamante</label>
+          <label class="col-5 col-form-label"
+            >Ingresa el cedula del reclamante</label
+          >
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Reclamante" v-model="usuario.persona.cedula" />
+            <input
+              class="form-control"
+              placeholder="Reclamante"
+              v-model="usuario.persona.cedula"
+            />
           </div>
 
-          <label class="col-5 col-form-label">Ingresa el cedula del estudiante</label>
+          <label class="col-5 col-form-label"
+            >Ingresa el cedula del estudiante</label
+          >
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Estudiante" v-model="usuarioo.persona.cedula" />
+            <input
+              class="form-control"
+              placeholder="Estudiante"
+              v-model="usuarioo.persona.cedula"
+            />
           </div>
-
         </div>
-       </form>
-       <div class="row justify-content-center col">
+      </form>
+      <div class="row justify-content-center col">
         <!--buscar area -->
         <div class="col-2 form-group" v-if="true">
           <button
             class="btn btn-primary btn-block"
             data-toggle="modal"
             data-target="#buscarModalarea"
-            @click="buscararea()"  :disabled="!isFormValidArea()"
-          >Buscar Area <i class="fas fa-search fa-1x" style="color: black"></i> </button>
+            @click="buscararea()"
+            :disabled="!isFormValidArea()"
+          >
+            Buscar Area <i class="fas fa-search fa-1x" style="color: black"></i>
+          </button>
         </div>
         <!--buscar area -->
         <!--buscar reclamante -->
@@ -114,26 +136,31 @@
             class="btn btn-primary btn-block"
             data-toggle="modal"
             data-target="#buscarModalRE"
-            @click="buscarreclaced()" :disabled="!isFormValidReclamante()"
-          >B.Reclamante <i class="fas fa-search fa-1x" style="color: black"></i></button>
+            @click="buscarreclaced()"
+            :disabled="!isFormValidReclamante()"
+          >
+            B.Reclamante
+            <i class="fas fa-search fa-1x" style="color: black"></i>
+          </button>
         </div>
         <!--buscar recepcionador -->
 
-        
-        <div class="col-12 form-group" v-if="true">
+        <div class="col-2 form-group" v-if="true">
           <button
             class="btn btn-primary btn-block"
             data-toggle="modal"
             data-target="#buscarModalUSU"
             @click="buscarusuced()"
-          >Buscar Usuario</button>
+          >
+            Buscar Usuario
+          </button>
         </div>
- 
+
         <div class="col-6 form-group" v-if="true">
-          <button class="btn btn-primary btn-block" @click="agregar()" 
-          >Guardar </button>
+          <button class="btn btn-primary btn-block" @click="agregar()">
+            Guardar
+          </button>
         </div>
-      
       </div>
       <br />
       <div class="container">
@@ -150,7 +177,12 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Mostrar Area</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
@@ -159,15 +191,20 @@
                 <input placeholder="Nombre" v-model="recepcion.area.nombre" />
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  data-dismiss="modal"
+                >
+                  Cerrar
+                </button>
               </div>
             </div>
           </div>
         </div>
         <!--cierro modal de area -->
 
-       
-  <!--segundo modal - el de buscar RECLAMANTE-->
+        <!--segundo modal - el de buscar RECLAMANTE-->
         <div
           class="modal fade"
           id="buscarModalRE"
@@ -179,32 +216,69 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mostrar Usuario</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Mostrar Usuario
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
                 <label class="col-5 col-form-label">ID RECLAMANTE</label>
-                <input placeholder="ID USUARIO" v-model="usuario.persona.id" />
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="ID USUARIO"
+                    v-model="usuario.persona.id"
+                  />
+                </div>
 
                 <label class="col-5 col-form-label">CEDULA</label>
-                <input placeholder="USERNAME" v-model="usuario.persona.cedula" />
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="USERNAME"
+                    v-model="usuario.persona.cedula"
+                  />
+                </div>
 
                 <label class="col-5 col-form-label">NOMBRE</label>
-                <input placeholder="USERNAME" v-model="usuario.persona.prinom" />
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="USERNAME"
+                    v-model="usuario.persona.prinom"
+                  />
+                </div>
 
                 <label class="col-5 col-form-label">APELLIDO</label>
-                <input placeholder="USERNAME" v-model="usuario.persona.priape" />
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="USERNAME"
+                    v-model="usuario.persona.priape"
+                  />
+                </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-danger"  data-dismiss="modal">Cerrar</button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  data-dismiss="modal"
+                >
+                  Cerrar
+                </button>
               </div>
             </div>
           </div>
         </div>
         <!--cierro modal de buscar RECLAMANTE-->
-         <!--segundo modal - el de buscar USUARIO-->
+        <!--segundo modal - el de buscar USUARIO-->
         <div
           class="modal fade"
           id="buscarModalUSU"
@@ -216,44 +290,80 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mostrar Usuario</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Mostrar Usuario
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-
-                 <label class="col-5 col-form-label">ID</label>
-                <input placeholder="USERNAME" v-model="usuarioo.persona.id" />
-
+                <label class="col-5 col-form-label">ID</label>
+                <div class="col-6 form-group">
+                  <input class="form-control" v-model="usuarioo.persona.id" />
+                </div>
                 <label class="col-5 col-form-label">CEDULA</label>
-                <input placeholder="USERNAME" v-model="usuarioo.persona.cedula" />
-
-                <label class="col-5 col-form-label">NOMBRE</label>
-                <input placeholder="USERNAME" v-model="usuarioo.persona.prinom" />
-
-                <label class="col-5 col-form-label">APELLIDO</label>
-                <input placeholder="USERNAME" v-model="usuarioo.persona.priape" />
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    v-model="usuarioo.persona.cedula"
+                  />
+                </div>
+                <label class="col-5 col-form-label">Primer Nombre</label>
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    v-model="usuarioo.persona.prinom"
+                  />
+                </div>
+                <label class="col-5 col-form-label">Segundo Nombre</label>
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    v-model="usuarioo.persona.segnom"
+                  />
+                </div>
+                <label class="col-5 col-form-label">Primer Apellido</label>
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    v-model="usuarioo.persona.priape"
+                  />
+                </div>
+                <label class="col-5 col-form-label">Segundo Apellido</label>
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    v-model="usuarioo.persona.segape"
+                  />
+                </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  data-dismiss="modal"
+                >
+                  Cerrar
+                </button>
               </div>
             </div>
           </div>
         </div>
         <!--cierro modal de buscar -->
-
-
-
       </div>
     </div>
-  </div>  
+  </div>
 </template>
 <script>
-export default {  
-  data() {   
+export default {
+  data() {
     return {
-
       usuario: {
         id: "",
         username: "",
@@ -296,9 +406,6 @@ export default {
         },
       },
 
-
-      
-
       recepcion: {
         id: "",
         recepcionado: "",
@@ -311,28 +418,28 @@ export default {
         estado: "",
 
         reclamante: {
-        id: "",
-        enfodifervictima: "",
-        genevictima: "",
-        edadvictima: "",
-        discapavictima: "",
-        estravictima: "",
-        embaravictima: "",
-        grupetnicovictima: "",
-        persoentidreclama: "",
-        per_id: "",
-
-        persona: {
           id: "",
-          cedula: "",
-          prinom: "",
-          segnom: "",
-          priape: "",
-          segape: "",
-          tel: "",
-          direc: "",
+          enfodifervictima: "",
+          genevictima: "",
+          edadvictima: "",
+          discapavictima: "",
+          estravictima: "",
+          embaravictima: "",
+          grupetnicovictima: "",
+          persoentidreclama: "",
+          per_id: "",
+
+          persona: {
+            id: "",
+            cedula: "",
+            prinom: "",
+            segnom: "",
+            priape: "",
+            segape: "",
+            tel: "",
+            direc: "",
+          },
         },
-      },  
         area: {
           id: "",
           nombre: "",
@@ -345,14 +452,13 @@ export default {
     };
   },
   methods: {
-
-buscarusuced() {
+    buscarusuced() {
       axios.get("/api/user3/" + this.usuarioo.persona.cedula).then((res) => {
         if (res.data[0] == null) {
-        this.usuarioo.persona.id = "";
-        this.usuarioo.persona.cedula = ""; 
-        this.usuarioo.persona.prinom = "";         
-        this.usuarioo.persona.priape = "";
+          this.usuarioo.persona.id = "";
+          this.usuarioo.persona.cedula = "";
+          this.usuarioo.persona.prinom = "";
+          this.usuarioo.persona.priape = "";
           this.esta = false;
         } else {
           console.log(res.data[0]);
@@ -361,29 +467,31 @@ buscarusuced() {
           this.esta = true;
         }
       });
-    },   
-      buscarreclaced() {
-      axios.get("/api/reclamante2/" + this.usuario.persona.cedula).then((res) => {
-        if (res.data[0] == null) {
-          this.usuario.persona.id = "";
-          this.usuario.persona.username = "";
-          this.usuario.persona.cedula = "";
-          this.usuario.persona.prinom = "";
-          this.usuario.persona.priape = "";
-          console.log(this.usuario);
-          this.esta = false;
-        } else {
-          console.log(res.data[0]);
-          let person = res.data[0];
-          this.usuario.persona = person;
-          this.esta = true;
-        }
-      });
+    },
+    buscarreclaced() {
+      axios
+        .get("/api/reclamante2/" + this.usuario.persona.cedula)
+        .then((res) => {
+          if (res.data[0] == null) {
+            this.usuario.persona.id = "";
+            this.usuario.persona.username = "";
+            this.usuario.persona.cedula = "";
+            this.usuario.persona.prinom = "";
+            this.usuario.persona.priape = "";
+            console.log(this.usuario);
+            this.esta = false;
+          } else {
+            console.log(res.data[0]);
+            let person = res.data[0];
+            this.usuario.persona = person;
+            this.esta = true;
+          }
+        });
     },
 
-    limpiar(){
-  this.usuario.persona.cedula="";
-},
+    limpiar() {
+      this.usuario.persona.cedula = "";
+    },
 
     buscarrecl() {
       axios
@@ -402,12 +510,12 @@ buscarusuced() {
           }
         });
     },
-      isFormValidArea: function(){
-            return this.recepcion.area.nombre!="";
-          },
-      isFormValidReclamante: function(){
-            return this.usuario.persona.cedula!="";
-          },
+    isFormValidArea: function () {
+      return this.recepcion.area.nombre != "";
+    },
+    isFormValidReclamante: function () {
+      return this.usuario.persona.cedula != "";
+    },
     buscararea() {
       axios.get("/api/area/" + this.recepcion.area.nombre).then((res) => {
         if (res.data[0] == null) {
@@ -437,41 +545,38 @@ buscarusuced() {
         usu_id: this.usuarioo.persona.id,
         area_id: this.recepcion.area.id,
       };
-          this.recepcion.recepcionado = "";
-          this.recepcion.fecharadicado = "";
-          this.recepcion.fecharecepcionado = "";
-          this.recepcion.consultorio = "";
-          this.recepcion.fechareparto = "";
-          this.recepcion.fechapublicacion = "";
-          this.recepcion.fecharetiro = "";
-          this.recepcion.reclamante.id = "";
-          this.recepcion.area.id = "";
-          this.recepcion.area.nombre = "";
-          this.recepcion.estado = "";
-          this.usuario.persona.cedula="";
-          this.usuarioo.persona.cedula="";
+      this.recepcion.recepcionado = "";
+      this.recepcion.fecharadicado = "";
+      this.recepcion.fecharecepcionado = "";
+      this.recepcion.consultorio = "";
+      this.recepcion.fechareparto = "";
+      this.recepcion.fechapublicacion = "";
+      this.recepcion.fecharetiro = "";
+      this.recepcion.reclamante.id = "";
+      this.recepcion.area.id = "";
+      this.recepcion.area.nombre = "";
+      this.recepcion.estado = "";
+      this.usuario.persona.cedula = "";
+      this.usuarioo.persona.cedula = "";
 
       axios.post("/api/recepcion", params).then((res) => {
         if (res.data == null) {
-              swal({
-        type: 'error',
-        "timer":3000,
-        "title":"PARECE QUE HAY UN ERROR",
-        "text":"La recepcion No se registro porque tiene errores",
-        "showConfirmButton":false
-        });
-
-        } else {   
-          
-        swal({
-        type: 'success',
-        "timer":3000,
-        "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-        "text":"Se guardo la recepción",
-        "showConfirmButton":false
-    });
+          swal({
+            type: "error",
+            timer: 3000,
+            title: "PARECE QUE HAY UN ERROR",
+            text: "La recepcion No se registro porque tiene errores",
+            showConfirmButton: false,
+          });
+        } else {
+          swal({
+            type: "success",
+            timer: 3000,
+            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            text: "Se guardo la recepción",
+            showConfirmButton: false,
+          });
         }
-                 
       });
     },
   },

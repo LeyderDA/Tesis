@@ -19,7 +19,6 @@
                     <th>Area</th>
                     <th>Fechas</th>
                     <th>Mostrar QR</th>
-                   
                   </tr>
                 </thead>
                 <tbody>
@@ -62,7 +61,6 @@
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
                     </td>
-
                     <td>{{ recepcion.area.nombre }}</td>
                     <td>
                       <button
@@ -75,9 +73,7 @@
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
                     </td>
-
                     <td>
-                                        
                       <a :href="'/recepcionqr/' + recepcion.id">
                         <i
                           class="fas fa-qrcode fa-2x fa-align-center"
@@ -93,7 +89,6 @@
           </div>
         </div>
       </div>
-
       <!--modal de MOSTRAR EL RECEPCIONISTA-->
       <div
         class="modal fade"
@@ -189,29 +184,41 @@
             </div>
             <div class="modal-body">
               <label class="col-5 col-form-label">Primer nombre:</label>
-              <input
-                placeholder="Nombre de persona"
-                v-model="usurecep.usuario.persona.prinom"
-                disabled
-              />
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Nombre de persona"
+                  v-model="usurecep.usuario.persona.prinom"
+                  disabled
+                />
+              </div>
               <label class="col-5 col-form-label">Segundo nombre:</label>
-              <input
-                placeholder="Nombre de persona"
-                v-model="usurecep.usuario.persona.segnom"
-                disabled
-              />
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Nombre de persona"
+                  v-model="usurecep.usuario.persona.segnom"
+                  disabled
+                />
+              </div>
               <label class="col-5 col-form-label">Primer Apellido:</label>
-              <input
-                placeholder="Apellido de persona"
-                v-model="usurecep.usuario.persona.priape"
-                disabled
-              />
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Apellido de persona"
+                  v-model="usurecep.usuario.persona.priape"
+                  disabled
+                />
+              </div>
               <label class="col-5 col-form-label">Segundo Apellido:</label>
-              <input
-                placeholder="Apellido de persona"
-                v-model="usurecep.usuario.persona.segape"
-                disabled
-              />
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Apellido de persona"
+                  v-model="usurecep.usuario.persona.segape"
+                  disabled
+                />
+              </div>
 
               <br />
               <br />
@@ -317,7 +324,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
-                Datos del Recepcionista
+                Datos del Estudiante
               </h5>
               <button
                 type="button"
@@ -330,29 +337,41 @@
             </div>
             <div class="modal-body">
               <label class="col-5 col-form-label">Primer nombre:</label>
-              <input
-                placeholder="Nombre de persona"
-                v-model="estudiante.usuario.persona.prinom"
-                disabled
-              />
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Nombre de persona"
+                  v-model="estudiante.usuario.persona.prinom"
+                  disabled
+                />
+              </div>
               <label class="col-5 col-form-label">Segundo nombre:</label>
-              <input
-                placeholder="Nombre de persona"
-                v-model="estudiante.usuario.persona.segnom"
-                disabled
-              />
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Nombre de persona"
+                  v-model="estudiante.usuario.persona.segnom"
+                  disabled
+                />
+              </div>
               <label class="col-5 col-form-label">Primer Apellido:</label>
-              <input
-                placeholder="Apellido de persona"
-                v-model="estudiante.usuario.persona.priape"
-                disabled
-              />
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Apellido de persona"
+                  v-model="estudiante.usuario.persona.priape"
+                  disabled
+                />
+              </div>
               <label class="col-5 col-form-label">Segundo Apellido:</label>
-              <input
-                placeholder="Apellido de persona"
-                v-model="estudiante.usuario.persona.segape"
-                disabled
-              />
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Apellido de persona"
+                  v-model="estudiante.usuario.persona.segape"
+                  disabled
+                />
+              </div>
 
               <br />
               <br />
@@ -522,8 +541,8 @@
       </div>
       <!--modal de editar -->
 
- <!--MODAL PARA ASIGNAR MI CASO COMO RECEPCIONISTA-->
-<div
+      <!--MODAL PARA ASIGNAR MI CASO COMO RECEPCIONISTA-->
+      <div
         class="modal fade"
         id="PUENTE"
         tabindex="-1"
@@ -540,26 +559,23 @@
             </div>
             <div class="modal-body">
               <div class="col-12 form-group" v-if="true">
-                    <button
-                        class="btn btn-primary"
-                        data-toggle="modal"
-                        data-target="#aggusuModal"
-                        title="Asignar caso al recepcionista"
-                      >
-                      
-                         Asignar Recepcionista
+                <button
+                  class="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#aggusuModal"
+                  title="Asignar caso al recepcionista"
+                >
+                  Asignar Recepcionista
+                </button>
 
-                      </button>
-
-                      <button
-                        class="btn btn-primary"
-                        data-toggle="modal"
-                        data-target="#aggusuPROFModal"
-                        title="Asignar caso al Docente"
-                      >
-                        Asignar Docente
-                      </button>
-
+                <button
+                  class="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#aggusuPROFModal"
+                  title="Asignar caso al Docente"
+                >
+                  Asignar Docente
+                </button>
               </div>
             </div>
             <div class="modal-footer">
@@ -572,12 +588,11 @@
               >
                 CERRAR
               </button>
-
             </div>
           </div>
         </div>
       </div>
-  <!--MODAL PARA ASIGNAR MI CASO COMO RECEPCIONISTA-->
+      <!--MODAL PARA ASIGNAR MI CASO COMO RECEPCIONISTA-->
 
       <!--modal de agg usuario -->
       <div
@@ -609,7 +624,10 @@
               <label class="col-5 col-form-label">ID RECEPCIÓN:</label>
               <input placeholder="recepcion" v-model="recepcion.id" />
               <label class="col-5 col-form-label">CÉDULA:</label>
-              <input placeholder="CC.RECEPCIONISTA" v-model="usuario.persona.cedula" />
+              <input
+                placeholder="CC.RECEPCIONISTA"
+                v-model="usuario.persona.cedula"
+              />
 
               <div class="col-12 form-group" v-if="true">
                 <button
@@ -680,9 +698,10 @@
               <input placeholder="recepcion" v-model="recepcion.id" />
 
               <label class="col-5 col-form-label">CÉDULA:</label>
-              <input placeholder="CC.DOCENTE" v-model="usuario.persona.cedula" />
-
-              
+              <input
+                placeholder="CC.DOCENTE"
+                v-model="usuario.persona.cedula"
+              />
 
               <div class="col-12 form-group" v-if="true">
                 <button
@@ -722,7 +741,6 @@
       </div>
       <!--modal de agg PROFESOR -->
 
-
       <!--modal de MOSTRAR EL RESTO DE CAMPOS-->
       <div
         class="modal fade"
@@ -739,49 +757,61 @@
             </div>
             <div class="modal-body">
               <label class="col-5 col-form-label">Fecha de radicado:</label>
-              <input
-                placeholder="recepcion"
-                type="date"
-                readonly="readonly"
-                v-model="recepcion.fecharadicado"
-                disabled
-              />
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="recepcion"
+                  type="date"
+                  readonly="readonly"
+                  v-model="recepcion.fecharadicado"
+                  disabled
+                />
+              </div>
 
               <label class="col-5 col-form-label">Fecha de recepcionado:</label>
-              <input
-                placeholder="recepcion"
-                type="date"
-                readonly="readonly"
-                v-model="recepcion.fecharecepcionado"
-                disabled
-              />
-
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="recepcion"
+                  type="date"
+                  readonly="readonly"
+                  v-model="recepcion.fecharecepcionado"
+                  disabled
+                />
+              </div>
               <label class="col-5 col-form-label">Fecha de reparto:</label>
-              <input
-                placeholder="recepcion"
-                type="date"
-                readonly="readonly"
-                v-model="recepcion.fechareparto"
-                disabled
-              />
-
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="recepcion"
+                  type="date"
+                  readonly="readonly"
+                  v-model="recepcion.fechareparto"
+                  disabled
+                />
+              </div>
               <label class="col-5 col-form-label">Fecha de publicación:</label>
-              <input
-                placeholder="recepcion"
-                type="date"
-                readonly="readonly"
-                v-model="recepcion.fechapublicacion"
-                disabled
-              />
-
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="recepcion"
+                  type="date"
+                  readonly="readonly"
+                  v-model="recepcion.fechapublicacion"
+                  disabled
+                />
+              </div>
               <label class="col-5 col-form-label">Fecha de retiro:</label>
-              <input
-                placeholder="recepcion"
-                type="date"
-                readonly="readonly"
-                v-model="recepcion.fecharetiro"
-                disabled
-              />
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="recepcion"
+                  type="date"
+                  readonly="readonly"
+                  v-model="recepcion.fecharetiro"
+                  disabled
+                />
+              </div>
               <br />
               <br />
 
@@ -822,80 +852,110 @@
             </div>
             <div class="modal-body">
               <label class="col-5 col-form-label">Nombre del reclamante:</label>
-              <input
-                placeholder="nombre de persona"
-                v-model="recepcion.prinom"
-                disabled
-              />
 
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="nombre de persona"
+                  v-model="recepcion.prinom"
+                  disabled
+                />
+              </div>
               <label class="col-5 col-form-label"
                 >Apellido del reclamante:</label
               >
-              <input
-                placeholder="nombre de persona"
-                v-model="recepcion.priape"
-                disabled
-              />
 
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="nombre de persona"
+                  v-model="recepcion.priape"
+                  disabled
+                />
+              </div>
               <label class="col-5 col-form-label">Enfoque diferencial:</label>
-              <input
-                placeholder="enfoque diferencial"
-                v-model="recepcion.reclamante.enfodifervictima"
-                disabled
-              />
 
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="enfoque diferencial"
+                  v-model="recepcion.reclamante.enfodifervictima"
+                  disabled
+                />
+              </div>
               <label class="col-5 col-form-label">Genero:</label>
-              <input
-                placeholder="genero"
-                v-model="recepcion.reclamante.genevictima"
-                disabled
-              />
+
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="genero"
+                  v-model="recepcion.reclamante.genevictima"
+                  disabled
+                />
+              </div>
 
               <label class="col-5 col-form-label">Edad:</label>
-              <input
-                placeholder="edad"
-                v-model="recepcion.reclamante.edadvictima"
-                disabled
-              />
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="edad"
+                  v-model="recepcion.reclamante.edadvictima"
+                  disabled
+                />
+              </div>
 
               <label class="col-5 col-form-label">Discapacidad:</label>
-              <input
-                placeholder="discapacidad"
-                v-model="recepcion.reclamante.discapavictima"
-                disabled
-              />
 
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="discapacidad"
+                  v-model="recepcion.reclamante.discapavictima"
+                  disabled
+                />
+              </div>
               <label class="col-5 col-form-label">Estrato:</label>
-              <input
-                placeholder="estrato"
-                v-model="recepcion.reclamante.estravictima"
-                disabled
-              />
 
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="estrato"
+                  v-model="recepcion.reclamante.estravictima"
+                  disabled
+                />
+              </div>
               <label class="col-5 col-form-label">Embarazo:</label>
-              <input
-                placeholder="embarazo"
-                v-model="recepcion.reclamante.embaravictima"
-                disabled
-              />
 
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="embarazo"
+                  v-model="recepcion.reclamante.embaravictima"
+                  disabled
+                />
+              </div>
               <label class="col-5 col-form-label">Grupo Etnico:</label>
-              <input
-                placeholder="grupo etnico"
-                v-model="recepcion.reclamante.grupetnicovictima"
-                disabled
-              />
 
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="grupo etnico"
+                  v-model="recepcion.reclamante.grupetnicovictima"
+                  disabled
+                />
+              </div>
               <label class="col-5 col-form-label">Entidad que reclama:</label>
-              <input
-                placeholder="entidad"
-                v-model="recepcion.reclamante.persoentidreclama"
-                disabled
-              />
 
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="entidad"
+                  v-model="recepcion.reclamante.persoentidreclama"
+                  disabled
+                />
+              </div>
               <br />
               <br />
-
               <div class="col-12 form-group">
                 <div style="width: 100px; height: 30px; margin: 0 auto">
                   <button
@@ -913,187 +973,178 @@
           </div>
         </div>
       </div>
-      <!--modal de MOSTRAR EL RECLAMANTE -->
-
-      <!--modal de area -->
-      <div
-        class="modal fade"
-        id="buscarModalarea"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Mostrar Area</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <input placeholder="Id" v-model="recepcion.area.id" />
-              <input placeholder="Nombre" v-model="recepcion.area.nombre" />
-              <input placeholder="Area Id" v-model="recepcion.area_id" />
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">
-                Cerrar
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--cierro modal de area -->
-
-      <!--modal - el de buscar reclamante -->
-      <div
-        class="modal fade"
-        id="buscarModalrecl"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
-                Mostrar Persona
-              </h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <input
-                placeholder="Id Docente"
-                v-model="recepcion.reclamante.id"
-              />
-              <input
-                placeholder="Id Persona"
-                v-model="recepcion.reclamante.per_id"
-              />
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">
-                Cerrar
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--cierro modal de buscar -->
-
-      <!--segundo modal - el de buscar usuario-->
-      <div
-        class="modal fade"
-        id="buscarModalUSU"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
-                Mostrar Usuario
-              </h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              
-
-              <label class="col-5 col-form-label">USERNAME</label>
-              <input
-                placeholder="USERNAME"
-                v-model="usuario.persona.username"
-              />
-
-              <label class="col-5 col-form-label">CEDULA</label>
-              <input placeholder="USERNAME" v-model="usuario.persona.cedula" />
-
-              <label class="col-5 col-form-label">NOMBRE</label>
-              <input placeholder="USERNAME" v-model="usuario.persona.prinom" />
-
-              <label class="col-5 col-form-label">APELLIDO</label>
-              <input placeholder="USERNAME" v-model="usuario.persona.priape" />
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" @click="limpiatodo()" data-dismiss="modal">
-                Cerrar
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--cierro modal de buscar -->
-      <!--segundo modal - el de buscar RECLAMANTE-->
-      <div
-        class="modal fade"
-        id="buscarModalReclam"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
-                Mostrar Usuario
-              </h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <label class="col-5 col-form-label">ID RECLAMANTE</label>
-              <input placeholder="ID USUARIO" v-model="usuario.persona.id" />
-
-              <label class="col-5 col-form-label">CEDULA</label>
-              <input placeholder="USERNAME" v-model="usuario.persona.cedula" />
-
-              <label class="col-5 col-form-label">NOMBRE</label>
-              <input placeholder="USERNAME" v-model="usuario.persona.prinom" />
-
-              <label class="col-5 col-form-label">APELLIDO</label>
-              <input placeholder="USERNAME" v-model="usuario.persona.priape" />
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">
-                Cerrar
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--cierro modal de buscar RECLAMANTE-->
     </div>
+    <!--modal de MOSTRAR EL RECLAMANTE -->
+
+    <!--modal de area -->
+    <div
+      class="modal fade"
+      id="buscarModalarea"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Mostrar Area</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input placeholder="Id" v-model="recepcion.area.id" />
+            <input placeholder="Nombre" v-model="recepcion.area.nombre" />
+            <input placeholder="Area Id" v-model="recepcion.area_id" />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--cierro modal de area -->
+
+    <!--modal - el de buscar reclamante -->
+    <div
+      class="modal fade"
+      id="buscarModalrecl"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Mostrar Persona</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input placeholder="Id Docente" v-model="recepcion.reclamante.id" />
+            <input
+              placeholder="Id Persona"
+              v-model="recepcion.reclamante.per_id"
+            />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--cierro modal de buscar -->
+
+    <!--segundo modal - el de buscar usuario-->
+    <div
+      class="modal fade"
+      id="buscarModalUSU"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Mostrar Usuario</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <label class="col-5 col-form-label">USERNAME</label>
+            <input placeholder="USERNAME" v-model="usuario.persona.username" />
+
+            <label class="col-5 col-form-label">CEDULA</label>
+            <input placeholder="USERNAME" v-model="usuario.persona.cedula" />
+
+            <label class="col-5 col-form-label">NOMBRE</label>
+            <input placeholder="USERNAME" v-model="usuario.persona.prinom" />
+
+            <label class="col-5 col-form-label">APELLIDO</label>
+            <input placeholder="USERNAME" v-model="usuario.persona.priape" />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-danger"
+              @click="limpiatodo()"
+              data-dismiss="modal"
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--cierro modal de buscar -->
+    <!--segundo modal - el de buscar RECLAMANTE-->
+    <div
+      class="modal fade"
+      id="buscarModalReclam"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Mostrar Usuario</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <label class="col-5 col-form-label">ID RECLAMANTE</label>
+            <input placeholder="ID USUARIO" v-model="usuario.persona.id" />
+
+            <label class="col-5 col-form-label">CEDULA</label>
+            <input placeholder="USERNAME" v-model="usuario.persona.cedula" />
+
+            <label class="col-5 col-form-label">NOMBRE</label>
+            <input placeholder="USERNAME" v-model="usuario.persona.prinom" />
+
+            <label class="col-5 col-form-label">APELLIDO</label>
+            <input placeholder="USERNAME" v-model="usuario.persona.priape" />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--cierro modal de buscar RECLAMANTE-->
   </div>
 </template>
 <script>
@@ -1286,7 +1337,7 @@ export default {
         }
       });
     },
-     buscarusucedPROF() {
+    buscarusucedPROF() {
       axios.get("/api/user4/" + this.usuario.persona.cedula).then((res) => {
         if (res.data[0] == null) {
           this.usuario.id = "";
@@ -1305,7 +1356,7 @@ export default {
       });
     },
 
-     buscarusucedADM() {
+    buscarusucedADM() {
       axios.get("/api/user5/" + this.usuario.persona.cedula).then((res) => {
         if (res.data[0] == null) {
           this.usuario.id = "";
@@ -1351,7 +1402,7 @@ export default {
       this.usuario.persona = "";
     },
 
-     limpiatodo() {     
+    limpiatodo() {
       this.usuario.persona.username = "";
       this.usuario.persona.prinom = "";
       this.usuario.persona.priape = "";

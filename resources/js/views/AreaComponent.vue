@@ -13,8 +13,11 @@
                 v-model="areas.nombre"
               />
             </div>
+            <br>
+            <br>
+            <br>
 
-            <div class="col-6" v-if="true">
+            <div class="col-12" v-if="true">
               <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
             </div>
             
@@ -59,11 +62,14 @@
       </div>
       <div class="modal-body">
          <label class="col-5 col-form-label">Nombre del area</label>
+         <div class="col-6 form-group">
+
         <input
                 class="form-control"
                 placeholder="nombre del Area"
                 v-model="areas.nombre"
               />
+              </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -101,9 +107,21 @@ export default {
 
       axios.post("/api/area", params).then(res => {
         if (res.data == null) {
-          alert("el tipo de documento no se ha registrado con exito");
+          swal({
+              type: "error",
+              timer: 3000,
+              title: "EL PROCESO SE NO REALIZÓ PORQUE TIENE ERRORES",
+              text: "El AREA no se ha registrado con exito",
+              showConfirmButton: false,
+            });
         } else {
-          alert("el tipo de documento se ha registrado");
+          swal({
+              type: "success",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "El AREA se ha registradoo",
+              showConfirmButton: false,
+            });
         }
         this.areass.push(res.data);
       });
@@ -118,7 +136,14 @@ export default {
       if (confirmacion) {
         axios.delete("/api/area/" + areas.id).then(() => {
           this.areass.splice(index, 1);
-          alert("el area se ha eliminado con exito");
+          swal({
+              type: "success",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "El area se ha eliminado con exito",
+              showConfirmButton: false,
+            });
+
         });
       }
     },
@@ -131,9 +156,22 @@ export default {
        axios.put("/api/area/" + this.areas.id, params)
        .then(res => {
           if (res.data == null) {
-            alert("el area no se ha actualizado");
+            swal({
+              type: "error",
+              timer: 3000,
+              title: "EL PROCESO SE NO REALIZÓ PORQUE TIENE ERRORES",
+              text: "El area no se ha actualizado",
+              showConfirmButton: false,
+            });
+
           } else {
-            alert("el area se ha actualizado");
+            swal({
+              type: "success",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "El area se ha actualizado",
+              showConfirmButton: false,
+            });
           }
           //alert(this.area.index)
           this.areass[this.areas.index] = res.data;

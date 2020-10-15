@@ -6,7 +6,6 @@
     <div class="card-body row">
       <form>
         <div class="row">
-
           <label class="col-5 col-form-label">Enfoque diferencial</label>
           <div class="col-6 form-group">
             <input
@@ -16,18 +15,23 @@
             />
           </div>
 
-
           <label class="col-5 col-form-label">Genero</label>
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Genero" v-model="reclamante.genevictima" />
+            <input
+              class="form-control"
+              placeholder="Genero"
+              v-model="reclamante.genevictima"
+            />
           </div>
-
 
           <label class="col-5 col-form-label">Edad</label>
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Edad" v-model="reclamante.edadvictima" />
+            <input
+              class="form-control"
+              placeholder="Edad"
+              v-model="reclamante.edadvictima"
+            />
           </div>
-
 
           <label class="col-5 col-form-label">Discapacidad</label>
           <div class="col-6 form-group">
@@ -38,18 +42,23 @@
             />
           </div>
 
-
           <label class="col-5 col-form-label">Estrato</label>
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Estrato" v-model="reclamante.estravictima" />
+            <input
+              class="form-control"
+              placeholder="Estrato"
+              v-model="reclamante.estravictima"
+            />
           </div>
-
 
           <label class="col-5 col-form-label">Embarazo</label>
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Embarazo" v-model="reclamante.embaravictima" />
+            <input
+              class="form-control"
+              placeholder="Embarazo"
+              v-model="reclamante.embaravictima"
+            />
           </div>
-
 
           <label class="col-5 col-form-label">Grupo Etnico</label>
           <div class="col-6 form-group">
@@ -60,8 +69,9 @@
             />
           </div>
 
-
-          <label class="col-5 col-form-label">Entidad o persona que reclama</label>
+          <label class="col-5 col-form-label"
+            >Entidad o persona que reclama</label
+          >
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -70,10 +80,13 @@
             />
           </div>
 
-
           <label class="col-5 col-form-label">Cedula</label>
           <div class="col-6 form-group">
-            <input class="form-control" placeholder="Cedula" v-model="reclamante.persona.cedula" />
+            <input
+              class="form-control"
+              placeholder="Cedula"
+              v-model="reclamante.persona.cedula"
+            />
           </div>
         </div>
       </form>
@@ -83,40 +96,54 @@
             class="btn btn-primary btn-block"
             data-toggle="modal"
             data-target="#buscarModal"
-            @click="buscar()" :disabled="!isFormValidPersona()"
-          >Buscar</button>
+            @click="buscar()"
+            :disabled="!isFormValidPersona()"
+          >
+            Buscar
+          </button>
         </div>
 
         <div class="col-6 form-group" v-if="true">
-          <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
+          <button class="btn btn-primary btn-block" @click="agregar()">
+            Guardar
+          </button>
         </div>
       </div>
       <br />
       <div class="container">
         <div class="row">
-          <div class="card-body col">
-             </div>
-            </div>
-         <!--modal para editar -->
-         <div
+          <div class="card-body col"></div>
+        </div>
+        <!--modal para editar -->
+        <div
           class="modal fade"
           id="editarModal"
           tabindex="-1"
           role="dialog"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
-         >
+        >
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Editar Reclamante</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Editar Reclamante
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
                 <label class="col-5 col-form-label">Enfoque diferencial</label>
-                <input placeholder="enfoque diferencial" v-model="reclamante.enfodifervictima" />
+                <input
+                  placeholder="enfoque diferencial"
+                  v-model="reclamante.enfodifervictima"
+                />
 
                 <label class="col-5 col-form-label">Genero</label>
                 <input placeholder="genero" v-model="reclamante.genevictima" />
@@ -125,46 +152,75 @@
                 <input placeholder="edad" v-model="reclamante.edadvictima" />
 
                 <label class="col-5 col-form-label">Discapacidad</label>
-                <input placeholder="discapacidad" v-model="reclamante.discapavictima" />
+                <input
+                  placeholder="discapacidad"
+                  v-model="reclamante.discapavictima"
+                />
 
                 <label class="col-5 col-form-label">Estrato</label>
-                <input placeholder="estrato" v-model="reclamante.estravictima" />
+                <input
+                  placeholder="estrato"
+                  v-model="reclamante.estravictima"
+                />
 
                 <label class="col-5 col-form-label">Embarazo</label>
-                <input placeholder="embarazo" v-model="reclamante.embaravictima" />
+                <input
+                  placeholder="embarazo"
+                  v-model="reclamante.embaravictima"
+                />
 
                 <label class="col-5 col-form-label">Grupo Etnico</label>
-                <input placeholder="grupo etnico" v-model="reclamante.grupetnicovictima" />
+                <input
+                  placeholder="grupo etnico"
+                  v-model="reclamante.grupetnicovictima"
+                />
 
                 <label class="col-5 col-form-label">Entidad que reclama</label>
-                <input placeholder="entidad" v-model="reclamante.persoentidreclama" />
+                <input
+                  placeholder="entidad"
+                  v-model="reclamante.persoentidreclama"
+                />
 
                 <label class="col-5 col-form-label">Cedula</label>
-                <input placeholder="cedula" v-model="reclamante.persona.cedula" />
+                <input
+                  placeholder="cedula"
+                  v-model="reclamante.persona.cedula"
+                />
                 <div class="col-6 form-group" v-if="true">
                   <button
                     class="btn btn-primary btn-block"
                     data-toggle="modal"
                     data-target="#buscarModal"
-                    @click="buscar()" :disabled="!isFormValidPersona()"
-                  >Buscar</button>
+                    @click="buscar()"
+                    :disabled="!isFormValidPersona()"
+                  >
+                    Buscar
+                  </button>
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  data-dismiss="modal"
+                >
+                  Cerrar
+                </button>
                 <button
                   type="button"
                   class="btn btn-primary"
                   @click="editar()"
                   data-dismiss="modal"
-                >Guardar Cambios</button>
+                >
+                  Guardar Cambios
+                </button>
               </div>
             </div>
           </div>
-         </div>
-         <!--cierro modal de editar -->
-         <!--segundo modal - el de buscar -->
-         <div
+        </div>
+        <!--cierro modal de editar -->
+        <!--segundo modal - el de buscar -->
+        <div
           class="modal fade"
           id="buscarModal"
           tabindex="-1"
@@ -175,17 +231,72 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mostrar Persona</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Mostrar Persona
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                <input placeholder="Nombre" v-model="reclamante.persona.prinom" />
-                <input placeholder="Cedula" v-model="reclamante.persona.cedula" />
+                <label class="col-5 col-form-label">Primer nombre</label>
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder=" Primer Nombre"
+                    v-model="reclamante.persona.prinom"
+                  />
+                </div>
+
+                <label class="col-5 col-form-label">Segundo nombre</label>
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Segundo nombre"
+                    v-model="reclamante.persona.segnom"
+                  />
+                </div>
+
+                <label class="col-5 col-form-label">Primer apellido</label>
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Primer apellido"
+                    v-model="reclamante.persona.priape"
+                  />
+                </div>
+
+                <label class="col-5 col-form-label">Segundo apellido</label>
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Segundo apellido"
+                    v-model="reclamante.persona.segape"
+                  />
+                </div>
+
+                <label class="col-5 col-form-label">Cedula</label>
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Cedula"
+                    v-model="reclamante.persona.cedula"
+                  />
+                </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  data-dismiss="modal"
+                >
+                  Cerrar
+                </button>
               </div>
             </div>
           </div>
@@ -269,9 +380,9 @@ export default {
         });
     },
 
-        isFormValidPersona: function(){
-            return this.reclamante.persona.cedula!="";
-          },
+    isFormValidPersona: function () {
+      return this.reclamante.persona.cedula != "";
+    },
 
     agregar() {
       const params = {
@@ -294,26 +405,25 @@ export default {
       this.reclamante.embaravictima = "";
       this.reclamante.grupetnicovictima = "";
       this.reclamante.persoentidreclama = "";
-      this.reclamante.persona.cedula= "";
- 
+      this.reclamante.persona.cedula = "";
 
       axios.post("/api/reclamante", params).then((res) => {
         if (res.data == null) {
-                      swal({
-            type: 'error',
-            "timer":3000,
-            "title":"PARECE QUE HAY UN ERROR",
-            "text":"El reclamante no se ha registrado con exito",
-            "showConfirmButton":false
-             });
+          swal({
+            type: "error",
+            timer: 3000,
+            title: "PARECE QUE HAY UN ERROR",
+            text: "El reclamante no se ha registrado con exito",
+            showConfirmButton: false,
+          });
         } else {
-            swal({
-            type: 'success',
-            "timer":3000,
-            "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            "text":"El reclamante se ha registrado",
-            "showConfirmButton":false
-             });
+          swal({
+            type: "success",
+            timer: 3000,
+            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            text: "El reclamante se ha registrado",
+            showConfirmButton: false,
+          });
         }
         this.reclamantess.push(res.data);
       });

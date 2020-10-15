@@ -26,16 +26,19 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(reclamante,index) in reclamantess" :key="reclamante.index">
-                      <td>{{reclamante.id}}</td>
-                      <td>{{reclamante.enfodifervictima}}</td>
-                      <td>{{reclamante.genevictima}}</td>
-                      <td>{{reclamante.edadvictima}}</td>
-                      <td>{{reclamante.discapavictima}}</td>
-                      <td>{{reclamante.estravictima}}</td>
-                      <td>{{reclamante.embaravictima}}</td>
-                      <td>{{reclamante.grupetnicovictima}}</td>
-                      <td>{{reclamante.persoentidreclama}}</td>
+                    <tr
+                      v-for="(reclamante, index) in reclamantess"
+                      :key="reclamante.index"
+                    >
+                      <td>{{ reclamante.id }}</td>
+                      <td>{{ reclamante.enfodifervictima }}</td>
+                      <td>{{ reclamante.genevictima }}</td>
+                      <td>{{ reclamante.edadvictima }}</td>
+                      <td>{{ reclamante.discapavictima }}</td>
+                      <td>{{ reclamante.estravictima }}</td>
+                      <td>{{ reclamante.embaravictima }}</td>
+                      <td>{{ reclamante.grupetnicovictima }}</td>
+                      <td>{{ reclamante.persoentidreclama }}</td>
 
                       <td>
                         <button
@@ -54,13 +57,16 @@
                           class="btn btn-success btn-sm"
                           data-toggle="modal"
                           data-target="#editarModal"
-                          @click="editarForm(reclamante,index)"
+                          @click="editarForm(reclamante, index)"
                           title="Editar datos del Reclamante"
                         >
                           <i class="fas fa-pencil-alt"></i>
                         </button>
-                        <button class="btn btn-danger btn-sm" @click="eliminar(reclamante,index)"  
-                        title="Eliminar Reclamante">
+                        <button
+                          class="btn btn-danger btn-sm"
+                          @click="eliminar(reclamante, index)"
+                          title="Eliminar Reclamante"
+                        >
                           <i class="fas fa-trash-alt"></i>
                         </button>
                       </td>
@@ -83,48 +89,119 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Editar Reclamante</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Editar Reclamante
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
                 <label class="col-5 col-form-label">Enfoque diferencial</label>
-                <input placeholder="enfoque diferencial" v-model="reclamante.enfodifervictima" />
 
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="enfoque diferencial"
+                    v-model="reclamante.enfodifervictima"
+                  />
+                </div>
                 <label class="col-5 col-form-label">Genero</label>
-                <input placeholder="genero" v-model="reclamante.genevictima" />
 
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="genero"
+                    v-model="reclamante.genevictima"
+                  />
+                </div>
                 <label class="col-5 col-form-label">Edad</label>
-                <input placeholder="edad" v-model="reclamante.edadvictima" />
 
-                <label class="col-5 col-form-label">Discapacidad</label>
-                <input placeholder="discapacidad" v-model="reclamante.discapavictima" />
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="edad"
+                    v-model="reclamante.edadvictima"
+                  />
 
+                  <label class="col-5 col-form-label">Discapacidad</label>
+                </div>
+
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="discapacidad"
+                    v-model="reclamante.discapavictima"
+                  />
+                </div>
                 <label class="col-5 col-form-label">Estrato</label>
-                <input placeholder="estrato" v-model="reclamante.estravictima" />
 
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="estrato"
+                    v-model="reclamante.estravictima"
+                  />
+                </div>
                 <label class="col-5 col-form-label">Embarazo</label>
-                <input placeholder="embarazo" v-model="reclamante.embaravictima" />
 
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="embarazo"
+                    v-model="reclamante.embaravictima"
+                  />
+                </div>
                 <label class="col-5 col-form-label">Grupo Etnico</label>
-                <input placeholder="grupo etnico" v-model="reclamante.grupetnicovictima" />
 
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="grupo etnico"
+                    v-model="reclamante.grupetnicovictima"
+                  />
+                </div>
                 <label class="col-5 col-form-label">Entidad que reclama</label>
-                <input placeholder="entidad" v-model="reclamante.persoentidreclama" />
 
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="entidad"
+                    v-model="reclamante.persoentidreclama"
+                  />
+                </div>
                 <label class="col-5 col-form-label">Cedula</label>
-                <input placeholder="cedula" v-model="reclamante.persona.cedula" disabled/>
 
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="cedula"
+                    v-model="reclamante.persona.cedula"
+                    disabled
+                  />
+                </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  data-dismiss="modal"
+                >
+                  Cerrar
+                </button>
                 <button
                   type="button"
                   class="btn btn-primary"
                   @click="editar()"
                   data-dismiss="modal"
-                >Guardar Cambios</button>
+                >
+                  Guardar Cambios
+                </button>
               </div>
             </div>
           </div>
@@ -142,24 +219,43 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mostrar Persona</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Mostrar Persona
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                <input placeholder="Nombre" v-model="reclamante.persona.prinom" />
-                <input placeholder="Cedula" v-model="reclamante.persona.cedula" />
+                <input
+                  placeholder="Nombre"
+                  v-model="reclamante.persona.prinom"
+                />
+                <input
+                  placeholder="Cedula"
+                  v-model="reclamante.persona.cedula"
+                />
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  data-dismiss="modal"
+                >
+                  Cerrar
+                </button>
               </div>
             </div>
           </div>
         </div>
         <!--cierro modal de buscar -->
 
-<!--segundo modal - mostrar persona -->
+        <!--segundo modal - mostrar persona -->
         <div
           class="modal fade"
           id="mostrarpersonaModal"
@@ -171,36 +267,92 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mostrar Persona</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Mostrar Persona
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-   
-                <label class="col-5 col-form-label">Cedula</label>
-                <input placeholder="Cedula" v-model="reclamante.persona.cedula" disabled />
+                <label class="col-10 col-form-label">Cedula</label>
+                <div class="col-10 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Primer nombre"
+                    v-model="reclamante.persona.cedula"
+                    disabled
+                  />
+                </div>
 
-                <label class="col-5 col-form-label">Primer nombre</label>
-                <input placeholder="Primer nombre" v-model="reclamante.persona.prinom" disabled />
-
-                <label class="col-5 col-form-label">Segundo nombre</label>
-                <input placeholder="Segundo nombre" v-model="reclamante.persona.segnom" disabled />
-
-                <label class="col-5 col-form-label">Primer apellido</label>
-                <input placeholder="Primer apellido" v-model="reclamante.persona.priape" disabled />
-
-                <label class="col-5 col-form-label">Segundo apellido</label>
-                <input placeholder="Segundo apellido" v-model="reclamante.persona.segape" disabled />
-
-                <label class="col-5 col-form-label">Teléfono</label>
-                <input placeholder="Teléfono" v-model="reclamante.persona.tel" disabled />
-
-                <label class="col-5 col-form-label">Dirección</label>
-                <input placeholder="Dirección" v-model="reclamante.persona.direc" disabled />
+                <label class="col-10 col-form-label">Primer nombre</label>
+                <div class="col-10 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Primer nombre"
+                    v-model="reclamante.persona.prinom"
+                    disabled
+                  />
+                </div>
+                <label class="col-10 col-form-label">Segundo nombre</label>
+                <div class="col-10 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Segundo nombre"
+                    v-model="reclamante.persona.segnom"
+                    disabled
+                  />
+                </div>
+                <label class="col-10 col-form-label">Primer apellido</label>
+                <div class="col-10 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Primer apellido"
+                    v-model="reclamante.persona.priape"
+                    disabled
+                  />
+                </div>
+                <label class="col-10 col-form-label">Segundo apellido</label>
+                <div class="col-10 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Segundo apellido"
+                    v-model="reclamante.persona.segape"
+                    disabled
+                  />
+                </div>
+                <label class="col-10 col-form-label">Teléfono</label>
+                <div class="col-10 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Teléfono"
+                    v-model="reclamante.persona.tel"
+                    disabled
+                  />
+                </div>
+                <label class="col-10 col-form-label">Dirección</label>
+                <div class="col-10 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Dirección"
+                    v-model="reclamante.persona.direc"
+                    disabled
+                  />
+                </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  data-dismiss="modal"
+                >
+                  Cerrar
+                </button>
               </div>
             </div>
           </div>
@@ -313,26 +465,25 @@ export default {
 
       axios.post("/api/reclamante", params).then((res) => {
         if (res.data == null) {
-           swal({
-            type: 'error',
-            "timer":3000,
-            "title":"PARECE QUE HAY UN ERROR",
-            "text":"El reclamante NO se ha registrado con exito",
-            "showConfirmButton":false
-             });
+          swal({
+            type: "error",
+            timer: 3000,
+            title: "PARECE QUE HAY UN ERROR",
+            text: "El reclamante NO se ha registrado con exito",
+            showConfirmButton: false,
+          });
         } else {
           swal({
-            type: 'success',
-            "timer":3000,
-            "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            "text":"El reclamante se ha registrado",
-            "showConfirmButton":false
-             });
+            type: "success",
+            timer: 3000,
+            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            text: "El reclamante se ha registrado",
+            showConfirmButton: false,
+          });
         }
         this.reclamantess.push(res.data);
       });
     },
-        
 
     eliminar(reclamante, index) {
       const confirmacion = confirm(
@@ -341,13 +492,13 @@ export default {
       if (confirmacion) {
         axios.delete("/api/reclamante/" + reclamante.id).then(() => {
           this.reclamantess.splice(index, 1);
-           swal({
-            type: 'success',
-            "timer":3000,
-            "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            "text":"El Reclamante se ha eliminado con exito",
-            "showConfirmButton":false
-             });
+          swal({
+            type: "success",
+            timer: 3000,
+            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            text: "El Reclamante se ha eliminado con exito",
+            showConfirmButton: false,
+          });
         });
       }
     },
@@ -372,22 +523,21 @@ export default {
         .then((res) => {
           if (res.data == null) {
             swal({
-            type: 'error',
-            "timer":3000,
-            "title":"PARECE QUE HAY UN ERROR",
-            "text":"El Reclamante no se ha actualizado",
-            "showConfirmButton":false
-             });
+              type: "error",
+              timer: 3000,
+              title: "PARECE QUE HAY UN ERROR",
+              text: "El Reclamante no se ha actualizado",
+              showConfirmButton: false,
+            });
           } else {
             swal({
-            type: 'success',
-            "timer":3000,
-            "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            "text":"El Reclamante se ha actualizado",
-            "showConfirmButton":false
-             });
+              type: "success",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "El Reclamante se ha actualizado",
+              showConfirmButton: false,
+            });
           }
-          
         })
         .catch((error) => {
           if (error.response.status == 422) {

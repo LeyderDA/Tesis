@@ -2,8 +2,8 @@
   <div class="card">
     <div>
       <h1 class="text-center mb-2 card-title">Registrando Asignación</h1>
-     </div>
-     <div class="card-body row">  
+    </div>
+    <div class="card-body row">
       <br />
       <div class="container">
         <div class="row">
@@ -21,11 +21,14 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(usurecep,index) in usurecepss" :key="usurecep.index">
-                      <td>{{usurecep.id}}</td>
-                      <td>{{usurecep.nombre}}</td>
+                    <tr
+                      v-for="(usurecep, index) in usurecepss"
+                      :key="usurecep.index"
+                    >
+                      <td>{{ usurecep.id }}</td>
+                      <td>{{ usurecep.nombre }}</td>
                       <td>
-                           <button
+                        <button
                           class="btn btn-sm"
                           data-toggle="modal"
                           data-target="#MOSTRARModalRE"
@@ -36,7 +39,7 @@
                         </button>
                       </td>
                       <td>
-                           <button
+                        <button
                           class="btn btn-sm"
                           data-toggle="modal"
                           data-target="#MOSTRARModalUSU"
@@ -47,8 +50,11 @@
                         </button>
                       </td>
                       <td>
-                        <button class="btn btn-danger btn-sm" @click="eliminar(usurecep,index)"
-                         title="Eliminar asignación">
+                        <button
+                          class="btn btn-danger btn-sm"
+                          @click="eliminar(usurecep, index)"
+                          title="Eliminar asignación"
+                        >
                           <i class="fas fa-trash-alt"></i>
                         </button>
                       </td>
@@ -72,45 +78,107 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mostrar Usuario</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Mostrar Usuario
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-
                 <label class="col-5 col-form-label">Username</label>
-                <input placeholder="USERNAME" v-model="usurecep.username" disabled />
-
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="USERNAME"
+                    v-model="usurecep.username"
+                    disabled
+                  />
+                </div>
                 <label class="col-5 col-form-label">Cedula</label>
-                <input placeholder="Cedula" v-model="usurecep.cedula" disabled />
-
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Cedula"
+                    v-model="usurecep.cedula"
+                    disabled
+                  />
+                </div>
                 <label class="col-5 col-form-label">Primer nombre</label>
-                <input placeholder="Primer nombre" v-model="usurecep.prinom" disabled />
-
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Primer nombre"
+                    v-model="usurecep.prinom"
+                    disabled
+                  />
+                </div>
                 <label class="col-5 col-form-label">Segundo nombre</label>
-                <input placeholder="Segundo nombre" v-model="usurecep.segnom" disabled />
-
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Segundo nombre"
+                    v-model="usurecep.segnom"
+                    disabled
+                  />
+                </div>
                 <label class="col-5 col-form-label">Primer apellido</label>
-                <input placeholder="Primer apellido" v-model="usurecep.priape" disabled />
-
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Primer apellido"
+                    v-model="usurecep.priape"
+                    disabled
+                  />
+                </div>
                 <label class="col-5 col-form-label">Segundo apellido</label>
-                <input placeholder="Segundo apellido" v-model="usurecep.segape" disabled />
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Segundo apellido"
+                    v-model="usurecep.segape"
+                    disabled
+                  />
+                </div>
 
                 <label class="col-5 col-form-label">Teléfono</label>
-                <input placeholder="Teléfono" v-model="usurecep.tel" disabled />
-
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Teléfono"
+                    v-model="usurecep.tel"
+                    disabled
+                  />
+                </div>
                 <label class="col-5 col-form-label">Dirección</label>
-                <input placeholder="Dirección" v-model="usurecep.direc" disabled />
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Dirección"
+                    v-model="usurecep.direc"
+                    disabled
+                  />
+                </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  data-dismiss="modal"
+                >
+                  Cerrar
+                </button>
               </div>
             </div>
           </div>
         </div>
         <!--cierro modal de MOSTRAR USUARIO -->
-         <!--segundo modal - el de MOSTRAR RECEPCION-->
+        <!--segundo modal - el de MOSTRAR RECEPCION-->
         <div
           class="modal fade"
           id="MOSTRARModalRE"
@@ -122,19 +190,27 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Datos de la Recepción</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Datos de la Recepción
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-            <label class="col-5 col-form-label">Define el estado</label>
-                <div class="col-5">
+                <label class="col-5 col-form-label">Define el estado</label>
+                <div class="col-6">
                   <select
                     class="form-control"
                     placeholder="Estado"
                     type="boolean"
-                    v-model="usurecep.estado" disabled
+                    v-model="usurecep.estado"
+                    disabled
                   >
                     <option value="1">Activo</option>
                     <option value="0">Inactivo</option>
@@ -142,67 +218,95 @@
                 </div>
 
                 <label class="col-5 col-form-label">Fecha de radicado:</label>
-                <input
-                  placeholder="recepcion"
-                  type="date"
-                  v-model="usurecep.fecharadicado" disabled
-                />
-
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="recepcion"
+                    type="date"
+                    v-model="usurecep.fecharadicado"
+                    disabled
+                  />
+                </div>
                 <label class="col-5 col-form-label"
                   >Fecha de recepcionado:</label
                 >
-                <input
-                  placeholder="recepcion"
-                  type="date"
-                  v-model="usurecep.fecharecepcionado" disabled
-                />
-
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="recepcion"
+                    type="date"
+                    v-model="usurecep.fecharecepcionado"
+                    disabled
+                  />
+                </div>
                 <label class="col-5 col-form-label">Fecha de reparto:</label>
-                <input
-                  placeholder="recepcion"
-                  type="date"
-                  v-model="usurecep.fechareparto" disabled
-                />
-
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="recepcion"
+                    type="date"
+                    v-model="usurecep.fechareparto"
+                    disabled
+                  />
+                </div>
                 <label class="col-5 col-form-label"
                   >Fecha de publicación:</label
                 >
-                <input
-                  placeholder="recepcion"
-                  type="date"
-                  v-model="usurecep.fechapublicacion" disabled
-                />
-
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="recepcion"
+                    type="date"
+                    v-model="usurecep.fechapublicacion"
+                    disabled
+                  />
+                </div>
                 <label class="col-5 col-form-label">Fecha de retiro</label>
-                <input
-                  placeholder="recepcion"
-                  type="date"
-                  v-model="usurecep.fecharetiro" disabled
-                />
-
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="recepcion"
+                    type="date"
+                    v-model="usurecep.fecharetiro"
+                    disabled
+                  />
+                </div>
                 <label class="col-5 col-form-label">Recepcionado en:</label>
-                <input
-                  placeholder="recepcion"
-                  v-model="usurecep.recepcionado" disabled
-                />
-
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="recepcion"
+                    v-model="usurecep.recepcionado"
+                    disabled
+                  />
+                </div>
                 <label class="col-5 col-form-label">Consultorio:</label>
-                <input
-                  placeholder="recepcion"
-                  v-model="usurecep.consultorio" disabled
-                />
-
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="recepcion"
+                    v-model="usurecep.consultorio"
+                    disabled
+                  />
+                </div>
                 <label class="col-5 col-form-label">Area:</label>
-                <input
-                  placeholder="recepcion"
-                  v-model="usurecep.nombre" disabled
-                />
-
-
-
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="recepcion"
+                    v-model="usurecep.nombre"
+                    disabled
+                  />
+                </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  data-dismiss="modal"
+                >
+                  Cerrar
+                </button>
               </div>
             </div>
           </div>
@@ -253,8 +357,7 @@ export default {
     });
   },
   methods: {
-
-  editarForm(usurecep, index) {
+    editarForm(usurecep, index) {
       this.usurecep = usurecep;
       this.usurecep.index = index;
     },
@@ -267,12 +370,12 @@ export default {
         axios.delete("/api/asigrecep/" + usurecep.id).then(() => {
           this.usurecepss.splice(index, 1);
           swal({
-            type: 'success',
-            "timer":3000,
-            "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            "text":"La asignación se ha eliminado con exito",
-            "showConfirmButton":false
-             });
+            type: "success",
+            timer: 3000,
+            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            text: "La asignación se ha eliminado con exito",
+            showConfirmButton: false,
+          });
         });
       }
     },

@@ -9,7 +9,7 @@
           <label class="col-5 col-form-label">Nombre de Usuario:</label>
           <div class="col-6 form-group">
             <input
-            type="text"
+              type="text"
               class="form-control"
               placeholder="Nombre de Usuario"
               v-model="usuario.username"
@@ -19,7 +19,6 @@
           <label class="col-5 col-form-label">Email:</label>
           <div class="col-6 form-group">
             <input
-            
               class="form-control"
               placeholder="Email"
               v-model="usuario.email"
@@ -50,8 +49,8 @@
               <option value="4">Docente</option>
             </select>
           </div>
-           <br />
-            <br />
+          <br />
+          <br />
 
           <label class="col-5 col-form-label">Cedula</label>
           <div class="col-6 form-group">
@@ -69,7 +68,8 @@
             class="btn btn-primary btn-block"
             data-toggle="modal"
             data-target="#buscarModal"
-            @click="buscar()" :disabled="!isFormValidCedula()"
+            @click="buscar()"
+            :disabled="!isFormValidCedula()"
           >
             Buscar
           </button>
@@ -174,8 +174,48 @@
                 </button>
               </div>
               <div class="modal-body">
-                <input placeholder="Nombre" v-model="usuario.persona.prinom" />
-                <input placeholder="Cedula" v-model="usuario.persona.cedula" />
+                <label class="col-5 col-form-label"> Primer Nombre</label>
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Nombre"
+                    v-model="usuario.persona.prinom"
+                  />
+                </div>
+                <label class="col-5 col-form-label">Segundo Nombre</label>
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Nombre"
+                    v-model="usuario.persona.segnom"
+                  />
+                </div>
+
+                <label class="col-5 col-form-label">Primer Apellido</label>
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Nombre"
+                    v-model="usuario.persona.priape"
+                  />
+                </div>
+
+                <label class="col-5 col-form-label">Primer Apellido</label>
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Nombre"
+                    v-model="usuario.persona.segape"
+                  />
+                </div>
+                <label class="col-5 col-form-label">Cédula</label>
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Cedula"
+                    v-model="usuario.persona.cedula"
+                  />
+                </div>
               </div>
               <div class="modal-footer">
                 <button
@@ -243,9 +283,9 @@ export default {
         }
       });
     },
-    isFormValidCedula: function(){
-            return this.usuario.persona.cedula!="";
-          },
+    isFormValidCedula: function () {
+      return this.usuario.persona.cedula != "";
+    },
     agregar() {
       // alert(this.personas.prinom);
       const params = {
@@ -264,21 +304,21 @@ export default {
 
       axios.post("/api/user", params).then((res) => {
         if (res.data == null) {
-           swal({
-            type: 'error',
-            "timer":3000,
-            "title":"PARECE QUE HAY UN ERROR",
-            "text":"El usuario no se ha registrado con exito",
-            "showConfirmButton":false
-             });
+          swal({
+            type: "error",
+            timer: 3000,
+            title: "PARECE QUE HAY UN ERROR",
+            text: "El usuario no se ha registrado con exito",
+            showConfirmButton: false,
+          });
         } else {
           swal({
-           type: 'success',
-            "timer":3000,
-            "title":"EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            "text":"El usuario se ha registrado",
-            "showConfirmButton":false
-             });
+            type: "success",
+            timer: 3000,
+            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            text: "El usuario se ha registrado",
+            showConfirmButton: false,
+          });
         }
         this.usuarioss.push(res.data);
       });
