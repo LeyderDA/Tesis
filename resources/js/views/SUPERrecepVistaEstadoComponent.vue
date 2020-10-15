@@ -1139,14 +1139,35 @@
                 v-model="usuario.persona.username"
               />
 
+
               <label class="col-5 col-form-label">CEDULA</label>
-              <input placeholder="USERNAME" v-model="usuario.persona.cedula" />
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="CEDULA"
+                  v-model="usuario.persona.cedula"
+                />
+              </div>
 
               <label class="col-5 col-form-label">NOMBRE</label>
-              <input placeholder="USERNAME" v-model="usuario.persona.prinom" />
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="NOMBRE"
+                  v-model="usuario.persona.prinom"
+                />
+              </div>
 
               <label class="col-5 col-form-label">APELLIDO</label>
-              <input placeholder="USERNAME" v-model="usuario.persona.priape" />
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="APELLIDO"
+                  v-model="usuario.persona.priape"
+                />
+              </div>
+
+
             </div>
             <div class="modal-footer">
               <button
@@ -1188,16 +1209,40 @@
             </div>
             <div class="modal-body">
               <label class="col-5 col-form-label">ID RECLAMANTE</label>
-              <input placeholder="ID USUARIO" v-model="usuario.persona.id" />
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="ID RECLAMANTE"
+                  v-model="usuario.persona.id"
+                />
+              </div>
 
               <label class="col-5 col-form-label">CEDULA</label>
-              <input placeholder="USERNAME" v-model="usuario.persona.cedula" />
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="CEDULA"
+                  v-model="usuario.persona.cedula"
+                />
+              </div>
 
               <label class="col-5 col-form-label">NOMBRE</label>
-              <input placeholder="USERNAME" v-model="usuario.persona.prinom" />
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="NOMBRE"
+                  v-model="usuario.persona.prinom"
+                />
+              </div>
 
               <label class="col-5 col-form-label">APELLIDO</label>
-              <input placeholder="USERNAME" v-model="usuario.persona.priape" />
+              <div class="col-6 form-group">
+                <input
+                  class="form-control"
+                  placeholder="APELLIDO"
+                  v-model="usuario.persona.priape"
+                />
+              </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">
