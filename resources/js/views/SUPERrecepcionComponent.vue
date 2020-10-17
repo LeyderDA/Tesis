@@ -88,8 +88,8 @@
             <select v-model="area.id" class="form-control" id="area">
               <option value="">Selecciona</option>
               <option v-for="area in areass" :key="area.index">
-                {{ area.id}}
-                {{ area.nombre}}
+               {{ area.id}}{{ area.nombre}}
+                
               </option>
             </select>
           </div>
@@ -544,7 +544,7 @@ export default {
       });
     },
     agregar() {
-       console.log(this.area.id.substr(-1))
+       console.log((this.area.id).substr(0,1)) 
       const params = {
         recepcionado: this.recepcion.recepcionado,
         fecharadicado: this.recepcion.fecharadicado,
@@ -556,7 +556,7 @@ export default {
         estado: this.recepcion.estado,
         recla_id: this.usuario.persona.id,
         usu_id: this.usuarioo.persona.id,
-        area_id: (this.area.id.substr(-1)),
+        area_id: (this.area.id).substr(0,1),
        
       };
       this.recepcion.recepcionado = "";
