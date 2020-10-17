@@ -92,7 +92,8 @@
               v-model="recepcion.area.nombre"
             />
           </div>
-
+          
+          
           <label class="col-5 col-form-label"
             >Ingresa el cedula del reclamante</label
           >
@@ -114,6 +115,23 @@
               v-model="usuarioo.persona.cedula"
             />
           </div>
+
+           <div class="col-6">
+
+            <select
+              v-model="area.id"
+              class="form-control"
+              id="area"
+            >
+              <option v-for="area in areass" :key="area.nombre">
+                {{ area.nombre }}
+              </option>
+            </select>
+          </div>
+
+
+
+
         </div>
       </form>
       <div class="row justify-content-center col">
@@ -364,6 +382,10 @@
 export default {
   data() {
     return {
+      area: {
+          id: "",
+          nombre: "",
+        },
       usuario: {
         id: "",
         username: "",
@@ -449,7 +471,14 @@ export default {
       estado: "disable",
       recepcioness: [],
       errors: [],
+      areass: [],
     };
+  },
+  created() {
+    axios.get("/api/area").then((res) => {
+      this.areass = res.data;
+      console.log(res.data);
+    });
   },
   methods: {
     buscarusuced() {

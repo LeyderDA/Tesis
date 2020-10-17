@@ -4,9 +4,10 @@
       <h2 class="text-center mb-2 card-title">Registrando Persona</h2>
     </div>
     <div class="card-body row">
-      <form action="" v-on:submit.prevent="agregar">
+      <form>
         <div class="row">
-          <label class="col-5 col-form-label">Cédula*:</label>
+          <label style="color:#FF0000"  class="col-5 col-form-label">Cédula (*):</label>
+          
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -14,8 +15,9 @@
               v-model="personas.cedula"
             />
           </div>
+          
 
-          <label class="col-5 col-form-label">Primer Nombre (*):</label>
+          <label style="color:#FF0000" class="col-5 col-form-label">Primer Nombre (*):</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -33,7 +35,7 @@
             />
           </div>
 
-          <label class="col-5 col-form-label">Primer Apellido (*):</label>
+          <label style="color:#FF0000" class="col-5 col-form-label">Primer Apellido (*):</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -52,6 +54,7 @@
           </div>
 
           <label style="color:#FF0000"  class="col-5 col-form-label">Teléfono (*):</label>
+
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -60,7 +63,7 @@
             />
           </div>
 
-          <label class="col-5 col-form-label">Dirección (*):</label>
+          <label style="color:#FF0000" class="col-5 col-form-label">Dirección (*):</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -113,7 +116,7 @@ export default {
           type: "error",
           timer: 20000,
           title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
-          text: "Los campos obligatorios estan marcados on un (*)",
+          text: "Los campos obligatorios estan marcados de color ROJO",
           showConfirmButton: true,
         });
       } else {
