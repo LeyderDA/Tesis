@@ -7771,6 +7771,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     errors: [];
@@ -7794,24 +7822,14 @@ __webpack_require__.r(__webpack_exports__);
     agregar: function agregar() {
       var _this = this;
 
-      if (!this.personas.cedula) {
-        this.errors.push('LA CEDULA ES OBLIGARORIA');
-      }
-
-      if (!this.personas.prinom) {
-        this.errors.push('EL PRIMER NOMBRE ES OBLIGARORIO');
-      }
-
-      if (!this.personas.priape) {
-        this.errors.push('EL PRIMER APELLIDO ES OBLIGATORIO');
-      }
-
-      if (!this.personas.tel) {
-        this.errors.push('EL TELEFONO ES OBLIGATORIO');
-      }
-
-      if (!this.personas.direc) {
-        this.errors.push('LA DIRECCIÓN ES OBLIGATORIA');
+      if (!this.personas.cedula || !this.personas.prinom || !this.personas.priape || !this.personas.tel || !this.personas.direc) {
+        swal({
+          type: "error",
+          timer: 20000,
+          title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
+          text: "Los campos obligatorios estan marcados on un (*)",
+          showConfirmButton: true
+        });
       } else {
         var params = {
           cedula: this.personas.cedula,
@@ -7832,19 +7850,19 @@ __webpack_require__.r(__webpack_exports__);
         axios.post("/api/persona", params).then(function (res) {
           if (res.data == null) {
             swal({
-              type: 'error',
-              "timer": 3000,
-              "title": "PARECE QUE HAY UN ERROR",
-              "text": "La persona no se ha registrado con exito",
-              "showConfirmButton": false
+              type: "error",
+              timer: 3000,
+              title: "PARECE QUE HAY UN ERROR",
+              text: "La persona no se ha registrado con exito",
+              showConfirmButton: false
             });
           } else {
             swal({
-              type: 'success',
-              "timer": 3000,
-              "title": "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-              "text": "La persona se ha creado y guardado",
-              "showConfirmButton": false
+              type: "success",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "La persona se ha creado y guardado",
+              showConfirmButton: false
             });
           }
 
@@ -65667,7 +65685,7 @@ var render = function() {
         [
           _c("div", { staticClass: "row" }, [
             _c("label", { staticClass: "col-5 col-form-label" }, [
-              _vm._v("Cédula:")
+              _vm._v("Cédula*:")
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-6 form-group" }, [
@@ -65695,7 +65713,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("label", { staticClass: "col-5 col-form-label" }, [
-              _vm._v("Primer Nombre:")
+              _vm._v("Primer Nombre (*):")
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-6 form-group" }, [
@@ -65751,7 +65769,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("label", { staticClass: "col-5 col-form-label" }, [
-              _vm._v("Primer Apellido:")
+              _vm._v("Primer Apellido (*):")
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-6 form-group" }, [
@@ -65806,9 +65824,14 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c("label", { staticClass: "col-5 col-form-label" }, [
-              _vm._v("Teléfono:")
-            ]),
+            _c(
+              "label",
+              {
+                staticClass: "col-5 col-form-label",
+                staticStyle: { color: "#FF0000" }
+              },
+              [_vm._v("Teléfono (*):")]
+            ),
             _vm._v(" "),
             _c("div", { staticClass: "col-6 form-group" }, [
               _c("input", {
@@ -65835,7 +65858,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("label", { staticClass: "col-5 col-form-label" }, [
-              _vm._v("Dirección:")
+              _vm._v("Dirección (*):")
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-6 form-group" }, [
@@ -65865,14 +65888,6 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c(
-        "ul",
-        _vm._l(_vm.errors, function(error) {
-          return _c("li", { key: error }, [_vm._v(_vm._s(error))])
-        }),
-        0
-      ),
-      _vm._v(" "),
       _c("div", { staticClass: "row justify-content-center col" }, [
         true
           ? _c("div", { staticClass: "col-6 form-group" }, [
@@ -65886,7 +65901,7 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("Guardar")]
+                [_vm._v("\n          Guardar\n        ")]
               )
             ])
           : undefined
