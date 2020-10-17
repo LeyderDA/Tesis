@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Persona;
-
+use App\Http\Requests\GuardarPerRequest;
 use Illuminate\Http\Request;
 
 class PersonaController extends Controller
@@ -33,6 +33,15 @@ class PersonaController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'cedula' => 'required',
+            'prinom' => 'required',
+            'priape' => 'required',
+            'tel' => 'required',
+            'direc' => 'required',
+        ]);
+
+
         $pers=new Persona();
         $pers->cedula=$request->cedula;
         $pers->prinom=$request->prinom;

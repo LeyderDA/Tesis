@@ -4,7 +4,7 @@
       <h2 class="text-center mb-2 card-title">Registrando Persona</h2>
     </div>
     <div class="card-body row">
-      <form>
+      <form action="" v-on:submit.prevent="agregar">
         <div class="row">
           <label class="col-5 col-form-label">Cédula:</label>
           <div class="col-6 form-group">
@@ -42,6 +42,9 @@
           </div>
         </div>
       </form>
+      <ul>
+        <li v-for="error in errors" :key="error">{{error}}</li>
+      </ul>
       <div class="row justify-content-center col">
         <div class="col-6 form-group" v-if="true">
           <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
@@ -53,6 +56,7 @@
 <script>
 export default {
   data() {
+    errors: []
     return {
       personas: {
         id: "",
@@ -70,8 +74,22 @@ export default {
   },
   methods: {
     agregar() {
-      // alert(this.personas.prinom);
-      const params = {
+      if(!this.personas.cedula){
+        this.errors.push('LA CEDULA ES OBLIGARORIA')
+      }
+      if(!this.personas.prinom){
+        this.errors.push('EL PRIMER NOMBRE ES OBLIGARORIO')
+      }
+      if(!this.personas.priape){
+        this.errors.push('EL PRIMER APELLIDO ES OBLIGATORIO')
+      }
+      if(!this.personas.tel){
+        this.errors.push('EL TELEFONO ES OBLIGATORIO')
+      }
+      if(!this.personas.direc){
+        this.errors.push('LA DIRECCIÓN ES OBLIGATORIA')
+      }else{
+            const params = {
         cedula: this.personas.cedula,
         prinom: this.personas.prinom,
         segnom: this.personas.segnom,
@@ -108,6 +126,7 @@ export default {
         }
         this.personass.push(res.data);
       });
+      }
     },
   }
 };
