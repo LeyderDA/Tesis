@@ -12711,6 +12711,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     agregar: function agregar() {
+      console.log(this.area.id.substr(-1));
       var params = {
         recepcionado: this.recepcion.recepcionado,
         fecharadicado: this.recepcion.fecharadicado,
@@ -12722,7 +12723,7 @@ __webpack_require__.r(__webpack_exports__);
         estado: this.recepcion.estado,
         recla_id: this.usuario.persona.id,
         usu_id: this.usuarioo.persona.id,
-        area_id: this.area.id
+        area_id: this.area.id.substr(-1)
       };
       this.recepcion.recepcionado = "";
       this.recepcion.fecharadicado = "";
@@ -74725,7 +74726,11 @@ var render = function() {
                 _vm._l(_vm.areass, function(area) {
                   return _c("option", { key: area.index }, [
                     _vm._v(
-                      "\n              " + _vm._s(area.id) + "\n            "
+                      "\n              " +
+                        _vm._s(area.id) +
+                        "\n              " +
+                        _vm._s(area.nombre) +
+                        "\n            "
                     )
                   ])
                 })
