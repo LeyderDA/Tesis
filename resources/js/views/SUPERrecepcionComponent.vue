@@ -14,6 +14,7 @@
               type="boolean"
               v-model="recepcion.estado"
             >
+              <option value="">Selecciona</option>
               <option value="1">Activo</option>
               <option value="0">Inactivo</option>
             </select>
@@ -85,15 +86,14 @@
 
           <label class="col-5 col-form-label">Escoge el area</label>
           <div class="col-6 form-group">
-            <input
-              class="form-control"
-              id="campoarea"
-              placeholder="Area"
-              v-model="recepcion.area.nombre"
-            />
+            <select v-model="area.id" class="form-control" id="area">
+              <option value="">Selecciona</option>
+              <option v-for="area in areass" :key="area.index">
+                {{ area.id }}
+              </option>
+            </select>
           </div>
-          
-          
+
           <label class="col-5 col-form-label"
             >Ingresa el cedula del reclamante</label
           >
@@ -115,23 +115,6 @@
               v-model="usuarioo.persona.cedula"
             />
           </div>
-
-           <div class="col-6">
-
-            <select
-              v-model="area.id"
-              class="form-control"
-              id="area"
-            >
-              <option v-for="area in areass" :key="area.nombre">
-                {{ area.nombre }}
-              </option>
-            </select>
-          </div>
-
-
-
-
         </div>
       </form>
       <div class="row justify-content-center col">
@@ -383,9 +366,9 @@ export default {
   data() {
     return {
       area: {
-          id: "",
-          nombre: "",
-        },
+        id: "",
+        nombre: "",
+      },
       usuario: {
         id: "",
         username: "",
@@ -572,7 +555,7 @@ export default {
         estado: this.recepcion.estado,
         recla_id: this.usuario.persona.id,
         usu_id: this.usuarioo.persona.id,
-        area_id: this.recepcion.area.id,
+        area_id: this.area.id,
       };
       this.recepcion.recepcionado = "";
       this.recepcion.fecharadicado = "";
@@ -582,7 +565,7 @@ export default {
       this.recepcion.fechapublicacion = "";
       this.recepcion.fecharetiro = "";
       this.recepcion.reclamante.id = "";
-      this.recepcion.area.id = "";
+      this.area.id = "";
       this.recepcion.area.nombre = "";
       this.recepcion.estado = "";
       this.usuario.persona.cedula = "";
