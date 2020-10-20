@@ -5,7 +5,7 @@
         <div class="card">
           <div class="card-header">Modulo Area</div>
           <div class="card-body row">
-            <label style="color:#FF0000" class="col-5 col-form-label">Nombre del area (*)</label>
+            <label class="col-5 col-form-label">Nombre del area (*)</label>
             <div class="col-6">
               <input
                 class="form-control"
@@ -135,7 +135,7 @@ export default {
           type: "error",
           timer: 20000,
           title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
-          text: "Los campos obligatorios estan marcados de color ROJO",
+          text: "Los campos obligatorios estan marcados con un (*)",
           showConfirmButton: true,
         });
       } else {
@@ -156,7 +156,7 @@ export default {
               type: "success",
               timer: 3000,
               title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-              text: "El AREA se ha registradoo",
+              text: "El AREA se ha registrado",
               showConfirmButton: false,
             });
           }

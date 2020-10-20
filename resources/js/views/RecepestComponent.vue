@@ -126,7 +126,7 @@
                 />
               </div>
 
-              <label class="col-5 col-form-label">Ampliación de hechos</label>
+              <label class="col-5 col-form-label">Ampliación de hechos (*)</label>
               <div class="col-6 form-group">
                 <input
                   class="form-control"
@@ -135,7 +135,7 @@
                 />
               </div>
 
-              <label class="col-5 col-form-label">Fecha entrevista</label>
+              <label class="col-5 col-form-label">Fecha entrevista (*)</label>
               <div class="col-6 form-group">
                 <input
                   class="form-control"
@@ -145,7 +145,7 @@
                 />
               </div>
 
-              <label class="col-5 col-form-label">Tipo de tramite</label>
+              <label class="col-5 col-form-label">Tipo de tramite (*)</label>
               <div class="col-6 form-group">
                 <input
                   class="form-control"
@@ -154,7 +154,7 @@
                 />
               </div>
 
-              <label class="col-5 col-form-label">Asunto de tramite</label>
+              <label class="col-5 col-form-label">Asunto de tramite (*)</label>
               <div class="col-6 form-group">
                 <input
                   class="form-control"
@@ -163,7 +163,7 @@
                 />
               </div>
 
-              <label class="col-5 col-form-label">Motivo de archivo</label>
+              <label class="col-5 col-form-label">Motivo de archivo (*)</label>
               <div class="col-6 form-group">
                 <input
                   class="form-control"
@@ -172,7 +172,7 @@
                 />
               </div>
 
-              <label class="col-5 col-form-label">Fecha de archivo</label>
+              <label class="col-5 col-form-label">Fecha de archivo (*)</label>
               <div class="col-6 form-group">
                 <input
                   class="form-control"
@@ -181,7 +181,7 @@
                   v-model="gestion.fechaarchivo"
                 />
               </div>
-              <label class="col-5 col-form-label">Entidad del tramite</label>
+              <label class="col-5 col-form-label">Entidad del tramite (*)</label>
               <div class="col-6 form-group">
                 <input
                   class="form-control"
@@ -190,7 +190,7 @@
                 />
               </div>
 
-              <label class="col-5 col-form-label">Observaciones</label>
+              <label class="col-5 col-form-label">Observaciones (*)</label>
               <div class="col-12 form-group">
                 <textarea
                   rows="3"
@@ -202,7 +202,7 @@
                 </textarea>
               </div>
 
-              <label class="col-5 col-form-label">Actuaciones realizadas</label>
+              <label class="col-5 col-form-label">Actuaciones realizadas (*)</label>
               <div class="col-12 form-group">
                 <textarea
                   rows="3"
@@ -215,7 +215,7 @@
               </div>
 
               <label class="col-5 col-form-label"
-                >Actuaciones jurídicas realizadas
+                >Actuaciones jurídicas realizadas (*)
               </label>
               <div class="col-12 form-group">
                 <textarea
@@ -228,7 +228,7 @@
                 </textarea>
               </div>
 
-              <label class="col-5 col-form-label">Resultado de actuación</label>
+              <label class="col-5 col-form-label">Resultado de actuación (*)</label>
               <div class="col-12 form-group">
                 <textarea
                   rows="3"
@@ -865,45 +865,68 @@ export default {
     },
 
     agregargestion() {
-      const params = {
-        amplhechos: this.gestion.amplhechos,
-        fechentrevasesor: this.gestion.fechentrevasesor,
-        tipotramite: this.gestion.tipotramite,
-        asuntotramite: this.gestion.asuntotramite,
-        motivoarchivo: this.gestion.motivoarchivo,
-        fechaarchivo: this.gestion.fechaarchivo,
-        obsrvtramite: this.gestion.obsrvtramite,
-        actuarealizadas: this.gestion.actuarealizadas,
-        actjuridirealzadas: this.gestion.actjuridirealzadas,
-        resulactuacion: this.gestion.resulactuacion,
-        entidadelantramite: this.gestion.entidadelantramite,
-        recp_id: this.recepcion.id,
-      };
+      if (
+        !this.gestion.amplhechos ||
+        !this.gestion.fechentrevasesor ||
+        !this.gestion.tipotramite ||
+        !this.gestion.asuntotramite ||
+        !this.gestion.motivoarchivo ||
+        !this.gestion.fechaarchivo ||
+        !this.gestion.obsrvtramite ||
+        !this.gestion.actuarealizadas ||
+        !this.gestion.actjuridirealzadas ||
+        !this.gestion.resulactuacion ||
+        !this.gestion.entidadelantramite ||
+        !this.recepcion.id
+      ) {
+        swal({
+          type: "error",
+          timer: 20000,
+          title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
+          text: "Los campos obligatorios estan marcados con un (*)",
+          showConfirmButton: true,
+        });
+      } else {
+        const params = {
+          amplhechos: this.gestion.amplhechos,
+          fechentrevasesor: this.gestion.fechentrevasesor,
+          tipotramite: this.gestion.tipotramite,
+          asuntotramite: this.gestion.asuntotramite,
+          motivoarchivo: this.gestion.motivoarchivo,
+          fechaarchivo: this.gestion.fechaarchivo,
+          obsrvtramite: this.gestion.obsrvtramite,
+          actuarealizadas: this.gestion.actuarealizadas,
+          actjuridirealzadas: this.gestion.actjuridirealzadas,
+          resulactuacion: this.gestion.resulactuacion,
+          entidadelantramite: this.gestion.entidadelantramite,
+          recp_id: this.recepcion.id,
+        };
 
-      axios.post("/api/gestion", params).then((res) => {
-        if (res.data == null) {
-          alert("La Gestión NO se ha registrado");
-        } else {
-          swal({
-            type: "success",
-            timer: 3000,
-            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            text: "¡La Gestión se ha registrado Exitosamente en el Caso!!",
-            showConfirmButton: false,
-          });
-        }
-        this.gestion.amplhechos = "";
-        this.gestion.fechentrevasesor = "";
-        this.gestion.tipotramite = "";
-        this.gestion.asuntotramite = "";
-        this.gestion.motivoarchivo = "";
-        this.gestion.fechaarchivo = "";
-        this.gestion.obsrvtramite = "";
-        this.gestion.actuarealizadas = "";
-        this.gestion.actjuridirealzadas = "";
-        this.gestion.resulactuacion = "";
-        this.gestion.entidadelantramite = "";
-      });
+        axios.post("/api/gestion", params).then((res) => {
+          if (res.data == null) {
+            alert("La Gestión NO se ha registrado");
+          } else {
+            swal({
+              type: "success",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "¡La Gestión se ha registrado Exitosamente en el Caso!!",
+              showConfirmButton: false,
+            });
+          }
+          this.gestion.amplhechos = "";
+          this.gestion.fechentrevasesor = "";
+          this.gestion.tipotramite = "";
+          this.gestion.asuntotramite = "";
+          this.gestion.motivoarchivo = "";
+          this.gestion.fechaarchivo = "";
+          this.gestion.obsrvtramite = "";
+          this.gestion.actuarealizadas = "";
+          this.gestion.actjuridirealzadas = "";
+          this.gestion.resulactuacion = "";
+          this.gestion.entidadelantramite = "";
+        });
+      }
     },
 
     eliminar(recepcion, index) {

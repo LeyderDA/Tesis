@@ -6,7 +6,7 @@
     <div class="card-body row">
       <form>
         <div class="row">
-          <label style="color: #ff0000" class="col-5 col-form-label"
+          <label class="col-5 col-form-label"
             >Enfoque diferencial (*)</label
           >
           <div class="col-6 form-group">
@@ -17,7 +17,7 @@
             />
           </div>
 
-          <label style="color: #ff0000" class="col-5 col-form-label"
+          <label class="col-5 col-form-label"
             >Genero (*)</label
           >
           <div class="col-6 form-group">
@@ -28,7 +28,7 @@
             />
           </div>
 
-          <label style="color: #ff0000" class="col-5 col-form-label"
+          <label class="col-5 col-form-label"
             >Edad (*)</label
           >
           <div class="col-6 form-group">
@@ -39,7 +39,7 @@
             />
           </div>
 
-          <label style="color: #ff0000" class="col-5 col-form-label"
+          <label class="col-5 col-form-label"
             >Discapacidad (*)</label
           >
           <div class="col-6 form-group">
@@ -50,7 +50,7 @@
             />
           </div>
 
-          <label style="color: #ff0000" class="col-5 col-form-label"
+          <label class="col-5 col-form-label"
             >Estrato (*)</label
           >
           <div class="col-6 form-group">
@@ -61,7 +61,7 @@
             />
           </div>
 
-          <label style="color: #ff0000" class="col-5 col-form-label"
+          <label class="col-5 col-form-label"
             >Embarazo (*)</label
           >
           <div class="col-6 form-group">
@@ -72,7 +72,7 @@
             />
           </div>
 
-          <label style="color: #ff0000" class="col-5 col-form-label"
+          <label class="col-5 col-form-label"
             >Grupo Etnico (*)</label
           >
           <div class="col-6 form-group">
@@ -83,7 +83,7 @@
             />
           </div>
 
-          <label style="color: #ff0000" class="col-5 col-form-label"
+          <label class="col-5 col-form-label"
             >Entidad o persona que reclama (*)</label
           >
           <div class="col-6 form-group">
@@ -94,7 +94,7 @@
             />
           </div>
 
-          <label style="color: #ff0000" class="col-5 col-form-label"
+          <label class="col-5 col-form-label"
             >Cedula (*)</label
           >
           <div class="col-6 form-group">
@@ -416,7 +416,7 @@ export default {
           type: "error",
           timer: 20000,
           title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
-          text: "Los campos obligatorios estan marcados de color ROJO",
+          text: "Los campos obligatorios estan marcados con un (*)",
           showConfirmButton: true,
         });
       } else {

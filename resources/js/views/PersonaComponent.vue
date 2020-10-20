@@ -6,7 +6,7 @@
     <div class="card-body row">
       <form>
         <div class="row">
-          <label style="color:#FF0000"  class="col-5 col-form-label">Cédula (*):</label>
+          <label class="col-5 col-form-label">Cédula (*):</label>
           
           <div class="col-6 form-group">
             <input
@@ -15,7 +15,7 @@
               v-model="personas.cedula"
             />
           </div>
-          <label style="color:#FF0000" class="col-5 col-form-label">Primer Nombre (*):</label>
+          <label class="col-5 col-form-label">Primer Nombre (*):</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -33,7 +33,7 @@
             />
           </div>
 
-          <label style="color:#FF0000" class="col-5 col-form-label">Primer Apellido (*):</label>
+          <label class="col-5 col-form-label">Primer Apellido (*):</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -51,7 +51,7 @@
             />
           </div>
 
-          <label style="color:#FF0000"  class="col-5 col-form-label">Teléfono (*):</label>
+          <label class="col-5 col-form-label">Teléfono (*):</label>
 
           <div class="col-6 form-group">
             <input
@@ -61,7 +61,7 @@
             />
           </div>
 
-          <label style="color:#FF0000" class="col-5 col-form-label">Dirección (*):</label>
+          <label class="col-5 col-form-label">Dirección (*):</label>
           <div class="col-6 form-group">
             <input
               class="form-control"

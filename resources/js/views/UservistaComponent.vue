@@ -101,7 +101,7 @@
                     type="integer"
                     v-model="usuario.rol_id"
                   >
-                    <option>Selecciona un Rol</option>
+                    <option value="">Selecciona un Rol</option>
                     <option value="2">Administrativo</option>
                     <option value="3">Docente</option>
                     <option value="4">Estudiante</option>

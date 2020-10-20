@@ -6,7 +6,7 @@
     <div class="card-body row">
       <form>
         <div class="row">
-          <label style="color:#FF0000" class="col-5 col-form-label">Nombre de Usuario (*):</label>
+          <label class="col-5 col-form-label">Nombre de Usuario (*):</label>
           <div class="col-6 form-group">
             <input
               type="text"
@@ -16,7 +16,7 @@
             />
           </div>
 
-          <label style="color:#FF0000" class="col-5 col-form-label">Email (*):</label>
+          <label class="col-5 col-form-label">Email (*):</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -25,7 +25,7 @@
             />
           </div>
 
-          <label style="color:#FF0000" class="col-5 col-form-label">password (*):</label>
+          <label class="col-5 col-form-label">password (*):</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -35,7 +35,7 @@
             />
           </div>
 
-          <label style="color:#FF0000" class="col-5 col-form-label">Rol (*):</label>
+          <label class="col-5 col-form-label">Rol (*):</label>
           <div class="col-6">
             <select
               class="form-control"
@@ -52,7 +52,7 @@
           <br />
           <br />
 
-          <label style="color:#FF0000" class="col-5 col-form-label">Cedula (*)</label>
+          <label class="col-5 col-form-label">Cedula (*)</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -298,7 +298,7 @@ export default {
           type: "error",
           timer: 20000,
           title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
-          text: "Los campos obligatorios estan marcados de color ROJO",
+          text: "Los campos obligatorios estan marcados con un (*)",
           showConfirmButton: true,
         });
       } else {

@@ -6,7 +6,7 @@
     <div class="card-body row">
       <form id="miForm">
         <div class="row">
-          <label style="color: #ff0000" class="col-5 col-form-label"
+          <label class="col-5 col-form-label"
             >Define el estado (*)</label
           >
           <div class="col-6">
@@ -24,7 +24,7 @@
           <br />
           <br />
 
-          <label style="color: #ff0000" class="col-5 col-form-label"
+          <label class="col-5 col-form-label"
             >Fecha radicado (*)</label
           >
           <div class="col-6 form-group">
@@ -36,7 +36,7 @@
             />
           </div>
 
-          <label style="color: #ff0000" class="col-5 col-form-label"
+          <label class="col-5 col-form-label"
             >Fecha recepcionado (*)</label
           >
           <div class="col-6 form-group">
@@ -47,7 +47,7 @@
               v-model="recepcion.fecharecepcionado"
             />
           </div>
-          <label style="color: #ff0000" class="col-5 col-form-label"
+          <label class="col-5 col-form-label"
             >Fecha reparto (*)</label
           >
           <div class="col-6 form-group">
@@ -58,7 +58,7 @@
               v-model="recepcion.fechareparto"
             />
           </div>
-          <label style="color: #ff0000" class="col-5 col-form-label"
+          <label class="col-5 col-form-label"
             >Fecha de publicación (*)</label
           >
           <div class="col-6 form-group">
@@ -69,7 +69,7 @@
               v-model="recepcion.fechapublicacion"
             />
           </div>
-          <label style="color: #ff0000" class="col-5 col-form-label"
+          <label class="col-5 col-form-label"
             >Fecha de retiro (*)</label
           >
           <div class="col-6 form-group">
@@ -80,7 +80,7 @@
               v-model="recepcion.fecharetiro"
             />
           </div>
-          <label style="color: #ff0000" class="col-5 col-form-label"
+          <label class="col-5 col-form-label"
             >Recepcionado en (*)</label
           >
           <div class="col-6 form-group">
@@ -90,7 +90,7 @@
               v-model="recepcion.recepcionado"
             />
           </div>
-          <label style="color: #ff0000" class="col-5 col-form-label"
+          <label class="col-5 col-form-label"
             >Consultorio (*)</label
           >
           <div class="col-6 form-group">
@@ -100,7 +100,7 @@
               v-model="recepcion.consultorio"
             />
           </div>
-          <label style="color: #ff0000" class="col-5 col-form-label"
+          <label class="col-5 col-form-label"
             >Escoge el area (*)</label
           >
           <div class="col-6 form-group">
@@ -112,7 +112,7 @@
             </select>
           </div>
 
-          <label style="color: #ff0000" class="col-5 col-form-label"
+          <label class="col-5 col-form-label"
             >Ingresa el cedula del reclamante (*)</label
           >
           <div class="col-6 form-group">
@@ -123,7 +123,7 @@
             />
           </div>
 
-          <label style="color: #ff0000" class="col-5 col-form-label"
+          <label class="col-5 col-form-label"
             >Ingresa el cedula del estudiante (*)</label
           >
           <div class="col-6 form-group">
@@ -526,7 +526,7 @@ export default {
           type: "error",
           timer: 20000,
           title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
-          text: "Los campos obligatorios estan marcados de color ROJO",
+          text: "Los campos obligatorios estan marcados con un (*)",
           showConfirmButton: true,
         });
       } else {

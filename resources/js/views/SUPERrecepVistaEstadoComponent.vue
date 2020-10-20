@@ -18,7 +18,6 @@
                     <th>Recepcionista</th>
                     <th>Area</th>
                     <th>Fechas</th>
-                    <th>Asignar Recepción</th>
                     <th>Opciones</th>
                   </tr>
                 </thead>
@@ -75,18 +74,6 @@
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
                     </td>
-                    <td>
-                      <button
-                        class="btn btn-success btn-sm"
-                        data-toggle="modal"
-                        data-target="#PUENTE"
-                        @click="editarForm(recepcion)"
-                        title="Asignar caso"
-                      >
-                        <i class="fas fa-save fa-3x" style="color: black"></i>
-                      </button>
-                    </td>
-
                     <td>
                       <button
                         class="btn btn-success btn-sm"

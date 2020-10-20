@@ -677,9 +677,9 @@
               </button>
             </div>
             <div class="modal-body">
-              <label class="col-5 col-form-label">ID RECEPCIÓN:</label>
-              <input placeholder="recepcion" v-model="recepcion.id" />
-              <label class="col-5 col-form-label">CÉDULA:</label>
+              
+              <input type="hidden" placeholder="recepcion" v-model="recepcion.id" disabled />
+              <label class="col-5 col-form-label">CÉDULA (*):</label>
               <input
                 placeholder="CC.RECEPCIONISTA"
                 v-model="usuario.persona.cedula"
@@ -750,10 +750,10 @@
               </button>
             </div>
             <div class="modal-body">
-              <label class="col-5 col-form-label">ID RECEPCIÓN:</label>
-              <input placeholder="recepcion" v-model="recepcion.id" />
+              
+              <input type="hidden" placeholder="recepcion" v-model="recepcion.id" disabled />
 
-              <label class="col-5 col-form-label">CÉDULA:</label>
+              <label class="col-5 col-form-label">CÉDULA (*):</label>
               <input
                 placeholder="CC.DOCENTE"
                 v-model="usuario.persona.cedula"
@@ -1508,7 +1508,17 @@ export default {
     },
 
     GUARDARASIGNACION() {
-      const params = {
+      if (!this.recepcion.id||
+!this.usuario.persona.cedula) {
+         swal({
+          type: "error",
+          timer: 20000,
+          title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
+          text: "Los campos obligatorios estan marcados con un (*)",
+          showConfirmButton: true,
+        });
+      } else {
+        const params = {
         recp_id: this.recepcion.id,
         usu_id: this.usuario.persona.id,
       };
@@ -1537,6 +1547,8 @@ export default {
           console.log(res.data);
         });
       });
+      }
+      
     },
 
     buscarrecl() {

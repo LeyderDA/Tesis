@@ -2545,7 +2545,7 @@ __webpack_require__.r(__webpack_exports__);
           type: "error",
           timer: 20000,
           title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
-          text: "Los campos obligatorios estan marcados de color ROJO",
+          text: "Los campos obligatorios estan marcados con un (*)",
           showConfirmButton: true
         });
       } else {
@@ -2567,7 +2567,7 @@ __webpack_require__.r(__webpack_exports__);
               type: "success",
               timer: 3000,
               title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-              text: "El AREA se ha registradoo",
+              text: "El AREA se ha registrado",
               showConfirmButton: false
             });
           }
@@ -9064,45 +9064,55 @@ __webpack_require__.r(__webpack_exports__);
     agregargestion: function agregargestion() {
       var _this6 = this;
 
-      var params = {
-        amplhechos: this.gestion.amplhechos,
-        fechentrevasesor: this.gestion.fechentrevasesor,
-        tipotramite: this.gestion.tipotramite,
-        asuntotramite: this.gestion.asuntotramite,
-        motivoarchivo: this.gestion.motivoarchivo,
-        fechaarchivo: this.gestion.fechaarchivo,
-        obsrvtramite: this.gestion.obsrvtramite,
-        actuarealizadas: this.gestion.actuarealizadas,
-        actjuridirealzadas: this.gestion.actjuridirealzadas,
-        resulactuacion: this.gestion.resulactuacion,
-        entidadelantramite: this.gestion.entidadelantramite,
-        recp_id: this.recepcion.id
-      };
-      axios.post("/api/gestion", params).then(function (res) {
-        if (res.data == null) {
-          alert("La Gestión NO se ha registrado");
-        } else {
-          swal({
-            type: "success",
-            timer: 3000,
-            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            text: "¡La Gestión se ha registrado Exitosamente en el Caso!!",
-            showConfirmButton: false
-          });
-        }
+      if (!this.gestion.amplhechos || !this.gestion.fechentrevasesor || !this.gestion.tipotramite || !this.gestion.asuntotramite || !this.gestion.motivoarchivo || !this.gestion.fechaarchivo || !this.gestion.obsrvtramite || !this.gestion.actuarealizadas || !this.gestion.actjuridirealzadas || !this.gestion.resulactuacion || !this.gestion.entidadelantramite || !this.recepcion.id) {
+        swal({
+          type: "error",
+          timer: 20000,
+          title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
+          text: "Los campos obligatorios estan marcados con un (*)",
+          showConfirmButton: true
+        });
+      } else {
+        var params = {
+          amplhechos: this.gestion.amplhechos,
+          fechentrevasesor: this.gestion.fechentrevasesor,
+          tipotramite: this.gestion.tipotramite,
+          asuntotramite: this.gestion.asuntotramite,
+          motivoarchivo: this.gestion.motivoarchivo,
+          fechaarchivo: this.gestion.fechaarchivo,
+          obsrvtramite: this.gestion.obsrvtramite,
+          actuarealizadas: this.gestion.actuarealizadas,
+          actjuridirealzadas: this.gestion.actjuridirealzadas,
+          resulactuacion: this.gestion.resulactuacion,
+          entidadelantramite: this.gestion.entidadelantramite,
+          recp_id: this.recepcion.id
+        };
+        axios.post("/api/gestion", params).then(function (res) {
+          if (res.data == null) {
+            alert("La Gestión NO se ha registrado");
+          } else {
+            swal({
+              type: "success",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "¡La Gestión se ha registrado Exitosamente en el Caso!!",
+              showConfirmButton: false
+            });
+          }
 
-        _this6.gestion.amplhechos = "";
-        _this6.gestion.fechentrevasesor = "";
-        _this6.gestion.tipotramite = "";
-        _this6.gestion.asuntotramite = "";
-        _this6.gestion.motivoarchivo = "";
-        _this6.gestion.fechaarchivo = "";
-        _this6.gestion.obsrvtramite = "";
-        _this6.gestion.actuarealizadas = "";
-        _this6.gestion.actjuridirealzadas = "";
-        _this6.gestion.resulactuacion = "";
-        _this6.gestion.entidadelantramite = "";
-      });
+          _this6.gestion.amplhechos = "";
+          _this6.gestion.fechentrevasesor = "";
+          _this6.gestion.tipotramite = "";
+          _this6.gestion.asuntotramite = "";
+          _this6.gestion.motivoarchivo = "";
+          _this6.gestion.fechaarchivo = "";
+          _this6.gestion.obsrvtramite = "";
+          _this6.gestion.actuarealizadas = "";
+          _this6.gestion.actjuridirealzadas = "";
+          _this6.gestion.resulactuacion = "";
+          _this6.gestion.entidadelantramite = "";
+        });
+      }
     },
     eliminar: function eliminar(recepcion, index) {
       var _this7 = this;
@@ -9550,7 +9560,7 @@ __webpack_require__.r(__webpack_exports__);
           type: "error",
           timer: 20000,
           title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
-          text: "Los campos obligatorios estan marcados de color ROJO",
+          text: "Los campos obligatorios estan marcados con un (*)",
           showConfirmButton: true
         });
       } else {
@@ -11783,19 +11793,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     var _ref;
@@ -12726,7 +12723,7 @@ __webpack_require__.r(__webpack_exports__);
           type: "error",
           timer: 20000,
           title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
-          text: "Los campos obligatorios estan marcados de color ROJO",
+          text: "Los campos obligatorios estan marcados con un (*)",
           showConfirmButton: true
         });
       } else {
@@ -14292,35 +14289,45 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     GUARDARASIGNACION: function GUARDARASIGNACION() {
       var _this8 = this;
 
-      var params = {
-        recp_id: this.recepcion.id,
-        usu_id: this.usuario.persona.id
-      };
-      this.usuario.persona.cedula = "";
-      axios.post("/api/asigrecep", params).then(function (res) {
-        if (res.data == null) {
-          swal({
-            type: "error",
-            timer: 3000,
-            title: "PARECE QUE HAY UN ERROR",
-            text: "La asignacion no se ha registrado con exito",
-            showConfirmButton: false
-          });
-        } else {
-          swal({
-            type: "success",
-            timer: 3000,
-            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            text: "La asignacion del caso se ha registrado",
-            showConfirmButton: false
-          });
-        }
-
-        axios.get("/api/recepcionSUPER").then(function (res) {
-          _this8.recepcioness = res.data;
-          console.log(res.data);
+      if (!this.recepcion.id || !this.usuario.persona.cedula) {
+        swal({
+          type: "error",
+          timer: 20000,
+          title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
+          text: "Los campos obligatorios estan marcados con un (*)",
+          showConfirmButton: true
         });
-      });
+      } else {
+        var params = {
+          recp_id: this.recepcion.id,
+          usu_id: this.usuario.persona.id
+        };
+        this.usuario.persona.cedula = "";
+        axios.post("/api/asigrecep", params).then(function (res) {
+          if (res.data == null) {
+            swal({
+              type: "error",
+              timer: 3000,
+              title: "PARECE QUE HAY UN ERROR",
+              text: "La asignacion no se ha registrado con exito",
+              showConfirmButton: false
+            });
+          } else {
+            swal({
+              type: "success",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "La asignacion del caso se ha registrado",
+              showConfirmButton: false
+            });
+          }
+
+          axios.get("/api/recepcionSUPER").then(function (res) {
+            _this8.recepcioness = res.data;
+            console.log(res.data);
+          });
+        });
+      }
     },
     buscarrecl: function buscarrecl() {
       var _this9 = this;
@@ -14736,7 +14743,7 @@ __webpack_require__.r(__webpack_exports__);
           type: "error",
           timer: 20000,
           title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
-          text: "Los campos obligatorios estan marcados de color ROJO",
+          text: "Los campos obligatorios estan marcados con un (*)",
           showConfirmButton: true
         });
       } else {
@@ -16113,6 +16120,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -16270,25 +16279,35 @@ __webpack_require__.r(__webpack_exports__);
     editar: function editar() {
       var _this4 = this;
 
-      var params = {
-        obsrv: this.observaciones.obsrv,
-        recp_id: this.recepcion.id
-      };
-      axios.post("/api/observaciones", params).then(function (res) {
-        if (res.data == null) {
-          alert("La Observacion No se registro porque tiene errores");
-        } else {
-          swal({
-            type: "success",
-            timer: 3000,
-            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            text: "¡La Observacion se ha registrado con EXITO!!",
-            showConfirmButton: false
-          });
-        }
+      if (!this.observaciones.obsrv || !this.recepcion.id) {
+        swal({
+          type: "error",
+          timer: 20000,
+          title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
+          text: "Los campos obligatorios estan marcados con un (*)",
+          showConfirmButton: true
+        });
+      } else {
+        var params = {
+          obsrv: this.observaciones.obsrv,
+          recp_id: this.recepcion.id
+        };
+        axios.post("/api/observaciones", params).then(function (res) {
+          if (res.data == null) {
+            alert("La Observacion No se registro porque tiene errores");
+          } else {
+            swal({
+              type: "success",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "¡La Observacion se ha registrado con EXITO!!",
+              showConfirmButton: false
+            });
+          }
 
-        _this4.observaciones.obsrv = "";
-      });
+          _this4.observaciones.obsrv = "";
+        });
+      }
     }
   }
 });
@@ -54079,14 +54098,9 @@ var render = function() {
           _c("div", { staticClass: "card-header" }, [_vm._v("Modulo Area")]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body row" }, [
-            _c(
-              "label",
-              {
-                staticClass: "col-5 col-form-label",
-                staticStyle: { color: "#FF0000" }
-              },
-              [_vm._v("Nombre del area (*)")]
-            ),
+            _c("label", { staticClass: "col-5 col-form-label" }, [
+              _vm._v("Nombre del area (*)")
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-6" }, [
               _c("input", {
@@ -65728,14 +65742,9 @@ var render = function() {
     _c("div", { staticClass: "card-body row" }, [
       _c("form", [
         _c("div", { staticClass: "row" }, [
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#FF0000" }
-            },
-            [_vm._v("Cédula (*):")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Cédula (*):")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -65761,14 +65770,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#FF0000" }
-            },
-            [_vm._v("Primer Nombre (*):")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Primer Nombre (*):")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -65822,14 +65826,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#FF0000" }
-            },
-            [_vm._v("Primer Apellido (*):")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Primer Apellido (*):")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -65883,14 +65882,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#FF0000" }
-            },
-            [_vm._v("Teléfono (*):")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Teléfono (*):")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -65916,14 +65910,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#FF0000" }
-            },
-            [_vm._v("Dirección (*):")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Dirección (*):")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -66634,7 +66623,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("label", { staticClass: "col-5 col-form-label" }, [
-                    _vm._v("Ampliación de hechos")
+                    _vm._v("Ampliación de hechos (*)")
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-6 form-group" }, [
@@ -66666,7 +66655,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("label", { staticClass: "col-5 col-form-label" }, [
-                    _vm._v("Fecha entrevista")
+                    _vm._v("Fecha entrevista (*)")
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-6 form-group" }, [
@@ -66698,7 +66687,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("label", { staticClass: "col-5 col-form-label" }, [
-                    _vm._v("Tipo de tramite")
+                    _vm._v("Tipo de tramite (*)")
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-6 form-group" }, [
@@ -66730,7 +66719,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("label", { staticClass: "col-5 col-form-label" }, [
-                    _vm._v("Asunto de tramite")
+                    _vm._v("Asunto de tramite (*)")
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-6 form-group" }, [
@@ -66762,7 +66751,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("label", { staticClass: "col-5 col-form-label" }, [
-                    _vm._v("Motivo de archivo")
+                    _vm._v("Motivo de archivo (*)")
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-6 form-group" }, [
@@ -66794,7 +66783,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("label", { staticClass: "col-5 col-form-label" }, [
-                    _vm._v("Fecha de archivo")
+                    _vm._v("Fecha de archivo (*)")
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-6 form-group" }, [
@@ -66826,7 +66815,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("label", { staticClass: "col-5 col-form-label" }, [
-                    _vm._v("Entidad del tramite")
+                    _vm._v("Entidad del tramite (*)")
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-6 form-group" }, [
@@ -66858,7 +66847,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("label", { staticClass: "col-5 col-form-label" }, [
-                    _vm._v("Observaciones")
+                    _vm._v("Observaciones (*)")
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-12 form-group" }, [
@@ -66890,7 +66879,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("label", { staticClass: "col-5 col-form-label" }, [
-                    _vm._v("Actuaciones realizadas")
+                    _vm._v("Actuaciones realizadas (*)")
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-12 form-group" }, [
@@ -66922,7 +66911,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("label", { staticClass: "col-5 col-form-label" }, [
-                    _vm._v("Actuaciones jurídicas realizadas\n            ")
+                    _vm._v("Actuaciones jurídicas realizadas (*)\n            ")
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-12 form-group" }, [
@@ -66954,7 +66943,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("label", { staticClass: "col-5 col-form-label" }, [
-                    _vm._v("Resultado de actuación")
+                    _vm._v("Resultado de actuación (*)")
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-12 form-group" }, [
@@ -68135,14 +68124,9 @@ var render = function() {
     _c("div", { staticClass: "card-body row" }, [
       _c("form", [
         _c("div", { staticClass: "row" }, [
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#ff0000" }
-            },
-            [_vm._v("Enfoque diferencial (*)")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Enfoque diferencial (*)")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -68172,14 +68156,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#ff0000" }
-            },
-            [_vm._v("Genero (*)")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Genero (*)")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -68205,14 +68184,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#ff0000" }
-            },
-            [_vm._v("Edad (*)")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Edad (*)")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -68238,14 +68212,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#ff0000" }
-            },
-            [_vm._v("Discapacidad (*)")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Discapacidad (*)")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -68275,14 +68244,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#ff0000" }
-            },
-            [_vm._v("Estrato (*)")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Estrato (*)")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -68308,14 +68272,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#ff0000" }
-            },
-            [_vm._v("Embarazo (*)")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Embarazo (*)")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -68341,14 +68300,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#ff0000" }
-            },
-            [_vm._v("Grupo Etnico (*)")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Grupo Etnico (*)")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -68378,14 +68332,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#ff0000" }
-            },
-            [_vm._v("Entidad o persona que reclama (*)")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Entidad o persona que reclama (*)")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -68415,14 +68364,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#ff0000" }
-            },
-            [_vm._v("Cedula (*)")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Cedula (*)")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -71407,31 +71351,6 @@ var render = function() {
                             staticClass: "btn btn-success btn-sm",
                             attrs: {
                               "data-toggle": "modal",
-                              "data-target": "#PUENTE",
-                              title: "Asignar caso"
-                            },
-                            on: {
-                              click: function($event) {
-                                return _vm.editarForm(recepcion)
-                              }
-                            }
-                          },
-                          [
-                            _c("i", {
-                              staticClass: "fas fa-save fa-3x",
-                              staticStyle: { color: "black" }
-                            })
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-success btn-sm",
-                            attrs: {
-                              "data-toggle": "modal",
                               "data-target": "#editarModal",
                               title: "Editar Recepción"
                             },
@@ -73983,8 +73902,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Fechas")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Asignar Recepción")]),
-        _vm._v(" "),
         _c("th", [_vm._v("Opciones")])
       ])
     ])
@@ -74505,14 +74422,9 @@ var render = function() {
     _c("div", { staticClass: "card-body row" }, [
       _c("form", { attrs: { id: "miForm" } }, [
         _c("div", { staticClass: "row" }, [
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#ff0000" }
-            },
-            [_vm._v("Define el estado (*)")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Define el estado (*)")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6" }, [
             _c(
@@ -74560,14 +74472,9 @@ var render = function() {
           _vm._v(" "),
           _c("br"),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#ff0000" }
-            },
-            [_vm._v("Fecha radicado (*)")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Fecha radicado (*)")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -74593,14 +74500,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#ff0000" }
-            },
-            [_vm._v("Fecha recepcionado (*)")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Fecha recepcionado (*)")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -74630,14 +74532,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#ff0000" }
-            },
-            [_vm._v("Fecha reparto (*)")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Fecha reparto (*)")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -74663,14 +74560,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#ff0000" }
-            },
-            [_vm._v("Fecha de publicación (*)")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Fecha de publicación (*)")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -74700,14 +74592,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#ff0000" }
-            },
-            [_vm._v("Fecha de retiro (*)")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Fecha de retiro (*)")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -74733,14 +74620,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#ff0000" }
-            },
-            [_vm._v("Recepcionado en (*)")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Recepcionado en (*)")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -74766,14 +74648,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#ff0000" }
-            },
-            [_vm._v("Consultorio (*)")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Consultorio (*)")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -74799,14 +74676,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#ff0000" }
-            },
-            [_vm._v("Escoge el area (*)")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Escoge el area (*)")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c(
@@ -74859,14 +74731,9 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#ff0000" }
-            },
-            [_vm._v("Ingresa el cedula del reclamante (*)")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Ingresa el cedula del reclamante (*)")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -74892,14 +74759,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#ff0000" }
-            },
-            [_vm._v("Ingresa el cedula del estudiante (*)")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Ingresa el cedula del estudiante (*)")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -76844,10 +76706,6 @@ var render = function() {
                 _vm._m(11),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
-                    _vm._v("ID RECEPCIÓN:")
-                  ]),
-                  _vm._v(" "),
                   _c("input", {
                     directives: [
                       {
@@ -76857,7 +76715,11 @@ var render = function() {
                         expression: "recepcion.id"
                       }
                     ],
-                    attrs: { placeholder: "recepcion" },
+                    attrs: {
+                      type: "hidden",
+                      placeholder: "recepcion",
+                      disabled: ""
+                    },
                     domProps: { value: _vm.recepcion.id },
                     on: {
                       input: function($event) {
@@ -76870,7 +76732,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("label", { staticClass: "col-5 col-form-label" }, [
-                    _vm._v("CÉDULA:")
+                    _vm._v("CÉDULA (*):")
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -76988,10 +76850,6 @@ var render = function() {
                 _vm._m(12),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
-                    _vm._v("ID RECEPCIÓN:")
-                  ]),
-                  _vm._v(" "),
                   _c("input", {
                     directives: [
                       {
@@ -77001,7 +76859,11 @@ var render = function() {
                         expression: "recepcion.id"
                       }
                     ],
-                    attrs: { placeholder: "recepcion" },
+                    attrs: {
+                      type: "hidden",
+                      placeholder: "recepcion",
+                      disabled: ""
+                    },
                     domProps: { value: _vm.recepcion.id },
                     on: {
                       input: function($event) {
@@ -77014,7 +76876,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("label", { staticClass: "col-5 col-form-label" }, [
-                    _vm._v("CÉDULA:")
+                    _vm._v("CÉDULA (*):")
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -78712,14 +78574,9 @@ var render = function() {
     _c("div", { staticClass: "card-body row" }, [
       _c("form", [
         _c("div", { staticClass: "row" }, [
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#FF0000" }
-            },
-            [_vm._v("Nombre de Usuario (*):")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Nombre de Usuario (*):")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -78745,14 +78602,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#FF0000" }
-            },
-            [_vm._v("Email (*):")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Email (*):")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -78778,14 +78630,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#FF0000" }
-            },
-            [_vm._v("password (*):")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("password (*):")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -78811,14 +78658,9 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#FF0000" }
-            },
-            [_vm._v("Rol (*):")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Rol (*):")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6" }, [
             _c(
@@ -78872,14 +78714,9 @@ var render = function() {
           _vm._v(" "),
           _c("br"),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "col-5 col-form-label",
-              staticStyle: { color: "#FF0000" }
-            },
-            [_vm._v("Cedula (*)")]
-          ),
+          _c("label", { staticClass: "col-5 col-form-label" }, [
+            _vm._v("Cedula (*)")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 form-group" }, [
             _c("input", {
@@ -79596,7 +79433,9 @@ var render = function() {
                           }
                         },
                         [
-                          _c("option", [_vm._v("Selecciona un Rol")]),
+                          _c("option", { attrs: { value: "" } }, [
+                            _vm._v("Selecciona un Rol")
+                          ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "2" } }, [
                             _vm._v("Administrativo")
@@ -81069,7 +80908,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("label", { staticClass: "col-5 col-form-label" }, [
-                    _vm._v("Digita la observación")
+                    _vm._v("Digita la observación (*)")
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-12 form-group" }, [

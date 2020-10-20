@@ -440,7 +440,9 @@
                 disabled
               />
 
-              <label class="col-5 col-form-label">Digita la observación</label>
+              <label class="col-5 col-form-label"
+                >Digita la observación (*)</label
+              >
 
               <div class="col-12 form-group">
                 <textarea
@@ -953,26 +955,37 @@ export default {
       this.recepcion = recepcion;
       this.recepcion.index = index;
     },
-    editar() {
-      const params = {
-        obsrv: this.observaciones.obsrv,
-        recp_id: this.recepcion.id,
-      };
 
-      axios.post("/api/observaciones", params).then((res) => {
-        if (res.data == null) {
-          alert("La Observacion No se registro porque tiene errores");
-        } else {
-          swal({
-            type: "success",
-            timer: 3000,
-            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            text: "¡La Observacion se ha registrado con EXITO!!",
-            showConfirmButton: false,
-          });
-        }
-        this.observaciones.obsrv = "";
-      });
+    editar() {
+      if (!this.observaciones.obsrv||!this.recepcion.id) {
+        swal({
+          type: "error",
+          timer: 20000,
+          title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
+          text: "Los campos obligatorios estan marcados con un (*)",
+          showConfirmButton: true,
+        });
+      } else {
+        const params = {
+          obsrv: this.observaciones.obsrv,
+          recp_id: this.recepcion.id,
+        };
+
+        axios.post("/api/observaciones", params).then((res) => {
+          if (res.data == null) {
+            alert("La Observacion No se registro porque tiene errores");
+          } else {
+            swal({
+              type: "success",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "¡La Observacion se ha registrado con EXITO!!",
+              showConfirmButton: false,
+            });
+          }
+          this.observaciones.obsrv = "";
+        });
+      }
     },
   },
 };
