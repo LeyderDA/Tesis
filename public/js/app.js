@@ -11793,6 +11793,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     var _ref;
@@ -11913,10 +11914,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   created: function created() {
     var _this = this;
 
-    axios.get("/api/area").then(function (res) {
-      _this.areass = res.data;
-      console.log(res.data);
-    });
     axios.get("/api/recepcionSUPEREsta").then(function (res) {
       _this.recepcioness = res.data;
       console.log(res.data);
@@ -12162,8 +12159,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         fechapublicacion: this.recepcion.fechapublicacion,
         fecharetiro: this.recepcion.fecharetiro,
         estado: this.recepcion.estado,
-        recla_id: this.recepcion.recla_id,
-        area_id: this.area.id.substr(0, 1)
+        recla_id: this.recepcion.recla_id
       };
       axios.put("/api/recepcion/" + this.recepcion.id, params).then(function (res) {
         if (res.data == null) {
@@ -12184,7 +12180,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           });
         }
 
-        axios.get("/api/recepcionSUPER").then(function (res) {
+        axios.get("/api/recepcionSUPEREsta").then(function (res) {
           _this12.recepcioness = res.data;
           console.log(res.data);
         });
@@ -14023,6 +14019,88 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     var _ref;
@@ -14433,6 +14511,43 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           _this12.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
 
           alert(_this12.errors.recepcionado[0]);
+        }
+      });
+    },
+    editarArea: function editarArea() {
+      var _this13 = this;
+
+      var params = {
+        area_id: this.area.id.substr(0, 1)
+      };
+      axios.put("/api/recepcionAreUpdate/" + this.recepcion.id, params).then(function (res) {
+        if (res.data == null) {
+          swal({
+            type: "error",
+            timer: 3000,
+            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            text: "El Area no se ha actualizado",
+            showConfirmButton: false
+          });
+        } else {
+          swal({
+            type: "success",
+            timer: 3000,
+            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            text: "El Area se ha actualizado",
+            showConfirmButton: false
+          });
+        }
+
+        axios.get("/api/recepcionSUPER").then(function (res) {
+          _this13.recepcioness = res.data;
+          console.log(res.data);
+        });
+      })["catch"](function (error) {
+        if (error.response.status == 422) {
+          _this13.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
+
+          alert(_this13.errors.recepcionado[0]);
         }
       });
     }
@@ -71352,7 +71467,7 @@ var render = function() {
                             attrs: {
                               "data-toggle": "modal",
                               "data-target": "#editarModal",
-                              title: "Editar Recepción"
+                              title: "Activar Recepción"
                             },
                             on: {
                               click: function($event) {
@@ -72092,7 +72207,11 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { placeholder: "recepcion", type: "date" },
+                      attrs: {
+                        placeholder: "recepcion",
+                        type: "date",
+                        disabled: ""
+                      },
                       domProps: { value: _vm.recepcion.fecharadicado },
                       on: {
                         input: function($event) {
@@ -72124,7 +72243,11 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { placeholder: "recepcion", type: "date" },
+                      attrs: {
+                        placeholder: "recepcion",
+                        type: "date",
+                        disabled: ""
+                      },
                       domProps: { value: _vm.recepcion.fecharecepcionado },
                       on: {
                         input: function($event) {
@@ -72156,7 +72279,11 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { placeholder: "recepcion", type: "date" },
+                      attrs: {
+                        placeholder: "recepcion",
+                        type: "date",
+                        disabled: ""
+                      },
                       domProps: { value: _vm.recepcion.fechareparto },
                       on: {
                         input: function($event) {
@@ -72188,7 +72315,11 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { placeholder: "recepcion", type: "date" },
+                      attrs: {
+                        placeholder: "recepcion",
+                        type: "date",
+                        disabled: ""
+                      },
                       domProps: { value: _vm.recepcion.fechapublicacion },
                       on: {
                         input: function($event) {
@@ -72220,7 +72351,11 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { placeholder: "recepcion", type: "date" },
+                      attrs: {
+                        placeholder: "recepcion",
+                        type: "date",
+                        disabled: ""
+                      },
                       domProps: { value: _vm.recepcion.fecharetiro },
                       on: {
                         input: function($event) {
@@ -72252,7 +72387,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { placeholder: "recepcion" },
+                      attrs: { placeholder: "recepcion", disabled: "" },
                       domProps: { value: _vm.recepcion.recepcionado },
                       on: {
                         input: function($event) {
@@ -72284,7 +72419,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { placeholder: "recepcion" },
+                      attrs: { placeholder: "recepcion", disabled: "" },
                       domProps: { value: _vm.recepcion.consultorio },
                       on: {
                         input: function($event) {
@@ -72306,58 +72441,31 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-6 form-group" }, [
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.area.id,
-                            expression: "area.id"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { id: "area" },
-                        on: {
-                          change: function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.$set(
-                              _vm.area,
-                              "id",
-                              $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            )
-                          }
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.recepcion.area.nombre,
+                          expression: "recepcion.area.nombre"
                         }
-                      },
-                      [
-                        _c("option", { attrs: { value: "" } }, [
-                          _vm._v("Selecciona")
-                        ]),
-                        _vm._v(" "),
-                        _vm._l(_vm.areass, function(area) {
-                          return _c("option", { key: area.index }, [
-                            _vm._v(
-                              "\n             " +
-                                _vm._s(area.id) +
-                                "-" +
-                                _vm._s(area.nombre) +
-                                "\n              \n            "
-                            )
-                          ])
-                        })
                       ],
-                      2
-                    )
+                      staticClass: "form-control",
+                      attrs: { placeholder: "recepcion", disabled: "" },
+                      domProps: { value: _vm.recepcion.area.nombre },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.recepcion.area,
+                            "nombre",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
                   ]),
                   _vm._v(" "),
                   _c("label", { staticClass: "col-12 col-form-label" }, [
@@ -72381,7 +72489,10 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { placeholder: "Cédula del Reclamante" },
+                      attrs: {
+                        placeholder: "Cédula del Reclamante",
+                        disabled: ""
+                      },
                       domProps: { value: _vm.usuario.persona.cedula },
                       on: {
                         input: function($event) {
@@ -75531,7 +75642,23 @@ var render = function() {
                           [_c("i", { staticClass: "fas fa-trash-alt fa-1.5x" })]
                         ),
                         _vm._v(" "),
-                        _c("br"),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-sm",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": "#editarModalAREA",
+                              title: "Cambiar el Area"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.editarForm(recepcion, index)
+                              }
+                            }
+                          },
+                          [_c("i", { staticClass: "fas fa-edit fa-2x" })]
+                        ),
                         _vm._v(" "),
                         _c(
                           "a",
@@ -76456,58 +76583,31 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-6 form-group" }, [
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.area.id,
-                            expression: "area.id"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { id: "area" },
-                        on: {
-                          change: function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.$set(
-                              _vm.area,
-                              "id",
-                              $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            )
-                          }
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.recepcion.area.nombre,
+                          expression: "recepcion.area.nombre"
                         }
-                      },
-                      [
-                        _c("option", { attrs: { value: "" } }, [
-                          _vm._v("Selecciona")
-                        ]),
-                        _vm._v(" "),
-                        _vm._l(_vm.areass, function(area) {
-                          return _c("option", { key: area.index }, [
-                            _vm._v(
-                              "\n             " +
-                                _vm._s(area.id) +
-                                "-" +
-                                _vm._s(area.nombre) +
-                                "\n              \n            "
-                            )
-                          ])
-                        })
                       ],
-                      2
-                    )
+                      staticClass: "form-control",
+                      attrs: { placeholder: "recepcion", disabled: "" },
+                      domProps: { value: _vm.recepcion.area.nombre },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.recepcion.area,
+                            "nombre",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
                   ]),
                   _vm._v(" "),
                   _c("label", { staticClass: "col-12 col-form-label" }, [
@@ -76621,7 +76721,7 @@ var render = function() {
         {
           staticClass: "modal fade",
           attrs: {
-            id: "PUENTE",
+            id: "editarModalAREA",
             tabindex: "-1",
             role: "dialog",
             "aria-labelledby": "exampleModalLabel",
@@ -76635,6 +76735,122 @@ var render = function() {
             [
               _c("div", { staticClass: "modal-content" }, [
                 _vm._m(9),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Area:")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-6 form-group" }, [
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.area.id,
+                            expression: "area.id"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { id: "area" },
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.area,
+                              "id",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          }
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { value: "" } }, [
+                          _vm._v("Selecciona")
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(_vm.areass, function(area) {
+                          return _c("option", { key: area.index }, [
+                            _vm._v(
+                              "\n             " +
+                                _vm._s(area.id) +
+                                "-" +
+                                _vm._s(area.nombre) +
+                                "\n              \n            "
+                            )
+                          ])
+                        })
+                      ],
+                      2
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      attrs: {
+                        name: "CERRAR",
+                        "data-dismiss": "modal",
+                        "aria-label": "Close",
+                        type: "button"
+                      }
+                    },
+                    [_vm._v("\n              CERRAR\n            ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "button", "data-dismiss": "modal" },
+                      on: {
+                        click: function($event) {
+                          return _vm.editarArea()
+                        }
+                      }
+                    },
+                    [_vm._v("\n              Guardar Cambios\n            ")]
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "PUENTE",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "exampleModalLabel",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(10),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   true
@@ -76676,7 +76892,7 @@ var render = function() {
                     : undefined
                 ]),
                 _vm._v(" "),
-                _vm._m(10)
+                _vm._m(11)
               ])
             ]
           )
@@ -76703,7 +76919,7 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(11),
+                _vm._m(12),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("input", {
@@ -76847,7 +77063,7 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(12),
+                _vm._m(13),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("input", {
@@ -76989,7 +77205,7 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(13),
+                _vm._m(14),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("label", { staticClass: "col-5 col-form-label" }, [
@@ -77181,7 +77397,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
-                  _vm._m(14)
+                  _vm._m(15)
                 ])
               ])
             ]
@@ -77207,7 +77423,7 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(15),
+                _vm._m(16),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("label", { staticClass: "col-5 col-form-label" }, [
@@ -77541,7 +77757,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
-                  _vm._m(16)
+                  _vm._m(17)
                 ])
               ])
             ]
@@ -77567,7 +77783,7 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(17),
+                _vm._m(18),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("input", {
@@ -77617,7 +77833,7 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _vm._m(18)
+                _vm._m(19)
               ])
             ]
           )
@@ -77642,7 +77858,7 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(19),
+                _vm._m(20),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("input", {
@@ -77696,7 +77912,7 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _vm._m(20)
+                _vm._m(21)
               ])
             ]
           )
@@ -77721,7 +77937,7 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(21),
+                _vm._m(22),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("label", { staticClass: "col-5 col-form-label" }, [
@@ -77880,7 +78096,7 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(22),
+                _vm._m(23),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("label", { staticClass: "col-5 col-form-label" }, [
@@ -78012,7 +78228,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(23)
+                _vm._m(24)
               ])
             ]
           )
@@ -78219,6 +78435,31 @@ var staticRenderFns = [
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
         [_vm._v("\n              Editar Recepción\n            ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("\n              Cambiar el Area\n            ")]
       ),
       _vm._v(" "),
       _c(

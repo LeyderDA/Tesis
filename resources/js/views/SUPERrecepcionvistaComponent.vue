@@ -48,6 +48,7 @@
                         @click="editarForm(recepcion, index)"
                         title="Mostrar los datos del Reclamante"
                       >
+                    
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
                     </td>
@@ -104,7 +105,18 @@
                       >
                         <i class="fas fa-trash-alt fa-1.5x"></i>
                       </button>
-                      <br />
+
+                       <button
+                        class="btn btn-sm"
+                        data-toggle="modal"
+                        data-target="#editarModalAREA"
+                        @click="editarForm(recepcion, index)"
+                        title="Cambiar el Area"
+                      >
+                        <i class="fas fa-edit fa-2x"></i>
+                      </button>
+
+                      
                       <a :href="'/recepcionqr/' + recepcion.id">
                         <i
                           class="fas fa-qrcode fa-2x fa-align-center"
@@ -531,17 +543,13 @@
               <label class="col-5 col-form-label">Area:</label>
               
           <div class="col-6 form-group">
-            <select v-model="area.id" class="form-control" id="area">
-              <option value="">Selecciona</option>
-              <option v-for="area in areass" :key="area.index">
-               {{ area.id}}-{{ area.nombre}}
-                
-              </option>
-            </select>
+            <input
+                  class="form-control"
+                  placeholder="recepcion"
+                  v-model="recepcion.area.nombre" disabled
+                />
+
           </div>
-
-
-
 
               <label class="col-12 col-form-label"
                 >En caso de que quieras cambiar el reclamante digita la cédula:
@@ -596,6 +604,80 @@
         </div>
       </div>
       <!--modal de editar -->
+
+
+
+
+  <!--modal de editar AREA-->
+      <div
+        class="modal fade"
+        id="editarModalAREA"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Cambiar el Area
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+             
+
+             
+             
+         <label class="col-5 col-form-label">Area:</label>              
+          <div class="col-6 form-group">
+            <select v-model="area.id" class="form-control" id="area">
+              <option value="">Selecciona</option>
+              <option v-for="area in areass" :key="area.index">
+               {{ area.id}}-{{ area.nombre}}
+                
+              </option>
+            </select>
+          </div>
+             
+            </div>
+            <div class="modal-footer">
+              <button
+                name="CERRAR"
+                class="btn btn-danger"
+                data-dismiss="modal"
+                aria-label="Close"
+                type="button"
+              >
+                CERRAR
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-primary"
+                @click="editarArea()"
+                data-dismiss="modal"
+              >
+                Guardar Cambios
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal de editar AREA -->
+
+
+
+
+
 
       <!--MODAL PARA ASIGNAR MI CASO COMO RECEPCIONISTA-->
       <div
@@ -1641,6 +1723,46 @@ export default {
               timer: 3000,
               title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
               text: "La Recepción se ha actualizado",
+              showConfirmButton: false,
+            });
+          }
+          axios.get("/api/recepcionSUPER").then((res) => {
+            this.recepcioness = res.data;
+            console.log(res.data);
+          });
+        })
+        .catch((error) => {
+          if (error.response.status == 422) {
+            this.errors = error.response.data.errors;
+
+            //let mensaje='Error con alguno de los campos';
+
+            alert(this.errors.recepcionado[0]);
+          }
+        });
+    },
+
+        editarArea() {
+      const params = {      
+        area_id: (this.area.id).substr(0,1),
+      };
+      axios
+        .put("/api/recepcionAreUpdate/" + this.recepcion.id, params)
+        .then((res) => {
+          if (res.data == null) {
+            swal({
+              type: "error",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "El Area no se ha actualizado",
+              showConfirmButton: false,
+            });
+          } else {
+            swal({
+              type: "success",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "El Area se ha actualizado",
               showConfirmButton: false,
             });
           }

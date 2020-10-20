@@ -147,6 +147,15 @@ class RecepcionController extends Controller
         $re->fecharetiro = $request->fecharetiro;
         $re->estado = $request->estado;
         $re->recla_id = $request->recla_id;
+        $re->save();
+        $re->reclamante;
+        $re->area;
+        return  response()->json($re);
+    }
+
+    public function updateArea(Request $request, $id)
+    {
+        $re = Recepcion::find($id);     
         $re->area_id = $request->area_id;
         $re->save();
         $re->reclamante;

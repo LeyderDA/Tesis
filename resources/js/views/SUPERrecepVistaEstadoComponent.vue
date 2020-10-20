@@ -80,7 +80,7 @@
                         data-toggle="modal"
                         data-target="#editarModal"
                         @click="editarForm(recepcion, index)"
-                        title="Editar Recepción"
+                        title="Activar Recepción"
                       >
                         <i class="fas fa-pencil-alt fa-1.5x"></i>
                       </button>
@@ -459,7 +459,7 @@
                   class="form-control"
                   placeholder="recepcion"
                   type="date"
-                  v-model="recepcion.fecharadicado"
+                  v-model="recepcion.fecharadicado" disabled
                 />
               </div>
               <label class="col-5 col-form-label">Fecha de recepcionado:</label>
@@ -468,7 +468,7 @@
                   class="form-control"
                   placeholder="recepcion"
                   type="date"
-                  v-model="recepcion.fecharecepcionado"
+                  v-model="recepcion.fecharecepcionado" disabled
                 />
               </div>
               <label class="col-5 col-form-label">Fecha de reparto:</label>
@@ -477,7 +477,7 @@
                   class="form-control"
                   placeholder="recepcion"
                   type="date"
-                  v-model="recepcion.fechareparto"
+                  v-model="recepcion.fechareparto" disabled
                 />
               </div>
               <label class="col-5 col-form-label">Fecha de publicación:</label>
@@ -486,7 +486,7 @@
                   class="form-control"
                   placeholder="recepcion"
                   type="date"
-                  v-model="recepcion.fechapublicacion"
+                  v-model="recepcion.fechapublicacion" disabled
                 />
               </div>
               <label class="col-5 col-form-label">Fecha de retiro</label>
@@ -495,7 +495,7 @@
                   class="form-control"
                   placeholder="recepcion"
                   type="date"
-                  v-model="recepcion.fecharetiro"
+                  v-model="recepcion.fecharetiro" disabled
                 />
               </div>
               <label class="col-5 col-form-label">Recepcionado en:</label>
@@ -503,7 +503,7 @@
                 <input
                   class="form-control"
                   placeholder="recepcion"
-                  v-model="recepcion.recepcionado"
+                  v-model="recepcion.recepcionado" disabled
                 />
               </div>
               <label class="col-5 col-form-label">Consultorio:</label>
@@ -511,20 +511,21 @@
                 <input
                   class="form-control"
                   placeholder="recepcion"
-                  v-model="recepcion.consultorio"
+                  v-model="recepcion.consultorio" disabled
                 />
               </div>
 
               <label class="col-5 col-form-label">Area:</label>
               
           <div class="col-6 form-group">
-            <select v-model="area.id" class="form-control" id="area">
-              <option value="">Selecciona</option>
-              <option v-for="area in areass" :key="area.index">
-               {{ area.id}}-{{ area.nombre}}
-                
-              </option>
-            </select>
+          
+            <input
+                  class="form-control"
+                  placeholder="recepcion"
+                  v-model="recepcion.area.nombre" disabled
+                />
+
+        
           </div>
 
 
@@ -539,7 +540,7 @@
                 <input
                   class="form-control"
                   placeholder="Cédula del Reclamante"
-                  v-model="usuario.persona.cedula"
+                  v-model="usuario.persona.cedula" disabled
                 />
               </div>
               <br />
@@ -1350,10 +1351,6 @@ export default {
     };
   },
     created() {
-    axios.get("/api/area").then((res) => {
-      this.areass = res.data;
-      console.log(res.data);
-    });
      axios.get("/api/recepcionSUPEREsta").then((res) => {
       this.recepcioness = res.data;
       console.log(res.data);
@@ -1596,8 +1593,7 @@ export default {
         fechapublicacion: this.recepcion.fechapublicacion,
         fecharetiro: this.recepcion.fecharetiro,
         estado: this.recepcion.estado,
-        recla_id: this.recepcion.recla_id,
-        area_id: (this.area.id).substr(0,1),
+        recla_id: this.recepcion.recla_id
       };
       axios
         .put("/api/recepcion/" + this.recepcion.id, params)
@@ -1619,7 +1615,7 @@ export default {
               showConfirmButton: false,
             });
           }
-          axios.get("/api/recepcionSUPER").then((res) => {
+          axios.get("/api/recepcionSUPEREsta").then((res) => {
             this.recepcioness = res.data;
             console.log(res.data);
           });
