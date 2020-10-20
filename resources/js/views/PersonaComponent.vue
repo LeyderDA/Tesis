@@ -15,8 +15,6 @@
               v-model="personas.cedula"
             />
           </div>
-          
-
           <label style="color:#FF0000" class="col-5 col-form-label">Primer Nombre (*):</label>
           <div class="col-6 form-group">
             <input

@@ -6,7 +6,9 @@
     <div class="card-body row">
       <form id="miForm">
         <div class="row">
-          <label class="col-5 col-form-label">Define el estado</label>
+          <label style="color: #ff0000" class="col-5 col-form-label"
+            >Define el estado (*)</label
+          >
           <div class="col-6">
             <select
               class="form-control"
@@ -19,11 +21,12 @@
               <option value="0">Inactivo</option>
             </select>
           </div>
-          <br>
-          <br>
+          <br />
+          <br />
 
- 
-          <label class="col-5 col-form-label">Fecha radicado</label>
+          <label style="color: #ff0000" class="col-5 col-form-label"
+            >Fecha radicado (*)</label
+          >
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -33,7 +36,9 @@
             />
           </div>
 
-          <label class="col-5 col-form-label">Fecha recepcionado</label>
+          <label style="color: #ff0000" class="col-5 col-form-label"
+            >Fecha recepcionado (*)</label
+          >
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -42,7 +47,9 @@
               v-model="recepcion.fecharecepcionado"
             />
           </div>
-          <label class="col-5 col-form-label">Fecha reparto</label>
+          <label style="color: #ff0000" class="col-5 col-form-label"
+            >Fecha reparto (*)</label
+          >
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -51,7 +58,9 @@
               v-model="recepcion.fechareparto"
             />
           </div>
-          <label class="col-5 col-form-label">Fecha de publicación</label>
+          <label style="color: #ff0000" class="col-5 col-form-label"
+            >Fecha de publicación (*)</label
+          >
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -60,7 +69,9 @@
               v-model="recepcion.fechapublicacion"
             />
           </div>
-          <label class="col-5 col-form-label">Fecha de retiro</label>
+          <label style="color: #ff0000" class="col-5 col-form-label"
+            >Fecha de retiro (*)</label
+          >
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -69,7 +80,9 @@
               v-model="recepcion.fecharetiro"
             />
           </div>
-          <label class="col-5 col-form-label">Recepcionado en</label>
+          <label style="color: #ff0000" class="col-5 col-form-label"
+            >Recepcionado en (*)</label
+          >
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -77,7 +90,9 @@
               v-model="recepcion.recepcionado"
             />
           </div>
-          <label class="col-5 col-form-label">Consultorio</label>
+          <label style="color: #ff0000" class="col-5 col-form-label"
+            >Consultorio (*)</label
+          >
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -85,19 +100,20 @@
               v-model="recepcion.consultorio"
             />
           </div>
-          <label class="col-5 col-form-label">Escoge el area</label>
+          <label style="color: #ff0000" class="col-5 col-form-label"
+            >Escoge el area (*)</label
+          >
           <div class="col-6 form-group">
             <select v-model="area.id" class="form-control" id="area">
               <option value="">Selecciona</option>
               <option v-for="area in areass" :key="area.index">
-               {{ area.id}}-{{ area.nombre}}
-                
+                {{ area.id }}-{{ area.nombre }}
               </option>
             </select>
           </div>
 
-          <label class="col-5 col-form-label"
-            >Ingresa el cedula del reclamante</label
+          <label style="color: #ff0000" class="col-5 col-form-label"
+            >Ingresa el cedula del reclamante (*)</label
           >
           <div class="col-6 form-group">
             <input
@@ -107,8 +123,8 @@
             />
           </div>
 
-          <label class="col-5 col-form-label"
-            >Ingresa el cedula del estudiante</label
+          <label style="color: #ff0000" class="col-5 col-form-label"
+            >Ingresa el cedula del estudiante (*)</label
           >
           <div class="col-6 form-group">
             <input
@@ -154,8 +170,6 @@
       </div>
       <br />
       <div class="container">
-
-
         <!--segundo modal - el de buscar RECLAMANTE-->
         <div
           class="modal fade"
@@ -495,53 +509,74 @@ export default {
       });
     },
     agregar() {
-      const params = {
-        recepcionado: this.recepcion.recepcionado,
-        fecharadicado: this.recepcion.fecharadicado,
-        fecharecepcionado: this.recepcion.fecharecepcionado,
-        consultorio: this.recepcion.consultorio,
-        fechareparto: this.recepcion.fechareparto,
-        fechapublicacion: this.recepcion.fechapublicacion,
-        fecharetiro: this.recepcion.fecharetiro,
-        estado: this.recepcion.estado,
-        recla_id: this.usuario.persona.id,
-        usu_id: this.usuarioo.persona.id,
-        area_id: (this.area.id).substr(0,1),
-       
-      };
-      this.recepcion.recepcionado = "";
-      this.recepcion.fecharadicado = "";
-      this.recepcion.fecharecepcionado = "";
-      this.recepcion.consultorio = "";
-      this.recepcion.fechareparto = "";
-      this.recepcion.fechapublicacion = "";
-      this.recepcion.fecharetiro = "";
-      this.recepcion.reclamante.id = "";
-      this.area.id = "";
-      this.recepcion.area.nombre = "";
-      this.recepcion.estado = "";
-      this.usuario.persona.cedula = "";
-      this.usuarioo.persona.cedula = "";
+      if (
+        !this.recepcion.recepcionado ||
+        !this.recepcion.fecharadicado ||
+        !this.recepcion.fecharecepcionado ||
+        !this.recepcion.consultorio ||
+        !this.recepcion.fechareparto ||
+        !this.recepcion.fechapublicacion ||
+        !this.recepcion.fecharetiro ||
+        !this.recepcion.estado ||
+        !this.usuario.persona.id ||
+        !this.usuarioo.persona.id ||
+        !this.area.id
+      ) {
+        swal({
+          type: "error",
+          timer: 20000,
+          title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
+          text: "Los campos obligatorios estan marcados de color ROJO",
+          showConfirmButton: true,
+        });
+      } else {
+        const params = {
+          recepcionado: this.recepcion.recepcionado,
+          fecharadicado: this.recepcion.fecharadicado,
+          fecharecepcionado: this.recepcion.fecharecepcionado,
+          consultorio: this.recepcion.consultorio,
+          fechareparto: this.recepcion.fechareparto,
+          fechapublicacion: this.recepcion.fechapublicacion,
+          fecharetiro: this.recepcion.fecharetiro,
+          estado: this.recepcion.estado,
+          recla_id: this.usuario.persona.id,
+          usu_id: this.usuarioo.persona.id,
+          area_id: this.area.id.substr(0, 1),
+        };
+        this.recepcion.recepcionado = "";
+        this.recepcion.fecharadicado = "";
+        this.recepcion.fecharecepcionado = "";
+        this.recepcion.consultorio = "";
+        this.recepcion.fechareparto = "";
+        this.recepcion.fechapublicacion = "";
+        this.recepcion.fecharetiro = "";
+        this.recepcion.reclamante.id = "";
+        this.area.id = "";
+        this.recepcion.area.nombre = "";
+        this.recepcion.estado = "";
+        this.usuario.persona.cedula = "";
+        this.usuarioo.persona.cedula = "";
 
-      axios.post("/api/recepcion", params).then((res) => {
-        if (res.data == null) {
-          swal({
-            type: "error",
-            timer: 3000,
-            title: "PARECE QUE HAY UN ERROR",
-            text: "La recepcion No se registro porque tiene errores",
-            showConfirmButton: false,
-          });
-        } else {
-          swal({
-            type: "success",
-            timer: 3000,
-            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            text: "Se guardo la recepción",
-            showConfirmButton: false,
-          });
-        }
-      });
+        axios.post("/api/recepcion", params).then((res) => {
+          if (res.data == null) {
+            swal({
+              type: "error",
+              timer: 3000,
+              title: "PARECE QUE HAY UN ERROR",
+              text: "La recepcion No se registro porque tiene errores",
+              showConfirmButton: false,
+            });
+          } else {
+            swal({
+              type: "success",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "Se guardo la recepción",
+              showConfirmButton: false,
+            });
+          }
+        });
+      }
     },
   },
 };

@@ -6,7 +6,9 @@
     <div class="card-body row">
       <form>
         <div class="row">
-          <label class="col-5 col-form-label">Enfoque diferencial</label>
+          <label style="color: #ff0000" class="col-5 col-form-label"
+            >Enfoque diferencial (*)</label
+          >
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -15,7 +17,9 @@
             />
           </div>
 
-          <label class="col-5 col-form-label">Genero</label>
+          <label style="color: #ff0000" class="col-5 col-form-label"
+            >Genero (*)</label
+          >
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -24,7 +28,9 @@
             />
           </div>
 
-          <label class="col-5 col-form-label">Edad</label>
+          <label style="color: #ff0000" class="col-5 col-form-label"
+            >Edad (*)</label
+          >
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -33,7 +39,9 @@
             />
           </div>
 
-          <label class="col-5 col-form-label">Discapacidad</label>
+          <label style="color: #ff0000" class="col-5 col-form-label"
+            >Discapacidad (*)</label
+          >
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -42,7 +50,9 @@
             />
           </div>
 
-          <label class="col-5 col-form-label">Estrato</label>
+          <label style="color: #ff0000" class="col-5 col-form-label"
+            >Estrato (*)</label
+          >
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -51,7 +61,9 @@
             />
           </div>
 
-          <label class="col-5 col-form-label">Embarazo</label>
+          <label style="color: #ff0000" class="col-5 col-form-label"
+            >Embarazo (*)</label
+          >
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -60,7 +72,9 @@
             />
           </div>
 
-          <label class="col-5 col-form-label">Grupo Etnico</label>
+          <label style="color: #ff0000" class="col-5 col-form-label"
+            >Grupo Etnico (*)</label
+          >
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -69,8 +83,8 @@
             />
           </div>
 
-          <label class="col-5 col-form-label"
-            >Entidad o persona que reclama</label
+          <label style="color: #ff0000" class="col-5 col-form-label"
+            >Entidad o persona que reclama (*)</label
           >
           <div class="col-6 form-group">
             <input
@@ -80,7 +94,9 @@
             />
           </div>
 
-          <label class="col-5 col-form-label">Cedula</label>
+          <label style="color: #ff0000" class="col-5 col-form-label"
+            >Cedula (*)</label
+          >
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -385,48 +401,68 @@ export default {
     },
 
     agregar() {
-      const params = {
-        enfodifervictima: this.reclamante.enfodifervictima,
-        genevictima: this.reclamante.genevictima,
-        edadvictima: this.reclamante.edadvictima,
-        discapavictima: this.reclamante.discapavictima,
-        estravictima: this.reclamante.estravictima,
-        embaravictima: this.reclamante.embaravictima,
-        grupetnicovictima: this.reclamante.grupetnicovictima,
-        persoentidreclama: this.reclamante.persoentidreclama,
-        per_id: this.reclamante.persona.id,
-      };
+      if (
+        !this.reclamante.enfodifervictima ||
+        !this.reclamante.genevictima ||
+        !this.reclamante.edadvictima ||
+        !this.reclamante.discapavictima ||
+        !this.reclamante.estravictima ||
+        !this.reclamante.embaravictima ||
+        !this.reclamante.grupetnicovictima ||
+        !this.reclamante.persoentidreclama ||
+        !this.reclamante.persona.cedula
+      ) {
+        swal({
+          type: "error",
+          timer: 20000,
+          title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
+          text: "Los campos obligatorios estan marcados de color ROJO",
+          showConfirmButton: true,
+        });
+      } else {
+        const params = {
+          enfodifervictima: this.reclamante.enfodifervictima,
+          genevictima: this.reclamante.genevictima,
+          edadvictima: this.reclamante.edadvictima,
+          discapavictima: this.reclamante.discapavictima,
+          estravictima: this.reclamante.estravictima,
+          embaravictima: this.reclamante.embaravictima,
+          grupetnicovictima: this.reclamante.grupetnicovictima,
+          persoentidreclama: this.reclamante.persoentidreclama,
+          per_id: this.reclamante.persona.id,
+        };
 
-      this.reclamante.enfodifervictima = "";
-      this.reclamante.genevictima = "";
-      this.reclamante.edadvictima = "";
-      this.reclamante.discapavictima = "";
-      this.reclamante.estravictima = "";
-      this.reclamante.embaravictima = "";
-      this.reclamante.grupetnicovictima = "";
-      this.reclamante.persoentidreclama = "";
-      this.reclamante.persona.cedula = "";
+        this.reclamante.enfodifervictima = "";
+        this.reclamante.genevictima = "";
+        this.reclamante.edadvictima = "";
+        this.reclamante.discapavictima = "";
+        this.reclamante.estravictima = "";
+        this.reclamante.embaravictima = "";
+        this.reclamante.grupetnicovictima = "";
+        this.reclamante.persoentidreclama = "";
+        this.reclamante.persona.cedula = "";
 
-      axios.post("/api/reclamante", params).then((res) => {
-        if (res.data == null) {
-          swal({
-            type: "error",
-            timer: 3000,
-            title: "PARECE QUE HAY UN ERROR",
-            text: "El reclamante no se ha registrado con exito",
-            showConfirmButton: false,
-          });
-        } else {
-          swal({
-            type: "success",
-            timer: 3000,
-            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            text: "El reclamante se ha registrado",
-            showConfirmButton: false,
-          });
-        }
-        this.reclamantess.push(res.data);
-      });
+        axios.post("/api/reclamante", params).then((res) => {
+          if (res.data == null) {
+            swal({
+              type: "error",
+              timer: 3000,
+              title: "PARECE QUE HAY UN ERROR",
+              text: "El reclamante no se ha registrado con exito",
+              showConfirmButton: false,
+            });
+          } else {
+            swal({
+              type: "success",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "El reclamante se ha registrado",
+              showConfirmButton: false,
+            });
+          }
+          this.reclamantess.push(res.data);
+        });
+      }
     },
   },
 };

@@ -6,7 +6,7 @@
     <div class="card-body row">
       <form>
         <div class="row">
-          <label class="col-5 col-form-label">Nombre de Usuario:</label>
+          <label style="color:#FF0000" class="col-5 col-form-label">Nombre de Usuario (*):</label>
           <div class="col-6 form-group">
             <input
               type="text"
@@ -16,7 +16,7 @@
             />
           </div>
 
-          <label class="col-5 col-form-label">Email:</label>
+          <label style="color:#FF0000" class="col-5 col-form-label">Email (*):</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -25,7 +25,7 @@
             />
           </div>
 
-          <label class="col-5 col-form-label">password:</label>
+          <label style="color:#FF0000" class="col-5 col-form-label">password (*):</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -35,7 +35,7 @@
             />
           </div>
 
-          <label class="col-5 col-form-label">Rol:</label>
+          <label style="color:#FF0000" class="col-5 col-form-label">Rol (*):</label>
           <div class="col-6">
             <select
               class="form-control"
@@ -52,7 +52,7 @@
           <br />
           <br />
 
-          <label class="col-5 col-form-label">Cedula</label>
+          <label style="color:#FF0000" class="col-5 col-form-label">Cedula (*)</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -287,41 +287,56 @@ export default {
       return this.usuario.persona.cedula != "";
     },
     agregar() {
-      // alert(this.personas.prinom);
-      const params = {
-        username: this.usuario.username,
-        email: this.usuario.email,
-        password: this.usuario.password,
-        rol_id: this.usuario.rol_id,
-        per_id: this.usuario.persona.id,
-      };
-      this.usuario.username = "";
-      this.usuario.email = "";
-      this.usuario.password = "";
-      this.usuario.rol_id = "";
-      this.usuario.per_id = "";
-      this.usuario.persona.cedula = "";
+      if (
+        !this.usuario.username ||
+        !this.usuario.email ||
+        !this.usuario.password ||
+        !this.usuario.rol_id ||
+        !this.usuario.persona.cedula
+      ) {
+         swal({
+          type: "error",
+          timer: 20000,
+          title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
+          text: "Los campos obligatorios estan marcados de color ROJO",
+          showConfirmButton: true,
+        });
+      } else {
+        const params = {
+          username: this.usuario.username,
+          email: this.usuario.email,
+          password: this.usuario.password,
+          rol_id: this.usuario.rol_id,
+          per_id: this.usuario.persona.id,
+        };
+        this.usuario.username = "";
+        this.usuario.email = "";
+        this.usuario.password = "";
+        this.usuario.rol_id = "";
+        this.usuario.per_id = "";
+        this.usuario.persona.cedula = "";
 
-      axios.post("/api/user", params).then((res) => {
-        if (res.data == null) {
-          swal({
-            type: "error",
-            timer: 3000,
-            title: "PARECE QUE HAY UN ERROR",
-            text: "El usuario no se ha registrado con exito",
-            showConfirmButton: false,
-          });
-        } else {
-          swal({
-            type: "success",
-            timer: 3000,
-            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            text: "El usuario se ha registrado",
-            showConfirmButton: false,
-          });
-        }
-        this.usuarioss.push(res.data);
-      });
+        axios.post("/api/user", params).then((res) => {
+          if (res.data == null) {
+            swal({
+              type: "error",
+              timer: 3000,
+              title: "PARECE QUE HAY UN ERROR",
+              text: "El usuario no se ha registrado con exito",
+              showConfirmButton: false,
+            });
+          } else {
+            swal({
+              type: "success",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "El usuario se ha registrado",
+              showConfirmButton: false,
+            });
+          }
+          this.usuarioss.push(res.data);
+        });
+      }
     },
   },
 };

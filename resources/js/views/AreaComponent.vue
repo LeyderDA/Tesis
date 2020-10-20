@@ -5,7 +5,7 @@
         <div class="card">
           <div class="card-header">Modulo Area</div>
           <div class="card-body row">
-            <label class="col-5 col-form-label">Nombre del area</label>
+            <label style="color:#FF0000" class="col-5 col-form-label">Nombre del area (*)</label>
             <div class="col-6">
               <input
                 class="form-control"
@@ -13,14 +13,16 @@
                 v-model="areas.nombre"
               />
             </div>
-            <br>
-            <br>
-            <br>
+            <br />
+            <br />
+            <br />
 
             <div class="col-12" v-if="true">
-              <button class="btn btn-primary btn-block" @click="agregar()">Guardar</button>
+              <button class="btn btn-primary btn-block" @click="agregar()">
+                Guardar
+              </button>
             </div>
-            
+
             <br />
             <div class="container">
               <table class="table">
@@ -32,14 +34,22 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(areas,index) in areass" :key="areas.index">
-                    <th>{{areas.id}}</th>
-                    <td>{{areas.nombre}}</td>
+                  <tr v-for="(areas, index) in areass" :key="areas.index">
+                    <th>{{ areas.id }}</th>
+                    <td>{{ areas.nombre }}</td>
                     <td>
-                      <button class="btn btn-success btn-sm"  data-toggle="modal" data-target="#editarModal" @click="editarForm(areas,index)">
+                      <button
+                        class="btn btn-success btn-sm"
+                        data-toggle="modal"
+                        data-target="#editarModal"
+                        @click="editarForm(areas, index)"
+                      >
                         <i class="fas fa-pencil-alt"></i>
                       </button>
-                      <button class="btn btn-danger btn-sm" @click="eliminar(areas,index)">
+                      <button
+                        class="btn btn-danger btn-sm"
+                        @click="eliminar(areas, index)"
+                      >
                         <i class="fas fa-trash-alt"></i>
                       </button>
                     </td>
@@ -51,33 +61,53 @@
         </div>
       </div>
     </div>
-    <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Area</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-         <label class="col-5 col-form-label">Nombre del area</label>
-         <div class="col-6 form-group">
-
-        <input
+    <div
+      class="modal fade"
+      id="editarModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Editar Area</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <label class="col-5 col-form-label">Nombre del area</label>
+            <div class="col-6 form-group">
+              <input
                 class="form-control"
                 placeholder="nombre del Area"
                 v-model="areas.nombre"
               />
-              </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" @click="editar()" data-dismiss="modal">Guardar Cambios</button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Cerrar
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              @click="editar()"
+              data-dismiss="modal"
+            >
+              Guardar Cambios
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
   </div>
 </template>
 <script>
@@ -86,75 +116,79 @@ export default {
     return {
       areas: {
         id: "",
-        nombre: ""
+        nombre: "",
       },
       areass: [],
       //registro: true, //me describe el compartamieto del boton si va a guardar o va a editar
-      errors: []
+      errors: [],
     };
   },
   created() {
-    axios.get("/api/area").then(res => {
+    axios.get("/api/area").then((res) => {
       this.areass = res.data;
     });
   },
   methods: {
     agregar() {
-      //alert(this.area.nombrearea);
-      const params = { nombre: this.areas.nombre };
-      // let ar = { nombrearea: this.area.nombrearea, id: this.area.id };
-      this.areas.nombre = "";
+      if (!this.areas.nombre) {
+        swal({
+          type: "error",
+          timer: 20000,
+          title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
+          text: "Los campos obligatorios estan marcados de color ROJO",
+          showConfirmButton: true,
+        });
+      } else {
+        const params = { nombre: this.areas.nombre };
+        this.areas.nombre = "";
 
-      axios.post("/api/area", params).then(res => {
-        if (res.data == null) {
-          swal({
+        axios.post("/api/area", params).then((res) => {
+          if (res.data == null) {
+            swal({
               type: "error",
               timer: 3000,
               title: "EL PROCESO SE NO REALIZÓ PORQUE TIENE ERRORES",
               text: "El AREA no se ha registrado con exito",
               showConfirmButton: false,
             });
-        } else {
-          swal({
+          } else {
+            swal({
               type: "success",
               timer: 3000,
               title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
               text: "El AREA se ha registradoo",
               showConfirmButton: false,
             });
-        }
-        this.areass.push(res.data);
-      });
-
-      //this.areas.push(ar);
+          }
+          this.areass.push(res.data);
+        });
+      }
     },
 
     eliminar(areas, index) {
-      const confirmacion = confirm(
-        `Confirma Eliminar Area: ${areas.nombre}`
-      );
+      const confirmacion = confirm(`Confirma Eliminar Area: ${areas.nombre}`);
       if (confirmacion) {
         axios.delete("/api/area/" + areas.id).then(() => {
           this.areass.splice(index, 1);
           swal({
-              type: "success",
-              timer: 3000,
-              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-              text: "El area se ha eliminado con exito",
-              showConfirmButton: false,
-            });
-
+            type: "success",
+            timer: 3000,
+            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            text: "El area se ha eliminado con exito",
+            showConfirmButton: false,
+          });
         });
       }
     },
-    editarForm(areas,index){
-        this.areas=areas;
-        this.areas.index=index;
+    editarForm(areas, index) {
+      this.areas = areas;
+      this.areas.index = index;
     },
     editar() {
       const params = { nombre: this.areas.nombre };
-       axios.put("/api/area/" + this.areas.id, params)
-       .then(res => {
+      axios
+        .put("/api/area/" + this.areas.id, params)
+        .then((res) => {
           if (res.data == null) {
             swal({
               type: "error",
@@ -163,7 +197,6 @@ export default {
               text: "El area no se ha actualizado",
               showConfirmButton: false,
             });
-
           } else {
             swal({
               type: "success",
@@ -175,10 +208,10 @@ export default {
           }
           //alert(this.area.index)
           this.areass[this.areas.index] = res.data;
-          this.areas.nombre='';
+          this.areas.nombre = "";
           //this.$refs.editarModal.modal('dispose');
         })
-        .catch(error => {
+        .catch((error) => {
           if (error.response.status == 422) {
             this.errors = error.response.data.errors;
 
@@ -187,7 +220,7 @@ export default {
             alert(this.errors.nombre[0]);
           }
         });
-    }
-  }
+    },
+  },
 };
 </script>
