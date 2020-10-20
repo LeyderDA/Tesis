@@ -1766,10 +1766,12 @@ export default {
               showConfirmButton: false,
             });
           }
+          this.area.id="";
           axios.get("/api/recepcionSUPER").then((res) => {
             this.recepcioness = res.data;
             console.log(res.data);
           });
+
         })
         .catch((error) => {
           if (error.response.status == 422) {

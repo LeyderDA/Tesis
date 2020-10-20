@@ -14539,6 +14539,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           });
         }
 
+        _this13.area.id = "";
         axios.get("/api/recepcionSUPER").then(function (res) {
           _this13.recepcioness = res.data;
           console.log(res.data);

@@ -43,6 +43,12 @@ class User extends Authenticatable
     
     }
 
+    public function foro()
+    {
+        return $this->belongsTo('App\Foro','id');
+    
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *
