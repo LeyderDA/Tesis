@@ -3449,88 +3449,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      foro: {
-        titulo: "",
-        descripcion: "",
-        fechapublicación: "",
-        estadoFo: "",
-        doc_id: "",
-        usuario: {
+      foro: {},
+      usuario: {
+        id: "",
+        username: "",
+        email: "",
+        email_verified_at: "",
+        password: "",
+        rol_id: "",
+        per_id: "",
+        persona: {
           id: "",
-          username: "",
-          email: "",
-          email_verified_at: "",
-          password: "",
-          rol_id: "",
-          per_id: "",
-          persona: {
-            cedula: "",
-            prinom: "",
-            segnom: "",
-            priape: "",
-            segape: "",
-            tel: "",
-            direc: ""
-          }
+          cedula: "",
+          prinom: "",
+          segnom: "",
+          priape: "",
+          segape: "",
+          tel: "",
+          direc: ""
         }
       },
       esta: false,
@@ -3542,7 +3481,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios.get("/api/foro").then(function (res) {
+    axios.get("/api/miusuario").then(function (res) {
       _this.usuarioss = res.data;
     });
   },
@@ -56302,11 +56241,9 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "tbody",
-                    _vm._l(_vm.usuarioss, function(foro, index) {
-                      return _c("tr", { key: foro.index }, [
-                        _c("td", [_vm._v(_vm._s(foro.usuario.username))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(foro.titulo))]),
+                    _vm._l(_vm.usuarioss, function(usuario, index) {
+                      return _c("tr", { key: usuario.index }, [
+                        _c("td", [_vm._v(_vm._s(usuario.username))]),
                         _vm._v(" "),
                         _c("td", [
                           _c(
@@ -56315,30 +56252,16 @@ var render = function() {
                               staticClass: "btn btn-success btn-sm",
                               attrs: {
                                 "data-toggle": "modal",
-                                "data-target": "#editarModal",
-                                title: "Editar los datos del usuario"
+                                "data-target": "#ModalAggForo",
+                                title: "Crear Foro"
                               },
                               on: {
                                 click: function($event) {
-                                  return _vm.editarForm(foro, index)
+                                  return _vm.editarForm(usuario, index)
                                 }
                               }
                             },
-                            [_c("i", { staticClass: "fas fa-pencil-alt" })]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-danger btn-sm",
-                              attrs: { title: "Eliminar reclamante" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.eliminar(foro, index)
-                                }
-                              }
-                            },
-                            [_c("i", { staticClass: "fas fa-trash-alt" })]
+                            [_c("i", { staticClass: "fas fa-share-square" })]
                           )
                         ])
                       ])
@@ -56356,7 +56279,7 @@ var render = function() {
           {
             staticClass: "modal fade",
             attrs: {
-              id: "editarModal",
+              id: "ModalAggForo",
               tabindex: "-1",
               role: "dialog",
               "aria-labelledby": "exampleModalLabel",
@@ -56372,33 +56295,25 @@ var render = function() {
                   _vm._m(2),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _c("label", { staticClass: "col-8 col-form-label" }, [
-                      _vm._v("Username")
-                    ]),
-                    _vm._v(" "),
                     _c("div", { staticClass: "col-8 form-group" }, [
                       _c("input", {
                         directives: [
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.foro.usuario.username,
-                            expression: "foro.usuario.username"
+                            value: _vm.usuario.id,
+                            expression: "usuario.id"
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { placeholder: "Username" },
-                        domProps: { value: _vm.foro.usuario.username },
+                        attrs: { placeholder: "id" },
+                        domProps: { value: _vm.usuario.id },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.$set(
-                              _vm.foro.usuario,
-                              "username",
-                              $event.target.value
-                            )
+                            _vm.$set(_vm.usuario, "id", $event.target.value)
                           }
                         }
                       })
@@ -56437,85 +56352,6 @@ var render = function() {
               ]
             )
           ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "modal fade",
-            attrs: {
-              id: "buscarModal",
-              tabindex: "-1",
-              role: "dialog",
-              "aria-labelledby": "exampleModalLabel",
-              "aria-hidden": "true"
-            }
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "modal-dialog", attrs: { role: "document" } },
-              [
-                _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(3),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "modal-body" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.foro.usuario.persona.prinom,
-                          expression: "foro.usuario.persona.prinom"
-                        }
-                      ],
-                      attrs: { placeholder: "Nombre" },
-                      domProps: { value: _vm.foro.usuario.persona.prinom },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.foro.usuario.persona,
-                            "prinom",
-                            $event.target.value
-                          )
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.foro.usuario.persona.cedula,
-                          expression: "foro.usuario.persona.cedula"
-                        }
-                      ],
-                      attrs: { placeholder: "Cedula" },
-                      domProps: { value: _vm.foro.usuario.persona.cedula },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.foro.usuario.persona,
-                            "cedula",
-                            $event.target.value
-                          )
-                        }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(4)
-                ])
-              ]
-            )
-          ]
         )
       ])
     ])
@@ -56542,9 +56378,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Username")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Crear Foro")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Opciones")])
+        _c("th", [_vm._v("Crear Foro")])
       ])
     ])
   },
@@ -56570,46 +56404,6 @@ var staticRenderFns = [
           }
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                Mostrar Persona\n              ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-danger",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("\n                Cerrar\n              ")]
       )
     ])
   }

@@ -34,17 +34,17 @@ class ForosController extends Controller
     public function store(Request $request)
     {
 
-        $pers=new Persona();
-        $pers->cedula=$request->cedula;
-        $pers->prinom=$request->prinom;
-        $pers->segnom=$request->segnom;
-        $pers->priape=$request->priape;
-        $pers->segape=$request->segape;
-        $pers->tel=$request->tel;
-        $pers->direc=$request->direc;
-        $pers->save();
-        return  response()->json($pers);
+        $for=new Foro();
+        $for->titulo=$request->titulo;
+        $for->descripcion=$request->descripcion;
+        $for->fechapublicación=$request->fechapublicación;
+        $for->estadoFo=$request->estadoFo;
+        $for->doc_id=$request->doc_id;
+       
+        $for->save();
+        return  response()->json($for);
     }
+    
     public function buscar($cedula)
     {   
         $pers = Persona::where("cedula",$cedula)->get();

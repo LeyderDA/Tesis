@@ -17,33 +17,24 @@
                     <tr>
                       <th>Username</th>
                       <th>Crear Foro</th>
-                      <th>Opciones</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr
-                      v-for="(foro, index) in usuarioss"
-                      :key="foro.index"
+                      v-for="(usuario, index) in usuarioss"
+                      :key="usuario.index"
                     >
-                      <td>{{ foro.usuario.username }}</td>
-                      <td>{{ foro.titulo }}</td>
+                      <td>{{ usuario.username }}</td>
 
                       <td>
                         <button
                           class="btn btn-success btn-sm"
                           data-toggle="modal"
-                          data-target="#editarModal"
-                          @click="editarForm(foro, index)"
-                          title="Editar los datos del usuario"
+                          data-target="#ModalAggForo"
+                          @click="editarForm(usuario, index)"
+                          title="Crear Foro"
                         >
-                          <i class="fas fa-pencil-alt"></i>
-                        </button>
-                        <button
-                          class="btn btn-danger btn-sm"
-                          @click="eliminar(foro, index)"
-                          title="Eliminar reclamante"
-                        >
-                          <i class="fas fa-trash-alt"></i>
+                          <i class="fas fa-share-square"></i>
                         </button>
                       </td>
                     </tr>
@@ -55,7 +46,7 @@
         </div>
         <div
           class="modal fade"
-          id="editarModal"
+          id="ModalAggForo"
           tabindex="-1"
           role="dialog"
           aria-labelledby="exampleModalLabel"
@@ -77,18 +68,13 @@
                 </button>
               </div>
               <div class="modal-body">
-                <label class="col-8 col-form-label">Username</label>
                 <div class="col-8 form-group">
                   <input
                     class="form-control"
-                    placeholder="Username"
-                    v-model="foro.usuario.username"
+                    placeholder="id"
+                    v-model="usuario.id"
                   />
                 </div>
-
-
-
-               
               </div>
               <div class="modal-footer">
                 <button
@@ -110,48 +96,6 @@
             </div>
           </div>
         </div>
-
-        <!--segundo modal - el de buscar -->
-        <div
-          class="modal fade"
-          id="buscarModal"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
-                  Mostrar Persona
-                </h5>
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <input placeholder="Nombre" v-model="foro.usuario.persona.prinom" />
-                <input placeholder="Cedula" v-model="foro.usuario.persona.cedula" />
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-danger"
-                  data-dismiss="modal"
-                >
-                  Cerrar
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--cierro modal de buscar -->
       </div>
     </div>
   </div>
@@ -160,31 +104,26 @@
 export default {
   data() {
     return {
-      foro: {
-        titulo: "",
-        descripcion: "",
-        fechapublicación: "",
-        estadoFo: "",
-        doc_id: "",
+      foro: {},
 
-        usuario: {
+      usuario: {
+        id: "",
+        username: "",
+        email: "",
+        email_verified_at: "",
+        password: "",
+        rol_id: "",
+        per_id: "",
+
+        persona: {
           id: "",
-          username: "",
-          email: "",
-          email_verified_at: "",
-          password: "",
-          rol_id: "",
-          per_id: "",
-
-          persona: {
-            cedula: "",
-            prinom: "",
-            segnom: "",
-            priape: "",
-            segape: "",
-            tel: "",
-            direc: "",
-          },
+          cedula: "",
+          prinom: "",
+          segnom: "",
+          priape: "",
+          segape: "",
+          tel: "",
+          direc: "",
         },
       },
 
@@ -196,7 +135,7 @@ export default {
     };
   },
   created() {
-    axios.get("/api/foro").then((res) => {
+    axios.get("/api/miusuario").then((res) => {
       this.usuarioss = res.data;
     });
   },
