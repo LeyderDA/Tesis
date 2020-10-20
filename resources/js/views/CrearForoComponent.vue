@@ -68,12 +68,54 @@
                 </button>
               </div>
               <div class="modal-body">
-                <div class="col-8 form-group">
+                
                   <input
+                  type="hidden"
                     class="form-control"
                     placeholder="id"
                     v-model="usuario.id"
                   />
+              
+
+                <label class="col-5 col-form-label">Título</label>
+                <div class="col-12 form-group">
+                  <input class="form-control" v-model="foro.titulo" />
+                </div>
+
+                <label class="col-5 col-form-label">Fecha de publicación</label>
+                <div class="col-12 form-group">
+                  <input
+                    type="Date"
+                    class="form-control"
+                    v-model="foro.fechapublicación"
+                  />
+                </div>
+
+                <label class="col-5 col-form-label">Define el estado (*)</label>
+                <div class="col-12">
+                  <select
+                    class="form-control"
+                    placeholder="Estado"
+                    type="boolean"
+                    v-model="foro.estadoFo"
+                  >
+                    <option value="">Selecciona</option>
+                    <option value="1">Activo</option>
+                    <option value="0">Inactivo</option>
+                  </select>
+                </div>
+                <br />
+
+                <label class="col-5 col-form-label">Descripción</label>
+                <div class="col-12 form-group">
+                  <textarea
+                    rows="3"
+                    cols="50"
+                    type="text"
+                    class="form-control"
+                    v-model="foro.descripcion"
+                  >
+                  </textarea>
                 </div>
               </div>
               <div class="modal-footer">
@@ -87,7 +129,7 @@
                 <button
                   type="button"
                   class="btn btn-primary"
-                  @click="editar()"
+                  @click="agregar()"
                   data-dismiss="modal"
                 >
                   Guardar Cambios
@@ -104,7 +146,13 @@
 export default {
   data() {
     return {
-      foro: {},
+      foro: {
+        titulo: "",
+        descripcion: "",
+        fechapublicación: "",
+        estadoFo: "",
+        doc_id: "",
+      },
 
       usuario: {
         id: "",
@@ -161,21 +209,44 @@ export default {
       this.usuario = usuario;
       this.usuario.index = index;
     },
-    editar() {
-      const params = {
-        username: this.usuario.username,
-        email: this.usuario.email,
-        rol_id: this.usuario.rol_id,
-      };
-      axios
-        .put("/api/user/" + this.usuario.id, params)
-        .then((res) => {
+    agregar() {
+      if (
+        !this.foro.titulo ||
+        !this.foro.descripcion ||
+        !this.foro.fechapublicación ||
+        !this.foro.estadoFo ||
+        !this.usuario.id
+      ) {
+        swal({
+          type: "error",
+          timer: 20000,
+          title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
+          text: "Los campos obligatorios estan marcados de color ROJO",
+          showConfirmButton: true,
+        });
+      } else {
+        const params = {
+          titulo: this.foro.titulo,
+          descripcion: this.foro.descripcion,
+          fechapublicación: this.foro.fechapublicación,
+          estadoFo: this.foro.estadoFo,
+          doc_id: this.usuario.id,
+
+        };
+        this.foro.titulo = "";
+        this.foro.descripcion = "";
+        this.foro.fechapublicación = "";
+        this.foro.estadoFo = "";
+        this.usuario.id = "";
+       
+
+        axios.post("/api/foro", params).then((res) => {
           if (res.data == null) {
             swal({
               type: "error",
               timer: 3000,
               title: "PARECE QUE HAY UN ERROR",
-              text: "El Usuario no se ha actualizado",
+              text: "El foro no se ha registrado con exito",
               showConfirmButton: false,
             });
           } else {
@@ -183,19 +254,12 @@ export default {
               type: "success",
               timer: 3000,
               title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-              text: "El Usuario se ha actualizado",
+              text: "El Foro se ha creado y guardado",
               showConfirmButton: false,
             });
           }
-        })
-        .catch((error) => {
-          if (error.response.status == 422) {
-            this.errors = error.response.data.errors;
-
-            alert(this.errors.username[0]);
-            alert(this.errors.email[0]);
-          }
         });
+      }
     },
   },
 };
