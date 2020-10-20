@@ -19,8 +19,10 @@
               <option value="0">Inactivo</option>
             </select>
           </div>
-          <br />
-          <br />
+          <br>
+          <br>
+
+ 
           <label class="col-5 col-form-label">Fecha radicado</label>
           <div class="col-6 form-group">
             <input
@@ -88,7 +90,7 @@
             <select v-model="area.id" class="form-control" id="area">
               <option value="">Selecciona</option>
               <option v-for="area in areass" :key="area.index">
-               {{ area.id}}{{ area.nombre}}
+               {{ area.id}}-{{ area.nombre}}
                 
               </option>
             </select>
@@ -118,19 +120,6 @@
         </div>
       </form>
       <div class="row justify-content-center col">
-        <!--buscar area -->
-        <div class="col-2 form-group" v-if="true">
-          <button
-            class="btn btn-primary btn-block"
-            data-toggle="modal"
-            data-target="#buscarModalarea"
-            @click="buscararea()"
-            :disabled="!isFormValidArea()"
-          >
-            Buscar Area <i class="fas fa-search fa-1x" style="color: black"></i>
-          </button>
-        </div>
-        <!--buscar area -->
         <!--buscar reclamante -->
         <div class="col-2 form-group" v-if="true">
           <button
@@ -165,45 +154,7 @@
       </div>
       <br />
       <div class="container">
-        <!--modal de area -->
-        <div
-          class="modal fade"
-          id="buscarModalarea"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mostrar Area</h5>
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <input placeholder="Id" v-model="recepcion.area.id" />
-                <input placeholder="Nombre" v-model="recepcion.area.nombre" />
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-danger"
-                  data-dismiss="modal"
-                >
-                  Cerrar
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--cierro modal de area -->
+
 
         <!--segundo modal - el de buscar RECLAMANTE-->
         <div
@@ -544,7 +495,6 @@ export default {
       });
     },
     agregar() {
-       console.log((this.area.id).substr(0,1)) 
       const params = {
         recepcionado: this.recepcion.recepcionado,
         fecharadicado: this.recepcion.fecharadicado,

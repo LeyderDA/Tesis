@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div>
-      <h2 class="text-center mb-2 card-title">Lista de Recepciones Activas</h2>
+      <h2 class="text-center mb-2 card-title">Lista de Recepciones Inactivas</h2>
     </div>
     <div class="container">
       <div class="row">
@@ -527,26 +527,22 @@
                   v-model="recepcion.consultorio"
                 />
               </div>
+
               <label class="col-5 col-form-label">Area:</label>
-              <div class="col-6 form-group">
-                <input
-                  class="form-control"
-                  placeholder="recepcion"
-                  v-model="recepcion.area.nombre"
-                />
-              </div>
-              <!--buscar area -->
-              <div class="col-5 form-group" v-if="true">
-                <button
-                  class="btn btn-primary btn-block"
-                  data-toggle="modal"
-                  data-target="#buscarModalarea"
-                  @click="buscararea()"
-                >
-                  Buscar Area
-                </button>
-              </div>
-              <!--buscar area -->
+              
+          <div class="col-6 form-group">
+            <select v-model="area.id" class="form-control" id="area">
+              <option value="">Selecciona</option>
+              <option v-for="area in areass" :key="area.index">
+               {{ area.id}}-{{ area.nombre}}
+                
+              </option>
+            </select>
+          </div>
+
+
+
+
               <label class="col-12 col-form-label"
                 >En caso de que quieras cambiar el reclamante digita la cédula:
               </label>
@@ -1139,35 +1135,14 @@
                 v-model="usuario.persona.username"
               />
 
-
               <label class="col-5 col-form-label">CEDULA</label>
-              <div class="col-6 form-group">
-                <input
-                  class="form-control"
-                  placeholder="CEDULA"
-                  v-model="usuario.persona.cedula"
-                />
-              </div>
+              <input placeholder="USERNAME" v-model="usuario.persona.cedula" />
 
               <label class="col-5 col-form-label">NOMBRE</label>
-              <div class="col-6 form-group">
-                <input
-                  class="form-control"
-                  placeholder="NOMBRE"
-                  v-model="usuario.persona.prinom"
-                />
-              </div>
+              <input placeholder="USERNAME" v-model="usuario.persona.prinom" />
 
               <label class="col-5 col-form-label">APELLIDO</label>
-              <div class="col-6 form-group">
-                <input
-                  class="form-control"
-                  placeholder="APELLIDO"
-                  v-model="usuario.persona.priape"
-                />
-              </div>
-
-
+              <input placeholder="USERNAME" v-model="usuario.persona.priape" />
             </div>
             <div class="modal-footer">
               <button
@@ -1208,12 +1183,12 @@
               </button>
             </div>
             <div class="modal-body">
-              <label class="col-5 col-form-label">ID RECLAMANTE</label>
+              <label class="col-5 col-form-label">USERNAME</label>
               <div class="col-6 form-group">
                 <input
                   class="form-control"
-                  placeholder="ID RECLAMANTE"
-                  v-model="usuario.persona.id"
+                  placeholder="USERNAME"
+                  v-model="usuario.persona.username"
                 />
               </div>
 
@@ -1260,6 +1235,10 @@
 export default {
   data() {
     return {
+       area: {
+        id: "",
+        nombre: "",
+      },
       estudiante: {
         id: "",
         usuario: {
@@ -1380,14 +1359,21 @@ export default {
       estado: "disable",
       recepcioness: [],
       errors: [],
+      areass: [],
     };
   },
-  created() {
-    axios.get("/api/recepcionSUPEREsta").then((res) => {
+    created() {
+    axios.get("/api/area").then((res) => {
+      this.areass = res.data;
+      console.log(res.data);
+    });
+     axios.get("/api/recepcionSUPEREsta").then((res) => {
       this.recepcioness = res.data;
       console.log(res.data);
     });
   },
+
+
   methods: {
     buscarrecep() {
       axios.get("/api/recepcionRE/" + this.recepcion.id).then((res) => {
@@ -1624,7 +1610,7 @@ export default {
         fecharetiro: this.recepcion.fecharetiro,
         estado: this.recepcion.estado,
         recla_id: this.recepcion.recla_id,
-        area_id: this.recepcion.area_id,
+        area_id: (this.area.id).substr(0,1),
       };
       axios
         .put("/api/recepcion/" + this.recepcion.id, params)
