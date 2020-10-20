@@ -33,14 +33,6 @@ class PersonaController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'cedula' => 'required',
-            'prinom' => 'required',
-            'priape' => 'required',
-            'tel' => 'required',
-            'direc' => 'required',
-        ]);
-
 
         $pers=new Persona();
         $pers->cedula=$request->cedula;

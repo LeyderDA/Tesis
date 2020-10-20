@@ -185,6 +185,13 @@ export default new Router({
             component: require('./views/MisRecepcionesComponent.vue').default
 
         },
+
+        {
+            path: '/ForoDoc',
+            name: 'foros',
+            component: require('./views/CrearForoComponent.vue').default
+
+        },
     ],
     mode: 'history'
 
