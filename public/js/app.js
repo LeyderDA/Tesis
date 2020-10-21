@@ -3491,15 +3491,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      ArchivoMiniatura: "",
       foro: {
         titulo: "",
         descripcion: "",
         fechapublicación: "",
         estadoFo: "",
-        doc_id: ""
+        doc_id: "",
+        archivo: ""
       },
       usuario: {
         id: "",
@@ -3534,14 +3555,31 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    eliminar: function eliminar(usuario, index) {
+    obtenerArchivo: function obtenerArchivo(e) {
+      var file = e.target.files[0];
+      this.foro.archivo = file;
+      console.log(file);
+      this.cargarArchivo(file);
+    },
+    cargarArchivo: function cargarArchivo(file) {
       var _this2 = this;
+
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        _this2.ArchivoMiniatura = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    },
+    eliminar: function eliminar(usuario, index) {
+      var _this3 = this;
 
       var confirmacion = confirm("Confirma Eliminar Usuario: ".concat(usuario.username));
 
       if (confirmacion) {
         axios["delete"]("/api/user/" + usuario.id).then(function () {
-          _this2.usuarioss.splice(index, 1);
+          _this3.usuarioss.splice(index, 1);
 
           swal({
             type: "success",
@@ -3599,6 +3637,11 @@ __webpack_require__.r(__webpack_exports__);
           }
         });
       }
+    }
+  },
+  computed: {
+    archivo: function archivo() {
+      return this.ArchivoMiniatura;
     }
   }
 });
@@ -56352,202 +56395,251 @@ var render = function() {
                   _vm._m(2),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.usuario.id,
-                          expression: "usuario.id"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "hidden", placeholder: "id" },
-                      domProps: { value: _vm.usuario.id },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.usuario, "id", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("Título")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-12 form-group" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.foro.titulo,
-                            expression: "foro.titulo"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        domProps: { value: _vm.foro.titulo },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.foro, "titulo", $event.target.value)
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("Fecha de publicación")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-12 form-group" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.foro.fechapublicación,
-                            expression: "foro.fechapublicación"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "Date" },
-                        domProps: { value: _vm.foro.fechapublicación },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.foro,
-                              "fechapublicación",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("Define el estado (*)")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-12" }, [
-                      _c(
-                        "select",
-                        {
+                    _c(
+                      "form",
+                      { attrs: { enctype: "multipart/form-data" } },
+                      [
+                        _c("input", {
                           directives: [
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.foro.estadoFo,
-                              expression: "foro.estadoFo"
+                              value: _vm.usuario.id,
+                              expression: "usuario.id"
                             }
                           ],
                           staticClass: "form-control",
-                          attrs: { placeholder: "Estado", type: "boolean" },
+                          attrs: { type: "hidden", placeholder: "id" },
+                          domProps: { value: _vm.usuario.id },
                           on: {
-                            change: function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.$set(
-                                _vm.foro,
-                                "estadoFo",
-                                $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              )
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.usuario, "id", $event.target.value)
                             }
                           }
-                        },
-                        [
-                          _c("option", { attrs: { value: "" } }, [
-                            _vm._v("Selecciona")
-                          ]),
+                        }),
+                        _vm._v(" "),
+                        _c("label", { staticClass: "col-5 col-form-label" }, [
+                          _vm._v("Título")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-12 form-group" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.foro.titulo,
+                                expression: "foro.titulo"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            domProps: { value: _vm.foro.titulo },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.foro,
+                                  "titulo",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("label", { staticClass: "col-5 col-form-label" }, [
+                          _vm._v("Fecha de publicación")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-12 form-group" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.foro.fechapublicación,
+                                expression: "foro.fechapublicación"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { type: "Date" },
+                            domProps: { value: _vm.foro.fechapublicación },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.foro,
+                                  "fechapublicación",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("label", { staticClass: "col-5 col-form-label" }, [
+                          _vm._v("Define el estado (*)")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-12" }, [
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.foro.estadoFo,
+                                  expression: "foro.estadoFo"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: { placeholder: "Estado", type: "boolean" },
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.foro,
+                                    "estadoFo",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                }
+                              }
+                            },
+                            [
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("Selecciona")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "1" } }, [
+                                _vm._v("Activo")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "0" } }, [
+                                _vm._v("Inactivo")
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("label", { staticClass: "col-5 col-form-label" }, [
+                          _vm._v("Descripción")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-12 form-group" }, [
+                          _c("textarea", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.foro.descripcion,
+                                expression: "foro.descripcion"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { rows: "3", cols: "50", type: "text" },
+                            domProps: { value: _vm.foro.descripcion },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.foro,
+                                  "descripcion",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-12 form-group" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-5 col-form-label",
+                              attrs: { for: "archivo" }
+                            },
+                            [_vm._v("Archivo")]
+                          ),
                           _vm._v(" "),
-                          _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("Activo")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "0" } }, [
-                            _vm._v("Inactivo")
+                          _c("input", {
+                            staticClass: "form-control-file",
+                            attrs: { type: "file" },
+                            on: { change: _vm.obtenerArchivo }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("center", [
+                          _c("figure", [
+                            _c("img", {
+                              attrs: {
+                                width: "200",
+                                height: "200",
+                                src: _vm.archivo,
+                                alt: "Archivo"
+                              }
+                            })
                           ])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("Descripción")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-12 form-group" }, [
-                      _c("textarea", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.foro.descripcion,
-                            expression: "foro.descripcion"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { rows: "3", cols: "50", type: "text" },
-                        domProps: { value: _vm.foro.descripcion },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.foro,
-                              "descripcion",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "modal-footer" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-danger",
-                        attrs: { type: "button", "data-dismiss": "modal" }
-                      },
-                      [_vm._v("\n                Cerrar\n              ")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        attrs: { type: "button", "data-dismiss": "modal" },
-                        on: {
-                          click: function($event) {
-                            return _vm.agregar()
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                Guardar Cambios\n              "
-                        )
-                      ]
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "modal-footer" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-danger",
+                              attrs: { type: "button", "data-dismiss": "modal" }
+                            },
+                            [
+                              _vm._v(
+                                "\n                    Cerrar\n                  "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary",
+                              attrs: {
+                                type: "button",
+                                "data-dismiss": "modal"
+                              },
+                              on: {
+                                click: function($event) {
+                                  return _vm.agregar()
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                    Guardar Cambios\n                  "
+                              )
+                            ]
+                          )
+                        ])
+                      ],
+                      1
                     )
                   ])
                 ])

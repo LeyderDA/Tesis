@@ -19,6 +19,8 @@ class CreateForoTable extends Migration
             $table->text('descripcion');
             $table->date('fechapublicación');
             $table->boolean('estadoFo');
+            
+            $table->string('archivo')->nullable();
 
             $table->unsignedBigInteger('doc_id');
             $table->foreign('doc_id')->references('id')->on('users');

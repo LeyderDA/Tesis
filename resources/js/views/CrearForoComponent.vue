@@ -68,72 +68,91 @@
                 </button>
               </div>
               <div class="modal-body">
-                
+                <form enctype="multipart/form-data">
                   <input
-                  type="hidden"
+                    type="hidden"
                     class="form-control"
                     placeholder="id"
                     v-model="usuario.id"
                   />
-              
+                  <label class="col-5 col-form-label">Título</label>
+                  <div class="col-12 form-group">
+                    <input class="form-control" v-model="foro.titulo" />
+                  </div>
 
-                <label class="col-5 col-form-label">Título</label>
-                <div class="col-12 form-group">
-                  <input class="form-control" v-model="foro.titulo" />
-                </div>
-
-                <label class="col-5 col-form-label">Fecha de publicación</label>
-                <div class="col-12 form-group">
-                  <input
-                    type="Date"
-                    class="form-control"
-                    v-model="foro.fechapublicación"
-                  />
-                </div>
-
-                <label class="col-5 col-form-label">Define el estado (*)</label>
-                <div class="col-12">
-                  <select
-                    class="form-control"
-                    placeholder="Estado"
-                    type="boolean"
-                    v-model="foro.estadoFo"
+                  <label class="col-5 col-form-label"
+                    >Fecha de publicación</label
                   >
-                    <option value="">Selecciona</option>
-                    <option value="1">Activo</option>
-                    <option value="0">Inactivo</option>
-                  </select>
-                </div>
-                <br />
+                  <div class="col-12 form-group">
+                    <input
+                      type="Date"
+                      class="form-control"
+                      v-model="foro.fechapublicación"
+                    />
+                  </div>
 
-                <label class="col-5 col-form-label">Descripción</label>
-                <div class="col-12 form-group">
-                  <textarea
-                    rows="3"
-                    cols="50"
-                    type="text"
-                    class="form-control"
-                    v-model="foro.descripcion"
+                  <label class="col-5 col-form-label"
+                    >Define el estado (*)</label
                   >
-                  </textarea>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-danger"
-                  data-dismiss="modal"
-                >
-                  Cerrar
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  @click="agregar()"
-                  data-dismiss="modal"
-                >
-                  Guardar Cambios
-                </button>
+                  <div class="col-12">
+                    <select
+                      class="form-control"
+                      placeholder="Estado"
+                      type="boolean"
+                      v-model="foro.estadoFo"
+                    >
+                      <option value="">Selecciona</option>
+                      <option value="1">Activo</option>
+                      <option value="0">Inactivo</option>
+                    </select>
+                  </div>
+                  <br />
+
+                  <label class="col-5 col-form-label">Descripción</label>
+                  <div class="col-12 form-group">
+                    <textarea
+                      rows="3"
+                      cols="50"
+                      type="text"
+                      class="form-control"
+                      v-model="foro.descripcion"
+                    >
+                    </textarea>
+                  </div>
+
+                  <div class="col-12 form-group">
+                    <label for="archivo" class="col-5 col-form-label"
+                      >Archivo</label
+                    >
+                    <input
+                      type="file"
+                      @change="obtenerArchivo"
+                      class="form-control-file"
+                    />
+                  </div>
+                  <center>
+                    <figure>
+                      <img width="200" height="200" :src="archivo" alt="Archivo" />
+                    </figure>
+                  </center>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      data-dismiss="modal"
+                    >
+                      Cerrar
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      @click="agregar()"
+                      data-dismiss="modal"
+                    >
+                      Guardar Cambios
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -146,12 +165,15 @@
 export default {
   data() {
     return {
+      ArchivoMiniatura: "",
+
       foro: {
         titulo: "",
         descripcion: "",
         fechapublicación: "",
         estadoFo: "",
         doc_id: "",
+        archivo: "",
       },
 
       usuario: {
@@ -188,6 +210,24 @@ export default {
     });
   },
   methods: {
+    obtenerArchivo(e) {
+      let file = e.target.files[0];
+      this.foro.archivo = file;
+      console.log(file);
+      this.cargarArchivo(file);
+    },
+    cargarArchivo(file) {
+      let reader = new FileReader();
+
+      reader.onload = (e) => {
+        this.ArchivoMiniatura = e.target.result;
+      }
+      reader.readAsDataURL(file);
+    },
+
+       
+
+
     eliminar(usuario, index) {
       const confirmacion = confirm(
         `Confirma Eliminar Usuario: ${usuario.username}`
@@ -231,14 +271,12 @@ export default {
           fechapublicación: this.foro.fechapublicación,
           estadoFo: this.foro.estadoFo,
           doc_id: this.usuario.id,
-
         };
         this.foro.titulo = "";
         this.foro.descripcion = "";
         this.foro.fechapublicación = "";
         this.foro.estadoFo = "";
         this.usuario.id = "";
-       
 
         axios.post("/api/foro", params).then((res) => {
           if (res.data == null) {
@@ -262,5 +300,11 @@ export default {
       }
     },
   },
+   computed: {
+      archivo(){
+        return this.ArchivoMiniatura;
+      }
+    }
+
 };
 </script>
