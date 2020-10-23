@@ -36,7 +36,6 @@ class ForosController extends Controller
             $for=new Foro();
             $for->titulo=$request->titulo;
             $for->descripcion=$request->descripcion;
-            $for->fechapublicación=$request->fechapublicación;
             $for->estadoFo=$request->estadoFo;  
             $for->archivo="storage/archivos/".$request->archivo;  
             $for->doc_id=$request->doc_id;

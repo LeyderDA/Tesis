@@ -3496,13 +3496,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3520,11 +3513,9 @@ __webpack_require__.r(__webpack_exports__);
         },
         autoProcessQueue: false
       },
-      ArchivoMiniatura: "",
       foro: {
         titulo: "",
         descripcion: "",
-        fechapublicación: "",
         estadoFo: "",
         doc_id: "",
         archivo: ""
@@ -3586,7 +3577,7 @@ __webpack_require__.r(__webpack_exports__);
       this.usuario.index = index;
     },
     agregar: function agregar() {
-      if (!this.foro.titulo || !this.foro.descripcion || !this.foro.fechapublicación || !this.foro.estadoFo || !this.usuario.id) {
+      if (!this.foro.titulo || !this.foro.descripcion || !this.foro.estadoFo || !this.usuario.id) {
         swal({
           type: "error",
           timer: 20000,
@@ -3632,11 +3623,6 @@ __webpack_require__.r(__webpack_exports__);
           }
         });
       }
-    }
-  },
-  computed: {
-    archivo: function archivo() {
-      return this.ArchivoMiniatura;
     }
   }
 });
@@ -57054,38 +57040,6 @@ var render = function() {
                                 return
                               }
                               _vm.$set(_vm.foro, "titulo", $event.target.value)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-5 col-form-label" }, [
-                        _vm._v("Fecha de publicación")
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-12 form-group" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.foro.fechapublicación,
-                              expression: "foro.fechapublicación"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "Date" },
-                          domProps: { value: _vm.foro.fechapublicación },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.foro,
-                                "fechapublicación",
-                                $event.target.value
-                              )
                             }
                           }
                         })

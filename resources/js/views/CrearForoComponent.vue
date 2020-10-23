@@ -84,14 +84,7 @@
                   <input class="form-control" v-model="foro.titulo" />
                 </div>
 
-                <label class="col-5 col-form-label">Fecha de publicación</label>
-                <div class="col-12 form-group">
-                  <input
-                    type="Date"
-                    class="form-control"
-                    v-model="foro.fechapublicación"
-                  />
-                </div>
+              
 
                 <label class="col-5 col-form-label">Define el estado (*)</label>
                 <div class="col-12">
@@ -167,12 +160,9 @@ export default {
           autoProcessQueue: false
       },
 
-      ArchivoMiniatura: "",
-
       foro: {
         titulo: "",
         descripcion: "",
-        fechapublicación: "",
         estadoFo: "",
         doc_id: "",
         archivo: "",
@@ -242,7 +232,6 @@ export default {
       if (
         !this.foro.titulo ||
         !this.foro.descripcion ||
-        !this.foro.fechapublicación ||
         !this.foro.estadoFo ||
         !this.usuario.id
       ) {
@@ -298,10 +287,6 @@ export default {
       }
     },
   },
-  computed: {
-    archivo() {
-      return this.ArchivoMiniatura;
-    },
-  },
+
 };
 </script>

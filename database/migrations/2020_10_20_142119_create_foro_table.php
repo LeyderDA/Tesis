@@ -17,14 +17,10 @@ class CreateForoTable extends Migration
             $table->id();
             $table->string('titulo',50);
             $table->text('descripcion');
-            $table->date('fechapublicación');
-            $table->boolean('estadoFo');
-            
+            $table->boolean('estadoFo');           
             $table->string('archivo')->nullable();
-
             $table->unsignedBigInteger('doc_id');
             $table->foreign('doc_id')->references('id')->on('users');
-
             $table->timestamps();
         });
     }
