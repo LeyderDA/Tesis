@@ -33,14 +33,12 @@ class ForosController extends Controller
      */
     public function store(Request $request)
     {
-
-    
             $for=new Foro();
             $for->titulo=$request->titulo;
             $for->descripcion=$request->descripcion;
             $for->fechapublicación=$request->fechapublicación;
             $for->estadoFo=$request->estadoFo;  
-            $for->archivo=storage_path('images').$request->archivo;  
+            $for->archivo="storage/archivos/".$request->archivo;  
             $for->doc_id=$request->doc_id;
             $for->save();
             return  response()->json($for);
@@ -50,7 +48,7 @@ class ForosController extends Controller
     {
         $image=$request->file('file');
         $name=$image->getClientOriginalName();
-        $image->move(storage_path('images'), $name);
+        $image->move(storage_path('app/public/archivos'), $name);
       
     }
 
