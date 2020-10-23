@@ -72,7 +72,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                 <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone>
+                
                 <input
                   type="hidden"
                   class="form-control"
@@ -119,26 +119,12 @@
                   >
                   </textarea>
                 </div>
-                <form enctype="multipart/form-data">
-                  <div class="col-12 form-group">
-                    <label class="col-5 col-form-label">Archivo</label>
-                    <input
-                      type="file"
-                      name="archivo"
-                      @change="obtenerArchivo"
-                    />
-                  </div>
-                  <center>
-                    <figure>
-                      <img
-                        width="200"
-                        height="200"
-                        :src="archivo"
-                        alt="Archivo"
-                      />
-                    </figure>
-                  </center>
-                </form>
+               
+                      
+
+
+                <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone>
+                
                 <div class="modal-footer">
                   <button
                     type="button"
@@ -174,10 +160,11 @@ export default {
   data() {
     return {
       dropzoneOptions: {
-          url: 'http://127.0.0.1:8000/api/foro',
+          url: 'http://127.0.0.1:8000/api/forito',
           thumbnailWidth: 150,
           maxFilesize: 200,
-          headers: { "My-Awesome-Header": "header value" }
+          headers: { "My-Awesome-Header": "header value" },
+          autoProcessQueue: false
       },
 
       ArchivoMiniatura: "",
@@ -219,26 +206,16 @@ export default {
       errors: [],
     };
   },
+
+ 
+
   created() {
     axios.get("/api/miusuario").then((res) => {
       this.usuarioss = res.data;
     });
   },
   methods: {
-    obtenerArchivo(e) {
-      let file = e.target.files[0];
-      this.foro.archivo = file;
-
-      this.cargarArchivo(file);
-    },
-    cargarArchivo(file) {
-      let reader = new FileReader();
-
-      reader.onload = (e) => {
-        this.ArchivoMiniatura = e.target.result;
-      };
-      reader.readAsDataURL(file);
-    },
+   
 
     eliminar(usuario, index) {
       const confirmacion = confirm(
@@ -277,14 +254,23 @@ export default {
           showConfirmButton: true,
         });
       } else {
+
+        this.$refs.myVueDropzone.processQueue();
+        let imagen= this.$refs.myVueDropzone.getAcceptedFiles ();
+        console.log(imagen[0].name);
+
         const params = {
           titulo: this.foro.titulo,
           descripcion: this.foro.descripcion,
           fechapublicación: this.foro.fechapublicación,
           estadoFo: this.foro.estadoFo,
           doc_id: this.usuario.id,
-          archivo: this.foro.archivo,
+          archivo: imagen[0].name,
         };
+
+        
+
+
 
         console.log(this.foro.archivo);
 

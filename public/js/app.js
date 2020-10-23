@@ -3503,20 +3503,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3526,12 +3512,13 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       dropzoneOptions: {
-        url: 'http://127.0.0.1:8000/api/foro',
+        url: 'http://127.0.0.1:8000/api/forito',
         thumbnailWidth: 150,
         maxFilesize: 200,
         headers: {
           "My-Awesome-Header": "header value"
-        }
+        },
+        autoProcessQueue: false
       },
       ArchivoMiniatura: "",
       foro: {
@@ -3575,30 +3562,14 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    obtenerArchivo: function obtenerArchivo(e) {
-      var file = e.target.files[0];
-      this.foro.archivo = file;
-      this.cargarArchivo(file);
-    },
-    cargarArchivo: function cargarArchivo(file) {
-      var _this2 = this;
-
-      var reader = new FileReader();
-
-      reader.onload = function (e) {
-        _this2.ArchivoMiniatura = e.target.result;
-      };
-
-      reader.readAsDataURL(file);
-    },
     eliminar: function eliminar(usuario, index) {
-      var _this3 = this;
+      var _this2 = this;
 
       var confirmacion = confirm("Confirma Eliminar Usuario: ".concat(usuario.username));
 
       if (confirmacion) {
         axios["delete"]("/api/user/" + usuario.id).then(function () {
-          _this3.usuarioss.splice(index, 1);
+          _this2.usuarioss.splice(index, 1);
 
           swal({
             type: "success",
@@ -3624,13 +3595,16 @@ __webpack_require__.r(__webpack_exports__);
           showConfirmButton: true
         });
       } else {
+        this.$refs.myVueDropzone.processQueue();
+        var imagen = this.$refs.myVueDropzone.getAcceptedFiles();
+        console.log(imagen[0].name);
         var params = {
           titulo: this.foro.titulo,
           descripcion: this.foro.descripcion,
           fechapublicación: this.foro.fechapublicación,
           estadoFo: this.foro.estadoFo,
           doc_id: this.usuario.id,
-          archivo: this.foro.archivo
+          archivo: imagen[0].name
         };
         console.log(this.foro.archivo);
         this.foro.titulo = "";
@@ -57037,11 +57011,6 @@ var render = function() {
                     "div",
                     { staticClass: "modal-body" },
                     [
-                      _c("vue-dropzone", {
-                        ref: "myVueDropzone",
-                        attrs: { id: "dropzone", options: _vm.dropzoneOptions }
-                      }),
-                      _vm._v(" "),
                       _c("input", {
                         directives: [
                           {
@@ -57211,38 +57180,10 @@ var render = function() {
                         })
                       ]),
                       _vm._v(" "),
-                      _c(
-                        "form",
-                        { attrs: { enctype: "multipart/form-data" } },
-                        [
-                          _c("div", { staticClass: "col-12 form-group" }, [
-                            _c(
-                              "label",
-                              { staticClass: "col-5 col-form-label" },
-                              [_vm._v("Archivo")]
-                            ),
-                            _vm._v(" "),
-                            _c("input", {
-                              attrs: { type: "file", name: "archivo" },
-                              on: { change: _vm.obtenerArchivo }
-                            })
-                          ]),
-                          _vm._v(" "),
-                          _c("center", [
-                            _c("figure", [
-                              _c("img", {
-                                attrs: {
-                                  width: "200",
-                                  height: "200",
-                                  src: _vm.archivo,
-                                  alt: "Archivo"
-                                }
-                              })
-                            ])
-                          ])
-                        ],
-                        1
-                      ),
+                      _c("vue-dropzone", {
+                        ref: "myVueDropzone",
+                        attrs: { id: "dropzone", options: _vm.dropzoneOptions }
+                      }),
                       _vm._v(" "),
                       _c("div", { staticClass: "modal-footer" }, [
                         _c(

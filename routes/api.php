@@ -104,6 +104,7 @@ Route::get('/miusuario', 'MiUsuarioController@index')->name('Listar');
 
 //RUTAS DE API PARA FOROS
 Route::post('/foro', 'ForosController@store')->name('personaGuardar');
+Route::post('/forito', 'ForosController@storee')->name('personaGuardar');
 Route::get('/foro', 'ForosController@index')->name('personaListar');
 Route::delete('/foro/{id}', 'ForosController@destroy')->name('personaEliminar');
 Route::put('/foro/{id}', 'ForosController@update')->name('personaActualizar');
