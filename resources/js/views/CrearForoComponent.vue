@@ -1,5 +1,9 @@
 <template>
+
   <div class="card">
+    <div>
+     
+    </div>
     <div>
       <br />
       <h2 class="text-center mb-2 card-title">Crear Foro</h2>
@@ -68,91 +72,90 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form enctype="multipart/form-data">
+                 <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone>
+                <input
+                  type="hidden"
+                  class="form-control"
+                  placeholder="id"
+                  v-model="usuario.id"
+                />
+                <label class="col-5 col-form-label">Título</label>
+                <div class="col-12 form-group">
+                  <input class="form-control" v-model="foro.titulo" />
+                </div>
+
+                <label class="col-5 col-form-label">Fecha de publicación</label>
+                <div class="col-12 form-group">
                   <input
-                    type="hidden"
+                    type="Date"
                     class="form-control"
-                    placeholder="id"
-                    v-model="usuario.id"
+                    v-model="foro.fechapublicación"
                   />
-                  <label class="col-5 col-form-label">Título</label>
-                  <div class="col-12 form-group">
-                    <input class="form-control" v-model="foro.titulo" />
-                  </div>
+                </div>
 
-                  <label class="col-5 col-form-label"
-                    >Fecha de publicación</label
+                <label class="col-5 col-form-label">Define el estado (*)</label>
+                <div class="col-12">
+                  <select
+                    class="form-control"
+                    placeholder="Estado"
+                    type="boolean"
+                    v-model="foro.estadoFo"
                   >
-                  <div class="col-12 form-group">
-                    <input
-                      type="Date"
-                      class="form-control"
-                      v-model="foro.fechapublicación"
-                    />
-                  </div>
+                    <option value="">Selecciona</option>
+                    <option value="1">Activo</option>
+                    <option value="0">Inactivo</option>
+                  </select>
+                </div>
+                <br />
 
-                  <label class="col-5 col-form-label"
-                    >Define el estado (*)</label
+                <label class="col-5 col-form-label">Descripción</label>
+                <div class="col-12 form-group">
+                  <textarea
+                    rows="3"
+                    cols="50"
+                    type="text"
+                    class="form-control"
+                    v-model="foro.descripcion"
                   >
-                  <div class="col-12">
-                    <select
-                      class="form-control"
-                      placeholder="Estado"
-                      type="boolean"
-                      v-model="foro.estadoFo"
-                    >
-                      <option value="">Selecciona</option>
-                      <option value="1">Activo</option>
-                      <option value="0">Inactivo</option>
-                    </select>
-                  </div>
-                  <br />
-
-                  <label class="col-5 col-form-label">Descripción</label>
+                  </textarea>
+                </div>
+                <form enctype="multipart/form-data">
                   <div class="col-12 form-group">
-                    <textarea
-                      rows="3"
-                      cols="50"
-                      type="text"
-                      class="form-control"
-                      v-model="foro.descripcion"
-                    >
-                    </textarea>
-                  </div>
-
-                  <div class="col-12 form-group">
-                    <label for="archivo" class="col-5 col-form-label"
-                      >Archivo</label
-                    >
+                    <label class="col-5 col-form-label">Archivo</label>
                     <input
                       type="file"
+                      name="archivo"
                       @change="obtenerArchivo"
-                      class="form-control-file"
                     />
                   </div>
                   <center>
                     <figure>
-                      <img width="200" height="200" :src="archivo" alt="Archivo" />
+                      <img
+                        width="200"
+                        height="200"
+                        :src="archivo"
+                        alt="Archivo"
+                      />
                     </figure>
                   </center>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-danger"
-                      data-dismiss="modal"
-                    >
-                      Cerrar
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      @click="agregar()"
-                      data-dismiss="modal"
-                    >
-                      Guardar Cambios
-                    </button>
-                  </div>
                 </form>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    data-dismiss="modal"
+                  >
+                    Cerrar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    @click="agregar()"
+                    data-dismiss="modal"
+                  >
+                    Guardar Cambios
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -162,9 +165,21 @@
   </div>
 </template>
 <script>
+import vue2Dropzone from 'vue2-dropzone'
+import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 export default {
+  components: {
+    vueDropzone: vue2Dropzone
+  },
   data() {
     return {
+      dropzoneOptions: {
+          url: 'http://127.0.0.1:8000/api/foro',
+          thumbnailWidth: 150,
+          maxFilesize: 200,
+          headers: { "My-Awesome-Header": "header value" }
+      },
+
       ArchivoMiniatura: "",
 
       foro: {
@@ -213,7 +228,7 @@ export default {
     obtenerArchivo(e) {
       let file = e.target.files[0];
       this.foro.archivo = file;
-      console.log(file);
+
       this.cargarArchivo(file);
     },
     cargarArchivo(file) {
@@ -221,12 +236,9 @@ export default {
 
       reader.onload = (e) => {
         this.ArchivoMiniatura = e.target.result;
-      }
+      };
       reader.readAsDataURL(file);
     },
-
-       
-
 
     eliminar(usuario, index) {
       const confirmacion = confirm(
@@ -271,11 +283,16 @@ export default {
           fechapublicación: this.foro.fechapublicación,
           estadoFo: this.foro.estadoFo,
           doc_id: this.usuario.id,
+          archivo: this.foro.archivo,
         };
+
+        console.log(this.foro.archivo);
+
         this.foro.titulo = "";
         this.foro.descripcion = "";
         this.foro.fechapublicación = "";
         this.foro.estadoFo = "";
+        this.foro.archivo = "";
         this.usuario.id = "";
 
         axios.post("/api/foro", params).then((res) => {
@@ -300,11 +317,10 @@ export default {
       }
     },
   },
-   computed: {
-      archivo(){
-        return this.ArchivoMiniatura;
-      }
-    }
-
+  computed: {
+    archivo() {
+      return this.ArchivoMiniatura;
+    },
+  },
 };
 </script>

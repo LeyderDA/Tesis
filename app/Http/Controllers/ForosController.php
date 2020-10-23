@@ -34,15 +34,23 @@ class ForosController extends Controller
     public function store(Request $request)
     {
 
-        $for=new Foro();
-        $for->titulo=$request->titulo;
-        $for->descripcion=$request->descripcion;
-        $for->fechapublicación=$request->fechapublicación;
-        $for->estadoFo=$request->estadoFo;
-        $for->doc_id=$request->doc_id;
+        $image=$request->file('file');
+        $name=$image->getClientOriginalName();
+        $image->move(storage_path('images'), $name);
+    
+        
+
        
-        $for->save();
-        return  response()->json($for);
+        // $for=new Foro();
+        // $for->titulo=$request->titulo;
+        // $for->descripcion=$request->descripcion;
+        // $for->fechapublicación=$request->fechapublicación;
+        // $for->estadoFo=$request->estadoFo;
+        // $for->archivo=$name;
+        // $for->doc_id=$request->doc_id;
+       
+        // $for->save();
+        // return  response()->json($for);
     }
     
     public function buscar($cedula)
