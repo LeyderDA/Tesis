@@ -257,7 +257,7 @@ export default {
 
         this.$refs.myVueDropzone.processQueue();
         let imagen= this.$refs.myVueDropzone.getAcceptedFiles ();
-        console.log(imagen[0].name);
+
 
         const params = {
           titulo: this.foro.titulo,
@@ -265,13 +265,8 @@ export default {
           fechapublicación: this.foro.fechapublicación,
           estadoFo: this.foro.estadoFo,
           doc_id: this.usuario.id,
-          archivo: imagen[0].name,
+          archivo: imagen.length>0?imagen[0].name:"",
         };
-
-        
-
-
-
         console.log(this.foro.archivo);
 
         this.foro.titulo = "";
