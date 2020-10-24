@@ -15,6 +15,7 @@
                 <table class="table text-center">
                   <thead>
                     <tr>
+                      <th></th>
                       <th>Titulo</th>
                       <th>Descripción</th>
                       <th>Ir a Comentarios</th>
@@ -22,6 +23,8 @@
                   </thead>
                   <tbody>
                     <tr v-for="foro in foross" :key="foro.index">
+                      
+                      <td> <i class="fas fa-comment-dots fa-2x"></i> </td>
                       <td>{{ foro.titulo }}</td>
                       <td>{{ foro.descripcion }}</td>
                       <td>

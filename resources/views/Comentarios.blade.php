@@ -1,9 +1,13 @@
 @extends('layouts.app')
+<body style="background-color:#003366;">
 @section('content')
-
-<div class="card">
+<div style="background-color:#dadada">
+  <div class="container" style="margin-top:-24px; height:30px">
     <div>
       <br />
+      <br />
+      <br />
+    
       <h1 class="text-center mb-2 card-title">Título del Foro: {{$foro->titulo}}</h1>
     </div>
     <div class="card-body row">     
@@ -11,21 +15,23 @@
       <div class="container">
           <div class="card-body col">
             <div clas="container row">
-              <div class="table text-center table-reponsive">                   
-                <h4 class="text-center mb-2 card-title">Descripción del foro: {{$foro->descripcion}}</h4>
-               
-                    <button
-                      class="btn btn-sm"
-                      data-toggle="modal"
-                      data-target="#AGGCOMENTARIO"
-                      title="Agregar Comentario al Foro"
-                    >
-                      <i class="far fa-comments fa-3x" style="color: black"></i>
-                    </button>
+              <div class="table table-reponsive">     
+
+                <h4 class="mb-2 card-title">Descripción del foro: <br> {{$foro->descripcion}}        
+                  <button
+                  class="btn btn-sm"
+                  data-toggle="modal"
+                  data-target="#AGGCOMENTARIO"
+                  title="Agregar Comentario al Foro"
+                >
+                  <i class="far fa-comments fa-5x" style="color: black"></i>
+                </button>
+              </h4>
+                              
                 </div>
               </div>
             </div>
- <!--modal de asignar comentario -->
+            <!--modal de asignar comentario -->
             <div
             class="modal fade"
             id="AGGCOMENTARIO"
@@ -73,10 +79,14 @@
                 </div>
               </div>
             </div>
- <!--modal de asignar comentario -->
-          </div>         
+            <!--modal de asignar comentario -->
+          </div> 
+          <center>
+            <a href="/home"  class="btn btn-primary"  >Salir</a>
+          </center>        
        </div>
-    </div>
-
-<a href="/home"  class="btn btn-primary">Volver</a>
+      </div>
+      </div> 
+      <div style="height:6px; width:100%; background-color:#ad3333"></div>
 @endsection
+</body>

@@ -1,9 +1,6 @@
 <template>
-
   <div class="card">
-    <div>
-     
-    </div>
+    <div></div>
     <div>
       <br />
       <h2 class="text-center mb-2 card-title">Crear Foro</h2>
@@ -32,13 +29,13 @@
 
                       <td>
                         <button
-                          class="btn btn-success btn-sm"
+                          class="btn btn-sm"
                           data-toggle="modal"
                           data-target="#ModalAggForo"
                           @click="editarForm(usuario, index)"
                           title="Crear Foro"
                         >
-                          <i class="fas fa-share-square"></i>
+                          <i class="fas fa-save fa-3x"></i>
                         </button>
                       </td>
                     </tr>
@@ -60,7 +57,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">
-                  Editar Usuario
+                  Crear un nuevo Foro
                 </h5>
                 <button
                   type="button"
@@ -72,19 +69,16 @@
                 </button>
               </div>
               <div class="modal-body">
-                
                 <input
                   type="hidden"
                   class="form-control"
                   placeholder="id"
                   v-model="usuario.id"
                 />
-                <label class="col-5 col-form-label">Título</label>
+                <label class="col-5 col-form-label">Título (*)</label>
                 <div class="col-12 form-group">
                   <input class="form-control" v-model="foro.titulo" />
                 </div>
-
-              
 
                 <label class="col-5 col-form-label">Define el estado (*)</label>
                 <div class="col-12">
@@ -100,8 +94,7 @@
                   </select>
                 </div>
                 <br />
-
-                <label class="col-5 col-form-label">Descripción</label>
+                <label class="col-5 col-form-label">Descripción (*)</label>
                 <div class="col-12 form-group">
                   <textarea
                     rows="3"
@@ -112,7 +105,20 @@
                   >
                   </textarea>
                 </div>
-                <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone>               
+                <label class="col-12 col-form-label">Agregar Archivos </label>
+                <label class="col-12 col-form-label">
+                  <i class="fas fa-image fa-2x"></i>
+                  <i class="fas fa-file-pdf fa-2x"></i>
+                  <i class="fas fa-file-word fa-2x"></i>
+                  <i class="fas fa-file-excel fa-2x"></i>
+                </label>
+                <div class="col-12 form-group">
+                  <vue-dropzone
+                    ref="myVueDropzone"
+                    id="dropzone"
+                    :options="dropzoneOptions"
+                  ></vue-dropzone>
+                </div>
                 <div class="modal-footer">
                   <button
                     type="button"
@@ -139,20 +145,20 @@
   </div>
 </template>
 <script>
-import vue2Dropzone from 'vue2-dropzone'
-import 'vue2-dropzone/dist/vue2Dropzone.min.css'
+import vue2Dropzone from "vue2-dropzone";
+import "vue2-dropzone/dist/vue2Dropzone.min.css";
 export default {
   components: {
-    vueDropzone: vue2Dropzone
+    vueDropzone: vue2Dropzone,
   },
   data() {
     return {
       dropzoneOptions: {
-          url: 'http://127.0.0.1:8000/api/forito',
-          thumbnailWidth: 150,
-          maxFilesize: 200,
-          headers: { "My-Awesome-Header": "header value" },
-          autoProcessQueue: false
+        url: "http://127.0.0.1:8000/api/forito",
+        thumbnailWidth: 150,
+        maxFilesize: 200,
+        headers: { "My-Awesome-Header": "header value" },
+        autoProcessQueue: false,
       },
 
       foro: {
@@ -192,16 +198,12 @@ export default {
     };
   },
 
- 
-
   created() {
     axios.get("/api/miusuario").then((res) => {
       this.usuarioss = res.data;
     });
   },
   methods: {
-   
-
     eliminar(usuario, index) {
       const confirmacion = confirm(
         `Confirma Eliminar Usuario: ${usuario.username}`
@@ -238,10 +240,8 @@ export default {
           showConfirmButton: true,
         });
       } else {
-
         this.$refs.myVueDropzone.processQueue();
-        let imagen= this.$refs.myVueDropzone.getAcceptedFiles ();
-
+        let imagen = this.$refs.myVueDropzone.getAcceptedFiles();
 
         const params = {
           titulo: this.foro.titulo,
@@ -249,7 +249,7 @@ export default {
           fechapublicación: this.foro.fechapublicación,
           estadoFo: this.foro.estadoFo,
           doc_id: this.usuario.id,
-          archivo: imagen.length>0?imagen[0].name:"",
+          archivo: imagen.length > 0 ? imagen[0].name : "",
         };
         console.log(this.foro.archivo);
 
@@ -282,6 +282,5 @@ export default {
       }
     },
   },
-
 };
 </script>
