@@ -1,8 +1,8 @@
 <template>
   <div class="card">
-    <div></div>
+<br>
     <div>
-      <br />
+     
       <h2 class="text-center mb-2 card-title">Crear Foro</h2>
     </div>
     <div class="card-body row">
