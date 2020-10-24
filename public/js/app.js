@@ -15374,7 +15374,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -15527,6 +15526,99 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -15556,28 +15648,28 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    eliminar: function eliminar(usuario, index) {
+    eliminar: function eliminar(foro, index) {
       var _this2 = this;
 
-      var confirmacion = confirm("Confirma Eliminar Usuario: ".concat(usuario.username));
+      var confirmacion = confirm("Confirma Eliminar Foro: ".concat(foro.titulo));
 
       if (confirmacion) {
-        axios["delete"]("/api/user/" + usuario.id).then(function () {
-          _this2.usuarioss.splice(index, 1);
+        axios["delete"]("/api/foro/" + foro.id).then(function () {
+          _this2.foross.splice(index, 1);
 
           swal({
             type: "success",
             timer: 3000,
             title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            text: "El usuario se ha eliminado con exito",
+            text: "El Foro se ha eliminado con exito",
             showConfirmButton: false
           });
         });
       }
     },
-    editarForm: function editarForm(usuario, index) {
-      this.usuario = usuario;
-      this.usuario.index = index;
+    editarForm: function editarForm(foro, index) {
+      this.foro = foro;
+      this.foro.index = index;
     },
     editar: function editar() {
       var _this3 = this;
@@ -57060,6 +57152,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card" }, [
+    _c("br"),
+    _vm._v(" "),
     _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "card-body row" }, [
@@ -57296,7 +57390,11 @@ var render = function() {
                           staticClass: "btn btn-danger",
                           attrs: { type: "button", "data-dismiss": "modal" }
                         },
-                        [_vm._v("\n                  Cerrar\n                ")]
+                        [
+                          _vm._v(
+                            "\n                    Cerrar\n                  "
+                          )
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -57312,7 +57410,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                  Guardar Cambios\n                "
+                            "\n                    Guardar Cambios\n                  "
                           )
                         ]
                       )
@@ -57333,8 +57431,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("br"),
-      _vm._v(" "),
       _c("h2", { staticClass: "text-center mb-2 card-title" }, [
         _vm._v("Crear Foro")
       ])
@@ -57360,7 +57456,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                Crear un nuevo Foro\n              ")]
+        [_vm._v("\n                  Crear un nuevo Foro\n                ")]
       ),
       _vm._v(" "),
       _c(
@@ -81402,13 +81498,47 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "tbody",
-                    _vm._l(_vm.foross, function(foro) {
+                    _vm._l(_vm.foross, function(foro, index) {
                       return _c("tr", { key: foro.index }, [
                         _vm._m(2, true),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(foro.titulo))]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(foro.descripcion))]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-success btn-sm",
+                              attrs: {
+                                "data-toggle": "modal",
+                                "data-target": "#editarModal",
+                                title: "Editar los datos del usuario"
+                              },
+                              on: {
+                                click: function($event) {
+                                  return _vm.editarForm(_vm.usuario, index)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fas fa-pencil-alt" })]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-danger btn-sm",
+                              attrs: { title: "Eliminar reclamante" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.eliminar(foro, index)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fas fa-trash-alt" })]
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("td", [
                           _c(
@@ -81430,7 +81560,178 @@ var render = function() {
               ])
             ])
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "editarModal",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "exampleModalLabel",
+              "aria-hidden": "true"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "modal-dialog", attrs: { role: "document" } },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Título (*)")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.foro.titulo,
+                            expression: "foro.titulo"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        domProps: { value: _vm.foro.titulo },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.foro, "titulo", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Define el estado (*)")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12" }, [
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.foro.estadoFo,
+                              expression: "foro.estadoFo"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { placeholder: "Estado", type: "boolean" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.foro,
+                                "estadoFo",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "" } }, [
+                            _vm._v("Selecciona")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "1" } }, [
+                            _vm._v("Activo")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "0" } }, [
+                            _vm._v("Inactivo")
+                          ])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Descripción (*)")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("textarea", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.foro.descripcion,
+                            expression: "foro.descripcion"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { rows: "3", cols: "50", type: "text" },
+                        domProps: { value: _vm.foro.descripcion },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.foro,
+                              "descripcion",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-footer" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        attrs: { type: "button", "data-dismiss": "modal" }
+                      },
+                      [_vm._v("\n                Cerrar\n              ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "button", "data-dismiss": "modal" },
+                        on: {
+                          click: function($event) {
+                            return _vm.editar()
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                Guardar Cambios\n              "
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              ]
+            )
+          ]
+        )
       ])
     ])
   ])
@@ -81460,6 +81761,8 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Descripción")]),
         _vm._v(" "),
+        _c("th", [_vm._v("Opciones")]),
+        _vm._v(" "),
         _c("th", [_vm._v("Ir a Comentarios")])
       ])
     ])
@@ -81469,6 +81772,31 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("td", [_c("i", { staticClass: "fas fa-comment-dots fa-2x" })])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Editar foro")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
   }
 ]
 render._withStripped = true

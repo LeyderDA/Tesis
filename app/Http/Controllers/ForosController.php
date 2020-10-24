@@ -57,13 +57,7 @@ class ForosController extends Controller
       
     }
 
-    public function buscar($cedula)
-    {   
-        $pers = Persona::where("cedula",$cedula)->get();
-        
-            return  $pers;
-        
-    }
+   
     /**
      * Display the specified resource.
      *
@@ -106,9 +100,9 @@ class ForosController extends Controller
      */
     public function destroy($id)
     {
-        $pers = Persona::find($id);
-        $pers->delete();
-        return  response()->json($pers);
+        $for = Foro::find($id);
+        $for->delete();
+        return  response()->json($for);
       
     }
 

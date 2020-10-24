@@ -128,7 +128,6 @@
             </div>
           </div>
         </div>
-
         <!--segundo modal - el de buscar -->
         <div
           class="modal fade"
