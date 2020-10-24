@@ -80,16 +80,12 @@ class ForosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pers=Persona::find($id);
-        $pers->cedula=$request->cedula;
-        $pers->prinom=$request->prinom;
-        $pers->segnom=$request->segnom;
-        $pers->priape=$request->priape;
-        $pers->segape=$request->segape;
-        $pers->tel=$request->tel;
-        $pers->direc=$request->direc;
-        $pers->save();
-        return  response()->json($pers);
+            $for=Foro::find($id);
+            $for->titulo=$request->titulo;
+            $for->descripcion=$request->descripcion;
+            $for->estadoFo=$request->estadoFo;
+            $for->save();
+        return  response()->json($for);
     }
 
     /**s

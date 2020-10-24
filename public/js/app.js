@@ -15626,6 +15626,7 @@ __webpack_require__.r(__webpack_exports__);
         id: "",
         titulo: "",
         descripcion: "",
+        estadoFo: "",
         usuario: {
           username: "",
           email: "",
@@ -15675,17 +15676,17 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       var params = {
-        username: this.usuario.username,
-        email: this.usuario.email,
-        rol_id: this.usuario.rol_id
+        titulo: this.foro.titulo,
+        descripcion: this.foro.descripcion,
+        estadoFo: this.foro.estadoFo
       };
-      axios.put("/api/user/" + this.usuario.id, params).then(function (res) {
+      axios.put("/api/foro/" + this.foro.id, params).then(function (res) {
         if (res.data == null) {
           swal({
             type: "error",
             timer: 3000,
             title: "PARECE QUE HAY UN ERROR",
-            text: "El Usuario no se ha actualizado",
+            text: "El Foro no se ha actualizado",
             showConfirmButton: false
           });
         } else {
@@ -15693,15 +15694,13 @@ __webpack_require__.r(__webpack_exports__);
             type: "success",
             timer: 3000,
             title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            text: "El Usuario se ha actualizado",
+            text: "El Foro se ha actualizado",
             showConfirmButton: false
           });
         }
       })["catch"](function (error) {
         if (error.response.status == 422) {
           _this3.errors = error.response.data.errors;
-          alert(_this3.errors.username[0]);
-          alert(_this3.errors.email[0]);
         }
       });
     }
@@ -81514,11 +81513,11 @@ var render = function() {
                               attrs: {
                                 "data-toggle": "modal",
                                 "data-target": "#editarModal",
-                                title: "Editar los datos del usuario"
+                                title: "Editar los datos del Foro"
                               },
                               on: {
                                 click: function($event) {
-                                  return _vm.editarForm(_vm.usuario, index)
+                                  return _vm.editarForm(foro, index)
                                 }
                               }
                             },
@@ -81529,7 +81528,7 @@ var render = function() {
                             "button",
                             {
                               staticClass: "btn btn-danger btn-sm",
-                              attrs: { title: "Eliminar reclamante" },
+                              attrs: { title: "Eliminar foro" },
                               on: {
                                 click: function($event) {
                                   return _vm.eliminar(foro, index)

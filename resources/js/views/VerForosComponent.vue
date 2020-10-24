@@ -32,15 +32,15 @@
                           class="btn btn-success btn-sm"
                           data-toggle="modal"
                           data-target="#editarModal"
-                          @click="editarForm(usuario, index)"
-                          title="Editar los datos del usuario"
+                          @click="editarForm(foro, index)"
+                          title="Editar los datos del Foro"
                         >
                           <i class="fas fa-pencil-alt"></i>
                         </button>
                         <button
                           class="btn btn-danger btn-sm"
                           @click="eliminar(foro, index)"
-                          title="Eliminar reclamante"
+                          title="Eliminar foro"
                         >
                           <i class="fas fa-trash-alt"></i>
                         </button>
@@ -144,6 +144,7 @@ export default {
         id: "",
         titulo: "",
         descripcion: "",
+         estadoFo: "",
 
         usuario: {
           username: "",
@@ -188,19 +189,19 @@ export default {
     },
     editar() {
       const params = {
-        username: this.usuario.username,
-        email: this.usuario.email,
-        rol_id: this.usuario.rol_id,
+        titulo: this.foro.titulo,
+        descripcion: this.foro.descripcion,
+        estadoFo: this.foro.estadoFo,
       };
       axios
-        .put("/api/user/" + this.usuario.id, params)
+        .put("/api/foro/" + this.foro.id, params)
         .then((res) => {
           if (res.data == null) {
             swal({
               type: "error",
               timer: 3000,
               title: "PARECE QUE HAY UN ERROR",
-              text: "El Usuario no se ha actualizado",
+              text: "El Foro no se ha actualizado",
               showConfirmButton: false,
             });
           } else {
@@ -208,7 +209,7 @@ export default {
               type: "success",
               timer: 3000,
               title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-              text: "El Usuario se ha actualizado",
+              text: "El Foro se ha actualizado",
               showConfirmButton: false,
             });
           }
@@ -217,8 +218,7 @@ export default {
           if (error.response.status == 422) {
             this.errors = error.response.data.errors;
 
-            alert(this.errors.username[0]);
-            alert(this.errors.email[0]);
+
           }
         });
     },
