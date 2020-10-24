@@ -9,10 +9,16 @@ class ForosController extends Controller
 {
     public function index()
     {   
-        $per = Foro::all();
-        return  response()->json($per);
+        $for = Foro::all();
+        return  response()->json($for);
    
       
+    }
+
+    public function comentarios($id)
+    {
+        $foro = Foro::findOrFail($id);
+        return view('Comentarios',compact('foro'));
     }
 
     /**

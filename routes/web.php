@@ -40,6 +40,7 @@ Route::get('/VistaReSu', 'HomeController@index')->name('vistaresu')->middleware(
 Route::get('/RecepDoc', 'HomeController@index')->name('recepdoc')->middleware('Docente_Middleware');
 
 Route::get('/ForoDoc', 'HomeController@index')->name('Forodoc')->middleware('Docente_Middleware');
+Route::get('/VerForoDoc', 'HomeController@index')->name('VerForodoc')->middleware('Docente_Middleware');
 
 Route::get('/AggCalificaciones', 'HomeController@index')->name('calificaciones')->middleware('Docente_Middleware');
 Route::get('/DocGestion', 'HomeController@index')->name('gestdocente')->middleware('Docente_Middleware');
@@ -56,6 +57,8 @@ Route::get('/recepcionqr/{id}', 'RecepcionController@qrcode');
 Route::get('/Reportes', 'Controller@index')->name('reportes')->middleware('Administrativo_Middleware');
 Route::get('/Est', 'EstadisticosController@est_recepciones')->name('estadisticos');
 Route::get('tipo/{type}', 'SweetController@notification');
+
+Route::get('/comentarios/{id}', 'ForosController@comentarios');
 
 
 Route::get('/Prueba', 'HomeController@index')->name('prueba');

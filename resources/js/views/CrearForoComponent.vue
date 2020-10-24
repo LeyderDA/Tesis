@@ -112,12 +112,7 @@
                   >
                   </textarea>
                 </div>
-               
-                      
-
-
-                <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone>
-                
+                <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone>               
                 <div class="modal-footer">
                   <button
                     type="button"

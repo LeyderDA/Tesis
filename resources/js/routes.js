@@ -192,6 +192,13 @@ export default new Router({
             component: require('./views/CrearForoComponent.vue').default
 
         },
+
+        {
+            path: '/VerForoDoc',
+            name: 'verforos',
+            component: require('./views/VerForosComponent.vue').default
+
+        },
     ],
     mode: 'history'
 

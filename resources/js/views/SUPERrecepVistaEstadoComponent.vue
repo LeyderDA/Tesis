@@ -523,14 +523,8 @@
                   class="form-control"
                   placeholder="recepcion"
                   v-model="recepcion.area.nombre" disabled
-                />
-
-        
+                />       
           </div>
-
-
-
-
               <label class="col-12 col-form-label"
                 >En caso de que quieras cambiar el reclamante digita la cédula:
               </label>

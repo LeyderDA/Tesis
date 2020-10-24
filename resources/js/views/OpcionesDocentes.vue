@@ -84,6 +84,12 @@
                   >Crear Foro</router-link
                 >
               </li>
+
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'verforos' }"
+                  >Ver Foros</router-link
+                >
+              </li>
             </ul>
           </div>
         </ul>
