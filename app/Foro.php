@@ -8,7 +8,7 @@ class Foro extends Model
 {
     protected $table = 'foro';
     protected $fillable = [
-        'id', 'titulo','descripcion','fechapublicación','estadoFo','doc_id',
+        'id', 'titulo','descripcion','fechapublicación','estadoFo','doc_id','area_id',
     ];
 
     public function user()
@@ -20,6 +20,12 @@ class Foro extends Model
     public function comentario()
     {
         return $this->belongsTo('App\Comentario','id');
+    
+    }
+
+    public function area()
+    {
+        return $this->belongsTo('App\Area','area_id');
     
     }
 }

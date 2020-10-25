@@ -38,6 +38,23 @@
               >Ver mi usuario</router-link
             >
           </li>
+
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-default dropdown-toggle"
+              data-toggle="dropdown"
+            >
+              Foros <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'verforosest' }"
+                  >Ver Foros</router-link
+                >
+              </li>
+            </ul>
+          </div>
         </ul>
       </div>
     </nav>

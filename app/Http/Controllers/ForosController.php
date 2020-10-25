@@ -7,12 +7,34 @@ use Illuminate\Http\Request;
 
 class ForosController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {   
-        $for = Foro::all();
-        return  response()->json($for);
-   
+     
+       
+        $foro = Foro::all();
+
+        if ($request->ajax()) {
+            foreach ($foro as $rec) {                                        
+                $rec->area;                                     
+            }
+            return $foro;
+        } else {
+            return  response()->json($foro);
+        }   
       
+    }
+
+    public function indexEst()
+    {   
+
+        $for = Foro::join("users","users.id","=","foro.doc_id")
+        ->join("usurecep","usurecep.usu_id","=","foro.doc_id")
+        ->join("recepciones","recepciones.id","=","usurecep.recp_id")
+        ->select('foro.*'      
+        )
+        ->where('foro.estadoFo','=',1)
+        ->get();  
+        return  response()->json($for); 
     }
 
     public function comentarios($id)
@@ -45,6 +67,7 @@ class ForosController extends Controller
             $for->estadoFo=$request->estadoFo;  
             $for->archivo="storage/archivos/".$request->archivo;  
             $for->doc_id=$request->doc_id;
+            $for->area_id=$request->area_id;
             $for->save();
             return  response()->json($for);
   

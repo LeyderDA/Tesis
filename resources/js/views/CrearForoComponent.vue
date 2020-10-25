@@ -1,8 +1,7 @@
 <template>
   <div class="card">
-<br>
+    <br />
     <div>
-     
       <h2 class="text-center mb-2 card-title">Crear Foro</h2>
     </div>
     <div class="card-body row">
@@ -75,6 +74,15 @@
                   placeholder="id"
                   v-model="usuario.id"
                 />
+                <label class="col-5 col-form-label">Escoge el area (*)</label>
+                <div class="col-6 form-group">
+                  <select v-model="area.id" class="form-control" id="area">
+                    <option value="">Selecciona</option>
+                    <option v-for="area in areass" :key="area.index">
+                      {{ area.id }}-{{ area.nombre }}
+                    </option>
+                  </select>
+                </div>
                 <label class="col-5 col-form-label">Título (*)</label>
                 <div class="col-12 form-group">
                   <input class="form-control" v-model="foro.titulo" />
@@ -161,12 +169,18 @@ export default {
         autoProcessQueue: false,
       },
 
+      area: {
+        id: "",
+        nombre: "",
+      },
+
       foro: {
         titulo: "",
         descripcion: "",
         estadoFo: "",
         doc_id: "",
         archivo: "",
+        
       },
 
       usuario: {
@@ -193,7 +207,7 @@ export default {
       esta: false,
       estado: "disable",
       usuarioss: [],
-
+      areass: [],
       errors: [],
     };
   },
@@ -201,6 +215,10 @@ export default {
   created() {
     axios.get("/api/miusuario").then((res) => {
       this.usuarioss = res.data;
+    });
+    axios.get("/api/area").then((res) => {
+      this.areass = res.data;
+      console.log(res.data);
     });
   },
   methods: {
@@ -227,6 +245,7 @@ export default {
     },
     agregar() {
       if (
+        !this.area.id ||
         !this.foro.titulo ||
         !this.foro.descripcion ||
         !this.foro.estadoFo ||
@@ -244,6 +263,7 @@ export default {
         let imagen = this.$refs.myVueDropzone.getAcceptedFiles();
 
         const params = {
+          area_id: this.area.id.substr(0, 1),
           titulo: this.foro.titulo,
           descripcion: this.foro.descripcion,
           fechapublicación: this.foro.fechapublicación,
@@ -259,6 +279,7 @@ export default {
         this.foro.estadoFo = "";
         this.foro.archivo = "";
         this.usuario.id = "";
+        this.area.id = "";
 
         axios.post("/api/foro", params).then((res) => {
           if (res.data == null) {

@@ -199,6 +199,14 @@ export default new Router({
             component: require('./views/VerForosComponent.vue').default
 
         },
+
+        
+        {
+            path: '/VerForoEst',
+            name: 'verforosest',
+            component: require('./views/VerForoEstComponent.vue').default
+
+        },
     ],
     mode: 'history'
 

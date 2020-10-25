@@ -77,7 +77,7 @@
                     class="btn btn-primary"
                     data-dismiss="modal"
                   >
-                    Guardar Cambios
+                    Agregar Comentario
                   </button>
                 </div>
               </div>

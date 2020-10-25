@@ -16,4 +16,10 @@ class Area extends Model
         return $this->belongsTo('App\Recepcion','id');
     
     }
+
+    public function foro()
+    {
+        return $this->belongsTo('App\Foro','id');
+    
+    }
 }

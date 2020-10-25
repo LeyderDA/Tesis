@@ -3497,6 +3497,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3513,6 +3521,10 @@ __webpack_require__.r(__webpack_exports__);
           "My-Awesome-Header": "header value"
         },
         autoProcessQueue: false
+      },
+      area: {
+        id: "",
+        nombre: ""
       },
       foro: {
         titulo: "",
@@ -3543,6 +3555,7 @@ __webpack_require__.r(__webpack_exports__);
       esta: false,
       estado: "disable",
       usuarioss: [],
+      areass: [],
       errors: []
     };
   },
@@ -3551,6 +3564,10 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get("/api/miusuario").then(function (res) {
       _this.usuarioss = res.data;
+    });
+    axios.get("/api/area").then(function (res) {
+      _this.areass = res.data;
+      console.log(res.data);
     });
   },
   methods: {
@@ -3578,7 +3595,7 @@ __webpack_require__.r(__webpack_exports__);
       this.usuario.index = index;
     },
     agregar: function agregar() {
-      if (!this.foro.titulo || !this.foro.descripcion || !this.foro.estadoFo || !this.usuario.id) {
+      if (!this.area.id || !this.foro.titulo || !this.foro.descripcion || !this.foro.estadoFo || !this.usuario.id) {
         swal({
           type: "error",
           timer: 20000,
@@ -3590,6 +3607,7 @@ __webpack_require__.r(__webpack_exports__);
         this.$refs.myVueDropzone.processQueue();
         var imagen = this.$refs.myVueDropzone.getAcceptedFiles();
         var params = {
+          area_id: this.area.id.substr(0, 1),
           titulo: this.foro.titulo,
           descripcion: this.foro.descripcion,
           fechapublicación: this.foro.fechapublicación,
@@ -3604,6 +3622,7 @@ __webpack_require__.r(__webpack_exports__);
         this.foro.estadoFo = "";
         this.foro.archivo = "";
         this.usuario.id = "";
+        this.area.id = "";
         axios.post("/api/foro", params).then(function (res) {
           if (res.data == null) {
             swal({
@@ -15472,6 +15491,249 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/VerForoEstComponent.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/VerForoEstComponent.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      foro: {
+        id: "",
+        titulo: "",
+        descripcion: "",
+        estadoFo: "",
+        area: {
+          id: "",
+          nombre: ""
+        },
+        usuario: {
+          username: "",
+          email: "",
+          password: "",
+          rol_id: "",
+          per_id: ""
+        }
+      },
+      esta: false,
+      estado: "disable",
+      foross: [],
+      errors: []
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("/api/foro").then(function (res) {
+      _this.foross = res.data;
+    });
+  },
+  methods: {
+    eliminar: function eliminar(foro, index) {
+      var _this2 = this;
+
+      var confirmacion = confirm("Confirma Eliminar Foro: ".concat(foro.titulo));
+
+      if (confirmacion) {
+        axios["delete"]("/api/foro/" + foro.id).then(function () {
+          _this2.foross.splice(index, 1);
+
+          swal({
+            type: "success",
+            timer: 3000,
+            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            text: "El Foro se ha eliminado con exito",
+            showConfirmButton: false
+          });
+        });
+      }
+    },
+    editarForm: function editarForm(foro, index) {
+      this.foro = foro;
+      this.foro.index = index;
+    },
+    editar: function editar() {
+      var _this3 = this;
+
+      var params = {
+        titulo: this.foro.titulo,
+        descripcion: this.foro.descripcion,
+        estadoFo: this.foro.estadoFo
+      };
+      axios.put("/api/foro/" + this.foro.id, params).then(function (res) {
+        if (res.data == null) {
+          swal({
+            type: "error",
+            timer: 3000,
+            title: "PARECE QUE HAY UN ERROR",
+            text: "El Foro no se ha actualizado",
+            showConfirmButton: false
+          });
+        } else {
+          swal({
+            type: "success",
+            timer: 3000,
+            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            text: "El Foro se ha actualizado",
+            showConfirmButton: false
+          });
+        }
+      })["catch"](function (error) {
+        if (error.response.status == 422) {
+          _this3.errors = error.response.data.errors;
+        }
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/VerForosComponent.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/VerForosComponent.vue?vue&type=script&lang=js& ***!
@@ -15619,6 +15881,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -15627,12 +15891,10 @@ __webpack_require__.r(__webpack_exports__);
         titulo: "",
         descripcion: "",
         estadoFo: "",
-        usuario: {
-          username: "",
-          email: "",
-          password: "",
-          rol_id: "",
-          per_id: ""
+        area_id: "",
+        area: {
+          id: "",
+          nombre: ""
         }
       },
       esta: false,
@@ -15646,6 +15908,7 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get("/api/foro").then(function (res) {
       _this.foross = res.data;
+      console.log(res.data);
     });
   },
   methods: {
@@ -57247,6 +57510,65 @@ var render = function() {
                     }),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Escoge el area (*)")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-6 form-group" }, [
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.area.id,
+                              expression: "area.id"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { id: "area" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.area,
+                                "id",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "" } }, [
+                            _vm._v("Selecciona")
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(_vm.areass, function(area) {
+                            return _c("option", { key: area.index }, [
+                              _vm._v(
+                                "\n                    " +
+                                  _vm._s(area.id) +
+                                  "-" +
+                                  _vm._s(area.nombre) +
+                                  "\n                  "
+                              )
+                            ])
+                          })
+                        ],
+                        2
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
                       _vm._v("Título (*)")
                     ]),
                     _vm._v(" "),
@@ -57389,11 +57711,7 @@ var render = function() {
                           staticClass: "btn btn-danger",
                           attrs: { type: "button", "data-dismiss": "modal" }
                         },
-                        [
-                          _vm._v(
-                            "\n                    Cerrar\n                  "
-                          )
-                        ]
+                        [_vm._v("\n                  Cerrar\n                ")]
                       ),
                       _vm._v(" "),
                       _c(
@@ -57409,7 +57727,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                    Guardar Cambios\n                  "
+                            "\n                  Guardar Cambios\n                "
                           )
                         ]
                       )
@@ -57455,7 +57773,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                  Crear un nuevo Foro\n                ")]
+        [_vm._v("\n                Crear un nuevo Foro\n              ")]
       ),
       _vm._v(" "),
       _c(
@@ -67342,7 +67660,33 @@ var render = function() {
                     )
                   ],
                   1
-                )
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "btn-group" }, [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    { staticClass: "dropdown-menu", attrs: { role: "menu" } },
+                    [
+                      _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "nav-link",
+                              attrs: { to: { name: "verforosest" } }
+                            },
+                            [_vm._v("Ver Foros")]
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ])
               ])
             ]
           )
@@ -67378,6 +67722,19 @@ var staticRenderFns = [
         }
       },
       [_c("span", [_vm._v("MENÚ")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-default dropdown-toggle",
+        attrs: { type: "button", "data-toggle": "dropdown" }
+      },
+      [_vm._v("\n            Foros "), _c("span", { staticClass: "caret" })]
     )
   }
 ]
@@ -81464,10 +81821,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/VerForosComponent.vue?vue&type=template&id=383f7d04&":
-/*!***************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/VerForosComponent.vue?vue&type=template&id=383f7d04& ***!
-  \***************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/VerForoEstComponent.vue?vue&type=template&id=d74e231e&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/VerForoEstComponent.vue?vue&type=template&id=d74e231e& ***!
+  \*****************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -81500,6 +81857,8 @@ var render = function() {
                     _vm._l(_vm.foross, function(foro, index) {
                       return _c("tr", { key: foro.index }, [
                         _vm._m(2, true),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(foro.nombre))]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(foro.titulo))]),
                         _vm._v(" "),
@@ -81755,6 +82114,352 @@ var staticRenderFns = [
     return _c("thead", [
       _c("tr", [
         _c("th"),
+        _vm._v(" "),
+        _c("th", [_vm._v("Area")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Titulo")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Descripción")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Opciones")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Ir a Comentarios")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [_c("i", { staticClass: "fas fa-comment-dots fa-2x" })])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Editar foro")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/VerForosComponent.vue?vue&type=template&id=383f7d04&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/VerForosComponent.vue?vue&type=template&id=383f7d04& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-body row" }, [
+      _c("div", { staticClass: "row justify-content-center col" }),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "card-body col" }, [
+            _c("div", { attrs: { clas: "container row" } }, [
+              _c("div", { staticClass: "table text-center table-reponsive" }, [
+                _c("table", { staticClass: "table text-center" }, [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.foross, function(foro, index) {
+                      return _c("tr", { key: foro.index }, [
+                        _vm._m(2, true),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(foro.area.nombre))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(foro.titulo))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(foro.descripcion))]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-success btn-sm",
+                              attrs: {
+                                "data-toggle": "modal",
+                                "data-target": "#editarModal",
+                                title: "Editar los datos del Foro"
+                              },
+                              on: {
+                                click: function($event) {
+                                  return _vm.editarForm(foro, index)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fas fa-pencil-alt" })]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-danger btn-sm",
+                              attrs: { title: "Eliminar foro" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.eliminar(foro, index)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fas fa-trash-alt" })]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "a",
+                            { attrs: { href: "/comentarios/" + foro.id } },
+                            [
+                              _c("i", {
+                                staticClass:
+                                  "fas fa-arrow-alt-circle-right fa-3x"
+                              })
+                            ]
+                          )
+                        ])
+                      ])
+                    }),
+                    0
+                  )
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "editarModal",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "exampleModalLabel",
+              "aria-hidden": "true"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "modal-dialog", attrs: { role: "document" } },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Título (*)")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.foro.titulo,
+                            expression: "foro.titulo"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        domProps: { value: _vm.foro.titulo },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.foro, "titulo", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Define el estado (*)")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12" }, [
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.foro.estadoFo,
+                              expression: "foro.estadoFo"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { placeholder: "Estado", type: "boolean" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.foro,
+                                "estadoFo",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "" } }, [
+                            _vm._v("Selecciona")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "1" } }, [
+                            _vm._v("Activo")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "0" } }, [
+                            _vm._v("Inactivo")
+                          ])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Descripción (*)")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("textarea", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.foro.descripcion,
+                            expression: "foro.descripcion"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { rows: "3", cols: "50", type: "text" },
+                        domProps: { value: _vm.foro.descripcion },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.foro,
+                              "descripcion",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-footer" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        attrs: { type: "button", "data-dismiss": "modal" }
+                      },
+                      [_vm._v("\n                Cerrar\n              ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "button", "data-dismiss": "modal" },
+                        on: {
+                          click: function($event) {
+                            return _vm.editar()
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                Guardar Cambios\n              "
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              ]
+            )
+          ]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("br"),
+      _vm._v(" "),
+      _c("h2", { staticClass: "text-center mb-2 card-title" }, [
+        _vm._v("Listado de Foros")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th"),
+        _vm._v(" "),
+        _c("th", [_vm._v("Area")]),
         _vm._v(" "),
         _c("th", [_vm._v("Titulo")]),
         _vm._v(" "),
@@ -99762,6 +100467,10 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     path: '/VerForoDoc',
     name: 'verforos',
     component: __webpack_require__(/*! ./views/VerForosComponent.vue */ "./resources/js/views/VerForosComponent.vue")["default"]
+  }, {
+    path: '/VerForoEst',
+    name: 'verforosest',
+    component: __webpack_require__(/*! ./views/VerForoEstComponent.vue */ "./resources/js/views/VerForoEstComponent.vue")["default"]
   }],
   mode: 'history'
 }));
@@ -101610,6 +102319,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UservistaComponent_vue_vue_type_template_id_10cabb5a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UservistaComponent_vue_vue_type_template_id_10cabb5a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/VerForoEstComponent.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/views/VerForoEstComponent.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _VerForoEstComponent_vue_vue_type_template_id_d74e231e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./VerForoEstComponent.vue?vue&type=template&id=d74e231e& */ "./resources/js/views/VerForoEstComponent.vue?vue&type=template&id=d74e231e&");
+/* harmony import */ var _VerForoEstComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./VerForoEstComponent.vue?vue&type=script&lang=js& */ "./resources/js/views/VerForoEstComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _VerForoEstComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _VerForoEstComponent_vue_vue_type_template_id_d74e231e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _VerForoEstComponent_vue_vue_type_template_id_d74e231e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/VerForoEstComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/VerForoEstComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/views/VerForoEstComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VerForoEstComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./VerForoEstComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/VerForoEstComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VerForoEstComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/VerForoEstComponent.vue?vue&type=template&id=d74e231e&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/views/VerForoEstComponent.vue?vue&type=template&id=d74e231e& ***!
+  \***********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VerForoEstComponent_vue_vue_type_template_id_d74e231e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./VerForoEstComponent.vue?vue&type=template&id=d74e231e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/VerForoEstComponent.vue?vue&type=template&id=d74e231e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VerForoEstComponent_vue_vue_type_template_id_d74e231e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VerForoEstComponent_vue_vue_type_template_id_d74e231e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

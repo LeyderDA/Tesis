@@ -26,7 +26,7 @@
                   <tbody>
                     <tr v-for="(foro, index) in foross" :key="foro.index">
                       <td><i class="fas fa-comment-dots fa-2x"></i></td>
-                      <td>{{ foro.area.nombre }}</td>
+                      <td>{{ foro.nombre }}</td>
                       <td>{{ foro.titulo }}</td>
                       <td>{{ foro.descripcion }}</td>
                       <td>
@@ -147,11 +147,17 @@ export default {
         titulo: "",
         descripcion: "",
          estadoFo: "",
-         area_id:"",
-
          area: {
           id: "",
           nombre: "",
+        },
+
+        usuario: {
+          username: "",
+          email: "",
+          password: "",
+          rol_id: "",
+          per_id: "",
         },
       },
 
@@ -165,7 +171,6 @@ export default {
   created() {
     axios.get("/api/foro").then((res) => {
       this.foross = res.data;
-          console.log(res.data);
     });
   },
   methods: {

@@ -21,6 +21,8 @@ class CreateForoTable extends Migration
             $table->string('archivo')->nullable();
             $table->unsignedBigInteger('doc_id');
             $table->foreign('doc_id')->references('id')->on('users');
+            $table->unsignedBigInteger('area_id');
+            $table->foreign('area_id')->references('id')->on('areas');
             $table->timestamps();
         });
     }
