@@ -937,6 +937,7 @@ export default {
       estado: "disable",
       recepcioness: [],
       errors: [],
+      foross: []
     };
   },
   created() {

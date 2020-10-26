@@ -136,11 +136,12 @@ class ForosController extends Controller
 
     public function buscarForo($id)
     {
+         
 
-
-        $foro = Foro::where("area_id",$id)->get();
-        return  $foro;
-        
+        $foro = Foro::where("area_id",$id)->where('foro.estadoFo','=',1)
+        ->get();
+    
+        return  response()->json($foro);
 
     }
 }

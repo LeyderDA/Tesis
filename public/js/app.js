@@ -9445,7 +9445,8 @@ __webpack_require__.r(__webpack_exports__);
       esta: false,
       estado: "disable",
       recepcioness: [],
-      errors: []
+      errors: [],
+      foross: []
     };
   },
   created: function created() {
