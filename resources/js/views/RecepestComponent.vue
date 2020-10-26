@@ -299,6 +299,54 @@
                 />
               </div>
 
+              <label class="col-5 col-form-label">Primera Actuación (*)</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  type="date"
+                  v-model="gestion.fechpriact"
+                />
+              </div>
+
+              <label class="col-5 col-form-label">N.Actuaciones (*)</label>
+              <div class="col-12 form-group">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="N.Actuaciones"
+                  v-model="gestion.n_act"
+                />
+              </div>
+
+              <label class="col-5 col-form-label">N.Asesorias (*)</label>
+              <div class="col-12 form-group">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="N.Asesorias"
+                  v-model="gestion.n_aseso"
+                />
+              </div>
+
+              <label class="col-5 col-form-label">N.Autorizaciones (*)</label>
+              <div class="col-12 form-group">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="N.Autorizaciones"
+                  v-model="gestion.n_autor"
+                />
+              </div>
+
+              <label class="col-5 col-form-label">Asesor (*)</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Asesor"
+                  v-model="gestion.asesor"
+                />
+              </div>
+
               <label class="col-5 col-form-label">Tipo de tramite (*)</label>
               <div class="col-12 form-group">
                 <input
@@ -930,6 +978,11 @@ export default {
         resulactuacion: "",
         entidadelantramite: "",
         recp_id: "",
+        fechpriact: "",
+        n_act: "",
+        n_aseso: "",
+        n_autor: "",
+        asesor: "",
       },
 
       esta: false,
@@ -1092,7 +1145,12 @@ export default {
         !this.gestion.actjuridirealzadas ||
         !this.gestion.resulactuacion ||
         !this.gestion.entidadelantramite ||
-        !this.recepcion.id
+        !this.recepcion.id ||
+        !this.gestion.fechpriact ||
+        !this.gestion.n_act ||
+        !this.gestion.n_aseso ||
+        !this.gestion.n_autor ||
+        !this.gestion.asesor
       ) {
         swal({
           type: "error",
@@ -1115,6 +1173,11 @@ export default {
           resulactuacion: this.gestion.resulactuacion,
           entidadelantramite: this.gestion.entidadelantramite,
           recp_id: this.recepcion.id,
+          fechpriact: this.gestion.fechpriact,
+          n_act: this.gestion.n_act,
+          n_aseso: this.gestion.n_aseso,
+          n_autor: this.gestion.n_autor,
+          asesor: this.gestion.asesor,
         };
 
         axios.post("/api/gestion", params).then((res) => {
@@ -1140,6 +1203,11 @@ export default {
           this.gestion.actjuridirealzadas = "";
           this.gestion.resulactuacion = "";
           this.gestion.entidadelantramite = "";
+          this.gestion.fechpriact = "";
+          this.gestion.n_act = "";
+          this.gestion.n_aseso = "";
+          this.gestion.n_autor = "";
+          this.gestion.asesor = "";
         });
       }
     },

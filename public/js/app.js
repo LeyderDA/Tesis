@@ -4972,6 +4972,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4989,6 +5037,11 @@ __webpack_require__.r(__webpack_exports__);
         resulactuacion: "",
         entidadelantramite: "",
         recp_id: "",
+        fechpriact: "",
+        n_act: "",
+        n_aseso: "",
+        n_autor: "",
+        asesor: "",
         recepcion: {
           id: "",
           recepcionado: "",
@@ -5073,7 +5126,12 @@ __webpack_require__.r(__webpack_exports__);
         actuarealizadas: this.gestion.actuarealizadas,
         actjuridirealzadas: this.gestion.actjuridirealzadas,
         resulactuacion: this.gestion.resulactuacion,
-        entidadelantramite: this.gestion.entidadelantramite
+        entidadelantramite: this.gestion.entidadelantramite,
+        fechpriact: this.gestion.fechpriact,
+        n_act: this.gestion.n_act,
+        n_aseso: this.gestion.n_aseso,
+        n_autor: this["this"].gestion.n_autor,
+        asesor: this.gestion.asesor
       };
       axios.put("/api/gestion/" + this.gestion.id, params).then(function (res) {
         if (res.data == null) {
@@ -9326,6 +9384,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -9426,7 +9532,12 @@ __webpack_require__.r(__webpack_exports__);
         actjuridirealzadas: "",
         resulactuacion: "",
         entidadelantramite: "",
-        recp_id: ""
+        recp_id: "",
+        fechpriact: "",
+        n_act: "",
+        n_aseso: "",
+        n_autor: "",
+        asesor: ""
       },
       esta: false,
       estado: "disable",
@@ -9574,7 +9685,7 @@ __webpack_require__.r(__webpack_exports__);
     agregargestion: function agregargestion() {
       var _this7 = this;
 
-      if (!this.gestion.amplhechos || !this.gestion.fechentrevasesor || !this.gestion.tipotramite || !this.gestion.asuntotramite || !this.gestion.motivoarchivo || !this.gestion.fechaarchivo || !this.gestion.obsrvtramite || !this.gestion.actuarealizadas || !this.gestion.actjuridirealzadas || !this.gestion.resulactuacion || !this.gestion.entidadelantramite || !this.recepcion.id) {
+      if (!this.gestion.amplhechos || !this.gestion.fechentrevasesor || !this.gestion.tipotramite || !this.gestion.asuntotramite || !this.gestion.motivoarchivo || !this.gestion.fechaarchivo || !this.gestion.obsrvtramite || !this.gestion.actuarealizadas || !this.gestion.actjuridirealzadas || !this.gestion.resulactuacion || !this.gestion.entidadelantramite || !this.recepcion.id || !this.gestion.fechpriact || !this.gestion.n_act || !this.gestion.n_aseso || !this.gestion.n_autor || !this.gestion.asesor) {
         swal({
           type: "error",
           timer: 20000,
@@ -9595,7 +9706,12 @@ __webpack_require__.r(__webpack_exports__);
           actjuridirealzadas: this.gestion.actjuridirealzadas,
           resulactuacion: this.gestion.resulactuacion,
           entidadelantramite: this.gestion.entidadelantramite,
-          recp_id: this.recepcion.id
+          recp_id: this.recepcion.id,
+          fechpriact: this.gestion.fechpriact,
+          n_act: this.gestion.n_act,
+          n_aseso: this.gestion.n_aseso,
+          n_autor: this.gestion.n_autor,
+          asesor: this.gestion.asesor
         };
         axios.post("/api/gestion", params).then(function (res) {
           if (res.data == null) {
@@ -9621,6 +9737,11 @@ __webpack_require__.r(__webpack_exports__);
           _this7.gestion.actjuridirealzadas = "";
           _this7.gestion.resulactuacion = "";
           _this7.gestion.entidadelantramite = "";
+          _this7.gestion.fechpriact = "";
+          _this7.gestion.n_act = "";
+          _this7.gestion.n_aseso = "";
+          _this7.gestion.n_autor = "";
+          _this7.gestion.asesor = "";
         });
       }
     },
@@ -60275,6 +60396,167 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Primera Actuación (*)")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.gestion.fechpriact,
+                            expression: "gestion.fechpriact"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "date" },
+                        domProps: { value: _vm.gestion.fechpriact },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.gestion,
+                              "fechpriact",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("N.Actuaciones (*)")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.gestion.n_act,
+                            expression: "gestion.n_act"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "number",
+                          placeholder: "Entidad del tramite"
+                        },
+                        domProps: { value: _vm.gestion.n_act },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.gestion, "n_act", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("N.Asesorias (*)")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.gestion.n_aseso,
+                            expression: "gestion.n_aseso"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "number",
+                          placeholder: "Entidad del tramite"
+                        },
+                        domProps: { value: _vm.gestion.n_aseso },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.gestion,
+                              "n_aseso",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("N.Autorizaciones (*)")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.gestion.n_autor,
+                            expression: "gestion.n_autor"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "number",
+                          placeholder: "Entidad del tramite"
+                        },
+                        domProps: { value: _vm.gestion.n_autor },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.gestion,
+                              "n_autor",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Asesor (*)")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.gestion.asesor,
+                            expression: "gestion.asesor"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { placeholder: "Entidad del tramite" },
+                        domProps: { value: _vm.gestion.asesor },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.gestion, "asesor", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
                       _vm._v("Ampliación de hechos")
                     ]),
                     _vm._v(" "),
@@ -69006,6 +69288,153 @@ var render = function() {
                             "fechentrevasesor",
                             $event.target.value
                           )
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Primera Actuación (*)")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-12 form-group" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.gestion.fechpriact,
+                          expression: "gestion.fechpriact"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "date" },
+                      domProps: { value: _vm.gestion.fechpriact },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.gestion,
+                            "fechpriact",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("N.Actuaciones (*)")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-12 form-group" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.gestion.n_act,
+                          expression: "gestion.n_act"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "number", placeholder: "N.Actuaciones" },
+                      domProps: { value: _vm.gestion.n_act },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.gestion, "n_act", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("N.Asesorias (*)")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-12 form-group" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.gestion.n_aseso,
+                          expression: "gestion.n_aseso"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "number", placeholder: "N.Asesorias" },
+                      domProps: { value: _vm.gestion.n_aseso },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.gestion, "n_aseso", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("N.Autorizaciones (*)")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-12 form-group" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.gestion.n_autor,
+                          expression: "gestion.n_autor"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "number",
+                        placeholder: "N.Autorizaciones"
+                      },
+                      domProps: { value: _vm.gestion.n_autor },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.gestion, "n_autor", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _vm._v("Asesor (*)")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-12 form-group" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.gestion.asesor,
+                          expression: "gestion.asesor"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { placeholder: "Asesor" },
+                      domProps: { value: _vm.gestion.asesor },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.gestion, "asesor", $event.target.value)
                         }
                       }
                     })

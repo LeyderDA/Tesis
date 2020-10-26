@@ -10,7 +10,7 @@ class Gestion extends Model
     protected $fillable = 
     [
         'id','amplhechos','fechentrevasesor','tipotramite','asuntotramite','motivoarchivo','fechaarchivo','obsrvtramite','actuarealizadas',
-        'actjuridirealzadas','resulactuacion','entidadelantramite','recp_id',
+        'actjuridirealzadas','resulactuacion','entidadelantramite','recp_id','fechpriact','n_act','n_aseso','n_autor','asesor',
     ];
 
     public function recepcion()

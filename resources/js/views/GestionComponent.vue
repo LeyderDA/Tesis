@@ -104,14 +104,12 @@
                 </button>
               </div>
               <div class="modal-body">
-
-                 <label class="col-5 col-form-label">Ampliación de hechos</label>
+                <label class="col-5 col-form-label">Ampliación de hechos</label>
                 <div class="col-6 form-group">
                   <input
                     class="form-control"
                     placeholder="Ampliación de hechos"
                     v-model="gestion.amplhechos"
-                    
                   />
                 </div>
                 <label class="col-6 col-form-label"
@@ -360,6 +358,56 @@
                     placeholder="Recepción"
                     v-model="gestion.recepcion.id"
                     disabled
+                  />
+                </div>
+
+                <label class="col-5 col-form-label"
+                  >Primera Actuación (*)</label
+                >
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    type="date"
+                    v-model="gestion.fechpriact"
+                  />
+                </div>
+
+                <label class="col-5 col-form-label">N.Actuaciones (*)</label>
+                <div class="col-12 form-group">
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="Entidad del tramite"
+                    v-model="gestion.n_act"
+                  />
+                </div>
+
+                <label class="col-5 col-form-label">N.Asesorias (*)</label>
+                <div class="col-12 form-group">
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="Entidad del tramite"
+                    v-model="gestion.n_aseso"
+                  />
+                </div>
+
+                <label class="col-5 col-form-label">N.Autorizaciones (*)</label>
+                <div class="col-12 form-group">
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="Entidad del tramite"
+                    v-model="gestion.n_autor"
+                  />
+                </div>
+
+                <label class="col-5 col-form-label">Asesor (*)</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Entidad del tramite"
+                    v-model="gestion.asesor"
                   />
                 </div>
 
@@ -621,6 +669,11 @@ export default {
         resulactuacion: "",
         entidadelantramite: "",
         recp_id: "",
+        fechpriact: "",
+        n_act: "",
+        n_aseso: "",
+        n_autor: "",
+        asesor: "",
 
         recepcion: {
           id: "",
@@ -702,6 +755,11 @@ export default {
         actjuridirealzadas: this.gestion.actjuridirealzadas,
         resulactuacion: this.gestion.resulactuacion,
         entidadelantramite: this.gestion.entidadelantramite,
+        fechpriact: this.gestion.fechpriact,
+        n_act: this.gestion.n_act,
+        n_aseso: this.gestion.n_aseso,
+        n_autor: this.this.gestion.n_autor,
+        asesor: this.gestion.asesor,
       };
       axios
         .put("/api/gestion/" + this.gestion.id, params)
