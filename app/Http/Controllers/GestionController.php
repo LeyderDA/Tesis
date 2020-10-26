@@ -75,9 +75,7 @@ class GestionController extends Controller
         $ges->actjuridirealzadas = $request->actjuridirealzadas;
         $ges->resulactuacion = $request->resulactuacion;
         $ges->entidadelantramite = $request->entidadelantramite;
-
         $ges->recp_id = $request->recp_id;
-
         $ges->fechpriact = $request->fechpriact;
         $ges->n_act = $request->n_act;
         $ges->n_aseso = $request->n_aseso;
@@ -103,7 +101,6 @@ class GestionController extends Controller
         $ges->actjuridirealzadas = $request->actjuridirealzadas;
         $ges->resulactuacion = $request->resulactuacion;
         $ges->entidadelantramite = $request->entidadelantramite;
-
         $ges->fechpriact = $request->fechpriact;
         $ges->n_act = $request->n_act;
         $ges->n_aseso = $request->n_aseso;

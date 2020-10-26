@@ -104,30 +104,87 @@
                 </button>
               </div>
               <div class="modal-body">
-                <label class="col-5 col-form-label">Ampliación de hechos</label>
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
+                  <input
+                    type="hidden"
+                    class="form-control"
+                    v-model="gestion.id"
+                  />
+                </div>
+
+                <label class="col-5 col-form-label"
+                  >Ampliación de hechos (*)</label
+                >
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Ampliación de hechos"
                     v-model="gestion.amplhechos"
                   />
                 </div>
-                <label class="col-6 col-form-label"
-                  >Fecha entrevista asesor</label
-                >
 
-                <div class="col-6 form-group">
+                <label class="col-5 col-form-label">Fecha entrevista (*)</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
-                    type="Date"
-                    placeholder="fecha entrevista asesor"
+                    placeholder="Fecha entrevista"
+                    type="date"
                     v-model="gestion.fechentrevasesor"
                   />
                 </div>
 
-                <label class="col-6 col-form-label">Tipo de tramite</label>
-                <br />
-                <div class="col-6 form-group">
+                <label class="col-5 col-form-label"
+                  >Primera Actuación (*)</label
+                >
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    type="date"
+                    v-model="gestion.fechpriact"
+                  />
+                </div>
+
+                <label class="col-5 col-form-label">N.Actuaciones (*)</label>
+                <div class="col-12 form-group">
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="N.Actuaciones"
+                    v-model="gestion.n_act"
+                  />
+                </div>
+
+                <label class="col-5 col-form-label">N.Asesorias (*)</label>
+                <div class="col-12 form-group">
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="N.Asesorias"
+                    v-model="gestion.n_aseso"
+                  />
+                </div>
+
+                <label class="col-5 col-form-label">N.Autorizaciones (*)</label>
+                <div class="col-12 form-group">
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="N.Autorizaciones"
+                    v-model="gestion.n_autor"
+                  />
+                </div>
+
+                <label class="col-5 col-form-label">Asesor (*)</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Asesor"
+                    v-model="gestion.asesor"
+                  />
+                </div>
+
+                <label class="col-5 col-form-label">Tipo de tramite (*)</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Tipo de tramite"
@@ -135,49 +192,49 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Asunto tramite</label>
-
-                <div class="col-6 form-group">
+                <label class="col-5 col-form-label"
+                  >Asunto de tramite (*)</label
+                >
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
-                    placeholder="Asunto tramite"
+                    placeholder="Asunto de tramite"
                     v-model="gestion.asuntotramite"
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Motivo archivo</label>
-                <div class="col-6 form-group">
+                <label class="col-5 col-form-label"
+                  >Motivo de archivo (*)</label
+                >
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
-                    placeholder="Motivo archivo"
+                    placeholder="Motivo de archivo"
                     v-model="gestion.motivoarchivo"
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Fecha archivo</label>
-                <div class="col-6 form-group">
+                <label class="col-5 col-form-label">Fecha de archivo (*)</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
-                    type="Date"
-                    placeholder="Fecha archivo"
+                    placeholder="Fecha de archivo"
+                    type="date"
                     v-model="gestion.fechaarchivo"
                   />
                 </div>
                 <label class="col-5 col-form-label"
-                  >Entidad en que se adelanta el tramite</label
+                  >Entidad del tramite (*)</label
                 >
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
-                    placeholder="Entidad tramite"
+                    placeholder="Entidad del tramite"
                     v-model="gestion.entidadelantramite"
                   />
                 </div>
 
-                <label class="col-6 col-form-label"
-                  >Observación del tramite</label
-                >
-
+                <label class="col-5 col-form-label">Observaciones (*)</label>
                 <div class="col-12 form-group">
                   <textarea
                     rows="3"
@@ -189,10 +246,9 @@
                   </textarea>
                 </div>
 
-                <label class="col-6 col-form-label"
-                  >Actuaciones realizadas</label
+                <label class="col-5 col-form-label"
+                  >Actuaciones realizadas (*)</label
                 >
-
                 <div class="col-12 form-group">
                   <textarea
                     rows="3"
@@ -204,8 +260,9 @@
                   </textarea>
                 </div>
 
-                <label class="col-5 col-form-label">Atuaciones juridicas</label>
-
+                <label class="col-5 col-form-label"
+                  >Actuaciones jurídicas realizadas (*)
+                </label>
                 <div class="col-12 form-group">
                   <textarea
                     rows="3"
@@ -218,7 +275,7 @@
                 </div>
 
                 <label class="col-5 col-form-label"
-                  >Resultados de la actuación</label
+                  >Resultado de actuación (*)</label
                 >
                 <div class="col-12 form-group">
                   <textarea
@@ -277,46 +334,46 @@
                 </button>
               </div>
               <div class="modal-body">
-                <label class="col-5 col-form-label">ID</label>
+                <label class="col-12 col-form-label">ID</label>
                 <input placeholder="ID" v-model="gestion.recepcion.id" />
 
-                <label class="col-5 col-form-label">Recepcionado</label>
+                <label class="col-12 col-form-label">Recepcionado</label>
                 <input
                   placeholder="Recepcionado"
                   v-model="gestion.recepcion.recepcionado"
                 />
 
-                <label class="col-5 col-form-label">Fecha de Radicado</label>
+                <label class="col-12 col-form-label">Fecha de Radicado</label>
                 <input
                   placeholder="Fecha de Radicado"
                   v-model="gestion.recepcion.fecharadicado"
                 />
 
-                <label class="col-5 col-form-label">Fecha Recepcionado</label>
+                <label class="col-12 col-form-label">Fecha Recepcionado</label>
                 <input
                   placeholder="Fecha Recepcionado"
                   v-model="gestion.recepcion.fecharecepcionado"
                 />
 
-                <label class="col-5 col-form-label">Consultorio</label>
+                <label class="col-12 col-form-label">Consultorio</label>
                 <input
                   placeholder="Consultorio"
                   v-model="gestion.recepcion.consultorio"
                 />
 
-                <label class="col-5 col-form-label">Fecha Reparto</label>
+                <label class="col-12 col-form-label">Fecha Reparto</label>
                 <input
                   placeholder="Fecha Reparto"
                   v-model="gestion.recepcion.fechareparto"
                 />
 
-                <label class="col-5 col-form-label">Fecha Publicación</label>
+                <label class="col-12 col-form-label">Fecha Publicación</label>
                 <input
                   placeholder="Fecha Publicación"
                   v-model="gestion.recepcion.fechapublicacion"
                 />
 
-                <label class="col-5 col-form-label">Fecha Retiro</label>
+                <label class="col-12 col-form-label">Fecha Retiro</label>
                 <input
                   placeholder="Fecha Retiro"
                   v-model="gestion.recepcion.fecharetiro"
@@ -351,7 +408,7 @@
                 <h5 class="modal-title" id="exampleModalLabel">Gestión</h5>
               </div>
               <div class="modal-body">
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     type="hidden"
                     class="form-control"
@@ -361,7 +418,7 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label"
+                <label class="col-12 col-form-label"
                   >Primera Actuación (*)</label
                 >
                 <div class="col-12 form-group">
@@ -369,49 +426,58 @@
                     class="form-control"
                     type="date"
                     v-model="gestion.fechpriact"
+                    disabled
                   />
                 </div>
 
-                <label class="col-5 col-form-label">N.Actuaciones (*)</label>
+                <label class="col-12 col-form-label">N.Actuaciones (*)</label>
                 <div class="col-12 form-group">
                   <input
                     type="number"
                     class="form-control"
                     placeholder="Entidad del tramite"
                     v-model="gestion.n_act"
+                    disabled
                   />
                 </div>
 
-                <label class="col-5 col-form-label">N.Asesorias (*)</label>
+                <label class="col-12 col-form-label">N.Asesorias (*)</label>
                 <div class="col-12 form-group">
                   <input
                     type="number"
                     class="form-control"
                     placeholder="Entidad del tramite"
                     v-model="gestion.n_aseso"
+                    disabled
                   />
                 </div>
 
-                <label class="col-5 col-form-label">N.Autorizaciones (*)</label>
+                <label class="col-12 col-form-label"
+                  >N.Autorizaciones (*)</label
+                >
                 <div class="col-12 form-group">
                   <input
                     type="number"
                     class="form-control"
                     placeholder="Entidad del tramite"
                     v-model="gestion.n_autor"
+                    disabled
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Asesor (*)</label>
+                <label class="col-12 col-form-label">Asesor (*)</label>
                 <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Entidad del tramite"
                     v-model="gestion.asesor"
+                    disabled
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Ampliación de hechos</label>
+                <label class="col-12 col-form-label"
+                  >Ampliación de hechos</label
+                >
                 <div class="col-12 form-group">
                   <input
                     class="form-control"
@@ -421,7 +487,7 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Observaciones</label>
+                <label class="col-12 col-form-label">Observaciones</label>
 
                 <div class="col-12 form-group">
                   <textarea
@@ -435,7 +501,7 @@
                   </textarea>
                 </div>
 
-                <label class="col-5 col-form-label"
+                <label class="col-12 col-form-label"
                   >Actuaciones Realizadas</label
                 >
 
@@ -451,7 +517,7 @@
                   </textarea>
                 </div>
 
-                <label class="col-5 col-form-label"
+                <label class="col-12 col-form-label"
                   >Actuaciones Juridicas</label
                 >
 
@@ -467,7 +533,7 @@
                   </textarea>
                 </div>
 
-                <label class="col-5 col-form-label"
+                <label class="col-12 col-form-label"
                   >Resultado de actuación</label
                 >
 
@@ -522,9 +588,9 @@
                 </h5>
               </div>
               <div class="modal-body">
-                <label class="col-5 col-form-label">Estado:</label>
+                <label class="col-12 col-form-label">Estado:</label>
                 <br />
-                <div class="col-6">
+                <div class="col-12">
                   <select
                     class="form-control"
                     placeholder="Estado"
@@ -537,8 +603,8 @@
                   </select>
                 </div>
 
-                <label class="col-5 col-form-label">Fecha de radicado:</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Fecha de radicado:</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -548,10 +614,10 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label"
+                <label class="col-12 col-form-label"
                   >Fecha de recepcionado:</label
                 >
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -561,8 +627,8 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Fecha de reparto:</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Fecha de reparto:</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -572,10 +638,10 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label"
+                <label class="col-12 col-form-label"
                   >Fecha de publicación:</label
                 >
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -585,8 +651,8 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Fecha de retiro</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Fecha de retiro</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -596,8 +662,8 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Recepcionado en:</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Recepcionado en:</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -606,8 +672,8 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Consultorio:</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Consultorio:</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -616,8 +682,8 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Area:</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Area:</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -758,7 +824,7 @@ export default {
         fechpriact: this.gestion.fechpriact,
         n_act: this.gestion.n_act,
         n_aseso: this.gestion.n_aseso,
-        n_autor: this.this.gestion.n_autor,
+        n_autor: this.gestion.n_autor,
         asesor: this.gestion.asesor,
       };
       axios

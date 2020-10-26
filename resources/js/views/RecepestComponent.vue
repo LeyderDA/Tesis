@@ -270,7 +270,7 @@
             <div class="modal-body">
               <div class="col-12 form-group">
                 <input
-                 
+                 type="hidden"
                   class="form-control"
                   placeholder="Recepción"
                   v-model="recepcion.id"
@@ -1017,7 +1017,7 @@ export default {
             type: "error",
             timer: 20000,
             title: "NO TIENES UN FORO DISPONIBLE",
-            text: "El docente de esta Area no ha creado foros",
+            text: "El docente de esta Area no tiene foros activos",
             showConfirmButton: true,
           });
 

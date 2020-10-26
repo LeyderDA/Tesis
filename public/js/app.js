@@ -5020,6 +5020,72 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5130,7 +5196,7 @@ __webpack_require__.r(__webpack_exports__);
         fechpriact: this.gestion.fechpriact,
         n_act: this.gestion.n_act,
         n_aseso: this.gestion.n_aseso,
-        n_autor: this["this"].gestion.n_autor,
+        n_autor: this.gestion.n_autor,
         asesor: this.gestion.asesor
       };
       axios.put("/api/gestion/" + this.gestion.id, params).then(function (res) {
@@ -9573,7 +9639,7 @@ __webpack_require__.r(__webpack_exports__);
             type: "error",
             timer: 20000,
             title: "NO TIENES UN FORO DISPONIBLE",
-            text: "El docente de esta Area no ha creado foros",
+            text: "El docente de esta Area no tiene foros activos",
             showConfirmButton: true
           });
           console.log(res.data[0]);
@@ -57593,7 +57659,7 @@ var render = function() {
                       _vm._v("Escoge el area (*)")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c(
                         "select",
                         {
@@ -57675,7 +57741,7 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Define el estado (*)")
                     ]),
                     _vm._v(" "),
@@ -59685,11 +59751,35 @@ var render = function() {
                   _vm._m(2),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("Ampliación de hechos")
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.gestion.id,
+                            expression: "gestion.id"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "hidden" },
+                        domProps: { value: _vm.gestion.id },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.gestion, "id", $event.target.value)
+                          }
+                        }
+                      })
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Ampliación de hechos (*)")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -59717,11 +59807,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-6 col-form-label" }, [
-                      _vm._v("Fecha entrevista asesor")
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Fecha entrevista (*)")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -59733,8 +59823,8 @@ var render = function() {
                         ],
                         staticClass: "form-control",
                         attrs: {
-                          type: "Date",
-                          placeholder: "fecha entrevista asesor"
+                          placeholder: "Fecha entrevista",
+                          type: "date"
                         },
                         domProps: { value: _vm.gestion.fechentrevasesor },
                         on: {
@@ -59752,13 +59842,166 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-6 col-form-label" }, [
-                      _vm._v("Tipo de tramite")
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Primera Actuación (*)")
                     ]),
                     _vm._v(" "),
-                    _c("br"),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.gestion.fechpriact,
+                            expression: "gestion.fechpriact"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "date" },
+                        domProps: { value: _vm.gestion.fechpriact },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.gestion,
+                              "fechpriact",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("N.Actuaciones (*)")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.gestion.n_act,
+                            expression: "gestion.n_act"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "number", placeholder: "N.Actuaciones" },
+                        domProps: { value: _vm.gestion.n_act },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.gestion, "n_act", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("N.Asesorias (*)")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.gestion.n_aseso,
+                            expression: "gestion.n_aseso"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "number", placeholder: "N.Asesorias" },
+                        domProps: { value: _vm.gestion.n_aseso },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.gestion,
+                              "n_aseso",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("N.Autorizaciones (*)")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.gestion.n_autor,
+                            expression: "gestion.n_autor"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "number",
+                          placeholder: "N.Autorizaciones"
+                        },
+                        domProps: { value: _vm.gestion.n_autor },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.gestion,
+                              "n_autor",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Asesor (*)")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.gestion.asesor,
+                            expression: "gestion.asesor"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { placeholder: "Asesor" },
+                        domProps: { value: _vm.gestion.asesor },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.gestion, "asesor", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Tipo de tramite (*)")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -59787,10 +60030,10 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("Asunto tramite")
+                      _vm._v("Asunto de tramite (*)")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -59801,7 +60044,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { placeholder: "Asunto tramite" },
+                        attrs: { placeholder: "Asunto de tramite" },
                         domProps: { value: _vm.gestion.asuntotramite },
                         on: {
                           input: function($event) {
@@ -59819,10 +60062,10 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("Motivo archivo")
+                      _vm._v("Motivo de archivo (*)")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -59833,7 +60076,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { placeholder: "Motivo archivo" },
+                        attrs: { placeholder: "Motivo de archivo" },
                         domProps: { value: _vm.gestion.motivoarchivo },
                         on: {
                           input: function($event) {
@@ -59851,10 +60094,10 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("Fecha archivo")
+                      _vm._v("Fecha de archivo (*)")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -59865,7 +60108,10 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "Date", placeholder: "Fecha archivo" },
+                        attrs: {
+                          placeholder: "Fecha de archivo",
+                          type: "date"
+                        },
                         domProps: { value: _vm.gestion.fechaarchivo },
                         on: {
                           input: function($event) {
@@ -59883,10 +60129,10 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("Entidad en que se adelanta el tramite")
+                      _vm._v("Entidad del tramite (*)")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -59897,7 +60143,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { placeholder: "Entidad tramite" },
+                        attrs: { placeholder: "Entidad del tramite" },
                         domProps: { value: _vm.gestion.entidadelantramite },
                         on: {
                           input: function($event) {
@@ -59914,8 +60160,8 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-6 col-form-label" }, [
-                      _vm._v("Observación del tramite")
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Observaciones (*)")
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-12 form-group" }, [
@@ -59946,8 +60192,8 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-6 col-form-label" }, [
-                      _vm._v("Actuaciones realizadas")
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Actuaciones realizadas (*)")
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-12 form-group" }, [
@@ -59979,7 +60225,9 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("Atuaciones juridicas")
+                      _vm._v(
+                        "Actuaciones jurídicas realizadas (*)\n              "
+                      )
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-12 form-group" }, [
@@ -60011,7 +60259,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("Resultados de la actuación")
+                      _vm._v("Resultado de actuación (*)")
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-12 form-group" }, [
@@ -60098,7 +60346,7 @@ var render = function() {
                   _vm._m(3),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("ID")
                     ]),
                     _vm._v(" "),
@@ -60127,7 +60375,7 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Recepcionado")
                     ]),
                     _vm._v(" "),
@@ -60156,7 +60404,7 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha de Radicado")
                     ]),
                     _vm._v(" "),
@@ -60185,7 +60433,7 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha Recepcionado")
                     ]),
                     _vm._v(" "),
@@ -60216,7 +60464,7 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Consultorio")
                     ]),
                     _vm._v(" "),
@@ -60245,7 +60493,7 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha Reparto")
                     ]),
                     _vm._v(" "),
@@ -60274,7 +60522,7 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha Publicación")
                     ]),
                     _vm._v(" "),
@@ -60305,7 +60553,7 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha Retiro")
                     ]),
                     _vm._v(" "),
@@ -60363,7 +60611,7 @@ var render = function() {
                   _vm._m(5),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -60395,7 +60643,7 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Primera Actuación (*)")
                     ]),
                     _vm._v(" "),
@@ -60410,7 +60658,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "date" },
+                        attrs: { type: "date", disabled: "" },
                         domProps: { value: _vm.gestion.fechpriact },
                         on: {
                           input: function($event) {
@@ -60427,7 +60675,7 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("N.Actuaciones (*)")
                     ]),
                     _vm._v(" "),
@@ -60444,7 +60692,8 @@ var render = function() {
                         staticClass: "form-control",
                         attrs: {
                           type: "number",
-                          placeholder: "Entidad del tramite"
+                          placeholder: "Entidad del tramite",
+                          disabled: ""
                         },
                         domProps: { value: _vm.gestion.n_act },
                         on: {
@@ -60458,7 +60707,7 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("N.Asesorias (*)")
                     ]),
                     _vm._v(" "),
@@ -60475,7 +60724,8 @@ var render = function() {
                         staticClass: "form-control",
                         attrs: {
                           type: "number",
-                          placeholder: "Entidad del tramite"
+                          placeholder: "Entidad del tramite",
+                          disabled: ""
                         },
                         domProps: { value: _vm.gestion.n_aseso },
                         on: {
@@ -60493,7 +60743,7 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("N.Autorizaciones (*)")
                     ]),
                     _vm._v(" "),
@@ -60510,7 +60760,8 @@ var render = function() {
                         staticClass: "form-control",
                         attrs: {
                           type: "number",
-                          placeholder: "Entidad del tramite"
+                          placeholder: "Entidad del tramite",
+                          disabled: ""
                         },
                         domProps: { value: _vm.gestion.n_autor },
                         on: {
@@ -60528,7 +60779,7 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Asesor (*)")
                     ]),
                     _vm._v(" "),
@@ -60543,7 +60794,10 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { placeholder: "Entidad del tramite" },
+                        attrs: {
+                          placeholder: "Entidad del tramite",
+                          disabled: ""
+                        },
                         domProps: { value: _vm.gestion.asesor },
                         on: {
                           input: function($event) {
@@ -60556,7 +60810,7 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Ampliación de hechos")
                     ]),
                     _vm._v(" "),
@@ -60591,7 +60845,7 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Observaciones")
                     ]),
                     _vm._v(" "),
@@ -60628,7 +60882,7 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Actuaciones Realizadas")
                     ]),
                     _vm._v(" "),
@@ -60665,7 +60919,7 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Actuaciones Juridicas")
                     ]),
                     _vm._v(" "),
@@ -60702,7 +60956,7 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Resultado de actuación")
                     ]),
                     _vm._v(" "),
@@ -60772,13 +61026,13 @@ var render = function() {
                   _vm._m(7),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Estado:")
                     ]),
                     _vm._v(" "),
                     _c("br"),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6" }, [
+                    _c("div", { staticClass: "col-12" }, [
                       _c(
                         "select",
                         {
@@ -60828,11 +61082,11 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha de radicado:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -60864,11 +61118,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha de recepcionado:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -60900,11 +61154,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha de reparto:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -60936,11 +61190,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha de publicación:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -60972,11 +61226,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha de retiro")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -61008,11 +61262,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Recepcionado en:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -61040,11 +61294,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Consultorio:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -61072,11 +61326,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Area:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -69212,7 +69466,11 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { placeholder: "Recepción", disabled: "" },
+                      attrs: {
+                        type: "hidden",
+                        placeholder: "Recepción",
+                        disabled: ""
+                      },
                       domProps: { value: _vm.recepcion.id },
                       on: {
                         input: function($event) {

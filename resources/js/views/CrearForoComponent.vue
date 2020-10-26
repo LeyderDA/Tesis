@@ -75,7 +75,7 @@
                   v-model="usuario.id"
                 />
                 <label class="col-5 col-form-label">Escoge el area (*)</label>
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <select v-model="area.id" class="form-control" id="area">
                     <option value="">Selecciona</option>
                     <option v-for="area in areass" :key="area.index">
@@ -88,7 +88,7 @@
                   <input class="form-control" v-model="foro.titulo" />
                 </div>
 
-                <label class="col-5 col-form-label">Define el estado (*)</label>
+                <label class="col-12 col-form-label">Define el estado (*)</label>
                 <div class="col-12">
                   <select
                     class="form-control"
