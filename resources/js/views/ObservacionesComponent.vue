@@ -95,7 +95,7 @@
               <div class="modal-body">
                 <label class="col-5 col-form-label">Estado</label>
                 <br />
-                <div class="col-6">
+                <div class="col-12">
                   <select
                     class="form-control"
                     placeholder="Estado"
@@ -109,7 +109,7 @@
                 </div>
 
                 <label class="col-5 col-form-label">Fecha de radicado:</label>
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -122,7 +122,7 @@
                 <label class="col-5 col-form-label"
                   >Fecha de recepcionado:</label
                 >
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -133,7 +133,7 @@
                 </div>
 
                 <label class="col-5 col-form-label">Fecha de reparto:</label>
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -146,7 +146,7 @@
                 <label class="col-5 col-form-label"
                   >Fecha de publicación:</label
                 >
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -157,7 +157,7 @@
                 </div>
 
                 <label class="col-5 col-form-label">Fecha de retiro</label>
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -168,7 +168,7 @@
                 </div>
 
                 <label class="col-5 col-form-label">Recepcionado en:</label>
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -178,7 +178,7 @@
                 </div>
 
                 <label class="col-5 col-form-label">Consultorio:</label>
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -188,7 +188,7 @@
                 </div>
 
                 <label class="col-5 col-form-label">Area:</label>
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"

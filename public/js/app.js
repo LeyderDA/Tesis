@@ -4972,19 +4972,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -8514,7 +8501,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -16195,6 +16181,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -54691,7 +54680,7 @@ var render = function() {
                     _vm._v("Estado de la Recepción")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6" }, [
+                  _c("div", { staticClass: "col-12" }, [
                     _c(
                       "select",
                       {
@@ -54745,7 +54734,7 @@ var render = function() {
                     _vm._v("Recepcionado en:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -54777,7 +54766,7 @@ var render = function() {
                     _vm._v("Consultorio:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -54809,7 +54798,7 @@ var render = function() {
                     _vm._v("Fecha de radicado:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -54846,7 +54835,7 @@ var render = function() {
                     _vm._v("Fecha de recepcionado:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -54883,7 +54872,7 @@ var render = function() {
                     _vm._v("Fecha de reparto:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -54920,7 +54909,7 @@ var render = function() {
                     _vm._v("Fecha de publicación:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -54957,7 +54946,7 @@ var render = function() {
                     _vm._v("Fecha de retiro:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -55053,7 +55042,7 @@ var render = function() {
                     _vm._v("Nota primer corte")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -55085,7 +55074,7 @@ var render = function() {
                     _vm._v("Nota segundo corte")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -55117,7 +55106,7 @@ var render = function() {
                     _vm._v("Nota tercer corte")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -55206,7 +55195,7 @@ var render = function() {
                     _vm._v("Cédula")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -55234,7 +55223,7 @@ var render = function() {
                     _vm._v("Primer Nombre")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -55262,7 +55251,7 @@ var render = function() {
                     _vm._v("Segundo Nombre")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -55290,7 +55279,7 @@ var render = function() {
                     _vm._v("Primer Apellido")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -55318,7 +55307,7 @@ var render = function() {
                     _vm._v("Segundo Apellido")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -55346,7 +55335,7 @@ var render = function() {
                     _vm._v("Dirección")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -55374,7 +55363,7 @@ var render = function() {
                     _vm._v("Teléfono")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -58256,7 +58245,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   true
-                    ? _c("div", { staticClass: "col-6 form-group" }, [
+                    ? _c("div", { staticClass: "col-12 form-group" }, [
                         _c(
                           "button",
                           {
@@ -58600,7 +58589,7 @@ var render = function() {
                       _vm._v("Recepción")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -58632,7 +58621,7 @@ var render = function() {
                       _vm._v("Ampliación de hechos")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -58850,7 +58839,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("br"),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6" }, [
+                    _c("div", { staticClass: "col-12" }, [
                       _c(
                         "select",
                         {
@@ -58904,7 +58893,7 @@ var render = function() {
                       _vm._v("Fecha de radicado:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -58940,7 +58929,7 @@ var render = function() {
                       _vm._v("Fecha de recepcionado:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -58976,7 +58965,7 @@ var render = function() {
                       _vm._v("Fecha de reparto:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -59012,7 +59001,7 @@ var render = function() {
                       _vm._v("Fecha de publicación:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -59048,7 +59037,7 @@ var render = function() {
                       _vm._v("Fecha de retiro")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -59084,7 +59073,7 @@ var render = function() {
                       _vm._v("Recepcionado en:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -59116,7 +59105,7 @@ var render = function() {
                       _vm._v("Consultorio:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -59148,7 +59137,7 @@ var render = function() {
                       _vm._v("Area:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -59575,6 +59564,38 @@ var render = function() {
                   _vm._m(2),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Ampliación de hechos")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-6 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.gestion.amplhechos,
+                            expression: "gestion.amplhechos"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { placeholder: "Ampliación de hechos" },
+                        domProps: { value: _vm.gestion.amplhechos },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.gestion,
+                              "amplhechos",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
                     _c("label", { staticClass: "col-6 col-form-label" }, [
                       _vm._v("Fecha entrevista asesor")
                     ]),
@@ -60221,10 +60242,6 @@ var render = function() {
                   _vm._m(5),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("Recepción")
-                    ]),
-                    _vm._v(" "),
                     _c("div", { staticClass: "col-6 form-group" }, [
                       _c("input", {
                         directives: [
@@ -60236,7 +60253,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { placeholder: "Recepción", disabled: "" },
+                        attrs: {
+                          type: "hidden",
+                          placeholder: "Recepción",
+                          disabled: ""
+                        },
                         domProps: { value: _vm.gestion.recepcion.id },
                         on: {
                           input: function($event) {
@@ -60257,7 +60278,7 @@ var render = function() {
                       _vm._v("Ampliación de hechos")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -60303,7 +60324,12 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { rows: "3", cols: "50", type: "text" },
+                        attrs: {
+                          rows: "3",
+                          cols: "50",
+                          type: "text",
+                          disabled: ""
+                        },
                         domProps: { value: _vm.gestion.obsrvtramite },
                         on: {
                           input: function($event) {
@@ -60335,7 +60361,12 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { rows: "3", cols: "50", type: "text" },
+                        attrs: {
+                          rows: "3",
+                          cols: "50",
+                          type: "text",
+                          disabled: ""
+                        },
                         domProps: { value: _vm.gestion.actuarealizadas },
                         on: {
                           input: function($event) {
@@ -60367,7 +60398,12 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { rows: "3", cols: "50", type: "text" },
+                        attrs: {
+                          rows: "3",
+                          cols: "50",
+                          type: "text",
+                          disabled: ""
+                        },
                         domProps: { value: _vm.gestion.actjuridirealzadas },
                         on: {
                           input: function($event) {
@@ -60399,7 +60435,12 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { rows: "3", cols: "50", type: "text" },
+                        attrs: {
+                          rows: "3",
+                          cols: "50",
+                          type: "text",
+                          disabled: ""
+                        },
                         domProps: { value: _vm.gestion.resulactuacion },
                         on: {
                           input: function($event) {
@@ -60940,7 +60981,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Datos de la Recepción")]
+        [_vm._v("\n                Datos de la Recepción\n              ")]
       )
     ])
   },
@@ -66236,7 +66277,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("br"),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6" }, [
+                    _c("div", { staticClass: "col-12" }, [
                       _c(
                         "select",
                         {
@@ -66290,7 +66331,7 @@ var render = function() {
                       _vm._v("Fecha de radicado:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -66326,7 +66367,7 @@ var render = function() {
                       _vm._v("Fecha de recepcionado:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -66364,7 +66405,7 @@ var render = function() {
                       _vm._v("Fecha de reparto:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -66400,7 +66441,7 @@ var render = function() {
                       _vm._v("Fecha de publicación:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -66436,7 +66477,7 @@ var render = function() {
                       _vm._v("Fecha de retiro")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -66472,7 +66513,7 @@ var render = function() {
                       _vm._v("Recepcionado en:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -66504,7 +66545,7 @@ var render = function() {
                       _vm._v("Consultorio:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -66536,7 +66577,7 @@ var render = function() {
                       _vm._v("Area:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -68830,10 +68871,15 @@ var render = function() {
                     _c("center", [
                       _c(
                         "a",
-                        { attrs: { href: "/comentarios/" + _vm.foro.id } },
+                        {
+                          attrs: {
+                            href: "/comentarios/" + _vm.foro.id,
+                            title: "Agregar Comentario"
+                          }
+                        },
                         [
                           _c("i", {
-                            staticClass: "fas fa-arrow-alt-circle-right fa-3x"
+                            staticClass: "fas fa-arrow-alt-circle-right fa-5x"
                           })
                         ]
                       )
@@ -68873,7 +68919,7 @@ var render = function() {
                 _vm._m(5),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -68905,7 +68951,7 @@ var render = function() {
                     _vm._v("Ampliación de hechos (*)")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -68937,7 +68983,7 @@ var render = function() {
                     _vm._v("Fecha entrevista (*)")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -68969,7 +69015,7 @@ var render = function() {
                     _vm._v("Tipo de tramite (*)")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -69001,7 +69047,7 @@ var render = function() {
                     _vm._v("Asunto de tramite (*)")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -69033,7 +69079,7 @@ var render = function() {
                     _vm._v("Motivo de archivo (*)")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -69065,7 +69111,7 @@ var render = function() {
                     _vm._v("Fecha de archivo (*)")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -69097,7 +69143,7 @@ var render = function() {
                     _vm._v("Entidad del tramite (*)")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -69309,7 +69355,7 @@ var render = function() {
                     _vm._v("Fecha de radicado:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -69346,7 +69392,7 @@ var render = function() {
                     _vm._v("Fecha de recepcionado:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -69383,7 +69429,7 @@ var render = function() {
                     _vm._v("Fecha de reparto:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -69420,7 +69466,7 @@ var render = function() {
                     _vm._v("Fecha de publicación:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -69457,7 +69503,7 @@ var render = function() {
                     _vm._v("Fecha de retiro:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -69527,7 +69573,7 @@ var render = function() {
                     _vm._v("Nombre del reclamante:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -69555,7 +69601,7 @@ var render = function() {
                     _vm._v("Apellido del reclamante:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -69583,7 +69629,7 @@ var render = function() {
                     _vm._v("Enfoque diferencial:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -69620,7 +69666,7 @@ var render = function() {
                     _vm._v("Genero:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -69652,7 +69698,7 @@ var render = function() {
                     _vm._v("Edad:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -69684,7 +69730,7 @@ var render = function() {
                     _vm._v("Discapacidad:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -69718,7 +69764,7 @@ var render = function() {
                     _vm._v("Estrato:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -69752,7 +69798,7 @@ var render = function() {
                     _vm._v("Embarazo:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -69786,7 +69832,7 @@ var render = function() {
                     _vm._v("Grupo Etnico:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -69820,7 +69866,7 @@ var render = function() {
                     _vm._v("Entidad que reclama:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -70018,7 +70064,7 @@ var render = function() {
                     _vm._v("Primer nombre:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -70050,7 +70096,7 @@ var render = function() {
                     _vm._v("Segundo nombre:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -70082,7 +70128,7 @@ var render = function() {
                     _vm._v("Primer Apellido:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -70117,7 +70163,7 @@ var render = function() {
                     _vm._v("Segundo Apellido:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -83098,7 +83144,10 @@ var render = function() {
         [
           _c(
             "div",
-            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            {
+              staticClass: "modal-dialog modal-sm",
+              attrs: { role: "document" }
+            },
             [
               _c("div", { staticClass: "modal-content" }, [
                 _vm._m(2),
@@ -83132,10 +83181,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-12 col-form-label" }, [
-                      _vm._v(
-                        "Oprima el ícono para ver todos los datos de su\n              Recepcionador"
-                      )
+                    _c("center", [
+                      _c("label", { staticClass: "col-12 col-form-label" }, [
+                        _vm._v("Click en el ícono")
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("center", [
@@ -83165,7 +83214,40 @@ var render = function() {
                     _vm._v(" "),
                     _c("br"),
                     _vm._v(" "),
-                    _vm._m(3)
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c(
+                        "div",
+                        {
+                          staticStyle: {
+                            width: "100px",
+                            height: "30px",
+                            margin: "0 auto"
+                          }
+                        },
+                        [
+                          _c("center", [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: {
+                                  name: "CERRAR",
+                                  "data-dismiss": "modal",
+                                  "aria-label": "Close",
+                                  type: "button"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                    CERRAR\n                  "
+                                )
+                              ]
+                            )
+                          ])
+                        ],
+                        1
+                      )
+                    ])
                   ],
                   1
                 )
@@ -83195,14 +83277,14 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(4),
+                _vm._m(3),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("label", { staticClass: "col-5 col-form-label" }, [
                     _vm._v("Primer nombre:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -83234,7 +83316,7 @@ var render = function() {
                     _vm._v("Segundo nombre:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -83266,7 +83348,7 @@ var render = function() {
                     _vm._v("Primer Apellido:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -83301,7 +83383,7 @@ var render = function() {
                     _vm._v("Segundo Apellido:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -83394,10 +83476,13 @@ var render = function() {
         [
           _c(
             "div",
-            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            {
+              staticClass: "modal-dialog modal-sm",
+              attrs: { role: "document" }
+            },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(5),
+                _vm._m(4),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -83428,10 +83513,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-12 col-form-label" }, [
-                      _vm._v(
-                        "Oprima el ícono para ver todos los datos de su\n              Estudiante"
-                      )
+                    _c("center", [
+                      _c("label", { staticClass: "col-12 col-form-label" }, [
+                        _vm._v("Click en el ícono")
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("center", [
@@ -83461,7 +83546,40 @@ var render = function() {
                     _vm._v(" "),
                     _c("br"),
                     _vm._v(" "),
-                    _vm._m(6)
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c(
+                        "div",
+                        {
+                          staticStyle: {
+                            width: "100px",
+                            height: "30px",
+                            margin: "0 auto"
+                          }
+                        },
+                        [
+                          _c("center", [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: {
+                                  name: "CERRAR",
+                                  "data-dismiss": "modal",
+                                  "aria-label": "Close",
+                                  type: "button"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                    CERRAR\n                  "
+                                )
+                              ]
+                            )
+                          ])
+                        ],
+                        1
+                      )
+                    ])
                   ],
                   1
                 )
@@ -83491,14 +83609,14 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(7),
+                _vm._m(5),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("label", { staticClass: "col-5 col-form-label" }, [
                     _vm._v("Primer nombre:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -83532,7 +83650,7 @@ var render = function() {
                     _vm._v("Segundo nombre:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -83566,7 +83684,7 @@ var render = function() {
                     _vm._v("Primer Apellido:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -83603,7 +83721,7 @@ var render = function() {
                     _vm._v("Segundo Apellido:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -83701,7 +83819,7 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(8),
+                _vm._m(6),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("input", {
@@ -83810,14 +83928,14 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(9),
+                _vm._m(7),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("label", { staticClass: "col-5 col-form-label" }, [
                     _vm._v("Fecha de radicado:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -83854,7 +83972,7 @@ var render = function() {
                     _vm._v("Fecha de recepcionado:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -83891,7 +84009,7 @@ var render = function() {
                     _vm._v("Fecha de reparto:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -83928,7 +84046,7 @@ var render = function() {
                     _vm._v("Fecha de publicación:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -83965,7 +84083,7 @@ var render = function() {
                     _vm._v("Fecha de retiro:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -84002,7 +84120,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
-                  _vm._m(10)
+                  _vm._m(8)
                 ])
               ])
             ]
@@ -84028,14 +84146,14 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(11),
+                _vm._m(9),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("label", { staticClass: "col-5 col-form-label" }, [
                     _vm._v("Nombre del reclamante:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -84063,7 +84181,7 @@ var render = function() {
                     _vm._v("Apellido del reclamante:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -84091,7 +84209,7 @@ var render = function() {
                     _vm._v("Enfoque diferencial:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -84128,7 +84246,7 @@ var render = function() {
                     _vm._v("Genero:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -84160,7 +84278,7 @@ var render = function() {
                     _vm._v("Edad:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -84192,7 +84310,7 @@ var render = function() {
                     _vm._v("Discapacidad:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -84226,7 +84344,7 @@ var render = function() {
                     _vm._v("Estrato:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -84260,7 +84378,7 @@ var render = function() {
                     _vm._v("Embarazo:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -84294,7 +84412,7 @@ var render = function() {
                     _vm._v("Grupo Etnico:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -84328,7 +84446,7 @@ var render = function() {
                     _vm._v("Entidad que reclama:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -84362,7 +84480,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
-                  _vm._m(12)
+                  _vm._m(10)
                 ])
               ])
             ]
@@ -84388,14 +84506,14 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(13),
+                _vm._m(11),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("label", { staticClass: "col-5 col-form-label" }, [
                     _vm._v("Id Recepción")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -84423,7 +84541,7 @@ var render = function() {
                     _vm._v("Nota primer corte")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -84455,7 +84573,7 @@ var render = function() {
                     _vm._v("Nota segundo corte")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -84487,7 +84605,7 @@ var render = function() {
                     _vm._v("Nota tercer corte")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -84619,32 +84737,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 form-group" }, [
-      _c(
-        "div",
-        { staticStyle: { width: "100px", height: "30px", margin: "0 auto" } },
-        [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary",
-              attrs: {
-                name: "CERRAR",
-                "data-dismiss": "modal",
-                "aria-label": "Close",
-                type: "button"
-              }
-            },
-            [_vm._v("\n                  CERRAR\n                ")]
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h5",
@@ -84688,32 +84780,6 @@ var staticRenderFns = [
           }
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 form-group" }, [
-      _c(
-        "div",
-        { staticStyle: { width: "100px", height: "30px", margin: "0 auto" } },
-        [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary",
-              attrs: {
-                name: "CERRAR",
-                "data-dismiss": "modal",
-                "aria-label": "Close",
-                type: "button"
-              }
-            },
-            [_vm._v("\n                  CERRAR\n                ")]
-          )
-        ]
       )
     ])
   },

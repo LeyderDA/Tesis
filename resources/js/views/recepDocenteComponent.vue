@@ -111,7 +111,7 @@
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-sm" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
@@ -133,10 +133,10 @@
                 v-model="recepcion.id"
                 disabled
               />
-              <label class="col-12 col-form-label"
-                >Oprima el ícono para ver todos los datos de su
-                Recepcionador</label
-              >
+              <center>
+                <label class="col-12 col-form-label">Click en el ícono</label>
+              </center>
+
               <center>
                 <button
                   class="btn btn-sm"
@@ -153,15 +153,17 @@
 
               <div class="col-12 form-group">
                 <div style="width: 100px; height: 30px; margin: 0 auto">
-                  <button
-                    name="CERRAR"
-                    class="btn btn-primary"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                    type="button"
-                  >
-                    CERRAR
-                  </button>
+                  <center>
+                    <button
+                      name="CERRAR"
+                      class="btn btn-primary"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                      type="button"
+                    >
+                      CERRAR
+                    </button>
+                  </center>
                 </div>
               </div>
             </div>
@@ -197,7 +199,7 @@
             </div>
             <div class="modal-body">
               <label class="col-5 col-form-label">Primer nombre:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Nombre de persona"
@@ -206,7 +208,7 @@
                 />
               </div>
               <label class="col-5 col-form-label">Segundo nombre:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Nombre de persona"
@@ -215,7 +217,7 @@
                 />
               </div>
               <label class="col-5 col-form-label">Primer Apellido:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Apellido de persona"
@@ -224,7 +226,7 @@
                 />
               </div>
               <label class="col-5 col-form-label">Segundo Apellido:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Apellido de persona"
@@ -265,7 +267,7 @@
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-sm" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
@@ -287,10 +289,9 @@
                 v-model="recepcion.id"
                 disabled
               />
-              <label class="col-12 col-form-label"
-                >Oprima el ícono para ver todos los datos de su
-                Estudiante</label
-              >
+              <center>
+                <label class="col-12 col-form-label">Click en el ícono</label>
+              </center>
               <center>
                 <button
                   class="btn btn-sm"
@@ -307,15 +308,17 @@
 
               <div class="col-12 form-group">
                 <div style="width: 100px; height: 30px; margin: 0 auto">
-                  <button
-                    name="CERRAR"
-                    class="btn btn-primary"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                    type="button"
-                  >
-                    CERRAR
-                  </button>
+                  <center>
+                    <button
+                      name="CERRAR"
+                      class="btn btn-primary"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                      type="button"
+                    >
+                      CERRAR
+                    </button>
+                  </center>
                 </div>
               </div>
             </div>
@@ -351,7 +354,7 @@
             </div>
             <div class="modal-body">
               <label class="col-5 col-form-label">Primer nombre:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Nombre de persona"
@@ -360,7 +363,7 @@
                 />
               </div>
               <label class="col-5 col-form-label">Segundo nombre:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Nombre de persona"
@@ -369,7 +372,7 @@
                 />
               </div>
               <label class="col-5 col-form-label">Primer Apellido:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Apellido de persona"
@@ -378,7 +381,7 @@
                 />
               </div>
               <label class="col-5 col-form-label">Segundo Apellido:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Apellido de persona"
@@ -489,7 +492,7 @@
             </div>
             <div class="modal-body">
               <label class="col-5 col-form-label">Fecha de radicado:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -501,7 +504,7 @@
               </div>
 
               <label class="col-5 col-form-label">Fecha de recepcionado:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -513,7 +516,7 @@
               </div>
 
               <label class="col-5 col-form-label">Fecha de reparto:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -525,7 +528,7 @@
               </div>
 
               <label class="col-5 col-form-label">Fecha de publicación:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -537,7 +540,7 @@
               </div>
 
               <label class="col-5 col-form-label">Fecha de retiro:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -587,7 +590,7 @@
             </div>
             <div class="modal-body">
               <label class="col-5 col-form-label">Nombre del reclamante:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="nombre de persona"
@@ -599,7 +602,7 @@
               <label class="col-5 col-form-label"
                 >Apellido del reclamante:</label
               >
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="nombre de persona"
@@ -609,7 +612,7 @@
               </div>
 
               <label class="col-5 col-form-label">Enfoque diferencial:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="enfoque diferencial"
@@ -619,7 +622,7 @@
               </div>
 
               <label class="col-5 col-form-label">Genero:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="genero"
@@ -629,7 +632,7 @@
               </div>
 
               <label class="col-5 col-form-label">Edad:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="edad"
@@ -639,7 +642,7 @@
               </div>
 
               <label class="col-5 col-form-label">Discapacidad:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="discapacidad"
@@ -649,7 +652,7 @@
               </div>
 
               <label class="col-5 col-form-label">Estrato:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="estrato"
@@ -659,7 +662,7 @@
               </div>
 
               <label class="col-5 col-form-label">Embarazo:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="embarazo"
@@ -669,7 +672,7 @@
               </div>
 
               <label class="col-5 col-form-label">Grupo Etnico:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="grupo etnico"
@@ -679,7 +682,7 @@
               </div>
 
               <label class="col-5 col-form-label">Entidad que reclama:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="entidad"
@@ -734,7 +737,7 @@
             </div>
             <div class="modal-body">
               <label class="col-5 col-form-label">Id Recepción</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Recepción"
@@ -744,7 +747,7 @@
               </div>
 
               <label class="col-5 col-form-label">Nota primer corte</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Nota primer corte"
@@ -753,7 +756,7 @@
               </div>
 
               <label class="col-5 col-form-label">Nota segundo corte</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Nota segundo corte"
@@ -761,7 +764,7 @@
                 />
               </div>
               <label class="col-5 col-form-label">Nota tercer corte</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Nota tercer corte"
@@ -957,7 +960,7 @@ export default {
     },
 
     editar() {
-      if (!this.observaciones.obsrv||!this.recepcion.id) {
+      if (!this.observaciones.obsrv || !this.recepcion.id) {
         swal({
           type: "error",
           timer: 20000,

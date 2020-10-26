@@ -29,7 +29,7 @@
                       v-for="(gestion, index) in gestioness"
                       :key="gestion.index"
                     >
-                      <td>{{ gestion.fechentrevasesor }}</td> 
+                      <td>{{ gestion.fechentrevasesor }}</td>
                       <td>{{ gestion.asuntotramite }}</td>
                       <td>{{ gestion.tipotramite }}</td>
                       <td>{{ gestion.motivoarchivo }}</td>
@@ -105,140 +105,133 @@
               </div>
               <div class="modal-body">
 
+                 <label class="col-5 col-form-label">Ampliación de hechos</label>
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Ampliación de hechos"
+                    v-model="gestion.amplhechos"
+                    
+                  />
+                </div>
                 <label class="col-6 col-form-label"
                   >Fecha entrevista asesor</label
                 >
 
                 <div class="col-6 form-group">
-                <input
-                 class="form-control"
-                 type="Date"
-                  placeholder="fecha entrevista asesor"
-                  v-model="gestion.fechentrevasesor"
-                />
+                  <input
+                    class="form-control"
+                    type="Date"
+                    placeholder="fecha entrevista asesor"
+                    v-model="gestion.fechentrevasesor"
+                  />
                 </div>
 
                 <label class="col-6 col-form-label">Tipo de tramite</label>
-                <br>
+                <br />
                 <div class="col-6 form-group">
                   <input
-                  class="form-control"
-                  placeholder="Tipo de tramite"
-                  v-model="gestion.tipotramite"
-                />
+                    class="form-control"
+                    placeholder="Tipo de tramite"
+                    v-model="gestion.tipotramite"
+                  />
                 </div>
-                
-                
 
                 <label class="col-5 col-form-label">Asunto tramite</label>
-                
-                <div class="col-6 form-group">
 
-                <input
-                class="form-control"
-                  placeholder="Asunto tramite"
-                  v-model="gestion.asuntotramite"
-                />
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Asunto tramite"
+                    v-model="gestion.asuntotramite"
+                  />
                 </div>
-                
 
                 <label class="col-5 col-form-label">Motivo archivo</label>
-               <div class="col-6 form-group">
-
-                <input
-                class="form-control"
-                  placeholder="Motivo archivo"
-                  v-model="gestion.motivoarchivo"
-                />
+                <div class="col-6 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Motivo archivo"
+                    v-model="gestion.motivoarchivo"
+                  />
                 </div>
 
                 <label class="col-5 col-form-label">Fecha archivo</label>
                 <div class="col-6 form-group">
-
-                <input
-                class="form-control"
-                type="Date"
-                  placeholder="Fecha archivo"
-                  v-model="gestion.fechaarchivo"
-                />
+                  <input
+                    class="form-control"
+                    type="Date"
+                    placeholder="Fecha archivo"
+                    v-model="gestion.fechaarchivo"
+                  />
                 </div>
-                 <label class="col-5 col-form-label">Entidad en que se adelanta el tramite</label>
+                <label class="col-5 col-form-label"
+                  >Entidad en que se adelanta el tramite</label
+                >
                 <div class="col-6 form-group">
-
-                <input
-                class="form-control"
-                  placeholder="Entidad tramite"
-                  v-model="gestion.entidadelantramite"
-                />
+                  <input
+                    class="form-control"
+                    placeholder="Entidad tramite"
+                    v-model="gestion.entidadelantramite"
+                  />
                 </div>
-            
 
                 <label class="col-6 col-form-label"
                   >Observación del tramite</label
                 >
-                
-          <div class="col-12 form-group">
-                <textarea
-                  rows="3"
-                  cols="50"
-                  type="text"
-                   class="form-control"
-                  v-model="gestion.obsrvtramite"
-                >
-                </textarea>
-          </div>
+
+                <div class="col-12 form-group">
+                  <textarea
+                    rows="3"
+                    cols="50"
+                    type="text"
+                    class="form-control"
+                    v-model="gestion.obsrvtramite"
+                  >
+                  </textarea>
+                </div>
 
                 <label class="col-6 col-form-label"
                   >Actuaciones realizadas</label
                 >
-                
-              <div class="col-12 form-group">
-                <textarea
-                  rows="3"
-                  cols="50"
-                  type="text"
-                   class="form-control"                 
-                  v-model="gestion.actuarealizadas"
-                >
-                </textarea>
-            </div>
+
+                <div class="col-12 form-group">
+                  <textarea
+                    rows="3"
+                    cols="50"
+                    type="text"
+                    class="form-control"
+                    v-model="gestion.actuarealizadas"
+                  >
+                  </textarea>
+                </div>
 
                 <label class="col-5 col-form-label">Atuaciones juridicas</label>
-               
-   <div class="col-12 form-group">
-                <textarea
-                  rows="3"
-                  cols="50"
-                  type="text"
-                   class="form-control"                 
-                  v-model="gestion.actjuridirealzadas"
-                >
-                </textarea>
-            </div>
 
-             
-               
+                <div class="col-12 form-group">
+                  <textarea
+                    rows="3"
+                    cols="50"
+                    type="text"
+                    class="form-control"
+                    v-model="gestion.actjuridirealzadas"
+                  >
+                  </textarea>
+                </div>
 
                 <label class="col-5 col-form-label"
                   >Resultados de la actuación</label
                 >
                 <div class="col-12 form-group">
-                <textarea
-                  rows="3"
-                  cols="50"
-                  type="text"
-                   class="form-control"                 
-                  v-model="gestion.resulactuacion"
-                >
-                </textarea>
-            </div>
-
-
-                
-               
-                
-
-               
+                  <textarea
+                    rows="3"
+                    cols="50"
+                    type="text"
+                    class="form-control"
+                    v-model="gestion.resulactuacion"
+                  >
+                  </textarea>
+                </div>
               </div>
 
               <div class="modal-footer">
@@ -360,9 +353,9 @@
                 <h5 class="modal-title" id="exampleModalLabel">Gestión</h5>
               </div>
               <div class="modal-body">
-                <label class="col-5 col-form-label">Recepción</label>
                 <div class="col-6 form-group">
                   <input
+                    type="hidden"
                     class="form-control"
                     placeholder="Recepción"
                     v-model="gestion.recepcion.id"
@@ -371,7 +364,7 @@
                 </div>
 
                 <label class="col-5 col-form-label">Ampliación de hechos</label>
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Ampliación de hechos"
@@ -381,67 +374,67 @@
                 </div>
 
                 <label class="col-5 col-form-label">Observaciones</label>
-                
-                  
-                     <div class="col-12 form-group">
-                <textarea
-                  rows="3"
-                  cols="50"
-                  type="text"
-                   class="form-control"                 
-                  v-model="gestion.obsrvtramite"
-                >
-                </textarea>
-            </div>
-                  
 
-                <label class="col-5 col-form-label">Actuaciones Realizadas</label>
-                
+                <div class="col-12 form-group">
+                  <textarea
+                    rows="3"
+                    cols="50"
+                    type="text"
+                    class="form-control"
+                    v-model="gestion.obsrvtramite"
+                    disabled
+                  >
+                  </textarea>
+                </div>
 
-                     <div class="col-12 form-group">
-                <textarea
-                  rows="3"
-                  cols="50"
-                  type="text"
-                   class="form-control"                 
-                  v-model="gestion.actuarealizadas"
+                <label class="col-5 col-form-label"
+                  >Actuaciones Realizadas</label
                 >
-                </textarea>
-            </div>
-                  
+
+                <div class="col-12 form-group">
+                  <textarea
+                    rows="3"
+                    cols="50"
+                    type="text"
+                    class="form-control"
+                    v-model="gestion.actuarealizadas"
+                    disabled
+                  >
+                  </textarea>
+                </div>
 
                 <label class="col-5 col-form-label"
                   >Actuaciones Juridicas</label
                 >
-               
-                     <div class="col-12 form-group">
-                <textarea
-                  rows="3"
-                  cols="50"
-                  type="text"
-                   class="form-control"                 
-                  v-model="gestion.actjuridirealzadas"
-                >
-                </textarea>
-            </div>
-                  
+
+                <div class="col-12 form-group">
+                  <textarea
+                    rows="3"
+                    cols="50"
+                    type="text"
+                    class="form-control"
+                    v-model="gestion.actjuridirealzadas"
+                    disabled
+                  >
+                  </textarea>
+                </div>
 
                 <label class="col-5 col-form-label"
                   >Resultado de actuación</label
                 >
-               
 
-                     <div class="col-12 form-group">
-                <textarea
-                  rows="3"
-                  cols="50"
-                  type="text"
-                   class="form-control"                 
-                  v-model="gestion.resulactuacion"
-                >
-                </textarea>
-            </div>
-                 
+                <div class="col-12 form-group">
+                  <textarea
+                    rows="3"
+                    cols="50"
+                    type="text"
+                    class="form-control"
+                    v-model="gestion.resulactuacion"
+                    disabled
+                  >
+                  </textarea>
+                </div>
+
                 <br />
                 <br />
 
@@ -476,11 +469,13 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Datos de la Recepción</h5>
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Datos de la Recepción
+                </h5>
               </div>
               <div class="modal-body">
                 <label class="col-5 col-form-label">Estado:</label>
-                <br>
+                <br />
                 <div class="col-6">
                   <select
                     class="form-control"
@@ -496,99 +491,91 @@
 
                 <label class="col-5 col-form-label">Fecha de radicado:</label>
                 <div class="col-6 form-group">
-
-                <input
-                class="form-control"
-                  placeholder="recepcion"
-                  type="date"
-                  v-model="gestion.fecharadicado"
-                  disabled
-                />
+                  <input
+                    class="form-control"
+                    placeholder="recepcion"
+                    type="date"
+                    v-model="gestion.fecharadicado"
+                    disabled
+                  />
                 </div>
 
                 <label class="col-5 col-form-label"
                   >Fecha de recepcionado:</label
                 >
                 <div class="col-6 form-group">
-
-                <input
-                class="form-control"
-                  placeholder="recepcion"
-                  type="date"
-                  v-model="gestion.fecharecepcionado"
-                  disabled
-                />
+                  <input
+                    class="form-control"
+                    placeholder="recepcion"
+                    type="date"
+                    v-model="gestion.fecharecepcionado"
+                    disabled
+                  />
                 </div>
 
                 <label class="col-5 col-form-label">Fecha de reparto:</label>
                 <div class="col-6 form-group">
-
-                <input
-                class="form-control"
-                  placeholder="recepcion"
-                  type="date"
-                  v-model="gestion.fechareparto"
-                  disabled
-                />
+                  <input
+                    class="form-control"
+                    placeholder="recepcion"
+                    type="date"
+                    v-model="gestion.fechareparto"
+                    disabled
+                  />
                 </div>
 
                 <label class="col-5 col-form-label"
                   >Fecha de publicación:</label
                 >
                 <div class="col-6 form-group">
-
-                <input
-                class="form-control"
-                  placeholder="recepcion"
-                  type="date"
-                  v-model="gestion.fechapublicacion"
-                  disabled
-                />
+                  <input
+                    class="form-control"
+                    placeholder="recepcion"
+                    type="date"
+                    v-model="gestion.fechapublicacion"
+                    disabled
+                  />
                 </div>
 
                 <label class="col-5 col-form-label">Fecha de retiro</label>
                 <div class="col-6 form-group">
-
-                <input
-                class="form-control"
-                  placeholder="recepcion"
-                  type="date"
-                  v-model="gestion.fecharetiro"
-                  disabled
-                />
+                  <input
+                    class="form-control"
+                    placeholder="recepcion"
+                    type="date"
+                    v-model="gestion.fecharetiro"
+                    disabled
+                  />
                 </div>
 
                 <label class="col-5 col-form-label">Recepcionado en:</label>
                 <div class="col-6 form-group">
-
-                <input
-                class="form-control"
-                  placeholder="recepcion"
-                  v-model="gestion.recepcionado"
-                  disabled
-                />
+                  <input
+                    class="form-control"
+                    placeholder="recepcion"
+                    v-model="gestion.recepcionado"
+                    disabled
+                  />
                 </div>
 
                 <label class="col-5 col-form-label">Consultorio:</label>
                 <div class="col-6 form-group">
-
-                <input
-                class="form-control"
-                  placeholder="recepcion"
-                  v-model="gestion.consultorio"
-                  disabled
-                />
+                  <input
+                    class="form-control"
+                    placeholder="recepcion"
+                    v-model="gestion.consultorio"
+                    disabled
+                  />
                 </div>
 
                 <label class="col-5 col-form-label">Area:</label>
                 <div class="col-6 form-group">
-
-                <input
-                class="form-control"
-                  placeholder="recepcion"
-                  v-model="gestion.nombre"
-                  disabled
-                />
+                  <input
+                    class="form-control"
+                    placeholder="recepcion"
+                    v-model="gestion.nombre"
+                    disabled
+                  />
                 </div>
 
                 <br />

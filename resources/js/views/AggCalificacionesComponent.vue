@@ -84,7 +84,7 @@
             </div>
             <div class="modal-body">
               <label class="col-5 col-form-label">Estado de la Recepción</label>
-              <div class="col-6">
+              <div class="col-12">
                 <select
                   class="form-control"
                   placeholder="Estado"
@@ -98,7 +98,7 @@
               </div>
 
               <label class="col-5 col-form-label">Recepcionado en:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -108,7 +108,7 @@
               </div>
 
               <label class="col-5 col-form-label">Consultorio:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -118,7 +118,7 @@
               </div>
 
               <label class="col-5 col-form-label">Fecha de radicado:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -130,7 +130,7 @@
               </div>
 
               <label class="col-5 col-form-label">Fecha de recepcionado:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -142,7 +142,7 @@
               </div>
 
               <label class="col-5 col-form-label">Fecha de reparto:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -154,7 +154,7 @@
               </div>
 
               <label class="col-5 col-form-label">Fecha de publicación:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -166,7 +166,7 @@
               </div>
 
               <label class="col-5 col-form-label">Fecha de retiro:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -231,7 +231,7 @@
               />
 
               <label class="col-5 col-form-label">Nota primer corte</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Nota primer corte"
@@ -240,7 +240,7 @@
               </div>
 
               <label class="col-5 col-form-label">Nota segundo corte</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Nota segundo corte"
@@ -248,7 +248,7 @@
                 />
               </div>
               <label class="col-5 col-form-label">Nota tercer corte</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Nota tercer corte"
@@ -308,7 +308,7 @@
             </div>
             <div class="modal-body">
               <label class="col-5 col-form-label">Cédula</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="cédula"
@@ -318,7 +318,7 @@
               </div>
 
               <label class="col-5 col-form-label">Primer Nombre</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Primer Nombre"
@@ -328,7 +328,7 @@
               </div>
 
               <label class="col-5 col-form-label">Segundo Nombre</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Segundo Nombre"
@@ -338,7 +338,7 @@
               </div>
 
               <label class="col-5 col-form-label">Primer Apellido</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Primer Apellido"
@@ -348,7 +348,7 @@
               </div>
 
               <label class="col-5 col-form-label">Segundo Apellido</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Segundo Apellido"
@@ -358,7 +358,7 @@
               </div>
 
               <label class="col-5 col-form-label">Dirección</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Dirección"
@@ -368,7 +368,7 @@
               </div>
 
               <label class="col-5 col-form-label">Teléfono</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Teléfono"

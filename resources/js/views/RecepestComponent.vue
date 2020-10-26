@@ -125,7 +125,7 @@
               </button>
             </div>
             <input
-            type="hidden"
+              type="hidden"
               class="form-control"
               placeholder="ID AREA"
               v-model="recepcion.area_id"
@@ -224,12 +224,11 @@
                 >
                 </textarea>
               </div>
-              <center>    
-                 <a  :href="'/comentarios/' + foro.id" >
-                  <i class="fas fa-arrow-alt-circle-right fa-3x"></i> 
-                                  
-                </a>             
-               
+
+              <center>
+                <a :href="'/comentarios/' + foro.id" title="Agregar Comentario">
+                  <i class="fas fa-arrow-alt-circle-right fa-5x"></i>
+                </a>
               </center>
             </div>
 
@@ -269,7 +268,7 @@
             </div>
 
             <div class="modal-body">
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   type="hidden"
                   class="form-control"
@@ -282,7 +281,7 @@
               <label class="col-5 col-form-label"
                 >Ampliación de hechos (*)</label
               >
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Ampliación de hechos"
@@ -291,7 +290,7 @@
               </div>
 
               <label class="col-5 col-form-label">Fecha entrevista (*)</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Fecha entrevista"
@@ -301,7 +300,7 @@
               </div>
 
               <label class="col-5 col-form-label">Tipo de tramite (*)</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Tipo de tramite"
@@ -310,7 +309,7 @@
               </div>
 
               <label class="col-5 col-form-label">Asunto de tramite (*)</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Asunto de tramite"
@@ -319,7 +318,7 @@
               </div>
 
               <label class="col-5 col-form-label">Motivo de archivo (*)</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Motivo de archivo"
@@ -328,7 +327,7 @@
               </div>
 
               <label class="col-5 col-form-label">Fecha de archivo (*)</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Fecha de archivo"
@@ -339,7 +338,7 @@
               <label class="col-5 col-form-label"
                 >Entidad del tramite (*)</label
               >
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Entidad del tramite"
@@ -435,7 +434,7 @@
             </div>
             <div class="modal-body">
               <label class="col-5 col-form-label">Fecha de radicado:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   placeholder="recepcion"
                   type="date"
@@ -447,7 +446,7 @@
               </div>
 
               <label class="col-5 col-form-label">Fecha de recepcionado:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   placeholder="recepcion"
                   class="form-control"
@@ -459,7 +458,7 @@
               </div>
 
               <label class="col-5 col-form-label">Fecha de reparto:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   placeholder="recepcion"
                   class="form-control"
@@ -471,7 +470,7 @@
               </div>
 
               <label class="col-5 col-form-label">Fecha de publicación:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   placeholder="recepcion"
                   class="form-control"
@@ -483,7 +482,7 @@
               </div>
 
               <label class="col-5 col-form-label">Fecha de retiro:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   placeholder="recepcion"
                   class="form-control"
@@ -533,7 +532,7 @@
             </div>
             <div class="modal-body">
               <label class="col-5 col-form-label">Nombre del reclamante:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   placeholder="nombre de persona"
                   class="form-control"
@@ -545,7 +544,7 @@
               <label class="col-5 col-form-label"
                 >Apellido del reclamante:</label
               >
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   placeholder="nombre de persona"
                   class="form-control"
@@ -556,7 +555,7 @@
 
               <label class="col-5 col-form-label">Enfoque diferencial:</label>
 
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   placeholder="enfoque diferencial"
                   class="form-control"
@@ -567,7 +566,7 @@
 
               <label class="col-5 col-form-label">Genero:</label>
 
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   placeholder="genero"
                   class="form-control"
@@ -578,7 +577,7 @@
 
               <label class="col-5 col-form-label">Edad:</label>
 
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   placeholder="edad"
                   class="form-control"
@@ -589,7 +588,7 @@
 
               <label class="col-5 col-form-label">Discapacidad:</label>
 
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   placeholder="discapacidad"
                   class="form-control"
@@ -600,7 +599,7 @@
 
               <label class="col-5 col-form-label">Estrato:</label>
 
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   placeholder="estrato"
                   class="form-control"
@@ -611,7 +610,7 @@
 
               <label class="col-5 col-form-label">Embarazo:</label>
 
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   placeholder="embarazo"
                   class="form-control"
@@ -622,7 +621,7 @@
 
               <label class="col-5 col-form-label">Grupo Etnico:</label>
 
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   placeholder="grupo etnico"
                   class="form-control"
@@ -633,7 +632,7 @@
 
               <label class="col-5 col-form-label">Entidad que reclama:</label>
 
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   placeholder="entidad"
                   class="form-control"
@@ -762,7 +761,7 @@
             </div>
             <div class="modal-body">
               <label class="col-5 col-form-label">Primer nombre:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Nombre de persona"
@@ -772,7 +771,7 @@
               </div>
 
               <label class="col-5 col-form-label">Segundo nombre:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Nombre de persona"
@@ -781,7 +780,7 @@
                 />
               </div>
               <label class="col-5 col-form-label">Primer Apellido:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Apellido de persona"
@@ -790,7 +789,7 @@
                 />
               </div>
               <label class="col-5 col-form-label">Segundo Apellido:</label>
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Apellido de persona"
@@ -937,7 +936,7 @@ export default {
       estado: "disable",
       recepcioness: [],
       errors: [],
-      foross: []
+      foross: [],
     };
   },
   created() {
@@ -946,11 +945,10 @@ export default {
     });
   },
   methods: {
-
-isFormValidForo: function () {
+    isFormValidForo: function () {
       return this.foro.id != "";
     },
-    
+
     limpiarforo() {
       this.foro.estadoFo = "";
       this.foro.id = "";
