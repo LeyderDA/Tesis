@@ -270,7 +270,7 @@
             <div class="modal-body">
               <div class="col-12 form-group">
                 <input
-                  type="hidden"
+                 
                   class="form-control"
                   placeholder="Recepción"
                   v-model="recepcion.id"
@@ -1177,7 +1177,7 @@ export default {
           n_act: this.gestion.n_act,
           n_aseso: this.gestion.n_aseso,
           n_autor: this.gestion.n_autor,
-          asesor: this.gestion.asesor,
+          asesor: this.gestion.asesor
         };
 
         axios.post("/api/gestion", params).then((res) => {

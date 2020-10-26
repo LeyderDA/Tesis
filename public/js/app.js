@@ -69212,11 +69212,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: {
-                        type: "hidden",
-                        placeholder: "Recepción",
-                        disabled: ""
-                      },
+                      attrs: { placeholder: "Recepción", disabled: "" },
                       domProps: { value: _vm.recepcion.id },
                       on: {
                         input: function($event) {
