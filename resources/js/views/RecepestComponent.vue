@@ -11,7 +11,6 @@
               <table class="table text-center">
                 <thead>
                   <tr>
-                    <th>ID</th>
                     <th>Recepcionado</th>
                     <th>Consultorio</th>
                     <th>Reclamante</th>
@@ -19,12 +18,11 @@
                     <th>Area</th>
                     <th>Fechas</th>
                     <th>Agregar Gestión</th>
-                    <th>Mostrar QR</th>
+                    <th>Opciones</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr v-for="recepcion in recepcioness" :key="recepcion.index">
-                    <td>{{ recepcion.id }}</td>
                     <td>{{ recepcion.recepcionado }}</td>
                     <td>{{ recepcion.consultorio }}</td>
                     <td>
@@ -74,9 +72,21 @@
                       </button>
                     </td>
                     <td>
+                      <button
+                        class="btn btn-success btn-sm"
+                        data-toggle="modal"
+                        data-target="#IRFORO"
+                        @click="editarForm(recepcion)"
+                        title="Ir a foro"
+                      >
+                        <i
+                          class="fab fa-foursquare fa-2x"
+                          style="color: black"
+                        ></i>
+                      </button>
                       <a :href="'/recepcionqr/' + recepcion.id">
                         <i
-                          class="fas fa-qrcode fa-3x"
+                          class="fas fa-qrcode fa-2x"
                           style="color: black"
                           title="Mostrar QR de la gestión"
                         ></i>
@@ -89,6 +99,140 @@
           </div>
         </div>
       </div>
+
+      <!-- PUENTE AL FORO -->
+      <div
+        class="modal fade"
+        id="IRFORO"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Foro</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <input
+            type="hidden"
+              class="form-control"
+              placeholder="ID AREA"
+              v-model="recepcion.area_id"
+              disabled
+            />
+
+            <div class="modal-body">
+              <label class="col-12 col-form-label"
+                >Oprima el ícono para VER EL FORO</label
+              >
+              <center>
+                <button
+                  class="btn btn-sm"
+                  data-toggle="modal"
+                  data-target="#FOROMOSTRAR"
+                  @click="buscaForo()"
+                  title="Mostrar Foro"
+                >
+                  <i class="fas fa-eye fa-5x" style="color: black"></i>
+                </button>
+              </center>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--PUENTE AL FORO -->
+
+      <!-- IR AL FORO -->
+      <div
+        class="modal fade"
+        id="FOROMOSTRAR"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Foro</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <div class="col-12 form-group">
+                <input type="hidden" class="form-control" v-model="foro.id" />
+              </div>
+
+              <label class="col-5 col-form-label">Título</label>
+              <div class="col-12 form-group">
+                <input class="form-control" v-model="foro.titulo" disabled />
+              </div>
+
+              <label class="col-5 col-form-label">Estado</label>
+              <div class="col-12">
+                <select
+                  class="form-control"
+                  placeholder="Estado"
+                  type="boolean"
+                  v-model="foro.estadoFo"
+                  disabled
+                >
+                  <option value="">Selecciona</option>
+                  <option value="1">Activo</option>
+                  <option value="0">Inactivo</option>
+                </select>
+              </div>
+
+              <label class="col-5 col-form-label">Descripción (*)</label>
+              <div class="col-12 form-group">
+                <textarea
+                  rows="3"
+                  cols="50"
+                  type="text"
+                  class="form-control"
+                  v-model="foro.descripcion"
+                  disabled
+                >
+                </textarea>
+              </div>
+              <center>
+                <a :href="'/comentarios/' + foro.id">
+                  <i class="fas fa-arrow-alt-circle-right fa-3x"></i>
+                </a>
+              </center>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--IR AL FORO -->
 
       <!--modal de asignar gestion -->
       <div
@@ -126,7 +270,9 @@
                 />
               </div>
 
-              <label class="col-5 col-form-label">Ampliación de hechos (*)</label>
+              <label class="col-5 col-form-label"
+                >Ampliación de hechos (*)</label
+              >
               <div class="col-6 form-group">
                 <input
                   class="form-control"
@@ -181,7 +327,9 @@
                   v-model="gestion.fechaarchivo"
                 />
               </div>
-              <label class="col-5 col-form-label">Entidad del tramite (*)</label>
+              <label class="col-5 col-form-label"
+                >Entidad del tramite (*)</label
+              >
               <div class="col-6 form-group">
                 <input
                   class="form-control"
@@ -202,7 +350,9 @@
                 </textarea>
               </div>
 
-              <label class="col-5 col-form-label">Actuaciones realizadas (*)</label>
+              <label class="col-5 col-form-label"
+                >Actuaciones realizadas (*)</label
+              >
               <div class="col-12 form-group">
                 <textarea
                   rows="3"
@@ -228,7 +378,9 @@
                 </textarea>
               </div>
 
-              <label class="col-5 col-form-label">Resultado de actuación (*)</label>
+              <label class="col-5 col-form-label"
+                >Resultado de actuación (*)</label
+              >
               <div class="col-12 form-group">
                 <textarea
                   rows="3"
@@ -665,6 +817,24 @@
 export default {
   data() {
     return {
+      foro: {
+        id: "",
+        titulo: "",
+        descripcion: "",
+        estadoFo: "",
+        area: {
+          id: "",
+          nombre: "",
+        },
+
+        usuario: {
+          username: "",
+          email: "",
+          password: "",
+          rol_id: "",
+          per_id: "",
+        },
+      },
       usurecep: {
         id: "",
         usuario: {
@@ -764,6 +934,22 @@ export default {
     });
   },
   methods: {
+    buscaForo() {
+      axios.get("/api/foro/" + this.foro.id).then((res) => {
+        if (res.data[0] == null) {
+          this.foro.id = "";
+          this.foro.titulo = "";
+          console.log(this.foro.titulo);
+          this.esta = false;
+        } else {
+          console.log(res.data[0]);
+          let foro = res.data[0];
+          this.foro = foro;
+          this.esta = true;
+        }
+      });
+    },
+
     buscarrecep() {
       axios.get("/api/recepcionRE/" + this.recepcion.id).then((res) => {
         if (res.data[0] == null) {

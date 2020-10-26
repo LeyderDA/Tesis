@@ -201,12 +201,7 @@ export default new Router({
         },
 
         
-        {
-            path: '/VerForoEst',
-            name: 'verforosest',
-            component: require('./views/VerForoEstComponent.vue').default
-
-        },
+       
     ],
     mode: 'history'
 

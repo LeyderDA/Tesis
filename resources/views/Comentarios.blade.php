@@ -85,7 +85,7 @@
             <!--modal de asignar comentario -->
           </div> 
           <center> 
-            <a href="/VerForoDoc"  class="btn btn-primary"  >Salir</a>
+            <a href="/home"  class="btn btn-primary"  >Salir</a>
           </center>        
        </div>
       </div>

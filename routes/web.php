@@ -33,7 +33,7 @@ Route::get('/ReclamanteVista', 'HomeController@index')->name('reclamante')->midd
 Route::get('/Recepcion', 'HomeController@index')->name('recepcion')->middleware('Administrativo_Middleware');
 Route::get('/Gestion', 'HomeController@index')->name('gestion')->middleware('EstudianteMiddleware');
 
-Route::get('/VerForoEst', 'HomeController@index')->name('forosest')->middleware('EstudianteMiddleware');
+
 
 
 Route::get('/GestionVistaSuper', 'HomeController@index')->name('gestionS')->middleware('Administrativo_Middleware');

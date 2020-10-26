@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Foro;
+use App\UsuRecep; 
+use App\Recepcion;
+use App\Http\Controllers\request_id;
 
 use Illuminate\Http\Request;
 
@@ -9,10 +12,8 @@ class ForosController extends Controller
 {
     public function index(Request $request)
     {   
-     
-       
-        $foro = Foro::all();
 
+        $foro = Foro::all();
         if ($request->ajax()) {
             foreach ($foro as $rec) {                                        
                 $rec->area;                                     
@@ -20,21 +21,29 @@ class ForosController extends Controller
             return $foro;
         } else {
             return  response()->json($foro);
-        }   
-      
+        }       
     }
-
-    public function indexEst()
+    public function indexEst(Request $request)
     {   
+        $foro = Foro::join("areas","areas.id","=","foro.area_id")     
+        ->select('foro.*')
+       
+        
+        ->where('foro.area_id','=',2)
+        ->get(); 
 
-        $for = Foro::join("users","users.id","=","foro.doc_id")
-        ->join("usurecep","usurecep.usu_id","=","foro.doc_id")
-        ->join("recepciones","recepciones.id","=","usurecep.recp_id")
-        ->select('foro.*'      
-        )
-        ->where('foro.estadoFo','=',1)
-        ->get();  
-        return  response()->json($for); 
+       
+        if ($request->ajax()) {
+            foreach ($foro as $rec) {                                        
+                $rec->area;                                     
+            }
+            return $foro;
+        } else {
+            return  response()->json($foro);
+        }     
+        
+         
+        
     }
 
     public function comentarios($id)
@@ -125,10 +134,10 @@ class ForosController extends Controller
       
     }
 
-    public function buscarced($cedula)
+    public function buscar($id)
     {
-        $pers = Persona::where("cedula","=",$cedula);
-        return  response()->json($pers);
+        $foro = Foro::where("area_id","=",$id);
+        return  response()->json($foro);
 
     }
 }

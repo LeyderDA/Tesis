@@ -106,6 +106,7 @@ Route::get('/miusuario', 'MiUsuarioController@index')->name('Listar');
 Route::post('/foro', 'ForosController@store')->name('ForosGuardar');
 Route::post('/forito', 'ForosController@storee')->name('ForosGuardar');
 Route::get('/foro', 'ForosController@index')->name('ForosListar');
+Route::get('/foroEst', 'ForosController@indexEst')->name('ForosListare');
 Route::delete('/foro/{id}', 'ForosController@destroy')->name('ForosEliminar');
 Route::put('/foro/{id}', 'ForosController@update')->name('ForosActualizar');
 Route::get('/foro/{id}', 'ForosController@buscar')->name('Forosbuscar');
