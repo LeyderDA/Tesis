@@ -2517,6 +2517,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2953,8 +2958,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -7174,6 +7177,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     var _ref;
@@ -8260,6 +8265,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     errors: [];
@@ -8345,6 +8355,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -10680,8 +10693,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -11270,6 +11281,20 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -13477,10 +13502,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
-//
 //
 //
 //
@@ -55795,21 +55816,32 @@ var render = function() {
             _c("br"),
             _vm._v(" "),
             true
-              ? _c("div", { staticClass: "col-12" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary btn-block",
-                      on: {
-                        click: function($event) {
-                          return _vm.agregar()
-                        }
-                      }
-                    },
-                    [_vm._v("\n              Guardar\n            ")]
-                  )
-                ])
+              ? _c(
+                  "div",
+                  { staticClass: "col-12" },
+                  [
+                    _c("center", [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary btn-block",
+                          on: {
+                            click: function($event) {
+                              return _vm.agregar()
+                            }
+                          }
+                        },
+                        [_vm._v("\n                Guardar\n              ")]
+                      )
+                    ])
+                  ],
+                  1
+                )
               : undefined,
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("br"),
             _vm._v(" "),
             _c("br"),
             _vm._v(" "),
@@ -55821,7 +55853,9 @@ var render = function() {
                   "tbody",
                   _vm._l(_vm.areass, function(areas, index) {
                     return _c("tr", { key: areas.index }, [
-                      _c("th", [_vm._v(_vm._s(areas.id))]),
+                      _c("td"),
+                      _vm._v(" "),
+                      _c("td"),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(areas.nombre))]),
                       _vm._v(" "),
@@ -55955,11 +55989,13 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Codigo")]),
+        _c("th"),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre")]),
+        _c("th"),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Opciones")])
+        _c("th", [_vm._v("Nombre")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Opciones")])
       ])
     ])
   },
@@ -56707,8 +56743,6 @@ var render = function() {
                     "tbody",
                     _vm._l(_vm.usurecepss, function(usurecep, index) {
                       return _c("tr", { key: usurecep.index }, [
-                        _c("td", [_vm._v(_vm._s(usurecep.id))]),
-                        _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(usurecep.nombre))]),
                         _vm._v(" "),
                         _c("td", [
@@ -56807,11 +56841,11 @@ var render = function() {
                   _vm._m(2),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Username")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -56839,11 +56873,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Cedula")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -56871,11 +56905,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Primer nombre")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -56903,11 +56937,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Segundo nombre")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -56935,11 +56969,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Primer apellido")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -56967,11 +57001,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Segundo apellido")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -57002,11 +57036,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Teléfono")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -57030,11 +57064,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Dirección")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -57087,11 +57121,11 @@ var render = function() {
                   _vm._m(4),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Define el estado")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6" }, [
+                    _c("div", { staticClass: "col-12" }, [
                       _c(
                         "select",
                         {
@@ -57141,11 +57175,11 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha de radicado:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -57177,11 +57211,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha de recepcionado:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -57213,11 +57247,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha de reparto:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -57249,11 +57283,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha de publicación:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -57285,11 +57319,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha de retiro")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -57321,11 +57355,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Recepcionado en:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -57353,11 +57387,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Consultorio:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -57385,11 +57419,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Area:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -57445,8 +57479,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("ID")]),
-        _vm._v(" "),
         _c("th", [_vm._v("Area")]),
         _vm._v(" "),
         _c("th", [_vm._v("Datos de la Recepción")]),
@@ -61711,11 +61743,11 @@ var render = function() {
                   _vm._m(2),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Ampliación de hechos")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -61743,11 +61775,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("fecha entrevista asesor")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -61778,11 +61810,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Tipo de tramite")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -61810,11 +61842,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Asunto tramite")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -61842,11 +61874,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Motivo archivo")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -61874,11 +61906,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha archivo")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -61906,11 +61938,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Observación del tramite")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -61938,11 +61970,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Actuaciones realizadas")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -61970,11 +62002,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Atuaciones juridicas")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -62002,11 +62034,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Resultados de la actuación")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -62034,11 +62066,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Entidad tramite")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -62122,7 +62154,7 @@ var render = function() {
                   _vm._m(3),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("ID")
                     ]),
                     _vm._v(" "),
@@ -62151,7 +62183,7 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Recepcionado")
                     ]),
                     _vm._v(" "),
@@ -62180,7 +62212,7 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha de Radicado")
                     ]),
                     _vm._v(" "),
@@ -62209,7 +62241,7 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha Recepcionado")
                     ]),
                     _vm._v(" "),
@@ -62240,7 +62272,7 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Consultorio")
                     ]),
                     _vm._v(" "),
@@ -62269,7 +62301,7 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha Reparto")
                     ]),
                     _vm._v(" "),
@@ -62298,7 +62330,7 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha Publicación")
                     ]),
                     _vm._v(" "),
@@ -62329,7 +62361,7 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha Retiro")
                     ]),
                     _vm._v(" "),
@@ -62387,11 +62419,11 @@ var render = function() {
                   _vm._m(5),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Recepción")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -62419,11 +62451,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Ampliación de hechos")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -62454,11 +62486,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Observaciones")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -62486,11 +62518,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Actuaciones")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -62518,11 +62550,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Actuaciones Juridicas")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -62553,11 +62585,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Resultado de actuación")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -62621,11 +62653,11 @@ var render = function() {
                   _vm._m(7),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Estado")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6" }, [
+                    _c("div", { staticClass: "col-12" }, [
                       _c(
                         "select",
                         {
@@ -62675,11 +62707,11 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha de radicado:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -62711,11 +62743,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha de recepcionado:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -62747,11 +62779,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha de reparto:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -62783,11 +62815,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha de publicación:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -62819,11 +62851,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Fecha de retiro")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -62855,11 +62887,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Recepcionado en:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -62887,11 +62919,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Consultorio:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -62919,11 +62951,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Area:")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -63409,7 +63441,10 @@ var render = function() {
         [
           _c(
             "div",
-            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            {
+              staticClass: "modal-dialog modal-sm",
+              attrs: { role: "document" }
+            },
             [
               _c("div", { staticClass: "modal-content" }, [
                 _vm._m(2),
@@ -63443,10 +63478,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-12 col-form-label" }, [
-                      _vm._v(
-                        "Oprima el ícono para ver todos los datos de su\n              Recepcionador"
-                      )
+                    _c("center", [
+                      _c("label", { staticClass: "col-12 col-form-label" }, [
+                        _vm._v("Click en el ícono")
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("center", [
@@ -63509,11 +63544,11 @@ var render = function() {
                 _vm._m(4),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Primer nombre:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -63541,11 +63576,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Segundo nombre:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -63573,11 +63608,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Primer Apellido:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -63608,11 +63643,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Segundo Apellido:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -63705,7 +63740,10 @@ var render = function() {
         [
           _c(
             "div",
-            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            {
+              staticClass: "modal-dialog modal-sm",
+              attrs: { role: "document" }
+            },
             [
               _c("div", { staticClass: "modal-content" }, [
                 _vm._m(5),
@@ -63739,10 +63777,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-12 col-form-label" }, [
-                      _vm._v(
-                        "Oprima el ícono para ver todos los datos de su\n              Estudiante"
-                      )
+                    _c("center", [
+                      _c("label", { staticClass: "col-12 col-form-label" }, [
+                        _vm._v("Click en el ícono")
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("center", [
@@ -63805,11 +63843,11 @@ var render = function() {
                 _vm._m(7),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Primer nombre:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -63839,11 +63877,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Segundo nombre:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -63873,11 +63911,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Primer Apellido:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -63910,11 +63948,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Segundo Apellido:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -64015,11 +64053,11 @@ var render = function() {
                 _vm._m(8),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Define el estado")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6" }, [
+                  _c("div", { staticClass: "col-12" }, [
                     _c(
                       "select",
                       {
@@ -64065,7 +64103,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de radicado:")
                   ]),
                   _vm._v(" "),
@@ -64094,7 +64132,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de recepcionado:")
                   ]),
                   _vm._v(" "),
@@ -64123,7 +64161,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de reparto:")
                   ]),
                   _vm._v(" "),
@@ -64152,7 +64190,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de publicación:")
                   ]),
                   _vm._v(" "),
@@ -64181,7 +64219,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de retiro")
                   ]),
                   _vm._v(" "),
@@ -64210,7 +64248,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Recepcionado en:")
                   ]),
                   _vm._v(" "),
@@ -64239,7 +64277,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Consultorio:")
                   ]),
                   _vm._v(" "),
@@ -64268,7 +64306,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Area:")
                   ]),
                   _vm._v(" "),
@@ -64298,7 +64336,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   true
-                    ? _c("div", { staticClass: "col-5 form-group" }, [
+                    ? _c("div", { staticClass: "col-12 form-group" }, [
                         _c(
                           "button",
                           {
@@ -64328,7 +64366,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Cédula Reclamante:")
                   ]),
                   _vm._v(" "),
@@ -64360,7 +64398,7 @@ var render = function() {
                   _c("br"),
                   _vm._v(" "),
                   true
-                    ? _c("div", { staticClass: "col-5 form-group" }, [
+                    ? _c("div", { staticClass: "col-12 form-group" }, [
                         _c(
                           "button",
                           {
@@ -64515,7 +64553,7 @@ var render = function() {
                 _vm._m(11),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("ID RECEPCIÓN:")
                   ]),
                   _vm._v(" "),
@@ -64540,7 +64578,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("CÉDULA:")
                   ]),
                   _vm._v(" "),
@@ -64659,7 +64697,7 @@ var render = function() {
                 _vm._m(12),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("ID RECEPCIÓN:")
                   ]),
                   _vm._v(" "),
@@ -64684,7 +64722,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("CÉDULA:")
                   ]),
                   _vm._v(" "),
@@ -64801,11 +64839,11 @@ var render = function() {
                 _vm._m(13),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de radicado:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -64838,11 +64876,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de recepcionado:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -64875,11 +64913,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de reparto:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -64912,11 +64950,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de publicación:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -64949,11 +64987,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de retiro:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -65019,11 +65057,11 @@ var render = function() {
                 _vm._m(15),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Nombre del reclamante:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -65047,11 +65085,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Apellido del reclamante:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -65075,11 +65113,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Enfoque diferencial:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -65112,11 +65150,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Genero:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -65144,11 +65182,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Edad:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -65176,11 +65214,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Discapacidad:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -65210,11 +65248,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Estrato:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -65244,11 +65282,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Embarazo:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -65278,11 +65316,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Grupo Etnico:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -65312,11 +65350,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Entidad que reclama:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -65555,7 +65593,7 @@ var render = function() {
               _vm._m(21),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
-                _c("label", { staticClass: "col-5 col-form-label" }, [
+                _c("label", { staticClass: "col-12 col-form-label" }, [
                   _vm._v("USERNAME")
                 ]),
                 _vm._v(" "),
@@ -65584,7 +65622,7 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _c("label", { staticClass: "col-5 col-form-label" }, [
+                _c("label", { staticClass: "col-12 col-form-label" }, [
                   _vm._v("CEDULA")
                 ]),
                 _vm._v(" "),
@@ -65613,7 +65651,7 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _c("label", { staticClass: "col-5 col-form-label" }, [
+                _c("label", { staticClass: "col-12 col-form-label" }, [
                   _vm._v("NOMBRE")
                 ]),
                 _vm._v(" "),
@@ -65642,7 +65680,7 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _c("label", { staticClass: "col-5 col-form-label" }, [
+                _c("label", { staticClass: "col-12 col-form-label" }, [
                   _vm._v("APELLIDO")
                 ]),
                 _vm._v(" "),
@@ -65714,7 +65752,7 @@ var render = function() {
               _vm._m(22),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
-                _c("label", { staticClass: "col-5 col-form-label" }, [
+                _c("label", { staticClass: "col-12 col-form-label" }, [
                   _vm._v("ID RECLAMANTE")
                 ]),
                 _vm._v(" "),
@@ -65739,7 +65777,7 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _c("label", { staticClass: "col-5 col-form-label" }, [
+                _c("label", { staticClass: "col-12 col-form-label" }, [
                   _vm._v("CEDULA")
                 ]),
                 _vm._v(" "),
@@ -65768,7 +65806,7 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _c("label", { staticClass: "col-5 col-form-label" }, [
+                _c("label", { staticClass: "col-12 col-form-label" }, [
                   _vm._v("NOMBRE")
                 ]),
                 _vm._v(" "),
@@ -65797,7 +65835,7 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _c("label", { staticClass: "col-5 col-form-label" }, [
+                _c("label", { staticClass: "col-12 col-form-label" }, [
                   _vm._v("APELLIDO")
                 ]),
                 _vm._v(" "),
@@ -68619,11 +68657,11 @@ var render = function() {
                   _vm._m(2),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Cedula")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -68651,11 +68689,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Primer nombre")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -68683,11 +68721,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Segundo nombre")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -68715,11 +68753,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Primer apellido")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -68747,11 +68785,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Segundo apellido")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -68779,11 +68817,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Teléfono")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -68807,11 +68845,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Dirección")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -68879,6 +68917,8 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
+      _c("br"),
+      _vm._v(" "),
       _c("h2", { staticClass: "text-center mb-2 card-title" }, [
         _vm._v("Listado de personas")
       ])
@@ -72182,8 +72222,6 @@ var render = function() {
                     "tbody",
                     _vm._l(_vm.reclamantess, function(reclamante, index) {
                       return _c("tr", { key: reclamante.index }, [
-                        _c("td", [_vm._v(_vm._s(reclamante.id))]),
-                        _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(reclamante.enfodifervictima))]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(reclamante.genevictima))]),
@@ -72293,11 +72331,11 @@ var render = function() {
                   _vm._m(2),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Enfoque diferencial")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -72325,11 +72363,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Genero")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -72357,11 +72395,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Edad")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -72388,12 +72426,12 @@ var render = function() {
                         }
                       }),
                       _vm._v(" "),
-                      _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _c("label", { staticClass: "col-12 col-form-label" }, [
                         _vm._v("Discapacidad")
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -72421,11 +72459,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Estrato")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -72453,11 +72491,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Embarazo")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -72485,11 +72523,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Grupo Etnico")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -72517,11 +72555,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Entidad que reclama")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -72549,11 +72587,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Cedula")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -72716,11 +72754,11 @@ var render = function() {
                   _vm._m(5),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _c("label", { staticClass: "col-10 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Cedula")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-10 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -72748,11 +72786,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-10 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Primer nombre")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-10 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -72780,11 +72818,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-10 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Segundo nombre")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-10 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -72812,11 +72850,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-10 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Primer apellido")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-10 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -72844,11 +72882,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-10 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Segundo apellido")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-10 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -72879,11 +72917,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-10 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Teléfono")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-10 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -72911,11 +72949,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-10 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Dirección")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-10 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -72971,8 +73009,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Id")]),
-        _vm._v(" "),
         _c("th", [_vm._v("Enf.Diferencial")]),
         _vm._v(" "),
         _c("th", [_vm._v("Genero")]),
@@ -74502,7 +74538,10 @@ var render = function() {
         [
           _c(
             "div",
-            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            {
+              staticClass: "modal-dialog modal-sm",
+              attrs: { role: "document" }
+            },
             [
               _c("div", { staticClass: "modal-content" }, [
                 _vm._m(2),
@@ -74536,10 +74575,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-12 col-form-label" }, [
-                      _vm._v(
-                        "Oprima el ícono para ver todos los datos de su\n              Recepcionador"
-                      )
+                    _c("center", [
+                      _c("label", { staticClass: "col-12 col-form-label" }, [
+                        _vm._v("Click en el ícono")
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("center", [
@@ -74602,11 +74641,11 @@ var render = function() {
                 _vm._m(4),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Primer nombre:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -74634,11 +74673,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Segundo nombre:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -74666,11 +74705,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Primer Apellido:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -74701,11 +74740,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Segundo Apellido:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -74798,7 +74837,10 @@ var render = function() {
         [
           _c(
             "div",
-            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            {
+              staticClass: "modal-dialog modal-sm",
+              attrs: { role: "document" }
+            },
             [
               _c("div", { staticClass: "modal-content" }, [
                 _vm._m(5),
@@ -74832,10 +74874,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-12 col-form-label" }, [
-                      _vm._v(
-                        "Oprima el ícono para ver todos los datos de su\n              Estudiante"
-                      )
+                    _c("center", [
+                      _c("label", { staticClass: "col-12 col-form-label" }, [
+                        _vm._v("Click en el ícono")
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("center", [
@@ -74898,11 +74940,11 @@ var render = function() {
                 _vm._m(7),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Primer nombre:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -74932,11 +74974,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Segundo nombre:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -74966,11 +75008,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Primer Apellido:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -75003,11 +75045,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Segundo Apellido:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -75108,11 +75150,11 @@ var render = function() {
                 _vm._m(8),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Define el estado")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6" }, [
+                  _c("div", { staticClass: "col-12" }, [
                     _c(
                       "select",
                       {
@@ -75158,11 +75200,11 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de radicado:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -75194,11 +75236,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de recepcionado:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -75230,11 +75272,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de reparto:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -75266,11 +75308,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de publicación:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -75302,11 +75344,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de retiro")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -75338,11 +75380,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Recepcionado en:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -75370,11 +75412,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Consultorio:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -75402,11 +75444,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Area:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -75440,11 +75482,11 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Cédula Reclamante:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -75478,7 +75520,7 @@ var render = function() {
                   _c("br"),
                   _vm._v(" "),
                   true
-                    ? _c("div", { staticClass: "col-5 form-group" }, [
+                    ? _c("div", { staticClass: "col-12 form-group" }, [
                         _c(
                           "button",
                           {
@@ -75633,7 +75675,7 @@ var render = function() {
                 _vm._m(11),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("ID RECEPCIÓN:")
                   ]),
                   _vm._v(" "),
@@ -75658,7 +75700,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("CÉDULA:")
                   ]),
                   _vm._v(" "),
@@ -75777,7 +75819,7 @@ var render = function() {
                 _vm._m(12),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("ID RECEPCIÓN:")
                   ]),
                   _vm._v(" "),
@@ -75802,7 +75844,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("CÉDULA:")
                   ]),
                   _vm._v(" "),
@@ -75919,11 +75961,11 @@ var render = function() {
                 _vm._m(13),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de radicado:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -75956,11 +75998,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de recepcionado:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -75993,11 +76035,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de reparto:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -76030,11 +76072,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de publicación:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -76067,11 +76109,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de retiro:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -76137,11 +76179,11 @@ var render = function() {
                 _vm._m(15),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Nombre del reclamante:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -76165,11 +76207,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Apellido del reclamante:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -76193,11 +76235,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Enfoque diferencial:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -76230,11 +76272,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Genero:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -76262,11 +76304,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Edad:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -76294,11 +76336,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Discapacidad:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -76328,11 +76370,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Estrato:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -76362,11 +76404,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Embarazo:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -76396,11 +76438,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Grupo Etnico:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -76430,11 +76472,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Entidad que reclama:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -76651,7 +76693,7 @@ var render = function() {
                 _vm._m(21),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("USERNAME")
                   ]),
                   _vm._v(" "),
@@ -76680,7 +76722,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("CEDULA")
                   ]),
                   _vm._v(" "),
@@ -76709,7 +76751,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("NOMBRE")
                   ]),
                   _vm._v(" "),
@@ -76738,7 +76780,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("APELLIDO")
                   ]),
                   _vm._v(" "),
@@ -76810,11 +76852,11 @@ var render = function() {
                 _vm._m(22),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("USERNAME")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -76842,11 +76884,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("CEDULA")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -76874,11 +76916,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("NOMBRE")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -76906,11 +76948,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("APELLIDO")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -76955,7 +76997,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("h2", { staticClass: "text-center mb-2 card-title" }, [
-        _vm._v("Lista de Recepciones Inactivas")
+        _vm._v("\n      Lista de Recepciones Inactivas\n    ")
       ])
     ])
   },
@@ -78664,7 +78706,10 @@ var render = function() {
         [
           _c(
             "div",
-            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            {
+              staticClass: "modal-dialog modal-sm",
+              attrs: { role: "document" }
+            },
             [
               _c("div", { staticClass: "modal-content" }, [
                 _vm._m(2),
@@ -78698,10 +78743,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-12 col-form-label" }, [
-                      _vm._v(
-                        "Oprima el ícono para ver todos los datos de su\n              Recepcionador"
-                      )
+                    _c("center", [
+                      _c("label", { staticClass: "col-12 col-form-label" }, [
+                        _vm._v("Click en el ícono")
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("center", [
@@ -78764,11 +78809,11 @@ var render = function() {
                 _vm._m(4),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Primer nombre:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -78796,11 +78841,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Segundo nombre:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -78828,11 +78873,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Primer Apellido:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -78863,11 +78908,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Segundo Apellido:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -78960,7 +79005,10 @@ var render = function() {
         [
           _c(
             "div",
-            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            {
+              staticClass: "modal-dialog modal-sm",
+              attrs: { role: "document" }
+            },
             [
               _c("div", { staticClass: "modal-content" }, [
                 _vm._m(5),
@@ -78994,10 +79042,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-12 col-form-label" }, [
-                      _vm._v(
-                        "Oprima el ícono para ver todos los datos de su\n              Estudiante"
-                      )
+                    _c("center", [
+                      _c("label", { staticClass: "col-12 col-form-label" }, [
+                        _vm._v("Click en el ícono")
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("center", [
@@ -79060,11 +79108,11 @@ var render = function() {
                 _vm._m(7),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Primer nombre:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -79094,11 +79142,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Segundo nombre:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -79128,11 +79176,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Primer Apellido:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -79165,11 +79213,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Segundo Apellido:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -79270,11 +79318,11 @@ var render = function() {
                 _vm._m(8),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Define el estado")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6" }, [
+                  _c("div", { staticClass: "col-12" }, [
                     _c(
                       "select",
                       {
@@ -79320,11 +79368,11 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de radicado:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -79352,11 +79400,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de recepcionado:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -79384,11 +79432,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de reparto:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -79416,11 +79464,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de publicación:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -79448,11 +79496,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de retiro")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -79480,11 +79528,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Recepcionado en:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -79512,11 +79560,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Consultorio:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -79544,11 +79592,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Area:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -79582,11 +79630,11 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Cédula Reclamante:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -79617,7 +79665,7 @@ var render = function() {
                   _c("br"),
                   _vm._v(" "),
                   true
-                    ? _c("div", { staticClass: "col-5 form-group" }, [
+                    ? _c("div", { staticClass: "col-12 form-group" }, [
                         _c(
                           "button",
                           {
@@ -79703,11 +79751,11 @@ var render = function() {
                 _vm._m(9),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Area:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c(
                       "select",
                       {
@@ -79749,11 +79797,11 @@ var render = function() {
                         _vm._l(_vm.areass, function(area) {
                           return _c("option", { key: area.index }, [
                             _vm._v(
-                              "\n             " +
+                              "\n                  " +
                                 _vm._s(area.id) +
                                 "-" +
                                 _vm._s(area.nombre) +
-                                "\n              \n            "
+                                "\n                "
                             )
                           ])
                         })
@@ -79913,7 +79961,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-6 col-form-label" }, [
                     _vm._v("CÉDULA (*):")
                   ]),
                   _vm._v(" "),
@@ -80174,11 +80222,11 @@ var render = function() {
                 _vm._m(14),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de radicado:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -80211,11 +80259,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de recepcionado:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -80248,11 +80296,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de reparto:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -80285,11 +80333,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de publicación:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -80322,11 +80370,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Fecha de retiro:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -80392,11 +80440,11 @@ var render = function() {
                 _vm._m(16),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Nombre del reclamante:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -80420,11 +80468,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Apellido del reclamante:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -80448,11 +80496,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Enfoque diferencial:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -80485,11 +80533,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Genero:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -80517,11 +80565,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Edad:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -80549,11 +80597,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Discapacidad:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -80583,11 +80631,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Estrato:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -80617,11 +80665,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Embarazo:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -80651,11 +80699,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Grupo Etnico:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -80685,11 +80733,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("Entidad que reclama:")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -80906,7 +80954,7 @@ var render = function() {
                 _vm._m(22),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("USERNAME")
                   ]),
                   _vm._v(" "),
@@ -80935,7 +80983,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("CEDULA")
                   ]),
                   _vm._v(" "),
@@ -80964,7 +81012,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("NOMBRE")
                   ]),
                   _vm._v(" "),
@@ -80993,7 +81041,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("APELLIDO")
                   ]),
                   _vm._v(" "),
@@ -81065,11 +81113,11 @@ var render = function() {
                 _vm._m(23),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("USERNAME")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -81097,11 +81145,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("CEDULA")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -81129,11 +81177,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("NOMBRE")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -81161,11 +81209,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("label", { staticClass: "col-5 col-form-label" }, [
+                  _c("label", { staticClass: "col-12 col-form-label" }, [
                     _vm._v("APELLIDO")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-6 form-group" }, [
+                  _c("div", { staticClass: "col-12 form-group" }, [
                     _c("input", {
                       directives: [
                         {
@@ -81953,7 +82001,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "row justify-content-center col" }, [
         true
-          ? _c("div", { staticClass: "col-12 form-group" }, [
+          ? _c("div", { staticClass: "col-6 form-group" }, [
               _c(
                 "button",
                 {
@@ -81975,7 +82023,7 @@ var render = function() {
           : undefined,
         _vm._v(" "),
         true
-          ? _c("div", { staticClass: "col-12 form-group" }, [
+          ? _c("div", { staticClass: "col-6 form-group" }, [
               _c(
                 "button",
                 {
@@ -82541,11 +82589,11 @@ var render = function() {
                   _vm._m(2),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _c("label", { staticClass: "col-8 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Username")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-8 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -82573,11 +82621,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-8 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Email")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-8 form-group" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
                           {
@@ -82601,11 +82649,11 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-8 col-form-label" }, [
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Rol")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-8" }, [
+                    _c("div", { staticClass: "col-12" }, [
                       _c(
                         "select",
                         {

@@ -1,6 +1,8 @@
 <template>
   <div class="card">
+    
     <div>
+      <br>
       <h2 class="text-center mb-2 card-title">Listado de personas</h2>
     </div>
     <div class="card-body row">
@@ -84,63 +86,64 @@
                 </button>
               </div>
               <div class="modal-body">
-                <label class="col-5 col-form-label">Cedula</label>
 
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Cedula</label>
+
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Cedula"
                     v-model="personas.cedula"
                   />
                 </div>
-                <label class="col-5 col-form-label">Primer nombre</label>
+                <label class="col-12 col-form-label">Primer nombre</label>
 
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Primer nombre"
                     v-model="personas.prinom"
                   />
                 </div>
-                <label class="col-5 col-form-label">Segundo nombre</label>
+                <label class="col-12 col-form-label">Segundo nombre</label>
 
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Segundo nombre"
                     v-model="personas.segnom"
                   />
                 </div>
-                <label class="col-5 col-form-label">Primer apellido</label>
+                <label class="col-12 col-form-label">Primer apellido</label>
 
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Primer apellido"
                     v-model="personas.priape"
                   />
                 </div>
-                <label class="col-5 col-form-label">Segundo apellido</label>
+                <label class="col-12 col-form-label">Segundo apellido</label>
 
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Segundo apellido"
                     v-model="personas.segape"
                   />
                 </div>
-                <label class="col-5 col-form-label">Teléfono</label>
+                <label class="col-12 col-form-label">Teléfono</label>
 
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Teléfono"
                     v-model="personas.tel"
                   />
                 </div>
-                <label class="col-5 col-form-label">Dirección</label>
+                <label class="col-12 col-form-label">Dirección</label>
 
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Dirección"

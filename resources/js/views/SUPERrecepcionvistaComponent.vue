@@ -48,7 +48,6 @@
                         @click="editarForm(recepcion, index)"
                         title="Mostrar los datos del Reclamante"
                       >
-                    
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
                     </td>
@@ -106,7 +105,7 @@
                         <i class="fas fa-trash-alt fa-1.5x"></i>
                       </button>
 
-                       <button
+                      <button
                         class="btn btn-sm"
                         data-toggle="modal"
                         data-target="#editarModalAREA"
@@ -116,7 +115,6 @@
                         <i class="fas fa-edit fa-2x"></i>
                       </button>
 
-                      
                       <a :href="'/recepcionqr/' + recepcion.id">
                         <i
                           class="fas fa-qrcode fa-2x fa-align-center"
@@ -142,7 +140,7 @@
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-sm" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
@@ -164,10 +162,9 @@
                 v-model="recepcion.id"
                 disabled
               />
-              <label class="col-12 col-form-label"
-                >Oprima el ícono para ver todos los datos de su
-                Recepcionador</label
-              >
+              <center>
+                <label class="col-12 col-form-label">Click en el ícono</label>
+              </center>
               <center>
                 <button
                   class="btn btn-sm"
@@ -227,8 +224,8 @@
               </button>
             </div>
             <div class="modal-body">
-              <label class="col-5 col-form-label">Primer nombre:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Primer nombre:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Nombre de persona"
@@ -236,8 +233,8 @@
                   disabled
                 />
               </div>
-              <label class="col-5 col-form-label">Segundo nombre:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Segundo nombre:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Nombre de persona"
@@ -245,8 +242,8 @@
                   disabled
                 />
               </div>
-              <label class="col-5 col-form-label">Primer Apellido:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Primer Apellido:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Apellido de persona"
@@ -254,8 +251,8 @@
                   disabled
                 />
               </div>
-              <label class="col-5 col-form-label">Segundo Apellido:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Segundo Apellido:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Apellido de persona"
@@ -295,7 +292,7 @@
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-sm" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
@@ -317,10 +314,9 @@
                 v-model="recepcion.id"
                 disabled
               />
-              <label class="col-12 col-form-label"
-                >Oprima el ícono para ver todos los datos de su
-                Estudiante</label
-              >
+              <center>
+                <label class="col-12 col-form-label">Click en el ícono</label>
+              </center>
               <center>
                 <button
                   class="btn btn-sm"
@@ -380,8 +376,8 @@
               </button>
             </div>
             <div class="modal-body">
-              <label class="col-5 col-form-label">Primer nombre:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Primer nombre:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Nombre de persona"
@@ -389,8 +385,8 @@
                   disabled
                 />
               </div>
-              <label class="col-5 col-form-label">Segundo nombre:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Segundo nombre:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Nombre de persona"
@@ -398,8 +394,8 @@
                   disabled
                 />
               </div>
-              <label class="col-5 col-form-label">Primer Apellido:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Primer Apellido:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Apellido de persona"
@@ -407,8 +403,8 @@
                   disabled
                 />
               </div>
-              <label class="col-5 col-form-label">Segundo Apellido:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Segundo Apellido:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Apellido de persona"
@@ -465,8 +461,8 @@
               </button>
             </div>
             <div class="modal-body">
-              <label class="col-5 col-form-label">Define el estado</label>
-              <div class="col-6">
+              <label class="col-12 col-form-label">Define el estado</label>
+              <div class="col-12">
                 <select
                   class="form-control"
                   placeholder="Estado"
@@ -478,8 +474,8 @@
                 </select>
               </div>
 
-              <label class="col-5 col-form-label">Fecha de radicado:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Fecha de radicado:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -487,8 +483,10 @@
                   v-model="recepcion.fecharadicado"
                 />
               </div>
-              <label class="col-5 col-form-label">Fecha de recepcionado:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label"
+                >Fecha de recepcionado:</label
+              >
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -496,8 +494,8 @@
                   v-model="recepcion.fecharecepcionado"
                 />
               </div>
-              <label class="col-5 col-form-label">Fecha de reparto:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Fecha de reparto:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -505,8 +503,8 @@
                   v-model="recepcion.fechareparto"
                 />
               </div>
-              <label class="col-5 col-form-label">Fecha de publicación:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Fecha de publicación:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -514,8 +512,8 @@
                   v-model="recepcion.fechapublicacion"
                 />
               </div>
-              <label class="col-5 col-form-label">Fecha de retiro</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Fecha de retiro</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -523,16 +521,16 @@
                   v-model="recepcion.fecharetiro"
                 />
               </div>
-              <label class="col-5 col-form-label">Recepcionado en:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Recepcionado en:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
                   v-model="recepcion.recepcionado"
                 />
               </div>
-              <label class="col-5 col-form-label">Consultorio:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Consultorio:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -540,23 +538,23 @@
                 />
               </div>
 
-              <label class="col-5 col-form-label">Area:</label>
-              
-          <div class="col-6 form-group">
-            <input
+              <label class="col-12 col-form-label">Area:</label>
+
+              <div class="col-12 form-group">
+                <input
                   class="form-control"
                   placeholder="recepcion"
-                  v-model="recepcion.area.nombre" disabled
+                  v-model="recepcion.area.nombre"
+                  disabled
                 />
-
-          </div>
+              </div>
 
               <label class="col-12 col-form-label"
                 >En caso de que quieras cambiar el reclamante digita la cédula:
               </label>
 
-              <label class="col-5 col-form-label">Cédula Reclamante:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Cédula Reclamante:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Cédula del Reclamante"
@@ -566,7 +564,7 @@
               <br />
 
               <!--buscar reclamante -->
-              <div class="col-5 form-group" v-if="true">
+              <div class="col-12 form-group" v-if="true">
                 <button
                   class="btn btn-primary btn-block"
                   data-toggle="modal"
@@ -605,10 +603,7 @@
       </div>
       <!--modal de editar -->
 
-
-
-
-  <!--modal de editar AREA-->
+      <!--modal de editar AREA-->
       <div
         class="modal fade"
         id="editarModalAREA"
@@ -633,21 +628,15 @@
               </button>
             </div>
             <div class="modal-body">
-             
-
-             
-             
-         <label class="col-5 col-form-label">Area:</label>              
-          <div class="col-6 form-group">
-            <select v-model="area.id" class="form-control" id="area">
-              <option value="">Selecciona</option>
-              <option v-for="area in areass" :key="area.index">
-               {{ area.id}}-{{ area.nombre}}
-                
-              </option>
-            </select>
-          </div>
-             
+              <label class="col-12 col-form-label">Area:</label>
+              <div class="col-12 form-group">
+                <select v-model="area.id" class="form-control" id="area">
+                  <option value="">Selecciona</option>
+                  <option v-for="area in areass" :key="area.index">
+                    {{ area.id }}-{{ area.nombre }}
+                  </option>
+                </select>
+              </div>
             </div>
             <div class="modal-footer">
               <button
@@ -673,11 +662,6 @@
         </div>
       </div>
       <!--modal de editar AREA -->
-
-
-
-
-
 
       <!--MODAL PARA ASIGNAR MI CASO COMO RECEPCIONISTA-->
       <div
@@ -759,9 +743,13 @@
               </button>
             </div>
             <div class="modal-body">
-              
-              <input type="hidden" placeholder="recepcion" v-model="recepcion.id" disabled />
-              <label class="col-5 col-form-label">CÉDULA (*):</label>
+              <input
+                type="hidden"
+                placeholder="recepcion"
+                v-model="recepcion.id"
+                disabled
+              />
+              <label class="col-6 col-form-label">CÉDULA (*):</label>
               <input
                 placeholder="CC.RECEPCIONISTA"
                 v-model="usuario.persona.cedula"
@@ -832,8 +820,12 @@
               </button>
             </div>
             <div class="modal-body">
-              
-              <input type="hidden" placeholder="recepcion" v-model="recepcion.id" disabled />
+              <input
+                type="hidden"
+                placeholder="recepcion"
+                v-model="recepcion.id"
+                disabled
+              />
 
               <label class="col-5 col-form-label">CÉDULA (*):</label>
               <input
@@ -894,8 +886,8 @@
               <h5 class="modal-title" id="exampleModalLabel">FECHAS</h5>
             </div>
             <div class="modal-body">
-              <label class="col-5 col-form-label">Fecha de radicado:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Fecha de radicado:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -905,8 +897,10 @@
                   disabled
                 />
               </div>
-              <label class="col-5 col-form-label">Fecha de recepcionado:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label"
+                >Fecha de recepcionado:</label
+              >
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -916,8 +910,8 @@
                   disabled
                 />
               </div>
-              <label class="col-5 col-form-label">Fecha de reparto:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Fecha de reparto:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -927,8 +921,8 @@
                   disabled
                 />
               </div>
-              <label class="col-5 col-form-label">Fecha de publicación:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Fecha de publicación:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -938,8 +932,8 @@
                   disabled
                 />
               </div>
-              <label class="col-5 col-form-label">Fecha de retiro:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Fecha de retiro:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="recepcion"
@@ -988,8 +982,10 @@
               </h5>
             </div>
             <div class="modal-body">
-              <label class="col-5 col-form-label">Nombre del reclamante:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label"
+                >Nombre del reclamante:</label
+              >
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="nombre de persona"
@@ -997,10 +993,10 @@
                   disabled
                 />
               </div>
-              <label class="col-5 col-form-label"
+              <label class="col-12 col-form-label"
                 >Apellido del reclamante:</label
               >
-              <div class="col-6 form-group">
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="nombre de persona"
@@ -1008,8 +1004,8 @@
                   disabled
                 />
               </div>
-              <label class="col-5 col-form-label">Enfoque diferencial:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Enfoque diferencial:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="enfoque diferencial"
@@ -1017,8 +1013,8 @@
                   disabled
                 />
               </div>
-              <label class="col-5 col-form-label">Genero:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Genero:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="genero"
@@ -1026,8 +1022,8 @@
                   disabled
                 />
               </div>
-              <label class="col-5 col-form-label">Edad:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Edad:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="edad"
@@ -1035,8 +1031,8 @@
                   disabled
                 />
               </div>
-              <label class="col-5 col-form-label">Discapacidad:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Discapacidad:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="discapacidad"
@@ -1045,8 +1041,8 @@
                 />
               </div>
 
-              <label class="col-5 col-form-label">Estrato:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Estrato:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="estrato"
@@ -1055,8 +1051,8 @@
                 />
               </div>
 
-              <label class="col-5 col-form-label">Embarazo:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Embarazo:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="embarazo"
@@ -1065,8 +1061,8 @@
                 />
               </div>
 
-              <label class="col-5 col-form-label">Grupo Etnico:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Grupo Etnico:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="grupo etnico"
@@ -1075,8 +1071,8 @@
                 />
               </div>
 
-              <label class="col-5 col-form-label">Entidad que reclama:</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">Entidad que reclama:</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="entidad"
@@ -1211,19 +1207,19 @@
               </button>
             </div>
             <div class="modal-body">
-              <label class="col-5 col-form-label">USERNAME</label>
+              <label class="col-12 col-form-label">USERNAME</label>
               <input
                 placeholder="USERNAME"
                 v-model="usuario.persona.username"
               />
 
-              <label class="col-5 col-form-label">CEDULA</label>
+              <label class="col-12 col-form-label">CEDULA</label>
               <input placeholder="USERNAME" v-model="usuario.persona.cedula" />
 
-              <label class="col-5 col-form-label">NOMBRE</label>
+              <label class="col-12 col-form-label">NOMBRE</label>
               <input placeholder="USERNAME" v-model="usuario.persona.prinom" />
 
-              <label class="col-5 col-form-label">APELLIDO</label>
+              <label class="col-12 col-form-label">APELLIDO</label>
               <input placeholder="USERNAME" v-model="usuario.persona.priape" />
             </div>
             <div class="modal-footer">
@@ -1265,8 +1261,8 @@
               </button>
             </div>
             <div class="modal-body">
-              <label class="col-5 col-form-label">USERNAME</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">USERNAME</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="USERNAME"
@@ -1274,8 +1270,8 @@
                 />
               </div>
 
-              <label class="col-5 col-form-label">CEDULA</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">CEDULA</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="CEDULA"
@@ -1283,8 +1279,8 @@
                 />
               </div>
 
-              <label class="col-5 col-form-label">NOMBRE</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">NOMBRE</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="NOMBRE"
@@ -1292,8 +1288,8 @@
                 />
               </div>
 
-              <label class="col-5 col-form-label">APELLIDO</label>
-              <div class="col-6 form-group">
+              <label class="col-12 col-form-label">APELLIDO</label>
+              <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="APELLIDO"
@@ -1317,7 +1313,7 @@
 export default {
   data() {
     return {
-       area: {
+      area: {
         id: "",
         nombre: "",
       },
@@ -1444,17 +1440,16 @@ export default {
       areass: [],
     };
   },
-    created() {
+  created() {
     axios.get("/api/area").then((res) => {
       this.areass = res.data;
       console.log(res.data);
     });
-     axios.get("/api/recepcionSUPER").then((res) => {
+    axios.get("/api/recepcionSUPER").then((res) => {
       this.recepcioness = res.data;
       console.log(res.data);
     });
   },
-
 
   methods: {
     buscarrecep() {
@@ -1590,9 +1585,8 @@ export default {
     },
 
     GUARDARASIGNACION() {
-      if (!this.recepcion.id||
-!this.usuario.persona.cedula) {
-         swal({
+      if (!this.recepcion.id || !this.usuario.persona.cedula) {
+        swal({
           type: "error",
           timer: 20000,
           title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
@@ -1601,36 +1595,35 @@ export default {
         });
       } else {
         const params = {
-        recp_id: this.recepcion.id,
-        usu_id: this.usuario.persona.id,
-      };
-      this.usuario.persona.cedula = "";
+          recp_id: this.recepcion.id,
+          usu_id: this.usuario.persona.id,
+        };
+        this.usuario.persona.cedula = "";
 
-      axios.post("/api/asigrecep", params).then((res) => {
-        if (res.data == null) {
-          swal({
-            type: "error",
-            timer: 3000,
-            title: "PARECE QUE HAY UN ERROR",
-            text: "La asignacion no se ha registrado con exito",
-            showConfirmButton: false,
+        axios.post("/api/asigrecep", params).then((res) => {
+          if (res.data == null) {
+            swal({
+              type: "error",
+              timer: 3000,
+              title: "PARECE QUE HAY UN ERROR",
+              text: "La asignacion no se ha registrado con exito",
+              showConfirmButton: false,
+            });
+          } else {
+            swal({
+              type: "success",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "La asignacion del caso se ha registrado",
+              showConfirmButton: false,
+            });
+          }
+          axios.get("/api/recepcionSUPER").then((res) => {
+            this.recepcioness = res.data;
+            console.log(res.data);
           });
-        } else {
-          swal({
-            type: "success",
-            timer: 3000,
-            title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-            text: "La asignacion del caso se ha registrado",
-            showConfirmButton: false,
-          });
-        }
-        axios.get("/api/recepcionSUPER").then((res) => {
-          this.recepcioness = res.data;
-          console.log(res.data);
         });
-      });
       }
-      
     },
 
     buscarrecl() {
@@ -1704,7 +1697,7 @@ export default {
         fecharetiro: this.recepcion.fecharetiro,
         estado: this.recepcion.estado,
         recla_id: this.recepcion.recla_id,
-        area_id: (this.area.id).substr(0,1),
+        area_id: this.area.id.substr(0, 1),
       };
       axios
         .put("/api/recepcion/" + this.recepcion.id, params)
@@ -1742,9 +1735,9 @@ export default {
         });
     },
 
-        editarArea() {
-      const params = {      
-        area_id: (this.area.id).substr(0,1),
+    editarArea() {
+      const params = {
+        area_id: this.area.id.substr(0, 1),
       };
       axios
         .put("/api/recepcionAreUpdate/" + this.recepcion.id, params)
@@ -1766,12 +1759,11 @@ export default {
               showConfirmButton: false,
             });
           }
-          this.area.id="";
+          this.area.id = "";
           axios.get("/api/recepcionSUPER").then((res) => {
             this.recepcioness = res.data;
             console.log(res.data);
           });
-
         })
         .catch((error) => {
           if (error.response.status == 422) {

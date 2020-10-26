@@ -105,18 +105,18 @@
                 </button>
               </div>
               <div class="modal-body">
-                <label class="col-5 col-form-label">Ampliación de hechos</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Ampliación de hechos</label>
+                <div class="col-12 form-group">
                   <input class="form-control"
                     placeholder="Ampliación de hechos"
                     v-model="gestion.amplhechos"
                   />
                 </div>
 
-                <label class="col-5 col-form-label"
+                <label class="col-12 col-form-label"
                   >fecha entrevista asesor</label
                 >
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="fecha entrevista asesor"
@@ -125,8 +125,8 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Tipo de tramite</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Tipo de tramite</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Tipo de tramite"
@@ -134,8 +134,8 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Asunto tramite</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Asunto tramite</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Asunto tramite"
@@ -143,8 +143,8 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Motivo archivo</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Motivo archivo</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Motivo archivo"
@@ -152,8 +152,8 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Fecha archivo</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Fecha archivo</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Fecha archivo"
@@ -162,10 +162,10 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label"
+                <label class="col-12 col-form-label"
                   >Observación del tramite</label
                 >
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Observación del tramite"
@@ -173,10 +173,10 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label"
+                <label class="col-12 col-form-label"
                   >Actuaciones realizadas</label
                 >
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Actuaciones realizadas"
@@ -184,8 +184,8 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Atuaciones juridicas</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Atuaciones juridicas</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Atuaciones juridicas"
@@ -193,10 +193,10 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label"
+                <label class="col-12 col-form-label"
                   >Resultados de la actuación</label
                 >
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Resultados de la actuacion"
@@ -204,8 +204,8 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Entidad tramite</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Entidad tramite</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Entidad tramite"
@@ -259,46 +259,46 @@
                 </button>
               </div>
               <div class="modal-body">
-                <label class="col-5 col-form-label">ID</label>
+                <label class="col-12 col-form-label">ID</label>
                 <input placeholder="ID" v-model="gestion.recepcion.id" />
 
-                <label class="col-5 col-form-label">Recepcionado</label>
+                <label class="col-12 col-form-label">Recepcionado</label>
                 <input
                   placeholder="Recepcionado"
                   v-model="gestion.recepcion.recepcionado"
                 />
 
-                <label class="col-5 col-form-label">Fecha de Radicado</label>
+                <label class="col-12 col-form-label">Fecha de Radicado</label>
                 <input
                   placeholder="Fecha de Radicado"
                   v-model="gestion.recepcion.fecharadicado"
                 />
 
-                <label class="col-5 col-form-label">Fecha Recepcionado</label>
+                <label class="col-12 col-form-label">Fecha Recepcionado</label>
                 <input
                   placeholder="Fecha Recepcionado"
                   v-model="gestion.recepcion.fecharecepcionado"
                 />
 
-                <label class="col-5 col-form-label">Consultorio</label>
+                <label class="col-12 col-form-label">Consultorio</label>
                 <input
                   placeholder="Consultorio"
                   v-model="gestion.recepcion.consultorio"
                 />
 
-                <label class="col-5 col-form-label">Fecha Reparto</label>
+                <label class="col-12 col-form-label">Fecha Reparto</label>
                 <input
                   placeholder="Fecha Reparto"
                   v-model="gestion.recepcion.fechareparto"
                 />
 
-                <label class="col-5 col-form-label">Fecha Publicación</label>
+                <label class="col-12 col-form-label">Fecha Publicación</label>
                 <input
                   placeholder="Fecha Publicación"
                   v-model="gestion.recepcion.fechapublicacion"
                 />
 
-                <label class="col-5 col-form-label">Fecha Retiro</label>
+                <label class="col-12 col-form-label">Fecha Retiro</label>
                 <input
                   placeholder="Fecha Retiro"
                   v-model="gestion.recepcion.fecharetiro"
@@ -333,8 +333,8 @@
                 <h5 class="modal-title" id="exampleModalLabel">Gestión</h5>
               </div>
               <div class="modal-body">
-                <label class="col-5 col-form-label">Recepción</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Recepción</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Recepción"
@@ -343,8 +343,8 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Ampliación de hechos</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Ampliación de hechos</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Ampliación de hechos"
@@ -353,8 +353,8 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Observaciones</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Observaciones</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Observaciones"
@@ -363,8 +363,8 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Actuaciones</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Actuaciones</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Actuaciones"
@@ -373,10 +373,10 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label"
+                <label class="col-12 col-form-label"
                   >Actuaciones Juridicas</label
                 >
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Actuaciones Juridicas"
@@ -385,10 +385,10 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label"
+                <label class="col-12 col-form-label"
                   >Resultado de actuación</label
                 >
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Resultado de actuación"
@@ -433,8 +433,8 @@
                 <h5 class="modal-title" id="exampleModalLabel">Recepción</h5>
               </div>
               <div class="modal-body">
-                <label class="col-5 col-form-label">Estado</label>
-                <div class="col-6">
+                <label class="col-12 col-form-label">Estado</label>
+                <div class="col-12">
                   <select
                     class="form-control"
                     placeholder="Estado"
@@ -447,8 +447,8 @@
                   </select>
                 </div>
 
-                <label class="col-5 col-form-label">Fecha de radicado:</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Fecha de radicado:</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -457,10 +457,10 @@
                     disabled
                   />
                 </div>
-                <label class="col-5 col-form-label"
+                <label class="col-12 col-form-label"
                   >Fecha de recepcionado:</label
                 >
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -469,8 +469,8 @@
                     disabled
                   />
                 </div>
-                <label class="col-5 col-form-label">Fecha de reparto:</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Fecha de reparto:</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -479,10 +479,10 @@
                     disabled
                   />
                 </div>
-                <label class="col-5 col-form-label"
+                <label class="col-12 col-form-label"
                   >Fecha de publicación:</label
                 >
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -491,8 +491,8 @@
                     disabled
                   />
                 </div>
-                <label class="col-5 col-form-label">Fecha de retiro</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Fecha de retiro</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -501,8 +501,8 @@
                     disabled
                   />
                 </div>
-                <label class="col-5 col-form-label">Recepcionado en:</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Recepcionado en:</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -511,8 +511,8 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Consultorio:</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Consultorio:</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -521,8 +521,8 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Area:</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Area:</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"

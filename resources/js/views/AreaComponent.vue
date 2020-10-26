@@ -18,24 +18,29 @@
             <br />
 
             <div class="col-12" v-if="true">
-              <button class="btn btn-primary btn-block" @click="agregar()">
-                Guardar
-              </button>
+              <center>
+                <button class="btn btn-primary btn-block" @click="agregar()">
+                  Guardar
+                </button>
+              </center>
             </div>
-
+            <br />
+            <br />
             <br />
             <div class="container">
               <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">Codigo</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Opciones</th>
+                    <th></th>
+                    <th></th>
+                    <th>Nombre</th>
+                    <th>Opciones</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr v-for="(areas, index) in areass" :key="areas.index">
-                    <th>{{ areas.id }}</th>
+                    <td></td>
+                    <td></td>
                     <td>{{ areas.nombre }}</td>
                     <td>
                       <button

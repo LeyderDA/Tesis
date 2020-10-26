@@ -12,7 +12,6 @@
                 <table class="table text-center">
                   <thead>
                     <tr>
-                      <th>Id</th>
                       <th>Enf.Diferencial</th>
                       <th>Genero</th>
                       <th>Edad</th>
@@ -30,7 +29,6 @@
                       v-for="(reclamante, index) in reclamantess"
                       :key="reclamante.index"
                     >
-                      <td>{{ reclamante.id }}</td>
                       <td>{{ reclamante.enfodifervictima }}</td>
                       <td>{{ reclamante.genevictima }}</td>
                       <td>{{ reclamante.edadvictima }}</td>
@@ -102,82 +100,82 @@
                 </button>
               </div>
               <div class="modal-body">
-                <label class="col-5 col-form-label">Enfoque diferencial</label>
+                <label class="col-12 col-form-label">Enfoque diferencial</label>
 
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="enfoque diferencial"
                     v-model="reclamante.enfodifervictima"
                   />
                 </div>
-                <label class="col-5 col-form-label">Genero</label>
+                <label class="col-12 col-form-label">Genero</label>
 
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="genero"
                     v-model="reclamante.genevictima"
                   />
                 </div>
-                <label class="col-5 col-form-label">Edad</label>
+                <label class="col-12 col-form-label">Edad</label>
 
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="edad"
                     v-model="reclamante.edadvictima"
                   />
 
-                  <label class="col-5 col-form-label">Discapacidad</label>
+                  <label class="col-12 col-form-label">Discapacidad</label>
                 </div>
 
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="discapacidad"
                     v-model="reclamante.discapavictima"
                   />
                 </div>
-                <label class="col-5 col-form-label">Estrato</label>
+                <label class="col-12 col-form-label">Estrato</label>
 
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="estrato"
                     v-model="reclamante.estravictima"
                   />
                 </div>
-                <label class="col-5 col-form-label">Embarazo</label>
+                <label class="col-12 col-form-label">Embarazo</label>
 
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="embarazo"
                     v-model="reclamante.embaravictima"
                   />
                 </div>
-                <label class="col-5 col-form-label">Grupo Etnico</label>
+                <label class="col-12 col-form-label">Grupo Etnico</label>
 
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="grupo etnico"
                     v-model="reclamante.grupetnicovictima"
                   />
                 </div>
-                <label class="col-5 col-form-label">Entidad que reclama</label>
+                <label class="col-12 col-form-label">Entidad que reclama</label>
 
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="entidad"
                     v-model="reclamante.persoentidreclama"
                   />
                 </div>
-                <label class="col-5 col-form-label">Cedula</label>
+                <label class="col-12 col-form-label">Cedula</label>
 
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="cedula"
@@ -280,8 +278,8 @@
                 </button>
               </div>
               <div class="modal-body">
-                <label class="col-10 col-form-label">Cedula</label>
-                <div class="col-10 form-group">
+                <label class="col-12 col-form-label">Cedula</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Primer nombre"
@@ -290,8 +288,8 @@
                   />
                 </div>
 
-                <label class="col-10 col-form-label">Primer nombre</label>
-                <div class="col-10 form-group">
+                <label class="col-12 col-form-label">Primer nombre</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Primer nombre"
@@ -299,8 +297,8 @@
                     disabled
                   />
                 </div>
-                <label class="col-10 col-form-label">Segundo nombre</label>
-                <div class="col-10 form-group">
+                <label class="col-12 col-form-label">Segundo nombre</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Segundo nombre"
@@ -308,8 +306,8 @@
                     disabled
                   />
                 </div>
-                <label class="col-10 col-form-label">Primer apellido</label>
-                <div class="col-10 form-group">
+                <label class="col-12 col-form-label">Primer apellido</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Primer apellido"
@@ -317,8 +315,8 @@
                     disabled
                   />
                 </div>
-                <label class="col-10 col-form-label">Segundo apellido</label>
-                <div class="col-10 form-group">
+                <label class="col-12 col-form-label">Segundo apellido</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Segundo apellido"
@@ -326,8 +324,8 @@
                     disabled
                   />
                 </div>
-                <label class="col-10 col-form-label">Teléfono</label>
-                <div class="col-10 form-group">
+                <label class="col-12 col-form-label">Teléfono</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Teléfono"
@@ -335,8 +333,8 @@
                     disabled
                   />
                 </div>
-                <label class="col-10 col-form-label">Dirección</label>
-                <div class="col-10 form-group">
+                <label class="col-12 col-form-label">Dirección</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Dirección"

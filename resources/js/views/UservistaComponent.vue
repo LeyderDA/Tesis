@@ -81,20 +81,20 @@
                 </button>
               </div>
               <div class="modal-body">
-                <label class="col-8 col-form-label">Username</label>
-                <div class="col-8 form-group">
+                <label class="col-12 col-form-label">Username</label>
+                <div class="col-12 form-group">
 
                 <input class="form-control" placeholder="Username" v-model="usuario.username" />
                 </div>
 
-                <label class="col-8 col-form-label">Email</label>
-                <div class="col-8 form-group">
+                <label class="col-12 col-form-label">Email</label>
+                <div class="col-12 form-group">
 
                 <input class="form-control" placeholder="Email" v-model="usuario.email" />
                 </div>
 
-                <label class="col-8 col-form-label">Rol</label>
-                <div class="col-8">
+                <label class="col-12 col-form-label">Rol</label>
+                <div class="col-12">
                   <select
                     class="form-control"
                     placeholder="Rol"

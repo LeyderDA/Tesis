@@ -13,7 +13,6 @@
                 <table class="table text-center">
                   <thead>
                     <tr>
-                      <th>ID</th>
                       <th>Area</th>
                       <th>Datos de la Recepción</th>
                       <th>Datos del Asignado</th>
@@ -25,7 +24,6 @@
                       v-for="(usurecep, index) in usurecepss"
                       :key="usurecep.index"
                     >
-                      <td>{{ usurecep.id }}</td>
                       <td>{{ usurecep.nombre }}</td>
                       <td>
                         <button
@@ -91,8 +89,8 @@
                 </button>
               </div>
               <div class="modal-body">
-                <label class="col-5 col-form-label">Username</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Username</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="USERNAME"
@@ -100,8 +98,8 @@
                     disabled
                   />
                 </div>
-                <label class="col-5 col-form-label">Cedula</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Cedula</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Cedula"
@@ -109,8 +107,8 @@
                     disabled
                   />
                 </div>
-                <label class="col-5 col-form-label">Primer nombre</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Primer nombre</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Primer nombre"
@@ -118,8 +116,8 @@
                     disabled
                   />
                 </div>
-                <label class="col-5 col-form-label">Segundo nombre</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Segundo nombre</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Segundo nombre"
@@ -127,8 +125,8 @@
                     disabled
                   />
                 </div>
-                <label class="col-5 col-form-label">Primer apellido</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Primer apellido</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Primer apellido"
@@ -136,8 +134,8 @@
                     disabled
                   />
                 </div>
-                <label class="col-5 col-form-label">Segundo apellido</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Segundo apellido</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Segundo apellido"
@@ -146,8 +144,8 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Teléfono</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Teléfono</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Teléfono"
@@ -155,8 +153,8 @@
                     disabled
                   />
                 </div>
-                <label class="col-5 col-form-label">Dirección</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Dirección</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="Dirección"
@@ -203,8 +201,8 @@
                 </button>
               </div>
               <div class="modal-body">
-                <label class="col-5 col-form-label">Define el estado</label>
-                <div class="col-6">
+                <label class="col-12 col-form-label">Define el estado</label>
+                <div class="col-12">
                   <select
                     class="form-control"
                     placeholder="Estado"
@@ -217,8 +215,8 @@
                   </select>
                 </div>
 
-                <label class="col-5 col-form-label">Fecha de radicado:</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Fecha de radicado:</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -227,10 +225,10 @@
                     disabled
                   />
                 </div>
-                <label class="col-5 col-form-label"
+                <label class="col-12 col-form-label"
                   >Fecha de recepcionado:</label
                 >
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -239,8 +237,8 @@
                     disabled
                   />
                 </div>
-                <label class="col-5 col-form-label">Fecha de reparto:</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Fecha de reparto:</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -249,10 +247,10 @@
                     disabled
                   />
                 </div>
-                <label class="col-5 col-form-label"
+                <label class="col-12 col-form-label"
                   >Fecha de publicación:</label
                 >
-                <div class="col-6 form-group">
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -261,8 +259,8 @@
                     disabled
                   />
                 </div>
-                <label class="col-5 col-form-label">Fecha de retiro</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Fecha de retiro</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -271,8 +269,8 @@
                     disabled
                   />
                 </div>
-                <label class="col-5 col-form-label">Recepcionado en:</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Recepcionado en:</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -280,8 +278,8 @@
                     disabled
                   />
                 </div>
-                <label class="col-5 col-form-label">Consultorio:</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Consultorio:</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
@@ -289,8 +287,8 @@
                     disabled
                   />
                 </div>
-                <label class="col-5 col-form-label">Area:</label>
-                <div class="col-6 form-group">
+                <label class="col-12 col-form-label">Area:</label>
+                <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"

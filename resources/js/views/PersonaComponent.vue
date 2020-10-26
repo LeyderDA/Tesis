@@ -6,15 +6,20 @@
     <div class="card-body row">
       <form>
         <div class="row">
-          <label class="col-5 col-form-label">Cédula (*):</label>
           
-          <div class="col-6 form-group">
+          
+             <label class="col-5 col-form-label">Cédula (*):</label>
+          
+           <div class="col-6 form-group">
             <input
               class="form-control"
               placeholder="Cédula"
               v-model="personas.cedula"
             />
-          </div>
+           </div>
+          
+
+         
           <label class="col-5 col-form-label">Primer Nombre (*):</label>
           <div class="col-6 form-group">
             <input
