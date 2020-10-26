@@ -108,8 +108,10 @@
         role="dialog"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
+        data-backdrop="static"
+        data-keyboard="false"
       >
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog modal-sm" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Foro</h5>
@@ -148,7 +150,12 @@
             </div>
 
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">
+              <button
+                type="button"
+                class="btn btn-danger"
+                @click="limpiarforo()"
+                data-dismiss="modal"
+              >
                 Cerrar
               </button>
             </div>
@@ -205,7 +212,7 @@
                 </select>
               </div>
 
-              <label class="col-5 col-form-label">Descripción (*)</label>
+              <label class="col-5 col-form-label">Descripción</label>
               <div class="col-12 form-group">
                 <textarea
                   rows="3"
@@ -664,7 +671,7 @@
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-sm" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
@@ -687,10 +694,10 @@
                 v-model="recepcion.id"
                 disabled
               />
-              <label class="col-12 col-form-label"
-                >Oprima el ícono para ver todos los datos de su
-                Recepcionador</label
-              >
+              <center>
+                <label class="col-12 col-form-label">Oprima el ícono:</label>
+              </center>
+
               <center>
                 <button
                   class="btn btn-sm"
@@ -707,15 +714,17 @@
 
               <div class="col-12 form-group">
                 <div style="width: 100px; height: 30px; margin: 0 auto">
-                  <button
-                    name="CERRAR"
-                    class="btn btn-primary"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                    type="button"
-                  >
-                    CERRAR
-                  </button>
+                  <center>
+                    <button
+                      name="CERRAR"
+                      class="btn btn-primary"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                      type="button"
+                    >
+                      CERRAR
+                    </button>
+                  </center>
                 </div>
               </div>
             </div>
@@ -934,17 +943,31 @@ export default {
     });
   },
   methods: {
+    limpiarforo() {
+      this.foro.estadoFo = "";
+      this.foro.id = "";
+      this.foro.titulo = "";
+      this.foro.descripcion = "";
+    },
+
     buscaForo() {
-      axios.get("/api/foro/" + this.foro.id).then((res) => {
+      console.log(this.recepcion.area_id);
+      axios.get("/api/forobusq/" + this.recepcion.area_id).then((res) => {
         if (res.data[0] == null) {
-          this.foro.id = "";
-          this.foro.titulo = "";
-          console.log(this.foro.titulo);
+          swal({
+            type: "error",
+            timer: 20000,
+            title: "NO TIENES UN FORO DISPONIBLE",
+            text: "El docente de esta Area no ha creado foros",
+            showConfirmButton: true,
+          });
+
+          console.log(res.data[0]);
           this.esta = false;
         } else {
           console.log(res.data[0]);
-          let foro = res.data[0];
-          this.foro = foro;
+          let forito = res.data[0];
+          this.foro = forito;
           this.esta = true;
         }
       });

@@ -9329,6 +9329,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -9445,19 +9454,31 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
+    limpiarforo: function limpiarforo() {
+      this.foro.estadoFo = "";
+      this.foro.id = "";
+      this.foro.titulo = "";
+      this.foro.descripcion = "";
+    },
     buscaForo: function buscaForo() {
       var _this2 = this;
 
-      axios.get("/api/foro/" + this.foro.id).then(function (res) {
+      console.log(this.recepcion.area_id);
+      axios.get("/api/forobusq/" + this.recepcion.area_id).then(function (res) {
         if (res.data[0] == null) {
-          _this2.foro.id = "";
-          _this2.foro.titulo = "";
-          console.log(_this2.foro.titulo);
+          swal({
+            type: "error",
+            timer: 20000,
+            title: "NO TIENES UN FORO DISPONIBLE",
+            text: "El docente de esta Area no ha creado foros",
+            showConfirmButton: true
+          });
+          console.log(res.data[0]);
           _this2.esta = false;
         } else {
           console.log(res.data[0]);
-          var foro = res.data[0];
-          _this2.foro = foro;
+          var forito = res.data[0];
+          _this2.foro = forito;
           _this2.esta = true;
         }
       });
@@ -68527,14 +68548,16 @@ var render = function() {
             tabindex: "-1",
             role: "dialog",
             "aria-labelledby": "exampleModalLabel",
-            "aria-hidden": "true"
+            "aria-hidden": "true",
+            "data-backdrop": "static",
+            "data-keyboard": "false"
           }
         },
         [
           _c(
             "div",
             {
-              staticClass: "modal-dialog modal-lg",
+              staticClass: "modal-dialog modal-sm",
               attrs: { role: "document" }
             },
             [
@@ -68603,7 +68626,21 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _vm._m(3)
+                _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      attrs: { type: "button", "data-dismiss": "modal" },
+                      on: {
+                        click: function($event) {
+                          return _vm.limpiarforo()
+                        }
+                      }
+                    },
+                    [_vm._v("\n              Cerrar\n            ")]
+                  )
+                ])
               ])
             ]
           )
@@ -68631,7 +68668,7 @@ var render = function() {
             },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(4),
+                _vm._m(3),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -68748,7 +68785,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("Descripción (*)")
+                      _vm._v("Descripción")
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-12 form-group" }, [
@@ -68799,7 +68836,7 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _vm._m(5)
+                _vm._m(4)
               ])
             ]
           )
@@ -68827,7 +68864,7 @@ var render = function() {
             },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(6),
+                _vm._m(5),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("div", { staticClass: "col-6 form-group" }, [
@@ -69259,7 +69296,7 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(7),
+                _vm._m(6),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("label", { staticClass: "col-5 col-form-label" }, [
@@ -69451,7 +69488,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
-                  _vm._m(8)
+                  _vm._m(7)
                 ])
               ])
             ]
@@ -69477,7 +69514,7 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(9),
+                _vm._m(8),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("label", { staticClass: "col-5 col-form-label" }, [
@@ -69811,7 +69848,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
-                  _vm._m(10)
+                  _vm._m(9)
                 ])
               ])
             ]
@@ -69834,10 +69871,13 @@ var render = function() {
         [
           _c(
             "div",
-            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            {
+              staticClass: "modal-dialog modal-sm",
+              attrs: { role: "document" }
+            },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(11),
+                _vm._m(10),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -69869,10 +69909,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-12 col-form-label" }, [
-                      _vm._v(
-                        "Oprima el ícono para ver todos los datos de su\n              Recepcionador"
-                      )
+                    _c("center", [
+                      _c("label", { staticClass: "col-12 col-form-label" }, [
+                        _vm._v("Oprima el ícono:")
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("center", [
@@ -69902,7 +69942,40 @@ var render = function() {
                     _vm._v(" "),
                     _c("br"),
                     _vm._v(" "),
-                    _vm._m(12)
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c(
+                        "div",
+                        {
+                          staticStyle: {
+                            width: "100px",
+                            height: "30px",
+                            margin: "0 auto"
+                          }
+                        },
+                        [
+                          _c("center", [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: {
+                                  name: "CERRAR",
+                                  "data-dismiss": "modal",
+                                  "aria-label": "Close",
+                                  type: "button"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                    CERRAR\n                  "
+                                )
+                              ]
+                            )
+                          ])
+                        ],
+                        1
+                      )
+                    ])
                   ],
                   1
                 )
@@ -69932,7 +70005,7 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(13),
+                _vm._m(11),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("label", { staticClass: "col-5 col-form-label" }, [
@@ -70182,21 +70255,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-danger",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("\n              Cerrar\n            ")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h5",
@@ -70356,32 +70414,6 @@ var staticRenderFns = [
           }
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 form-group" }, [
-      _c(
-        "div",
-        { staticStyle: { width: "100px", height: "30px", margin: "0 auto" } },
-        [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary",
-              attrs: {
-                name: "CERRAR",
-                "data-dismiss": "modal",
-                "aria-label": "Close",
-                type: "button"
-              }
-            },
-            [_vm._v("\n                  CERRAR\n                ")]
-          )
-        ]
       )
     ])
   },
