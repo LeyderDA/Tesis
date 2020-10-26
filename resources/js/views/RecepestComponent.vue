@@ -224,10 +224,12 @@
                 >
                 </textarea>
               </div>
-              <center>
-                <a :href="'/comentarios/' + foro.id">
-                  <i class="fas fa-arrow-alt-circle-right fa-3x"></i>
-                </a>
+              <center>    
+                 <a  :href="'/comentarios/' + foro.id" >
+                  <i class="fas fa-arrow-alt-circle-right fa-3x"></i> 
+                                  
+                </a>             
+               
               </center>
             </div>
 
@@ -943,6 +945,11 @@ export default {
     });
   },
   methods: {
+
+isFormValidForo: function () {
+      return this.foro.id != "";
+    },
+    
     limpiarforo() {
       this.foro.estadoFo = "";
       this.foro.id = "";

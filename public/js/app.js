@@ -9338,6 +9338,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -9454,6 +9456,9 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
+    isFormValidForo: function isFormValidForo() {
+      return this.foro.id != "";
+    },
     limpiarforo: function limpiarforo() {
       this.foro.estadoFo = "";
       this.foro.id = "";
