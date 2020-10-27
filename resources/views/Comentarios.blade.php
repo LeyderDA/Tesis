@@ -15,23 +15,21 @@
                         <div class="card-body col">
                           <div clas="container row">
                             <div class="table table-reponsive">     
-
-                                <h4 class="mb-2 card-title">Descripción del foro:</h4>
+                                <h3 class="mb-2 card-title">Descripción del foro:</h3>
                               <label class="col-12 col-form-label">{{$foro->descripcion}}</label>
                               <br>
-                            <a href="/{{$foro->archivo}}" target="_blank">
+                              <br>
+                              <h5 class="mb-2 card-title">Documentos del foro<a href="/{{$foro->archivo}}" target="_blank"></h5>                           
                                <?php 
                                 $pizza  = $foro->archivo ;
                                 $porciones = explode("/", $pizza);
                                 $part1 = $porciones[0]; 
                                 $part2 = $porciones[1];
                                 $part3 = $porciones[2];
-
                                   echo $part3; // porción3
                                 ?>
                             </a>
                               <br>
-
                               <h4 class="mb-2 card-title">    Agregar Comentario 
                                     <button
                                       class="btn btn-sm"
@@ -42,24 +40,27 @@
                                       <i class="far fa-comments fa-2x" style="color: black"></i>
                                       </button>
                                 </h4> 
-                                <?php $content = DB::table('comentario')->select('coment','usua_id')->where('for_id',$foro->id)->get(); ?>
-                                    @foreach($content as $contenido)
-                                          {{$contenido->coment}}
-                                          {{$contenido->usua_id}}
+                                <br>
+                                <h4 class="mb-2 card-title">    Comentarios </h4>
+                                <br>
 
-                                          <?php $content1 = DB::table('users')->select('username')->where('id',$contenido->usua_id)->get(); ?>
-                                          @foreach($content1 as $contenido1)
-                                                {{$contenido1->username}}
-      
+                                <label class="col-12 col-form-label">
+                                  <?php $content = DB::table('comentario')->select('coment','usua_id')->where('for_id',$foro->id)->get(); ?>
+                                  @foreach($content as $contenido)
+                                        {{$contenido->coment}}                                          
+                                              <?php $content1 = DB::table('users')->select('username')->where('id',$contenido->usua_id)->get(); ?>
+                                                @foreach($content1 as $contenido1)
                                                 <br>
-                                                 @endforeach  
+                                                <i class="fas fa-id-card fa-2x"></i>
+                                              {{$contenido1->username}}      
+                                              <br>
+                                               @endforeach  
+                               <br>
+                                @endforeach 
+                                </label>
 
-                                         
+                                 
 
-
-                                 <br>
-                                  @endforeach
-                                
                           </div>
                         </div>
                       </div>
