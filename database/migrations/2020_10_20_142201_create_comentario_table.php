@@ -13,22 +13,16 @@ class CreateComentarioTable extends Migration
      */
     public function up()
     {
-        Schema::create('comentario', function (Blueprint $table) {
-            
+        Schema::create('comentario', function (Blueprint $table) {          
             $table->id();
             $table->text('coment');
-            $table->date('fechapublcoment');
-
-            $table->unsignedBigInteger('estu_id');
-            $table->foreign('estu_id')->references('id')->on('users');
-
+            $table->unsignedBigInteger('usua_id');
+            $table->foreign('usua_id')->references('id')->on('users');
             $table->unsignedBigInteger('for_id');
             $table->foreign('for_id')->references('id')->on('foro');
-
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

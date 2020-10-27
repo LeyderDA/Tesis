@@ -8,7 +8,7 @@ class Comentario extends Model
 {
     protected $table = 'comentario';
     protected $fillable = [
-        'id', 'coment','fechapublcoment','estu_id','for_id',
+        'id', 'coment','usua_id','for_id',
     ];
     public function foro()
     {

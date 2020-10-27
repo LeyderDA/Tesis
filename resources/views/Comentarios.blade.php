@@ -19,6 +19,17 @@
                                 <h4 class="mb-2 card-title">Descripción del foro:</h4>
                               <label class="col-12 col-form-label">{{$foro->descripcion}}</label>
                               <br>
+                            <a href="/{{$foro->archivo}}" target="_blank">
+                               <?php 
+                                $pizza  = $foro->archivo ;
+                                $porciones = explode("/", $pizza);
+                                $part1 = $porciones[0]; 
+                                $part2 = $porciones[1];
+                                $part3 = $porciones[2];
+
+                                  echo $part3; // porción3
+                                ?>
+                            </a>
                               <br>
 
                               <h4 class="mb-2 card-title">    Agregar Comentario 
@@ -57,28 +68,36 @@
                   </button>
                 </div>
                 <div class="modal-body">
+                  <form action="{{ url('/comentarios/crear') }}" method="post">
+                    {{ csrf_field() }}
+                  <input type="hidden" name="for_id" value="{{$foro->id}}">
                   <label class="col-5 col-form-label">Comentario</label>
                   <div class="col-12 form-group">
                     <textarea
+                      name="coment"
                       rows="3"
                       cols="50"
                       type="text"
                       class="form-control"
                     >
                     </textarea>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                    {{-- <button
+                    type="submit"
+                    class="btn btn-primary"
+                    data-dismiss="modal"
+                  >
+                    Agregar Comentario
+                  </button> --}}
+                  </form>
                   </div>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-danger" data-dismiss="modal">
                     Cerrar
                   </button>
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    data-dismiss="modal"
-                  >
-                    Agregar Comentario
-                  </button>
+
                 </div>
               </div>
             </div>
