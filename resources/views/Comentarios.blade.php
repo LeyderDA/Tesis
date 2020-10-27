@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
 <div style="background-color:#dadada">
-
           <div class="container" style="margin-top:-24px; height:30px">
               <div>
               <br />
@@ -42,25 +41,29 @@
                                 </h4> 
                                 <br>
                                 <h4 class="mb-2 card-title">    Comentarios </h4>
-                                <br>
-
-                                <label class="col-12 col-form-label">
-                                  <?php $content = DB::table('comentario')->select('coment','usua_id')->where('for_id',$foro->id)->get(); ?>
-                                  @foreach($content as $contenido)
-                                        {{$contenido->coment}}                                          
-                                              <?php $content1 = DB::table('users')->select('username')->where('id',$contenido->usua_id)->get(); ?>
-                                                @foreach($content1 as $contenido1)
-                                                <br>
-                                                <i class="fas fa-id-card fa-2x"></i>
-                                              {{$contenido1->username}}      
-                                              <br>
-                                               @endforeach  
-                               <br>
-                                @endforeach 
-                                </label>
-
-                                 
-
+                                <br>                             
+                                     
+                                    <p> 
+                                      <?php $content = DB::table('comentario')->select('coment','usua_id')->where('for_id',$foro->id)->get(); ?>
+                                            @foreach($content as $contenido)
+                                                  {{$contenido->coment}} 
+                                                                                            
+                                                        <?php $content1 = DB::table('users')->select('username')->where('id',$contenido->usua_id)->get(); ?>
+                                                          @foreach($content1 as $contenido1)
+                                                          <br>
+                                                          
+                                                          <i class="fas fa-user fa-1x"></i>
+                                                          
+                                                            {{$contenido1->username}}
+                                                              
+                                                        <br>
+                                                        @endforeach 
+                                                          
+                                            <br>
+                                          @endforeach    
+                                      </p>                              
+                                                                          
+                                  
                           </div>
                         </div>
                       </div>
