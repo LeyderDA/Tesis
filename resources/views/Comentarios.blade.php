@@ -46,19 +46,19 @@
 
                                <head>
                                 <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
-
+                                <p class="prueba">     
+                                </p>
 
                                </head>
                                 <body>
                                   
 
-                                  <p class="prueba">mostrar</p>
+                                  
 
                                   <?php $content = DB::table('comentario')->select('coment','usua_id')->where('for_id',$foro->id)->get(); ?>
                                   @foreach($content as $contenido)
-                                  
-                                        {{$contenido->coment}} 
-                                                                                  
+                                  <p class="color">
+                                        {{$contenido->coment}}                                       
                                               <?php $content1 = DB::table('users')->select('username')->where('id',$contenido->usua_id)->get(); ?>
                                                 @foreach($content1 as $contenido1)
                                                 <br>
@@ -69,6 +69,7 @@
                                                     
                                               <br>
                                               @endforeach 
+                                    </p>
                                                 
                                   <br>
                                 @endforeach    
