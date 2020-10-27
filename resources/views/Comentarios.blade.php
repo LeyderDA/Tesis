@@ -41,7 +41,25 @@
                                       >
                                       <i class="far fa-comments fa-2x" style="color: black"></i>
                                       </button>
-                                </h4>                              
+                                </h4> 
+                                <?php $content = DB::table('comentario')->select('coment','usua_id')->where('for_id',$foro->id)->get(); ?>
+                                    @foreach($content as $contenido)
+                                          {{$contenido->coment}}
+                                          {{$contenido->usua_id}}
+
+                                          <?php $content1 = DB::table('users')->select('username')->where('id',$contenido->usua_id)->get(); ?>
+                                          @foreach($content1 as $contenido1)
+                                                {{$contenido1->username}}
+      
+                                                <br>
+                                                 @endforeach  
+
+                                         
+
+
+                                 <br>
+                                  @endforeach
+                                
                           </div>
                         </div>
                       </div>
