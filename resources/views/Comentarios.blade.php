@@ -41,27 +41,43 @@
                                 </h4> 
                                 <br>
                                 <h4 class="mb-2 card-title">    Comentarios </h4>
-                                <br>                             
+                                <br> 
+
+
+                               <head>
+                                <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
+
+
+                               </head>
+                                <body>
+                                  
+
+                                  <p class="prueba">mostrar</p>
+
+                                  <?php $content = DB::table('comentario')->select('coment','usua_id')->where('for_id',$foro->id)->get(); ?>
+                                  @foreach($content as $contenido)
+                                  
+                                        {{$contenido->coment}} 
+                                                                                  
+                                              <?php $content1 = DB::table('users')->select('username')->where('id',$contenido->usua_id)->get(); ?>
+                                                @foreach($content1 as $contenido1)
+                                                <br>
+                                                
+                                                <i class="fas fa-user fa-1x"></i>
+                                                
+                                                  {{$contenido1->username}}
+                                                    
+                                              <br>
+                                              @endforeach 
+                                                
+                                  <br>
+                                @endforeach    
+                                  
+                                </body>
+                                
+
                                      
-                                    <p> 
-                                      <?php $content = DB::table('comentario')->select('coment','usua_id')->where('for_id',$foro->id)->get(); ?>
-                                            @foreach($content as $contenido)
-                                                  {{$contenido->coment}} 
-                                                                                            
-                                                        <?php $content1 = DB::table('users')->select('username')->where('id',$contenido->usua_id)->get(); ?>
-                                                          @foreach($content1 as $contenido1)
-                                                          <br>
-                                                          
-                                                          <i class="fas fa-user fa-1x"></i>
-                                                          
-                                                            {{$contenido1->username}}
-                                                              
-                                                        <br>
-                                                        @endforeach 
-                                                          
-                                            <br>
-                                          @endforeach    
-                                      </p>                              
+                                                                   
                                                                           
                                   
                           </div>
