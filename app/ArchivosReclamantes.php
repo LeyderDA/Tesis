@@ -9,7 +9,7 @@ class ArchivosReclamantes extends Model
     protected $table = 'archivos_reclamantes';
     protected $fillable = 
     [
-        'id','archivoRe','recla_id',
+        'id','archivoRe','c',
     ];
     public function gestiones()
     {

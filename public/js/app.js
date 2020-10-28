@@ -10483,6 +10483,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-dropzone */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.js");
+/* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-dropzone/dist/vue2Dropzone.min.css */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.min.css");
+/* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -10861,9 +10865,95 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    vueDropzone: vue2_dropzone__WEBPACK_IMPORTED_MODULE_0___default.a
+  },
   data: function data() {
     return {
+      dropzoneOptions: {
+        url: "http://127.0.0.1:8000/api/archivoR",
+        thumbnailWidth: 150,
+        maxFilesize: 200,
+        headers: {
+          "My-Awesome-Header": "header value"
+        },
+        autoProcessQueue: false
+      },
       usuario: {
         id: "",
         username: "",
@@ -10904,6 +10994,10 @@ __webpack_require__.r(__webpack_exports__);
           direc: ""
         }
       },
+      archivosReclamantes: {
+        archivoRe: "",
+        recla_id: ""
+      },
       esta: false,
       estado: "disable",
       reclamantess: [],
@@ -10918,25 +11012,67 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    buscar: function buscar() {
+    agregarArchivo: function agregarArchivo() {
       var _this2 = this;
+
+      if (!this.reclamante.id) {
+        swal({
+          type: "error",
+          timer: 20000,
+          title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
+          text: "Los campos obligatorios son necesarios",
+          showConfirmButton: true
+        });
+      } else {
+        this.$refs.myVueDropzone.processQueue();
+        var imagen = this.$refs.myVueDropzone.getAcceptedFiles();
+        var params = {
+          recla_id: this.reclamante.id,
+          archivoRe: imagen.length > 0 ? imagen[0].name : ""
+        };
+        axios.post("/api/archivoRecla", params).then(function (res) {
+          if (res.data == null) {
+            swal({
+              type: "error",
+              timer: 3000,
+              title: "PARECE QUE HAY UN ERROR",
+              text: "El archivo no se ha agregado con exito",
+              showConfirmButton: false
+            });
+          } else {
+            swal({
+              type: "success",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "El archivo se a guardado",
+              showConfirmButton: false
+            });
+            axios.get("/api/gestion").then(function (res) {
+              _this2.gestioness = res.data;
+            });
+          }
+        });
+      }
+    },
+    buscar: function buscar() {
+      var _this3 = this;
 
       axios.get("/api/persona/" + this.reclamante.persona.cedula).then(function (res) {
         if (res.data[0] == null) {
-          _this2.reclamante.persona.cedula = "";
-          _this2.reclamante.persona.prinom = "";
-          console.log(_this2.reclamante.persona.cedula);
-          _this2.esta = false;
+          _this3.reclamante.persona.cedula = "";
+          _this3.reclamante.persona.prinom = "";
+          console.log(_this3.reclamante.persona.cedula);
+          _this3.esta = false;
         } else {
           console.log(res.data[0]);
           var person = res.data[0];
-          _this2.reclamante.persona = person;
-          _this2.esta = true;
+          _this3.reclamante.persona = person;
+          _this3.esta = true;
         }
       });
     },
     agregar: function agregar() {
-      var _this3 = this;
+      var _this4 = this;
 
       var params = {
         enfodifervictima: this.reclamante.enfodifervictima,
@@ -10977,17 +11113,17 @@ __webpack_require__.r(__webpack_exports__);
           });
         }
 
-        _this3.reclamantess.push(res.data);
+        _this4.reclamantess.push(res.data);
       });
     },
     eliminar: function eliminar(reclamante, index) {
-      var _this4 = this;
+      var _this5 = this;
 
       var confirmacion = confirm("Confirma Eliminar al reclamante: ".concat(reclamante.persona.prinom));
 
       if (confirmacion) {
         axios["delete"]("/api/reclamante/" + reclamante.id).then(function () {
-          _this4.reclamantess.splice(index, 1);
+          _this5.reclamantess.splice(index, 1);
 
           swal({
             type: "success",
@@ -11004,7 +11140,7 @@ __webpack_require__.r(__webpack_exports__);
       this.reclamante.index = index;
     },
     editar: function editar() {
-      var _this5 = this;
+      var _this6 = this;
 
       var params = {
         enfodifervictima: this.reclamante.enfodifervictima,
@@ -11037,9 +11173,9 @@ __webpack_require__.r(__webpack_exports__);
         }
       })["catch"](function (error) {
         if (error.response.status == 422) {
-          _this5.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
+          _this6.errors = error.response.data.errors; //let mensaje='Error con alguno de los campos';
 
-          alert(_this5.errors.id[0]);
+          alert(_this6.errors.id[0]);
         }
       });
     }
@@ -72734,6 +72870,31 @@ var render = function() {
                             },
                             [_c("i", { staticClass: "fas fa-trash-alt" })]
                           )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-sm",
+                              attrs: {
+                                "data-toggle": "modal",
+                                "data-target": "#AGGARCH",
+                                title: "Agregar archivos"
+                              },
+                              on: {
+                                click: function($event) {
+                                  return _vm.editarForm(reclamante, index)
+                                }
+                              }
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "fas fa-save fa-2x",
+                                staticStyle: { color: "black" }
+                              })
+                            ]
+                          )
                         ])
                       ])
                     }),
@@ -73492,6 +73653,112 @@ var render = function() {
               ]
             )
           ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "AGGARCH",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "exampleModalLabel",
+              "aria-hidden": "true"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "modal-dialog", attrs: { role: "document" } },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _vm._m(7),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.reclamante.id,
+                            expression: "reclamante.id"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        domProps: { value: _vm.reclamante.id },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.reclamante, "id", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
+                      _vm._v("Agregar Archivos ")
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(8),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-12 form-group" },
+                      [
+                        _c("vue-dropzone", {
+                          ref: "myVueDropzone",
+                          attrs: {
+                            id: "dropzone",
+                            options: _vm.dropzoneOptions
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("div", { staticClass: "modal-footer" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-danger",
+                            attrs: { type: "button", "data-dismiss": "modal" }
+                          },
+                          [
+                            _vm._v(
+                              "\n                      Cerrar\n                    "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: { type: "button", "data-dismiss": "modal" },
+                            on: {
+                              click: function($event) {
+                                return _vm.agregarArchivo()
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                      Guardar Cambios\n                    "
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ]
         )
       ])
     ])
@@ -73532,7 +73799,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Persona Relacionada")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Opciones")])
+        _c("th", [_vm._v("Opciones")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Agregar Archivos")])
       ])
     ])
   },
@@ -73639,6 +73908,32 @@ var staticRenderFns = [
         },
         [_vm._v("\n                  Cerrar\n                ")]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("\n                  Agregar Archivos\n                ")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "col-12 col-form-label" }, [
+      _c("i", { staticClass: "fas fa-image fa-2x" }),
+      _vm._v(" "),
+      _c("i", { staticClass: "fas fa-file-pdf fa-2x" }),
+      _vm._v(" "),
+      _c("i", { staticClass: "fas fa-file-word fa-2x" }),
+      _vm._v(" "),
+      _c("i", { staticClass: "fas fa-file-excel fa-2x" })
     ])
   }
 ]

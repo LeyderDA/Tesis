@@ -119,3 +119,8 @@ Route::get('/archivogestion', 'ArchivosGestionesController@index')->name('ARCHLi
 Route::get('/archivogestion', 'ArchivosGestionesController@indexEst')->name('ARCHListare');
 Route::delete('/archivogestion/{id}', 'ArchivosGestionesController@destroy')->name('ARCHEliminar');
 Route::put('/archivogestion/{id}', 'ArchivosGestionesController@update')->name('ARCHActualizar');
+
+
+//RUTAS DE API PARA ARCHIVOS DE LOS RECLAMANTES
+Route::post('/archivoRecla', 'ArchivosReclamantesController@store')->name('ARCHGuardar');
+Route::post('/archivoR', 'ArchivosReclamantesController@storeARCH')->name('ARCHGuardar');
