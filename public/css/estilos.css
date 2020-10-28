@@ -1,3 +1,6 @@
 
 
-.color{background-color: rgb(245, 106, 106);}
+.color{background-color: rgb(76, 163, 245);
+    padding: 8px 12px;
+    border: rgb(13, 23, 24) 2px;
+    border-radius: 20px;}

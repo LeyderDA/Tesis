@@ -40,47 +40,29 @@
                                       </button>
                                 </h4> 
                                 <br>
-                                <h4 class="mb-2 card-title">    Comentarios </h4>
-                                <br> 
-
-
-                               <head>
+                                <center>
+                                  <h2 class="mb-2 card-title">Lista de Comentarios</h2>
+                                </center>
+                                
+                                <br>
+                                {{-- Link para acceder a los .css  --}}
+                            
                                 <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
-                                <p class="prueba">     
-                                </p>
 
-                               </head>
-                                <body>
-                                  
-
-                                  
-
-                                  <?php $content = DB::table('comentario')->select('coment','usua_id')->where('for_id',$foro->id)->get(); ?>
+                                 <?php $content = DB::table('comentario')->select('coment','usua_id')->where('for_id',$foro->id)->get(); ?>
                                   @foreach($content as $contenido)
                                   <p class="color">
                                         {{$contenido->coment}}                                       
                                               <?php $content1 = DB::table('users')->select('username')->where('id',$contenido->usua_id)->get(); ?>
                                                 @foreach($content1 as $contenido1)
-                                                <br>
-                                                
-                                                <i class="fas fa-user fa-1x"></i>
-                                                
-                                                  {{$contenido1->username}}
-                                                    
+                                                <br>                                                
+                                                <i class="fas fa-user fa-2x"></i>                                                
+                                                  {{$contenido1->username}}                                                    
                                               <br>
                                               @endforeach 
-                                    </p>
-                                                
-                                  <br>
-                                @endforeach    
+                                    </p>                                   
                                   
-                                </body>
-                                
-
-                                     
-                                                                   
-                                                                          
-                                  
+                                @endforeach                                                                 
                           </div>
                         </div>
                       </div>
@@ -120,7 +102,8 @@
                       class="form-control"
                     >
                     </textarea>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Agregar Comentario</button>
 
                     {{-- <button
                     type="submit"
