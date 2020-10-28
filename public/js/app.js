@@ -4208,6 +4208,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4370,6 +4371,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -9511,6 +9517,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -10192,6 +10204,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -10331,6 +10347,22 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -58804,10 +58836,6 @@ var render = function() {
                   _vm._m(5),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("Recepción")
-                    ]),
-                    _vm._v(" "),
                     _c("div", { staticClass: "col-12 form-group" }, [
                       _c("input", {
                         directives: [
@@ -58819,7 +58847,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { placeholder: "Recepción", disabled: "" },
+                        attrs: {
+                          type: "hidden",
+                          placeholder: "Recepción",
+                          disabled: ""
+                        },
                         domProps: { value: _vm.gestion.recepcion.id },
                         on: {
                           input: function($event) {
@@ -59811,33 +59843,57 @@ var render = function() {
                       _vm._v("Ampliación de hechos (*)")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-12 form-group" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.gestion.amplhechos,
-                            expression: "gestion.amplhechos"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { placeholder: "Ampliación de hechos" },
-                        domProps: { value: _vm.gestion.amplhechos },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                    _c("div", { staticClass: "col-12" }, [
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.gestion.amplhechos,
+                              expression: "gestion.amplhechos"
                             }
-                            _vm.$set(
-                              _vm.gestion,
-                              "amplhechos",
-                              $event.target.value
-                            )
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.gestion,
+                                "amplhechos",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
                           }
-                        }
-                      })
+                        },
+                        [
+                          _c("option", { attrs: { value: "" } }, [
+                            _vm._v("Selecciona")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Si" } }, [
+                            _vm._v("Si")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "No" } }, [
+                            _vm._v("No")
+                          ])
+                        ]
+                      )
                     ]),
+                    _vm._v(" "),
+                    _c("br"),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-5 col-form-label" }, [
                       _vm._v("Fecha entrevista (*)")
@@ -69527,33 +69583,55 @@ var render = function() {
                     _vm._v("Ampliación de hechos (*)")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-12 form-group" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.gestion.amplhechos,
-                          expression: "gestion.amplhechos"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { placeholder: "Ampliación de hechos" },
-                      domProps: { value: _vm.gestion.amplhechos },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                  _c("div", { staticClass: "col-12" }, [
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.gestion.amplhechos,
+                            expression: "gestion.amplhechos"
                           }
-                          _vm.$set(
-                            _vm.gestion,
-                            "amplhechos",
-                            $event.target.value
-                          )
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text" },
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.gestion,
+                              "amplhechos",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          }
                         }
-                      }
-                    })
+                      },
+                      [
+                        _c("option", { attrs: { value: "" } }, [
+                          _vm._v("Selecciona")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "Si" } }, [
+                          _vm._v("Si")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "No" } }, [_vm._v("No")])
+                      ]
+                    )
                   ]),
+                  _vm._v(" "),
+                  _c("br"),
                   _vm._v(" "),
                   _c("label", { staticClass: "col-5 col-form-label" }, [
                     _vm._v("Fecha entrevista (*)")
@@ -71281,29 +71359,51 @@ var render = function() {
             _vm._v("Genero (*)")
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-6 form-group" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.reclamante.genevictima,
-                  expression: "reclamante.genevictima"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { placeholder: "Genero" },
-              domProps: { value: _vm.reclamante.genevictima },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+          _c("div", { staticClass: "col-6" }, [
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.reclamante.genevictima,
+                    expression: "reclamante.genevictima"
                   }
-                  _vm.$set(_vm.reclamante, "genevictima", $event.target.value)
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.reclamante,
+                      "genevictima",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
                 }
-              }
-            })
+              },
+              [
+                _c("option", { attrs: { value: "" } }, [_vm._v("Selecciona")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "M" } }, [_vm._v("M")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "F" } }, [_vm._v("F")])
+              ]
+            )
           ]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("br"),
           _vm._v(" "),
           _c("label", { staticClass: "col-5 col-form-label" }, [
             _vm._v("Edad (*)")
@@ -71397,61 +71497,101 @@ var render = function() {
             _vm._v("Embarazo (*)")
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-6 form-group" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.reclamante.embaravictima,
-                  expression: "reclamante.embaravictima"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { placeholder: "Embarazo" },
-              domProps: { value: _vm.reclamante.embaravictima },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+          _c("div", { staticClass: "col-6" }, [
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.reclamante.embaravictima,
+                    expression: "reclamante.embaravictima"
                   }
-                  _vm.$set(_vm.reclamante, "embaravictima", $event.target.value)
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.reclamante,
+                      "embaravictima",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
                 }
-              }
-            })
+              },
+              [
+                _c("option", { attrs: { value: "" } }, [_vm._v("Selecciona")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Si" } }, [_vm._v("Si")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "No" } }, [_vm._v("No")])
+              ]
+            )
           ]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("br"),
           _vm._v(" "),
           _c("label", { staticClass: "col-5 col-form-label" }, [
             _vm._v("Grupo Etnico (*)")
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-6 form-group" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.reclamante.grupetnicovictima,
-                  expression: "reclamante.grupetnicovictima"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { placeholder: "Grupo Etnico" },
-              domProps: { value: _vm.reclamante.grupetnicovictima },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+          _c("div", { staticClass: "col-6" }, [
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.reclamante.grupetnicovictima,
+                    expression: "reclamante.grupetnicovictima"
                   }
-                  _vm.$set(
-                    _vm.reclamante,
-                    "grupetnicovictima",
-                    $event.target.value
-                  )
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.reclamante,
+                      "grupetnicovictima",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
                 }
-              }
-            })
+              },
+              [
+                _c("option", { attrs: { value: "" } }, [_vm._v("Selecciona")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Si" } }, [_vm._v("Si")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "No" } }, [_vm._v("No")])
+              ]
+            )
           ]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("br"),
           _vm._v(" "),
           _c("label", { staticClass: "col-5 col-form-label" }, [
             _vm._v("Entidad o persona que reclama (*)")
@@ -72367,33 +72507,55 @@ var render = function() {
                       _vm._v("Genero")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-12 form-group" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.reclamante.genevictima,
-                            expression: "reclamante.genevictima"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { placeholder: "genero" },
-                        domProps: { value: _vm.reclamante.genevictima },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                    _c("div", { staticClass: "col-12" }, [
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.reclamante.genevictima,
+                              expression: "reclamante.genevictima"
                             }
-                            _vm.$set(
-                              _vm.reclamante,
-                              "genevictima",
-                              $event.target.value
-                            )
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.reclamante,
+                                "genevictima",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
                           }
-                        }
-                      })
+                        },
+                        [
+                          _c("option", { attrs: { value: "" } }, [
+                            _vm._v("Selecciona")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "M" } }, [
+                            _vm._v("M")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "F" } }, [_vm._v("F")])
+                        ]
+                      )
                     ]),
+                    _vm._v(" "),
+                    _c("br"),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Edad")
@@ -72424,11 +72586,11 @@ var render = function() {
                             )
                           }
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-12 col-form-label" }, [
-                        _vm._v("Discapacidad")
-                      ])
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
+                      _vm._v("Discapacidad")
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-12 form-group" }, [
@@ -72495,65 +72657,113 @@ var render = function() {
                       _vm._v("Embarazo")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-12 form-group" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.reclamante.embaravictima,
-                            expression: "reclamante.embaravictima"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { placeholder: "embarazo" },
-                        domProps: { value: _vm.reclamante.embaravictima },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                    _c("div", { staticClass: "col-12" }, [
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.reclamante.embaravictima,
+                              expression: "reclamante.embaravictima"
                             }
-                            _vm.$set(
-                              _vm.reclamante,
-                              "embaravictima",
-                              $event.target.value
-                            )
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.reclamante,
+                                "embaravictima",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
                           }
-                        }
-                      })
+                        },
+                        [
+                          _c("option", { attrs: { value: "" } }, [
+                            _vm._v("Selecciona")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Si" } }, [
+                            _vm._v("Si")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "No" } }, [
+                            _vm._v("No")
+                          ])
+                        ]
+                      )
                     ]),
+                    _vm._v(" "),
+                    _c("br"),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Grupo Etnico")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-12 form-group" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.reclamante.grupetnicovictima,
-                            expression: "reclamante.grupetnicovictima"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { placeholder: "grupo etnico" },
-                        domProps: { value: _vm.reclamante.grupetnicovictima },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                    _c("div", { staticClass: "col-12" }, [
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.reclamante.grupetnicovictima,
+                              expression: "reclamante.grupetnicovictima"
                             }
-                            _vm.$set(
-                              _vm.reclamante,
-                              "grupetnicovictima",
-                              $event.target.value
-                            )
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.reclamante,
+                                "grupetnicovictima",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
                           }
-                        }
-                      })
+                        },
+                        [
+                          _c("option", { attrs: { value: "" } }, [
+                            _vm._v("Selecciona")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Si" } }, [
+                            _vm._v("Si")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "No" } }, [
+                            _vm._v("No")
+                          ])
+                        ]
+                      )
                     ]),
+                    _vm._v(" "),
+                    _c("br"),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Entidad que reclama")
@@ -72627,7 +72837,7 @@ var render = function() {
                         staticClass: "btn btn-danger",
                         attrs: { type: "button", "data-dismiss": "modal" }
                       },
-                      [_vm._v("\n                Cerrar\n              ")]
+                      [_vm._v("\n                  Cerrar\n                ")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -72643,7 +72853,7 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                Guardar Cambios\n              "
+                          "\n                  Guardar Cambios\n                "
                         )
                       ]
                     )
@@ -73039,7 +73249,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                Editar Reclamante\n              ")]
+        [_vm._v("\n                  Editar Reclamante\n                ")]
       ),
       _vm._v(" "),
       _c(
@@ -73064,7 +73274,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                Mostrar Persona\n              ")]
+        [_vm._v("\n                  Mostrar Persona\n                ")]
       ),
       _vm._v(" "),
       _c(
@@ -73092,7 +73302,7 @@ var staticRenderFns = [
           staticClass: "btn btn-danger",
           attrs: { type: "button", "data-dismiss": "modal" }
         },
-        [_vm._v("\n                Cerrar\n              ")]
+        [_vm._v("\n                  Cerrar\n                ")]
       )
     ])
   },
@@ -73104,7 +73314,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                Mostrar Persona\n              ")]
+        [_vm._v("\n                  Mostrar Persona\n                ")]
       ),
       _vm._v(" "),
       _c(
@@ -73132,7 +73342,7 @@ var staticRenderFns = [
           staticClass: "btn btn-danger",
           attrs: { type: "button", "data-dismiss": "modal" }
         },
-        [_vm._v("\n                Cerrar\n              ")]
+        [_vm._v("\n                  Cerrar\n                ")]
       )
     ])
   }

@@ -115,13 +115,18 @@
                 <label class="col-5 col-form-label"
                   >Ampliación de hechos (*)</label
                 >
-                <div class="col-12 form-group">
-                  <input
+                <div class="col-12">
+                  <select
                     class="form-control"
-                    placeholder="Ampliación de hechos"
+                    type="text"
                     v-model="gestion.amplhechos"
-                  />
+                  >
+                    <option value="">Selecciona</option>
+                    <option value="Si">Si</option>
+                    <option value="No">No</option>
+                  </select>
                 </div>
+                <br />
 
                 <label class="col-5 col-form-label">Fecha entrevista (*)</label>
                 <div class="col-12 form-group">

@@ -270,7 +270,7 @@
             <div class="modal-body">
               <div class="col-12 form-group">
                 <input
-                 type="hidden"
+                  type="hidden"
                   class="form-control"
                   placeholder="Recepción"
                   v-model="recepcion.id"
@@ -281,13 +281,19 @@
               <label class="col-5 col-form-label"
                 >Ampliación de hechos (*)</label
               >
-              <div class="col-12 form-group">
-                <input
+
+              <div class="col-12">
+                <select
                   class="form-control"
-                  placeholder="Ampliación de hechos"
+                  type="text"
                   v-model="gestion.amplhechos"
-                />
+                >
+                  <option value="">Selecciona</option>
+                  <option value="Si">Si</option>
+                  <option value="No">No</option>
+                </select>
               </div>
+              <br />
 
               <label class="col-5 col-form-label">Fecha entrevista (*)</label>
               <div class="col-12 form-group">
@@ -1177,7 +1183,7 @@ export default {
           n_act: this.gestion.n_act,
           n_aseso: this.gestion.n_aseso,
           n_autor: this.gestion.n_autor,
-          asesor: this.gestion.asesor
+          asesor: this.gestion.asesor,
         };
 
         axios.post("/api/gestion", params).then((res) => {

@@ -15,7 +15,7 @@ class CreateReclamTable extends Migration
     {
         Schema::create('reclamantes', function (Blueprint $table) {
             $table->BigIncrements('id');
-            $table->string('enfodifervictima',5); 
+            $table->string('enfodifervictima',50); 
             $table->string('genevictima',15);
             $table->integer('edadvictima');
             $table->string('discapavictima',10);

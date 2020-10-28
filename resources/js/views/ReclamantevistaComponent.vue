@@ -111,13 +111,18 @@
                 </div>
                 <label class="col-12 col-form-label">Genero</label>
 
-                <div class="col-12 form-group">
-                  <input
-                    class="form-control"
-                    placeholder="genero"
-                    v-model="reclamante.genevictima"
-                  />
-                </div>
+<div class="col-12">
+            <select
+              class="form-control"
+              type="text"
+              v-model="reclamante.genevictima"
+            >
+              <option value="">Selecciona</option>
+              <option value="M">M</option>
+              <option value="F">F</option>
+            </select>
+          </div>
+          <br>
                 <label class="col-12 col-form-label">Edad</label>
 
                 <div class="col-12 form-group">
@@ -127,9 +132,9 @@
                     v-model="reclamante.edadvictima"
                   />
 
-                  <label class="col-12 col-form-label">Discapacidad</label>
+                  
                 </div>
-
+<label class="col-12 col-form-label">Discapacidad</label>
                 <div class="col-12 form-group">
                   <input
                     class="form-control"
@@ -148,22 +153,33 @@
                 </div>
                 <label class="col-12 col-form-label">Embarazo</label>
 
-                <div class="col-12 form-group">
-                  <input
-                    class="form-control"
-                    placeholder="embarazo"
-                    v-model="reclamante.embaravictima"
-                  />
-                </div>
+                <div class="col-12">
+            <select
+              class="form-control"
+              type="text"
+              v-model="reclamante.embaravictima"
+            >
+              <option value="">Selecciona</option>
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <br />
                 <label class="col-12 col-form-label">Grupo Etnico</label>
 
-                <div class="col-12 form-group">
-                  <input
-                    class="form-control"
-                    placeholder="grupo etnico"
-                    v-model="reclamante.grupetnicovictima"
-                  />
-                </div>
+               
+          <div class="col-12">
+            <select
+              class="form-control"
+              type="text"
+              v-model="reclamante.grupetnicovictima"
+            >
+              <option value="">Selecciona</option>
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <br />
                 <label class="col-12 col-form-label">Entidad que reclama</label>
 
                 <div class="col-12 form-group">

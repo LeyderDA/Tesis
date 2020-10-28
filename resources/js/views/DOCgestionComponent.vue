@@ -296,9 +296,10 @@
                 <h5 class="modal-title" id="exampleModalLabel">Gestión</h5>
               </div>
               <div class="modal-body">
-                <label class="col-5 col-form-label">Recepción</label>
+                
                 <div class="col-12 form-group">
                   <input
+                  type="hidden"
                     class="form-control"
                     placeholder="Recepción"
                     v-model="gestion.recepcion.id"

@@ -6,9 +6,7 @@
     <div class="card-body row">
       <form>
         <div class="row">
-          <label class="col-5 col-form-label"
-            >Enfoque diferencial (*)</label
-          >
+          <label class="col-5 col-form-label">Enfoque diferencial (*)</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -17,20 +15,22 @@
             />
           </div>
 
-          <label class="col-5 col-form-label"
-            >Genero (*)</label
-          >
-          <div class="col-6 form-group">
-            <input
+          <label class="col-5 col-form-label">Genero (*)</label>
+          <div class="col-6">
+            <select
               class="form-control"
-              placeholder="Genero"
+              type="text"
               v-model="reclamante.genevictima"
-            />
+            >
+              <option value="">Selecciona</option>
+              <option value="M">M</option>
+              <option value="F">F</option>
+            </select>
           </div>
+          <br />
+          <br />
 
-          <label class="col-5 col-form-label"
-            >Edad (*)</label
-          >
+          <label class="col-5 col-form-label">Edad (*)</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -39,9 +39,7 @@
             />
           </div>
 
-          <label class="col-5 col-form-label"
-            >Discapacidad (*)</label
-          >
+          <label class="col-5 col-form-label">Discapacidad (*)</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -50,9 +48,7 @@
             />
           </div>
 
-          <label class="col-5 col-form-label"
-            >Estrato (*)</label
-          >
+          <label class="col-5 col-form-label">Estrato (*)</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -61,27 +57,37 @@
             />
           </div>
 
-          <label class="col-5 col-form-label"
-            >Embarazo (*)</label
-          >
-          <div class="col-6 form-group">
-            <input
-              class="form-control"
-              placeholder="Embarazo"
-              v-model="reclamante.embaravictima"
-            />
-          </div>
+          <label class="col-5 col-form-label">Embarazo (*)</label>
 
-          <label class="col-5 col-form-label"
-            >Grupo Etnico (*)</label
-          >
-          <div class="col-6 form-group">
-            <input
+          <div class="col-6">
+            <select
               class="form-control"
-              placeholder="Grupo Etnico"
-              v-model="reclamante.grupetnicovictima"
-            />
+              type="text"
+              v-model="reclamante.embaravictima"
+            >
+              <option value="">Selecciona</option>
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
           </div>
+          <br />
+          <br />
+
+          <label class="col-5 col-form-label">Grupo Etnico (*)</label>
+
+          <div class="col-6">
+            <select
+              class="form-control"
+              type="text"
+              v-model="reclamante.grupetnicovictima"
+            >
+              <option value="">Selecciona</option>
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <br />
+          <br />
 
           <label class="col-5 col-form-label"
             >Entidad o persona que reclama (*)</label
@@ -94,9 +100,7 @@
             />
           </div>
 
-          <label class="col-5 col-form-label"
-            >Cedula (*)</label
-          >
+          <label class="col-5 col-form-label">Cedula (*)</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
