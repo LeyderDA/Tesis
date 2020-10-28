@@ -17,4 +17,9 @@ class Gestion extends Model
     {
         return $this->belongsTo('App\Recepcion','recp_id');
     }
+    public function archivos()
+    {
+        return $this->belongsTo('App\ArchivosGestiones','id');
+    
+    }
 }

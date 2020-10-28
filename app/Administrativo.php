@@ -19,6 +19,6 @@ class Administrativo extends Model
     public function recepcion()
     {
         return $this->belongsTo('App\Recepcion','id');
-    
+   
     }
 }

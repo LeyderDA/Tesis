@@ -24,4 +24,10 @@ class Reclamante extends Model
         return $this->belongsTo('App\Recepcion','id');
     
     }
+
+    public function archivos()
+    {
+        return $this->belongsTo('App\ArchivosReclamantes','id');
+    
+    }
 }

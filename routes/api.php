@@ -110,3 +110,12 @@ Route::get('/foroEst', 'ForosController@indexEst')->name('ForosListare');
 Route::delete('/foro/{id}', 'ForosController@destroy')->name('ForosEliminar');
 Route::put('/foro/{id}', 'ForosController@update')->name('ForosActualizar');
 Route::get('/forobusq/{id}', 'ForosController@buscarForo')->name('Forosbuscar');
+
+
+//RUTAS DE API PARA ARCHIVOS DE LA GESTION
+Route::post('/archivoges', 'ArchivosGestionesController@store')->name('ARCHGuardar');
+Route::post('/archivogestionA', 'ArchivosGestionesController@storeARCH')->name('ARCHGuardar');
+Route::get('/archivogestion', 'ArchivosGestionesController@index')->name('ARCHListar');
+Route::get('/archivogestion', 'ArchivosGestionesController@indexEst')->name('ARCHListare');
+Route::delete('/archivogestion/{id}', 'ArchivosGestionesController@destroy')->name('ARCHEliminar');
+Route::put('/archivogestion/{id}', 'ArchivosGestionesController@update')->name('ARCHActualizar');

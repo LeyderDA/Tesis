@@ -271,7 +271,6 @@ export default {
           doc_id: this.usuario.id,
           archivo: imagen.length > 0 ? imagen[0].name : "",
         };
-        console.log(this.foro.archivo);
 
         this.foro.titulo = "";
         this.foro.descripcion = "";

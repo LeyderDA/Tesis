@@ -22,6 +22,7 @@
                       <th>Ver los otros campos</th>
                       <th>Recepción</th>
                       <th>Opciones</th>
+                      <th>Agregar Archivos</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -71,6 +72,17 @@
                           @click="eliminar(gestion, index)"
                         >
                           <i class="fas fa-trash-alt"></i>
+                        </button>
+                      </td>
+                      <td>
+                        <button
+                          class="btn btn-sm"
+                          data-toggle="modal"
+                          data-target="#AGGARCH"
+                          @click="editarForm(gestion, index)"
+                          title="Agregar archivos"
+                        >
+                          <i class="fas fa-save fa-2x" style="color: black"></i>
                         </button>
                       </td>
                     </tr>
@@ -718,14 +730,86 @@
           </div>
         </div>
         <!--modal de MOSTRAR recepcion -->
+
+        <!--modal de AGREGAR ARCHIVOS -->
+        <div
+          class="modal fade"
+          id="AGGARCH"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Datos de la Recepción
+                </h5>
+              </div>
+              <div class="modal-body">
+                <div class="col-12 form-group">
+                  <input class="form-control" v-model="gestion.id" />
+                </div>
+                <label class="col-12 col-form-label">Agregar Archivos </label>
+                <label class="col-12 col-form-label">
+                  <i class="fas fa-image fa-2x"></i>
+                  <i class="fas fa-file-pdf fa-2x"></i>
+                  <i class="fas fa-file-word fa-2x"></i>
+                  <i class="fas fa-file-excel fa-2x"></i>
+                </label>
+                <div class="col-12 form-group">
+                  <vue-dropzone
+                    ref="myVueDropzone"
+                    id="dropzone"
+                    :options="dropzoneOptions"
+                  ></vue-dropzone>
+                </div>
+
+                <div class="col-12 form-group">
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      data-dismiss="modal"
+                    >
+                      Cerrar
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      @click="agregarArchivo()"
+                      data-dismiss="modal"
+                    >
+                      Guardar Cambios
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--modal de AGREGAR ARCHIVOS -->
       </div>
     </div>
   </div>
 </template>
 <script>
+import vue2Dropzone from "vue2-dropzone";
+import "vue2-dropzone/dist/vue2Dropzone.min.css";
 export default {
+  components: {
+    vueDropzone: vue2Dropzone,
+  },
   data() {
     return {
+      dropzoneOptions: {
+        url: "http://127.0.0.1:8000/api/archivogestionA",
+        thumbnailWidth: 150,
+        maxFilesize: 200,
+        headers: { "My-Awesome-Header": "header value" },
+        autoProcessQueue: false,
+      },
       gestion: {
         id: "",
         amplhechos: "",
@@ -757,7 +841,10 @@ export default {
           fecharetiro: "",
         },
       },
-
+      archivosGestiones: {
+        archivoGe: "",
+        ges_id: "",
+      },
       esta: false,
       gestioness: [],
 
@@ -770,6 +857,50 @@ export default {
     });
   },
   methods: {
+    agregarArchivo() {
+      if (!this.gestion.id) {
+        swal({
+          type: "error",
+          timer: 20000,
+          title: "TE FALTA LLENAR CAMPOS OBLIGATORIOS",
+          text: "Los campos obligatorios son necesarios",
+          showConfirmButton: true,
+        });
+      } else {
+        this.$refs.myVueDropzone.processQueue();
+        let imagen = this.$refs.myVueDropzone.getAcceptedFiles();
+
+        const params = {
+          ges_id: this.gestion.id,
+          archivoGe: imagen.length > 0 ? imagen[0].name : "",
+        };
+
+        this.gestion.id = "";
+
+        axios.post("/api/archivoges", params).then((res) => {
+          if (res.data == null) {
+            swal({
+              type: "error",
+              timer: 3000,
+              title: "PARECE QUE HAY UN ERROR",
+              text: "El archivo no se ha agregado con exito",
+              showConfirmButton: false,
+            });
+          } else {
+            swal({
+              type: "success",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "El archivo se a guardado",
+              showConfirmButton: false,
+            });
+            axios.get("/api/gestion").then((res) => {
+              this.gestioness = res.data;
+            });
+          }
+        });
+      }
+    },
     buscar() {
       axios.get("/api/recepcion/" + this.gestion.recepcion.id).then((res) => {
         if (res.data[0] == null) {
