@@ -61,6 +61,8 @@ Route::get('/BuscarQr', 'HomeController@index')->name('buscarqr');
 Route::get('/view_foro/{id}', 'ForosController@comentarios');
 Route::post('/add_comentarios/{id}', 'ComentariosController@store'); 
 
+Route::get('/view_arch_recla/{id}', 'ReclamanteController@mostrarArchivos');
+
 
 
 

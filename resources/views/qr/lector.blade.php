@@ -7,10 +7,8 @@
     <link href="{{ asset('css/lector.css') }}" rel="stylesheet">
   </head>
   <body>
+    
     <br>
-    <h4 class="text-center mb-2 card-title">
-      Debes seleccionar tu busqueda
-    </h4>
     <center>
       <div class="col-4">
         <select class="form-control" id="exampleFormControlSelect1" >
@@ -21,8 +19,7 @@
           <option value="4">Buscar Recepciones de un Estudiante</option>
         </select>
       </div>
-    </center>
-    
+    </center>  
     <video id="preview"></video>
     <!-- <script src="instascan.min.js"></script> -->
     <!-- {{ asset('js/instascan.min.js') }} -->

@@ -10945,6 +10945,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -72983,8 +72986,25 @@ var render = function() {
                             },
                             [
                               _c("i", {
-                                staticClass: "fas fa-save fa-2x",
+                                staticClass: "fas fa-save fa-3x",
                                 staticStyle: { color: "black" }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href: "/view_arch_recla/" + reclamante.id
+                              }
+                            },
+                            [
+                              _c("i", {
+                                staticClass:
+                                  "fas fa-arrow-alt-circle-right fa-2x",
+                                staticStyle: { color: "black" },
+                                attrs: { title: "Ir a los archivos" }
                               })
                             ]
                           )
@@ -73895,7 +73915,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Agregar Archivos")])
+        _c("th", [_vm._v("Archivos")])
       ])
     ])
   },

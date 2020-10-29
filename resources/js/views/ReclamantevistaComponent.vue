@@ -22,7 +22,7 @@
                       <th>Entidad Reclamante</th>
                       <th>Persona Relacionada</th>
                       <th>Opciones</th>
-                       <th>Agregar Archivos</th>
+                      <th>Archivos</th>
                       
                     </tr>
                   </thead>
@@ -78,8 +78,11 @@
                           @click="editarForm(reclamante, index)"
                           title="Agregar archivos"
                         >
-                          <i class="fas fa-save fa-2x" style="color: black"></i>
-                        </button>
+                          <i class="fas fa-save fa-3x" style="color: black"></i>
+                        </button>  
+                        <a :href="'/view_arch_recla/' + reclamante.id">
+                          <i title="Ir a los archivos" class="fas fa-arrow-alt-circle-right fa-2x" style="color: black"></i>
+                        </a>
                       </td>
                     </tr>
                   </tbody>

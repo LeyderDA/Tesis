@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\ArchivosReclamantes;
 use App\Reclamante;
 use Illuminate\Http\Request;
 
@@ -83,6 +83,12 @@ class ReclamanteController extends Controller
         ->where("personas.cedula","=",$cedula)
         ->get(); 
         return  $usuario;   
+    }
+
+    public function mostrarArchivos($id)
+    {
+        $reclamante = ArchivosReclamantes::where("archivos_reclamantes.recla_id","=",$id);
+        return view('ArchivosReclamante',compact('reclamante'));
     }
 
 }
