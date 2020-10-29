@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\ArchivosReclamantes;
 use App\Reclamante;
+use App\Foro;
 use Illuminate\Http\Request;
 
 class ReclamanteController extends Controller
@@ -86,9 +87,11 @@ class ReclamanteController extends Controller
     }
 
     public function mostrarArchivos($id)
-    {
-        $reclamante = ArchivosReclamantes::where("archivos_reclamantes.recla_id","=",$id);
-        return view('ArchivosReclamante',compact('reclamante'));
+    { 
+
+        $Recla = Reclamante::findOrFail($id);
+        return view('ArchivosReclamante',compact('Recla'));
+    
     }
 
 }

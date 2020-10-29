@@ -7,6 +7,7 @@
               <br />
               <br />   
               <h1 class="text-center mb-2 card-title">Archivos del Reclamante</h1>
+              <label class="col-12 col-form-label">{{$Recla->enfodifervictima}}</label>
                   </div>
                   <div class="card-body row">     
                     <br />
@@ -16,6 +17,15 @@
                             <div class="table table-reponsive">              
                               <br>
                               <br>
+                              <?php $content = DB::table('archivos_reclamantes')->select('id','archivoRe')->where('recla_id',$Recla->id)->get(); ?>
+
+                              @foreach($content as $contenido)
+                              <p class="color">
+                                    {{$contenido->id}}     
+                                    {{$contenido->archivoRe}}                                   
+                                         
+                                </p>                                      
+                            @endforeach  
                              
                               <br>
                                                              
