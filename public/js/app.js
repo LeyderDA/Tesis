@@ -11040,6 +11040,8 @@ __webpack_require__.r(__webpack_exports__);
               showConfirmButton: false
             });
           } else {
+            _this2.$refs.myVueDropzone.removeAllFiles(true);
+
             swal({
               type: "success",
               timer: 3000,
@@ -61783,6 +61785,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
+                        attrs: { type: "hidden" },
                         domProps: { value: _vm.gestion.id },
                         on: {
                           input: function($event) {
@@ -73687,6 +73690,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
+                        attrs: { type: "hidden" },
                         domProps: { value: _vm.reclamante.id },
                         on: {
                           input: function($event) {

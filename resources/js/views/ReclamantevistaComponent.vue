@@ -403,7 +403,7 @@
               </div>
               <div class="modal-body">
                 <div class="col-12 form-group">
-                  <input class="form-control" v-model="reclamante.id" />
+                  <input type="hidden" class="form-control" v-model="reclamante.id" />
                 </div>
                 <label class="col-12 col-form-label">Agregar Archivos </label>
                 <label class="col-12 col-form-label">
@@ -463,6 +463,8 @@ export default {
         maxFilesize: 200,
         headers: { "My-Awesome-Header": "header value" },
         autoProcessQueue: false,
+       
+        
       },
       usuario: {
         id: "",
@@ -536,6 +538,7 @@ export default {
         });
       } else {
         this.$refs.myVueDropzone.processQueue();
+        
         let imagen = this.$refs.myVueDropzone.getAcceptedFiles();
 
         const params = {
@@ -555,6 +558,7 @@ export default {
               showConfirmButton: false,
             });
           } else {
+               this.$refs.myVueDropzone.removeAllFiles(true);
             swal({
               type: "success",
               timer: 3000,
@@ -565,6 +569,7 @@ export default {
             axios.get("/api/gestion").then((res) => {
               this.gestioness = res.data;
             });
+         
           }
         });
       }

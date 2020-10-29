@@ -749,7 +749,7 @@
               </div>
               <div class="modal-body">
                 <div class="col-12 form-group">
-                  <input class="form-control" v-model="gestion.id" />
+                  <input  type="hidden" class="form-control" v-model="gestion.id" />
                 </div>
                 <label class="col-12 col-form-label">Agregar Archivos </label>
                 <label class="col-12 col-form-label">
