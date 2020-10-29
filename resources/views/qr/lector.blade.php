@@ -7,9 +7,14 @@
     <link href="{{ asset('css/lector.css') }}" rel="stylesheet">
   </head>
   <body>
+    <br>
+    <h4 class="text-center mb-2 card-title">
+      Debes seleccionar tu busqueda
+    </h4>
     <center>
       <div class="col-4">
         <select class="form-control" id="exampleFormControlSelect1" >
+          <option value="">Selecciona el filtro de busqueda</option>
           <option value="1">Buscar Gestiones de una Recepción</option>
           <option value="2">Buscar Observaciones de una Recepción</option>
           <option value="3">Buscar Recepciones de un Docente o un Administrativo</option>

@@ -17501,10 +17501,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -57891,6 +57887,75 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/BuscarQrComponent.vue?vue&type=template&id=14875a4e&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/BuscarQrComponent.vue?vue&type=template&id=14875a4e& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card" }, [
+    _c("br"),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-body row" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "card-body col" }, [
+            _c("div", { attrs: { clas: "container row" } }, [
+              _c("div", { staticClass: "table text-center table-reponsive" }, [
+                _c("table", { staticClass: "table text-center" }, [
+                  _c("h4", { staticClass: "text-center mb-2 card-title" }, [
+                    _vm._v(
+                      "\n                  Click en el Ícono para elegir tu busqueda\n                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("a", { attrs: { href: "/qr" } }, [
+                    _c("i", {
+                      staticClass: "fas fa-search fa-3x",
+                      staticStyle: { color: "black" },
+                      attrs: { title: "Buscar por QR" }
+                    })
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("h1", { staticClass: "text-center mb-2 card-title" }, [
+        _vm._v("Busqueda por QR")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/CrearForoComponent.vue?vue&type=template&id=25c7fe22&":
 /*!****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/CrearForoComponent.vue?vue&type=template&id=25c7fe22& ***!
@@ -68418,6 +68483,22 @@ var render = function() {
                         attrs: { to: { name: "home" } }
                       },
                       [_vm._v("Inicio")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: { name: "buscarqr" } }
+                      },
+                      [_vm._v("Buscar por QR")]
                     )
                   ],
                   1
@@ -84496,17 +84577,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card" }, [
     _vm._m(0),
-    _vm._v(" "),
-    _c("label", { staticClass: "col-5 col-form-label" }, [
-      _vm._v("Busca por QR")
-    ]),
-    _vm._v(" "),
-    _c("a", { attrs: { href: "/qr" } }, [
-      _c("i", {
-        staticClass: "fas fa-search fa-3x",
-        staticStyle: { color: "black" }
-      })
-    ]),
     _vm._v(" "),
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row" }, [
@@ -102062,6 +102132,10 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     path: '/VerForoDoc',
     name: 'verforos',
     component: __webpack_require__(/*! ./views/VerForosComponent.vue */ "./resources/js/views/VerForosComponent.vue")["default"]
+  }, {
+    path: '/BuscarQr',
+    name: 'buscarqr',
+    component: __webpack_require__(/*! ./views/BuscarQrComponent.vue */ "./resources/js/views/BuscarQrComponent.vue")["default"]
   }],
   mode: 'history'
 }));
@@ -102339,6 +102413,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AsignarRecepcionvistaComponent_vue_vue_type_template_id_ea972b00___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AsignarRecepcionvistaComponent_vue_vue_type_template_id_ea972b00___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/BuscarQrComponent.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/views/BuscarQrComponent.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _BuscarQrComponent_vue_vue_type_template_id_14875a4e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BuscarQrComponent.vue?vue&type=template&id=14875a4e& */ "./resources/js/views/BuscarQrComponent.vue?vue&type=template&id=14875a4e&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _BuscarQrComponent_vue_vue_type_template_id_14875a4e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _BuscarQrComponent_vue_vue_type_template_id_14875a4e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/BuscarQrComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/BuscarQrComponent.vue?vue&type=template&id=14875a4e&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/views/BuscarQrComponent.vue?vue&type=template&id=14875a4e& ***!
+  \*********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BuscarQrComponent_vue_vue_type_template_id_14875a4e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./BuscarQrComponent.vue?vue&type=template&id=14875a4e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/BuscarQrComponent.vue?vue&type=template&id=14875a4e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BuscarQrComponent_vue_vue_type_template_id_14875a4e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BuscarQrComponent_vue_vue_type_template_id_14875a4e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

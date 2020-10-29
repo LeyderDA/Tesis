@@ -56,7 +56,7 @@ Route::get('tipo/{type}', 'SweetController@notification');
 
 Route::get('/Prueba', 'HomeController@index')->name('prueba');
 
-
+Route::get('/BuscarQr', 'HomeController@index')->name('buscarqr');
 
 Route::get('/view_foro/{id}', 'ForosController@comentarios');
 Route::post('/add_comentarios/{id}', 'ComentariosController@store'); 

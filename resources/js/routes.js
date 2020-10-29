@@ -200,6 +200,13 @@ export default new Router({
 
         },
 
+        {
+            path: '/BuscarQr',
+            name: 'buscarqr',
+            component: require('./views/BuscarQrComponent.vue').default
+
+        },
+
         
        
     ],
