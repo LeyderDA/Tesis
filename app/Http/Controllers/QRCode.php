@@ -40,8 +40,14 @@ class QRCode extends Controller
             ->where("users.id",$part2)
             ->get();    
             return view('qr.qrview3',$recepcion);
+       
+            }else if($part1 == 4){
+            $recepcion['recepcion'] = Recepcion::
+            where("recepciones.usu_id",$part2)
+            ->get();    
+            return view('qr.qrview3',$recepcion);
 
-        }
+    }
         
     }
 

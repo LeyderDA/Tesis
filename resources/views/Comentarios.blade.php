@@ -50,19 +50,29 @@
                                 <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
 
                                  <?php $content = DB::table('comentario')->select('coment','usua_id')->where('for_id',$foro->id)->get(); ?>
-                                  @foreach($content as $contenido)
-                                  <p class="color">
-                                        {{$contenido->coment}}                                       
-                                              <?php $content1 = DB::table('users')->select('username')->where('id',$contenido->usua_id)->get(); ?>
-                                                @foreach($content1 as $contenido1)
-                                                <br>                                                
-                                                <i class="fas fa-user fa-2x"></i>                                                
-                                                  {{$contenido1->username}}                                                    
-                                              <br>
-                                              @endforeach 
-                                    </p>                                   
-                                  
-                                @endforeach                                                                 
+                                 {{-- <?php $i=1; ?>
+                                 @while ($i==1)
+                                      --}}
+                                 
+
+                                        @foreach($content as $contenido)
+                                          <p class="color">
+                                                {{$contenido->coment}}                                       
+                                                      <?php $content1 = DB::table('users')->select('username')->where('id',$contenido->usua_id)->get(); ?>
+                                                        @foreach($content1 as $contenido1)
+                                                        <br>                                                
+                                                        <i class="fas fa-user fa-2x"></i>                                                
+                                                          {{$contenido1->username}}                                                    
+                                                      <br>
+                                                      @endforeach 
+                                            </p>                                      
+                                        @endforeach  
+
+
+                                {{-- <?php  sleep(1); ?>                              
+                                @endwhile --}}
+                                
+
                           </div>
                         </div>
                       </div>

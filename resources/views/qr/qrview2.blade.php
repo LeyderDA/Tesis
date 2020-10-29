@@ -8,7 +8,7 @@
           <table class="table text-center">
             <caption>Datos traidos de la tabla de Observaciones</caption>
             <div>
-                <h2 class="text-center mb-2 card-title">Gestiones asignadas a la Recepción</h2>
+                <h2 class="text-center mb-2 card-title">Observaciones asignadas a la Recepción</h2>
             </div>
             <thead>
               <tr>

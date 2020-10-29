@@ -7,11 +7,17 @@
     <link href="{{ asset('css/lector.css') }}" rel="stylesheet">
   </head>
   <body>
-      <select class="form-control" id="exampleFormControlSelect1" >
-        <option value="1">Buscar Gestiones de una Recepción</option>
-        <option value="2">Buscar Observaciones de una Recepción</option>
-        <option value="3">Buscar Recepciones de un Usuario</option>
-      </select>
+    <center>
+      <div class="col-4">
+        <select class="form-control" id="exampleFormControlSelect1" >
+          <option value="1">Buscar Gestiones de una Recepción</option>
+          <option value="2">Buscar Observaciones de una Recepción</option>
+          <option value="3">Buscar Recepciones de un Docente o un Administrativo</option>
+          <option value="4">Buscar Recepciones de un Estudiante</option>
+        </select>
+      </div>
+    </center>
+    
     <video id="preview"></video>
     <!-- <script src="instascan.min.js"></script> -->
     <!-- {{ asset('js/instascan.min.js') }} -->
@@ -33,6 +39,8 @@
             window.location.replace('qr/2;'+content);
           }else if(opc==3){
             window.location.replace('qr/3;'+content);
+          }else if(opc==4){
+            window.location.replace('qr/4;'+content);
           }
           
         }      

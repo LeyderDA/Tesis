@@ -226,7 +226,7 @@
               </div>
 
               <center>
-                <a :href="'/comentarios/' + foro.id" title="Agregar Comentario">
+                <a :href="'/view_foro/' + foro.id" title="Agregar Comentario">
                   <i class="fas fa-arrow-alt-circle-right fa-5x"></i>
                 </a>
               </center>

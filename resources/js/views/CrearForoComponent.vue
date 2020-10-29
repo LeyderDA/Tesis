@@ -167,6 +167,7 @@ export default {
         maxFilesize: 200,
         headers: { "My-Awesome-Header": "header value" },
         autoProcessQueue: false,
+         dictDefaultMessage: "<i class='fa fa-cloud-upload'></i>SOLO DEBES CARGAR UN ARCHIVO"
       },
 
       area: {

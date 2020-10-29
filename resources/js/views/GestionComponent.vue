@@ -809,6 +809,7 @@ export default {
         maxFilesize: 200,
         headers: { "My-Awesome-Header": "header value" },
         autoProcessQueue: false,
+        dictDefaultMessage: "<i class='fa fa-cloud-upload'></i>SOLO DEBES CARGAR UN ARCHIVO"
       },
       gestion: {
         id: "",
@@ -887,6 +888,7 @@ export default {
               showConfirmButton: false,
             });
           } else {
+            this.$refs.myVueDropzone.removeAllFiles(true);
             swal({
               type: "success",
               timer: 3000,

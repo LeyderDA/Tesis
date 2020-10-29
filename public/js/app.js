@@ -3523,7 +3523,8 @@ __webpack_require__.r(__webpack_exports__);
         headers: {
           "My-Awesome-Header": "header value"
         },
-        autoProcessQueue: false
+        autoProcessQueue: false,
+        dictDefaultMessage: "<i class='fa fa-cloud-upload'></i>SOLO DEBES CARGAR UN ARCHIVO"
       },
       area: {
         id: "",
@@ -5189,7 +5190,8 @@ __webpack_require__.r(__webpack_exports__);
         headers: {
           "My-Awesome-Header": "header value"
         },
-        autoProcessQueue: false
+        autoProcessQueue: false,
+        dictDefaultMessage: "<i class='fa fa-cloud-upload'></i>SOLO DEBES CARGAR UN ARCHIVO"
       },
       gestion: {
         id: "",
@@ -5267,6 +5269,8 @@ __webpack_require__.r(__webpack_exports__);
               showConfirmButton: false
             });
           } else {
+            _this2.$refs.myVueDropzone.removeAllFiles(true);
+
             swal({
               type: "success",
               timer: 3000,
@@ -69944,7 +69948,7 @@ var render = function() {
                         "a",
                         {
                           attrs: {
-                            href: "/comentarios/" + _vm.foro.id,
+                            href: "/view_foro/" + _vm.foro.id,
                             title: "Agregar Comentario"
                           }
                         },
