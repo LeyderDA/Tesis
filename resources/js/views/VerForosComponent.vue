@@ -48,7 +48,7 @@
                         </button>
                       </td>
                       <td>
-                        <a :href="'/comentarios/' + foro.id">
+                        <a :href="'/view_foro/' + foro.id">
                           <i class="fas fa-arrow-alt-circle-right fa-3x"></i>
                         </a>
                       </td>

@@ -53,11 +53,13 @@ Route::get('/recepcionqr/{id}', 'RecepcionController@qrcode');
 Route::get('/Reportes', 'Controller@index')->name('reportes')->middleware('Administrativo_Middleware');
 Route::get('/Est', 'EstadisticosController@est_recepciones')->name('estadisticos');
 Route::get('tipo/{type}', 'SweetController@notification');
-Route::get('/comentarios/{id}', 'ForosController@comentarios');
+
 Route::get('/Prueba', 'HomeController@index')->name('prueba');
 
 
-Route::post('/comentarios/crear', 'ComentariosController@store'); 
+
+Route::get('/view_foro/{id}', 'ForosController@comentarios');
+Route::post('/add_comentarios/{id}', 'ComentariosController@store'); 
 
 
 

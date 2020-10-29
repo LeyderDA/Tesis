@@ -41,7 +41,7 @@
                                 </h4> 
                                 <br>
                                 <center>
-                                  <h2 class="mb-2 card-title">Lista de Comentarios</h2>
+                                  <h2 class="mb-2 card-title">Comentarios</h2>
                                 </center>
                                 
                                 <br>
@@ -89,7 +89,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <form action="{{ url('/comentarios/crear') }}" method="post">
+                  <form action="{{ url('/add_comentarios/'.$foro->id) }}" method="post">
                     {{ csrf_field() }}
                   <input type="hidden" name="for_id" value="{{$foro->id}}">
                   <label class="col-5 col-form-label">Comentario</label>

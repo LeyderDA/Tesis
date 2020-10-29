@@ -290,6 +290,7 @@ export default {
               showConfirmButton: false,
             });
           } else {
+            this.$refs.myVueDropzone.removeAllFiles(true);
             swal({
               type: "success",
               timer: 3000,

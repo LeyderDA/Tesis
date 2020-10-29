@@ -3598,6 +3598,8 @@ __webpack_require__.r(__webpack_exports__);
       this.usuario.index = index;
     },
     agregar: function agregar() {
+      var _this3 = this;
+
       if (!this.area.id || !this.foro.titulo || !this.foro.descripcion || !this.foro.estadoFo || !this.usuario.id) {
         swal({
           type: "error",
@@ -3635,6 +3637,8 @@ __webpack_require__.r(__webpack_exports__);
               showConfirmButton: false
             });
           } else {
+            _this3.$refs.myVueDropzone.removeAllFiles(true);
+
             swal({
               type: "success",
               timer: 3000,
@@ -10952,7 +10956,8 @@ __webpack_require__.r(__webpack_exports__);
         headers: {
           "My-Awesome-Header": "header value"
         },
-        autoProcessQueue: false
+        autoProcessQueue: false,
+        dictDefaultMessage: "<i class='fa fa-cloud-upload'></i>SOLO DEBES CARGAR UN ARCHIVO"
       },
       usuario: {
         id: "",
@@ -83811,7 +83816,7 @@ var render = function() {
                         _c("td", [
                           _c(
                             "a",
-                            { attrs: { href: "/comentarios/" + foro.id } },
+                            { attrs: { href: "/view_foro/" + foro.id } },
                             [
                               _c("i", {
                                 staticClass:
