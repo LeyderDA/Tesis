@@ -206,6 +206,12 @@ export default new Router({
             component: require('./views/BuscarQrComponent.vue').default
 
         },
+        {
+            path: '/CrearFirma',
+            name: 'crearfirma',
+            component: require('./views/CrearFirmaComponent.vue').default
+
+        },
 
         
        

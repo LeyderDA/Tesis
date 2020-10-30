@@ -111,14 +111,14 @@
                   >Crear Recepción</router-link
                 >
               </li>
-              
-               <li class="nav-item">
+
+              <li class="nav-item">
                 <router-link class="nav-link" :to="{ name: 'misrecepciones' }"
                   >Mis Recepciones</router-link
                 >
               </li>
 
-               <li class="nav-item">
+              <li class="nav-item">
                 <router-link class="nav-link" :to="{ name: 'vistaresu' }"
                   >Recepciones Activas</router-link
                 >
@@ -129,19 +129,14 @@
                   >Recepciones Inactivas</router-link
                 >
               </li>
-
-             
-
-
             </ul>
           </div>
+          <li class="nav-item">
+            <router-link class="nav-link" :to="{ name: 'asignacionvista' }"
+              >Lista de Asignaciones</router-link
+            >
+          </li>
 
-                        <li class="nav-item">
-                <router-link class="nav-link" :to="{ name: 'asignacionvista' }"
-                  >Lista de Asignaciones</router-link
-                >
-              </li>
-              
           <li class="nav-item">
             <router-link class="nav-link" :to="{ name: 'miusuario' }"
               >Ver mi usuario</router-link
