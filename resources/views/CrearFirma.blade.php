@@ -1,22 +1,16 @@
 
-
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
         <title>Crear Firma</title>
         <link href="{{ asset('css/firma.css') }}" rel="stylesheet">
-
-	
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="./js/numeric-1.2.6.min.js"></script> 
 		<script src="./js/bezier.js"></script>
-		<script src="./js/jquery.signaturepad.js"></script> 
-		
+		<script src="./js/jquery.signaturepad.js"></script> 		
 		<script type='text/javascript' src="https://github.com/niklasvh/html2canvas/releases/download/0.4.1/html2canvas.js"></script>
-		<script src="./js/json2.min.js"></script>
-		
-		
+		<script src="./js/json2.min.js"></script>				
 		<style type="text/css">
 			body{
 				font-family:monospace;
@@ -24,7 +18,7 @@
 			}
 			#btnSaveSign {
 				color: #fff;
-				background: #f99a0b;
+				background: #1006a0;
 				padding: 5px;
 				border: none;
 				border-radius: 5px;
@@ -59,10 +53,11 @@
 		
 		<div id="signArea" >
 			<h2 class="tag-ingo">Ponga la firma debajo</h2>
-			<div class="sig sigWrapper" style="height:auto;">
+			<div id="figuras" class="sig sigWrapper" style="height:auto;">
 				<div class="typed"></div>
 				<canvas class="sign-pad" id="sign-pad" width="300" height="100"></canvas>
-			</div>
+            </div>
+            <input type="button" class="btn tw" id="btnSave2" value="Descargar imagen">
 		</div>
 		
 		<button id="btnSaveSign">Save Signature</button>
@@ -80,7 +75,30 @@
 		?>
 		</div>
 		
-		
+		<script>
+            document.getElementById('figuras').contentEditable = 'true';document.getElementById('figuras').designMode='on';
+            $(function() {
+              $("#btnSave2").click(function() {
+                html2canvas($("#figuras"), {
+                  onrendered: function(canvas) {
+                    saveAs(canvas.toDataURL(), 'canvas.png');
+                  }
+                });
+              });
+              function saveAs(uri, filename) {
+                var link = document.createElement('a');
+                if (typeof link.download === 'string') {
+                  link.href = uri;
+                  link.download = filename;
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                } else {
+                  window.open(uri);
+                }
+              }
+            });
+            </script>
 		<script>
 			$(document).ready(function() {
 				$('#signArea').signaturePad({drawOnly:true, drawBezierCurves:true, lineTop:90});
@@ -103,9 +121,18 @@
 						});
 					}
 				});
-			});
+            });
+            
+
+
+
 		  </script> 
 		
 
-	</body>
+    </body>
+    <br>
+    <br>
+    <center> 
+        <a href="/home"  class="btn btn-primary"  >Salir</a>
+      </center> 
 </html>
