@@ -5,22 +5,18 @@
               <div>
               <br />
               <br />
-              <br />   
-              <h1 class="text-center mb-2 card-title">Archivos del Reclamante</h1>
-            
+                
+              <h1 class="text-center mb-2 card-title">Archivos del Reclamante</h1>     
                   </div>
-                  <div class="card-body row">     
-                    <br />
+                  <div class="card-body row">             
                     <div class="container">
                         <div class="card-body col">
                           <div clas="container row">
-                            <div class="table table-reponsive">              
-                              <br>
-                              <br>
+                            <div class="table table-reponsive">                                           
                               <center>
                                 <?php $content = DB::table('archivos_reclamantes')->select('id','archivoRe')->where('recla_id',$Recla->id)->get(); ?>                              
                                 @foreach($content as $contenido)                             
-                                <h5 class="mb-2 card-title">Documentos del Reclamante<a href="/{{$contenido->archivoRe}}" target="_blank"></h5>                           
+                                <h1 class="mb-2 card-title"><a href="/{{$contenido->archivoRe}}" target="_blank"></h1>                           
                                   <?php 
                                    $pizza  = $contenido->archivoRe;
                                    $porciones = explode("/", $pizza);
@@ -31,18 +27,15 @@
                                    ?>
                                </a>          
                               @endforeach 
-                              </center>
- 
-                              <br>
-                                                             
+                              </center> 
+                              <br>                                                             
                           </div>
                         </div>
                       </div>
-           
-          </div> 
-          <center> 
-            <a href="/home"  class="btn btn-primary"  >Salir</a>
-          </center>        
+                      <center> 
+                        <a href="/home"  class="btn btn-primary"  >Salir</a>
+                      </center>
+          </div>       
        </div>
       </div>
       </div> 
