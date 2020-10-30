@@ -57,10 +57,12 @@
 				<div class="typed"></div>
 				<canvas class="sign-pad" id="sign-pad" width="300" height="100"></canvas>
             </div>
+            <br>
+            <br>
             <input type="button" class="btn tw" id="btnSave2" value="Descargar imagen">
 		</div>
 		
-		<button id="btnSaveSign">Save Signature</button>
+		
 		
 		<div class="sign-container">
 		<?php
@@ -73,7 +75,11 @@
 		
 		}
 		?>
-		</div>
+        </div>
+        <h4 class="mb-2 card-title">¿Te Equivocaste? 
+           
+        </h4> 
+        <a href="/CrearFir" >Resetear Firma</a>
 		
 		<script>
             document.getElementById('figuras').contentEditable = 'true';document.getElementById('figuras').designMode='on';
@@ -81,7 +87,7 @@
               $("#btnSave2").click(function() {
                 html2canvas($("#figuras"), {
                   onrendered: function(canvas) {
-                    saveAs(canvas.toDataURL(), 'canvas.png');
+                    saveAs(canvas.toDataURL(), 'Firma.png');
                   }
                 });
               });
