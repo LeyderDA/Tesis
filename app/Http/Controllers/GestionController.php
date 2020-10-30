@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Gestion;
 use App\UsuRecep;
 use App\Recepcion;
+use App\ArchivosGestiones;
 use App\Http\Controllers\request_id;
 use Illuminate\Http\Request;
 
@@ -110,4 +111,13 @@ class GestionController extends Controller
         $ges->recepcion;
         return  response()->json($ges);
     }
+
+    public function mostrarArchivos($id)
+    { 
+
+        $Gest= Gestion::findOrFail($id);
+        return view('ArchivosGestiones',compact('Gest'));
+    
+    }
+
 }

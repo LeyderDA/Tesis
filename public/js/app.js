@@ -5175,6 +5175,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -60153,6 +60156,21 @@ var render = function() {
                               _c("i", {
                                 staticClass: "fas fa-save fa-2x",
                                 staticStyle: { color: "black" }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              attrs: { href: "/view_arch_gest/" + gestion.id }
+                            },
+                            [
+                              _c("i", {
+                                staticClass:
+                                  "fas fa-arrow-alt-circle-right fa-2x",
+                                staticStyle: { color: "black" },
+                                attrs: { title: "Ir a los archivos" }
                               })
                             ]
                           )

@@ -84,6 +84,9 @@
                         >
                           <i class="fas fa-save fa-2x" style="color: black"></i>
                         </button>
+                         <a :href="'/view_arch_gest/' + gestion.id">
+                          <i title="Ir a los archivos" class="fas fa-arrow-alt-circle-right fa-2x" style="color: black"></i>
+                        </a>
                       </td>
                     </tr>
                   </tbody>

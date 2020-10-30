@@ -62,6 +62,7 @@ Route::get('/view_foro/{id}', 'ForosController@comentarios');
 Route::post('/add_comentarios/{id}', 'ComentariosController@store'); 
 
 Route::get('/view_arch_recla/{id}', 'ReclamanteController@mostrarArchivos');
+Route::get('/view_arch_gest/{id}', 'GestionController@mostrarArchivos');
 
 
 
