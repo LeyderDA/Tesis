@@ -75,7 +75,7 @@
                         </button>
                       </td>
                       <td>
-                        <button
+                        <!-- <button
                           class="btn btn-sm"
                           data-toggle="modal"
                           data-target="#AGGARCH"
@@ -83,10 +83,15 @@
                           title="Agregar archivos"
                         >
                           <i class="fas fa-save fa-2x" style="color: black"></i>
-                        </button>
-                         <a :href="'/view_arch_gest/' + gestion.id">
+                        </button> -->
+                         <a :href="'/add_archivos/' + gestion.id">
+                          <i title="Agregar Archivos" class="fas fa-save fa-2x" style="color: black"></i>
+                        </a>
+
+                        <a :href="'/view_arch_gest/' + gestion.id">
                           <i title="Ir a los archivos" class="fas fa-arrow-alt-circle-right fa-2x" style="color: black"></i>
                         </a>
+
                       </td>
                     </tr>
                   </tbody>

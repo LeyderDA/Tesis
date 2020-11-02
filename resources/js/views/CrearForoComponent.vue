@@ -262,7 +262,6 @@ export default {
       } else {
         this.$refs.myVueDropzone.processQueue();
         let imagen = this.$refs.myVueDropzone.getAcceptedFiles();
-
         const params = {
           area_id: this.area.id.substr(0, 1),
           titulo: this.foro.titulo,
