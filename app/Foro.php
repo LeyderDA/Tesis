@@ -28,4 +28,9 @@ class Foro extends Model
         return $this->belongsTo('App\Area','area_id');
     
     }
+    public function archivos()
+    {
+        return $this->belongsTo('App\ArchivosForos','id');
+    
+    }
 }
