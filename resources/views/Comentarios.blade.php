@@ -18,9 +18,10 @@
                               <label class="col-12 col-form-label">{{$foro->descripcion}}</label>
                               <br>
                               <br>
+                              <h5>Archivos del Foro</h5>
                               <?php $content = DB::table('archivos_foro')->select('id','archivoFo')->where('foro_id',$foro->id)->get(); ?>                              
                               @foreach($content as $contenido)                             
-                              <h5 class="mb-2 card-title">Documentos del foro<a href="/storage/ForoArchivos/{{$contenido->archivoFo}}" target="_blank"></h5>                           
+                              <h5 class="mb-2 card-title"><a href="/storage/ForoArchivos/{{$contenido->archivoFo}}" target="_blank"></h5>                           
                                 <?php 
                                  $pizza  = $contenido->archivoFo;
                                  $porciones = explode("_", $pizza);
