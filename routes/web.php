@@ -78,6 +78,12 @@ Route::post('archivoRecla','ArchivosReclamantesController@store')->name('archivo
 Route::post('archivo/media','ArchivosReclamantesController@storeMedia')->name('archivo.storeMedia')->middleware('auth');
 Route::get('add_archivosRecla/{id}','ArchivosReclamantesController@add_archivos')->middleware('auth');
 
+//rutas para los foros
+Route::get('/view_arch_foro/{id}', 'ForosController@mostrarArchivos');
+Route::post('archivoForo','ArchivosForosController@store')->name('archivo')->middleware('auth');
+Route::post('archivo/media','ArchivosForosController@storeMedia')->name('archivo.storeMedia')->middleware('auth');
+Route::get('add_archivosForo/{id}','ArchivosForosController@add_archivos')->middleware('auth');
+
 
 
 

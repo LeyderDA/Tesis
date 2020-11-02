@@ -113,20 +113,8 @@
                   >
                   </textarea>
                 </div>
-                <label class="col-12 col-form-label">Agregar Archivos </label>
-                <label class="col-12 col-form-label">
-                  <i class="fas fa-image fa-2x"></i>
-                  <i class="fas fa-file-pdf fa-2x"></i>
-                  <i class="fas fa-file-word fa-2x"></i>
-                  <i class="fas fa-file-excel fa-2x"></i>
-                </label>
-                <div class="col-12 form-group">
-                  <vue-dropzone
-                    ref="myVueDropzone"
-                    id="dropzone"
-                    :options="dropzoneOptions"
-                  ></vue-dropzone>
-                </div>
+
+               
                 <div class="modal-footer">
                   <button
                     type="button"
@@ -153,23 +141,11 @@
   </div>
 </template>
 <script>
-import vue2Dropzone from "vue2-dropzone";
-import "vue2-dropzone/dist/vue2Dropzone.min.css";
+
 export default {
-  components: {
-    vueDropzone: vue2Dropzone,
-  },
+  
   data() {
     return {
-      dropzoneOptions: {
-        url: "http://127.0.0.1:8000/api/forito",
-        thumbnailWidth: 150,
-        maxFilesize: 200,
-        headers: { "My-Awesome-Header": "header value" },
-        autoProcessQueue: false,
-         dictDefaultMessage: "<i class='fa fa-cloud-upload'></i>SOLO DEBES CARGAR UN ARCHIVO"
-      },
-
       area: {
         id: "",
         nombre: "",
@@ -260,23 +236,20 @@ export default {
           showConfirmButton: true,
         });
       } else {
-        this.$refs.myVueDropzone.processQueue();
-        let imagen = this.$refs.myVueDropzone.getAcceptedFiles();
+      
         const params = {
           area_id: this.area.id.substr(0, 1),
           titulo: this.foro.titulo,
           descripcion: this.foro.descripcion,
-          fechapublicación: this.foro.fechapublicación,
           estadoFo: this.foro.estadoFo,
           doc_id: this.usuario.id,
-          archivo: imagen.length > 0 ? imagen[0].name : "",
+         
         };
 
         this.foro.titulo = "";
         this.foro.descripcion = "";
         this.foro.fechapublicación = "";
         this.foro.estadoFo = "";
-        this.foro.archivo = "";
         this.usuario.id = "";
         this.area.id = "";
 
@@ -290,7 +263,7 @@ export default {
               showConfirmButton: false,
             });
           } else {
-            this.$refs.myVueDropzone.removeAllFiles(true);
+            
             swal({
               type: "success",
               timer: 3000,

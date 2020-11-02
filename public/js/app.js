@@ -3350,10 +3350,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-dropzone */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.js");
-/* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-dropzone/dist/vue2Dropzone.min.css */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.min.css");
-/* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -3496,36 +3492,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    vueDropzone: vue2_dropzone__WEBPACK_IMPORTED_MODULE_0___default.a
-  },
   data: function data() {
     return {
-      dropzoneOptions: {
-        url: "http://127.0.0.1:8000/api/forito",
-        thumbnailWidth: 150,
-        maxFilesize: 200,
-        headers: {
-          "My-Awesome-Header": "header value"
-        },
-        autoProcessQueue: false,
-        dictDefaultMessage: "<i class='fa fa-cloud-upload'></i>SOLO DEBES CARGAR UN ARCHIVO"
-      },
       area: {
         id: "",
         nombre: ""
@@ -3599,8 +3568,6 @@ __webpack_require__.r(__webpack_exports__);
       this.usuario.index = index;
     },
     agregar: function agregar() {
-      var _this3 = this;
-
       if (!this.area.id || !this.foro.titulo || !this.foro.descripcion || !this.foro.estadoFo || !this.usuario.id) {
         swal({
           type: "error",
@@ -3610,22 +3577,17 @@ __webpack_require__.r(__webpack_exports__);
           showConfirmButton: true
         });
       } else {
-        this.$refs.myVueDropzone.processQueue();
-        var imagen = this.$refs.myVueDropzone.getAcceptedFiles();
         var params = {
           area_id: this.area.id.substr(0, 1),
           titulo: this.foro.titulo,
           descripcion: this.foro.descripcion,
-          fechapublicación: this.foro.fechapublicación,
           estadoFo: this.foro.estadoFo,
-          doc_id: this.usuario.id,
-          archivo: imagen.length > 0 ? imagen[0].name : ""
+          doc_id: this.usuario.id
         };
         this.foro.titulo = "";
         this.foro.descripcion = "";
         this.foro.fechapublicación = "";
         this.foro.estadoFo = "";
-        this.foro.archivo = "";
         this.usuario.id = "";
         this.area.id = "";
         axios.post("/api/foro", params).then(function (res) {
@@ -3638,8 +3600,6 @@ __webpack_require__.r(__webpack_exports__);
               showConfirmButton: false
             });
           } else {
-            _this3.$refs.myVueDropzone.removeAllFiles(true);
-
             swal({
               type: "success",
               timer: 3000,
@@ -4379,15 +4339,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-dropzone/dist/vue2Dropzone.min.css */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.min.css");
 /* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -16229,6 +16180,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -58317,27 +58273,6 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "col-12 col-form-label" }, [
-                      _vm._v("Agregar Archivos ")
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(3),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-12 form-group" },
-                      [
-                        _c("vue-dropzone", {
-                          ref: "myVueDropzone",
-                          attrs: {
-                            id: "dropzone",
-                            options: _vm.dropzoneOptions
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
                     _c("div", { staticClass: "modal-footer" }, [
                       _c(
                         "button",
@@ -58422,20 +58357,6 @@ var staticRenderFns = [
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "col-12 col-form-label" }, [
-      _c("i", { staticClass: "fas fa-image fa-2x" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fas fa-file-pdf fa-2x" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fas fa-file-word fa-2x" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fas fa-file-excel fa-2x" })
     ])
   }
 ]
@@ -84007,11 +83928,25 @@ var render = function() {
                         _c("td", [
                           _c(
                             "a",
-                            { attrs: { href: "/view_foro/" + foro.id } },
+                            { attrs: { href: "/add_archivosForo/" + foro.id } },
+                            [
+                              _c("i", {
+                                staticClass: "fas fa-save fa-2x",
+                                staticStyle: { color: "black" },
+                                attrs: { title: "Agregar Archivos" }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            { attrs: { href: "/view_arch_foro/" + foro.id } },
                             [
                               _c("i", {
                                 staticClass:
-                                  "fas fa-arrow-alt-circle-right fa-3x"
+                                  "fas fa-arrow-alt-circle-right fa-2x",
+                                staticStyle: { color: "black" },
+                                attrs: { title: "Ir a los archivos" }
                               })
                             ]
                           )

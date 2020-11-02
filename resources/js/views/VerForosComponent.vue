@@ -47,10 +47,15 @@
                           <i class="fas fa-trash-alt"></i>
                         </button>
                       </td>
-                      <td>
-                        <a :href="'/view_foro/' + foro.id">
-                          <i class="fas fa-arrow-alt-circle-right fa-3x"></i>
+                       <td>                  
+                         <a :href="'/add_archivosForo/' + foro.id">
+                          <i title="Agregar Archivos" class="fas fa-save fa-2x" style="color: black"></i>
                         </a>
+
+                        <a :href="'/view_arch_foro/' + foro.id">
+                          <i title="Ir a los archivos" class="fas fa-arrow-alt-circle-right fa-2x" style="color: black"></i>
+                        </a>
+
                       </td>
                     </tr>
                   </tbody>

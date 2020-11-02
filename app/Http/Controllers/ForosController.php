@@ -74,7 +74,6 @@ class ForosController extends Controller
             $for->titulo=$request->titulo;
             $for->descripcion=$request->descripcion;
             $for->estadoFo=$request->estadoFo;  
-            $for->archivo="storage/archivos/".$request->archivo;  
             $for->doc_id=$request->doc_id;
             $for->area_id=$request->area_id;
             $for->save();
@@ -142,5 +141,13 @@ class ForosController extends Controller
     
         return  response()->json($foro);
 
+    }
+
+    public function mostrarArchivos($id)
+    { 
+
+        $Fo= Foro::findOrFail($id);
+        return view('ArchivosForos',compact('Fo'));
+    
     }
 }

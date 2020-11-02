@@ -74,16 +74,7 @@
                           <i class="fas fa-trash-alt"></i>
                         </button>
                       </td>
-                      <td>
-                        <!-- <button
-                          class="btn btn-sm"
-                          data-toggle="modal"
-                          data-target="#AGGARCH"
-                          @click="editarForm(gestion, index)"
-                          title="Agregar archivos"
-                        >
-                          <i class="fas fa-save fa-2x" style="color: black"></i>
-                        </button> -->
+                      <td>                  
                          <a :href="'/add_archivos/' + gestion.id">
                           <i title="Agregar Archivos" class="fas fa-save fa-2x" style="color: black"></i>
                         </a>
