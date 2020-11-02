@@ -54,24 +54,29 @@ Route::get('/recepcionqr/{id}', 'RecepcionController@qrcode');
 Route::get('/Reportes', 'Controller@index')->name('reportes')->middleware('Administrativo_Middleware');
 Route::get('/Est', 'EstadisticosController@est_recepciones')->name('estadisticos');
 Route::get('tipo/{type}', 'SweetController@notification');
-
 Route::get('/Prueba', 'HomeController@index')->name('prueba');
-
 Route::get('/BuscarQr', 'HomeController@index')->name('buscarqr');
 
 Route::get('/view_foro/{id}', 'ForosController@comentarios');
 Route::post('/add_comentarios/{id}', 'ComentariosController@store'); 
 
-Route::get('/view_arch_recla/{id}', 'ReclamanteController@mostrarArchivos');
-Route::get('/view_arch_gest/{id}', 'GestionController@mostrarArchivos');
 
+
+//Firma de los pdf
 Route::get('/CrearFir', 'FirmaController@index')->name('firma');
 
-
+//rutas para los archivos de las gestiones
+Route::get('/view_arch_gest/{id}', 'GestionController@mostrarArchivos');
 Route::post('archivo','ArchivosGestionesController@store')->name('archivo')->middleware('auth');
 Route::post('archivo/media','ArchivosGestionesController@storeMedia')->name('archivo.storeMedia')->middleware('auth');
 Route::get('add_archivos/{id}','ArchivosGestionesController@add_archivos')->middleware('auth');
 
+
+//rutas para los archivos de las reclamantes
+Route::get('/view_arch_recla/{id}', 'ReclamanteController@mostrarArchivos');
+Route::post('archivoRecla','ArchivosReclamantesController@store')->name('archivo')->middleware('auth');
+Route::post('archivo/media','ArchivosReclamantesController@storeMedia')->name('archivo.storeMedia')->middleware('auth');
+Route::get('add_archivosRecla/{id}','ArchivosReclamantesController@add_archivos')->middleware('auth');
 
 
 

@@ -71,18 +71,14 @@
                         </button>
                       </td>
                       <td>
-                        <button
-                          class="btn btn-sm"
-                          data-toggle="modal"
-                          data-target="#AGGARCH"
-                          @click="editarForm(reclamante, index)"
-                          title="Agregar archivos"
-                        >
-                          <i class="fas fa-save fa-3x" style="color: black"></i>
-                        </button>  
+                       <a :href="'/add_archivosRecla/' + reclamante.id">
+                          <i title="Agregar Archivos" class="fas fa-save fa-2x" style="color: black"></i>
+                        </a>
+
                         <a :href="'/view_arch_recla/' + reclamante.id">
                           <i title="Ir a los archivos" class="fas fa-arrow-alt-circle-right fa-2x" style="color: black"></i>
                         </a>
+
                       </td>
                     </tr>
                   </tbody>

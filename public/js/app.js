@@ -10952,10 +10952,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -73067,24 +73063,17 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [
                           _c(
-                            "button",
+                            "a",
                             {
-                              staticClass: "btn btn-sm",
                               attrs: {
-                                "data-toggle": "modal",
-                                "data-target": "#AGGARCH",
-                                title: "Agregar archivos"
-                              },
-                              on: {
-                                click: function($event) {
-                                  return _vm.editarForm(reclamante, index)
-                                }
+                                href: "/add_archivosRecla/" + reclamante.id
                               }
                             },
                             [
                               _c("i", {
-                                staticClass: "fas fa-save fa-3x",
-                                staticStyle: { color: "black" }
+                                staticClass: "fas fa-save fa-2x",
+                                staticStyle: { color: "black" },
+                                attrs: { title: "Agregar Archivos" }
                               })
                             ]
                           ),

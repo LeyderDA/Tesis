@@ -48,9 +48,6 @@ class GestionController extends Controller
               return  response()->json($gestiones);
              }
 
-
-        
-
     }
     public function destroy($id)
     {
@@ -58,9 +55,6 @@ class GestionController extends Controller
         $rec->delete();
         return  response()->json($rec);
     }
-
-
-
 
     public function store(Request $request)
     {

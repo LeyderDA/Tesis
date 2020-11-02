@@ -1,25 +1,59 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Reclamante;
 use App\ArchivosReclamantes;
 use Illuminate\Http\Request;
 
 class ArchivosReclamantesController extends Controller
 {
-    public function store(Request $request)
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function add_archivos($id)
     {
-        $ges = new ArchivosReclamantes();
-        $ges->recla_id = $request->recla_id;
-        $ges->archivoRe="storage/archivosReclamantes/".$request->archivoRe;  
-        $ges->save();
-        return  response()->json($ges);
+        $Recl= Reclamante::findOrFail($id);
+        return view('Archivos.Reclamantes.create',compact('Recl'));
+
+    }
+    public function destroy($id)
+    {
+        $arch = ArchivosReclamantes::find($id);
+        $arch->delete();
+        return  response()->json($arch);
     }
 
-    public function storeARCH(Request $request)
+    public function store(Request $request)
     {
-        $image=$request->file('file');
-        $name=$image->getClientOriginalName();
-        $image->move(storage_path('app/public/archivosReclamantes'), $name);
-      
+
+        $id = $request->input("id");
+        foreach ($request->input('document', []) as $file) {
+            ArchivosReclamantes::insert(array('archivoRe' => "$file",'recla_id' => "$id"));
+        } 
+        return redirect('home');   
     }
+
+    public function storeMedia(Request $request){
+     
+        $path = storage_path('app/public/ReclamanteArchivos');
+
+        if (!file_exists($path)) {
+          mkdir($path, 0777, true);
+        }
+
+        $file = $request->file('file');
+
+        $name = uniqid() . '_' . trim($file->getClientOriginalName());
+
+        $file->move($path, $name);
+
+        return response()->json([
+        'name'          => $name,
+        'original_name' => $file->getClientOriginalName(),
+       ]);
+
+    }
+
 }

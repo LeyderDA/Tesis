@@ -6,7 +6,7 @@
               <br />
               <br />
                 
-              <h1 class="text-center mb-2 card-title">Archivos del Reclamante</h1>     
+              <h1 class="text-center mb-2 card-title">Archivos de los Reclamantes</h1>     
                   </div>
                   <div class="card-body row">             
                     <div class="container">
@@ -16,14 +16,13 @@
                               <center>
                                 <?php $content = DB::table('archivos_reclamantes')->select('id','archivoRe')->where('recla_id',$Recla->id)->get(); ?>                              
                                 @foreach($content as $contenido)                             
-                                <h1 class="mb-2 card-title"><a href="/{{$contenido->archivoRe}}" target="_blank"></h1>                           
+                                <h1 class="mb-2 card-title"><a href="/storage/ReclamanteArchivos/{{$contenido->archivoRe}}" target="_blank"></h1>                           
                                   <?php 
                                    $pizza  = $contenido->archivoRe;
-                                   $porciones = explode("/", $pizza);
+                                   $porciones = explode("_", $pizza);
                                    $part1 = $porciones[0]; 
-                                   $part2 = $porciones[1];
-                                   $part3 = $porciones[2];
-                                     echo $part3; // porción3
+                                   $part2 = $porciones[1];                      
+                                     echo $part2; // porción3
                                    ?>
                                </a>          
                               @endforeach 

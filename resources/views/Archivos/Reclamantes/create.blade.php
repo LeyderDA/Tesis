@@ -16,10 +16,10 @@
 <div class="container">
        <div class="row mt-3 justify-content-md-center">
           <div class="col-md-6">
-             <form action="{{ url('/archivo') }}" method="post" enctype="multipart/form-data">                    
+             <form action="{{ url('/archivoRecla') }}" method="post" enctype="multipart/form-data">                    
                     {{ csrf_field() }}
 
-                    <input type="hidden" name="id" value="<?php echo $Gest->id ?>"> 
+                    <input type="hidden" name="id" value="<?php echo $Recl->id ?>"> 
 
                     <div class="form-group">
                       <label for="document">Documents</label>
