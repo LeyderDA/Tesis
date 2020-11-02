@@ -57,8 +57,7 @@ Route::get('tipo/{type}', 'SweetController@notification');
 Route::get('/Prueba', 'HomeController@index')->name('prueba');
 Route::get('/BuscarQr', 'HomeController@index')->name('buscarqr');
 
-Route::get('/view_foro/{id}', 'ForosController@comentarios');
-Route::post('/add_comentarios/{id}', 'ComentariosController@store'); 
+
 
 
 
@@ -83,7 +82,8 @@ Route::get('/view_arch_foro/{id}', 'ForosController@mostrarArchivos');
 Route::post('archivoForo','ArchivosForosController@store')->name('archivo')->middleware('auth');
 Route::post('archivo/media','ArchivosForosController@storeMedia')->name('archivo.storeMedia')->middleware('auth');
 Route::get('add_archivosForo/{id}','ArchivosForosController@add_archivos')->middleware('auth');
-
+Route::get('/view_foro/{id}', 'ForosController@comentarios');
+Route::post('/add_comentarios/{id}', 'ComentariosController@store'); 
 
 
 

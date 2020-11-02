@@ -18,16 +18,18 @@
                               <label class="col-12 col-form-label">{{$foro->descripcion}}</label>
                               <br>
                               <br>
-                              <h5 class="mb-2 card-title">Documentos del foro<a href="/{{$foro->archivo}}" target="_blank"></h5>                           
-                               <?php 
-                                $pizza  = $foro->archivo ;
-                                $porciones = explode("/", $pizza);
-                                $part1 = $porciones[0]; 
-                                $part2 = $porciones[1];
-                                $part3 = $porciones[2];
-                                  echo $part3; // porción3
-                                ?>
-                            </a>
+                              <?php $content = DB::table('archivos_foro')->select('id','archivoFo')->where('foro_id',$foro->id)->get(); ?>                              
+                              @foreach($content as $contenido)                             
+                              <h5 class="mb-2 card-title">Documentos del foro<a href="/storage/ForoArchivos/{{$contenido->archivoFo}}" target="_blank"></h5>                           
+                                <?php 
+                                 $pizza  = $contenido->archivoFo;
+                                 $porciones = explode("_", $pizza);
+                                 $part1 = $porciones[0]; 
+                                 $part2 = $porciones[1];                      
+                                   echo $part2; // porción3
+                                 ?>
+                             </a>          
+                            @endforeach 
                               <br>
                               <h4 class="mb-2 card-title">    Agregar Comentario 
                                     <button

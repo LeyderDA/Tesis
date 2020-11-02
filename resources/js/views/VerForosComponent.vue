@@ -20,6 +20,7 @@
                       <th>Titulo</th>
                       <th>Descripción</th>
                       <th>Opciones</th>
+                      <th>Agregar Archivos</th>
                       <th>Ir a Comentarios</th>
                     </tr>
                   </thead>
@@ -47,15 +48,20 @@
                           <i class="fas fa-trash-alt"></i>
                         </button>
                       </td>
-                       <td>                  
-                         <a :href="'/add_archivosForo/' + foro.id">
-                          <i title="Agregar Archivos" class="fas fa-save fa-2x" style="color: black"></i>
+                      <td>
+                        <a :href="'/add_archivosForo/' + foro.id">
+                          <i
+                            title="Agregar Archivos"
+                            class="fas fa-save fa-2x"
+                            style="color: black"
+                          ></i>
                         </a>
+                      </td>
 
-                        <a :href="'/view_arch_foro/' + foro.id">
-                          <i title="Ir a los archivos" class="fas fa-arrow-alt-circle-right fa-2x" style="color: black"></i>
+                      <td>
+                        <a :href="'/view_foro/' + foro.id">
+                          <i class="fas fa-arrow-alt-circle-right fa-3x"></i>
                         </a>
-
                       </td>
                     </tr>
                   </tbody>
@@ -151,10 +157,10 @@ export default {
         id: "",
         titulo: "",
         descripcion: "",
-         estadoFo: "",
-         area_id:"",
+        estadoFo: "",
+        area_id: "",
 
-         area: {
+        area: {
           id: "",
           nombre: "",
         },
@@ -170,7 +176,7 @@ export default {
   created() {
     axios.get("/api/foro").then((res) => {
       this.foross = res.data;
-          console.log(res.data);
+      console.log(res.data);
     });
   },
   methods: {
@@ -223,8 +229,6 @@ export default {
         .catch((error) => {
           if (error.response.status == 422) {
             this.errors = error.response.data.errors;
-
-
           }
         });
     },

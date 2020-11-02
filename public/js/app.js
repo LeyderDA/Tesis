@@ -16325,6 +16325,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -83936,17 +83942,17 @@ var render = function() {
                                 attrs: { title: "Agregar Archivos" }
                               })
                             ]
-                          ),
-                          _vm._v(" "),
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
                           _c(
                             "a",
-                            { attrs: { href: "/view_arch_foro/" + foro.id } },
+                            { attrs: { href: "/view_foro/" + foro.id } },
                             [
                               _c("i", {
                                 staticClass:
-                                  "fas fa-arrow-alt-circle-right fa-2x",
-                                staticStyle: { color: "black" },
-                                attrs: { title: "Ir a los archivos" }
+                                  "fas fa-arrow-alt-circle-right fa-3x"
                               })
                             ]
                           )
@@ -84163,6 +84169,8 @@ var staticRenderFns = [
         _c("th", [_vm._v("Descripción")]),
         _vm._v(" "),
         _c("th", [_vm._v("Opciones")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Agregar Archivos")]),
         _vm._v(" "),
         _c("th", [_vm._v("Ir a Comentarios")])
       ])
