@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\ArchivosGestiones;
-use App\Gestiones;
+use App\Gestion;
 use Illuminate\Http\Request;
 
 class ArchivosGestionesController extends Controller
@@ -27,18 +27,16 @@ class ArchivosGestionesController extends Controller
 
 
 
-
+   
   
     public function store(Request $request)
     {
 
         $id = $request->input("id");
         foreach ($request->input('document', []) as $file) {
-            archivos_gestiones::insert(array('archivoGe' => "$file",'ges_id' => "$id"));
+            ArchivosGestiones::insert(array('archivoGe' => "$file",'ges_id' => "$id"));
         } 
-
-        return redirect('consulta')->with('index');
-        
+        return redirect('home');   
     }
 
     public function storeMedia(Request $request){
@@ -59,6 +57,7 @@ class ArchivosGestionesController extends Controller
         'name'          => $name,
         'original_name' => $file->getClientOriginalName(),
        ]);
+
     }
 
 }

@@ -68,9 +68,10 @@ Route::get('/view_arch_gest/{id}', 'GestionController@mostrarArchivos');
 Route::get('/CrearFir', 'FirmaController@index')->name('firma');
 
 
-
+Route::post('archivo','ArchivosGestionesController@store')->name('archivo')->middleware('auth');
 Route::post('archivo/media','ArchivosGestionesController@storeMedia')->name('archivo.storeMedia')->middleware('auth');
 Route::get('add_archivos/{id}','ArchivosGestionesController@add_archivos')->middleware('auth');
+
 
 
 

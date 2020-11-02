@@ -20,7 +20,7 @@
                     
                     {{ csrf_field() }}
 
-                    <input type="hidden" name="id" value="<?php echo $id ?>"> 
+                    <input type="hidden" name="id" value="<?php echo $Gest->id ?>"> 
 
                     <div class="form-group">
                       <label for="document">Documents</label>
@@ -29,7 +29,10 @@
                       </div>
                     </div>
                     <div>
-                      <input class="btn btn-danger" type="submit" value="Guardar">
+                      <input
+                    
+                       class="btn btn-danger" type="submit" value="Guardar">
+                       
                     </div>
              </form>
           </div>
@@ -44,6 +47,7 @@
     addRemoveLinks: true,
     headers: {
       'X-CSRF-TOKEN': "{{ csrf_token() }}"
+      
     },
     success: function (file, response) {
       $('form').append(
@@ -78,4 +82,7 @@
 
 <br><br>
 @endsection
+
+
+
 
