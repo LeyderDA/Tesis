@@ -29,8 +29,9 @@ class ArchivosForosController extends Controller
     {
 
         $id = $request->input("id");
+ 
         foreach ($request->input('document', []) as $file) {
-            ArchivosForos::insert(array('archivoFo' => "$file",'foro_id' => "$id"));
+            ArchivosForos::insert(array('archivoFo' => "$file",'foro_id' => "$id","created_at" => date('Y-m-d H:i:s')));
         } 
         return redirect('home');   
     }

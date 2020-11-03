@@ -86,5 +86,10 @@ Route::get('/view_foro/{id}', 'ForosController@comentarios');
 Route::post('/add_comentarios/{id}', 'ComentariosController@store'); 
 
 
+Route::post('/getComent/{id}', 'ComentariosController@getComent'); 
+
+
+
+
 
 

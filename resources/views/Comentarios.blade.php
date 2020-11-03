@@ -51,29 +51,25 @@
                                 {{-- Link para acceder a los .css  --}}
                             
                                 <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
-
-                                 <?php $content = DB::table('comentario')->select('coment','usua_id')->where('for_id',$foro->id)->get(); ?>
-                                 {{-- <?php $i=1; ?>
-                                 @while ($i==1)
-                                      --}}
-                                 
-
-                                        @foreach($content as $contenido)
-                                          <p class="color">
-                                                {{$contenido->coment}}                                       
-                                                      <?php $content1 = DB::table('users')->select('username')->where('id',$contenido->usua_id)->get(); ?>
-                                                        @foreach($content1 as $contenido1)
-                                                        <br>                                                
-                                                        <i class="fas fa-user fa-2x"></i>                                                
-                                                          {{$contenido1->username}}                                                    
-                                                      <br>
-                                                      @endforeach 
-                                            </p>                                      
-                                        @endforeach  
-
-
-                                {{-- <?php  sleep(1); ?>                              
-                                @endwhile --}}
+                                <input type="hidden" id="idForo" value={{$foro->id}}>
+                                <div  id="commentarea"> </div>
+                              
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    function changeNumber() {
+        var idForo = document.getElementById('idForo');
+        $.ajax({
+            type: "POST",
+            url: "/getComent/3",
+            success: function(data) {
+                $('#commentarea').html(data);
+            }
+        });
+    }
+    setInterval(changeNumber, 3000);
+});
+</script>
                                 
 
                           </div>
