@@ -13,3 +13,5 @@ $all = DB::table('comentario')->where ('for_id','=',3)->get();
          } 
          echo $info;
 ?>
+
+

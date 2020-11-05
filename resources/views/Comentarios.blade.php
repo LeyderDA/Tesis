@@ -51,25 +51,24 @@
                                 {{-- Link para acceder a los .css  --}}
                             
                                 <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
-                                <input type="hidden" id="idForo" value={{$foro->id}}>
                                 <div  id="commentarea"> </div>
                               
-<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-    function changeNumber() {
-        var idForo = document.getElementById('idForo');
-        $.ajax({
-            type: "POST",
-            url: "/getComent/3",
-            success: function(data) {
-                $('#commentarea').html(data);
-            }
-        });
-    }
-    setInterval(changeNumber, 3000);
-});
-</script>
+                                <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+                                <script type="text/javascript">
+                                $(document).ready(function() {
+                                    function changeNumber() {
+                                        $.ajax({
+                                            type: "GET",
+                                            url: "/getComent/<?php echo $foro->id ?>",
+                                            data: "_token = <?php echo csrf_token() ?>",
+                                            success: function(data) {
+                                                $('#commentarea').html(data);
+                                            }
+                                        });
+                                    }
+                                    setInterval(changeNumber, 3000);
+                                });
+                                </script>
                                 
 
                           </div>

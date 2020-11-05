@@ -86,7 +86,8 @@ Route::get('/view_foro/{id}', 'ForosController@comentarios');
 Route::post('/add_comentarios/{id}', 'ComentariosController@store'); 
 
 
-Route::post('/getComent/{id}', 'ComentariosController@getComent'); 
+//Route::post('/getComent/{id}', 'ComentariosController@getComent'); 
+Route::get('/getComent/{id}', 'ComentariosController@getComent')->middleware('auth');
 
 
 
