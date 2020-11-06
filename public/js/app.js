@@ -57940,50 +57940,62 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card" }, [
-    _c("br"),
-    _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "card-body row" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "card-body col" }, [
-            _c("div", { attrs: { clas: "container row" } }, [
-              _c("div", { staticClass: "table text-center table-reponsive" }, [
-                _c("table", { staticClass: "table text-center" }, [
-                  _c("h4", { staticClass: "text-center mb-2 card-title" }, [
-                    _vm._v(
-                      "\n                  Click en el lápiz para crear firma\n                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c("a", { attrs: { href: "/CrearFir" } }, [
-                    _c("i", {
-                      staticClass: "fas fa-pencil-alt fa-3x",
-                      staticStyle: { color: "black" },
-                      attrs: { title: "Buscar por QR" }
-                    })
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("h1", { staticClass: "text-center mb-2 card-title" }, [
-        _vm._v("Crear Firma")
+    return _c("div", { staticClass: "card" }, [
+      _c("br"),
+      _vm._v(" "),
+      _c("div", [
+        _c("h1", { staticClass: "text-center mb-2 card-title" }, [
+          _vm._v("Crear Firma")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body row" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "card-body col" }, [
+              _c("div", { attrs: { clas: "container row" } }, [
+                _c(
+                  "div",
+                  { staticClass: "table text-center table-reponsive" },
+                  [
+                    _c("h4", { staticClass: "text-center mb-2 card-title" }, [
+                      _vm._v(
+                        "\n                Click en el lápiz para firmar un documento\n              "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        attrs: {
+                          href: "https://smallpdf.com/es/firmar-pdf",
+                          target: "_blank"
+                        }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fas fa-pencil-alt fa-3x",
+                          staticStyle: { color: "black" },
+                          attrs: { title: "Buscar por QR" }
+                        })
+                      ]
+                    ),
+                    _vm._v(".\n            ")
+                  ]
+                )
+              ])
+            ])
+          ])
+        ])
       ])
     ])
   }

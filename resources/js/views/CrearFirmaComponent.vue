@@ -10,20 +10,31 @@
           <div class="card-body col">
             <div clas="container row">
               <div class="table text-center table-reponsive">
-                <table class="table text-center">
-                  <h4 class="text-center mb-2 card-title">
-                    Click en el lápiz para crear firma
-                  </h4>
-                  <br />
-                  <a :href="'/CrearFir'">
-                    <i
-                  
-                      class="fas fa-pencil-alt fa-3x"
-                      style="color: black"
-                      title="Buscar por QR"
-                    ></i>
-                  </a>
-                </table>
+                <!-- <h4 class="text-center mb-2 card-title">
+                  Click en el lápiz para crear firma
+                </h4>
+                <br /> -->
+
+                <!-- <a :href="'/CrearFir'">
+                  <i
+                    class="fas fa-pencil-alt fa-3x"
+                    style="color: black"
+                    title="Buscar por QR"
+                  ></i>
+                </a> -->
+
+                <h4 class="text-center mb-2 card-title">
+                  Click en el lápiz para firmar un documento
+                </h4>
+                <br />
+
+                <a href="https://smallpdf.com/es/firmar-pdf" target="_blank">
+                  <i
+                    class="fas fa-pencil-alt fa-3x"
+                    style="color: black"
+                    title="Buscar por QR"
+                  ></i></a
+                >.
               </div>
             </div>
           </div>
