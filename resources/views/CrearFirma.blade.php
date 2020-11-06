@@ -3,7 +3,7 @@
 <div style="height:6px; width:100%; background-color:#ad3333"></div>
 
 <!DOCTYPE html>
-<html>
+ <html>
 	<head>
         <meta charset="utf-8">
         <br>
@@ -19,12 +19,6 @@
         <script src="./js/json2.min.js"></script>	
         
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
-
-
-
-
-
 
 		<style type="text/css">
 			body{

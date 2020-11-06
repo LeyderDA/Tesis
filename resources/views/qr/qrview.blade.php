@@ -1,11 +1,50 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+
+<head>
+  <meta charset="utf-8">
+<link href="{{ asset('css/firma.css') }}" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>	
+<script type='text/javascript' src="https://github.com/niklasvh/html2canvas/releases/download/0.4.1/html2canvas.js"></script>
+  
+<style type="text/css">
+body{
+  font-family:monospace;
+  text-align:center;
+}
+
+#signArea{
+      
+  width:304px;
+  margin: 50px auto;
+}
+.sign-container {
+  width: 60%;
+  margin: auto;
+}
+.sign-preview {
+          
+  width: 150px;
+  height: 50px;
+  border: solid 1px #CFCFCF;
+  margin: 10px 5px;
+}
+.tag-ingo {
+          
+  font-family: cursive;
+  font-size: 12px;
+  text-align: left;
+  font-style: oblique;
+}
+</style>
+</head>
+<div  class="container">
 <div class="row">
-    <div class="card-body col">
+    <div  class="card-body col">
       <div clas="container row">
         <div class="table text-center table-reponsive">
-          <table class="table text-center">
+          <table id="figuras" class="table text-center">
+           
             <caption>Datos traidos de la tabla de Gestiones</caption>
             <div>
                 <h2 class="text-center mb-2 card-title">Gestiones asignadas a la Recepción</h2>
@@ -38,17 +77,68 @@
                 <td>{{$recep->actuarealizadas}}</td>
                 <td>{{$recep->actjuridirealzadas}}</td>
                 <td>{{$recep->resulactuacion}}</td>
-                <td>{{$recep->entidadelantramite}}</td>
-                
-                               
+                <td>{{$recep->entidadelantramite}}</td>                                            
               </tr>
-              @endforeach
+              @endforeach             
             </tbody>
           </table>
+          <font face="arial">
+            <input type="button" class="btn btn-primary" id="btnSave2" value="Descargar Reporte">
+        </font>
+          <script>
+            document.getElementById('figuras').contentEditable = 'true';document.getElementById('figuras').designMode='on';
+            $(function() {
+              $("#btnSave2").click(function() {
+                html2canvas($("#figuras"), {
+                  onrendered: function(canvas) {
+                    saveAs(canvas.toDataURL(), 'Report_Gest_Recep.png');
+                  }
+                });
+              });
+              function saveAs(uri, filename) {
+                var link = document.createElement('a');
+                if (typeof link.download === 'string') {
+                  link.href = uri;
+                  link.download = filename;
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                } else {
+                  window.open(uri);
+                }
+              }
+            });
+            </script>
+		<script>
+			$(document).ready(function() {
+				$('#signArea').signaturePad({drawOnly:true, drawBezierCurves:true, lineTop:90});
+			});
+			
+			$("#btnSaveSign").click(function(e){
+				html2canvas([document.getElementById('sign-pad')], {
+					onrendered: function (canvas) {
+						var canvas_img_data = canvas.toDataURL('image/png');
+						var img_data = canvas_img_data.replace(/^data:image\/(png|jpg);base64,/, "");
+						//ajax call to save image inside folder
+						$.ajax({
+							url: 'save_sign.php',
+							data: { img_data:img_data },
+							type: 'post',
+							dataType: 'json',
+							success: function (response) {
+							   window.location.reload();
+							}
+						});
+					}
+				});
+            });
+		  </script> 
         </div>
       </div>
     </div>
   </div>
   <a href="/home"  class="btn btn-primary">Volver</a>
 </div>
+   
+
   @endsection

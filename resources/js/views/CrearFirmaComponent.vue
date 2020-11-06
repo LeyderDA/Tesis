@@ -13,15 +13,15 @@
                 <!-- <h4 class="text-center mb-2 card-title">
                   Click en el lápiz para crear firma
                 </h4>
-                <br /> -->
+                <br /> 
 
-                <!-- <a :href="'/CrearFir'">
+                 <a :href="'/CrearFir'">
                   <i
                     class="fas fa-pencil-alt fa-3x"
                     style="color: black"
                     title="Buscar por QR"
                   ></i>
-                </a> -->
+                </a>  -->
 
                 <h4 class="text-center mb-2 card-title">
                   Click en el lápiz para firmar un documento
