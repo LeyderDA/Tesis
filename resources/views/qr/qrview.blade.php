@@ -1,9 +1,5 @@
-@extends('layouts.app')
-
-
 <head>
-  <meta charset="utf-8">
-<link href="{{ asset('css/firma.css') }}" rel="stylesheet">
+<meta charset="utf-8">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>	
 <script type='text/javascript' src="https://github.com/niklasvh/html2canvas/releases/download/0.4.1/html2canvas.js"></script>
   
@@ -12,7 +8,6 @@ body{
   font-family:monospace;
   text-align:center;
 }
-
 #signArea{
       
   width:304px;
@@ -37,7 +32,10 @@ body{
   font-style: oblique;
 }
 </style>
+
 </head>
+
+@extends('layouts.app')
 @section('content')
 <div  class="container">
 <div class="row">
@@ -86,37 +84,37 @@ body{
           <font face="arial">
             <input type="button" class="btn btn-primary" id="btnSave2" value="Descargar Reporte">
         </font>
-          <script>
-            document.getElementById('figuras').contentEditable = 'true';document.getElementById('figuras').designMode='on';
-            $(function() {
-              $("#btnSave2").click(function() {
-                html2canvas($("#figuras"), {
-                  onrendered: function(canvas) {
-                    saveAs(canvas.toDataURL(), 'Report_Gest_Recep.png');
-                  }
-                });
-              });
-              function saveAs(uri, filename) {
-                var link = document.createElement('a');
-                if (typeof link.download === 'string') {
-                  link.href = uri;
-                  link.download = filename;
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
-                } else {
-                  window.open(uri);
-                }
-              }
-            });
-            </script>
- 
         </div>
       </div>
     </div>
-  </div>
+  </div>  
   <a href="/home"  class="btn btn-primary">Volver</a>
 </div>
+
+<script>
+  document.getElementById('figuras').contentEditable = 'true';document.getElementById('figuras').designMode='on';
+  $(function() {
+    $("#btnSave2").click(function() {
+      html2canvas($("#figuras"), {
+        onrendered: function(canvas) {
+          saveAs(canvas.toDataURL(), 'Report_Gest_Recep.png');
+        }
+      });
+    });
+    function saveAs(uri, filename) {
+      var link = document.createElement('a');
+      if (typeof link.download === 'string') {
+        link.href = uri;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } else {
+        window.open(uri);
+      }
+    }
+  });
+  </script>
    
 
   @endsection
