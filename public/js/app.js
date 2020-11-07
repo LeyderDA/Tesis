@@ -15808,6 +15808,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -15857,18 +15864,41 @@ __webpack_require__.r(__webpack_exports__);
     isFormValidCedula: function isFormValidCedula() {
       return this.usuario.persona.cedula != "";
     },
-    validaEmail: function validaEmail() {
+    isFormValidcampContra: function isFormValidcampContra() {
       var exp1 = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
 
       if (exp1.test(this.usuario.email)) {
-        console.log("Email Corre");
-        console.log(this.usuario.persona);
         return true;
       } else {
-        console.log('Email Inco');
         return false;
       }
     },
+    valida: function valida() {
+      var exp1 = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+      var exp = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
+
+      if (exp1.test(this.usuario.email)) {
+        console.log("Email Correcto");
+      }
+
+      if (exp.test(this.usuario.password)) {
+        console.log("Contraseña correcta");
+        return true;
+      } else {
+        console.log("ERRORES");
+        return false;
+      }
+    },
+    // validaPassword: function(){
+    //     var exp = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
+    //     if(exp.test(this.usuario.password)){
+    //       console.log("Contraseña correcta");
+    //       return true;
+    //     } else{
+    //       console.log('Incorrect cla');
+    //       return false;
+    //     }
+    // },
     agregar: function agregar() {
       var _this2 = this;
 
@@ -82896,7 +82926,11 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { type: "password", placeholder: "Password" },
+              attrs: {
+                type: "password",
+                placeholder: "Password",
+                disabled: !_vm.isFormValidcampContra()
+              },
               domProps: { value: _vm.usuario.password },
               on: {
                 input: function($event) {
@@ -83024,7 +83058,7 @@ var render = function() {
                 "button",
                 {
                   staticClass: "btn btn-primary btn-block",
-                  attrs: { disabled: !_vm.validaEmail() },
+                  attrs: { disabled: !_vm.valida() },
                   on: {
                     click: function($event) {
                       return _vm.agregar()
