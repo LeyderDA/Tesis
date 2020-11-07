@@ -8381,6 +8381,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     errors: [];
@@ -68978,7 +68992,11 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { placeholder: "Primer Nombre" },
+              attrs: {
+                placeholder: "Primer Nombre",
+                onkeypress:
+                  "return ((event.charCode >= 65 && event.charCode <= 90) || \n            (event.charCode >= 97 && event.charCode <= 122))||\n            event.charCode == [241]|| event.charCode == [ 209]"
+              },
               domProps: { value: _vm.personas.prinom },
               on: {
                 input: function($event) {
@@ -69006,7 +69024,11 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { placeholder: "Segundo Nombre" },
+              attrs: {
+                placeholder: "Segundo Nombre",
+                onkeypress:
+                  "return ((event.charCode >= 65 && event.charCode <= 90) || \n            (event.charCode >= 97 && event.charCode <= 122))||\n            event.charCode == [241]|| event.charCode == [ 209]"
+              },
               domProps: { value: _vm.personas.segnom },
               on: {
                 input: function($event) {
@@ -69034,7 +69056,11 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { placeholder: "Primer Apellido" },
+              attrs: {
+                placeholder: "Primer Apellido",
+                onkeypress:
+                  "return ((event.charCode >= 65 && event.charCode <= 90) || \n            (event.charCode >= 97 && event.charCode <= 122))||\n            event.charCode == [241]|| event.charCode == [ 209]"
+              },
               domProps: { value: _vm.personas.priape },
               on: {
                 input: function($event) {
@@ -69062,7 +69088,11 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { placeholder: "Segundo Apellido" },
+              attrs: {
+                placeholder: "Segundo Apellido",
+                onkeypress:
+                  "return ((event.charCode >= 65 && event.charCode <= 90) || \n            (event.charCode >= 97 && event.charCode <= 122))||\n            event.charCode == [241]|| event.charCode == [ 209]"
+              },
               domProps: { value: _vm.personas.segape },
               on: {
                 input: function($event) {
@@ -69090,7 +69120,11 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { placeholder: "Teléfono" },
+              attrs: {
+                placeholder: "Teléfono",
+                onkeypress:
+                  "return (event.charCode >= 48 && event.charCode <= 57)"
+              },
               domProps: { value: _vm.personas.tel },
               on: {
                 input: function($event) {

@@ -20,9 +20,13 @@
           <label class="col-5 col-form-label">Primer Nombre (*):</label>
           <div class="col-6 form-group">
             <input
+             
               class="form-control"
               placeholder="Primer Nombre"
               v-model="personas.prinom"
+              onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || 
+              (event.charCode >= 97 && event.charCode <= 122))||
+              event.charCode == [241]|| event.charCode == [ 209]"
             />
           </div>
 
@@ -32,6 +36,9 @@
               class="form-control"
               placeholder="Segundo Nombre"
               v-model="personas.segnom"
+               onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || 
+              (event.charCode >= 97 && event.charCode <= 122))||
+              event.charCode == [241]|| event.charCode == [ 209]"
             />
           </div>
 
@@ -41,6 +48,9 @@
               class="form-control"
               placeholder="Primer Apellido"
               v-model="personas.priape"
+               onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || 
+              (event.charCode >= 97 && event.charCode <= 122))||
+              event.charCode == [241]|| event.charCode == [ 209]"
             />
           </div>
 
@@ -50,6 +60,9 @@
               class="form-control"
               placeholder="Segundo Apellido"
               v-model="personas.segape"
+               onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || 
+              (event.charCode >= 97 && event.charCode <= 122))||
+              event.charCode == [241]|| event.charCode == [ 209]"
             />
           </div>
 
@@ -60,6 +73,7 @@
               class="form-control"
               placeholder="Teléfono"
               v-model="personas.tel"
+              onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
             />
           </div>
 
