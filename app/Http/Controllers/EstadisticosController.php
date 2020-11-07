@@ -49,6 +49,10 @@ class EstadisticosController extends Controller
         });
     
        "; 
-        return view('Estadisticas',compact('script_graficar'));
+
+return view('Estadisticas',compact('script_graficar'));
+
+
     }
+
 }

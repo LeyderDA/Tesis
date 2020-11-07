@@ -8375,6 +8375,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     errors: [];
@@ -8395,6 +8397,20 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    isFormValidCedula: function isFormValidCedula() {
+      return this.usuario.persona.cedula != "";
+    },
+    validaPassword: function validaPassword() {
+      var exp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/;
+
+      if (exp.test(this.form.clave)) {
+        console.log("Contraseña correcta");
+        return true;
+      } else {
+        console.log('Incorrect cla');
+        return false;
+      }
+    },
     agregar: function agregar() {
       var _this = this;
 
@@ -68937,7 +68953,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { placeholder: "Cédula" },
+              attrs: { placeholder: "Cédula", disabled: !_vm.validaPassword() },
               domProps: { value: _vm.personas.cedula },
               on: {
                 input: function($event) {
@@ -82943,8 +82959,7 @@ var render = function() {
                   staticClass: "btn btn-primary btn-block",
                   attrs: {
                     "data-toggle": "modal",
-                    "data-target": "#buscarModal",
-                    disabled: !_vm.isFormValidCedula()
+                    "data-target": "#buscarModal"
                   },
                   on: {
                     click: function($event) {

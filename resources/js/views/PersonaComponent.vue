@@ -9,10 +9,12 @@
           <label class="col-5 col-form-label">Cédula (*):</label>
 
           <div class="col-6 form-group">
-            <input
+            <input 
+          
               class="form-control"
               placeholder="Cédula"
               v-model="personas.cedula"
+              :disabled="!validaPassword()"
             />
           </div>
 
@@ -103,6 +105,22 @@ export default {
     };
   },
   methods: {
+    isFormValidCedula: function () {
+      return this.usuario.persona.cedula != "";
+    },
+
+     validaPassword: function(){
+
+                var exp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/;
+                if(exp.test(this.form.clave)){
+                  console.log("Contraseña correcta");
+                  return true;
+                } else{
+                  console.log('Incorrect cla');
+                  return false;
+                }
+            },    
+     
     agregar() {
       if (
         !this.personas.cedula ||

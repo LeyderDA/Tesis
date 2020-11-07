@@ -79,11 +79,17 @@
 
             <div class="content">
                 <div class="title m-b-md">
+                   
                     Facultad de Derecho
                 </div>
-                <h1 class="text-center mb-2 card-title">Consultorio Jurídico Y Centro De Conciliación </h1>
-
+            
+         
+                <img src="{{ asset('image/leoon.png') }}">
+                
+                
+                
             </div>
+            
         </div>
     </body>
 </html>
