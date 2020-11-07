@@ -36,6 +36,9 @@
              </form>
           </div>
        </div>
+       <center> 
+        <a href="/EstGestion"  class="btn btn-primary"  >Salir</a>
+      </center>
 </div>
 
 <script>

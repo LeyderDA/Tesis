@@ -232,9 +232,11 @@
 
               <label class="col-5 col-form-label">Nota primer corte</label>
               <div class="col-12 form-group">
-                <input
+                <input 
                   class="form-control"
                   placeholder="Nota primer corte"
+                   onkeypress="return (event.charCode >= 48 && event.charCode <= 57)||
+              event.charCode == [46]"
                   v-model="recepcion.notpricort"
                 />
               </div>
@@ -244,6 +246,8 @@
                 <input
                   class="form-control"
                   placeholder="Nota segundo corte"
+                  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)||
+              event.charCode == [46]"
                   v-model="recepcion.notsegcort"
                 />
               </div>
@@ -252,6 +256,8 @@
                 <input
                   class="form-control"
                   placeholder="Nota tercer corte"
+                  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)||
+              event.charCode == [46]"
                   v-model="recepcion.nottercort"
                 />
               </div>

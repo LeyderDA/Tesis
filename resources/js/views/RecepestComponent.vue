@@ -318,8 +318,10 @@
               <div class="col-12 form-group">
                 <input
                   type="number"
+                  min="0"
                   class="form-control"
                   placeholder="N.Actuaciones"
+                  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                   v-model="gestion.n_act"
                 />
               </div>
@@ -328,8 +330,10 @@
               <div class="col-12 form-group">
                 <input
                   type="number"
+                  min="0"
                   class="form-control"
                   placeholder="N.Asesorias"
+                  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                   v-model="gestion.n_aseso"
                 />
               </div>
@@ -338,8 +342,10 @@
               <div class="col-12 form-group">
                 <input
                   type="number"
+                  min="0"
                   class="form-control"
                   placeholder="N.Autorizaciones"
+                  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                   v-model="gestion.n_autor"
                 />
               </div>

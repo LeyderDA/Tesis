@@ -36,6 +36,9 @@
              </form>
           </div>
        </div>
+       <center> 
+        <a href="/VerForoDoc"  class="btn btn-primary"  >Salir</a>
+      </center>
 </div>
 
 <script>

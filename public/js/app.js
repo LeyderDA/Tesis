@@ -2315,6 +2315,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4339,6 +4345,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-dropzone/dist/vue2Dropzone.min.css */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.min.css");
 /* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -8768,6 +8780,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -55654,7 +55672,11 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { placeholder: "Nota primer corte" },
+                      attrs: {
+                        placeholder: "Nota primer corte",
+                        onkeypress:
+                          "return (event.charCode >= 48 && event.charCode <= 57)||\n            event.charCode == [46]"
+                      },
                       domProps: { value: _vm.recepcion.notpricort },
                       on: {
                         input: function($event) {
@@ -55686,7 +55708,11 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { placeholder: "Nota segundo corte" },
+                      attrs: {
+                        placeholder: "Nota segundo corte",
+                        onkeypress:
+                          "return (event.charCode >= 48 && event.charCode <= 57)||\n            event.charCode == [46]"
+                      },
                       domProps: { value: _vm.recepcion.notsegcort },
                       on: {
                         input: function($event) {
@@ -55718,7 +55744,11 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { placeholder: "Nota tercer corte" },
+                      attrs: {
+                        placeholder: "Nota tercer corte",
+                        onkeypress:
+                          "return (event.charCode >= 48 && event.charCode <= 57)||\n            event.charCode == [46]"
+                      },
                       domProps: { value: _vm.recepcion.nottercort },
                       on: {
                         input: function($event) {
@@ -60482,7 +60512,13 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "number", placeholder: "N.Actuaciones" },
+                        attrs: {
+                          type: "number",
+                          min: "0",
+                          placeholder: "N.Actuaciones",
+                          onkeypress:
+                            "return (event.charCode >= 48 && event.charCode <= 57)"
+                        },
                         domProps: { value: _vm.gestion.n_act },
                         on: {
                           input: function($event) {
@@ -60510,7 +60546,13 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "number", placeholder: "N.Asesorias" },
+                        attrs: {
+                          type: "number",
+                          min: "0",
+                          placeholder: "N.Asesorias",
+                          onkeypress:
+                            "return (event.charCode >= 48 && event.charCode <= 57)"
+                        },
                         domProps: { value: _vm.gestion.n_aseso },
                         on: {
                           input: function($event) {
@@ -60544,7 +60586,10 @@ var render = function() {
                         staticClass: "form-control",
                         attrs: {
                           type: "number",
-                          placeholder: "N.Autorizaciones"
+                          min: "0",
+                          placeholder: "N.Autorizaciones",
+                          onkeypress:
+                            "return (event.charCode >= 48 && event.charCode <= 57)"
                         },
                         domProps: { value: _vm.gestion.n_autor },
                         on: {
@@ -70416,7 +70461,13 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { type: "number", placeholder: "N.Actuaciones" },
+                      attrs: {
+                        type: "number",
+                        min: "0",
+                        placeholder: "N.Actuaciones",
+                        onkeypress:
+                          "return (event.charCode >= 48 && event.charCode <= 57)"
+                      },
                       domProps: { value: _vm.gestion.n_act },
                       on: {
                         input: function($event) {
@@ -70444,7 +70495,13 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { type: "number", placeholder: "N.Asesorias" },
+                      attrs: {
+                        type: "number",
+                        min: "0",
+                        placeholder: "N.Asesorias",
+                        onkeypress:
+                          "return (event.charCode >= 48 && event.charCode <= 57)"
+                      },
                       domProps: { value: _vm.gestion.n_aseso },
                       on: {
                         input: function($event) {
@@ -70474,7 +70531,10 @@ var render = function() {
                       staticClass: "form-control",
                       attrs: {
                         type: "number",
-                        placeholder: "N.Autorizaciones"
+                        min: "0",
+                        placeholder: "N.Autorizaciones",
+                        onkeypress:
+                          "return (event.charCode >= 48 && event.charCode <= 57)"
                       },
                       domProps: { value: _vm.gestion.n_autor },
                       on: {
