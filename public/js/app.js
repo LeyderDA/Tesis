@@ -8660,6 +8660,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -10476,6 +10478,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-dropzone/dist/vue2Dropzone.min.css */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.min.css");
 /* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -15111,6 +15123,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     var _ref;
@@ -16157,6 +16174,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -16193,6 +16211,17 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
+    valida: function valida() {
+      var exp1 = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+
+      if (exp1.test(this.usuario.email)) {
+        console.log("Email Correcto");
+        return true;
+      } else {
+        console.log("ERRORES");
+        return false;
+      }
+    },
     eliminar: function eliminar(usuario, index) {
       var _this2 = this;
 
@@ -69395,7 +69424,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { placeholder: "Cedula" },
+                        attrs: {
+                          placeholder: "Cedula",
+                          onkeypress:
+                            "return (event.charCode >= 48 && event.charCode <= 57)"
+                        },
                         domProps: { value: _vm.personas.cedula },
                         on: {
                           input: function($event) {
@@ -69555,7 +69588,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { placeholder: "Teléfono" },
+                        attrs: {
+                          placeholder: "Teléfono",
+                          onkeypress:
+                            "return (event.charCode >= 48 && event.charCode <= 57)"
+                        },
                         domProps: { value: _vm.personas.tel },
                         on: {
                           input: function($event) {
@@ -73286,7 +73323,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { placeholder: "edad" },
+                        attrs: {
+                          placeholder: "edad",
+                          onkeypress:
+                            "return (event.charCode >= 48 && event.charCode <= 57)"
+                        },
                         domProps: { value: _vm.reclamante.edadvictima },
                         on: {
                           input: function($event) {
@@ -73350,7 +73391,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { placeholder: "estrato" },
+                        attrs: {
+                          placeholder: "estrato",
+                          onkeypress:
+                            "return (event.charCode >= 48 && event.charCode <= 57)"
+                        },
                         domProps: { value: _vm.reclamante.estravictima },
                         on: {
                           input: function($event) {
@@ -73526,7 +73571,12 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { placeholder: "cedula", disabled: "" },
+                        attrs: {
+                          placeholder: "cedula",
+                          onkeypress:
+                            "return (event.charCode >= 48 && event.charCode <= 57)",
+                          disabled: ""
+                        },
                         domProps: { value: _vm.reclamante.persona.cedula },
                         on: {
                           input: function($event) {
@@ -73551,7 +73601,7 @@ var render = function() {
                         staticClass: "btn btn-danger",
                         attrs: { type: "button", "data-dismiss": "modal" }
                       },
-                      [_vm._v("\n                  Cerrar\n                ")]
+                      [_vm._v("\n                Cerrar\n              ")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -73567,7 +73617,7 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                  Guardar Cambios\n                "
+                          "\n                Guardar Cambios\n              "
                         )
                       ]
                     )
@@ -73989,7 +74039,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                      Cerrar\n                    "
+                              "\n                    Cerrar\n                  "
                             )
                           ]
                         ),
@@ -74007,7 +74057,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                      Guardar Cambios\n                    "
+                              "\n                    Guardar Cambios\n                  "
                             )
                           ]
                         )
@@ -74072,7 +74122,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                  Editar Reclamante\n                ")]
+        [_vm._v("\n                Editar Reclamante\n              ")]
       ),
       _vm._v(" "),
       _c(
@@ -74097,47 +74147,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                  Mostrar Persona\n                ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-danger",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("\n                  Cerrar\n                ")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                  Mostrar Persona\n                ")]
+        [_vm._v("\n                Mostrar Persona\n              ")]
       ),
       _vm._v(" "),
       _c(
@@ -74165,7 +74175,7 @@ var staticRenderFns = [
           staticClass: "btn btn-danger",
           attrs: { type: "button", "data-dismiss": "modal" }
         },
-        [_vm._v("\n                  Cerrar\n                ")]
+        [_vm._v("\n                Cerrar\n              ")]
       )
     ])
   },
@@ -74177,7 +74187,47 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                  Agregar Archivos\n                ")]
+        [_vm._v("\n                Mostrar Persona\n              ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-danger",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("\n                Cerrar\n              ")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("\n                Agregar Archivos\n              ")]
       )
     ])
   },
@@ -80706,7 +80756,11 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { placeholder: "Cédula del Reclamante" },
+                      attrs: {
+                        placeholder: "Cédula del Reclamante",
+                        onkeypress:
+                          "return (event.charCode >= 48 && event.charCode <= 57)"
+                      },
                       domProps: { value: _vm.usuario.persona.cedula },
                       on: {
                         input: function($event) {
@@ -81035,7 +81089,11 @@ var render = function() {
                         expression: "usuario.persona.cedula"
                       }
                     ],
-                    attrs: { placeholder: "CC.RECEPCIONISTA" },
+                    attrs: {
+                      placeholder: "CC.RECEPCIONISTA",
+                      onkeypress:
+                        "return (event.charCode >= 48 && event.charCode <= 57)"
+                    },
                     domProps: { value: _vm.usuario.persona.cedula },
                     on: {
                       input: function($event) {
@@ -81179,7 +81237,11 @@ var render = function() {
                         expression: "usuario.persona.cedula"
                       }
                     ],
-                    attrs: { placeholder: "CC.DOCENTE" },
+                    attrs: {
+                      placeholder: "CC.DOCENTE",
+                      onkeypress:
+                        "return (event.charCode >= 48 && event.charCode <= 57)"
+                    },
                     domProps: { value: _vm.usuario.persona.cedula },
                     on: {
                       input: function($event) {
@@ -82057,7 +82119,11 @@ var render = function() {
                         expression: "usuario.persona.cedula"
                       }
                     ],
-                    attrs: { placeholder: "USERNAME" },
+                    attrs: {
+                      placeholder: "USERNAME",
+                      onkeypress:
+                        "return (event.charCode >= 48 && event.charCode <= 57)"
+                    },
                     domProps: { value: _vm.usuario.persona.cedula },
                     on: {
                       input: function($event) {
@@ -82221,7 +82287,11 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { placeholder: "CEDULA" },
+                      attrs: {
+                        placeholder: "CEDULA",
+                        onkeypress:
+                          "return (event.charCode >= 48 && event.charCode <= 57)"
+                      },
                       domProps: { value: _vm.usuario.persona.cedula },
                       on: {
                         input: function($event) {
@@ -83820,7 +83890,7 @@ var render = function() {
                       "button",
                       {
                         staticClass: "btn btn-primary",
-                        attrs: { type: "button", "data-dismiss": "modal" },
+                        attrs: { type: "button", disabled: !_vm.valida() },
                         on: {
                           click: function($event) {
                             return _vm.editar()
@@ -83895,7 +83965,11 @@ var render = function() {
                           expression: "usuario.persona.cedula"
                         }
                       ],
-                      attrs: { placeholder: "Cedula" },
+                      attrs: {
+                        placeholder: "Cedula",
+                        onkeypress:
+                          "return (event.charCode >= 48 && event.charCode <= 57)"
+                      },
                       domProps: { value: _vm.usuario.persona.cedula },
                       on: {
                         input: function($event) {

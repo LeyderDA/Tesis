@@ -23,7 +23,6 @@
                       <th>Persona Relacionada</th>
                       <th>Opciones</th>
                       <th>Archivos</th>
-                      
                     </tr>
                   </thead>
                   <tbody>
@@ -71,14 +70,21 @@
                         </button>
                       </td>
                       <td>
-                       <a :href="'/add_archivosRecla/' + reclamante.id">
-                          <i title="Agregar Archivos" class="fas fa-save fa-2x" style="color: black"></i>
+                        <a :href="'/add_archivosRecla/' + reclamante.id">
+                          <i
+                            title="Agregar Archivos"
+                            class="fas fa-save fa-2x"
+                            style="color: black"
+                          ></i>
                         </a>
 
                         <a :href="'/view_arch_recla/' + reclamante.id">
-                          <i title="Ir a los archivos" class="fas fa-arrow-alt-circle-right fa-2x" style="color: black"></i>
+                          <i
+                            title="Ir a los archivos"
+                            class="fas fa-arrow-alt-circle-right fa-2x"
+                            style="color: black"
+                          ></i>
                         </a>
-
                       </td>
                     </tr>
                   </tbody>
@@ -123,30 +129,29 @@
                 </div>
                 <label class="col-12 col-form-label">Genero</label>
 
-<div class="col-12">
-            <select
-              class="form-control"
-              type="text"
-              v-model="reclamante.genevictima"
-            >
-              <option value="">Selecciona</option>
-              <option value="M">M</option>
-              <option value="F">F</option>
-            </select>
-          </div>
-          <br>
+                <div class="col-12">
+                  <select
+                    class="form-control"
+                    type="text"
+                    v-model="reclamante.genevictima"
+                  >
+                    <option value="">Selecciona</option>
+                    <option value="M">M</option>
+                    <option value="F">F</option>
+                  </select>
+                </div>
+                <br />
                 <label class="col-12 col-form-label">Edad</label>
 
                 <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="edad"
+                     onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                     v-model="reclamante.edadvictima"
                   />
-
-                  
                 </div>
-<label class="col-12 col-form-label">Discapacidad</label>
+                <label class="col-12 col-form-label">Discapacidad</label>
                 <div class="col-12 form-group">
                   <input
                     class="form-control"
@@ -160,38 +165,38 @@
                   <input
                     class="form-control"
                     placeholder="estrato"
+                     onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                     v-model="reclamante.estravictima"
                   />
                 </div>
                 <label class="col-12 col-form-label">Embarazo</label>
 
                 <div class="col-12">
-            <select
-              class="form-control"
-              type="text"
-              v-model="reclamante.embaravictima"
-            >
-              <option value="">Selecciona</option>
-              <option value="Si">Si</option>
-              <option value="No">No</option>
-            </select>
-          </div>
-          <br />
+                  <select
+                    class="form-control"
+                    type="text"
+                    v-model="reclamante.embaravictima"
+                  >
+                    <option value="">Selecciona</option>
+                    <option value="Si">Si</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+                <br />
                 <label class="col-12 col-form-label">Grupo Etnico</label>
 
-               
-          <div class="col-12">
-            <select
-              class="form-control"
-              type="text"
-              v-model="reclamante.grupetnicovictima"
-            >
-              <option value="">Selecciona</option>
-              <option value="Si">Si</option>
-              <option value="No">No</option>
-            </select>
-          </div>
-          <br />
+                <div class="col-12">
+                  <select
+                    class="form-control"
+                    type="text"
+                    v-model="reclamante.grupetnicovictima"
+                  >
+                    <option value="">Selecciona</option>
+                    <option value="Si">Si</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+                <br />
                 <label class="col-12 col-form-label">Entidad que reclama</label>
 
                 <div class="col-12 form-group">
@@ -207,6 +212,7 @@
                   <input
                     class="form-control"
                     placeholder="cedula"
+                     onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                     v-model="reclamante.persona.cedula"
                     disabled
                   />
@@ -384,7 +390,7 @@
           </div>
         </div>
         <!--cierro modal de mostrar persona -->
-         <!--modal de AGREGAR ARCHIVOS -->
+        <!--modal de AGREGAR ARCHIVOS -->
         <div
           class="modal fade"
           id="AGGARCH"
@@ -402,7 +408,11 @@
               </div>
               <div class="modal-body">
                 <div class="col-12 form-group">
-                  <input type="hidden" class="form-control" v-model="reclamante.id" />
+                  <input
+                    type="hidden"
+                    class="form-control"
+                    v-model="reclamante.id"
+                  />
                 </div>
                 <label class="col-12 col-form-label">Agregar Archivos </label>
                 <label class="col-12 col-form-label">
@@ -456,15 +466,15 @@ export default {
   },
   data() {
     return {
-       dropzoneOptions: {
+      dropzoneOptions: {
         url: "http://127.0.0.1:8000/api/archivoR",
         thumbnailWidth: 150,
         maxFilesize: 200,
         headers: { "My-Awesome-Header": "header value" },
         autoProcessQueue: false,
-        
-       dictDefaultMessage: "<i class='fa fa-cloud-upload'></i>SOLO DEBES CARGAR UN ARCHIVO"
-        
+
+        dictDefaultMessage:
+          "<i class='fa fa-cloud-upload'></i>SOLO DEBES CARGAR UN ARCHIVO",
       },
       usuario: {
         id: "",
@@ -509,7 +519,7 @@ export default {
           direc: "",
         },
       },
-       archivosReclamantes: {
+      archivosReclamantes: {
         archivoRe: "",
         recla_id: "",
       },
@@ -538,15 +548,13 @@ export default {
         });
       } else {
         this.$refs.myVueDropzone.processQueue();
-        
+
         let imagen = this.$refs.myVueDropzone.getAcceptedFiles();
 
         const params = {
           recla_id: this.reclamante.id,
           archivoRe: imagen.length > 0 ? imagen[0].name : "",
         };
-       
-       
 
         axios.post("/api/archivoRecla", params).then((res) => {
           if (res.data == null) {
@@ -558,7 +566,7 @@ export default {
               showConfirmButton: false,
             });
           } else {
-               this.$refs.myVueDropzone.removeAllFiles(true);
+            this.$refs.myVueDropzone.removeAllFiles(true);
             swal({
               type: "success",
               timer: 3000,
@@ -569,7 +577,6 @@ export default {
             axios.get("/api/gestion").then((res) => {
               this.gestioness = res.data;
             });
-         
           }
         });
       }

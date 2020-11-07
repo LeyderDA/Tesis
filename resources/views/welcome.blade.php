@@ -1,4 +1,5 @@
-
+<div style="height:30px; width:100%; background-color:#003366"></div>
+<div style="height:6px; width:100%; background-color:#ad3333"></div>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>

@@ -334,6 +334,9 @@ export default {
         return false;
       }
     },
+
+
+    
     // validaPassword: function(){
 
     //     var exp = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;

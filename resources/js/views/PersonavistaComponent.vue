@@ -93,6 +93,7 @@
                   <input
                     class="form-control"
                     placeholder="Cedula"
+                    onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                     v-model="personas.cedula"
                   />
                 </div>
@@ -138,6 +139,7 @@
                   <input
                     class="form-control"
                     placeholder="Teléfono"
+                     onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                     v-model="personas.tel"
                   />
                 </div>

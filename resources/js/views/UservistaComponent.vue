@@ -120,7 +120,8 @@
                   type="button"
                   class="btn btn-primary"
                   @click="editar()"
-                  data-dismiss="modal"
+                  :disabled="!valida()"
+                  
                 >
                   Guardar Cambios
                 </button>
@@ -154,7 +155,7 @@
               </div>
               <div class="modal-body">
                 <input placeholder="Nombre" v-model="usuario.persona.prinom" />
-                <input placeholder="Cedula" v-model="usuario.persona.cedula" />
+                <input placeholder="Cedula" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" v-model="usuario.persona.cedula" />
               </div>
               <div class="modal-footer">
                 <button
@@ -211,6 +212,20 @@ export default {
     });
   },
   methods: {
+
+valida: function () {
+      var exp1 = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+     
+      if (exp1.test(this.usuario.email)) {
+        console.log("Email Correcto");
+        return true;
+      }
+       else {    
+        console.log("ERRORES");
+        return false;
+      }
+    },
+
     eliminar(usuario, index) {
       const confirmacion = confirm(
         `Confirma Eliminar Usuario: ${usuario.username}`

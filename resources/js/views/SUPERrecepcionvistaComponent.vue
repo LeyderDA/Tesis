@@ -558,6 +558,7 @@
                 <input
                   class="form-control"
                   placeholder="Cédula del Reclamante"
+                  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                   v-model="usuario.persona.cedula"
                 />
               </div>
@@ -752,6 +753,7 @@
               <label class="col-6 col-form-label">CÉDULA (*):</label>
               <input
                 placeholder="CC.RECEPCIONISTA"
+                 onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                 v-model="usuario.persona.cedula"
               />
 
@@ -830,6 +832,7 @@
               <label class="col-5 col-form-label">CÉDULA (*):</label>
               <input
                 placeholder="CC.DOCENTE"
+                 onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                 v-model="usuario.persona.cedula"
               />
 
@@ -1214,7 +1217,8 @@
               />
 
               <label class="col-12 col-form-label">CEDULA</label>
-              <input placeholder="USERNAME" v-model="usuario.persona.cedula" />
+              
+              <input placeholder="USERNAME"  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" v-model="usuario.persona.cedula" />
 
               <label class="col-12 col-form-label">NOMBRE</label>
               <input placeholder="USERNAME" v-model="usuario.persona.prinom" />
@@ -1275,6 +1279,7 @@
                 <input
                   class="form-control"
                   placeholder="CEDULA"
+                   onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                   v-model="usuario.persona.cedula"
                 />
               </div>
