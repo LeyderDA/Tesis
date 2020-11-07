@@ -69,7 +69,7 @@
             data-toggle="modal"
             data-target="#buscarModal"
             @click="buscar()"
-            
+            :disabled="!isFormValidCedula()"
           >
             Buscar
           </button>

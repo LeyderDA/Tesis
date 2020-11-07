@@ -9,12 +9,11 @@
           <label class="col-5 col-form-label">Cédula (*):</label>
 
           <div class="col-6 form-group">
-            <input 
-          
+            <input       
               class="form-control"
               placeholder="Cédula"
-              v-model="personas.cedula"
-              :disabled="!validaPassword()"
+              onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+              v-model="personas.cedula"            
             />
           </div>
 
@@ -77,7 +76,12 @@
 
       <div class="row justify-content-center col">
         <div class="col-6 form-group" v-if="true">
-          <button class="btn btn-primary btn-block" @click="agregar()">
+          <button
+           class="btn btn-primary btn-block" 
+           @click="agregar()"
+          
+          
+           >
             Guardar
           </button>
         </div>
@@ -106,23 +110,15 @@ export default {
   },
   methods: {
     isFormValidCedula: function () {
-      return this.usuario.persona.cedula != "";
+      return this.personas.cedula = "";
     },
+   
 
-     validaPassword: function(){
-
-                var exp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/;
-                if(exp.test(this.form.clave)){
-                  console.log("Contraseña correcta");
-                  return true;
-                } else{
-                  console.log('Incorrect cla');
-                  return false;
-                }
-            },    
+    
      
     agregar() {
       if (
+        
         !this.personas.cedula ||
         !this.personas.prinom ||
         !this.personas.priape ||
