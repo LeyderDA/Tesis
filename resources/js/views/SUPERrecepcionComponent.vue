@@ -118,7 +118,8 @@
           <div class="col-6 form-group">
             <input
               class="form-control"
-              placeholder="Reclamante"
+              placeholder="Cc Reclamante"
+              onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
               v-model="usuario.persona.cedula"
             />
           </div>
@@ -129,7 +130,8 @@
           <div class="col-6 form-group">
             <input
               class="form-control"
-              placeholder="Estudiante"
+              placeholder="Cc Estudiante"
+              onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
               v-model="usuarioo.persona.cedula"
             />
           </div>
@@ -146,7 +148,6 @@
             :disabled="!isFormValidReclamante()"
           >
             B.Reclamante
-            <i class="fas fa-search fa-1x" style="color: black"></i>
           </button>
         </div>
         <!--buscar recepcionador -->
@@ -435,7 +436,9 @@ export default {
           this.usuarioo.persona.id = "";
           this.usuarioo.persona.cedula = "";
           this.usuarioo.persona.prinom = "";
+          this.usuarioo.persona.segnom = "";
           this.usuarioo.persona.priape = "";
+          this.usuarioo.persona.segape = "";
           this.esta = false;
         } else {
           console.log(res.data[0]);

@@ -35,6 +35,7 @@
             <input
               class="form-control"
               placeholder="Edad"
+              onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
               v-model="reclamante.edadvictima"
             />
           </div>
@@ -53,6 +54,7 @@
             <input
               class="form-control"
               placeholder="Estrato"
+              onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
               v-model="reclamante.estravictima"
             />
           </div>
@@ -105,6 +107,7 @@
             <input
               class="form-control"
               placeholder="Cedula"
+              onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
               v-model="reclamante.persona.cedula"
             />
           </div>

@@ -10330,6 +10330,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -13542,6 +13545,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -13648,7 +13652,9 @@ __webpack_require__.r(__webpack_exports__);
           _this2.usuarioo.persona.id = "";
           _this2.usuarioo.persona.cedula = "";
           _this2.usuarioo.persona.prinom = "";
+          _this2.usuarioo.persona.segnom = "";
           _this2.usuarioo.persona.priape = "";
+          _this2.usuarioo.persona.segape = "";
           _this2.esta = false;
         } else {
           console.log(res.data[0]);
@@ -15570,6 +15576,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -72080,7 +72087,11 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { placeholder: "Edad" },
+              attrs: {
+                placeholder: "Edad",
+                onkeypress:
+                  "return (event.charCode >= 48 && event.charCode <= 57)"
+              },
               domProps: { value: _vm.reclamante.edadvictima },
               on: {
                 input: function($event) {
@@ -72140,7 +72151,11 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { placeholder: "Estrato" },
+              attrs: {
+                placeholder: "Estrato",
+                onkeypress:
+                  "return (event.charCode >= 48 && event.charCode <= 57)"
+              },
               domProps: { value: _vm.reclamante.estravictima },
               on: {
                 input: function($event) {
@@ -72300,7 +72315,11 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { placeholder: "Cedula" },
+              attrs: {
+                placeholder: "Cedula",
+                onkeypress:
+                  "return (event.charCode >= 48 && event.charCode <= 57)"
+              },
               domProps: { value: _vm.reclamante.persona.cedula },
               on: {
                 input: function($event) {
@@ -78905,7 +78924,11 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { placeholder: "Reclamante" },
+              attrs: {
+                placeholder: "Cc Reclamante",
+                onkeypress:
+                  "return (event.charCode >= 48 && event.charCode <= 57)"
+              },
               domProps: { value: _vm.usuario.persona.cedula },
               on: {
                 input: function($event) {
@@ -78933,7 +78956,11 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { placeholder: "Estudiante" },
+              attrs: {
+                placeholder: "Cc Estudiante",
+                onkeypress:
+                  "return (event.charCode >= 48 && event.charCode <= 57)"
+              },
               domProps: { value: _vm.usuarioo.persona.cedula },
               on: {
                 input: function($event) {
@@ -78966,13 +78993,7 @@ var render = function() {
                     }
                   }
                 },
-                [
-                  _vm._v("\n          B.Reclamante\n          "),
-                  _c("i", {
-                    staticClass: "fas fa-search fa-1x",
-                    staticStyle: { color: "black" }
-                  })
-                ]
+                [_vm._v("\n          B.Reclamante\n        ")]
               )
             ])
           : undefined,
@@ -83028,7 +83049,11 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { placeholder: "Cedula" },
+              attrs: {
+                placeholder: "Cedula",
+                onkeypress:
+                  "return (event.charCode >= 48 && event.charCode <= 57)"
+              },
               domProps: { value: _vm.usuario.persona.cedula },
               on: {
                 input: function($event) {

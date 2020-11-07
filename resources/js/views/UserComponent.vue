@@ -72,6 +72,7 @@
             <input
               class="form-control"
               placeholder="Cedula"
+              onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
               v-model="usuario.persona.cedula"
             />
           </div>
