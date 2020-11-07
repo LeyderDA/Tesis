@@ -76,7 +76,8 @@
         </div>
 
         <div class="col-6 form-group" v-if="true">
-          <button class="btn btn-primary btn-block" @click="agregar()">
+          <button class="btn btn-primary btn-block" @click="agregar()"
+          :disabled="!validaEmail()">
             Guardar
           </button>
         </div>
@@ -111,7 +112,7 @@
                 <input placeholder="Username" v-model="usuario.username" />
 
                 <label class="col-5 col-form-label">Email</label>
-                <input placeholder="Email" v-model="usuario.email" />
+                <input type="email" placeholder="Email" v-model="usuario.email" />
 
                 <label class="col-5 col-form-label">Rol</label>
                 <div class="col-6">
@@ -141,6 +142,7 @@
                   class="btn btn-primary"
                   @click="editar()"
                   data-dismiss="modal"
+                  
                 >
                   Guardar Cambios
                 </button>
@@ -285,7 +287,21 @@ export default {
     },
     isFormValidCedula: function () {
       return this.usuario.persona.cedula != "";
+      
     },
+
+    validaEmail: function (){              
+              var exp1 = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+              if(exp1.test(this.usuario.email)){      
+                  console.log("Email Corre");
+                  console.log(this.usuario.persona);
+                  return true; 
+              } else{
+                  console.log('Email Inco');
+                  return false;
+              }
+            },
+
     agregar() {
       if (
         !this.usuario.username ||

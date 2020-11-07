@@ -15806,6 +15806,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -15854,6 +15856,18 @@ __webpack_require__.r(__webpack_exports__);
     },
     isFormValidCedula: function isFormValidCedula() {
       return this.usuario.persona.cedula != "";
+    },
+    validaEmail: function validaEmail() {
+      var exp1 = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+
+      if (exp1.test(this.usuario.email)) {
+        console.log("Email Corre");
+        console.log(this.usuario.persona);
+        return true;
+      } else {
+        console.log('Email Inco');
+        return false;
+      }
     },
     agregar: function agregar() {
       var _this2 = this;
@@ -83010,6 +83024,7 @@ var render = function() {
                 "button",
                 {
                   staticClass: "btn btn-primary btn-block",
+                  attrs: { disabled: !_vm.validaEmail() },
                   on: {
                     click: function($event) {
                       return _vm.agregar()
@@ -83084,7 +83099,7 @@ var render = function() {
                           expression: "usuario.email"
                         }
                       ],
-                      attrs: { placeholder: "Email" },
+                      attrs: { type: "email", placeholder: "Email" },
                       domProps: { value: _vm.usuario.email },
                       on: {
                         input: function($event) {
