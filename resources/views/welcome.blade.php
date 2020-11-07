@@ -79,9 +79,9 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                   
                     Facultad de Derecho
                 </div>
+                <h1>Consultorio Jurídico y Centro De Conciliación</h1>
             
          
                 <img src="{{ asset('image/leoon.png') }}">
