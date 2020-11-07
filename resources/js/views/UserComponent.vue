@@ -1,7 +1,20 @@
 <template>
   <div class="card">
     <div>
-      <h2 class="text-center mb-2 card-title">Registrando Usuario:</h2>
+      <br>
+      <h4 class="mb-2 card-title">Observaciones</h4>
+
+
+         <label class="col-6 col-form-label">-El boton de buscar no se va a habilitar si no agregas la cedula de la persona.</label>
+
+         <label class="col-6 col-form-label">-El campo de contraseña no se va a habilitar si tienes un formato de correo invalido.</label>
+
+         <label class="col-6 col-form-label"> -El boton de guardar no se va a habilitar no tienes una contraseña valida.</label>
+
+         <label class="col-6 col-form-label">-La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, 
+         al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico.</label>
+         
+         <h1 class="text-center mb-2 card-title">Registrando Usuario:</h1>
     </div>
     <div class="card-body row">
       <form>
@@ -22,16 +35,17 @@
               class="form-control"
               placeholder="Email"
               v-model="usuario.email"
+              :state="false" 
             />
           </div>
 
           <label class="col-5 col-form-label">password (*):</label>
-          <div class="col-6 form-group">
+          <div class="col-6 form-group">            
             <input
               class="form-control"
               type="password"
               placeholder="Password"
-              v-model="usuario.password"
+              v-model="usuario.password"            
               :disabled="!isFormValidcampContra()"
             />
           </div>

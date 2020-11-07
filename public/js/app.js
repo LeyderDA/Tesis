@@ -15815,6 +15815,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -82898,7 +82912,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { placeholder: "Email" },
+              attrs: { placeholder: "Email", state: false },
               domProps: { value: _vm.usuario.email },
               on: {
                 input: function($event) {
@@ -83436,7 +83450,35 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("h2", { staticClass: "text-center mb-2 card-title" }, [
+      _c("br"),
+      _vm._v(" "),
+      _c("h4", { staticClass: "mb-2 card-title" }, [_vm._v("Observaciones")]),
+      _vm._v(" "),
+      _c("label", { staticClass: "col-6 col-form-label" }, [
+        _vm._v(
+          "-El boton de buscar no se va a habilitar si no agregas la cedula de la persona."
+        )
+      ]),
+      _vm._v(" "),
+      _c("label", { staticClass: "col-6 col-form-label" }, [
+        _vm._v(
+          "-El campo de contraseña no se va a habilitar si tienes un formato de correo invalido."
+        )
+      ]),
+      _vm._v(" "),
+      _c("label", { staticClass: "col-6 col-form-label" }, [
+        _vm._v(
+          " -El boton de guardar no se va a habilitar no tienes una contraseña valida."
+        )
+      ]),
+      _vm._v(" "),
+      _c("label", { staticClass: "col-6 col-form-label" }, [
+        _vm._v(
+          "-La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, \n       al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico."
+        )
+      ]),
+      _vm._v(" "),
+      _c("h1", { staticClass: "text-center mb-2 card-title" }, [
         _vm._v("Registrando Usuario:")
       ])
     ])
