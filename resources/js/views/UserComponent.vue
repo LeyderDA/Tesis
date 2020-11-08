@@ -4,13 +4,7 @@
       <br>
       <h4 class="mb-2 card-title">Observaciones</h4>
 
-
-         <label class="col-6 col-form-label">-El boton de buscar no se va a habilitar si no agregas la cedula de la persona.</label>
-
          <label class="col-6 col-form-label">-El campo de contraseña no se va a habilitar si tienes un formato de correo invalido.</label>
-
-         <label class="col-6 col-form-label"> -El boton de guardar no se va a habilitar no tienes una contraseña valida.</label>
-
          <label class="col-6 col-form-label">-La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, 
          al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico.</label>
          

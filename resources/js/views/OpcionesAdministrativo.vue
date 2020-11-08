@@ -27,7 +27,7 @@
           <div class="btn-group">
             <button
               type="button"
-              class="btn btn-default dropdown-toggle"
+              class="btn btn-default dropdown-toggle nav-link"
               data-toggle="dropdown"
             >
               Personas <span class="caret"></span>
@@ -49,7 +49,7 @@
           <div class="btn-group">
             <button
               type="button"
-              class="btn btn-default dropdown-toggle"
+              class="btn btn-default dropdown-toggle nav-link"
               data-toggle="dropdown"
             >
               Usuarios <span class="caret"></span>
@@ -72,7 +72,7 @@
           <div class="btn-group">
             <button
               type="button"
-              class="btn btn-default dropdown-toggle"
+              class="btn btn-default dropdown-toggle nav-link"
               data-toggle="dropdown"
             >
               Reclamantes <span class="caret"></span>
@@ -100,7 +100,7 @@
           <div class="btn-group">
             <button
               type="button"
-              class="btn btn-default dropdown-toggle"
+              class="btn btn-default dropdown-toggle nav-link"
               data-toggle="dropdown"
             >
               Recepciones <span></span>

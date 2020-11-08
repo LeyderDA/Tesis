@@ -15865,12 +15865,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -55050,7 +55044,7 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
+                _c("li", { staticClass: "nav-link" }, [
                   _c("a", { attrs: { href: "/Est" } }, [
                     _vm._v("Estadisticas ")
                   ])
@@ -55099,7 +55093,7 @@ var staticRenderFns = [
     return _c(
       "button",
       {
-        staticClass: "btn btn-default dropdown-toggle",
+        staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
       [_vm._v("\n            Personas "), _c("span", { staticClass: "caret" })]
@@ -55112,7 +55106,7 @@ var staticRenderFns = [
     return _c(
       "button",
       {
-        staticClass: "btn btn-default dropdown-toggle",
+        staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
       [_vm._v("\n            Usuarios "), _c("span", { staticClass: "caret" })]
@@ -55125,7 +55119,7 @@ var staticRenderFns = [
     return _c(
       "button",
       {
-        staticClass: "btn btn-default dropdown-toggle",
+        staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
       [
@@ -55141,7 +55135,7 @@ var staticRenderFns = [
     return _c(
       "button",
       {
-        staticClass: "btn btn-default dropdown-toggle",
+        staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
       [_vm._v("\n            Recepciones "), _c("span")]
@@ -68555,7 +68549,7 @@ var staticRenderFns = [
     return _c(
       "button",
       {
-        staticClass: "btn btn-default dropdown-toggle",
+        staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
       [_vm._v("\n            Personas "), _c("span", { staticClass: "caret" })]
@@ -68568,7 +68562,7 @@ var staticRenderFns = [
     return _c(
       "button",
       {
-        staticClass: "btn btn-default dropdown-toggle",
+        staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
       [_vm._v("\n            Usuarios "), _c("span", { staticClass: "caret" })]
@@ -68581,7 +68575,7 @@ var staticRenderFns = [
     return _c(
       "button",
       {
-        staticClass: "btn btn-default dropdown-toggle",
+        staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
       [
@@ -68597,7 +68591,7 @@ var staticRenderFns = [
     return _c(
       "button",
       {
-        staticClass: "btn btn-default dropdown-toggle",
+        staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
       [_vm._v("\n            Recepciones "), _c("span")]
@@ -68888,11 +68882,11 @@ var staticRenderFns = [
     return _c(
       "button",
       {
-        staticClass: "btn btn-default dropdown-toggle",
+        staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
       [
-        _vm._v("\n            Calificaciones "),
+        _vm._v("\n          \n            Calificaciones "),
         _c("span", { staticClass: "caret" })
       ]
     )
@@ -68904,7 +68898,7 @@ var staticRenderFns = [
     return _c(
       "button",
       {
-        staticClass: "btn btn-default dropdown-toggle",
+        staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
       [_vm._v("\n            Foros "), _c("span", { staticClass: "caret" })]
@@ -83611,19 +83605,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("label", { staticClass: "col-6 col-form-label" }, [
         _vm._v(
-          "-El boton de buscar no se va a habilitar si no agregas la cedula de la persona."
-        )
-      ]),
-      _vm._v(" "),
-      _c("label", { staticClass: "col-6 col-form-label" }, [
-        _vm._v(
           "-El campo de contraseña no se va a habilitar si tienes un formato de correo invalido."
-        )
-      ]),
-      _vm._v(" "),
-      _c("label", { staticClass: "col-6 col-form-label" }, [
-        _vm._v(
-          " -El boton de guardar no se va a habilitar no tienes una contraseña valida."
         )
       ]),
       _vm._v(" "),

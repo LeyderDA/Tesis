@@ -2,7 +2,7 @@
   <div>
     <nav
       class="navbar navbar-expand-sm"
-      style="background-color: #dadada; color: #000; height: 30px"
+      style="background-color: #dadada; color: #000; height: 30px"     
     >
       <button
         class="navbar-toggler"
@@ -62,10 +62,13 @@
 
           <div class="btn-group">
             <button
+            
               type="button"
-              class="btn btn-default dropdown-toggle"
+              class="btn btn-default dropdown-toggle nav-link"
+              
               data-toggle="dropdown"
             >
+            
               Calificaciones <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
@@ -85,7 +88,7 @@
           <div class="btn-group">
             <button
               type="button"
-              class="btn btn-default dropdown-toggle"
+              class="btn btn-default dropdown-toggle nav-link"
               data-toggle="dropdown"
             >
               Foros <span class="caret"></span>

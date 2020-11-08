@@ -31,8 +31,8 @@
         }
         .nav-link:hover{
             background-color:#929292;
-            border-radius: 0px;
-            color:#fff;
+            border-radius: 5px;
+            color:rgb(255, 255, 255);
             font-weight: bold;
             height: 30px;
         }
