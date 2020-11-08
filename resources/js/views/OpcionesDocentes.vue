@@ -32,7 +32,7 @@
 
            <li class="nav-item">
             <router-link class="nav-link" :to="{ name: 'crearfirma' }"
-              >Crear Firma</router-link
+              >Firmar Documento</router-link
             >
           </li>
 

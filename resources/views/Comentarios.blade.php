@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div style="background-color:#dadada">
+<div style="background-color:#003366">
           <div class="container" style="margin-top:-24px; height:30px">
               <div>
               <br />

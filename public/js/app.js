@@ -58089,7 +58089,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", [
         _c("h1", { staticClass: "text-center mb-2 card-title" }, [
-          _vm._v("Crear Firma")
+          _vm._v("Firmar Documento")
         ])
       ]),
       _vm._v(" "),
@@ -68685,7 +68685,7 @@ var render = function() {
                         staticClass: "nav-link",
                         attrs: { to: { name: "crearfirma" } }
                       },
-                      [_vm._v("Crear Firma")]
+                      [_vm._v("Firmar Documento")]
                     )
                   ],
                   1

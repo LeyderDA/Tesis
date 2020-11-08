@@ -2,7 +2,7 @@
   <div class="card">
     <br />
     <div>
-      <h1 class="text-center mb-2 card-title">Crear Firma</h1>
+      <h1 class="text-center mb-2 card-title">Firmar Documento</h1>
     </div>
     <div class="card-body row">
       <div class="container">
