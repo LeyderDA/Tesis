@@ -1,8 +1,7 @@
 <template>
-  <div class="card">
-    
+  <div class="card" style="margin-top:25px">
     <div>
-      <br>
+      <br />
       <h2 class="text-center mb-2 card-title">Listado de personas</h2>
     </div>
     <div class="card-body row">
@@ -86,7 +85,6 @@
                 </button>
               </div>
               <div class="modal-body">
-
                 <label class="col-12 col-form-label">Cedula</label>
 
                 <div class="col-12 form-group">
@@ -103,6 +101,9 @@
                   <input
                     class="form-control"
                     placeholder="Primer nombre"
+                    onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || 
+              (event.charCode >= 97 && event.charCode <= 122))||
+              event.charCode == [241]|| event.charCode == [ 209]"
                     v-model="personas.prinom"
                   />
                 </div>
@@ -112,6 +113,9 @@
                   <input
                     class="form-control"
                     placeholder="Segundo nombre"
+                    onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || 
+              (event.charCode >= 97 && event.charCode <= 122))||
+              event.charCode == [241]|| event.charCode == [ 209]"
                     v-model="personas.segnom"
                   />
                 </div>
@@ -121,6 +125,9 @@
                   <input
                     class="form-control"
                     placeholder="Primer apellido"
+                    onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || 
+              (event.charCode >= 97 && event.charCode <= 122))||
+              event.charCode == [241]|| event.charCode == [ 209]"
                     v-model="personas.priape"
                   />
                 </div>
@@ -130,6 +137,9 @@
                   <input
                     class="form-control"
                     placeholder="Segundo apellido"
+                    onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || 
+              (event.charCode >= 97 && event.charCode <= 122))||
+              event.charCode == [241]|| event.charCode == [ 209]"
                     v-model="personas.segape"
                   />
                 </div>
@@ -139,7 +149,7 @@
                   <input
                     class="form-control"
                     placeholder="Teléfono"
-                     onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+                    onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                     v-model="personas.tel"
                   />
                 </div>

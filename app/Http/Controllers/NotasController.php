@@ -34,6 +34,7 @@ class NotasController extends Controller
         ,'personas.direc'
         )
         ->where('users.rol_id','=',3)
+        
         ->get();
 
         if($request->ajax()){

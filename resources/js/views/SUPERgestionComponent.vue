@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+   <div class="card" style="margin-top:25px">
     <div>
       <h2 class="text-center mb-2 card-title">Registrando una nueva Gestión</h2>
     </div>

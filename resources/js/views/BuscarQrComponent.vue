@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" style="margin-top:25px">
     <br />
     <div>
       <h1 class="text-center mb-2 card-title">Busqueda por QR</h1>

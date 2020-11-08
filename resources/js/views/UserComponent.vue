@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+   <div class="card" style="margin-top:25px">
     <div>
       <br>
       <h4 class="mb-2 card-title">Observaciones</h4>

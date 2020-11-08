@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+   <div class="card" style="margin-top:25px">
     <br />
     <div>
       <h2 class="text-center mb-2 card-title">Crear Foro</h2>
