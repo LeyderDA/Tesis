@@ -16227,6 +16227,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -84407,6 +84410,21 @@ var render = function() {
                                     staticClass: "fas fa-save fa-2x",
                                     staticStyle: { color: "black" },
                                     attrs: { title: "Agregar Foto" }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  attrs: { href: "/HojaDeVida/" + usuario.id }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass:
+                                      "fas fa-arrow-alt-circle-right fa-2x",
+                                    staticStyle: { color: "black" },
+                                    attrs: { title: "Ir a los archivos" }
                                   })
                                 ]
                               )

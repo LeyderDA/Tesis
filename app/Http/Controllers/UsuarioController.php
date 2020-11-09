@@ -188,6 +188,12 @@ class UsuarioController extends Controller
         return  $usuarioo;   
     }
 
+    public function mostrarArchivos($id)
+    { 
 
+        $User= User::findOrFail($id);
+        return view('HojaDeVida',compact('User'));
+    
+    }
     
 }
