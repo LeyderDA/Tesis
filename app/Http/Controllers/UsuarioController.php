@@ -46,6 +46,7 @@ class UsuarioController extends Controller
         $usua->password=Hash::make($request->password);
         $usua->per_id=$request->per_id;
         $usua->rol_id=$request->rol_id;
+        
         $usua->save();
         $usua->persona;
         return  response()->json($usua);

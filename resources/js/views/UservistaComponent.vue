@@ -33,6 +33,7 @@
                       <td>{{ usuario.persona.priape }}</td>
 
                       <td>
+                       
                         <button
                           class="btn btn-success btn-sm"
                           data-toggle="modal"
@@ -49,6 +50,10 @@
                         >
                           <i class="fas fa-trash-alt"></i>
                         </button>
+
+                         <a :href="'/add_archivos/' + usuario.id">
+                          <i title="Agregar Foto" class="fas fa-save fa-2x" style="color: black"></i>
+                        </a>
                       </td>
                     </tr>
                   </tbody>

@@ -1,7 +1,8 @@
 <template>
-   <div class="card" style="margin-top:25px">
+  <div class="card" style="margin-top: 25px">
     <div>
-      <h2 class="text-center mb-2 card-title">Recepciones</h2>
+    <br>
+      <h2 class="text-center mb-2 card-title">Agregar Calificaciones</h2>
     </div>
 
     <div class="container">
@@ -232,10 +233,10 @@
 
               <label class="col-5 col-form-label">Nota primer corte</label>
               <div class="col-12 form-group">
-                <input 
+                <input
                   class="form-control"
                   placeholder="Nota primer corte"
-                   onkeypress="return (event.charCode >= 48 && event.charCode <= 57)||
+                  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)||
               event.charCode == [46]"
                   v-model="recepcion.notpricort"
                 />
@@ -313,9 +314,17 @@
               </button>
             </div>
             <div class="modal-body">
-
-              <div class="col-md-2"><img src="image/leoon.png" 
-              alt="" class="img-responsive" style="overflow: hidden"></div>
+              <!-- <div class="col-md-2"><img src="image/leoon.png" 
+              alt="" class="img-responsive" style="overflow: hidden"></div> -->
+              <label class="col-5 col-form-label">ID</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="cédula"
+                  v-model="recepcion.usu_id"
+                  disabled
+                />
+              </div>
 
               <label class="col-5 col-form-label">Cédula</label>
               <div class="col-12 form-group">

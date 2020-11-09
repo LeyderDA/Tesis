@@ -2325,6 +2325,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -16037,6 +16046,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -55846,7 +55860,37 @@ var render = function() {
                   _vm._m(5),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _vm._m(6),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("ID")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.recepcion.usu_id,
+                            expression: "recepcion.usu_id"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { placeholder: "cédula", disabled: "" },
+                        domProps: { value: _vm.recepcion.usu_id },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.recepcion,
+                              "usu_id",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-5 col-form-label" }, [
                       _vm._v("Cédula")
@@ -56116,8 +56160,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
+      _c("br"),
+      _vm._v(" "),
       _c("h2", { staticClass: "text-center mb-2 card-title" }, [
-        _vm._v("Recepciones")
+        _vm._v("Agregar Calificaciones")
       ])
     ])
   },
@@ -56227,18 +56273,6 @@ var staticRenderFns = [
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2" }, [
-      _c("img", {
-        staticClass: "img-responsive",
-        staticStyle: { overflow: "hidden" },
-        attrs: { src: "image/leoon.png", alt: "" }
-      })
     ])
   }
 ]
@@ -84361,6 +84395,20 @@ var render = function() {
                                   }
                                 },
                                 [_c("i", { staticClass: "fas fa-trash-alt" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  attrs: { href: "/add_archivos/" + usuario.id }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "fas fa-save fa-2x",
+                                    staticStyle: { color: "black" },
+                                    attrs: { title: "Agregar Foto" }
+                                  })
+                                ]
                               )
                             ])
                           ])

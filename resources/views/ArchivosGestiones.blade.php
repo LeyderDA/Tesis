@@ -12,13 +12,17 @@
                     <div class="container">
                         <div class="card-body col">
                           <div clas="container row">
-                            <div class="table table-reponsive">                                           
+                            <div class="table table-reponsive">  
+                                                                    
                               <center>
+                              
+
                                 <?php $content = DB::table('archivos_gestiones')->select('id','archivoGe')->where('ges_id',$Gest->id)->get(); ?>                              
                                 @foreach($content as $contenido)                             
                                 <h1 class="mb-2 card-title"><a href="/storage/GestionArchivos/{{$contenido->archivoGe}}" target="_blank"></h1>  
 
-                                 
+                                  <div class="col-md-2"><img src="image/leoon.png" 
+                                    alt="" class="img-responsive" style="overflow: hidden"></div>
                                   
                                   <?php 
                                    $pizza  = $contenido->archivoGe;
@@ -29,6 +33,9 @@
                                      echo $part2; // porción3
                                      
                                    ?>
+                                   
+                                   {{-- <img src="/storage/GestionArchivos/{{$contenido->archivoGe}}"> --}}
+                                   
                                </a>          
                               @endforeach 
                               </center> 
@@ -39,6 +46,8 @@
                       <center> 
                         <a href="/home"  class="btn btn-primary"  >Salir</a>
                       </center>
+
+                      
           </div>       
        </div>
       </div>

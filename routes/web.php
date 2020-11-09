@@ -92,5 +92,9 @@ Route::get('/getComent/{id}', 'ComentariosController@getComent')->middleware('au
 
 
 
-
+//rutas para las fotos de los estudiantes
+Route::get('/view_arch_gest/{id}', 'GestionController@mostrarArchivos');
+Route::post('fotoest','FotosEstudiantesController@store')->name('fotoest')->middleware('auth');
+Route::post('fotoest/media','FotosEstudiantesController@storeMedia')->name('Foto.storeMedia')->middleware('auth');
+Route::get('add_archivos/{id}','FotosEstudiantesController@add_archivos')->middleware('auth');
 

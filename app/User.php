@@ -49,6 +49,12 @@ class User extends Authenticatable
     
     }
 
+    public function fotos()
+    {
+        return $this->belongsTo('App\FotosEstudiantes','id');
+    
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *
