@@ -13,7 +13,7 @@
                 <thead>
                   <tr>
                     <th>Area</th>
-                    <th>Cédula</th>
+                    <th>Datos Estudiante</th>
                     <th>Primer Nombre</th>
                     <th>Segundo Nombre</th>
                     <th>Primer Apellido</th>
@@ -24,7 +24,19 @@
                 <tbody>
                   <tr v-for="recepcion in recepcioness" :key="recepcion.index">
                     <td>{{ recepcion.nombre }}</td>
-                    <td>{{ recepcion.cedula }}</td>
+
+                    <td>
+                      <a
+                        :href="'/HojaDeVida/' + recepcion.usu_id"
+                        target="_blank"
+                        ><i
+                          title="Ver Usuario"
+                          class="fas fa-user fa-2x"
+                          style="color: black"
+                        ></i
+                      ></a>
+                    </td>
+
                     <td>{{ recepcion.prinom }}</td>
                     <td>{{ recepcion.segnom }}</td>
                     <td>{{ recepcion.priape }}</td>
@@ -99,7 +111,7 @@
                   disabled
                 />
               </div>
-              <br>
+              <br />
               <center>
                 <h3>Nota Acumulada</h3>
 

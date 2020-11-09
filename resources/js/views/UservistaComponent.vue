@@ -1,5 +1,5 @@
 <template>
-   <div class="card" style="margin-top:25px">
+  <div class="card" style="margin-top: 25px">
     <div>
       <br />
       <h2 class="text-center mb-2 card-title">Listado de usuarios</h2>
@@ -33,7 +33,6 @@
                       <td>{{ usuario.persona.priape }}</td>
 
                       <td>
-                       
                         <button
                           class="btn btn-success btn-sm"
                           data-toggle="modal"
@@ -51,12 +50,20 @@
                           <i class="fas fa-trash-alt"></i>
                         </button>
 
-                         <a :href="'/add_archivos/' + usuario.id">
-                          <i title="Agregar Foto" class="fas fa-save fa-2x" style="color: black"></i>
+                        <a :href="'/add_archivos/' + usuario.id">
+                          <i
+                            title="Agregar Foto"
+                            class="fas fa-save fa-2x"
+                            style="color: black"
+                          ></i>
                         </a>
-                         <a :href="'/HojaDeVida/' + usuario.id"> 
-                          <i title="Ver Usuario" class="fas fa-arrow-alt-circle-right fa-2x" style="color: black"></i>
-                        </a>
+                        <a :href="'/HojaDeVida/' + usuario.id" target="_blank"
+                          ><i
+                            title="Ver Usuario"
+                            class="fas fa-arrow-alt-circle-right fa-2x"
+                            style="color: black"
+                          ></i
+                        ></a>
                       </td>
                     </tr>
                   </tbody>
@@ -91,14 +98,20 @@
               <div class="modal-body">
                 <label class="col-12 col-form-label">Username</label>
                 <div class="col-12 form-group">
-
-                <input class="form-control" placeholder="Username" v-model="usuario.username" />
+                  <input
+                    class="form-control"
+                    placeholder="Username"
+                    v-model="usuario.username"
+                  />
                 </div>
 
                 <label class="col-12 col-form-label">Email</label>
                 <div class="col-12 form-group">
-
-                <input class="form-control" placeholder="Email" v-model="usuario.email" />
+                  <input
+                    class="form-control"
+                    placeholder="Email"
+                    v-model="usuario.email"
+                  />
                 </div>
 
                 <label class="col-12 col-form-label">Rol</label>
@@ -129,7 +142,6 @@
                   class="btn btn-primary"
                   @click="editar()"
                   :disabled="!valida()"
-                  
                 >
                   Guardar Cambios
                 </button>
@@ -163,7 +175,11 @@
               </div>
               <div class="modal-body">
                 <input placeholder="Nombre" v-model="usuario.persona.prinom" />
-                <input placeholder="Cedula" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" v-model="usuario.persona.cedula" />
+                <input
+                  placeholder="Cedula"
+                  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+                  v-model="usuario.persona.cedula"
+                />
               </div>
               <div class="modal-footer">
                 <button
@@ -220,15 +236,13 @@ export default {
     });
   },
   methods: {
-
-valida: function () {
+    valida: function () {
       var exp1 = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
-     
+
       if (exp1.test(this.usuario.email)) {
         console.log("Email Correcto");
         return true;
-      }
-       else {    
+      } else {
         console.log("ERRORES");
         return false;
       }

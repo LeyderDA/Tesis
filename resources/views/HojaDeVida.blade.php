@@ -6,45 +6,55 @@
               <br />
               <br />
               <br />   
-              <h1 class="text-center mb-2 card-title">Hoja de vida</h1>
+              <h1 class="text-center mb-2 card-title">Datos del Estudiante</h1>
                   </div>
                   <div class="card-body row">     
-                    <br />
+                
                     <div class="container">
                         <div class="card-body col">
                           <div clas="container row">
-                            <div class="table table-reponsive">     
-                                <h3 class="mb-2 card-title">Descripción del foro:</h3>
-                              <label class="col-12 col-form-label">{{$User->username}}</label>
-                              <br>
-                              <br>
-                              <h5>Archivos del Foro</h5>
+                            <div class="table table-reponsive">                                                
                               <?php $content = DB::table('fotos_estudiantes')->select('id','Foto')->where('est_id',$User->id)->get(); ?>                              
                               @foreach($content as $contenido)                             
-                              <h5 class="mb-2 card-title"><a href="/storage/ForoArchivos/{{$contenido->Foto}}" target="_blank"></h5>                           
-                                <?php 
-                                 $pizza  = $contenido->Foto;
-                                 $porciones = explode("_", $pizza);
-                                 $part1 = $porciones[0]; 
-                                 $part2 = $porciones[1];                      
-                                   echo $part2; // porción3
-                                 ?>
-
-                             <img src="/storage/FotosEstudiantes/{{$contenido->Foto}}">
+                                         
+                             <center>
+                                <img src="/storage/FotosEstudiantes/{{$contenido->Foto}}" width="200" height="200">
+                             </center>
+                               
                              </a>          
                             @endforeach 
                               
-                              
-                                
+                            <?php $per = DB::table('personas')->select('id','cedula','prinom','segnom','priape','segape','tel','direc')->where('id',$User->per_id)->get(); ?>  
+                            @foreach($per as $persona)                             
+                              <center>
+                                <br>
+                                <br>
+                                <h5 class="text mb-2 card-title">Cedula: {{$persona->cedula}}</h5>
+                                <br>
+                                <h5 class="text mb-2 card-title">Primer Nombre: {{$persona->prinom}}</h5>
+                                <br>
+                                <h5 class="text mb-2 card-title">Segundo Nombre: {{$persona->segnom}}</h5>
+                                <br>
+                                <h5 class="text mb-2 card-title">Primer Apellido: {{$persona->priape}}</h5>
+                                <br>
+                                <h5 class="text mb-2 card-title">Primer Apellido: {{$persona->segape}}</h5>
+                                <br>
+                                <h5 class="text mb-2 card-title">Celular: {{$persona->tel}}</h5>
+                                <br>
+                                <h5 class="text mb-2 card-title">Dirección: {{$persona->direc}}</h5>
+                                <br>
+                                  </center>                        
+                          
+                           
+                           </a>          
+                          @endforeach 
 
                           </div>
                         </div>
                       </div>
            
           </div> 
-          <center> 
-            <a href="/home"  class="btn btn-primary"  >Salir</a>
-          </center>        
+                
        </div>
       </div>
       </div> 

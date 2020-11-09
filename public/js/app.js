@@ -2334,6 +2334,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -7722,6 +7725,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -16046,6 +16061,22 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -55863,37 +55894,34 @@ var render = function() {
                   _vm._m(5),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _c("label", { staticClass: "col-5 col-form-label" }, [
-                      _vm._v("ID")
-                    ]),
+                    _c("br"),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-12 form-group" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.recepcion.usu_id,
-                            expression: "recepcion.usu_id"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { placeholder: "cédula", disabled: "" },
-                        domProps: { value: _vm.recepcion.usu_id },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.recepcion,
-                              "usu_id",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ]),
+                    _c(
+                      "div",
+                      [
+                        _c("center", [
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href: "/HojaDeVida/" + _vm.recepcion.usu_id,
+                                target: "_blank"
+                              }
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "fas fa-user fa-5x",
+                                staticStyle: { color: "black" },
+                                attrs: { title: "Ver Usuario" }
+                              })
+                            ]
+                          )
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("br"),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-5 col-form-label" }, [
                       _vm._v("Cédula")
@@ -67462,7 +67490,24 @@ var render = function() {
                       return _c("tr", { key: recepcion.index }, [
                         _c("td", [_vm._v(_vm._s(recepcion.nombre))]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(recepcion.cedula))]),
+                        _c("td", [
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href: "/HojaDeVida/" + recepcion.usu_id,
+                                target: "_blank"
+                              }
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "fas fa-user fa-2x",
+                                staticStyle: { color: "black" },
+                                attrs: { title: "Ver Usuario" }
+                              })
+                            ]
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(recepcion.prinom))]),
                         _vm._v(" "),
@@ -67686,7 +67731,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Area")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Cédula")]),
+        _c("th", [_vm._v("Datos Estudiante")]),
         _vm._v(" "),
         _c("th", [_vm._v("Primer Nombre")]),
         _vm._v(" "),
@@ -84417,7 +84462,10 @@ var render = function() {
                               _c(
                                 "a",
                                 {
-                                  attrs: { href: "/HojaDeVida/" + usuario.id }
+                                  attrs: {
+                                    href: "/HojaDeVida/" + usuario.id,
+                                    target: "_blank"
+                                  }
                                 },
                                 [
                                   _c("i", {

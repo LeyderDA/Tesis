@@ -1,7 +1,7 @@
 <template>
   <div class="card" style="margin-top: 25px">
     <div>
-    <br>
+      <br />
       <h2 class="text-center mb-2 card-title">Agregar Calificaciones</h2>
     </div>
 
@@ -314,18 +314,21 @@
               </button>
             </div>
             <div class="modal-body">
-              <!-- <div class="col-md-2"><img src="image/leoon.png" 
-              alt="" class="img-responsive" style="overflow: hidden"></div> -->
-              <label class="col-5 col-form-label">ID</label>
-              <div class="col-12 form-group">
-                <input
-                  class="form-control"
-                  placeholder="cédula"
-                  v-model="recepcion.usu_id"
-                  disabled
-                />
+              <br />
+
+              <div>
+                <center>
+                  <a :href="'/HojaDeVida/' + recepcion.usu_id" target="_blank"
+                    ><i
+                      title="Ver Usuario"
+                      class="fas fa-user fa-5x"
+                      style="color: black"
+                    ></i
+                  ></a>
+                </center>
               </div>
 
+              <br />
               <label class="col-5 col-form-label">Cédula</label>
               <div class="col-12 form-group">
                 <input
