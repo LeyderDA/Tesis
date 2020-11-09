@@ -2321,6 +2321,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -55842,6 +55846,8 @@ var render = function() {
                   _vm._m(5),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
+                    _vm._m(6),
+                    _vm._v(" "),
                     _c("label", { staticClass: "col-5 col-form-label" }, [
                       _vm._v("Cédula")
                     ]),
@@ -56221,6 +56227,18 @@ var staticRenderFns = [
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2" }, [
+      _c("img", {
+        staticClass: "img-responsive",
+        staticStyle: { overflow: "hidden" },
+        attrs: { src: "image/leoon.png", alt: "" }
+      })
     ])
   }
 ]

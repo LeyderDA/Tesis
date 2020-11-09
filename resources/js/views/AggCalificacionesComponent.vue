@@ -313,6 +313,10 @@
               </button>
             </div>
             <div class="modal-body">
+
+              <div class="col-md-2"><img src="image/leoon.png" 
+              alt="" class="img-responsive" style="overflow: hidden"></div>
+
               <label class="col-5 col-form-label">Cédula</label>
               <div class="col-12 form-group">
                 <input

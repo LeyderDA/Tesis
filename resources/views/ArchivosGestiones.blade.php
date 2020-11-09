@@ -16,7 +16,10 @@
                               <center>
                                 <?php $content = DB::table('archivos_gestiones')->select('id','archivoGe')->where('ges_id',$Gest->id)->get(); ?>                              
                                 @foreach($content as $contenido)                             
-                                <h1 class="mb-2 card-title"><a href="/storage/GestionArchivos/{{$contenido->archivoGe}}" target="_blank"></h1>                           
+                                <h1 class="mb-2 card-title"><a href="/storage/GestionArchivos/{{$contenido->archivoGe}}" target="_blank"></h1>  
+
+                                 
+                                  
                                   <?php 
                                    $pizza  = $contenido->archivoGe;
                                    $porciones = explode("_", $pizza);
@@ -24,6 +27,7 @@
                                    $part2 = $porciones[1];
                                    
                                      echo $part2; // porción3
+                                     
                                    ?>
                                </a>          
                               @endforeach 
