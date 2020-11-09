@@ -44,7 +44,7 @@
 <script>
   var uploadedDocumentMap = {}
   Dropzone.options.documentDropzone = {
-    url: '{{ route('archivo.storeMedia') }}',
+    url: '{{ route('archivoF.storeMedia') }}',
     maxFilesize: 50, // MB
     addRemoveLinks: true,
     headers: {

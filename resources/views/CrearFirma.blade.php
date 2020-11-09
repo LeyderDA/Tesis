@@ -1,5 +1,5 @@
 
-<div style="height:30px; width:100%; background-color:#dadada"></div>
+<div style="height:30px; width:100%; background-color:#003366"></div>
 <div style="height:6px; width:100%; background-color:#ad3333"></div>
 
 <!DOCTYPE html>
@@ -176,11 +176,11 @@
     </body>
     <br>
     <br>
-    <font face="arial">
+    {{-- <font face="arial">
         <center> 
             <a href="/home"  class="btn btn-primary"  >Salir</a>
           </center> 
-    </font>
+    </font> --}}
 
    
 </html>

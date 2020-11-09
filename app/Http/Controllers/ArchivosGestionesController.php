@@ -39,7 +39,7 @@ class ArchivosGestionesController extends Controller
         return redirect('home');   
     }
 
-    public function storeMedia(Request $request){
+    public function StoreMedia(Request $request){
      
         $path = storage_path('app/public/GestionArchivos');
 

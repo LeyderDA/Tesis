@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Reclamante;
 use App\ArchivosReclamantes;
+use App\Reclamante;
 use Illuminate\Http\Request;
 
 class ArchivosReclamantesController extends Controller
@@ -35,7 +35,7 @@ class ArchivosReclamantesController extends Controller
         return redirect('home');   
     }
 
-    public function storeMedia(Request $request){
+    public function StoreMedia(Request $request){
      
         $path = storage_path('app/public/ReclamanteArchivos');
 

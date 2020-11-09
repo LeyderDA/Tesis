@@ -16,13 +16,13 @@
 <div class="container">
        <div class="row mt-3 justify-content-md-center">
           <div class="col-md-6">
-             <form action="{{ url('/archivo') }}" method="post" enctype="multipart/form-data">                    
+             <form action="{{ url('/archivoGest') }}" method="post" enctype="multipart/form-data">                    
                     {{ csrf_field() }}
 
                     <input type="hidden" name="id" value="<?php echo $Gest->id ?>"> 
 
                     <div class="form-group">
-                      <label for="document">Documents</label>
+                      <label for="document">Agrega tus documentos</label>
                       <div class="needsclick dropzone" id="document-dropzone">
 
                       </div>
@@ -44,7 +44,7 @@
 <script>
   var uploadedDocumentMap = {}
   Dropzone.options.documentDropzone = {
-    url: '{{ route('archivo.storeMedia') }}',
+    url: '{{ route('archivoG.storeMedia') }}',
     maxFilesize: 50, // MB
     addRemoveLinks: true,
     headers: {

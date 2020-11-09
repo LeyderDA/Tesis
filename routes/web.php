@@ -66,21 +66,21 @@ Route::get('/CrearFir', 'FirmaController@index')->name('firma');
 
 //rutas para los archivos de las gestiones
 Route::get('/view_arch_gest/{id}', 'GestionController@mostrarArchivos');
-Route::post('archivo','ArchivosGestionesController@store')->name('archivo')->middleware('auth');
-Route::post('archivo/media','ArchivosGestionesController@storeMedia')->name('archivo.storeMedia')->middleware('auth');
+Route::post('archivoGest','ArchivosGestionesController@store')->name('archivo')->middleware('auth');
+Route::post('archivoGest/media','ArchivosGestionesController@storeMedia')->name('archivoG.storeMedia')->middleware('auth');
 Route::get('add_archivos/{id}','ArchivosGestionesController@add_archivos')->middleware('auth');
 
 
 //rutas para los archivos de las reclamantes
 Route::get('/view_arch_recla/{id}', 'ReclamanteController@mostrarArchivos');
 Route::post('archivoRecla','ArchivosReclamantesController@store')->name('archivo')->middleware('auth');
-Route::post('archivo/media','ArchivosReclamantesController@storeMedia')->name('archivo.storeMedia')->middleware('auth');
+Route::post('archivoRecla/media','ArchivosReclamantesController@storeMedia')->name('archivoR.storeMedia')->middleware('auth');
 Route::get('add_archivosRecla/{id}','ArchivosReclamantesController@add_archivos')->middleware('auth');
 
 //rutas para los foros
 Route::get('/view_arch_foro/{id}', 'ForosController@mostrarArchivos');
 Route::post('archivoForo','ArchivosForosController@store')->name('archivo')->middleware('auth');
-Route::post('archivo/media','ArchivosForosController@storeMedia')->name('archivo.storeMedia')->middleware('auth');
+Route::post('archivoForo/media','ArchivosForosController@storeMedia')->name('archivoF.storeMedia')->middleware('auth');
 Route::get('add_archivosForo/{id}','ArchivosForosController@add_archivos')->middleware('auth');
 Route::get('/view_foro/{id}', 'ForosController@comentarios');
 Route::post('/add_comentarios/{id}', 'ComentariosController@store'); 
