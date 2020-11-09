@@ -55,7 +55,7 @@
                           <i title="Agregar Foto" class="fas fa-save fa-2x" style="color: black"></i>
                         </a>
                          <a :href="'/HojaDeVida/' + usuario.id"> 
-                          <i title="Ir a los archivos" class="fas fa-arrow-alt-circle-right fa-2x" style="color: black"></i>
+                          <i title="Ver Usuario" class="fas fa-arrow-alt-circle-right fa-2x" style="color: black"></i>
                         </a>
                       </td>
                     </tr>

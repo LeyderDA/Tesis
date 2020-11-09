@@ -84424,7 +84424,7 @@ var render = function() {
                                     staticClass:
                                       "fas fa-arrow-alt-circle-right fa-2x",
                                     staticStyle: { color: "black" },
-                                    attrs: { title: "Ir a los archivos" }
+                                    attrs: { title: "Ver Usuario" }
                                   })
                                 ]
                               )
