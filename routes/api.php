@@ -74,6 +74,9 @@ Route::get('/reclamante2/{id}', 'ReclamanteController@buscarreclaced')->name('re
 
 //RUTAS DE API PARA LA GESTION
 Route::post('/gestion', 'GestionController@store')->name('gestionGuardar');
+
+Route::post('/gestionRespaldo', 'GestionController@storeRespaldo')->name('gestionGuardarR');
+
 Route::get('/gestion', 'GestionController@index')->name('gestionListar');
 Route::delete('/gestion/{id}', 'GestionController@destroy')->name('gestionEliminar');
 Route::put('/gestion/{id}', 'GestionController@update')->name('gestionActualizar');

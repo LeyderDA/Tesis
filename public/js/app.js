@@ -5165,6 +5165,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -5301,9 +5312,41 @@ __webpack_require__.r(__webpack_exports__);
     eliminar: function eliminar(gestion, index) {
       var _this4 = this;
 
+      console.log(gestion);
       var confirmacion = confirm("Confirma Eliminar la Gesti\xF3n con el asunto: ".concat(gestion.asuntotramite));
 
       if (confirmacion) {
+        var params = {
+          gest_id: gestion.id,
+          amplhechos: gestion.amplhechos,
+          fechentrevasesor: gestion.fechentrevasesor,
+          tipotramite: gestion.tipotramite,
+          asuntotramite: gestion.asuntotramite,
+          motivoarchivo: gestion.motivoarchivo,
+          fechaarchivo: gestion.fechaarchivo,
+          obsrvtramite: gestion.obsrvtramite,
+          actuarealizadas: gestion.actuarealizadas,
+          actjuridirealzadas: gestion.actjuridirealzadas,
+          resulactuacion: gestion.resulactuacion,
+          entidadelantramite: gestion.entidadelantramite,
+          recp_id: gestion.recp_id,
+          fechpriact: gestion.fechpriact,
+          n_act: gestion.n_act,
+          n_aseso: gestion.n_aseso,
+          n_autor: gestion.n_autor,
+          asesor: gestion.asesor
+        };
+        axios.post("/api/gestionRespaldo", params).then(function (res) {
+          if (res.data == null) {// alert("La Gestión NO se ha registrado");
+          } else {// swal({
+              //   type: "success",
+              //   timer: 3000,
+              //   title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              //   text: "¡La Gestión se ha registrado Exitosamente en el Caso!!",
+              //   showConfirmButton: false,
+              // });
+            }
+        });
         axios["delete"]("/api/gestion/" + gestion.id).then(function () {
           _this4.gestioness.splice(index, 1);
 

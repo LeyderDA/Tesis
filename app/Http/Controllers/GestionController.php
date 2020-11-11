@@ -5,6 +5,7 @@ use App\Gestion;
 use App\UsuRecep;
 use App\Recepcion;
 use App\ArchivosGestiones;
+use App\RespaldoGestiones;
 use App\Http\Controllers\request_id;
 use Illuminate\Http\Request;
 
@@ -112,6 +113,32 @@ class GestionController extends Controller
         $Gest= Gestion::findOrFail($id);
         return view('ArchivosGestiones',compact('Gest'));
     
+    }
+    public function storeRespaldo(Request $request)
+    {
+        $ges = new RespaldoGestiones();
+        $ges->gest_id = $request->gest_id;
+        $ges->amplhechos = $request->amplhechos;
+        $ges->fechentrevasesor = $request->fechentrevasesor;
+        $ges->tipotramite = $request->tipotramite;
+        $ges->asuntotramite = $request->asuntotramite;
+        $ges->motivoarchivo = $request->motivoarchivo;
+        $ges->fechaarchivo = $request->fechaarchivo;
+        $ges->obsrvtramite = $request->obsrvtramite;
+        $ges->actuarealizadas = $request->actuarealizadas;
+        $ges->actjuridirealzadas = $request->actjuridirealzadas;
+        $ges->resulactuacion = $request->resulactuacion;
+        $ges->entidadelantramite = $request->entidadelantramite;
+        $ges->recp_id = $request->recp_id;
+        $ges->fechpriact = $request->fechpriact;
+        $ges->n_act = $request->n_act;
+        $ges->n_aseso = $request->n_aseso;
+        $ges->n_autor = $request->n_autor;
+        $ges->asesor = $request->asesor;
+        
+        $ges->save();
+
+        return  response()->json($ges);
     }
 
 }

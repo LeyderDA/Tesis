@@ -1,5 +1,5 @@
 <template>
-   <div class="card" style="margin-top:25px">
+  <div class="card" style="margin-top: 25px">
     <div>
       <h2 class="text-center mb-2 card-title">Listado de gestiones</h2>
     </div>
@@ -74,15 +74,22 @@
                           <i class="fas fa-trash-alt"></i>
                         </button>
                       </td>
-                      <td>                  
-                         <a :href="'/add_archivos/' + gestion.id">
-                          <i title="Agregar Archivos" class="fas fa-save fa-2x" style="color: black"></i>
+                      <td>
+                        <a :href="'/add_archivos/' + gestion.id">
+                          <i
+                            title="Agregar Archivos"
+                            class="fas fa-save fa-2x"
+                            style="color: black"
+                          ></i>
                         </a>
 
                         <a :href="'/view_arch_gest/' + gestion.id">
-                          <i title="Ir a los archivos" class="fas fa-arrow-alt-circle-right fa-2x" style="color: black"></i>
+                          <i
+                            title="Ir a los archivos"
+                            class="fas fa-arrow-alt-circle-right fa-2x"
+                            style="color: black"
+                          ></i>
                         </a>
-
                       </td>
                     </tr>
                   </tbody>
@@ -164,10 +171,10 @@
                 <div class="col-12 form-group">
                   <input
                     type="number"
-                     min="0"
+                    min="0"
                     class="form-control"
                     placeholder="N.Actuaciones"
-                     onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+                    onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                     v-model="gestion.n_act"
                   />
                 </div>
@@ -176,10 +183,10 @@
                 <div class="col-12 form-group">
                   <input
                     type="number"
-                     min="0"
+                    min="0"
                     class="form-control"
                     placeholder="N.Asesorias"
-                     onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+                    onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                     v-model="gestion.n_aseso"
                   />
                 </div>
@@ -188,10 +195,10 @@
                 <div class="col-12 form-group">
                   <input
                     type="number"
-                     min="0"
+                    min="0"
                     class="form-control"
                     placeholder="N.Autorizaciones"
-                     onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+                    onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                     v-model="gestion.n_autor"
                   />
                 </div>
@@ -754,7 +761,11 @@
               </div>
               <div class="modal-body">
                 <div class="col-12 form-group">
-                  <input  type="hidden" class="form-control" v-model="gestion.id" />
+                  <input
+                    type="hidden"
+                    class="form-control"
+                    v-model="gestion.id"
+                  />
                 </div>
                 <label class="col-12 col-form-label">Agregar Archivos </label>
                 <label class="col-12 col-form-label">
@@ -814,7 +825,8 @@ export default {
         maxFilesize: 200,
         headers: { "My-Awesome-Header": "header value" },
         autoProcessQueue: false,
-        dictDefaultMessage: "<i class='fa fa-cloud-upload'></i>SOLO DEBES CARGAR UN ARCHIVO"
+        dictDefaultMessage:
+          "<i class='fa fa-cloud-upload'></i>SOLO DEBES CARGAR UN ARCHIVO",
       },
       gestion: {
         id: "",
@@ -931,10 +943,48 @@ export default {
     },
 
     eliminar(gestion, index) {
+      console.log(gestion);
       const confirmacion = confirm(
         `Confirma Eliminar la Gestión con el asunto: ${gestion.asuntotramite}`
       );
       if (confirmacion) {
+        const params = {
+          gest_id : gestion.id,
+          amplhechos: gestion.amplhechos,
+          fechentrevasesor: gestion.fechentrevasesor,
+          tipotramite: gestion.tipotramite,
+          asuntotramite: gestion.asuntotramite,
+          motivoarchivo: gestion.motivoarchivo,
+          fechaarchivo: gestion.fechaarchivo,
+          obsrvtramite: gestion.obsrvtramite,
+          actuarealizadas: gestion.actuarealizadas,
+          actjuridirealzadas: gestion.actjuridirealzadas,
+          resulactuacion: gestion.resulactuacion,
+          entidadelantramite: gestion.entidadelantramite,
+          recp_id: gestion.recp_id,
+          fechpriact: gestion.fechpriact,
+          n_act: gestion.n_act,
+          n_aseso: gestion.n_aseso,
+          n_autor: gestion.n_autor,
+          asesor: gestion.asesor
+          
+        };
+
+        axios.post("/api/gestionRespaldo", params).then((res) => {
+          if (res.data == null) {
+            // alert("La Gestión NO se ha registrado");
+          } else {
+            // swal({
+            //   type: "success",
+            //   timer: 3000,
+            //   title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+            //   text: "¡La Gestión se ha registrado Exitosamente en el Caso!!",
+            //   showConfirmButton: false,
+            // });
+          }
+         
+        });
+
         axios.delete("/api/gestion/" + gestion.id).then(() => {
           this.gestioness.splice(index, 1);
           swal({

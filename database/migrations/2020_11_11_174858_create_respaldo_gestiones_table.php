@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGestionTramiteTable extends Migration
+class CreateRespaldoGestionesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateGestionTramiteTable extends Migration
      */
     public function up()
     {
-        Schema::create('gestion_tramites', function (Blueprint $table) {
+        Schema::create('respaldo_gestiones', function (Blueprint $table) {
             $table->BigIncrements('id');
+            $table->string('gest_id');
             $table->string('amplhechos',50);
             $table->date('fechentrevasesor');
             $table->string('tipotramite',50);
@@ -30,11 +31,9 @@ class CreateGestionTramiteTable extends Migration
             $table->integer('n_act');
             $table->integer('n_aseso'); 
             $table->integer('n_autor');        
-            $table->string('asesor',20);
-            
+            $table->string('asesor',20);            
             $table->unsignedBigInteger('recp_id');
-            $table->foreign('recp_id')->references('id')->on('recepciones');
-            $table->timestamps(); 
+            $table->timestamps();
         });
     }
 
@@ -45,6 +44,6 @@ class CreateGestionTramiteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gestion_tramites');
+        Schema::dropIfExists('respaldo_gestiones');
     }
 }
