@@ -172,7 +172,9 @@ export default {
     },
 
     eliminar(areas, index) {
+      console.log(areas);
       const confirmacion = confirm(`Confirma Eliminar Area: ${areas.nombre}`);
+      console.log(areas.nombre);
       if (confirmacion) {
         axios.delete("/api/area/" + areas.id).then(() => {
           this.areass.splice(index, 1);

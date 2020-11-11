@@ -1,5 +1,5 @@
 <template>
-  <div class="card" style="margin-top:25px">
+  <div class="card" style="margin-top: 25px">
     <div>
       <h2 class="text-center mb-2 card-title">Lista de Recepciones Activas</h2>
     </div>
@@ -753,7 +753,7 @@
               <label class="col-6 col-form-label">CÉDULA (*):</label>
               <input
                 placeholder="CC.RECEPCIONISTA"
-                 onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+                onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                 v-model="usuario.persona.cedula"
               />
 
@@ -832,7 +832,7 @@
               <label class="col-5 col-form-label">CÉDULA (*):</label>
               <input
                 placeholder="CC.DOCENTE"
-                 onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+                onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                 v-model="usuario.persona.cedula"
               />
 
@@ -1217,8 +1217,12 @@
               />
 
               <label class="col-12 col-form-label">CEDULA</label>
-              
-              <input placeholder="USERNAME"  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" v-model="usuario.persona.cedula" />
+
+              <input
+                placeholder="USERNAME"
+                onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+                v-model="usuario.persona.cedula"
+              />
 
               <label class="col-12 col-form-label">NOMBRE</label>
               <input placeholder="USERNAME" v-model="usuario.persona.prinom" />
@@ -1279,7 +1283,7 @@
                 <input
                   class="form-control"
                   placeholder="CEDULA"
-                   onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+                  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                   v-model="usuario.persona.cedula"
                 />
               </div>
@@ -1666,10 +1670,37 @@ export default {
     },
 
     eliminar(recepcion, index) {
+      console.log(recepcion);
       const confirmacion = confirm(
         `Confirma Eliminar Recepcion del area de: ${recepcion.area.nombre}`
       );
+      
       if (confirmacion) {
+        const params = {
+        id_recp: recepcion.id,
+        recepcionado: recepcion.recepcionado,
+        fecharadicado: recepcion.fecharadicado,
+        fecharecepcionado: recepcion.fecharecepcionado,
+        consultorio: recepcion.consultorio,
+        fechareparto: recepcion.fechareparto,
+        fechapublicacion: recepcion.fechapublicacion,
+        fecharetiro: recepcion.fecharetiro,
+        estado: recepcion.estado,
+        reclamante: recepcion.prinom,
+        usuario: recepcion.usu_id,
+        area: recepcion.nombre,
+        notpricort: recepcion.notpricor,
+        notsegcort: recepcion.notsegcort,
+        nottercort: recepcion.nottercort,
+      };
+
+      axios.post("/api/recepcionRespaldo", params).then((res) => {
+        if (res.data == null) {
+          
+        } else {
+
+        }
+      });
         axios.delete("/api/recepcion/" + recepcion.id).then(() => {
           this.recepcioness.splice(index, 1);
           swal({

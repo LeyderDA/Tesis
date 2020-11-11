@@ -8,6 +8,7 @@ use App\UsuRecep;
 use App\Nota;
 use App\User;
 use App\Area;
+use App\RespaldoRecepciones;
 use App\Http\Controllers\request_id;
 use Illuminate\Http\Request;
 
@@ -251,5 +252,28 @@ class RecepcionController extends Controller
         ->get(); 
         return  $estudiante;   
     }
+
+    public function storeRespaldo(Request $request)
+    {
+        $re = new RespaldoRecepciones();
+        $re->id_recp = $request->id_recp;
+        $re->recepcionado = $request->recepcionado;
+        $re->fecharadicado = $request->fecharadicado;
+        $re->fecharecepcionado = $request->fecharecepcionado;
+        $re->consultorio = $request->consultorio;
+        $re->fechareparto = $request->fechareparto;
+        $re->fechapublicacion = $request->fechapublicacion;
+        $re->fecharetiro = $request->fecharetiro;
+        $re->estado = $request->estado;      
+        $re->notpricort = $request->notpricort;
+        $re->notsegcort = $request->notsegcort;
+        $re->nottercort = $request->nottercort;
+        $re->usuario = $request->usuario;
+        $re->reclamante = $request->reclamante;
+        $re->area = $request->area;
+        $re->save();       
+        return  response()->json($re);
+    }
+
 
 }

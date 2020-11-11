@@ -2607,7 +2607,9 @@ __webpack_require__.r(__webpack_exports__);
     eliminar: function eliminar(areas, index) {
       var _this3 = this;
 
+      console.log(areas);
       var confirmacion = confirm("Confirma Eliminar Area: ".concat(areas.nombre));
+      console.log(areas.nombre);
 
       if (confirmacion) {
         axios["delete"]("/api/area/" + areas.id).then(function () {
@@ -15196,6 +15198,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     var _ref;
@@ -15539,9 +15545,30 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     eliminar: function eliminar(recepcion, index) {
       var _this11 = this;
 
+      console.log(recepcion);
       var confirmacion = confirm("Confirma Eliminar Recepcion del area de: ".concat(recepcion.area.nombre));
 
       if (confirmacion) {
+        var params = {
+          id_recp: recepcion.id,
+          recepcionado: recepcion.recepcionado,
+          fecharadicado: recepcion.fecharadicado,
+          fecharecepcionado: recepcion.fecharecepcionado,
+          consultorio: recepcion.consultorio,
+          fechareparto: recepcion.fechareparto,
+          fechapublicacion: recepcion.fechapublicacion,
+          fecharetiro: recepcion.fecharetiro,
+          estado: recepcion.estado,
+          reclamante: recepcion.prinom,
+          usuario: recepcion.usu_id,
+          area: recepcion.nombre,
+          notpricort: recepcion.notpricor,
+          notsegcort: recepcion.notsegcort,
+          nottercort: recepcion.nottercort
+        };
+        axios.post("/api/recepcionRespaldo", params).then(function (res) {
+          if (res.data == null) {} else {}
+        });
         axios["delete"]("/api/recepcion/" + recepcion.id).then(function () {
           _this11.recepcioness.splice(index, 1);
 

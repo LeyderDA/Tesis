@@ -61,6 +61,9 @@ Route::put('/recepcion2/{id}', 'RecepcionController@update2')->name('recepcionAc
 Route::get('/recepcion/{id}', 'RecepcionController@buscar')->name('recepcionbuscar');
 Route::get('/recepcionSUPER', 'SUPERADMINController@indexRecepcion')->name('recepcionSuperListar');
 Route::get('/recepcionSUPEREsta', 'SUPERADMINController@indexRecepcionEstado')->name('recepcionSuperListarEsta');
+
+Route::post('/recepcionRespaldo', 'RecepcionController@storeRespaldo')->name('recepcionResp');
+
 //RUTAS DE API PARA RECLAMANTES
 Route::post('/reclamante', 'ReclamanteController@store')->name('reclamanteGuardar');
 Route::get('/reclamante', 'ReclamanteController@index')->name('reclamanteListar');

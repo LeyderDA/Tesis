@@ -1,5 +1,5 @@
 <template>
-  <div class="card" style="margin-top:25px">
+  <div class="card" style="margin-top: 25px">
     <div>
       <h2 class="text-center mb-2 card-title">
         Lista de Recepciones Inactivas
@@ -1568,6 +1568,7 @@ export default {
       const confirmacion = confirm(
         `Confirma Eliminar Recepcion del area de: ${recepcion.area.nombre}`
       );
+
       if (confirmacion) {
         axios.delete("/api/recepcion/" + recepcion.id).then(() => {
           this.recepcioness.splice(index, 1);
