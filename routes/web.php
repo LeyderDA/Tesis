@@ -52,7 +52,14 @@ Route::get('/qr/{id}', 'QRCode@consultarRecepcion');
 Route::get('/MiUsuario', 'HomeController@index')->name('miusuario');
 Route::get('/recepcionqr/{id}', 'RecepcionController@qrcode');
 Route::get('/Reportes', 'Controller@index')->name('reportes')->middleware('Administrativo_Middleware');
+
+
 Route::get('/Est', 'EstadisticosController@est_recepciones')->name('estadisticos');
+
+Route::get('/Est2', 'EstadisticosController@est_recepciones2')->name('estadisticos2');
+
+
+
 Route::get('tipo/{type}', 'SweetController@notification');
 Route::get('/Prueba', 'HomeController@index')->name('prueba');
 Route::get('/BuscarQr', 'HomeController@index')->name('buscarqr');

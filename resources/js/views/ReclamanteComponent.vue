@@ -50,15 +50,23 @@
           </div>
 
           <label class="col-5 col-form-label">Estrato (*)</label>
-          <div class="col-6 form-group">
-            <input
+          <div class="col-6">
+            <select
               class="form-control"
-              placeholder="Estrato"
-              onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
-              v-model="reclamante.estravictima"
-            />
+              type="text"
+              v-model="reclamante.embaravictima"
+            >
+              <option value="">Selecciona</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
           </div>
-
+          <br />
+          <br />
           <label class="col-5 col-form-label">Embarazo (*)</label>
 
           <div class="col-6">

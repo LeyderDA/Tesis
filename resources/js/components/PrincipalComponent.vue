@@ -136,9 +136,28 @@
             >
           </li>
 
-          <li class="nav-link">
-            <a :href="'/Est'">Estadisticas </a>
-          </li>
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-default dropdown-toggle nav-link"
+              data-toggle="dropdown"
+            >
+              Estadisticas <span></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+
+
+              <li class="nav-link">
+                <a :href="'/Est'">Casos activos e inactivos </a>
+              </li>
+
+                <li class="nav-link">
+                <a :href="'/Est2'">Foros activos e inactivos </a>
+              </li>
+
+
+            </ul>
+          </div>
         </ul>
       </div>
     </nav>

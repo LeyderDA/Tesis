@@ -1,14 +1,12 @@
 <template>
- <div class="card" style="margin-top:25px">
+  <div class="card" style="margin-top: 25px">
     <div>
       <h2 class="text-center mb-2 card-title">Registrando Recepcion</h2>
     </div>
     <div class="card-body row">
       <form id="miForm">
         <div class="row">
-          <label class="col-5 col-form-label"
-            >Define el estado (*)</label
-          >
+          <label class="col-5 col-form-label">Define el estado (*)</label>
           <div class="col-6">
             <select
               class="form-control"
@@ -24,9 +22,7 @@
           <br />
           <br />
 
-          <label class="col-5 col-form-label"
-            >Fecha radicado (*)</label
-          >
+          <label class="col-5 col-form-label">Fecha radicado (*)</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -36,9 +32,7 @@
             />
           </div>
 
-          <label class="col-5 col-form-label"
-            >Fecha recepcionado (*)</label
-          >
+          <label class="col-5 col-form-label">Fecha recepcionado (*)</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -47,9 +41,7 @@
               v-model="recepcion.fecharecepcionado"
             />
           </div>
-          <label class="col-5 col-form-label"
-            >Fecha reparto (*)</label
-          >
+          <label class="col-5 col-form-label">Fecha reparto (*)</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -58,9 +50,7 @@
               v-model="recepcion.fechareparto"
             />
           </div>
-          <label class="col-5 col-form-label"
-            >Fecha de publicación (*)</label
-          >
+          <label class="col-5 col-form-label">Fecha de publicación (*)</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -69,9 +59,7 @@
               v-model="recepcion.fechapublicacion"
             />
           </div>
-          <label class="col-5 col-form-label"
-            >Fecha de retiro (*)</label
-          >
+          <label class="col-5 col-form-label">Fecha de retiro (*)</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -80,9 +68,7 @@
               v-model="recepcion.fecharetiro"
             />
           </div>
-          <label class="col-5 col-form-label"
-            >Recepcionado en (*)</label
-          >
+          <label class="col-5 col-form-label">Recepcionado en (*)</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -90,9 +76,7 @@
               v-model="recepcion.recepcionado"
             />
           </div>
-          <label class="col-5 col-form-label"
-            >Consultorio (*)</label
-          >
+          <label class="col-5 col-form-label">Consultorio (*)</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -100,9 +84,7 @@
               v-model="recepcion.consultorio"
             />
           </div>
-          <label class="col-5 col-form-label"
-            >Escoge el area (*)</label
-          >
+          <label class="col-5 col-form-label">Escoge el area (*)</label>
           <div class="col-6 form-group">
             <select v-model="area.id" class="form-control" id="area">
               <option value="">Selecciona</option>
@@ -559,6 +541,8 @@ export default {
         this.recepcion.estado = "";
         this.usuario.persona.cedula = "";
         this.usuarioo.persona.cedula = "";
+        this.usuarioo.persona.id = "";
+        this.usuario.persona.id = "";
 
         axios.post("/api/recepcion", params).then((res) => {
           if (res.data == null) {

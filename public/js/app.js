@@ -10448,6 +10448,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -13653,24 +13661,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -13888,6 +13878,8 @@ __webpack_require__.r(__webpack_exports__);
         this.recepcion.estado = "";
         this.usuario.persona.cedula = "";
         this.usuarioo.persona.cedula = "";
+        this.usuarioo.persona.id = "";
+        this.usuario.persona.id = "";
         axios.post("/api/recepcion", params).then(function (res) {
           if (res.data == null) {
             swal({
@@ -55189,10 +55181,26 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _c("li", { staticClass: "nav-link" }, [
-                  _c("a", { attrs: { href: "/Est" } }, [
-                    _vm._v("Estadisticas ")
-                  ])
+                _c("div", { staticClass: "btn-group" }, [
+                  _vm._m(5),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    { staticClass: "dropdown-menu", attrs: { role: "menu" } },
+                    [
+                      _c("li", { staticClass: "nav-link" }, [
+                        _c("a", { attrs: { href: "/Est" } }, [
+                          _vm._v("Casos activos e inactivos ")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "nav-link" }, [
+                        _c("a", { attrs: { href: "/Est2" } }, [
+                          _vm._v("Foros activos e inactivos ")
+                        ])
+                      ])
+                    ]
+                  )
                 ])
               ])
             ]
@@ -55284,6 +55292,19 @@ var staticRenderFns = [
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
       [_vm._v("\n            Recepciones "), _c("span")]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-default dropdown-toggle nav-link",
+        attrs: { type: "button", "data-toggle": "dropdown" }
+      },
+      [_vm._v("\n            Estadisticas "), _c("span")]
     )
   }
 ]
@@ -72784,37 +72805,63 @@ var render = function() {
               _vm._v("Estrato (*)")
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-6 form-group" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.reclamante.estravictima,
-                    expression: "reclamante.estravictima"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  placeholder: "Estrato",
-                  onkeypress:
-                    "return (event.charCode >= 48 && event.charCode <= 57)"
-                },
-                domProps: { value: _vm.reclamante.estravictima },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+            _c("div", { staticClass: "col-6" }, [
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.reclamante.embaravictima,
+                      expression: "reclamante.embaravictima"
                     }
-                    _vm.$set(
-                      _vm.reclamante,
-                      "estravictima",
-                      $event.target.value
-                    )
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.reclamante,
+                        "embaravictima",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    }
                   }
-                }
-              })
+                },
+                [
+                  _c("option", { attrs: { value: "" } }, [
+                    _vm._v("Selecciona")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "4" } }, [_vm._v("4")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "5" } }, [_vm._v("5")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "6" } }, [_vm._v("6")])
+                ]
+              )
             ]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("br"),
             _vm._v(" "),
             _c("label", { staticClass: "col-5 col-form-label" }, [
               _vm._v("Embarazo (*)")
@@ -79674,11 +79721,11 @@ var render = function() {
                   _vm._l(_vm.areass, function(area) {
                     return _c("option", { key: area.index }, [
                       _vm._v(
-                        "\n               " +
+                        "\n              " +
                           _vm._s(area.id) +
                           "-" +
                           _vm._s(area.nombre) +
-                          "\n             "
+                          "\n            "
                       )
                     ])
                   })
@@ -79775,7 +79822,7 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("\n           B.Reclamante\n         ")]
+                  [_vm._v("\n          B.Reclamante\n        ")]
                 )
               ])
             : undefined,
@@ -79796,7 +79843,7 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("\n           Buscar Usuario\n         ")]
+                  [_vm._v("\n          Buscar Usuario\n        ")]
                 )
               ])
             : undefined,
@@ -79813,7 +79860,7 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("\n           Guardar\n         ")]
+                  [_vm._v("\n          Guardar\n        ")]
                 )
               ])
             : undefined
@@ -80217,7 +80264,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                 Mostrar Usuario\n               ")]
+        [_vm._v("\n                Mostrar Usuario\n              ")]
       ),
       _vm._v(" "),
       _c(
@@ -80245,7 +80292,7 @@ var staticRenderFns = [
           staticClass: "btn btn-danger",
           attrs: { type: "button", "data-dismiss": "modal" }
         },
-        [_vm._v("\n                 Cerrar\n               ")]
+        [_vm._v("\n                Cerrar\n              ")]
       )
     ])
   },
@@ -80257,7 +80304,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                 Mostrar Usuario\n               ")]
+        [_vm._v("\n                Mostrar Usuario\n              ")]
       ),
       _vm._v(" "),
       _c(
@@ -80285,7 +80332,7 @@ var staticRenderFns = [
           staticClass: "btn btn-danger",
           attrs: { type: "button", "data-dismiss": "modal" }
         },
-        [_vm._v("\n                 Cerrar\n               ")]
+        [_vm._v("\n                Cerrar\n              ")]
       )
     ])
   }
