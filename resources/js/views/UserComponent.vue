@@ -1,14 +1,70 @@
 <template>
-   <div class="card" style="margin-top:25px">
+  <div class="card" style="margin-top: 25px">
     <div>
-      <br>
+      <br />
       <h4 class="mb-2 card-title">Observaciones</h4>
 
-         <label class="col-6 col-form-label">-El campo de contraseña no se va a habilitar si tienes un formato de correo invalido.</label>
-         <label class="col-6 col-form-label">-La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, 
-         al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico.</label>
-         
-         <h1 class="text-center mb-2 card-title">Registrando Usuario:</h1>
+      <button
+        class="btn btn-sm"
+        data-toggle="modal"
+        data-target="#mostrarobsModal"
+        @click="editarForm(reclamante, index)"
+        title="Mostrar Observaciones"
+      >
+        <i class="fas fa-eye fa-2x" style="color: black"></i>
+      </button>
+      <!--modal para editar -->
+      <div
+        class="modal fade"
+        id="mostrarobsModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Observaciones</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <label class="col-12 col-form-label"
+                >-El campo de contraseña no se va a habilitar si tienes un
+                formato de correo invalido.</label
+              >
+              <label class="col-12 col-form-label"
+                >-La contraseña debe tener al entre 8 y 16 caracteres, al menos
+                un dígito, al menos una minúscula, al menos una mayúscula y al
+                menos un caracter no alfanumérico.</label
+              >
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">
+                Cerrar
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                @click="editar()"
+                data-dismiss="modal"
+              >
+                Guardar Cambios
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--cierro modal de editar -->
+
+      <h1 class="text-center mb-2 card-title">Registrando Usuario:</h1>
     </div>
     <div class="card-body row">
       <form>
@@ -29,17 +85,17 @@
               class="form-control"
               placeholder="Email"
               v-model="usuario.email"
-              :state="false" 
+              :state="false"
             />
           </div>
 
           <label class="col-5 col-form-label">password (*):</label>
-          <div class="col-6 form-group">            
+          <div class="col-6 form-group">
             <input
               class="form-control"
               type="password"
               placeholder="Password"
-              v-model="usuario.password"            
+              v-model="usuario.password"
               :disabled="!isFormValidcampContra()"
             />
           </div>
@@ -323,14 +379,12 @@ export default {
       if (exp.test(this.usuario.password)) {
         console.log("Contraseña correcta");
         return true;
-      } else {    
+      } else {
         console.log("ERRORES");
         return false;
       }
     },
 
-
-    
     // validaPassword: function(){
 
     //     var exp = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;

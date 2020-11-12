@@ -54,7 +54,7 @@
             <select
               class="form-control"
               type="text"
-              v-model="reclamante.embaravictima"
+              v-model="reclamante.estravictima"
             >
               <option value="">Selecciona</option>
               <option value="1">1</option>

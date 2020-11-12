@@ -15977,6 +15977,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -72813,8 +72869,8 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.reclamante.embaravictima,
-                      expression: "reclamante.embaravictima"
+                      value: _vm.reclamante.estravictima,
+                      expression: "reclamante.estravictima"
                     }
                   ],
                   staticClass: "form-control",
@@ -72831,7 +72887,7 @@ var render = function() {
                         })
                       _vm.$set(
                         _vm.reclamante,
-                        "embaravictima",
+                        "estravictima",
                         $event.target.multiple
                           ? $$selectedVal
                           : $$selectedVal[0]
@@ -83788,7 +83844,90 @@ var render = function() {
     "div",
     { staticClass: "card", staticStyle: { "margin-top": "25px" } },
     [
-      _vm._m(0),
+      _c("div", [
+        _c("br"),
+        _vm._v(" "),
+        _c("h4", { staticClass: "mb-2 card-title" }, [_vm._v("Observaciones")]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-sm",
+            attrs: {
+              "data-toggle": "modal",
+              "data-target": "#mostrarobsModal",
+              title: "Mostrar Observaciones"
+            },
+            on: {
+              click: function($event) {
+                return _vm.editarForm(_vm.reclamante, _vm.index)
+              }
+            }
+          },
+          [
+            _c("i", {
+              staticClass: "fas fa-eye fa-2x",
+              staticStyle: { color: "black" }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "mostrarobsModal",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "exampleModalLabel",
+              "aria-hidden": "true"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "modal-dialog", attrs: { role: "document" } },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-footer" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        attrs: { type: "button", "data-dismiss": "modal" }
+                      },
+                      [_vm._v("\n              Cerrar\n            ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "button", "data-dismiss": "modal" },
+                        on: {
+                          click: function($event) {
+                            return _vm.editar()
+                          }
+                        }
+                      },
+                      [_vm._v("\n              Guardar Cambios\n            ")]
+                    )
+                  ])
+                ])
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c("h1", { staticClass: "text-center mb-2 card-title" }, [
+          _vm._v("Registrando Usuario:")
+        ])
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "card-body row" }, [
         _c("form", [
@@ -84038,7 +84177,7 @@ var render = function() {
                 { staticClass: "modal-dialog", attrs: { role: "document" } },
                 [
                   _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(1),
+                    _vm._m(2),
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body" }, [
                       _c("label", { staticClass: "col-5 col-form-label" }, [
@@ -84206,7 +84345,7 @@ var render = function() {
                 { staticClass: "modal-dialog", attrs: { role: "document" } },
                 [
                   _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(2),
+                    _vm._m(3),
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body" }, [
                       _c("label", { staticClass: "col-5 col-form-label" }, [
@@ -84370,7 +84509,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(3)
+                    _vm._m(4)
                   ])
                 ]
               )
@@ -84386,25 +84525,42 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("br"),
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Observaciones")]
+      ),
       _vm._v(" "),
-      _c("h4", { staticClass: "mb-2 card-title" }, [_vm._v("Observaciones")]),
-      _vm._v(" "),
-      _c("label", { staticClass: "col-6 col-form-label" }, [
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-body" }, [
+      _c("label", { staticClass: "col-12 col-form-label" }, [
         _vm._v(
-          "-El campo de contraseña no se va a habilitar si tienes un formato de correo invalido."
+          "-El campo de contraseña no se va a habilitar si tienes un\n              formato de correo invalido."
         )
       ]),
       _vm._v(" "),
-      _c("label", { staticClass: "col-6 col-form-label" }, [
+      _c("label", { staticClass: "col-12 col-form-label" }, [
         _vm._v(
-          "-La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, \n       al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico."
+          "-La contraseña debe tener al entre 8 y 16 caracteres, al menos\n              un dígito, al menos una minúscula, al menos una mayúscula y al\n              menos un caracter no alfanumérico."
         )
-      ]),
-      _vm._v(" "),
-      _c("h1", { staticClass: "text-center mb-2 card-title" }, [
-        _vm._v("Registrando Usuario:")
       ])
     ])
   },
