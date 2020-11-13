@@ -6,7 +6,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>facultad de Derecho</title>
+        <title>Facultad de Artes y Humanidades</title>
+        
         
 
         <!-- Fonts -->
@@ -80,9 +81,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Facultad de Derecho
+                    Facultad de Artes y Humanidades
                 </div>
-                <h1>Consultorio Jurídico y Centro De Conciliación</h1>
+                <h1>Programa de Derecho</h1>
+                <h2>Consultorio Jurídico y Centro De Conciliación</h2>
             
          
                 <img src="{{ asset('image/leoon.png') }}">
