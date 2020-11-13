@@ -52,18 +52,18 @@
               class="btn btn-default dropdown-toggle nav-link"
               data-toggle="dropdown"
             >
-              Usuarios <span class="caret"></span>
+              Roles <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
               <li class="nav-item">
                 <router-link class="nav-link" :to="{ name: 'usuario' }"
-                  >Crear Usuario</router-link
+                  >Asignar rol</router-link
                 >
               </li>
 
               <li class="nav-item">
                 <router-link class="nav-link" :to="{ name: 'usuariovista' }"
-                  >Ver lista de Usuarios</router-link
+                  >Ver lista de roles</router-link
                 >
               </li>
             </ul>
@@ -75,17 +75,17 @@
               class="btn btn-default dropdown-toggle nav-link"
               data-toggle="dropdown"
             >
-              Reclamantes <span class="caret"></span>
+              Usuarios <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
               <li class="nav-item">
                 <router-link class="nav-link" :to="{ name: 'reclamante' }"
-                  >Crear Reclamantes</router-link
+                  >Crear usarios</router-link
                 >
               </li>
               <li class="nav-item">
                 <router-link class="nav-link" :to="{ name: 'reclamantevista' }"
-                  >Listado de Reclamantes</router-link
+                  >Listado de Usuarios</router-link
                 >
               </li>
             </ul>
@@ -93,7 +93,7 @@
 
           <li class="nav-item">
             <router-link class="nav-link" :to="{ name: 'area' }"
-              >Crear Areas</router-link
+              >Crear Áreas</router-link
             >
           </li>
 

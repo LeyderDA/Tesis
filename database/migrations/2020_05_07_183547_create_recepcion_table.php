@@ -16,12 +16,12 @@ class CreateRecepcionTable extends Migration
         Schema::create('recepciones', function (Blueprint $table) {
             $table->BigIncrements('id');
             $table->string('recepcionado',20);
-            $table->date('fecharadicado');
-            $table->date('fecharecepcionado');
+            $table->date('fecharadicado')->nullable();
+            $table->date('fecharecepcionado')->nullable();
             $table->string('consultorio',20);
-            $table->date('fechareparto');
-            $table->date('fechapublicacion');
-            $table->date('fecharetiro');
+            $table->date('fechareparto')->nullable();
+            $table->date('fechapublicacion')->nullable();
+            $table->date('fecharetiro')->nullable();
             $table->boolean('estado');
             $table->double('notpricort', 8,2)->nullable();
             $table->double('notsegcort', 8,2)->nullable();
@@ -30,7 +30,7 @@ class CreateRecepcionTable extends Migration
             $table->foreign('recla_id')->references('id')->on('reclamantes');            
             $table->unsignedBigInteger('area_id');
             $table->foreign('area_id')->references('id')->on('areas');
-            $table->unsignedBigInteger('usu_id');
+            $table->unsignedBigInteger('usu_id')->nullable();
             $table->foreign('usu_id')->references('id')->on('users');  
             $table->timestamps();     
         });

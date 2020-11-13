@@ -13661,6 +13661,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -13843,7 +13846,11 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     agregar: function agregar() {
-      if (!this.recepcion.recepcionado || !this.recepcion.fecharadicado || !this.recepcion.fecharecepcionado || !this.recepcion.consultorio || !this.recepcion.fechareparto || !this.recepcion.fechapublicacion || !this.recepcion.fecharetiro || !this.recepcion.estado || !this.usuario.persona.id || !this.usuarioo.persona.id || !this.area.id) {
+      if (!this.recepcion.recepcionado || !this.recepcion.fecharadicado || !this.recepcion.fecharecepcionado || !this.recepcion.consultorio || //!this.recepcion.fechareparto ||
+      //!this.recepcion.fechapublicacion ||
+      //!this.recepcion.fecharetiro ||
+      !this.recepcion.estado || !this.usuario.persona.id || //!this.usuarioo.persona.id ||
+      !this.area.id) {
         swal({
           type: "error",
           timer: 20000,
@@ -68854,7 +68861,7 @@ var render = function() {
                               staticClass: "nav-link",
                               attrs: { to: { name: "usuario" } }
                             },
-                            [_vm._v("Crear Usuario")]
+                            [_vm._v("Asignar rol")]
                           )
                         ],
                         1
@@ -68870,7 +68877,7 @@ var render = function() {
                               staticClass: "nav-link",
                               attrs: { to: { name: "usuariovista" } }
                             },
-                            [_vm._v("Ver lista de Usuarios")]
+                            [_vm._v("Ver lista de roles")]
                           )
                         ],
                         1
@@ -68896,7 +68903,7 @@ var render = function() {
                               staticClass: "nav-link",
                               attrs: { to: { name: "reclamante" } }
                             },
-                            [_vm._v("Crear Reclamantes")]
+                            [_vm._v("Crear usarios")]
                           )
                         ],
                         1
@@ -68912,7 +68919,7 @@ var render = function() {
                               staticClass: "nav-link",
                               attrs: { to: { name: "reclamantevista" } }
                             },
-                            [_vm._v("Listado de Reclamantes")]
+                            [_vm._v("Listado de Usuarios")]
                           )
                         ],
                         1
@@ -68931,7 +68938,7 @@ var render = function() {
                         staticClass: "nav-link",
                         attrs: { to: { name: "area" } }
                       },
-                      [_vm._v("Crear Areas")]
+                      [_vm._v("Crear Áreas")]
                     )
                   ],
                   1
@@ -69102,7 +69109,7 @@ var staticRenderFns = [
         staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
-      [_vm._v("\n            Usuarios "), _c("span", { staticClass: "caret" })]
+      [_vm._v("\n            Roles "), _c("span", { staticClass: "caret" })]
     )
   },
   function() {
@@ -69115,10 +69122,7 @@ var staticRenderFns = [
         staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
-      [
-        _vm._v("\n            Reclamantes "),
-        _c("span", { staticClass: "caret" })
-      ]
+      [_vm._v("\n            Usuarios "), _c("span", { staticClass: "caret" })]
     )
   },
   function() {
@@ -79470,7 +79474,7 @@ var render = function() {
         _c("form", { attrs: { id: "miForm" } }, [
           _c("div", { staticClass: "row" }, [
             _c("label", { staticClass: "col-5 col-form-label" }, [
-              _vm._v("Define el estado (*)")
+              _vm._v("Define el estado (*):")
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-6" }, [
@@ -79524,39 +79528,7 @@ var render = function() {
             _c("br"),
             _vm._v(" "),
             _c("label", { staticClass: "col-5 col-form-label" }, [
-              _vm._v("Fecha radicado (*)")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-6 form-group" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.recepcion.fecharadicado,
-                    expression: "recepcion.fecharadicado"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { type: "date", placeholder: "Fecha de radicado" },
-                domProps: { value: _vm.recepcion.fecharadicado },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(
-                      _vm.recepcion,
-                      "fecharadicado",
-                      $event.target.value
-                    )
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("label", { staticClass: "col-5 col-form-label" }, [
-              _vm._v("Fecha recepcionado (*)")
+              _vm._v("Fecha recepcionado (*):")
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-6 form-group" }, [
@@ -79588,7 +79560,39 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("label", { staticClass: "col-5 col-form-label" }, [
-              _vm._v("Fecha reparto (*)")
+              _vm._v("Fecha radicado (*):")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-6 form-group" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.recepcion.fecharadicado,
+                    expression: "recepcion.fecharadicado"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "date", placeholder: "Fecha de radicado" },
+                domProps: { value: _vm.recepcion.fecharadicado },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(
+                      _vm.recepcion,
+                      "fecharadicado",
+                      $event.target.value
+                    )
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("label", { staticClass: "col-5 col-form-label" }, [
+              _vm._v("Fecha reparto (*):")
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-6 form-group" }, [
@@ -79616,7 +79620,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("label", { staticClass: "col-5 col-form-label" }, [
-              _vm._v("Fecha de publicación (*)")
+              _vm._v("Fecha de publicación (*):")
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-6 form-group" }, [
@@ -79648,7 +79652,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("label", { staticClass: "col-5 col-form-label" }, [
-              _vm._v("Fecha de retiro (*)")
+              _vm._v("Fecha de retiro (*):")
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-6 form-group" }, [
@@ -79704,7 +79708,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("label", { staticClass: "col-5 col-form-label" }, [
-              _vm._v("Consultorio (*)")
+              _vm._v("Consultorio (*):")
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-6 form-group" }, [
@@ -79732,7 +79736,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("label", { staticClass: "col-5 col-form-label" }, [
-              _vm._v("Escoge el area (*)")
+              _vm._v("Escoge el área (*):")
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-6 form-group" }, [
@@ -79791,7 +79795,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("label", { staticClass: "col-5 col-form-label" }, [
-              _vm._v("Ingresa el cedula del reclamante (*)")
+              _vm._v("Ingresa la cédula del usuario (*):")
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-6 form-group" }, [
@@ -79820,42 +79824,6 @@ var render = function() {
                   }
                 }
               })
-            ]),
-            _vm._v(" "),
-            _c("label", { staticClass: "col-5 col-form-label" }, [
-              _vm._v("Ingresa el cedula del estudiante (*)")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-6 form-group" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.usuarioo.persona.cedula,
-                    expression: "usuarioo.persona.cedula"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  placeholder: "Cc Estudiante",
-                  onkeypress:
-                    "return (event.charCode >= 48 && event.charCode <= 57)"
-                },
-                domProps: { value: _vm.usuarioo.persona.cedula },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(
-                      _vm.usuarioo.persona,
-                      "cedula",
-                      $event.target.value
-                    )
-                  }
-                }
-              })
             ])
           ])
         ]),
@@ -79879,27 +79847,6 @@ var render = function() {
                     }
                   },
                   [_vm._v("\n          B.Reclamante\n        ")]
-                )
-              ])
-            : undefined,
-          _vm._v(" "),
-          true
-            ? _c("div", { staticClass: "col-2 form-group" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary btn-block",
-                    attrs: {
-                      "data-toggle": "modal",
-                      "data-target": "#buscarModalUSU"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.buscarusuced()
-                      }
-                    }
-                  },
-                  [_vm._v("\n          Buscar Usuario\n        ")]
                 )
               ])
             : undefined,
@@ -80307,8 +80254,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("h2", { staticClass: "text-center mb-2 card-title" }, [
-        _vm._v("Registrando Recepcion")
+      _c("br"),
+      _vm._v(" "),
+      _c("h1", { staticClass: "text-center mb-2 card-title" }, [
+        _vm._v("Registrando Recepción")
       ])
     ])
   },

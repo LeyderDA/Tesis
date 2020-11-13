@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+<div style="height:30px; width:100%; background-color:#003366"></div>
+<div style="height:6px; width:100%; background-color:#ad3333"></div>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
