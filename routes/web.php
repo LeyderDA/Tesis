@@ -105,3 +105,6 @@ Route::post('fotoest','FotosEstudiantesController@store')->name('fotoest')->midd
 Route::post('fotoest/media','FotosEstudiantesController@storeMedia')->name('Foto.storeMedia')->middleware('auth');
 Route::get('add_archivos/{id}','FotosEstudiantesController@add_archivos')->middleware('auth');
 
+
+
+Route::get('/HojaDeVidaR/{id}', 'usuarioController@mostrarArchivosRecla');

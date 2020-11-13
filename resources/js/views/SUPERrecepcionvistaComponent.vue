@@ -838,7 +838,7 @@
             </div>
             <div class="modal-body">
               <input
-                type="hidden" 
+                type="hidden"
                 placeholder="recepcion"
                 v-model="recepcion.id"
                 disabled
@@ -866,7 +866,7 @@
               <button
                 name="CERRAR"
                 class="btn btn-danger"
-                @click="limpiatodo()"
+                @click="limpiatodo2()"
                 data-dismiss="modal"
                 aria-label="Close"
                 type="button"
@@ -953,14 +953,14 @@
                 CERRAR
               </button>
 
-              <button
+              <!-- <button
                 type="button"
                 class="btn btn-primary"
                 @click="GUARDARASIGNACION()"
                 data-dismiss="modal"
               >
                 ASIGNAR
-              </button>
+              </button> -->
             </div>
           </div>
         </div>
@@ -1326,6 +1326,14 @@
             <div class="modal-footer">
               <button
                 type="button"
+                class="btn btn-primary"
+                @click="GUARDARASIGNACION()"
+                data-dismiss="modal"
+              >
+                ASIGNAR
+              </button>
+              <button
+                type="button"
                 class="btn btn-danger"
                 @click="limpiatodo()"
                 data-dismiss="modal"
@@ -1363,16 +1371,15 @@
               </button>
             </div>
             <div class="modal-body">
-
-               <input
-                
+              <input
+                type="hidden"
                 placeholder="recepcion"
                 v-model="recepcion.id"
                 disabled
               />
 
-               <input
-                
+              <input
+                type="hidden"
                 placeholder="recepcion"
                 v-model="usuarioo.persona.id"
                 disabled
@@ -1398,7 +1405,6 @@
               <input placeholder="USERNAME" v-model="usuarioo.persona.priape" />
             </div>
             <div class="modal-footer">
-
               <button
                 type="button"
                 class="btn btn-primary"
@@ -1410,7 +1416,7 @@
               <button
                 type="button"
                 class="btn btn-danger"
-                @click="limpiatodo()"
+                @click="limpiatodo2()"
                 data-dismiss="modal"
               >
                 Cerrar
@@ -1802,8 +1808,16 @@ export default {
 
     limpiatodo() {
       this.usuario.persona.username = "";
+      this.usuario.persona.cedula = "";
       this.usuario.persona.prinom = "";
       this.usuario.persona.priape = "";
+    },
+
+    limpiatodo2() {
+      this.usuarioo.persona.username = "";
+      this.usuarioo.persona.cedula = "";
+      this.usuarioo.persona.prinom = "";
+      this.usuarioo.persona.priape = "";
     },
 
     isFormValidReclamante: function () {
@@ -1990,12 +2004,10 @@ export default {
         });
     },
 
-
     // ---
-editarEST() {
-  
+    editarEST() {
       const params = {
-        usu_id: this.usuarioo.persona.id,       
+        usu_id: this.usuarioo.persona.id,
       };
       axios
         .put("/api/recepcionaABO/" + this.recepcion.id, params)

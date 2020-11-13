@@ -244,7 +244,15 @@ class RecepcionController extends Controller
         $usurecep = UsuRecep::join("recepciones","recepciones.id","=","usurecep.recp_id")
         ->join("users","users.id","=","usurecep.usu_id")
         ->join("personas","users.per_id","=","personas.id")
-        ->select('personas.*')
+        ->select('personas.cedula',
+        'personas.prinom',
+        'personas.segnom',
+        'personas.priape',
+        'personas.segape','users.*')
+
+
+
+
         ->where("recepciones.id","=",$id) 
         ->where("users.rol_id","=",2)      
         ->get(); 

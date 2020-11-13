@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Persona;
+use App\Persona; 
+use App\Reclamante;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -193,6 +194,14 @@ class UsuarioController extends Controller
 
         $User= User::findOrFail($id);
         return view('HojaDeVida',compact('User'));
+    
+    }
+
+    public function mostrarArchivosRecla($id)
+    { 
+
+        $Reclamante= Reclamante::findOrFail($id);
+        return view('HojaDeVidaR',compact('Reclamante'));
     
     }
     
