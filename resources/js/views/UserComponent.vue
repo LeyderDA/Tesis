@@ -41,9 +41,9 @@
                 formato de correo invalido.</label
               >
               <label class="col-12 col-form-label"
-                >-La contraseña debe tener al entre 8 y 16 caracteres, al menos
-                un dígito, al menos una minúscula, al menos una mayúscula y al
-                menos un caracter no alfanumérico.</label
+                >-La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, 
+                al menos una minúscula, al menos una mayúscula y al menos un carácter no alfanumérico.
+                </label
               >
             </div>
             <div class="modal-footer">
@@ -64,7 +64,7 @@
       </div>
       <!--cierro modal de editar -->
 
-      <h1 class="text-center mb-2 card-title">Registrando Usuario:</h1>
+      <h1 class="text-center mb-2 card-title">Registrando Rol</h1>
     </div>
     <div class="card-body row">
       <form>

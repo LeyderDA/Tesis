@@ -28,8 +28,12 @@
                             @foreach($per as $persona)                             
                               <center>
                                 <br>
+                                <br> 
+                                <h5 class="text mb-2 card-title">Usuario: {{$User->username}}</h5>
                                 <br>
-                                <h5 class="text mb-2 card-title">Cedula: {{$persona->cedula}}</h5>
+                                <h5 class="text mb-2 card-title">Email: {{$User->email}}</h5>
+                                <br>
+                                <h5 class="text mb-2 card-title">Cédula: {{$persona->cedula}}</h5>
                                 <br>
                                 <h5 class="text mb-2 card-title">Primer Nombre: {{$persona->prinom}}</h5>
                                 <br>
@@ -37,7 +41,7 @@
                                 <br>
                                 <h5 class="text mb-2 card-title">Primer Apellido: {{$persona->priape}}</h5>
                                 <br>
-                                <h5 class="text mb-2 card-title">Primer Apellido: {{$persona->segape}}</h5>
+                                <h5 class="text mb-2 card-title">Segundo Apellido: {{$persona->segape}}</h5>
                                 <br>
                                 <h5 class="text mb-2 card-title">Celular: {{$persona->tel}}</h5>
                                 <br>

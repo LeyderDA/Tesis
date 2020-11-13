@@ -2,7 +2,7 @@
   <div class="card" style="margin-top: 25px">
     <div>
       <br />
-      <h2 class="text-center mb-2 card-title">Listado de usuarios</h2>
+      <h2 class="text-center mb-2 card-title">Listado de roles</h2>
     </div>
     <div class="card-body row">
       <div class="row justify-content-center col"></div>
@@ -16,6 +16,7 @@
                   <thead>
                     <tr>
                       <th>Username</th>
+                      <th>Rol</th>
                       <th>Email</th>
                       <th>Nombre Persona</th>
                       <th>Apellido Persona</th>
@@ -28,6 +29,22 @@
                       :key="usuario.index"
                     >
                       <td>{{ usuario.username }}</td>
+                      <td>
+                        <div class="col-11">
+                          <select
+                          disabled
+                            class="form-control"
+                            placeholder="Rol"
+                            type="integer"
+                            v-model="usuario.rol_id"
+                          >
+                            <option value="">Selecciona un Rol</option>
+                            <option value="2">Administrativo</option>
+                            <option value="3">Docente</option>
+                            <option value="4">Estudiante</option>
+                          </select>
+                        </div>
+                      </td>
                       <td>{{ usuario.email }}</td>
                       <td>{{ usuario.persona.prinom }}</td>
                       <td>{{ usuario.persona.priape }}</td>

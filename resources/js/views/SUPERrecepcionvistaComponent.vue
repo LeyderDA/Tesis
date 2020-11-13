@@ -550,14 +550,14 @@
               </div>
 
               <label class="col-12 col-form-label"
-                >En caso de que quieras cambiar el reclamante digita la cédula:
+                >En caso de que quieras cambiar el usuario digita la cédula:
               </label>
 
-              <label class="col-12 col-form-label">Cédula Reclamante:</label>
+              <label class="col-12 col-form-label">Cédula del usuario:</label>
               <div class="col-12 form-group">
                 <input
                   class="form-control"
-                  placeholder="Cédula del Reclamante"
+                  placeholder="Cédula del usuario"
                   onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                   v-model="usuario.persona.cedula"
                 />
@@ -677,28 +677,43 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
-                Elige que tipo de usuario vas a asignar a la recepción
+                Elige a quien vas a asignar la recepción
               </h5>
             </div>
             <div class="modal-body">
               <div class="col-12 form-group" v-if="true">
-                <button
-                  class="btn btn-primary"
-                  data-toggle="modal"
-                  data-target="#aggusuModal"
-                  title="Asignar caso al recepcionista"
-                >
-                  Asignar Recepcionista
-                </button>
+                <div class="col-12 form-group">
+                  <button
+                    class="btn btn-primary"
+                    data-toggle="modal"
+                    data-target="#aggusuPROFModal"
+                    title="Asignar caso al Docente"
+                  >
+                    Asignar Docente
+                  </button>
+                </div>
 
-                <button
-                  class="btn btn-primary"
-                  data-toggle="modal"
-                  data-target="#aggusuPROFModal"
-                  title="Asignar caso al Docente"
-                >
-                  Asignar Docente
-                </button>
+                <div class="col-12 form-group">
+                  <button
+                    class="btn btn-primary"
+                    data-toggle="modal"
+                    data-target="#aggusuModal"
+                    title="Asignar caso al recepcionista"
+                  >
+                    Asignar quien recepciona
+                  </button>
+                </div>
+
+                <div class="col-12 form-group">
+                  <button
+                    class="btn btn-primary"
+                    data-toggle="modal"
+                    data-target="#aggabModal"
+                    title="Asignar caso al Docente"
+                  >
+                    Asignar abogado en formación
+                  </button>
+                </div>
               </div>
             </div>
             <div class="modal-footer">
@@ -794,6 +809,84 @@
         </div>
       </div>
       <!--modal de agg usuario -->
+
+      <!--modal de agg abogado en formacion -->
+      <div
+        class="modal fade"
+        id="aggabModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+        data-backdrop="static"
+        data-keyboard="false"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Asignar abogado en frmación a la Recepción
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input
+                type="hidden" 
+                placeholder="recepcion"
+                v-model="recepcion.id"
+                disabled
+              />
+              <label class="col-6 col-form-label">CÉDULA (*):</label>
+              <input
+                placeholder="Cc.Abogado en formación"
+                onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+                v-model="usuarioo.persona.cedula"
+              />
+
+              <div class="col-12 form-group" v-if="true">
+                <button
+                  class="btn btn-primary btn-block"
+                  data-toggle="modal"
+                  data-target="#buscarModalAB"
+                  @click="buscarusucedAB()"
+                  :disabled="!isFormValidusuario2()"
+                >
+                  Buscar abogado en formación
+                </button>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                name="CERRAR"
+                class="btn btn-danger"
+                @click="limpiatodo()"
+                data-dismiss="modal"
+                aria-label="Close"
+                type="button"
+              >
+                CERRAR
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-primary"
+                @click="editarEST()"
+                data-dismiss="modal"
+              >
+                ASIGNAR
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal de agg abogado en formacion -->
 
       <!--modal de agg PROFESOR -->
       <div
@@ -1244,6 +1337,90 @@
         </div>
       </div>
       <!--cierro modal de buscar -->
+
+      <!--segundo modal - el de buscar abogado en formacion-->
+      <div
+        class="modal fade"
+        id="buscarModalAB"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Mostrar abogado en formación
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+               <input
+                
+                placeholder="recepcion"
+                v-model="recepcion.id"
+                disabled
+              />
+
+               <input
+                
+                placeholder="recepcion"
+                v-model="usuarioo.persona.id"
+                disabled
+              />
+              <label class="col-12 col-form-label">USERNAME</label>
+              <input
+                placeholder="USERNAME"
+                v-model="usuarioo.persona.username"
+              />
+
+              <label class="col-12 col-form-label">CEDULA</label>
+
+              <input
+                placeholder="USERNAME"
+                onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+                v-model="usuarioo.persona.cedula"
+              />
+
+              <label class="col-12 col-form-label">NOMBRE</label>
+              <input placeholder="USERNAME" v-model="usuarioo.persona.prinom" />
+
+              <label class="col-12 col-form-label">APELLIDO</label>
+              <input placeholder="USERNAME" v-model="usuarioo.persona.priape" />
+            </div>
+            <div class="modal-footer">
+
+              <button
+                type="button"
+                class="btn btn-primary"
+                @click="editarEST()"
+                data-dismiss="modal"
+              >
+                ASIGNAR
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                @click="limpiatodo()"
+                data-dismiss="modal"
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--cierro modal de buscar abogado en formacion -->
+
       <!--segundo modal - el de buscar RECLAMANTE-->
       <div
         class="modal fade"
@@ -1377,6 +1554,26 @@ export default {
           direc: "",
         },
       },
+      usuarioo: {
+        id: "",
+        username: "",
+        email: "",
+        email_verified_at: "",
+        password: "",
+        rol_id: "",
+        per_id: "",
+
+        persona: {
+          id: "",
+          cedula: "",
+          prinom: "",
+          segnom: "",
+          priape: "",
+          segape: "",
+          tel: "",
+          direc: "",
+        },
+      },
 
       recepcion: {
         id: "",
@@ -1390,6 +1587,7 @@ export default {
         estado: "",
         recla_id: "",
         area_id: "",
+        usu_id: "",
 
         reclamante: {
           id: "",
@@ -1484,6 +1682,25 @@ export default {
           console.log(res.data[0]);
           let person = res.data[0];
           this.estudiante.usuario.persona = person;
+          this.esta = true;
+        }
+      });
+    },
+
+    buscarusucedAB() {
+      axios.get("/api/user3/" + this.usuarioo.persona.cedula).then((res) => {
+        if (res.data[0] == null) {
+          this.usuarioo.persona.id = "";
+          this.usuarioo.persona.cedula = "";
+          this.usuarioo.persona.prinom = "";
+          this.usuarioo.persona.segnom = "";
+          this.usuarioo.persona.priape = "";
+          this.usuarioo.persona.segape = "";
+          this.esta = false;
+        } else {
+          console.log(res.data[0]);
+          let personn = res.data[0];
+          this.usuarioo.persona = personn;
           this.esta = true;
         }
       });
@@ -1674,33 +1891,31 @@ export default {
       const confirmacion = confirm(
         `Confirma Eliminar Recepcion del area de: ${recepcion.area.nombre}`
       );
-      
+
       if (confirmacion) {
         const params = {
-        id_recp: recepcion.id,
-        recepcionado: recepcion.recepcionado,
-        fecharadicado: recepcion.fecharadicado,
-        fecharecepcionado: recepcion.fecharecepcionado,
-        consultorio: recepcion.consultorio,
-        fechareparto: recepcion.fechareparto,
-        fechapublicacion: recepcion.fechapublicacion,
-        fecharetiro: recepcion.fecharetiro,
-        estado: recepcion.estado,
-        reclamante: recepcion.prinom,
-        usuario: recepcion.usu_id,
-        area: recepcion.nombre,
-        notpricort: recepcion.notpricor,
-        notsegcort: recepcion.notsegcort,
-        nottercort: recepcion.nottercort,
-      };
+          id_recp: recepcion.id,
+          recepcionado: recepcion.recepcionado,
+          fecharadicado: recepcion.fecharadicado,
+          fecharecepcionado: recepcion.fecharecepcionado,
+          consultorio: recepcion.consultorio,
+          fechareparto: recepcion.fechareparto,
+          fechapublicacion: recepcion.fechapublicacion,
+          fecharetiro: recepcion.fecharetiro,
+          estado: recepcion.estado,
+          reclamante: recepcion.prinom,
+          usuario: recepcion.usu_id,
+          area: recepcion.nombre,
+          notpricort: recepcion.notpricor,
+          notsegcort: recepcion.notsegcort,
+          nottercort: recepcion.nottercort,
+        };
 
-      axios.post("/api/recepcionRespaldo", params).then((res) => {
-        if (res.data == null) {
-          
-        } else {
-
-        }
-      });
+        axios.post("/api/recepcionRespaldo", params).then((res) => {
+          if (res.data == null) {
+          } else {
+          }
+        });
         axios.delete("/api/recepcion/" + recepcion.id).then(() => {
           this.recepcioness.splice(index, 1);
           swal({
@@ -1716,6 +1931,10 @@ export default {
 
     isFormValidusuario: function () {
       return this.usuario.persona.cedula != "";
+    },
+
+    isFormValidusuario2: function () {
+      return this.usuarioo.persona.cedula != "";
     },
     editarForm(recepcion, index) {
       this.recepcion = recepcion;
@@ -1770,6 +1989,50 @@ export default {
           }
         });
     },
+
+
+    // ---
+editarEST() {
+  
+      const params = {
+        usu_id: this.usuarioo.persona.id,       
+      };
+      axios
+        .put("/api/recepcionaABO/" + this.recepcion.id, params)
+        .then((res) => {
+          if (res.data == null) {
+            swal({
+              type: "error",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "La recepcion no se ha asignado",
+              showConfirmButton: false,
+            });
+          } else {
+            swal({
+              type: "success",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "La Recepción se ha asignado",
+              showConfirmButton: false,
+            });
+          }
+          axios.get("/api/recepcionSUPER").then((res) => {
+            this.recepcioness = res.data;
+            console.log(res.data);
+          });
+        })
+        .catch((error) => {
+          if (error.response.status == 422) {
+            this.errors = error.response.data.errors;
+
+            //let mensaje='Error con alguno de los campos';
+
+            alert(this.errors.recepcionado[0]);
+          }
+        });
+    },
+    // ---
 
     editarArea() {
       const params = {
