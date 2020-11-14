@@ -33,6 +33,7 @@ class ReclamanteController extends Controller
         $re->embaravictima= $request->embaravictima;
         $re->grupetnicovictima= $request->grupetnicovictima;
         $re->persoentidreclama= $request->persoentidreclama;
+        $re->email= $request->email;
         $re->per_id= $request->per_id;
         $re->save();
         $re->persona;
@@ -65,6 +66,7 @@ class ReclamanteController extends Controller
         $re->embaravictima= $request->embaravictima;
         $re->grupetnicovictima= $request->grupetnicovictima;
         $re->persoentidreclama= $request->persoentidreclama;
+        $re->email= $request->email;
         $re->per_id= $request->per_id;
         $re->save();
         $re->persona;

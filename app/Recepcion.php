@@ -10,7 +10,7 @@ class Recepcion extends Model
     protected $fillable = 
     [
         'id','recepcionado','fecharadicado','fecharecepcionado','consultorio','fechareparto',
-        'fechapublicacion','fecharetiro','estado','notpricort','notsegcort','nottercort','recla_id','area_id','usu_id',
+        'fechapublicacion','fecharetiro','estado','notpricort','notsegcort','nottercort','recla_id','area_id','usu_id','instjuri','tramitejuri',
     ];
 
     public function usuario()

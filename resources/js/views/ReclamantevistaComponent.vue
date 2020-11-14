@@ -51,10 +51,11 @@
                           <i class="fas fa-eye fa-2x" style="color: black"></i>
                         </button>
                       </td>
+                      <br>
                        <a :href="'/add_archivos/' + reclamante.id">
                           <i
                             title="Agregar Foto"
-                            class="fas fa-save fa-2x"
+                            class="fas fas fa-user fa-2x"
                             style="color: black"
                           ></i>
                         </a>

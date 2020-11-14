@@ -1,7 +1,7 @@
 <template>
   <div class="card" style="margin-top: 25px">
     <div>
-      <br>
+      <br />
       <h1 class="text-center mb-2 card-title">Registrando Recepción</h1>
     </div>
     <div class="card-body row">
@@ -23,7 +23,6 @@
           <br />
           <br />
 
-         
           <label class="col-5 col-form-label">Fecha recepcionado (*):</label>
           <div class="col-6 form-group">
             <input
@@ -34,7 +33,7 @@
             />
           </div>
 
-           <label class="col-5 col-form-label">Fecha radicado (*):</label>
+          <label class="col-5 col-form-label">Fecha radicado (*):</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -95,6 +94,24 @@
                 {{ area.id }}-{{ area.nombre }}
               </option>
             </select>
+          </div>
+
+          <label class="col-5 col-form-label">Institución Jurídica (*)</label>
+          <div class="col-6 form-group">
+            <input
+              class="form-control"
+              placeholder="Institución Jurídica"
+              v-model="recepcion.instjuri"
+            />
+          </div>
+
+          <label class="col-5 col-form-label">Trámite Jurídico (*)</label>
+          <div class="col-6 form-group">
+            <input
+              class="form-control"
+              placeholder="Trámite Jurídico"
+              v-model="recepcion.tramitejuri"
+            />
           </div>
 
           <label class="col-5 col-form-label"
@@ -372,6 +389,8 @@ export default {
         fechapublicacion: "",
         fecharetiro: "",
         estado: "",
+        instjuri: "",
+        tramitejuri: "",
 
         reclamante: {
           id: "",
@@ -502,6 +521,8 @@ export default {
         !this.recepcion.fecharadicado ||
         !this.recepcion.fecharecepcionado ||
         !this.recepcion.consultorio ||
+        !this.recepcion.instjuri ||
+        !this.recepcion.tramitejuri ||
         //!this.recepcion.fechareparto ||
         //!this.recepcion.fechapublicacion ||
         //!this.recepcion.fecharetiro ||
@@ -529,6 +550,8 @@ export default {
           estado: this.recepcion.estado,
           recla_id: this.usuario.persona.id,
           usu_id: this.usuarioo.persona.id,
+          instjuri: this.recepcion.instjuri,
+          tramitejuri: this.recepcion.tramitejuri,
           area_id: this.area.id.substr(0, 1),
         };
         this.recepcion.recepcionado = "";
@@ -546,6 +569,8 @@ export default {
         this.usuarioo.persona.cedula = "";
         this.usuarioo.persona.id = "";
         this.usuario.persona.id = "";
+        this.recepcion.instjuri= "";
+        this.recepcion.tramitejuri= "";
 
         axios.post("/api/recepcion", params).then((res) => {
           if (res.data == null) {

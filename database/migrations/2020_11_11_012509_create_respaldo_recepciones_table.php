@@ -15,21 +15,21 @@ class CreateRespaldoRecepcionesTable extends Migration
     {
         Schema::create('respaldo_recepciones', function (Blueprint $table) {
             $table->id();
-            $table->string('id_recp');
-            $table->string('recepcionado',20);
-            $table->date('fecharadicado');
-            $table->date('fecharecepcionado');
-            $table->string('consultorio',20);
-            $table->date('fechareparto');
-            $table->date('fechapublicacion');
-            $table->date('fecharetiro');
-            $table->boolean('estado');
+            $table->string('id_recp')->nullable();
+            $table->string('recepcionado',20)->nullable();
+            $table->date('fecharadicado')->nullable();
+            $table->date('fecharecepcionado')->nullable();
+            $table->string('consultorio',20)->nullable();
+            $table->date('fechareparto')->nullable();
+            $table->date('fechapublicacion')->nullable();
+            $table->date('fecharetiro')->nullable();
+            $table->boolean('estado')->nullable();
             $table->double('notpricort', 8,2)->nullable();
             $table->double('notsegcort', 8,2)->nullable();
             $table->double('nottercort', 8,2)->nullable();   
-            $table->string('reclamante');                    
-            $table->string('area');         
-            $table->string('usuario');           
+            $table->string('reclamante')->nullable();                    
+            $table->string('area')->nullable();         
+            $table->string('usuario')->nullable();           
             $table->timestamps();     
         });
     }

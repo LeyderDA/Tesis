@@ -146,6 +146,8 @@ class RecepcionController extends Controller
         $re->fechareparto = $request->fechareparto;
         $re->fechapublicacion = $request->fechapublicacion;
         $re->fecharetiro = $request->fecharetiro;
+        $re->instjuri = $request->instjuri;
+        $re->tramitejuri = $request->tramitejuri;
         $re->estado = $request->estado;
         $re->recla_id = $request->recla_id;
         $re->save();
@@ -201,6 +203,8 @@ class RecepcionController extends Controller
         $re->usu_id = $request->usu_id;
         $re->recla_id = $request->recla_id;
         $re->area_id = $request->area_id;
+        $re->instjuri = $request->instjuri;
+        $re->tramitejuri = $request->tramitejuri;
         $re->save();
         $re->recepcion;
         $re->persona;
@@ -288,6 +292,8 @@ class RecepcionController extends Controller
         $re->nottercort = $request->nottercort;
         $re->usuario = $request->usuario;
         $re->reclamante = $request->reclamante;
+        $re->instjuri = $request->instjuri;
+        $re->tramitejuri = $request->tramitejuri;
         $re->area = $request->area;
         $re->save();       
         return  response()->json($re);

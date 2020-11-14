@@ -23,6 +23,7 @@ class CreateReclamTable extends Migration
             $table->string('embaravictima',10);
             $table->string('grupetnicovictima',20);
             $table->string('persoentidreclama',50);
+            $table->string('email')->unique();
          
 
             $table->unsignedBigInteger('per_id');             

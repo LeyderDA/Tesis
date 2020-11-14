@@ -10453,6 +10453,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -10485,6 +10494,7 @@ __webpack_require__.r(__webpack_exports__);
         grupetnicovictima: "",
         persoentidreclama: "",
         per_id: "",
+        email: "",
         persona: {
           id: "",
           cedula: "",
@@ -10526,7 +10536,7 @@ __webpack_require__.r(__webpack_exports__);
     agregar: function agregar() {
       var _this2 = this;
 
-      if (!this.reclamante.enfodifervictima || !this.reclamante.genevictima || !this.reclamante.edadvictima || !this.reclamante.discapavictima || !this.reclamante.estravictima || !this.reclamante.embaravictima || !this.reclamante.grupetnicovictima || !this.reclamante.persoentidreclama || !this.reclamante.persona.cedula) {
+      if (!this.reclamante.enfodifervictima || !this.reclamante.genevictima || !this.reclamante.edadvictima || !this.reclamante.discapavictima || !this.reclamante.estravictima || !this.reclamante.embaravictima || !this.reclamante.grupetnicovictima || !this.reclamante.persoentidreclama || !this.reclamante.email || !this.reclamante.persona.cedula) {
         swal({
           type: "error",
           timer: 20000,
@@ -10544,7 +10554,8 @@ __webpack_require__.r(__webpack_exports__);
           embaravictima: this.reclamante.embaravictima,
           grupetnicovictima: this.reclamante.grupetnicovictima,
           persoentidreclama: this.reclamante.persoentidreclama,
-          per_id: this.reclamante.persona.id
+          per_id: this.reclamante.persona.id,
+          email: this.reclamante.email
         };
         this.reclamante.enfodifervictima = "";
         this.reclamante.genevictima = "";
@@ -10555,6 +10566,7 @@ __webpack_require__.r(__webpack_exports__);
         this.reclamante.grupetnicovictima = "";
         this.reclamante.persoentidreclama = "";
         this.reclamante.persona.cedula = "";
+        this.reclamante.email = "";
         axios.post("/api/reclamante", params).then(function (res) {
           if (res.data == null) {
             swal({
@@ -10596,6 +10608,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-dropzone/dist/vue2Dropzone.min.css */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.min.css");
 /* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__);
+//
 //
 //
 //
@@ -13669,6 +13682,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -13724,6 +13754,8 @@ __webpack_require__.r(__webpack_exports__);
         fechapublicacion: "",
         fecharetiro: "",
         estado: "",
+        instjuri: "",
+        tramitejuri: "",
         reclamante: {
           id: "",
           enfodifervictima: "",
@@ -13851,7 +13883,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     agregar: function agregar() {
-      if (!this.recepcion.recepcionado || !this.recepcion.fecharadicado || !this.recepcion.fecharecepcionado || !this.recepcion.consultorio || //!this.recepcion.fechareparto ||
+      if (!this.recepcion.recepcionado || !this.recepcion.fecharadicado || !this.recepcion.fecharecepcionado || !this.recepcion.consultorio || !this.recepcion.instjuri || !this.recepcion.tramitejuri || //!this.recepcion.fechareparto ||
       //!this.recepcion.fechapublicacion ||
       //!this.recepcion.fecharetiro ||
       !this.recepcion.estado || !this.usuario.persona.id || //!this.usuarioo.persona.id ||
@@ -13875,6 +13907,8 @@ __webpack_require__.r(__webpack_exports__);
           estado: this.recepcion.estado,
           recla_id: this.usuario.persona.id,
           usu_id: this.usuarioo.persona.id,
+          instjuri: this.recepcion.instjuri,
+          tramitejuri: this.recepcion.tramitejuri,
           area_id: this.area.id.substr(0, 1)
         };
         this.recepcion.recepcionado = "";
@@ -13892,6 +13926,8 @@ __webpack_require__.r(__webpack_exports__);
         this.usuarioo.persona.cedula = "";
         this.usuarioo.persona.id = "";
         this.usuario.persona.id = "";
+        this.recepcion.instjuri = "";
+        this.recepcion.tramitejuri = "";
         axios.post("/api/recepcion", params).then(function (res) {
           if (res.data == null) {
             swal({
@@ -73089,6 +73125,34 @@ var render = function() {
         _c("form", [
           _c("div", { staticClass: "row" }, [
             _c("label", { staticClass: "col-5 col-form-label" }, [
+              _vm._v("Email (*):")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-6 form-group" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.reclamante.email,
+                    expression: "reclamante.email"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { placeholder: "Email" },
+                domProps: { value: _vm.reclamante.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.reclamante, "email", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("label", { staticClass: "col-5 col-form-label" }, [
               _vm._v("Enfoque diferencial (*)")
             ]),
             _vm._v(" "),
@@ -74059,7 +74123,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("h2", { staticClass: "text-center mb-2 card-title" }, [
-        _vm._v("Registrando Reclamante")
+        _vm._v("Registrando Usuario")
       ])
     ])
   },
@@ -74231,6 +74295,8 @@ var render = function() {
                               )
                             ]),
                             _vm._v(" "),
+                            _c("br"),
+                            _vm._v(" "),
                             _c(
                               "a",
                               {
@@ -74240,7 +74306,7 @@ var render = function() {
                               },
                               [
                                 _c("i", {
-                                  staticClass: "fas fa-save fa-2x",
+                                  staticClass: "fas fas fa-user fa-2x",
                                   staticStyle: { color: "black" },
                                   attrs: { title: "Agregar Foto" }
                                 })
@@ -80179,6 +80245,62 @@ var render = function() {
                 ],
                 2
               )
+            ]),
+            _vm._v(" "),
+            _c("label", { staticClass: "col-5 col-form-label" }, [
+              _vm._v("Institución Jurídica (*)")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-6 form-group" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.recepcion.instjuri,
+                    expression: "recepcion.instjuri"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { placeholder: "Institución Jurídica" },
+                domProps: { value: _vm.recepcion.instjuri },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.recepcion, "instjuri", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("label", { staticClass: "col-5 col-form-label" }, [
+              _vm._v("Trámite Jurídico (*)")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-6 form-group" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.recepcion.tramitejuri,
+                    expression: "recepcion.tramitejuri"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { placeholder: "Trámite Jurídico" },
+                domProps: { value: _vm.recepcion.tramitejuri },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.recepcion, "tramitejuri", $event.target.value)
+                  }
+                }
+              })
             ]),
             _vm._v(" "),
             _c("label", { staticClass: "col-5 col-form-label" }, [

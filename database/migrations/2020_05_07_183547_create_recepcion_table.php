@@ -23,6 +23,8 @@ class CreateRecepcionTable extends Migration
             $table->date('fechapublicacion')->nullable();
             $table->date('fecharetiro')->nullable();
             $table->boolean('estado');
+            $table->string('instjuri',100);
+            $table->string('tramitejuri',100);
             $table->double('notpricort', 8,2)->nullable();
             $table->double('notsegcort', 8,2)->nullable();
             $table->double('nottercort', 8,2)->nullable();   

@@ -1,11 +1,20 @@
 <template>
    <div class="card" style="margin-top:25px">
     <div>
-      <h2 class="text-center mb-2 card-title">Registrando Reclamante</h2>
+      <h2 class="text-center mb-2 card-title">Registrando Usuario</h2>
     </div>
     <div class="card-body row">
       <form>
         <div class="row">
+           <label class="col-5 col-form-label">Email (*):</label>
+          <div class="col-6 form-group">
+            <input
+              class="form-control"
+              placeholder="Email"
+              v-model="reclamante.email"
+              
+            />
+          </div>
           <label class="col-5 col-form-label">Enfoque diferencial (*)</label>
           <div class="col-6 form-group">
             <input
@@ -369,6 +378,7 @@ export default {
         grupetnicovictima: "",
         persoentidreclama: "",
         per_id: "",
+        email:"",
 
         persona: {
           id: "",
@@ -422,6 +432,7 @@ export default {
         !this.reclamante.embaravictima ||
         !this.reclamante.grupetnicovictima ||
         !this.reclamante.persoentidreclama ||
+        !this.reclamante.email ||
         !this.reclamante.persona.cedula
       ) {
         swal({
@@ -442,6 +453,7 @@ export default {
           grupetnicovictima: this.reclamante.grupetnicovictima,
           persoentidreclama: this.reclamante.persoentidreclama,
           per_id: this.reclamante.persona.id,
+          email: this.reclamante.email,
         };
 
         this.reclamante.enfodifervictima = "";
@@ -453,6 +465,7 @@ export default {
         this.reclamante.grupetnicovictima = "";
         this.reclamante.persoentidreclama = "";
         this.reclamante.persona.cedula = "";
+        this.reclamante.email = "";
 
         axios.post("/api/reclamante", params).then((res) => {
           if (res.data == null) {
