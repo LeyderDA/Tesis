@@ -12,7 +12,6 @@
               class="form-control"
               placeholder="Email"
               v-model="reclamante.email"
-              
             />
           </div>
           <label class="col-5 col-form-label">Enfoque diferencial (*)</label>
@@ -493,6 +492,7 @@ export default {
         this.reclamante.persoentidreclama = "";
         this.reclamante.persona.cedula = "";
         this.reclamante.email = "";
+        this.reclamante.descrdiscap = "";
 
         axios.post("/api/reclamante", params).then((res) => {
           if (res.data == null) {

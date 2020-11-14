@@ -1,5 +1,5 @@
 <template>
-   <div class="card" style="margin-top:25px">
+  <div class="card" style="margin-top: 25px">
     <div>
       <h2 class="text-center mb-2 card-title">Registrando Reclamante</h2>
     </div>
@@ -51,14 +51,14 @@
                           <i class="fas fa-eye fa-2x" style="color: black"></i>
                         </button>
                       </td>
-                      <br>
-                       <a :href="'/add_archivos/' + reclamante.id">
-                          <i
-                            title="Agregar Foto"
-                            class="fas fas fa-user fa-2x"
-                            style="color: black"
-                          ></i>
-                        </a>
+                      <br />
+                      <a :href="'/add_archivos/' + reclamante.id">
+                        <i
+                          title="Agregar Foto"
+                          class="fas fas fa-user fa-2x"
+                          style="color: black"
+                        ></i>
+                      </a>
 
                       <td>
                         <button
@@ -127,6 +127,14 @@
                 </button>
               </div>
               <div class="modal-body">
+                <label class="col-12 col-form-label">Email:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Email"
+                    v-model="reclamante.email"
+                  />
+                </div>
                 <label class="col-12 col-form-label">Enfoque diferencial</label>
 
                 <div class="col-12 form-group">
@@ -156,16 +164,33 @@
                   <input
                     class="form-control"
                     placeholder="edad"
-                     onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+                    onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                     v-model="reclamante.edadvictima"
                   />
                 </div>
                 <label class="col-12 col-form-label">Discapacidad</label>
+                <div class="col-12">
+                  <select
+                    class="form-control"
+                    type="text"
+                    v-model="reclamante.discapavictima"
+                  >
+                    <option value="">Selecciona</option>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
+                  </select>
+                </div>
+                <br />
+
+                <label class="col-12 col-form-label"
+                  >Descripción de discapacidad</label
+                >
                 <div class="col-12 form-group">
                   <input
                     class="form-control"
-                    placeholder="discapacidad"
-                    v-model="reclamante.discapavictima"
+                    placeholder="Discapacidad"
+                    v-model="reclamante.descrdiscap"
+                    :disabled="!isFormValidDiscapacidad()"
                   />
                 </div>
                 <label class="col-12 col-form-label">Estrato</label>
@@ -174,7 +199,7 @@
                   <input
                     class="form-control"
                     placeholder="estrato"
-                     onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+                    onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                     v-model="reclamante.estravictima"
                   />
                 </div>
@@ -221,7 +246,7 @@
                   <input
                     class="form-control"
                     placeholder="cedula"
-                     onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+                    onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                     v-model="reclamante.persona.cedula"
                     disabled
                   />
@@ -516,6 +541,8 @@ export default {
         grupetnicovictima: "",
         persoentidreclama: "",
         per_id: "",
+        descrdiscap: "",
+        email:"",
 
         persona: {
           id: "",
@@ -607,6 +634,9 @@ export default {
           }
         });
     },
+    isFormValidDiscapacidad: function () {
+      return this.reclamante.discapavictima != "NO";
+    },
     agregar() {
       const params = {
         enfodifervictima: this.reclamante.enfodifervictima,
@@ -618,6 +648,7 @@ export default {
         grupetnicovictima: this.reclamante.grupetnicovictima,
         persoentidreclama: this.reclamante.persoentidreclama,
         per_id: this.reclamante.persona.id,
+        descrdiscap: this.reclamante.descrdiscap,
       };
 
       this.reclamante.enfodifervictima = "";
@@ -629,6 +660,7 @@ export default {
       this.reclamante.grupetnicovictima = "";
       this.reclamante.persoentidreclama = "";
       this.reclamante.per_id = "";
+      this.reclamante.descrdiscap = "";
 
       axios.post("/api/reclamante", params).then((res) => {
         if (res.data == null) {
@@ -684,6 +716,8 @@ export default {
         grupetnicovictima: this.reclamante.grupetnicovictima,
         persoentidreclama: this.reclamante.persoentidreclama,
         per_id: this.reclamante.persona.id,
+        descrdiscap: this.reclamante.descrdiscap,
+        email: this.reclamante.email,
       };
       axios
         .put("/api/reclamante/" + this.reclamante.id, params)

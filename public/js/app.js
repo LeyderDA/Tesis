@@ -10482,7 +10482,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -10593,6 +10592,7 @@ __webpack_require__.r(__webpack_exports__);
         this.reclamante.persoentidreclama = "";
         this.reclamante.persona.cedula = "";
         this.reclamante.email = "";
+        this.reclamante.descrdiscap = "";
         axios.post("/api/reclamante", params).then(function (res) {
           if (res.data == null) {
             swal({
@@ -10634,6 +10634,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-dropzone/dist/vue2Dropzone.min.css */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.min.css");
 /* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -11149,6 +11174,8 @@ __webpack_require__.r(__webpack_exports__);
         grupetnicovictima: "",
         persoentidreclama: "",
         per_id: "",
+        descrdiscap: "",
+        email: "",
         persona: {
           id: "",
           cedula: "",
@@ -11239,6 +11266,9 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
+    isFormValidDiscapacidad: function isFormValidDiscapacidad() {
+      return this.reclamante.discapavictima != "NO";
+    },
     agregar: function agregar() {
       var _this4 = this;
 
@@ -11251,7 +11281,8 @@ __webpack_require__.r(__webpack_exports__);
         embaravictima: this.reclamante.embaravictima,
         grupetnicovictima: this.reclamante.grupetnicovictima,
         persoentidreclama: this.reclamante.persoentidreclama,
-        per_id: this.reclamante.persona.id
+        per_id: this.reclamante.persona.id,
+        descrdiscap: this.reclamante.descrdiscap
       };
       this.reclamante.enfodifervictima = "";
       this.reclamante.genevictima = "";
@@ -11262,6 +11293,7 @@ __webpack_require__.r(__webpack_exports__);
       this.reclamante.grupetnicovictima = "";
       this.reclamante.persoentidreclama = "";
       this.reclamante.per_id = "";
+      this.reclamante.descrdiscap = "";
       axios.post("/api/reclamante", params).then(function (res) {
         if (res.data == null) {
           swal({
@@ -11319,7 +11351,9 @@ __webpack_require__.r(__webpack_exports__);
         embaravictima: this.reclamante.embaravictima,
         grupetnicovictima: this.reclamante.grupetnicovictima,
         persoentidreclama: this.reclamante.persoentidreclama,
-        per_id: this.reclamante.persona.id
+        per_id: this.reclamante.persona.id,
+        descrdiscap: this.reclamante.descrdiscap,
+        email: this.reclamante.email
       };
       axios.put("/api/reclamante/" + this.reclamante.id, params).then(function (res) {
         if (res.data == null) {
@@ -74493,6 +74527,38 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body" }, [
                       _c("label", { staticClass: "col-12 col-form-label" }, [
+                        _vm._v("Email:")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-12 form-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.reclamante.email,
+                              expression: "reclamante.email"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { placeholder: "Email" },
+                          domProps: { value: _vm.reclamante.email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.reclamante,
+                                "email",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("label", { staticClass: "col-12 col-form-label" }, [
                         _vm._v("Enfoque diferencial")
                       ]),
                       _vm._v(" "),
@@ -74620,19 +74686,78 @@ var render = function() {
                         _vm._v("Discapacidad")
                       ]),
                       _vm._v(" "),
+                      _c("div", { staticClass: "col-12" }, [
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.reclamante.discapavictima,
+                                expression: "reclamante.discapavictima"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { type: "text" },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.reclamante,
+                                  "discapavictima",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("Selecciona")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "SI" } }, [
+                              _vm._v("SI")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NO" } }, [
+                              _vm._v("NO")
+                            ])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("label", { staticClass: "col-12 col-form-label" }, [
+                        _vm._v("Descripción de discapacidad")
+                      ]),
+                      _vm._v(" "),
                       _c("div", { staticClass: "col-12 form-group" }, [
                         _c("input", {
                           directives: [
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.reclamante.discapavictima,
-                              expression: "reclamante.discapavictima"
+                              value: _vm.reclamante.descrdiscap,
+                              expression: "reclamante.descrdiscap"
                             }
                           ],
                           staticClass: "form-control",
-                          attrs: { placeholder: "discapacidad" },
-                          domProps: { value: _vm.reclamante.discapavictima },
+                          attrs: {
+                            placeholder: "Discapacidad",
+                            disabled: !_vm.isFormValidDiscapacidad()
+                          },
+                          domProps: { value: _vm.reclamante.descrdiscap },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
@@ -74640,7 +74765,7 @@ var render = function() {
                               }
                               _vm.$set(
                                 _vm.reclamante,
-                                "discapavictima",
+                                "descrdiscap",
                                 $event.target.value
                               )
                             }
