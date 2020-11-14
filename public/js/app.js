@@ -11055,6 +11055,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -74223,6 +74231,22 @@ var render = function() {
                               )
                             ]),
                             _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                attrs: {
+                                  href: "/add_archivos/" + reclamante.id
+                                }
+                              },
+                              [
+                                _c("i", {
+                                  staticClass: "fas fa-save fa-2x",
+                                  staticStyle: { color: "black" },
+                                  attrs: { title: "Agregar Foto" }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
                             _c("td", [
                               _c(
                                 "button",
@@ -75224,6 +75248,8 @@ var staticRenderFns = [
         _c("th", [_vm._v("Entidad Reclamante")]),
         _vm._v(" "),
         _c("th", [_vm._v("Persona Relacionada")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Foto")]),
         _vm._v(" "),
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),

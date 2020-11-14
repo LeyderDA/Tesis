@@ -27,9 +27,7 @@
                             <?php $per = DB::table('personas')->select('id','cedula','prinom','segnom','priape','segape','tel','direc')->where('id',$Reclamante->per_id)->get(); ?>  
                             @foreach($per as $persona)                             
                               <center>
-                                <br>
-                    
-
+                                <br>                  
                                 <br>
                                 <h5 class="text mb-2 card-title">Cédula: {{$persona->cedula}}</h5>
                                 <br>

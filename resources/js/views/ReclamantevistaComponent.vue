@@ -21,6 +21,7 @@
                       <th>Grupo Etnico</th>
                       <th>Entidad Reclamante</th>
                       <th>Persona Relacionada</th>
+                      <th>Foto</th>
                       <th>Opciones</th>
                       <th>Archivos</th>
                     </tr>
@@ -50,6 +51,13 @@
                           <i class="fas fa-eye fa-2x" style="color: black"></i>
                         </button>
                       </td>
+                       <a :href="'/add_archivos/' + reclamante.id">
+                          <i
+                            title="Agregar Foto"
+                            class="fas fa-save fa-2x"
+                            style="color: black"
+                          ></i>
+                        </a>
 
                       <td>
                         <button
