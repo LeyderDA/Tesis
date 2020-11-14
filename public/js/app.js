@@ -10462,6 +10462,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -10489,6 +10510,7 @@ __webpack_require__.r(__webpack_exports__);
         genevictima: "",
         edadvictima: "",
         discapavictima: "",
+        descrdiscap: "",
         estravictima: "",
         embaravictima: "",
         grupetnicovictima: "",
@@ -10533,6 +10555,9 @@ __webpack_require__.r(__webpack_exports__);
     isFormValidPersona: function isFormValidPersona() {
       return this.reclamante.persona.cedula != "";
     },
+    isFormValidDiscapacidad: function isFormValidDiscapacidad() {
+      return this.reclamante.discapavictima != "NO";
+    },
     agregar: function agregar() {
       var _this2 = this;
 
@@ -10555,7 +10580,8 @@ __webpack_require__.r(__webpack_exports__);
           grupetnicovictima: this.reclamante.grupetnicovictima,
           persoentidreclama: this.reclamante.persoentidreclama,
           per_id: this.reclamante.persona.id,
-          email: this.reclamante.email
+          email: this.reclamante.email,
+          descrdiscap: this.reclamante.descrdiscap
         };
         this.reclamante.enfodifervictima = "";
         this.reclamante.genevictima = "";
@@ -73274,29 +73300,82 @@ var render = function() {
               _vm._v("Discapacidad (*)")
             ]),
             _vm._v(" "),
+            _c("div", { staticClass: "col-6" }, [
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.reclamante.discapavictima,
+                      expression: "reclamante.discapavictima"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.reclamante,
+                        "discapavictima",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "" } }, [
+                    _vm._v("Selecciona")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("label", { staticClass: "col-5 col-form-label" }, [
+              _vm._v("Descripción de discapacidad")
+            ]),
+            _vm._v(" "),
             _c("div", { staticClass: "col-6 form-group" }, [
               _c("input", {
                 directives: [
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.reclamante.discapavictima,
-                    expression: "reclamante.discapavictima"
+                    value: _vm.reclamante.descrdiscap,
+                    expression: "reclamante.descrdiscap"
                   }
                 ],
                 staticClass: "form-control",
-                attrs: { placeholder: "Discapacidad" },
-                domProps: { value: _vm.reclamante.discapavictima },
+                attrs: {
+                  placeholder: "Discapacidad",
+                  disabled: !_vm.isFormValidDiscapacidad()
+                },
+                domProps: { value: _vm.reclamante.descrdiscap },
                 on: {
                   input: function($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.$set(
-                      _vm.reclamante,
-                      "discapavictima",
-                      $event.target.value
-                    )
+                    _vm.$set(_vm.reclamante, "descrdiscap", $event.target.value)
                   }
                 }
               })

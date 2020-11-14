@@ -49,14 +49,35 @@
             />
           </div>
 
-          <label class="col-5 col-form-label">Discapacidad (*)</label>
+
+           <label class="col-5 col-form-label">Discapacidad (*)</label>
+          <div class="col-6">
+            <select
+              class="form-control"
+              type="text"
+              v-model="reclamante.discapavictima"
+            >
+              <option value="">Selecciona</option>
+              <option value="SI">SI</option>
+              <option value="NO">NO</option>
+              
+            </select>
+          </div>
+          <br />
+          <br />
+
+       
+
+          <label class="col-5 col-form-label">Descripción de discapacidad</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
               placeholder="Discapacidad"
-              v-model="reclamante.discapavictima"
+              v-model="reclamante.descrdiscap"
+              :disabled="!isFormValidDiscapacidad()"
             />
           </div>
+
 
           <label class="col-5 col-form-label">Estrato (*)</label>
           <div class="col-6">
@@ -373,6 +394,7 @@ export default {
         genevictima: "",
         edadvictima: "",
         discapavictima: "",
+        descrdiscap: "",
         estravictima: "",
         embaravictima: "",
         grupetnicovictima: "",
@@ -422,6 +444,10 @@ export default {
       return this.reclamante.persona.cedula != "";
     },
 
+    isFormValidDiscapacidad: function () {
+      return this.reclamante.discapavictima != "NO";
+    },
+
     agregar() {
       if (
         !this.reclamante.enfodifervictima ||
@@ -454,7 +480,8 @@ export default {
           persoentidreclama: this.reclamante.persoentidreclama,
           per_id: this.reclamante.persona.id,
           email: this.reclamante.email,
-        };
+          descrdiscap: this.reclamante.descrdiscap,
+        }; 
 
         this.reclamante.enfodifervictima = "";
         this.reclamante.genevictima = "";

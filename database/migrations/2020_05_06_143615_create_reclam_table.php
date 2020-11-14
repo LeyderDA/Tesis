@@ -19,11 +19,13 @@ class CreateReclamTable extends Migration
             $table->string('genevictima',15);
             $table->integer('edadvictima');
             $table->string('discapavictima',10);
+            $table->string('descrdiscap',50)->nullable();
             $table->string('estravictima',5);
             $table->string('embaravictima',10);
             $table->string('grupetnicovictima',20);
             $table->string('persoentidreclama',50);
-            $table->string('email')->unique();
+            $table->string('email')->unique(); 
+           
          
 
             $table->unsignedBigInteger('per_id');             
