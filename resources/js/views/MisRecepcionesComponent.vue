@@ -962,7 +962,7 @@
               </div>
 
               <label class="col-12 col-form-label"
-                >Apellido del reclamante:</label
+                >Email:</label
               >
 
               <div class="col-12 form-group">

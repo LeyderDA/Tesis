@@ -16,8 +16,8 @@
                     <th>Estudiante</th>
                     <th>Recepcionado</th>
                     <th>Consultorio</th>
-                    <th>Reclamante</th>
-                    <th>Recepcionista</th>
+                    <th>Usuario</th>
+                    <th>Quien recepciona</th>
                     <th>Area</th>
                     <th>Recepción</th>
                     <th>Opciones</th>
@@ -29,7 +29,7 @@
                     :key="recepcion.index"
                   >
                     <td>
-                      <button
+                      <!-- <button
                         class="btn btn-sm"
                         data-toggle="modal"
                         data-target="#MOSTRARModalEST"
@@ -37,7 +37,20 @@
                         title="Mostrar Estudiante"
                       >
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
-                      </button>
+                      </button> -->
+                       <div>
+                        <center>
+                          <a
+                            :href="'/HojaDeVida/' + recepcion.usu_id"
+                            target="_blank"
+                            ><i
+                              title="Ver Usuario"
+                              class="fas fa-user fa-2x"
+                              style="color: black"
+                            ></i
+                          ></a>
+                        </center>
+                      </div>
                     </td>
                     <td>{{ recepcion.recepcionado }}</td>
                     <td>{{ recepcion.consultorio }}</td>
@@ -191,7 +204,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
-                Datos del Recepcionista
+                Datos del quien recepciona
               </h5>
               <button
                 type="button"
@@ -203,6 +216,26 @@
               </button>
             </div>
             <div class="modal-body">
+              <input
+                type="hidden"
+                class="form-control"
+                placeholder="id"
+                v-model="usurecep.usuario.persona.id"
+                disabled
+              />
+               <div>
+              <center>
+                <a
+                  :href="'/HojaDeVida/' + usurecep.usuario.persona.id"
+                  target="_blank"
+                  ><i
+                    title="Ver Usuario"
+                    class="fas fa-user fa-5x"
+                    style="color: black"
+                  ></i
+                ></a>
+              </center>
+             </div>
               <label class="col-12 col-form-label">Primer nombre:</label>
               <div class="col-12 form-group">
                 <input
@@ -948,10 +981,24 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
-                Datos del Reclamante
+                Datos del Usuario
               </h5>
             </div>
             <div class="modal-body">
+
+               <div>
+                <center>
+                  <a
+                    :href="'/HojaDeVidaR/' + recepcion.recla_id"
+                    target="_blank"
+                    ><i
+                      title="Ver Usuario"
+                      class="fas fa-user fa-5x"
+                      style="color: black"
+                    ></i
+                  ></a>
+                </center>
+              </div>
               <label class="col-12 col-form-label"
                 >Nombre del reclamante:</label
               >
@@ -974,6 +1021,19 @@
                   disabled
                 />
               </div>
+               <label class="col-12 col-form-label"
+                >Email:</label
+              >
+
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="nombre de persona"
+                  v-model="recepcion.email"
+                  disabled
+                />
+              </div>
+
               <label class="col-12 col-form-label">Enfoque diferencial:</label>
               <div class="col-12 form-group">
                 <input
