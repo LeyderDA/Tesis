@@ -16,7 +16,7 @@ class AsigRecepController extends Controller
         ->join("areas","recepciones.area_id","=","areas.id")
         ->select('usurecep.*'
         ,'users.username'
-
+        ,'users.email'
         ,'recepciones.recepcionado'
         ,'recepciones.fecharadicado'
         ,'recepciones.fecharecepcionado'

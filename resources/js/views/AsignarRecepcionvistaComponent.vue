@@ -1,7 +1,8 @@
 <template>
    <div class="card" style="margin-top:25px">
+     <br>
     <div>
-      <h1 class="text-center mb-2 card-title">Registrando Asignación</h1>
+      <h1 class="text-center mb-2 card-title">Asignaciones</h1>
     </div>
     <div class="card-body row">
       <br />
@@ -89,12 +90,45 @@
                 </button>
               </div>
               <div class="modal-body">
+
+                 <input
+                type="hidden"
+                class="form-control"
+                placeholder="id"
+                v-model="usurecep.usu_id"
+                disabled
+              />
+
+               <div>
+                <center>
+                  <a
+                    :href="'/HojaDeVida/' + usurecep.usu_id"
+                    target="_blank"
+                    ><i
+                      title="Ver Usuario"
+                      class="fas fa-user fa-5x"
+                      style="color: black"
+                    ></i
+                  ></a>
+                </center>
+              </div>
+
                 <label class="col-12 col-form-label">Username</label>
                 <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="USERNAME"
                     v-model="usurecep.username"
+                    disabled
+                  />
+                </div>
+
+                  <label class="col-12 col-form-label">Email</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Email"
+                    v-model="usurecep.email"
                     disabled
                   />
                 </div>
@@ -352,6 +386,7 @@ export default {
   created() {
     axios.get("/api/asigrecep").then((res) => {
       this.usurecepss = res.data;
+      console.log(this.usurecepss);
     });
   },
   methods: {

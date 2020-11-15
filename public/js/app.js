@@ -3299,6 +3299,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3335,6 +3369,7 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get("/api/asigrecep").then(function (res) {
       _this.usurecepss = res.data;
+      console.log(_this.usurecepss);
     });
   },
   methods: {
@@ -59041,6 +59076,8 @@ var render = function() {
     "div",
     { staticClass: "card", staticStyle: { "margin-top": "25px" } },
     [
+      _c("br"),
+      _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "card-body row" }, [
@@ -59160,6 +59197,61 @@ var render = function() {
                     _vm._m(2),
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.usurecep.usu_id,
+                            expression: "usurecep.usu_id"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "hidden",
+                          placeholder: "id",
+                          disabled: ""
+                        },
+                        domProps: { value: _vm.usurecep.usu_id },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.usurecep,
+                              "usu_id",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        [
+                          _c("center", [
+                            _c(
+                              "a",
+                              {
+                                attrs: {
+                                  href: "/HojaDeVida/" + _vm.usurecep.usu_id,
+                                  target: "_blank"
+                                }
+                              },
+                              [
+                                _c("i", {
+                                  staticClass: "fas fa-user fa-5x",
+                                  staticStyle: { color: "black" },
+                                  attrs: { title: "Ver Usuario" }
+                                })
+                              ]
+                            )
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
                       _c("label", { staticClass: "col-12 col-form-label" }, [
                         _vm._v("Username")
                       ]),
@@ -59185,6 +59277,38 @@ var render = function() {
                               _vm.$set(
                                 _vm.usurecep,
                                 "username",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("label", { staticClass: "col-12 col-form-label" }, [
+                        _vm._v("Email")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-12 form-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.usurecep.email,
+                              expression: "usurecep.email"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { placeholder: "Email", disabled: "" },
+                          domProps: { value: _vm.usurecep.email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.usurecep,
+                                "email",
                                 $event.target.value
                               )
                             }
@@ -59799,7 +59923,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("h1", { staticClass: "text-center mb-2 card-title" }, [
-        _vm._v("Registrando Asignación")
+        _vm._v("Asignaciones")
       ])
     ])
   },
