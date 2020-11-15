@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use app\User;
 
 class FotosEstudiantes extends Model
 {
@@ -13,6 +14,6 @@ class FotosEstudiantes extends Model
     ];
     public function fotos()
     {
-        return $this->belongsTo('App\FotosEstudiantes','est_id');
+        return $this->belongsTo('App\User','est_id');
     }
 }

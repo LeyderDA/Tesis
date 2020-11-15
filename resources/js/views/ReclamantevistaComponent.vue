@@ -53,7 +53,7 @@
                         </button>
                       </td>
                       <td>
-                        <a :href="'/add_archivos/' + reclamante.id">
+                        <a :href="'/add_archivos1/' + reclamante.id">
                           <i
                             title="Agregar Foto"
                             class="fas fa-archive fa-2x"

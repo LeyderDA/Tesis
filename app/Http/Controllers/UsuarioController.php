@@ -204,5 +204,13 @@ class UsuarioController extends Controller
         return view('HojaDeVidaR',compact('Reclamante'));
     
     }
+
+    public function mostrarArchivosRoles($id)
+    { 
+
+        $UserRol= User::findOrFail($id);
+        return view('HojaDeVidaRol',compact('UserRol'));
+    
+    }
     
 }

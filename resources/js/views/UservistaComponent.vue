@@ -76,7 +76,7 @@
                             style="color: black"
                           ></i>
                         </a>
-                        <a :href="'/HojaDeVida/' + usuario.id" target="_blank"
+                        <a :href="'/HojaDeVidaROLES/' + usuario.id" target="_blank"
                           ><i
                             title="Ver Usuario"
                             class="fas fa-user fa-2x"

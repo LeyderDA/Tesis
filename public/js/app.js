@@ -76459,7 +76459,7 @@ var render = function() {
                                 "a",
                                 {
                                   attrs: {
-                                    href: "/add_archivos/" + reclamante.id
+                                    href: "/add_archivos1/" + reclamante.id
                                   }
                                 },
                                 [
@@ -89811,7 +89811,7 @@ var render = function() {
                                 "a",
                                 {
                                   attrs: {
-                                    href: "/HojaDeVida/" + usuario.id,
+                                    href: "/HojaDeVidaROLES/" + usuario.id,
                                     target: "_blank"
                                   }
                                 },

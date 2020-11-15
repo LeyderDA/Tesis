@@ -103,8 +103,15 @@ Route::get('/getComent/{id}', 'ComentariosController@getComent')->middleware('au
 Route::get('/HojaDeVida/{id}', 'usuarioController@mostrarArchivos');
 Route::post('fotoest','FotosEstudiantesController@store')->name('fotoest')->middleware('auth');
 Route::post('fotoest/media','FotosEstudiantesController@storeMedia')->name('Foto.storeMedia')->middleware('auth');
-Route::get('add_archivos/{id}','FotosEstudiantesController@add_archivos')->middleware('auth');
+Route::get('add_archivos1/{id}','FotosEstudiantesController@add_archivos')->middleware('auth');
 
 
 
 Route::get('/HojaDeVidaR/{id}', 'usuarioController@mostrarArchivosRecla');
+
+
+//rutas para las fotos de los ROLES
+Route::get('/HojaDeVidaROLES/{id}', 'usuarioController@mostrarArchivosRoles');
+Route::post('fotorol','FotosRolesController@store')->name('fotorol')->middleware('auth');
+Route::post('fotorol/media','FotosRolesController@storeMedia')->name('FotoROL.storeMedia')->middleware('auth');
+Route::get('add_archivos/{id}','FotosRolesController@add_archivos')->middleware('auth');
