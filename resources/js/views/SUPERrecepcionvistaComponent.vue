@@ -17,7 +17,7 @@
                     <th>Reclamante</th>
                     <th>Recepcionista</th>
                     <th>Area</th>
-                    <th>Fechas</th>
+                    <th>Recepción</th>
                     <th>Asignar Recepción</th>
                     <th>Opciones</th>
                   </tr>
@@ -28,7 +28,20 @@
                     :key="recepcion.index"
                   >
                     <td>
-                      <button
+                      <div>
+                        <center>
+                          <a
+                            :href="'/HojaDeVida/' + recepcion.usu_id"
+                            target="_blank"
+                            ><i
+                              title="Ver Usuario"
+                              class="fas fa-user fa-2x"
+                              style="color: black"
+                            ></i
+                          ></a>
+                        </center>
+                      </div>
+                      <!-- <button
                         class="btn btn-sm"
                         data-toggle="modal"
                         data-target="#MOSTRARModalEST"
@@ -36,7 +49,7 @@
                         title="Mostrar Estudiante"
                       >
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
-                      </button>
+                      </button> -->
                     </td>
                     <td>{{ recepcion.recepcionado }}</td>
                     <td>{{ recepcion.consultorio }}</td>
@@ -171,7 +184,7 @@
                   data-toggle="modal"
                   data-target="#MOSTRARModalRE"
                   @click="buscarrecep()"
-                  title="Mostrar recepcionista"
+                  title="Mostrar quien recepciona"
                 >
                   <i class="fas fa-eye fa-5x" style="color: black"></i>
                 </button>
@@ -212,7 +225,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
-                Datos del Recepcionista
+                Datos de quien recepciona
               </h5>
               <button
                 type="button"
@@ -223,7 +236,56 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+
             <div class="modal-body">
+              <input
+                type="hidden"
+                class="form-control"
+                placeholder="id"
+                v-model="usurecep.usuario.persona.id"
+                disabled
+              />
+              <div>
+                <center>
+                  <a
+                    :href="'/HojaDeVida/' + usurecep.usuario.persona.id"
+                    target="_blank"
+                    ><i
+                      title="Ver Usuario"
+                      class="fas fa-user fa-5x"
+                      style="color: black"
+                    ></i
+                  ></a>
+                </center>
+              </div>
+              <label class="col-5 col-form-label">Usuario:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Username"
+                  v-model="usurecep.usuario.persona.username"
+                  disabled
+                />
+              </div>
+
+              <label class="col-5 col-form-label">Email:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Email"
+                  v-model="usurecep.usuario.persona.email"
+                  disabled
+                />
+              </div>
+              <label class="col-5 col-form-label">Cédula:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Cédula"
+                  v-model="usurecep.usuario.persona.cedula"
+                  disabled
+                />
+              </div>
               <label class="col-12 col-form-label">Primer nombre:</label>
               <div class="col-12 form-group">
                 <input
@@ -546,6 +608,32 @@
                   placeholder="recepcion"
                   v-model="recepcion.area.nombre"
                   disabled
+                />
+              </div>
+              
+              <label class="col-12 col-form-label"
+                >Institución Jurídica:</label
+              >
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Institución Jurídica"
+                  
+                  v-model="recepcion.instjuri"
+                  
+                />
+              </div>
+
+              <label class="col-12 col-form-label"
+                >Tramite Jurídico:</label
+              >
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Tramite Jurídico"
+                  
+                  v-model="recepcion.tramitejuri"
+                  
                 />
               </div>
 
@@ -979,20 +1067,31 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">FECHAS</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Recepción</h5>
             </div>
             <div class="modal-body">
-              <label class="col-12 col-form-label">Fecha de radicado:</label>
+              <label class="col-12 col-form-label">Institución Jurídica:</label>
               <div class="col-12 form-group">
                 <input
                   class="form-control"
-                  placeholder="recepcion"
-                  type="date"
+                  placeholder="Institución Jurídica"
                   readonly="readonly"
-                  v-model="recepcion.fecharadicado"
+                  v-model="recepcion.instjuri"
                   disabled
                 />
               </div>
+
+              <label class="col-12 col-form-label">Tramite Jurídico:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Tramite Jurídico"
+                  readonly="readonly"
+                  v-model="recepcion.tramitejuri"
+                  disabled
+                />
+              </div>
+
               <label class="col-12 col-form-label"
                 >Fecha de recepcionado:</label
               >
@@ -1006,6 +1105,19 @@
                   disabled
                 />
               </div>
+
+              <label class="col-12 col-form-label">Fecha de radicado:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="recepcion"
+                  type="date"
+                  readonly="readonly"
+                  v-model="recepcion.fecharadicado"
+                  disabled
+                />
+              </div>
+
               <label class="col-12 col-form-label">Fecha de reparto:</label>
               <div class="col-12 form-group">
                 <input
@@ -1074,10 +1186,33 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
-                Datos del Reclamante
+                Datos del Usuario
               </h5>
             </div>
             <div class="modal-body">
+              <div>
+                <center>
+                  <a
+                    :href="'/HojaDeVidaR/' + recepcion.recla_id"
+                    target="_blank"
+                    ><i
+                      title="Ver Usuario"
+                      class="fas fa-user fa-5x"
+                      style="color: black"
+                    ></i
+                  ></a>
+                </center>
+              </div>
+
+              <label class="col-5 col-form-label">Email:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="nombre de persona"
+                  v-model="recepcion.email"
+                  disabled
+                />
+              </div>
               <label class="col-12 col-form-label"
                 >Nombre del reclamante:</label
               >
@@ -1967,6 +2102,8 @@ export default {
         estado: this.recepcion.estado,
         recla_id: this.recepcion.recla_id,
         area_id: this.area.id.substr(0, 1),
+        instjuri: this.recepcion.instjuri,
+        tramitejuri: this.recepcion.tramitejuri,
       };
       axios
         .put("/api/recepcion/" + this.recepcion.id, params)

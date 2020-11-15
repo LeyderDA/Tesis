@@ -19,7 +19,7 @@
                     <th>Reclamante</th>
                     <th>Recepcionista</th>
                     <th>Area</th>
-                    <th>Fechas</th>
+                    <th>Recepción</th>
                     <th>Opciones</th>
                   </tr>
                 </thead>
@@ -534,6 +534,32 @@
                   disabled
                 />
               </div>
+               <label class="col-12 col-form-label"
+                >Institución Jurídica:</label
+              >
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Institución Jurídica"
+                        disabled
+                  v-model="recepcion.instjuri"
+                  
+                />
+              </div>
+
+              <label class="col-12 col-form-label"
+                >Tramite Jurídico:</label
+              >
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Tramite Jurídico"
+                  disabled
+                  v-model="recepcion.tramitejuri"
+                  
+                />
+              </div>
+
               <label class="col-12 col-form-label"
                 >En caso de que quieras cambiar el reclamante digita la cédula:
               </label>
@@ -801,9 +827,35 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">FECHAS</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Recepción</h5>
             </div>
             <div class="modal-body">
+               <label class="col-12 col-form-label"
+                >Institución Jurídica:</label
+              >
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Institución Jurídica"
+                  disabled
+                  v-model="recepcion.instjuri"
+                  
+                />
+              </div>
+
+              <label class="col-12 col-form-label"
+                >Tramite Jurídico:</label
+              >
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Tramite Jurídico"
+                  disabled
+                  v-model="recepcion.tramitejuri"
+                  
+                />
+              </div>
+
               <label class="col-12 col-form-label">Fecha de radicado:</label>
               <div class="col-12 form-group">
                 <input

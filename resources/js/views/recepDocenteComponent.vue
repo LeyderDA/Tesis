@@ -18,7 +18,7 @@
                     <th>Usuario</th>
                     <th>Quien recepciona</th>
                     <th>Area</th>
-                    <th>Fechas</th>
+                    <th>Recepción</th>
                     <th>Agregar observación</th>
                     <th>Mostrar QR</th>
                   </tr>
@@ -125,7 +125,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
-                Buscar Recepcionador
+                Buscar quien recepciona
               </h5>
               <button
                 type="button"
@@ -153,7 +153,7 @@
                   data-toggle="modal"
                   data-target="#MOSTRARModalRE"
                   @click="buscarrecep()"
-                  title="Mostrar recepcionista"
+                  title="Mostrar quien recepciona"
                 >
                   <i class="fas fa-eye fa-5x" style="color: black"></i>
                 </button>
@@ -196,7 +196,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
-                Datos del Recepcionista
+                Datos de quien recepciona
               </h5>
               <button
                 type="button"
@@ -215,8 +215,8 @@
                 v-model="usurecep.usuario.persona.id"
                 disabled
               />
-             </div>
-             <div>
+            </div>
+            <div>
               <center>
                 <a
                   :href="'/HojaDeVida/' + usurecep.usuario.persona.id"
@@ -228,7 +228,7 @@
                   ></i
                 ></a>
               </center>
-             </div>
+            </div>
 
             <label class="col-5 col-form-label">Usuario:</label>
             <div class="col-12 form-group">
@@ -549,9 +549,31 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">FECHAS</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Recepción</h5>
           </div>
           <div class="modal-body">
+            <label class="col-12 col-form-label">Institución Jurídica:</label>
+            <div class="col-12 form-group">
+              <input
+                class="form-control"
+                placeholder="Institución Jurídica"
+                readonly="readonly"
+                v-model="recepcion.instjuri"
+                disabled
+              />
+            </div>
+
+            <label class="col-12 col-form-label">Tramite Jurídico:</label>
+            <div class="col-12 form-group">
+              <input
+                class="form-control"
+                placeholder="Tramite Jurídico"
+                readonly="readonly"
+                v-model="recepcion.tramitejuri"
+                disabled
+              />
+            </div>
+
             <label class="col-5 col-form-label">Fecha de radicado:</label>
             <div class="col-12 form-group">
               <input
@@ -646,7 +668,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">
-              Datos del Reclamante
+              Datos del Usuario
             </h5>
           </div>
           <div class="modal-body">

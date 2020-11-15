@@ -17,7 +17,7 @@
                     <th>Usuario</th>
                     <th>Quien recepciona</th>
                     <th>Area</th>
-                    <th>Fechas</th>
+                    <th>Recepción</th>
                     <th>Mostrar QR</th>
                   </tr>
                 </thead>
@@ -213,6 +213,17 @@
                 ></a>
               </center>
              </div>
+
+  <label class="col-12 col-form-label">Email:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Nombre de persona"
+                  v-model="usurecep.usuario.persona.email"
+                  disabled
+                />
+              </div>
+
               <label class="col-12 col-form-label">Primer nombre:</label>
               <div class="col-12 form-group">
                 <input
@@ -784,20 +795,37 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">FECHAS</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Recepción</h5>
             </div>
             <div class="modal-body">
-              <label class="col-12 col-form-label">Fecha de radicado:</label>
+             <label class="col-12 col-form-label"
+                >Institución Jurídica:</label
+              >
               <div class="col-12 form-group">
                 <input
                   class="form-control"
-                  placeholder="recepcion"
-                  type="date"
+                  placeholder="Institución Jurídica"
+                 
                   readonly="readonly"
-                  v-model="recepcion.fecharadicado"
+                  v-model="recepcion.instjuri"
                   disabled
                 />
               </div>
+
+              <label class="col-12 col-form-label"
+                >Tramite Jurídico:</label
+              >
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Tramite Jurídico"
+                 
+                  readonly="readonly"
+                  v-model="recepcion.tramitejuri"
+                  disabled
+                />
+              </div>
+
 
               <label class="col-12 col-form-label"
                 >Fecha de recepcionado:</label
@@ -809,6 +837,17 @@
                   type="date"
                   readonly="readonly"
                   v-model="recepcion.fecharecepcionado"
+                  disabled
+                />
+              </div>
+               <label class="col-12 col-form-label">Fecha de radicado:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="recepcion"
+                  type="date"
+                  readonly="readonly"
+                  v-model="recepcion.fecharadicado"
                   disabled
                 />
               </div>
