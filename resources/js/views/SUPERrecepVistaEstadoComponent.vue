@@ -446,6 +446,16 @@
                 ></a>
               </center>
              </div>
+
+               <label class="col-12 col-form-label">Email:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Nombre de persona"
+                  v-model="usurecep.usuario.persona.email"
+                  disabled
+                />
+              </div>
               <label class="col-12 col-form-label">Primer nombre:</label>
               <div class="col-12 form-group">
                 <input
@@ -1776,6 +1786,8 @@ export default {
         }
       });
     },
+
+
 
     buscarusucedADM() {
       axios.get("/api/user5/" + this.usuario.persona.cedula).then((res) => {

@@ -7669,6 +7669,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     var _ref;
@@ -12122,6 +12125,16 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -66131,7 +66144,7 @@ var render = function() {
                               attrs: {
                                 "data-toggle": "modal",
                                 "data-target": "#MOSTRARModalDOC",
-                                title: "Mostrar recepcionista"
+                                title: "Mostrar Docente"
                               },
                               on: {
                                 click: function($event) {
@@ -66196,7 +66209,104 @@ var render = function() {
                 ])
               ])
             ])
-          ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "modal fade",
+              attrs: {
+                id: "MOSTRARModalDOC",
+                tabindex: "-1",
+                role: "dialog",
+                "aria-labelledby": "exampleModalLabel",
+                "aria-hidden": "true"
+              }
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "modal-dialog modal-sm",
+                  attrs: { role: "document" }
+                },
+                [
+                  _c("div", { staticClass: "modal-content" }, [
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "modal-body" },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.recepcion.id,
+                              expression: "recepcion.id"
+                            }
+                          ],
+                          attrs: {
+                            type: "hidden",
+                            placeholder: "id recep",
+                            disabled: ""
+                          },
+                          domProps: { value: _vm.recepcion.id },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.recepcion, "id", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("center", [
+                          _c(
+                            "label",
+                            { staticClass: "col-12 col-form-label" },
+                            [_vm._v("Click en el ícono")]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("center", [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-sm",
+                              attrs: {
+                                "data-toggle": "modal",
+                                "data-target": "#MOSTRARModalDOO",
+                                title: "Mostrar Docente"
+                              },
+                              on: {
+                                click: function($event) {
+                                  return _vm.buscarDOC()
+                                }
+                              }
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "fas fa-eye fa-5x",
+                                staticStyle: { color: "black" }
+                              })
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _vm._m(3)
+                      ],
+                      1
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
         ]),
         _vm._v(" "),
         _c(
@@ -66220,7 +66330,7 @@ var render = function() {
               },
               [
                 _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(2),
+                  _vm._m(4),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -66284,7 +66394,412 @@ var render = function() {
                       _vm._v(" "),
                       _c("br"),
                       _vm._v(" "),
-                      _vm._m(3)
+                      _vm._m(5)
+                    ],
+                    1
+                  )
+                ])
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "MOSTRARModalRE",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "exampleModalLabel",
+              "aria-hidden": "true",
+              "data-backdrop": "static",
+              "data-keyboard": "false"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "modal-dialog", attrs: { role: "document" } },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _vm._m(6),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.usurecep.usuario.persona.id,
+                          expression: "usurecep.usuario.persona.id"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "hidden",
+                        placeholder: "id",
+                        disabled: ""
+                      },
+                      domProps: { value: _vm.usurecep.usuario.persona.id },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.usurecep.usuario.persona,
+                            "id",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      [
+                        _c("center", [
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href:
+                                  "/HojaDeVida/" +
+                                  _vm.usurecep.usuario.persona.id,
+                                target: "_blank"
+                              }
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "fas fa-user fa-5x",
+                                staticStyle: { color: "black" },
+                                attrs: { title: "Ver Usuario" }
+                              })
+                            ]
+                          )
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
+                      _vm._v("Email:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.usurecep.usuario.persona.email,
+                            expression: "usurecep.usuario.persona.email"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          placeholder: "Nombre de persona",
+                          disabled: ""
+                        },
+                        domProps: { value: _vm.usurecep.usuario.persona.email },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.usurecep.usuario.persona,
+                              "email",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
+                      _vm._v("Primer nombre:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.usurecep.usuario.persona.prinom,
+                            expression: "usurecep.usuario.persona.prinom"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          placeholder: "Nombre de persona",
+                          disabled: ""
+                        },
+                        domProps: {
+                          value: _vm.usurecep.usuario.persona.prinom
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.usurecep.usuario.persona,
+                              "prinom",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
+                      _vm._v("Segundo nombre:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.usurecep.usuario.persona.segnom,
+                            expression: "usurecep.usuario.persona.segnom"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          placeholder: "Nombre de persona",
+                          disabled: ""
+                        },
+                        domProps: {
+                          value: _vm.usurecep.usuario.persona.segnom
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.usurecep.usuario.persona,
+                              "segnom",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
+                      _vm._v("Primer Apellido:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.usurecep.usuario.persona.priape,
+                            expression: "usurecep.usuario.persona.priape"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          placeholder: "Apellido de persona",
+                          disabled: ""
+                        },
+                        domProps: {
+                          value: _vm.usurecep.usuario.persona.priape
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.usurecep.usuario.persona,
+                              "priape",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
+                      _vm._v("Segundo Apellido:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.usurecep.usuario.persona.segape,
+                            expression: "usurecep.usuario.persona.segape"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          placeholder: "Apellido de persona",
+                          disabled: ""
+                        },
+                        domProps: {
+                          value: _vm.usurecep.usuario.persona.segape
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.usurecep.usuario.persona,
+                              "segape",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c(
+                        "div",
+                        {
+                          staticStyle: {
+                            width: "100px",
+                            height: "30px",
+                            margin: "0 auto"
+                          }
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary",
+                              attrs: {
+                                name: "CERRAR",
+                                "data-dismiss": "modal",
+                                "aria-label": "Close",
+                                type: "button"
+                              },
+                              on: {
+                                click: function($event) {
+                                  return _vm.limpiame()
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                  CERRAR\n                "
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "MOSTRARModalEST",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "exampleModalLabel",
+              "aria-hidden": "true"
+            }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "modal-dialog modal-sm",
+                attrs: { role: "document" }
+              },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _vm._m(7),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "modal-body" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.recepcion.id,
+                            expression: "recepcion.id"
+                          }
+                        ],
+                        attrs: {
+                          type: "hidden",
+                          placeholder: "id recep",
+                          disabled: ""
+                        },
+                        domProps: { value: _vm.recepcion.id },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.recepcion, "id", $event.target.value)
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("center", [
+                        _c("label", { staticClass: "col-12 col-form-label" }, [
+                          _vm._v("Click en el ícono")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("center", [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-sm",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": "#MOSTRARModalES",
+                              title: "Mostrar Estudiante"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.buscarestudiante()
+                              }
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "fas fa-eye fa-5x",
+                              staticStyle: { color: "black" }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _vm._m(8)
                     ],
                     1
                   )
@@ -66314,7 +66829,7 @@ var render = function() {
               { staticClass: "modal-dialog", attrs: { role: "document" } },
               [
                 _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(4),
+                  _vm._m(9),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
                     _c("input", {
@@ -66674,411 +67189,6 @@ var render = function() {
           {
             staticClass: "modal fade",
             attrs: {
-              id: "MOSTRARModalRE",
-              tabindex: "-1",
-              role: "dialog",
-              "aria-labelledby": "exampleModalLabel",
-              "aria-hidden": "true",
-              "data-backdrop": "static",
-              "data-keyboard": "false"
-            }
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "modal-dialog", attrs: { role: "document" } },
-              [
-                _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(5),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "modal-body" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.usurecep.usuario.persona.id,
-                          expression: "usurecep.usuario.persona.id"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "hidden",
-                        placeholder: "id",
-                        disabled: ""
-                      },
-                      domProps: { value: _vm.usurecep.usuario.persona.id },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.usurecep.usuario.persona,
-                            "id",
-                            $event.target.value
-                          )
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c("center", [
-                          _c(
-                            "a",
-                            {
-                              attrs: {
-                                href:
-                                  "/HojaDeVida/" +
-                                  _vm.usurecep.usuario.persona.id,
-                                target: "_blank"
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "fas fa-user fa-5x",
-                                staticStyle: { color: "black" },
-                                attrs: { title: "Ver Usuario" }
-                              })
-                            ]
-                          )
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-12 col-form-label" }, [
-                      _vm._v("Email:")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-12 form-group" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.usurecep.usuario.persona.email,
-                            expression: "usurecep.usuario.persona.email"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          placeholder: "Nombre de persona",
-                          disabled: ""
-                        },
-                        domProps: { value: _vm.usurecep.usuario.persona.email },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.usurecep.usuario.persona,
-                              "email",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-12 col-form-label" }, [
-                      _vm._v("Primer nombre:")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-12 form-group" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.usurecep.usuario.persona.prinom,
-                            expression: "usurecep.usuario.persona.prinom"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          placeholder: "Nombre de persona",
-                          disabled: ""
-                        },
-                        domProps: {
-                          value: _vm.usurecep.usuario.persona.prinom
-                        },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.usurecep.usuario.persona,
-                              "prinom",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-12 col-form-label" }, [
-                      _vm._v("Segundo nombre:")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-12 form-group" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.usurecep.usuario.persona.segnom,
-                            expression: "usurecep.usuario.persona.segnom"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          placeholder: "Nombre de persona",
-                          disabled: ""
-                        },
-                        domProps: {
-                          value: _vm.usurecep.usuario.persona.segnom
-                        },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.usurecep.usuario.persona,
-                              "segnom",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-12 col-form-label" }, [
-                      _vm._v("Primer Apellido:")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-12 form-group" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.usurecep.usuario.persona.priape,
-                            expression: "usurecep.usuario.persona.priape"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          placeholder: "Apellido de persona",
-                          disabled: ""
-                        },
-                        domProps: {
-                          value: _vm.usurecep.usuario.persona.priape
-                        },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.usurecep.usuario.persona,
-                              "priape",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-12 col-form-label" }, [
-                      _vm._v("Segundo Apellido:")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-12 form-group" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.usurecep.usuario.persona.segape,
-                            expression: "usurecep.usuario.persona.segape"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          placeholder: "Apellido de persona",
-                          disabled: ""
-                        },
-                        domProps: {
-                          value: _vm.usurecep.usuario.persona.segape
-                        },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.usurecep.usuario.persona,
-                              "segape",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-12 form-group" }, [
-                      _c(
-                        "div",
-                        {
-                          staticStyle: {
-                            width: "100px",
-                            height: "30px",
-                            margin: "0 auto"
-                          }
-                        },
-                        [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-primary",
-                              attrs: {
-                                name: "CERRAR",
-                                "data-dismiss": "modal",
-                                "aria-label": "Close",
-                                type: "button"
-                              },
-                              on: {
-                                click: function($event) {
-                                  return _vm.limpiame()
-                                }
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                  CERRAR\n                "
-                              )
-                            ]
-                          )
-                        ]
-                      )
-                    ])
-                  ])
-                ])
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "modal fade",
-            attrs: {
-              id: "MOSTRARModalEST",
-              tabindex: "-1",
-              role: "dialog",
-              "aria-labelledby": "exampleModalLabel",
-              "aria-hidden": "true"
-            }
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass: "modal-dialog modal-sm",
-                attrs: { role: "document" }
-              },
-              [
-                _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(6),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "modal-body" },
-                    [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.recepcion.id,
-                            expression: "recepcion.id"
-                          }
-                        ],
-                        attrs: {
-                          type: "hidden",
-                          placeholder: "id recep",
-                          disabled: ""
-                        },
-                        domProps: { value: _vm.recepcion.id },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.recepcion, "id", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("center", [
-                        _c("label", { staticClass: "col-12 col-form-label" }, [
-                          _vm._v("Click en el ícono")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("center", [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-sm",
-                            attrs: {
-                              "data-toggle": "modal",
-                              "data-target": "#MOSTRARModalES",
-                              title: "Mostrar Estudiante"
-                            },
-                            on: {
-                              click: function($event) {
-                                return _vm.buscarestudiante()
-                              }
-                            }
-                          },
-                          [
-                            _c("i", {
-                              staticClass: "fas fa-eye fa-5x",
-                              staticStyle: { color: "black" }
-                            })
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("br"),
-                      _vm._v(" "),
-                      _vm._m(7)
-                    ],
-                    1
-                  )
-                ])
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "modal fade",
-            attrs: {
               id: "MOSTRARModalES",
               tabindex: "-1",
               role: "dialog",
@@ -67094,7 +67204,7 @@ var render = function() {
               { staticClass: "modal-dialog", attrs: { role: "document" } },
               [
                 _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(8),
+                  _vm._m(10),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
                     _c("label", { staticClass: "col-12 col-form-label" }, [
@@ -67286,101 +67396,6 @@ var render = function() {
                       )
                     ])
                   ])
-                ])
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "modal fade",
-            attrs: {
-              id: "MOSTRARModalDOC",
-              tabindex: "-1",
-              role: "dialog",
-              "aria-labelledby": "exampleModalLabel",
-              "aria-hidden": "true"
-            }
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass: "modal-dialog modal-sm",
-                attrs: { role: "document" }
-              },
-              [
-                _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(9),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "modal-body" },
-                    [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.recepcion.id,
-                            expression: "recepcion.id"
-                          }
-                        ],
-                        attrs: {
-                          type: "hidden",
-                          placeholder: "id recep",
-                          disabled: ""
-                        },
-                        domProps: { value: _vm.recepcion.id },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.recepcion, "id", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("center", [
-                        _c("label", { staticClass: "col-12 col-form-label" }, [
-                          _vm._v("Click en el ícono")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("center", [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-sm",
-                            attrs: {
-                              "data-toggle": "modal",
-                              "data-target": "#MOSTRARModalDOO",
-                              title: "Mostrar Docente"
-                            },
-                            on: {
-                              click: function($event) {
-                                return _vm.buscarDOC()
-                              }
-                            }
-                          },
-                          [
-                            _c("i", {
-                              staticClass: "fas fa-eye fa-5x",
-                              staticStyle: { color: "black" }
-                            })
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("br"),
-                      _vm._v(" "),
-                      _vm._m(10)
-                    ],
-                    1
-                  )
                 ])
               ]
             )
@@ -69424,7 +69439,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n              Buscar Recepcionador\n            ")]
+        [_vm._v("Buscar Docente")]
       ),
       _vm._v(" "),
       _c(
@@ -69475,7 +69490,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n              Datos del docente\n            ")]
+        [_vm._v("\n              Buscar Recepcionador\n            ")]
       ),
       _vm._v(" "),
       _c(
@@ -69489,6 +69504,32 @@ var staticRenderFns = [
           }
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 form-group" }, [
+      _c(
+        "div",
+        { staticStyle: { width: "100px", height: "30px", margin: "0 auto" } },
+        [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              attrs: {
+                name: "CERRAR",
+                "data-dismiss": "modal",
+                "aria-label": "Close",
+                type: "button"
+              }
+            },
+            [_vm._v("\n                  CERRAR\n                ")]
+          )
+        ]
       )
     ])
   },
@@ -69576,7 +69617,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n              Datos del Estudiante\n            ")]
+        [_vm._v("\n              Datos del docente\n            ")]
       ),
       _vm._v(" "),
       _c(
@@ -69601,7 +69642,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Buscar Docente")]
+        [_vm._v("\n              Datos del Estudiante\n            ")]
       ),
       _vm._v(" "),
       _c(
@@ -69615,32 +69656,6 @@ var staticRenderFns = [
           }
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 form-group" }, [
-      _c(
-        "div",
-        { staticStyle: { width: "100px", height: "30px", margin: "0 auto" } },
-        [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary",
-              attrs: {
-                name: "CERRAR",
-                "data-dismiss": "modal",
-                "aria-label": "Close",
-                type: "button"
-              }
-            },
-            [_vm._v("\n                  CERRAR\n                ")]
-          )
-        ]
       )
     ])
   },
@@ -79661,6 +79676,41 @@ var render = function() {
                       ],
                       1
                     ),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
+                      _vm._v("Email:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.usurecep.usuario.persona.email,
+                            expression: "usurecep.usuario.persona.email"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          placeholder: "Nombre de persona",
+                          disabled: ""
+                        },
+                        domProps: { value: _vm.usurecep.usuario.persona.email },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.usurecep.usuario.persona,
+                              "email",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Primer nombre:")
