@@ -40,7 +40,7 @@
                       <div>
                         <center>
                           <a
-                            :href="'/HojaDeVida/' + recepcion.usu_id"
+                            :href="'/HojaDeVidaROLES/' + recepcion.usu_id"
                             target="_blank"
                             ><i
                               title="Ver Usuario"
@@ -284,7 +284,7 @@
               <div>
                 <center>
                   <a
-                    :href="'/HojaDeVida/' + usurecep.usuario.persona.id"
+                    :href="'/HojaDeVidaROLES/' + usurecep.usuario.persona.id"
                     target="_blank"
                     ><i
                       title="Ver Usuario"
@@ -470,7 +470,7 @@
               <div>
                 <center>
                   <a
-                    :href="'/HojaDeVida/' + usurecep.usuario.persona.id"
+                    :href="'/HojaDeVidaROLES/' + usurecep.usuario.persona.id"
                     target="_blank"
                     ><i
                       title="Ver Usuario"

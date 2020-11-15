@@ -66188,7 +66188,8 @@ var render = function() {
                                   "a",
                                   {
                                     attrs: {
-                                      href: "/HojaDeVida/" + recepcion.usu_id,
+                                      href:
+                                        "/HojaDeVidaROLES/" + recepcion.usu_id,
                                       target: "_blank"
                                     }
                                   },
@@ -66590,7 +66591,7 @@ var render = function() {
                             {
                               attrs: {
                                 href:
-                                  "/HojaDeVida/" +
+                                  "/HojaDeVidaROLES/" +
                                   _vm.usurecep.usuario.persona.id,
                                 target: "_blank"
                               }
@@ -66995,7 +66996,7 @@ var render = function() {
                             {
                               attrs: {
                                 href:
-                                  "/HojaDeVida/" +
+                                  "/HojaDeVidaROLES/" +
                                   _vm.usurecep.usuario.persona.id,
                                 target: "_blank"
                               }
@@ -78966,7 +78967,8 @@ var render = function() {
                                   "a",
                                   {
                                     attrs: {
-                                      href: "/HojaDeVida/" + recepcion.usu_id,
+                                      href:
+                                        "/HojaDeVidaROLES/" + recepcion.usu_id,
                                       target: "_blank"
                                     }
                                   },
@@ -79408,7 +79410,7 @@ var render = function() {
                             {
                               attrs: {
                                 href:
-                                  "/HojaDeVida/" +
+                                  "/HojaDeVidaROLES/" +
                                   _vm.usurecep.usuario.persona.id,
                                 target: "_blank"
                               }
@@ -79783,7 +79785,7 @@ var render = function() {
                             {
                               attrs: {
                                 href:
-                                  "/HojaDeVida/" +
+                                  "/HojaDeVidaROLES/" +
                                   _vm.usurecep.usuario.persona.id,
                                 target: "_blank"
                               }
@@ -84033,7 +84035,8 @@ var render = function() {
                                   "a",
                                   {
                                     attrs: {
-                                      href: "/HojaDeVida/" + recepcion.usu_id,
+                                      href:
+                                        "/HojaDeVidaROLES/" + recepcion.usu_id,
                                       target: "_blank"
                                     }
                                   },
@@ -84516,7 +84519,7 @@ var render = function() {
                             {
                               attrs: {
                                 href:
-                                  "/HojaDeVida/" +
+                                  "/HojaDeVidaROLES/" +
                                   _vm.usurecep.usuario.persona.id,
                                 target: "_blank"
                               }
@@ -84891,7 +84894,7 @@ var render = function() {
                             {
                               attrs: {
                                 href:
-                                  "/HojaDeVida/" +
+                                  "/HojaDeVidaROLES/" +
                                   _vm.usurecep.usuario.persona.id,
                                 target: "_blank"
                               }
