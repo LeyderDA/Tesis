@@ -11127,6 +11127,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -16559,6 +16571,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -74339,6 +74352,8 @@ var render = function() {
     "div",
     { staticClass: "card", staticStyle: { "margin-top": "25px" } },
     [
+      _c("br"),
+      _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "card-body row" }, [
@@ -74408,55 +74423,38 @@ var render = function() {
                               )
                             ]),
                             _vm._v(" "),
-                            _c("br"),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                attrs: {
-                                  href: "/add_archivos/" + reclamante.id
-                                }
-                              },
-                              [
-                                _c("i", {
-                                  staticClass: "fas fas fa-user fa-2x",
-                                  staticStyle: { color: "black" },
-                                  attrs: { title: "Agregar Foto" }
-                                })
-                              ]
-                            ),
-                            _vm._v(" "),
                             _c("td", [
                               _c(
-                                "button",
+                                "a",
                                 {
-                                  staticClass: "btn btn-success btn-sm",
                                   attrs: {
-                                    "data-toggle": "modal",
-                                    "data-target": "#editarModal",
-                                    title: "Editar datos del Reclamante"
-                                  },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.editarForm(reclamante, index)
-                                    }
+                                    href: "/add_archivos/" + reclamante.id
                                   }
                                 },
-                                [_c("i", { staticClass: "fas fa-pencil-alt" })]
+                                [
+                                  _c("i", {
+                                    staticClass: "fas fa-archive fa-2x",
+                                    staticStyle: { color: "black" },
+                                    attrs: { title: "Agregar Foto" }
+                                  })
+                                ]
                               ),
                               _vm._v(" "),
                               _c(
-                                "button",
+                                "a",
                                 {
-                                  staticClass: "btn btn-danger btn-sm",
-                                  attrs: { title: "Eliminar Reclamante" },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.eliminar(reclamante, index)
-                                    }
+                                  attrs: {
+                                    href: "/HojaDeVidaR/" + reclamante.id,
+                                    target: "_blank"
                                   }
                                 },
-                                [_c("i", { staticClass: "fas fa-trash-alt" })]
+                                [
+                                  _c("i", {
+                                    staticClass: "fas fa-user fa-2x",
+                                    staticStyle: { color: "black" },
+                                    attrs: { title: "Ver Usuario" }
+                                  })
+                                ]
                               )
                             ]),
                             _vm._v(" "),
@@ -74492,6 +74490,40 @@ var render = function() {
                                     attrs: { title: "Ir a los archivos" }
                                   })
                                 ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-success btn-sm",
+                                  attrs: {
+                                    "data-toggle": "modal",
+                                    "data-target": "#editarModal",
+                                    title: "Editar datos del Reclamante"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.editarForm(reclamante, index)
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "fas fa-pencil-alt" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-danger btn-sm",
+                                  attrs: { title: "Eliminar Reclamante" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.eliminar(reclamante, index)
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "fas fa-trash-alt" })]
                               )
                             ])
                           ])
@@ -75490,8 +75522,8 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("h2", { staticClass: "text-center mb-2 card-title" }, [
-        _vm._v("Registrando Reclamante")
+      _c("h1", { staticClass: "text-center mb-2 card-title" }, [
+        _vm._v("Listado de usuarios")
       ])
     ])
   },
@@ -75521,9 +75553,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Foto")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Opciones")]),
+        _c("th", [_vm._v("Archivos")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Archivos")])
+        _c("th", [_vm._v("Opciones")])
       ])
     ])
   },
@@ -85920,7 +85952,7 @@ var render = function() {
                                 },
                                 [
                                   _c("i", {
-                                    staticClass: "fas fa-save fa-2x",
+                                    staticClass: "fas fa-archive fa-2x",
                                     staticStyle: { color: "black" },
                                     attrs: { title: "Agregar Foto" }
                                   })
@@ -85937,8 +85969,7 @@ var render = function() {
                                 },
                                 [
                                   _c("i", {
-                                    staticClass:
-                                      "fas fa-arrow-alt-circle-right fa-2x",
+                                    staticClass: "fas fa-user fa-2x",
                                     staticStyle: { color: "black" },
                                     attrs: { title: "Ver Usuario" }
                                   })

@@ -32,7 +32,7 @@
                       <td>
                         <div class="col-11">
                           <select
-                          disabled
+                            disabled
                             class="form-control"
                             placeholder="Rol"
                             type="integer"
@@ -70,14 +70,15 @@
                         <a :href="'/add_archivos/' + usuario.id">
                           <i
                             title="Agregar Foto"
-                            class="fas fa-save fa-2x"
+                          
+                            class="fas fa-archive fa-2x"
                             style="color: black"
                           ></i>
                         </a>
                         <a :href="'/HojaDeVida/' + usuario.id" target="_blank"
                           ><i
                             title="Ver Usuario"
-                            class="fas fa-arrow-alt-circle-right fa-2x"
+                            class="fas fa-user fa-2x"
                             style="color: black"
                           ></i
                         ></a>

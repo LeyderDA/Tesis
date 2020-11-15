@@ -6,7 +6,7 @@
               <br />
               <br />
               <br />   
-              <h1 class="text-center mb-2 card-title">Datos del Reclamante</h1>
+              <h1 class="text-center mb-2 card-title">Datos</h1>
                   </div>
                   <div class="card-body row">     
                 

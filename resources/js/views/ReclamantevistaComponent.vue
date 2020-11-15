@@ -1,7 +1,8 @@
 <template>
   <div class="card" style="margin-top: 25px">
+    <br />
     <div>
-      <h2 class="text-center mb-2 card-title">Registrando Reclamante</h2>
+      <h1 class="text-center mb-2 card-title">Listado de usuarios</h1>
     </div>
     <div class="card-body row">
       <div class="container">
@@ -22,8 +23,8 @@
                       <th>Entidad Reclamante</th>
                       <th>Persona Relacionada</th>
                       <th>Foto</th>
-                      <th>Opciones</th>
                       <th>Archivos</th>
+                      <th>Opciones</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -51,15 +52,43 @@
                           <i class="fas fa-eye fa-2x" style="color: black"></i>
                         </button>
                       </td>
-                      <br />
-                      <a :href="'/add_archivos/' + reclamante.id">
-                        <i
-                          title="Agregar Foto"
-                          class="fas fas fa-user fa-2x"
-                          style="color: black"
-                        ></i>
-                      </a>
+                      <td>
+                        <a :href="'/add_archivos/' + reclamante.id">
+                          <i
+                            title="Agregar Foto"
+                            class="fas fa-archive fa-2x"
+                            style="color: black"
+                          ></i>
+                        </a>
 
+                        <a
+                          :href="'/HojaDeVidaR/' + reclamante.id"
+                          target="_blank"
+                          ><i
+                            title="Ver Usuario"
+                            class="fas fa-user fa-2x"
+                            style="color: black"
+                          ></i
+                        ></a>
+                      </td>
+
+                      <td>
+                        <a :href="'/add_archivosRecla/' + reclamante.id">
+                          <i
+                            title="Agregar Archivos"
+                            class="fas fa-save fa-2x"
+                            style="color: black"
+                          ></i>
+                        </a>
+
+                        <a :href="'/view_arch_recla/' + reclamante.id">
+                          <i
+                            title="Ir a los archivos"
+                            class="fas fa-arrow-alt-circle-right fa-2x"
+                            style="color: black"
+                          ></i>
+                        </a>
+                      </td>
                       <td>
                         <button
                           class="btn btn-success btn-sm"
@@ -77,23 +106,6 @@
                         >
                           <i class="fas fa-trash-alt"></i>
                         </button>
-                      </td>
-                      <td>
-                        <a :href="'/add_archivosRecla/' + reclamante.id">
-                          <i
-                            title="Agregar Archivos"
-                            class="fas fa-save fa-2x"
-                            style="color: black"
-                          ></i>
-                        </a>
-
-                        <a :href="'/view_arch_recla/' + reclamante.id">
-                          <i
-                            title="Ir a los archivos"
-                            class="fas fa-arrow-alt-circle-right fa-2x"
-                            style="color: black"
-                          ></i>
-                        </a>
                       </td>
                     </tr>
                   </tbody>
@@ -542,7 +554,7 @@ export default {
         persoentidreclama: "",
         per_id: "",
         descrdiscap: "",
-        email:"",
+        email: "",
 
         persona: {
           id: "",
