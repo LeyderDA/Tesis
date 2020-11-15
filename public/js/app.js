@@ -7362,6 +7362,66 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     var _ref;
@@ -7709,6 +7769,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     editarForm: function editarForm(recepcion, index) {
       this.recepcion = recepcion;
       this.recepcion.index = index;
+      console.log(recepcion);
     },
     editar: function editar() {
       var _this12 = this;
@@ -64951,26 +65012,28 @@ var render = function() {
                       return _c("tr", { key: recepcion.index }, [
                         _c("td", [
                           _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-sm",
-                              attrs: {
-                                "data-toggle": "modal",
-                                "data-target": "#MOSTRARModalEST",
-                                title: "Mostrar Estudiante"
-                              },
-                              on: {
-                                click: function($event) {
-                                  return _vm.editarForm(recepcion)
-                                }
-                              }
-                            },
+                            "div",
                             [
-                              _c("i", {
-                                staticClass: "fas fa-eye fa-2x",
-                                staticStyle: { color: "black" }
-                              })
-                            ]
+                              _c("center", [
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: {
+                                      href: "/HojaDeVida/" + recepcion.usu_id,
+                                      target: "_blank"
+                                    }
+                                  },
+                                  [
+                                    _c("i", {
+                                      staticClass: "fas fa-user fa-2x",
+                                      staticStyle: { color: "black" },
+                                      attrs: { title: "Ver Usuario" }
+                                    })
+                                  ]
+                                )
+                              ])
+                            ],
+                            1
                           )
                         ]),
                         _vm._v(" "),
@@ -65197,6 +65260,63 @@ var render = function() {
                   _vm._m(4),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.usurecep.usuario.persona.id,
+                          expression: "usurecep.usuario.persona.id"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "hidden",
+                        placeholder: "id",
+                        disabled: ""
+                      },
+                      domProps: { value: _vm.usurecep.usuario.persona.id },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.usurecep.usuario.persona,
+                            "id",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      [
+                        _c("center", [
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href:
+                                  "/HojaDeVida/" +
+                                  _vm.usurecep.usuario.persona.id,
+                                target: "_blank"
+                              }
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "fas fa-user fa-5x",
+                                staticStyle: { color: "black" },
+                                attrs: { title: "Ver Usuario" }
+                              })
+                            ]
+                          )
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
                     _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Primer nombre:")
                     ]),
@@ -66730,6 +66850,31 @@ var render = function() {
                   _vm._m(15),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
+                    _c(
+                      "div",
+                      [
+                        _c("center", [
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href: "/HojaDeVidaR/" + _vm.recepcion.recla_id,
+                                target: "_blank"
+                              }
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "fas fa-user fa-5x",
+                                staticStyle: { color: "black" },
+                                attrs: { title: "Ver Usuario" }
+                              })
+                            ]
+                          )
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
                     _c("label", { staticClass: "col-12 col-form-label" }, [
                       _vm._v("Nombre del reclamante:")
                     ]),
@@ -66793,6 +66938,41 @@ var render = function() {
                             _vm.$set(
                               _vm.recepcion,
                               "priape",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
+                      _vm._v("Apellido del reclamante:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.recepcion.email,
+                            expression: "recepcion.email"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          placeholder: "nombre de persona",
+                          disabled: ""
+                        },
+                        domProps: { value: _vm.recepcion.email },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.recepcion,
+                              "email",
                               $event.target.value
                             )
                           }
@@ -67588,9 +67768,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Consultorio")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Reclamante")]),
+        _c("th", [_vm._v("Usuario")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Recepcionista")]),
+        _c("th", [_vm._v("Quien recepciona")]),
         _vm._v(" "),
         _c("th", [_vm._v("Area")]),
         _vm._v(" "),
@@ -67659,7 +67839,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n              Datos del Recepcionista\n            ")]
+        [_vm._v("\n              Datos del quien recepciona\n            ")]
       ),
       _vm._v(" "),
       _c(
@@ -67913,7 +68093,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n              Datos del Reclamante\n            ")]
+        [_vm._v("\n              Datos del Usuario\n            ")]
       )
     ])
   },
@@ -87221,7 +87401,7 @@ var render = function() {
                               attrs: {
                                 "data-toggle": "modal",
                                 "data-target": "#MOSTRARModalRECEP",
-                                title: "Mostrar recepcionista"
+                                title: "Mostrar quien recepciona"
                               },
                               on: {
                                 click: function($event) {
@@ -89080,9 +89260,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Consultorio")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Reclamante")]),
+        _c("th", [_vm._v("Usuario")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Recepcionista")]),
+        _c("th", [_vm._v("Quien recepciona")]),
         _vm._v(" "),
         _c("th", [_vm._v("Area")]),
         _vm._v(" "),

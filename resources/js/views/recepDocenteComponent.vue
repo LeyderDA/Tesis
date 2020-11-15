@@ -15,8 +15,8 @@
                     <th>Estudiante</th>
                     <th>Recepcionado</th>
                     <th>Consultorio</th>
-                    <th>Reclamante</th>
-                    <th>Recepcionista</th>
+                    <th>Usuario</th>
+                    <th>Quien recepciona</th>
                     <th>Area</th>
                     <th>Fechas</th>
                     <th>Agregar observación</th>
@@ -68,7 +68,7 @@
                         data-toggle="modal"
                         data-target="#MOSTRARModalRECEP"
                         @click="editarForm(recepcion)"
-                        title="Mostrar recepcionista"
+                        title="Mostrar quien recepciona"
                       >
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
@@ -215,8 +215,8 @@
                 v-model="usurecep.usuario.persona.id"
                 disabled
               />
-            </div>
-            <div>
+             </div>
+             <div>
               <center>
                 <a
                   :href="'/HojaDeVida/' + usurecep.usuario.persona.id"
@@ -228,7 +228,7 @@
                   ></i
                 ></a>
               </center>
-            </div>
+             </div>
 
             <label class="col-5 col-form-label">Usuario:</label>
             <div class="col-12 form-group">
