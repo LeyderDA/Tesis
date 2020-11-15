@@ -16,6 +16,7 @@
                     <th>Consultorio</th>
                     <th>Usuario</th>
                     <th>Quien recepciona</th>
+                    <th>Docente</th>
                     <th>Area</th>
                     <th>Recepción</th>
                     <th>Mostrar QR</th>
@@ -74,6 +75,19 @@
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
                     </td>
+
+                    <td>
+                      <button
+                        class="btn btn-sm"
+                        data-toggle="modal"
+                        data-target="#MOSTRARModalDOC"
+                        @click="editarForm(recepcion)"
+                        title="Mostrar recepcionista"
+                      >
+                        <i class="fas fa-eye fa-2x" style="color: black"></i>
+                      </button>
+                    </td>
+
                     <td>{{ recepcion.area.nombre }}</td>
                     <td>
                       <button
@@ -166,6 +180,143 @@
         </div>
       </div>
       <!--modal de MOSTRAR EL RECE -->
+
+      <!--modal de MOSTRAR EL DOCENTE REAL -->
+      <div
+        class="modal fade"
+        id="MOSTRARModalDOO"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+        data-backdrop="static"
+        data-keyboard="false"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Datos del docente
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <input
+                type="hidden"
+                class="form-control"
+                placeholder="id"
+                v-model="usurecep.usuario.persona.id"
+                disabled
+              />
+              <div>
+                <center>
+                  <a
+                    :href="'/HojaDeVida/' + usurecep.usuario.persona.id"
+                    target="_blank"
+                    ><i
+                      title="Ver Usuario"
+                      class="fas fa-user fa-5x"
+                      style="color: black"
+                    ></i
+                  ></a>
+                </center>
+              </div>
+              <label class="col-5 col-form-label">Usuario:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Username"
+                  v-model="usurecep.usuario.persona.username"
+                  disabled
+                />
+              </div>
+
+              <label class="col-5 col-form-label">Email:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Email"
+                  v-model="usurecep.usuario.persona.email"
+                  disabled
+                />
+              </div>
+              <label class="col-5 col-form-label">Cédula:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Cédula"
+                  v-model="usurecep.usuario.persona.cedula"
+                  disabled
+                />
+              </div>
+              <label class="col-12 col-form-label">Primer nombre:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Nombre de persona"
+                  v-model="usurecep.usuario.persona.prinom"
+                  disabled
+                />
+              </div>
+              <label class="col-12 col-form-label">Segundo nombre:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Nombre de persona"
+                  v-model="usurecep.usuario.persona.segnom"
+                  disabled
+                />
+              </div>
+              <label class="col-12 col-form-label">Primer Apellido:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Apellido de persona"
+                  v-model="usurecep.usuario.persona.priape"
+                  disabled
+                />
+              </div>
+              <label class="col-12 col-form-label">Segundo Apellido:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Apellido de persona"
+                  v-model="usurecep.usuario.persona.segape"
+                  disabled
+                />
+              </div>
+
+              <br />
+              <br />
+
+              <div class="col-12 form-group">
+                <div style="width: 100px; height: 30px; margin: 0 auto">
+                  <button
+                    name="CERRAR"
+                    class="btn btn-primary"
+                    @click="limpiame()"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    type="button"
+                  >
+                    CERRAR
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal de MOSTRAR EL DOCENTE -->
+
       <!--modal de MOSTRAR EL RECE -->
       <div
         class="modal fade"
@@ -200,21 +351,21 @@
                 v-model="usurecep.usuario.persona.id"
                 disabled
               />
-               <div>
-              <center>
-                <a
-                  :href="'/HojaDeVida/' + usurecep.usuario.persona.id"
-                  target="_blank"
-                  ><i
-                    title="Ver Usuario"
-                    class="fas fa-user fa-5x"
-                    style="color: black"
-                  ></i
-                ></a>
-              </center>
-             </div>
+              <div>
+                <center>
+                  <a
+                    :href="'/HojaDeVida/' + usurecep.usuario.persona.id"
+                    target="_blank"
+                    ><i
+                      title="Ver Usuario"
+                      class="fas fa-user fa-5x"
+                      style="color: black"
+                    ></i
+                  ></a>
+                </center>
+              </div>
 
-  <label class="col-12 col-form-label">Email:</label>
+              <label class="col-12 col-form-label">Email:</label>
               <div class="col-12 form-group">
                 <input
                   class="form-control"
@@ -435,7 +586,71 @@
         </div>
       </div>
       <!--modal de MOSTRAR EL ESTUDIANTE -->
+      <!--modal de MOSTRAR EL DOCENTE-->
+      <div
+        class="modal fade"
+        id="MOSTRARModalDOC"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Buscar Docente</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input
+                type="hidden"
+                placeholder="id recep"
+                v-model="recepcion.id"
+                disabled
+              />
+              <center>
+                <label class="col-12 col-form-label">Click en el ícono</label>
+              </center>
+              <center>
+                <button
+                  class="btn btn-sm"
+                  data-toggle="modal"
+                  data-target="#MOSTRARModalDOO"
+                  @click="buscarDOC()"
+                  title="Mostrar Docente"
+                >
+                  <i class="fas fa-eye fa-5x" style="color: black"></i>
+                </button>
+              </center>
 
+              <br />
+
+              <div class="col-12 form-group">
+                <div style="width: 100px; height: 30px; margin: 0 auto">
+                  <button
+                    name="CERRAR"
+                    class="btn btn-primary"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    type="button"
+                  >
+                    CERRAR
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal de MOSTRAR EL DOCENTE -->
+      <!-- --------------- -->
       <!--modal de editar -->
       <div
         class="modal fade"
@@ -783,6 +998,8 @@
       </div>
       <!--modal de agg PROFESOR -->
 
+      <!-- -------------- -->
+
       <!--modal de MOSTRAR EL RESTO DE CAMPOS-->
       <div
         class="modal fade"
@@ -798,34 +1015,27 @@
               <h5 class="modal-title" id="exampleModalLabel">Recepción</h5>
             </div>
             <div class="modal-body">
-             <label class="col-12 col-form-label"
-                >Institución Jurídica:</label
-              >
+              <label class="col-12 col-form-label">Institución Jurídica:</label>
               <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Institución Jurídica"
-                 
                   readonly="readonly"
                   v-model="recepcion.instjuri"
                   disabled
                 />
               </div>
 
-              <label class="col-12 col-form-label"
-                >Tramite Jurídico:</label
-              >
+              <label class="col-12 col-form-label">Tramite Jurídico:</label>
               <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Tramite Jurídico"
-                 
                   readonly="readonly"
                   v-model="recepcion.tramitejuri"
                   disabled
                 />
               </div>
-
 
               <label class="col-12 col-form-label"
                 >Fecha de recepcionado:</label
@@ -840,7 +1050,7 @@
                   disabled
                 />
               </div>
-               <label class="col-12 col-form-label">Fecha de radicado:</label>
+              <label class="col-12 col-form-label">Fecha de radicado:</label>
               <div class="col-12 form-group">
                 <input
                   class="form-control"
@@ -961,9 +1171,7 @@
                 />
               </div>
 
-              <label class="col-12 col-form-label"
-                >Email:</label
-              >
+              <label class="col-12 col-form-label">Email:</label>
 
               <div class="col-12 form-group">
                 <input
@@ -1542,6 +1750,20 @@ export default {
           this.recepcioness = res.data;
           console.log(res.data);
         });
+      });
+    },
+
+    buscarDOC() {
+      axios.get("/api/recepcionDO/" + this.recepcion.id).then((res) => {
+        if (res.data[0] == null) {
+          console.log(res.data[0]);
+          this.esta = false;
+        } else {
+          console.log(res.data[0]);
+          let person = res.data[0];
+          this.usurecep.usuario.persona = person;
+          this.esta = true;
+        }
       });
     },
 
