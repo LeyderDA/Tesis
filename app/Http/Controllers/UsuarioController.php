@@ -153,7 +153,7 @@ class UsuarioController extends Controller
         'personas.segape'
         )
         ->where("personas.cedula","=",$cedula)
-        ->where("users.id","=",$id)
+        //->where("users.rol_id","=",1 or 2)
         ->get(); 
         return  $usuario;   
     }

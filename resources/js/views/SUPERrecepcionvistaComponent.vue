@@ -14,8 +14,9 @@
                     <th>Estudiante</th>
                     <th>Recepcionado</th>
                     <th>Consultorio</th>
-                    <th>Reclamante</th>
-                    <th>Recepcionista</th>
+                    <th>Usuario</th>
+                    <th>Quien Recepciona</th>
+                    <th>Docente</th>
                     <th>Area</th>
                     <th>Recepción</th>
                     <th>Asignar Recepción</th>
@@ -75,6 +76,26 @@
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
                     </td>
+
+
+
+<td>
+                      <button
+                        class="btn btn-sm"
+                        data-toggle="modal"
+                        data-target="#MOSTRARModalDOC"
+                        @click="editarForm(recepcion)"
+                        title="Mostrar recepcionista"
+                      >
+                        <i class="fas fa-eye fa-2x" style="color: black"></i>
+                      </button>
+                    </td>
+
+
+
+
+
+
 
                     <td>{{ recepcion.area.nombre }}</td>
                     <td>
@@ -210,6 +231,89 @@
         </div>
       </div>
       <!--modal de MOSTRAR EL RECE -->
+
+
+
+
+
+<!-- -------------- -->
+<!--modal de MOSTRAR EL RECEPCIONISTA-->
+      <div
+        class="modal fade"
+        id="MOSTRARModalDOC"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Buscar Docente
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input
+                type="hidden"
+                placeholder="id recep"
+                v-model="recepcion.id"
+                disabled
+              />
+              <center>
+                <label class="col-12 col-form-label">Click en el ícono</label>
+              </center>
+              <center>
+                <button
+                  class="btn btn-sm"
+                  data-toggle="modal"
+                  data-target="#MOSTRARModalRE"
+                  @click="buscarDOC()"
+                  title="Mostrar Docente"
+                >
+                  <i class="fas fa-eye fa-5x" style="color: black"></i>
+                </button>
+              </center>
+
+              <br />
+
+              <div class="col-12 form-group">
+                <div style="width: 100px; height: 30px; margin: 0 auto">
+                  <button
+                    name="CERRAR"
+                    class="btn btn-primary"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    type="button"
+                  >
+                    CERRAR
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal de MOSTRAR EL RECE -->
+<!-- --------------- -->
+
+
+
+
+
+
+
+
+
+
       <!--modal de MOSTRAR EL RECE -->
       <div
         class="modal fade"
@@ -786,7 +890,7 @@
                     class="btn btn-primary"
                     data-toggle="modal"
                     data-target="#aggusuModal"
-                    title="Asignar caso al recepcionista"
+                    title="Asignar quien recepciona"
                   >
                     Asignar quien recepciona
                   </button>
@@ -859,7 +963,14 @@
                 onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                 v-model="usuario.persona.cedula"
               />
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
               <div class="col-12 form-group" v-if="true">
                 <button
                   class="btn btn-primary btn-block"
@@ -868,7 +979,7 @@
                   @click="buscarusucedADM()"
                   :disabled="!isFormValidusuario()"
                 >
-                  BUSCAR ADMINISTRATIVO
+                  BUSCAR
                 </button>
               </div>
             </div>
@@ -884,14 +995,14 @@
                 CERRAR
               </button>
 
-              <button
+              <!-- <button
                 type="button"
                 class="btn btn-primary"
                 @click="GUARDARASIGNACION()"
                 data-dismiss="modal"
               >
                 ASIGNAR
-              </button>
+              </button> -->
             </div>
           </div>
         </div>
@@ -913,7 +1024,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
-                Asignar abogado en frmación a la Recepción
+                Asignar abogado en formación a la Recepción
               </h5>
               <button
                 type="button"
@@ -937,7 +1048,14 @@
                 onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                 v-model="usuarioo.persona.cedula"
               />
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
               <div class="col-12 form-group" v-if="true">
                 <button
                   class="btn btn-primary btn-block"
@@ -962,14 +1080,14 @@
                 CERRAR
               </button>
 
-              <button
+              <!-- <button
                 type="button"
                 class="btn btn-primary"
                 @click="editarEST()"
                 data-dismiss="modal"
               >
                 ASIGNAR
-              </button>
+              </button> -->
             </div>
           </div>
         </div>
@@ -1016,6 +1134,14 @@
                 onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
                 v-model="usuario.persona.cedula"
               />
+              <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
               <div class="col-12 form-group" v-if="true">
                 <button
@@ -1802,6 +1928,21 @@ export default {
   methods: {
     buscarrecep() {
       axios.get("/api/recepcionRE/" + this.recepcion.id).then((res) => {
+        if (res.data[0] == null) {
+          console.log(res.data[0]);
+          this.esta = false;
+        } else {
+          console.log(res.data[0]);
+          let person = res.data[0];
+          this.usurecep.usuario.persona = person;
+          this.esta = true;
+        }
+      });
+    },
+
+
+    buscarDOC() {
+      axios.get("/api/recepcionDO/" + this.recepcion.id).then((res) => {
         if (res.data[0] == null) {
           console.log(res.data[0]);
           this.esta = false;

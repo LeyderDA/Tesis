@@ -1714,6 +1714,9 @@ export default {
         fecharetiro: this.recepcion.fecharetiro,
         estado: this.recepcion.estado,
         recla_id: this.recepcion.recla_id,
+        area_id: this.area.id,
+        instjuri: this.recepcion.instjuri,
+        tramitejuri: this.recepcion.tramitejuri,
       };
       axios
         .put("/api/recepcion/" + this.recepcion.id, params)
