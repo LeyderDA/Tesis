@@ -53,7 +53,7 @@ Route::get('/qr', 'QRCode@index');
 Route::get('/qr/{id}', 'QRCode@consultarRecepcion');
 Route::get('/MiUsuario', 'HomeController@index')->name('miusuario');
 Route::get('/recepcionqr/{id}', 'RecepcionController@qrcode');
-Route::get('/Reportes', 'Controller@index')->name('reportes')->middleware('Administrativo_Middleware');
+Route::get('/Reportes', 'HomeController@index')->name('reportes')->middleware('Administrativo_Middleware');
 
 
 Route::get('/Est', 'EstadisticosController@est_recepciones')->name('estadisticos');
@@ -117,3 +117,8 @@ Route::get('/HojaDeVidaROLES/{id}', 'usuarioController@mostrarArchivosRoles');
 Route::post('fotorol','FotosRolesController@store')->name('fotorol')->middleware('auth');
 Route::post('fotorol/media','FotosRolesController@storeMedia')->name('FotoROL.storeMedia')->middleware('auth');
 Route::get('add_archivos/{id}','FotosRolesController@add_archivos')->middleware('auth');
+
+
+
+
+Route::get('/rango/{fecha_ini}/{fecha_fin}', 'RecepcionController@mostrarArchivosRoles');

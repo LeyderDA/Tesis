@@ -24,6 +24,13 @@
             >
           </li>
 
+           <li class="nav-item">
+            <router-link class="nav-link" :to="{ name: 'reportes' }"
+              >Reportes</router-link
+            >
+          </li>
+
+
           <div class="btn-group">
             <button
               type="button"

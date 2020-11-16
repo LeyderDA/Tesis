@@ -317,4 +317,13 @@ class RecepcionController extends Controller
     }
 
 
+    public function mostrarArchivosRoles($fecha_ini,$fecha_fin)
+    { 
+        $FechaIni= $fecha_ini;
+        $FechaFin= $fecha_fin;
+        return view('RecepcionesRango',compact('FechaIni'),compact('FechaFin'));
+      
+    
+    }
+
 }
