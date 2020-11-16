@@ -91,11 +91,11 @@
             </ul>
           </div>
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link class="nav-link" :to="{ name: 'area' }"
               >Crear Áreas</router-link
             >
-          </li>
+          </li> -->
 
           <div class="btn-group">
             <button
@@ -131,11 +131,35 @@
               </li>
             </ul>
           </div>
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-default dropdown-toggle nav-link"
+              data-toggle="dropdown"
+            >
+              Gestiones <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+             
           <li class="nav-item">
+            <router-link class="nav-link" :to="{ name: 'gestdocente' }"
+              >Ver Listado de mis gestiones</router-link
+            >
+          </li>
+           <li class="nav-item">
+            <router-link class="nav-link" :to="{ name: 'allgestiones' }"
+              >Ver Listado de todas las gestiones</router-link
+            >
+          </li>
+
+            </ul>
+          </div>
+
+          <!-- <li class="nav-item">
             <router-link class="nav-link" :to="{ name: 'asignacionvista' }"
               >Lista de Asignaciones</router-link
             >
-          </li>
+          </li> -->
 
           <li class="nav-item">
             <router-link class="nav-link" :to="{ name: 'miusuario' }"

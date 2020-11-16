@@ -1,8 +1,8 @@
 <template>
    <div class="card" style="margin-top:25px">
-     <br>
+       <br>
     <div>
-      <h1 class="text-center mb-2 card-title">Lista de mis gestiones relacionadas</h1>
+      <h1 class="text-center mb-2 card-title">Lista de todas las gestiones</h1>
     </div>
     <div class="card-body row">
       <br />
@@ -585,7 +585,7 @@ export default {
     };
   },
   created() {
-    axios.get("/api/gestionSUPERfiltro").then((res) => {
+    axios.get("/api/gestionSUPER").then((res) => {
       this.gestioness = res.data;
     });
   },

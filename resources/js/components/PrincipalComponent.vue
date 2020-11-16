@@ -111,6 +111,13 @@
                   >Crear Recepción</router-link
                 >
               </li>
+
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'misrecepciones' }"
+                  >Mis Recepciones</router-link
+                >
+              </li>
+
               <li class="nav-item">
                 <router-link class="nav-link" :to="{ name: 'vistaresu' }"
                   >Recepciones Activas</router-link
@@ -124,12 +131,28 @@
               </li>
             </ul>
           </div>
-
-          <li class="nav-item">
-            <router-link class="nav-link" :to="{ name: 'gestionvistasuper' }"
-              >Listar las Gestiones</router-link
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-default dropdown-toggle nav-link"
+              data-toggle="dropdown"
             >
-          </li>
+              Gestiones <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'gestdocente' }"
+                  >Ver Listado de mis gestiones</router-link
+                >
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'allgestiones' }"
+                  >Ver Listado de todas las gestiones</router-link
+                >
+              </li>
+            </ul>
+          </div>
+
           <li class="nav-item">
             <router-link class="nav-link" :to="{ name: 'asignacionvista' }"
               >Lista de Asignaciones</router-link
@@ -145,17 +168,13 @@
               Estadisticas <span></span>
             </button>
             <ul class="dropdown-menu" role="menu">
-
-
               <li class="nav-link">
                 <a :href="'/Est'">Casos activos e inactivos </a>
               </li>
 
-                <li class="nav-link">
+              <li class="nav-link">
                 <a :href="'/Est2'">Foros activos e inactivos </a>
               </li>
-
-
             </ul>
           </div>
         </ul>

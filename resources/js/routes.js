@@ -115,6 +115,14 @@ export default new Router({
         },
 
         {
+            path: '/ALLGestion',
+            name: 'allgestiones',
+            component: require('./views/gestionesvistatodasComponent.vue').default
+
+        },
+
+
+        {
             path: '/EstGestion',
             name: 'gestest',
             component: require('./views/GestionComponent.vue').default

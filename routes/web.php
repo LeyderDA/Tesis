@@ -21,6 +21,8 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware();
 Route::get('/area', 'HomeController@index')->name('area')->middleware('Administrativo_Middleware');
+Route::get('/ALLGestion', 'HomeController@index')->name('area')->middleware('Administrativo_Middleware');
+
 Route::get('/MisRecepciones', 'HomeController@index')->name('misrecepciones')->middleware('Administrativo_Middleware');
 Route::get('/RECEPESTADOSUPER', 'HomeController@index')->name('persona')->middleware('Administrativo_Middleware');
 Route::get('/persona', 'HomeController@index')->name('persona')->middleware('Administrativo_Middleware');

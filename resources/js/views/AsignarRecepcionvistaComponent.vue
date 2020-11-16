@@ -102,7 +102,7 @@
                <div>
                 <center>
                   <a
-                    :href="'/HojaDeVida/' + usurecep.usu_id"
+                    :href="'/HojaDeVidaROLES/' + usurecep.usu_id"
                     target="_blank"
                     ><i
                       title="Ver Usuario"

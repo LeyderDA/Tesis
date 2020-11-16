@@ -15,7 +15,7 @@ class DocenteMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->User()->rol_id == 4 || auth()->User()->rol_id == 1) {
+        if (auth()->User()->rol_id == 4 || auth()->User()->rol_id == 1 || auth()->User()->rol_id == 2) {
             return $next($request);
         }else{
             return redirect('/');

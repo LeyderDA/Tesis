@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Recepcion;
 use App\Gestion;
+use App\UsuRecep;
 
 class SUPERADMINController extends Controller
 {
@@ -24,6 +25,42 @@ class SUPERADMINController extends Controller
         'areas.nombre'
         )
         ->orderBy('gestion_tramites.id', 'asc')
+        ->get();
+
+        if ($request->ajax()) {
+         foreach ($gestiones as $ges) {
+           $ges->recepcion;
+        }
+        return $gestiones;
+        } else {
+         return  response()->jsson($gestiones);
+        }
+
+    }
+
+    public function indexGestionFiltro(Request $request)
+    {
+
+        $id = (new request_id)->get_id();  
+        $date = UsuRecep::all()->where('usu_id',$id);
+
+        $gestiones = Gestion::join("recepciones","gestion_tramites.recp_id","=","recepciones.id")
+        ->join("areas","recepciones.area_id","=","areas.id")  
+        ->join("usurecep","usurecep.recp_id","=","recepciones.id")      
+        ->select('gestion_tramites.*', 
+        'recepciones.recepcionado',
+        'recepciones.fecharadicado',
+        'recepciones.fecharecepcionado',
+        'recepciones.consultorio',
+        'recepciones.fechareparto',
+        'recepciones.fechapublicacion',
+        'recepciones.fecharetiro',
+        'recepciones.estado',
+        'areas.nombre'
+        )
+
+        ->orderBy('gestion_tramites.id', 'asc')
+        ->where('usurecep.usu_id','=',$id)
         ->get();
 
         if ($request->ajax()) {

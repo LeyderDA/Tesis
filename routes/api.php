@@ -87,6 +87,7 @@ Route::delete('/gestion/{id}', 'GestionController@destroy')->name('gestionElimin
 Route::put('/gestion/{id}', 'GestionController@update')->name('gestionActualizar');
 
 Route::get('/gestionSUPER', 'SUPERADMINController@indexGestion')->name('gestionSuperListar');
+Route::get('/gestionSUPERfiltro', 'SUPERADMINController@indexGestionFiltro')->name('gestionSuperListar2');
 
 //RUTAS DE API PARA ASIGNAR RECEPCIONES
 Route::post('/asigrecep', 'AsigRecepController@store')->name('asigrecepGuardar');
