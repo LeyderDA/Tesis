@@ -75,7 +75,7 @@
                         </button>
                       </td>
                       <td>
-                        <a :href="'/add_archivos/' + gestion.id">
+                        <a :href="'/add_archivosGesti/' + gestion.id">
                           <i
                             title="Agregar Archivos"
                             class="fas fa-save fa-2x"
@@ -949,7 +949,7 @@ export default {
       );
       if (confirmacion) {
         const params = {
-          gest_id : gestion.id,
+          gest_id: gestion.id,
           amplhechos: gestion.amplhechos,
           fechentrevasesor: gestion.fechentrevasesor,
           tipotramite: gestion.tipotramite,
@@ -966,8 +966,7 @@ export default {
           n_act: gestion.n_act,
           n_aseso: gestion.n_aseso,
           n_autor: gestion.n_autor,
-          asesor: gestion.asesor
-          
+          asesor: gestion.asesor,
         };
 
         axios.post("/api/gestionRespaldo", params).then((res) => {
@@ -982,7 +981,6 @@ export default {
             //   showConfirmButton: false,
             // });
           }
-         
         });
 
         axios.delete("/api/gestion/" + gestion.id).then(() => {

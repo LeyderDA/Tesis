@@ -75,7 +75,7 @@ Route::get('/CrearFir', 'FirmaController@index')->name('firma');
 Route::get('/view_arch_gest/{id}', 'GestionController@mostrarArchivos');
 Route::post('archivoGest','ArchivosGestionesController@store')->name('archivo')->middleware('auth');
 Route::post('archivoGest/media','ArchivosGestionesController@storeMedia')->name('archivoG.storeMedia')->middleware('auth');
-Route::get('add_archivos/{id}','ArchivosGestionesController@add_archivos')->middleware('auth');
+Route::get('add_archivosGesti/{id}','ArchivosGestionesController@add_archivos')->middleware('auth');
 
 
 //rutas para los archivos de las reclamantes

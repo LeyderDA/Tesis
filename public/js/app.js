@@ -62922,7 +62922,9 @@ var render = function() {
                               _c(
                                 "a",
                                 {
-                                  attrs: { href: "/add_archivos/" + gestion.id }
+                                  attrs: {
+                                    href: "/add_archivosGesti/" + gestion.id
+                                  }
                                 },
                                 [
                                   _c("i", {
