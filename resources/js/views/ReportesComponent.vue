@@ -1,15 +1,17 @@
 <template>
   <div class="card" style="margin-top: 25px">
+    <br>
     <div>
-      <h2 class="text-center mb-2 card-title">
-        Realizar una consulta por rango
-      </h2>
+      <h2 class="text-center mb-2 card-title">Consultas de Recepciones por rango de fechas</h2>
     </div>
     <div class="card-body row">
-      <form>
+      <div class="row justify-content-center col"></div>
+       <div class="container">
         <div class="row">
-          <label class="col-5 col-form-label">Fecha de inicio:</label>
-          <div class="col-6 form-group">
+          
+          <label class="col-12 col-form-label">Fecha de inicio:</label><br />
+
+          <div class="col-12 form-group">
             <input
               class="form-control"
               type="date"
@@ -17,24 +19,27 @@
             />
           </div>
 
-          <label class="col-5 col-form-label">Fecha de fin:</label>
-          <div class="col-6 form-group">
+          <label class="col-12 col-form-label">Fecha de fin:</label> <br />
+          <div class="col-12 form-group">
             <input
               class="form-control"
               type="date"
               v-model="fechas.fecha_fin"
             />
+            <br />
+            <center>
+              <a :href="'/rango/' + fechas.fecha_ini + '/' + fechas.fecha_fin">
+                <i
+                  title="Buscar Recepciones"
+                  class="fas fa-search fa-5x"
+                  style="color: black"
+                ></i>
+              </a>
+            </center>
           </div>
-          <a :href="'/rango/' + fechas.fecha_ini + '/' + fechas.fecha_fin" >
-            <i
-              title="ir al rango"
-              class="fas fa-archive fa-2x"
-              style="color: black"
-            ></i>
-          </a>
         </div>
-      </form>
-
+     
+</div>
       <br />
     </div>
   </div>

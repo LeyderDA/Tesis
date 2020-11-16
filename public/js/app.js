@@ -12185,6 +12185,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -80355,16 +80360,21 @@ var render = function() {
     "div",
     { staticClass: "card", staticStyle: { "margin-top": "25px" } },
     [
+      _c("br"),
+      _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "card-body row" }, [
-        _c("form", [
+        _c("div", { staticClass: "row justify-content-center col" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "row" }, [
-            _c("label", { staticClass: "col-5 col-form-label" }, [
+            _c("label", { staticClass: "col-12 col-form-label" }, [
               _vm._v("Fecha de inicio:")
             ]),
+            _c("br"),
             _vm._v(" "),
-            _c("div", { staticClass: "col-6 form-group" }, [
+            _c("div", { staticClass: "col-12 form-group" }, [
               _c("input", {
                 directives: [
                   {
@@ -80388,52 +80398,63 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c("label", { staticClass: "col-5 col-form-label" }, [
+            _c("label", { staticClass: "col-12 col-form-label" }, [
               _vm._v("Fecha de fin:")
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-6 form-group" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.fechas.fecha_fin,
-                    expression: "fechas.fecha_fin"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { type: "date" },
-                domProps: { value: _vm.fechas.fecha_fin },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.fechas, "fecha_fin", $event.target.value)
-                  }
-                }
-              })
-            ]),
+            _c("br"),
             _vm._v(" "),
             _c(
-              "a",
-              {
-                attrs: {
-                  href:
-                    "/rango/" +
-                    _vm.fechas.fecha_ini +
-                    "/" +
-                    _vm.fechas.fecha_fin
-                }
-              },
+              "div",
+              { staticClass: "col-12 form-group" },
               [
-                _c("i", {
-                  staticClass: "fas fa-archive fa-2x",
-                  staticStyle: { color: "black" },
-                  attrs: { title: "ir al rango" }
-                })
-              ]
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.fechas.fecha_fin,
+                      expression: "fechas.fecha_fin"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "date" },
+                  domProps: { value: _vm.fechas.fecha_fin },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.fechas, "fecha_fin", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("center", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href:
+                          "/rango/" +
+                          _vm.fechas.fecha_ini +
+                          "/" +
+                          _vm.fechas.fecha_fin
+                      }
+                    },
+                    [
+                      _c("i", {
+                        staticClass: "fas fa-search fa-5x",
+                        staticStyle: { color: "black" },
+                        attrs: { title: "Buscar Recepciones" }
+                      })
+                    ]
+                  )
+                ])
+              ],
+              1
             )
           ])
         ]),
@@ -80450,7 +80471,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("h2", { staticClass: "text-center mb-2 card-title" }, [
-        _vm._v("\n      Realizar una consulta por rango\n    ")
+        _vm._v("Consultas de Recepciones por rango de fechas")
       ])
     ])
   }
