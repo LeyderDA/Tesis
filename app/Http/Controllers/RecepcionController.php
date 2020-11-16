@@ -113,6 +113,7 @@ class RecepcionController extends Controller
         'reclamantes.embaravictima',
         'reclamantes.grupetnicovictima',
         'reclamantes.persoentidreclama',
+        'reclamantes.email',
         'personas.cedula',
         'personas.prinom',
         'personas.segnom',

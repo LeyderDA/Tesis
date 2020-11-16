@@ -60,7 +60,7 @@
                         data-toggle="modal"
                         data-target="#MOSTRARModalRECLAMANTE"
                         @click="editarForm(recepcion, index)"
-                        title="Mostrar los datos del Reclamante"
+                        title="Mostrar los datos del usuario"
                       >
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
@@ -71,7 +71,7 @@
                         data-toggle="modal"
                         data-target="#MOSTRARModalRECEP"
                         @click="editarForm(recepcion)"
-                        title="Mostrar recepcionista"
+                        title="Mostrar quien recepciona"
                       >
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>

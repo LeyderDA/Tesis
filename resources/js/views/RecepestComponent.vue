@@ -11,18 +11,34 @@
               <table class="table text-center">
                 <thead>
                   <tr>
+                    <th>Estudiante</th>
                     <th>Recepcionado</th>
                     <th>Consultorio</th>
-                    <th>Reclamante</th>
-                    <th>Recepcionista</th>
+                    <th>Usuario</th>
+                     <th>Quien Recepciona</th>
+                     <th>Docente</th>
                     <th>Area</th>
-                    <th>Fechas</th>
+                    <th>Recepción</th>
                     <th>Agregar Gestión</th>
                     <th>Opciones</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr v-for="recepcion in recepcioness" :key="recepcion.index">
+                    <td>
+                      <div>
+                        <center>
+                          <a
+                            :href="'/HojaDeVidaROLES/' + recepcion.usu_id"
+                            target="_blank"
+                            ><i
+                              title="Ver Usuario"
+                              class="fas fa-user fa-2x"
+                              style="color: black"
+                            ></i
+                          ></a>
+                        </center>
+                      </div>
                     <td>{{ recepcion.recepcionado }}</td>
                     <td>{{ recepcion.consultorio }}</td>
                     <td>
@@ -30,17 +46,29 @@
                         class="btn btn-sm"
                         data-toggle="modal"
                         data-target="#MOSTRARModalRECLAMANTE"
-                        @click="editarForm(recepcion)"
-                        title="Mostrar los datos del Reclamante"
+                        @click="editarForm(recepcion, index)"
+                        title="Mostrar los datos del usuario"
                       >
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
                     </td>
+                    
                     <td>
                       <button
                         class="btn btn-sm"
                         data-toggle="modal"
                         data-target="#MOSTRARModalRECEP"
+                        @click="editarForm(recepcion)"
+                        title="Mostrar quien recepciona"
+                      >
+                        <i class="fas fa-eye fa-2x" style="color: black"></i>
+                      </button>
+                    </td>
+                        <td>
+                      <button
+                        class="btn btn-sm"
+                        data-toggle="modal"
+                        data-target="#MOSTRARModalDOC"
                         @click="editarForm(recepcion)"
                         title="Mostrar recepcionista"
                       >
@@ -54,7 +82,7 @@
                         data-toggle="modal"
                         data-target="#MOSTRARModal"
                         @click="editarForm(recepcion)"
-                        title="Mostrar las fechas"
+                        title="Mostrar el resto de campos"
                       >
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
@@ -163,7 +191,70 @@
         </div>
       </div>
       <!--PUENTE AL FORO -->
+  <!--modal de MOSTRAR EL DOCENTE-->
+      <div
+        class="modal fade"
+        id="MOSTRARModalDOC"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Buscar Docente</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input
+                type="hidden"
+                placeholder="id recep"
+                v-model="recepcion.id"
+                disabled
+              />
+              <center>
+                <label class="col-12 col-form-label">Click en el ícono</label>
+              </center>
+              <center>
+                <button
+                  class="btn btn-sm"
+                  data-toggle="modal"
+                  data-target="#MOSTRARModalDOO"
+                  @click="buscarDOC()"
+                  title="Mostrar Docente"
+                >
+                  <i class="fas fa-eye fa-5x" style="color: black"></i>
+                </button>
+              </center>
 
+              <br />
+
+              <div class="col-12 form-group">
+                <div style="width: 100px; height: 30px; margin: 0 auto">
+                  <button
+                    name="CERRAR"
+                    class="btn btn-primary"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    type="button"
+                  >
+                    CERRAR
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal de MOSTRAR EL DOCENTE -->
       <!-- IR AL FORO -->
       <div
         class="modal fade"
@@ -478,7 +569,7 @@
         </div>
       </div>
       <!--modal de asignar gestion -->
-      <!--modal de MOSTRAR EL RESTO DE CAMPOS-->
+       <!--modal de MOSTRAR EL RESTO DE CAMPOS-->
       <div
         class="modal fade"
         id="MOSTRARModal"
@@ -490,26 +581,38 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">FECHAS</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Recepción</h5>
             </div>
             <div class="modal-body">
-              <label class="col-5 col-form-label">Fecha de radicado:</label>
+              <label class="col-12 col-form-label">Institución Jurídica:</label>
               <div class="col-12 form-group">
                 <input
-                  placeholder="recepcion"
-                  type="date"
                   class="form-control"
+                  placeholder="Institución Jurídica"
                   readonly="readonly"
-                  v-model="recepcion.fecharadicado"
+                  v-model="recepcion.instjuri"
                   disabled
                 />
               </div>
 
-              <label class="col-5 col-form-label">Fecha de recepcionado:</label>
+              <label class="col-12 col-form-label">Tramite Jurídico:</label>
               <div class="col-12 form-group">
                 <input
-                  placeholder="recepcion"
                   class="form-control"
+                  placeholder="Tramite Jurídico"
+                  readonly="readonly"
+                  v-model="recepcion.tramitejuri"
+                  disabled
+                />
+              </div>
+
+              <label class="col-12 col-form-label"
+                >Fecha de recepcionado:</label
+              >
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="recepcion"
                   type="date"
                   readonly="readonly"
                   v-model="recepcion.fecharecepcionado"
@@ -517,35 +620,45 @@
                 />
               </div>
 
-              <label class="col-5 col-form-label">Fecha de reparto:</label>
+              <label class="col-12 col-form-label">Fecha de radicado:</label>
               <div class="col-12 form-group">
                 <input
-                  placeholder="recepcion"
                   class="form-control"
+                  placeholder="recepcion"
+                  type="date"
+                  readonly="readonly"
+                  v-model="recepcion.fecharadicado"
+                  disabled
+                />
+              </div>
+
+              <label class="col-12 col-form-label">Fecha de reparto:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="recepcion"
                   type="date"
                   readonly="readonly"
                   v-model="recepcion.fechareparto"
                   disabled
                 />
               </div>
-
-              <label class="col-5 col-form-label">Fecha de publicación:</label>
+              <label class="col-12 col-form-label">Fecha de publicación:</label>
               <div class="col-12 form-group">
                 <input
-                  placeholder="recepcion"
                   class="form-control"
+                  placeholder="recepcion"
                   type="date"
                   readonly="readonly"
                   v-model="recepcion.fechapublicacion"
                   disabled
                 />
               </div>
-
-              <label class="col-5 col-form-label">Fecha de retiro:</label>
+              <label class="col-12 col-form-label">Fecha de retiro:</label>
               <div class="col-12 form-group">
                 <input
-                  placeholder="recepcion"
                   class="form-control"
+                  placeholder="recepcion"
                   type="date"
                   readonly="readonly"
                   v-model="recepcion.fecharetiro"
@@ -587,120 +700,131 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
-                Datos del Reclamante
+                Datos del Usuario
               </h5>
             </div>
             <div class="modal-body">
-              <label class="col-5 col-form-label">Nombre del reclamante:</label>
+              <div>
+                <center>
+                  <a
+                    :href="'/HojaDeVidaR/' + recepcion.recla_id"
+                    target="_blank"
+                    ><i
+                      title="Ver Usuario"
+                      class="fas fa-user fa-5x"
+                      style="color: black"
+                    ></i
+                  ></a>
+                </center>
+              </div>
+
+              <label class="col-5 col-form-label">Email:</label>
               <div class="col-12 form-group">
                 <input
-                  placeholder="nombre de persona"
                   class="form-control"
+                  placeholder="nombre de persona"
+                  v-model="recepcion.email"
+                  disabled
+                />
+              </div>
+              <label class="col-12 col-form-label"
+                >Nombre del reclamante:</label
+              >
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="nombre de persona"
                   v-model="recepcion.prinom"
                   disabled
                 />
               </div>
-
-              <label class="col-5 col-form-label"
+              <label class="col-12 col-form-label"
                 >Apellido del reclamante:</label
               >
               <div class="col-12 form-group">
                 <input
-                  placeholder="nombre de persona"
                   class="form-control"
+                  placeholder="nombre de persona"
                   v-model="recepcion.priape"
                   disabled
                 />
               </div>
-
-              <label class="col-5 col-form-label">Enfoque diferencial:</label>
-
+              <label class="col-12 col-form-label">Enfoque diferencial:</label>
               <div class="col-12 form-group">
                 <input
-                  placeholder="enfoque diferencial"
                   class="form-control"
+                  placeholder="enfoque diferencial"
                   v-model="recepcion.reclamante.enfodifervictima"
                   disabled
                 />
               </div>
-
-              <label class="col-5 col-form-label">Genero:</label>
-
+              <label class="col-12 col-form-label">Genero:</label>
               <div class="col-12 form-group">
                 <input
-                  placeholder="genero"
                   class="form-control"
+                  placeholder="genero"
                   v-model="recepcion.reclamante.genevictima"
                   disabled
                 />
               </div>
-
-              <label class="col-5 col-form-label">Edad:</label>
-
+              <label class="col-12 col-form-label">Edad:</label>
               <div class="col-12 form-group">
                 <input
-                  placeholder="edad"
                   class="form-control"
+                  placeholder="edad"
                   v-model="recepcion.reclamante.edadvictima"
                   disabled
                 />
               </div>
-
-              <label class="col-5 col-form-label">Discapacidad:</label>
-
+              <label class="col-12 col-form-label">Discapacidad:</label>
               <div class="col-12 form-group">
                 <input
-                  placeholder="discapacidad"
                   class="form-control"
+                  placeholder="discapacidad"
                   v-model="recepcion.reclamante.discapavictima"
                   disabled
                 />
               </div>
 
-              <label class="col-5 col-form-label">Estrato:</label>
-
+              <label class="col-12 col-form-label">Estrato:</label>
               <div class="col-12 form-group">
                 <input
-                  placeholder="estrato"
                   class="form-control"
+                  placeholder="estrato"
                   v-model="recepcion.reclamante.estravictima"
                   disabled
                 />
               </div>
 
-              <label class="col-5 col-form-label">Embarazo:</label>
-
+              <label class="col-12 col-form-label">Embarazo:</label>
               <div class="col-12 form-group">
                 <input
-                  placeholder="embarazo"
                   class="form-control"
+                  placeholder="embarazo"
                   v-model="recepcion.reclamante.embaravictima"
                   disabled
                 />
               </div>
 
-              <label class="col-5 col-form-label">Grupo Etnico:</label>
-
+              <label class="col-12 col-form-label">Grupo Etnico:</label>
               <div class="col-12 form-group">
                 <input
-                  placeholder="grupo etnico"
                   class="form-control"
+                  placeholder="grupo etnico"
                   v-model="recepcion.reclamante.grupetnicovictima"
                   disabled
                 />
               </div>
 
-              <label class="col-5 col-form-label">Entidad que reclama:</label>
-
+              <label class="col-12 col-form-label">Entidad que reclama:</label>
               <div class="col-12 form-group">
                 <input
-                  placeholder="entidad"
                   class="form-control"
+                  placeholder="entidad"
                   v-model="recepcion.reclamante.persoentidreclama"
                   disabled
                 />
               </div>
-
               <br />
               <br />
 
@@ -723,7 +847,7 @@
       </div>
       <!--modal de MOSTRAR EL RECLAMANTE -->
 
-      <!--modal de MOSTRAR EL RECEPCIONISTA-->
+     <!--modal de MOSTRAR EL RECEPCIONISTA-->
       <div
         class="modal fade"
         id="MOSTRARModalRECEP"
@@ -749,23 +873,21 @@
             </div>
             <div class="modal-body">
               <input
-                class="form-control"
                 type="hidden"
                 placeholder="id recep"
                 v-model="recepcion.id"
                 disabled
               />
               <center>
-                <label class="col-12 col-form-label">Oprima el ícono:</label>
+                <label class="col-12 col-form-label">Click en el ícono</label>
               </center>
-
               <center>
                 <button
                   class="btn btn-sm"
                   data-toggle="modal"
                   data-target="#MOSTRARModalRE"
                   @click="buscarrecep()"
-                  title="Mostrar recepcionista"
+                  title="Mostrar quien recepciona"
                 >
                   <i class="fas fa-eye fa-5x" style="color: black"></i>
                 </button>
@@ -775,17 +897,15 @@
 
               <div class="col-12 form-group">
                 <div style="width: 100px; height: 30px; margin: 0 auto">
-                  <center>
-                    <button
-                      name="CERRAR"
-                      class="btn btn-primary"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                      type="button"
-                    >
-                      CERRAR
-                    </button>
-                  </center>
+                  <button
+                    name="CERRAR"
+                    class="btn btn-primary"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    type="button"
+                  >
+                    CERRAR
+                  </button>
                 </div>
               </div>
             </div>
@@ -793,7 +913,143 @@
         </div>
       </div>
       <!--modal de MOSTRAR EL RECE -->
-      <!--modal de MOSTRAR EL RECE -->
+      <!--modal de MOSTRAR EL DOCENTE REAL -->
+      <div
+        class="modal fade"
+        id="MOSTRARModalDOO"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+        data-backdrop="static"
+        data-keyboard="false"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Datos del docente
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <input
+                type="hidden"
+                class="form-control"
+                placeholder="id"
+                v-model="usurecep.usuario.persona.id"
+                disabled
+              />
+              <div>
+                <center>
+                  <a
+                    :href="'/HojaDeVidaROLES/' + usurecep.usuario.persona.id"
+                    target="_blank"
+                    ><i
+                      title="Ver Usuario"
+                      class="fas fa-user fa-5x"
+                      style="color: black"
+                    ></i
+                  ></a>
+                </center>
+              </div>
+              <label class="col-5 col-form-label">Usuario:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Username"
+                  v-model="usurecep.usuario.persona.username"
+                  disabled
+                />
+              </div>
+
+              <label class="col-5 col-form-label">Email:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Email"
+                  v-model="usurecep.usuario.persona.email"
+                  disabled
+                />
+              </div>
+              <label class="col-5 col-form-label">Cédula:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Cédula"
+                  v-model="usurecep.usuario.persona.cedula"
+                  disabled
+                />
+              </div>
+              <label class="col-12 col-form-label">Primer nombre:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Nombre de persona"
+                  v-model="usurecep.usuario.persona.prinom"
+                  disabled
+                />
+              </div>
+              <label class="col-12 col-form-label">Segundo nombre:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Nombre de persona"
+                  v-model="usurecep.usuario.persona.segnom"
+                  disabled
+                />
+              </div>
+              <label class="col-12 col-form-label">Primer Apellido:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Apellido de persona"
+                  v-model="usurecep.usuario.persona.priape"
+                  disabled
+                />
+              </div>
+              <label class="col-12 col-form-label">Segundo Apellido:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Apellido de persona"
+                  v-model="usurecep.usuario.persona.segape"
+                  disabled
+                />
+              </div>
+
+              <br />
+              <br />
+
+              <div class="col-12 form-group">
+                <div style="width: 100px; height: 30px; margin: 0 auto">
+                  <button
+                    name="CERRAR"
+                    class="btn btn-primary"
+                    @click="limpiame()"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    type="button"
+                  >
+                    CERRAR
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal de MOSTRAR EL DOCENTE -->
+
+     <!--modal de MOSTRAR EL RECE -->
       <div
         class="modal fade"
         id="MOSTRARModalRE"
@@ -808,7 +1064,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
-                Datos del Recepcionista
+                Datos de quien recepciona
               </h5>
               <button
                 type="button"
@@ -819,8 +1075,57 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+
             <div class="modal-body">
-              <label class="col-5 col-form-label">Primer nombre:</label>
+              <input
+                type="hidden"
+                class="form-control"
+                placeholder="id"
+                v-model="usurecep.usuario.persona.id"
+                disabled
+              />
+              <div>
+                <center>
+                  <a
+                    :href="'/HojaDeVidaROLES/' + usurecep.usuario.persona.id"
+                    target="_blank"
+                    ><i
+                      title="Ver Usuario"
+                      class="fas fa-user fa-5x"
+                      style="color: black"
+                    ></i
+                  ></a>
+                </center>
+              </div>
+              <label class="col-5 col-form-label">Usuario:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Username"
+                  v-model="usurecep.usuario.persona.username"
+                  disabled
+                />
+              </div>
+
+              <label class="col-5 col-form-label">Email:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Email"
+                  v-model="usurecep.usuario.persona.email"
+                  disabled
+                />
+              </div>
+              <label class="col-5 col-form-label">Cédula:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Cédula"
+                  v-model="usurecep.usuario.persona.cedula"
+                  disabled
+                />
+              </div>
+              <label class="col-12 col-form-label">Primer nombre:</label>
               <div class="col-12 form-group">
                 <input
                   class="form-control"
@@ -829,8 +1134,7 @@
                   disabled
                 />
               </div>
-
-              <label class="col-5 col-form-label">Segundo nombre:</label>
+              <label class="col-12 col-form-label">Segundo nombre:</label>
               <div class="col-12 form-group">
                 <input
                   class="form-control"
@@ -839,7 +1143,7 @@
                   disabled
                 />
               </div>
-              <label class="col-5 col-form-label">Primer Apellido:</label>
+              <label class="col-12 col-form-label">Primer Apellido:</label>
               <div class="col-12 form-group">
                 <input
                   class="form-control"
@@ -848,7 +1152,7 @@
                   disabled
                 />
               </div>
-              <label class="col-5 col-form-label">Segundo Apellido:</label>
+              <label class="col-12 col-form-label">Segundo Apellido:</label>
               <div class="col-12 form-group">
                 <input
                   class="form-control"
@@ -857,6 +1161,7 @@
                   disabled
                 />
               </div>
+
               <br />
               <br />
 
@@ -865,7 +1170,7 @@
                   <button
                     name="CERRAR"
                     class="btn btn-primary"
-                    @click="limpiar()"
+                    @click="limpiame()"
                     data-dismiss="modal"
                     aria-label="Close"
                     type="button"
@@ -1013,6 +1318,9 @@ export default {
     isFormValidForo: function () {
       return this.foro.id != "";
     },
+     limpiame() {
+      this.usurecep.usuario.persona = "";
+    },
 
     limpiarforo() {
       this.foro.estadoFo = "";
@@ -1043,7 +1351,19 @@ export default {
         }
       });
     },
-
+ buscarDOC() {
+      axios.get("/api/recepcionDO/" + this.recepcion.id).then((res) => {
+        if (res.data[0] == null) {
+          console.log(res.data[0]);
+          this.esta = false;
+        } else {
+          console.log(res.data[0]);
+          let person = res.data[0];
+          this.usurecep.usuario.persona = person;
+          this.esta = true;
+        }
+      });
+    },
     buscarrecep() {
       axios.get("/api/recepcionRE/" + this.recepcion.id).then((res) => {
         if (res.data[0] == null) {
