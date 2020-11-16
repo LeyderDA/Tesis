@@ -107,6 +107,27 @@
                     <option value="0">Inactivo</option>
                   </select>
                 </div>
+                <label class="col-12 col-form-label">Institución Jurídica:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Institución Jurídica"
+                  readonly="readonly"
+                  v-model="observaciones.instjuri"
+                  disabled
+                />
+              </div>
+
+              <label class="col-12 col-form-label">Tramite Jurídico:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Tramite Jurídico"
+                  readonly="readonly"
+                  v-model="observaciones.tramitejuri"
+                  disabled
+                />
+              </div>
 
                 <label class="col-5 col-form-label">Fecha de radicado:</label>
                 <div class="col-12 form-group">

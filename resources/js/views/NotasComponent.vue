@@ -27,7 +27,7 @@
 
                     <td>
                       <a
-                        :href="'/HojaDeVida/' + recepcion.usu_id"
+                        :href="'/HojaDeVidaROLES/' + recepcion.usu_id"
                         target="_blank"
                         ><i
                           title="Ver Usuario"

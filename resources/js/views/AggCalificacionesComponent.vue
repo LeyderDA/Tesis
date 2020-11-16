@@ -13,7 +13,7 @@
               <table class="table text-center">
                 <thead>
                   <tr>
-                    <th>Area</th>
+                    <th>Área</th>
                     <th>Recepción</th>
                     <th>Nombre Estudiante</th>
                     <th>Apellido Estudiante</th>
@@ -96,6 +96,27 @@
                   <option value="1">Activo</option>
                   <option value="0">Inactivo</option>
                 </select>
+              </div>
+              <label class="col-12 col-form-label">Institución Jurídica:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Institución Jurídica"
+                  readonly="readonly"
+                  v-model="recepcion.instjuri"
+                  disabled
+                />
+              </div>
+
+              <label class="col-12 col-form-label">Trámite Jurídico:</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="Trámite Jurídico"
+                  readonly="readonly"
+                  v-model="recepcion.tramitejuri"
+                  disabled
+                />
               </div>
 
               <label class="col-5 col-form-label">Recepcionado en:</label>
@@ -318,7 +339,7 @@
 
               <div>
                 <center>
-                  <a :href="'/HojaDeVida/' + recepcion.usu_id" target="_blank"
+                  <a :href="'/HojaDeVidaROLES/' + recepcion.usu_id" target="_blank"
                     ><i
                       title="Ver Usuario"
                       class="fas fa-user fa-5x"
@@ -335,6 +356,16 @@
                   class="form-control"
                   placeholder="cédula"
                   v-model="recepcion.cedula"
+                  disabled
+                />
+              </div>
+
+               <label class="col-5 col-form-label">Email</label>
+              <div class="col-12 form-group">
+                <input
+                  class="form-control"
+                  placeholder="email"
+                  v-model="recepcion.email"
                   disabled
                 />
               </div>

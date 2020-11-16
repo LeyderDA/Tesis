@@ -25,6 +25,8 @@ class ObservacionesController extends Controller
         'recepciones.fechareparto',
         'recepciones.fechapublicacion',
         'recepciones.fecharetiro',
+        'recepciones.instjuri',
+        'recepciones.tramitejuri',
         'recepciones.estado',
         'areas.nombre'
         )

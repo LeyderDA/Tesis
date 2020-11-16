@@ -2337,6 +2337,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -8327,6 +8358,27 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -57752,6 +57804,78 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
+                      _vm._v("Institución Jurídica:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.recepcion.instjuri,
+                            expression: "recepcion.instjuri"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          placeholder: "Institución Jurídica",
+                          readonly: "readonly",
+                          disabled: ""
+                        },
+                        domProps: { value: _vm.recepcion.instjuri },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.recepcion,
+                              "instjuri",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-12 col-form-label" }, [
+                      _vm._v("Trámite Jurídico:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.recepcion.tramitejuri,
+                            expression: "recepcion.tramitejuri"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          placeholder: "Trámite Jurídico",
+                          readonly: "readonly",
+                          disabled: ""
+                        },
+                        domProps: { value: _vm.recepcion.tramitejuri },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.recepcion,
+                              "tramitejuri",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
                     _c("label", { staticClass: "col-5 col-form-label" }, [
                       _vm._v("Recepcionado en:")
                     ]),
@@ -58235,7 +58359,8 @@ var render = function() {
                             "a",
                             {
                               attrs: {
-                                href: "/HojaDeVida/" + _vm.recepcion.usu_id,
+                                href:
+                                  "/HojaDeVidaROLES/" + _vm.recepcion.usu_id,
                                 target: "_blank"
                               }
                             },
@@ -58279,6 +58404,38 @@ var render = function() {
                             _vm.$set(
                               _vm.recepcion,
                               "cedula",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "col-5 col-form-label" }, [
+                      _vm._v("Email")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.recepcion.email,
+                            expression: "recepcion.email"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { placeholder: "email", disabled: "" },
+                        domProps: { value: _vm.recepcion.email },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.recepcion,
+                              "email",
                               $event.target.value
                             )
                           }
@@ -58535,7 +58692,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Area")]),
+        _c("th", [_vm._v("Área")]),
         _vm._v(" "),
         _c("th", [_vm._v("Recepción")]),
         _vm._v(" "),
@@ -70719,7 +70876,7 @@ var render = function() {
                             "a",
                             {
                               attrs: {
-                                href: "/HojaDeVida/" + recepcion.usu_id,
+                                href: "/HojaDeVidaROLES/" + recepcion.usu_id,
                                 target: "_blank"
                               }
                             },
@@ -71245,6 +71402,78 @@ var render = function() {
                             ])
                           ]
                         )
+                      ]),
+                      _vm._v(" "),
+                      _c("label", { staticClass: "col-12 col-form-label" }, [
+                        _vm._v("Institución Jurídica:")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-12 form-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.observaciones.instjuri,
+                              expression: "observaciones.instjuri"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            placeholder: "Institución Jurídica",
+                            readonly: "readonly",
+                            disabled: ""
+                          },
+                          domProps: { value: _vm.observaciones.instjuri },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.observaciones,
+                                "instjuri",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("label", { staticClass: "col-12 col-form-label" }, [
+                        _vm._v("Tramite Jurídico:")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-12 form-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.observaciones.tramitejuri,
+                              expression: "observaciones.tramitejuri"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            placeholder: "Tramite Jurídico",
+                            readonly: "readonly",
+                            disabled: ""
+                          },
+                          domProps: { value: _vm.observaciones.tramitejuri },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.observaciones,
+                                "tramitejuri",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
                       ]),
                       _vm._v(" "),
                       _c("label", { staticClass: "col-5 col-form-label" }, [
