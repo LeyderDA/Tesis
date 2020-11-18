@@ -18,8 +18,8 @@
                     <th>Consultorio</th>
                     <th>Usuario</th>
                     <th>Quien recepciona</th>
-                     <th>Docente</th>
-                    <th>Area</th>
+                    <th>Docente</th>
+                    <th>Área</th>
                     <th>Recepción</th>
                     <th>Opciones</th>
                   </tr>
@@ -39,7 +39,7 @@
                       >
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button> -->
-                       <div>
+                      <div>
                         <center>
                           <a
                             :href="'/HojaDeVidaROLES/' + recepcion.usu_id"
@@ -77,7 +77,7 @@
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
                     </td>
-    <td>
+                    <td>
                       <button
                         class="btn btn-sm"
                         data-toggle="modal"
@@ -264,7 +264,7 @@
         </div>
       </div>
       <!--modal de MOSTRAR EL DOCENTE -->
-       <!--modal de MOSTRAR EL DOCENTE REAL -->
+      <!--modal de MOSTRAR EL DOCENTE REAL -->
       <div
         class="modal fade"
         id="MOSTRARModalDOO"
@@ -433,21 +433,21 @@
                 v-model="usurecep.usuario.persona.id"
                 disabled
               />
-               <div>
-              <center>
-                <a
-                  :href="'/HojaDeVidaROLES/' + usurecep.usuario.persona.id"
-                  target="_blank"
-                  ><i
-                    title="Ver Usuario"
-                    class="fas fa-user fa-5x"
-                    style="color: black"
-                  ></i
-                ></a>
-              </center>
-             </div>
+              <div>
+                <center>
+                  <a
+                    :href="'/HojaDeVidaROLES/' + usurecep.usuario.persona.id"
+                    target="_blank"
+                    ><i
+                      title="Ver Usuario"
+                      class="fas fa-user fa-5x"
+                      style="color: black"
+                    ></i
+                  ></a>
+                </center>
+              </div>
 
-               <label class="col-12 col-form-label">Email:</label>
+              <label class="col-12 col-form-label">Email:</label>
               <div class="col-12 form-group">
                 <input
                   class="form-control"
@@ -787,29 +787,23 @@
                   disabled
                 />
               </div>
-               <label class="col-12 col-form-label"
-                >Institución Jurídica:</label
-              >
+              <label class="col-12 col-form-label">Institución Jurídica:</label>
               <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Institución Jurídica"
-                        disabled
+                  disabled
                   v-model="recepcion.instjuri"
-                  
                 />
               </div>
 
-              <label class="col-12 col-form-label"
-                >Tramite Jurídico:</label
-              >
+              <label class="col-12 col-form-label">Tramite Jurídico:</label>
               <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Tramite Jurídico"
                   disabled
                   v-model="recepcion.tramitejuri"
-                  
                 />
               </div>
 
@@ -1083,29 +1077,23 @@
               <h5 class="modal-title" id="exampleModalLabel">Recepción</h5>
             </div>
             <div class="modal-body">
-               <label class="col-12 col-form-label"
-                >Institución Jurídica:</label
-              >
+              <label class="col-12 col-form-label">Institución Jurídica:</label>
               <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Institución Jurídica"
                   disabled
                   v-model="recepcion.instjuri"
-                  
                 />
               </div>
 
-              <label class="col-12 col-form-label"
-                >Tramite Jurídico:</label
-              >
+              <label class="col-12 col-form-label">Tramite Jurídico:</label>
               <div class="col-12 form-group">
                 <input
                   class="form-control"
                   placeholder="Tramite Jurídico"
                   disabled
                   v-model="recepcion.tramitejuri"
-                  
                 />
               </div>
 
@@ -1205,8 +1193,7 @@
               </h5>
             </div>
             <div class="modal-body">
-
-               <div>
+              <div>
                 <center>
                   <a
                     :href="'/HojaDeVidaR/' + recepcion.recla_id"
@@ -1241,9 +1228,7 @@
                   disabled
                 />
               </div>
-               <label class="col-12 col-form-label"
-                >Email:</label
-              >
+              <label class="col-12 col-form-label">Email:</label>
 
               <div class="col-12 form-group">
                 <input
@@ -1511,7 +1496,6 @@
               </button>
             </div>
             <div class="modal-body">
-             
               <label class="col-12 col-form-label">CÉDULA</label>
               <div class="col-12 form-group">
                 <input
@@ -1765,7 +1749,7 @@ export default {
         }
       });
     },
-     buscarDOC() {
+    buscarDOC() {
       axios.get("/api/recepcionDO/" + this.recepcion.id).then((res) => {
         if (res.data[0] == null) {
           console.log(res.data[0]);
@@ -1778,8 +1762,6 @@ export default {
         }
       });
     },
-
-
 
     buscarusucedADM() {
       axios.get("/api/user5/" + this.usuario.persona.cedula).then((res) => {
@@ -1813,12 +1795,11 @@ export default {
             this.usuario.persona.priape = "";
             console.log(this.usuario);
             this.esta = false;
-            console.log('entro');
+            console.log("entro");
           } else {
-
             let person = res.data[0];
             this.usuario.persona = person;
-             console.log(usuario.persona.id);
+            console.log(usuario.persona.id);
             this.esta = true;
           }
         });

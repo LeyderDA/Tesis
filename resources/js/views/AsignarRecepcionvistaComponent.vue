@@ -14,7 +14,7 @@
                 <table class="table text-center">
                   <thead>
                     <tr>
-                      <th>Area</th>
+                      <th>Área</th>
                       <th>Datos de la Recepción</th>
                       <th>Datos del Asignado</th>
                       <th>Opciones</th>

@@ -11,7 +11,7 @@
             <div clas="container row">
               <div class="table text-center table-reponsive">
                 <h4 class="text-center mb-2 card-title">
-                  Click en el lápiz para crear firma
+                  Clic en el lápiz para crear firma
                 </h4>
                 <br /> 
                  <!-- <a :href="'/CrearFir'">

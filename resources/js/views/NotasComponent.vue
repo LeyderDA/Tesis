@@ -12,7 +12,7 @@
               <table class="table text-center">
                 <thead>
                   <tr>
-                    <th>Area</th>
+                    <th>Área</th>
                     <th>Datos Estudiante</th>
                     <th>Primer Nombre</th>
                     <th>Segundo Nombre</th>

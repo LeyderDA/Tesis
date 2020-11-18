@@ -17,7 +17,7 @@
                     <th>Usuario</th>
                     <th>Quien recepciona</th>
                     <th>Docente</th>
-                    <th>Area</th>
+                    <th>Área</th>
                     <th>Recepción</th>
                     <th>Mostrar QR</th>
                   </tr>

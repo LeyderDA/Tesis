@@ -118,11 +118,11 @@
           <br />
           <br />
 
-          <label class="col-5 col-form-label">Cedula (*)</label>
+          <label class="col-5 col-form-label">Cédula (*)</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
-              placeholder="Cedula"
+              placeholder="Cédula"
               onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
               v-model="usuario.persona.cedula"
             />

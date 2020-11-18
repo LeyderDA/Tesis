@@ -12,7 +12,7 @@
               <div class="table text-center table-reponsive">
                 <table class="table text-center">
                   <h4 class="text-center mb-2 card-title">
-                    Click en el Ícono para elegir tu busqueda
+                    Clic en el ícono para elegir tu búsqueda
                   </h4>
                   <br />
                   <a :href="'/qr'">

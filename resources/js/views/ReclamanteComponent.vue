@@ -23,7 +23,7 @@
             />
           </div>
 
-          <label class="col-5 col-form-label">Genero (*)</label>
+          <label class="col-5 col-form-label">Género (*)</label>
           <div class="col-6">
             <select
               class="form-control"
@@ -109,7 +109,7 @@
           <br />
           <br />
 
-          <label class="col-5 col-form-label">Grupo Etnico (*)</label>
+          <label class="col-5 col-form-label">Grupo étnico (*)</label>
 
           <div class="col-6">
             <select
@@ -136,7 +136,7 @@
             />
           </div>
 
-          <label class="col-5 col-form-label">Cedula (*)</label>
+          <label class="col-5 col-form-label">Cédula (*)</label>
           <div class="col-6 form-group">
             <input
               class="form-control"

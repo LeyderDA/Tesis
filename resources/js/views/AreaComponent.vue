@@ -6,11 +6,11 @@
         <div class="card">
           <div class="card-header">Modulo Area</div>
           <div class="card-body row">
-            <label class="col-5 col-form-label">Nombre del area (*)</label>
+            <label class="col-5 col-form-label">Nombre del área (*)</label>
             <div class="col-6">
               <input
                 class="form-control"
-                placeholder="nombre del area"
+                placeholder="nombre del área"
                 v-model="areas.nombre"
               />
             </div>

@@ -1,5 +1,5 @@
 <template>
-   <div class="card" style="margin-top:25px">
+  <div class="card" style="margin-top: 25px">
     <div>
       <h2 class="text-center mb-2 card-title">Recepciones</h2>
     </div>
@@ -15,9 +15,9 @@
                     <th>Recepcionado</th>
                     <th>Consultorio</th>
                     <th>Usuario</th>
-                     <th>Quien Recepciona</th>
-                     <th>Docente</th>
-                    <th>Area</th>
+                    <th>Quien Recepciona</th>
+                    <th>Docente</th>
+                    <th>Área</th>
                     <th>Recepción</th>
                     <th>Agregar Gestión</th>
                     <th>Opciones</th>
@@ -39,6 +39,8 @@
                           ></a>
                         </center>
                       </div>
+                    </td>
+
                     <td>{{ recepcion.recepcionado }}</td>
                     <td>{{ recepcion.consultorio }}</td>
                     <td>
@@ -52,7 +54,7 @@
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
                     </td>
-                    
+
                     <td>
                       <button
                         class="btn btn-sm"
@@ -64,7 +66,7 @@
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
                     </td>
-                        <td>
+                    <td>
                       <button
                         class="btn btn-sm"
                         data-toggle="modal"
@@ -191,7 +193,7 @@
         </div>
       </div>
       <!--PUENTE AL FORO -->
-  <!--modal de MOSTRAR EL DOCENTE-->
+      <!--modal de MOSTRAR EL DOCENTE-->
       <div
         class="modal fade"
         id="MOSTRARModalDOC"
@@ -569,7 +571,7 @@
         </div>
       </div>
       <!--modal de asignar gestion -->
-       <!--modal de MOSTRAR EL RESTO DE CAMPOS-->
+      <!--modal de MOSTRAR EL RESTO DE CAMPOS-->
       <div
         class="modal fade"
         id="MOSTRARModal"
@@ -847,7 +849,7 @@
       </div>
       <!--modal de MOSTRAR EL RECLAMANTE -->
 
-     <!--modal de MOSTRAR EL RECEPCIONISTA-->
+      <!--modal de MOSTRAR EL RECEPCIONISTA-->
       <div
         class="modal fade"
         id="MOSTRARModalRECEP"
@@ -1049,7 +1051,7 @@
       </div>
       <!--modal de MOSTRAR EL DOCENTE -->
 
-     <!--modal de MOSTRAR EL RECE -->
+      <!--modal de MOSTRAR EL RECE -->
       <div
         class="modal fade"
         id="MOSTRARModalRE"
@@ -1318,7 +1320,7 @@ export default {
     isFormValidForo: function () {
       return this.foro.id != "";
     },
-     limpiame() {
+    limpiame() {
       this.usurecep.usuario.persona = "";
     },
 
@@ -1351,7 +1353,7 @@ export default {
         }
       });
     },
- buscarDOC() {
+    buscarDOC() {
       axios.get("/api/recepcionDO/" + this.recepcion.id).then((res) => {
         if (res.data[0] == null) {
           console.log(res.data[0]);

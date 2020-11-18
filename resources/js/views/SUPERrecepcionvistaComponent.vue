@@ -17,7 +17,7 @@
                     <th>Usuario</th>
                     <th>Quien Recepciona</th>
                     <th>Docente</th>
-                    <th>Area</th>
+                    <th>Área</th>
                     <th>Recepción</th>
                     <th>Asignar Recepción</th>
                     <th>Opciones</th>

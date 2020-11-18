@@ -10580,6 +10580,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -14346,22 +14348,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     var _ref;
@@ -14616,7 +14602,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           _this8.usuario.persona.priape = "";
           console.log(_this8.usuario);
           _this8.esta = false;
-          console.log('entro');
+          console.log("entro");
         } else {
           var person = res.data[0];
           _this8.usuario.persona = person;
@@ -58327,7 +58313,7 @@ var render = function() {
                               staticClass: "nav-link",
                               attrs: { to: { name: "usuario" } }
                             },
-                            [_vm._v("Crear Usuario")]
+                            [_vm._v("Asignar rol")]
                           )
                         ],
                         1
@@ -58343,7 +58329,7 @@ var render = function() {
                               staticClass: "nav-link",
                               attrs: { to: { name: "usuariovista" } }
                             },
-                            [_vm._v("Ver lista de Usuarios")]
+                            [_vm._v("Ver lista de roles")]
                           )
                         ],
                         1
@@ -58369,7 +58355,7 @@ var render = function() {
                               staticClass: "nav-link",
                               attrs: { to: { name: "reclamante" } }
                             },
-                            [_vm._v("Crear Reclamantes")]
+                            [_vm._v("Crear usarios")]
                           )
                         ],
                         1
@@ -58385,7 +58371,7 @@ var render = function() {
                               staticClass: "nav-link",
                               attrs: { to: { name: "reclamantevista" } }
                             },
-                            [_vm._v("Listado de Reclamantes")]
+                            [_vm._v("Listado de Usuarios")]
                           )
                         ],
                         1
@@ -58404,7 +58390,7 @@ var render = function() {
                         staticClass: "nav-link",
                         attrs: { to: { name: "area" } }
                       },
-                      [_vm._v("Crear Areas")]
+                      [_vm._v("Crear Áreas")]
                     )
                   ],
                   1
@@ -58623,7 +58609,7 @@ var staticRenderFns = [
         staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
-      [_vm._v("\n            Usuarios "), _c("span", { staticClass: "caret" })]
+      [_vm._v("\n            Roles "), _c("span", { staticClass: "caret" })]
     )
   },
   function() {
@@ -58636,10 +58622,7 @@ var staticRenderFns = [
         staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
-      [
-        _vm._v("\n            Reclamantes "),
-        _c("span", { staticClass: "caret" })
-      ]
+      [_vm._v("\n            Usuarios "), _c("span", { staticClass: "caret" })]
     )
   },
   function() {
@@ -58678,7 +58661,7 @@ var staticRenderFns = [
         staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
-      [_vm._v("\n            Estadisticas "), _c("span")]
+      [_vm._v("\n            Estadísticas"), _c("span")]
     )
   }
 ]
@@ -59909,7 +59892,7 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "card-body row" }, [
               _c("label", { staticClass: "col-5 col-form-label" }, [
-                _vm._v("Nombre del area (*)")
+                _vm._v("Nombre del área (*)")
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-6" }, [
@@ -59923,7 +59906,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { placeholder: "nombre del area" },
+                  attrs: { placeholder: "nombre del área" },
                   domProps: { value: _vm.areas.nombre },
                   on: {
                     input: function($event) {
@@ -61723,7 +61706,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Area")]),
+        _c("th", [_vm._v("Área")]),
         _vm._v(" "),
         _c("th", [_vm._v("Datos de la Recepción")]),
         _vm._v(" "),
@@ -61855,7 +61838,7 @@ var render = function() {
                     _c("table", { staticClass: "table text-center" }, [
                       _c("h4", { staticClass: "text-center mb-2 card-title" }, [
                         _vm._v(
-                          "\n                  Click en el Ícono para elegir tu busqueda\n                "
+                          "\n                  Clic en el ícono para elegir tu búsqueda\n                "
                         )
                       ]),
                       _vm._v(" "),
@@ -61931,7 +61914,7 @@ var render = function() {
                   [
                     _c("h4", { staticClass: "text-center mb-2 card-title" }, [
                       _vm._v(
-                        "\n                Click en el lápiz para crear firma\n              "
+                        "\n                Clic en el lápiz para crear firma\n              "
                       )
                     ]),
                     _vm._v(" "),
@@ -63814,7 +63797,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Asunto")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Tipo de tramite")]),
+        _c("th", [_vm._v("Tipo de trámite")]),
         _vm._v(" "),
         _c("th", [_vm._v("Motivo de archivo")]),
         _vm._v(" "),
@@ -71443,7 +71426,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Docente")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Area")]),
+        _c("th", [_vm._v("Área")]),
         _vm._v(" "),
         _c("th", [_vm._v("Recepción")]),
         _vm._v(" "),
@@ -72296,7 +72279,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Area")]),
+        _c("th", [_vm._v("Área")]),
         _vm._v(" "),
         _c("th", [_vm._v("Datos Estudiante")]),
         _vm._v(" "),
@@ -74968,6 +74951,7 @@ var render = function() {
                             1
                           )
                         ]),
+                        _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(recepcion.recepcionado))]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(recepcion.consultorio))]),
@@ -77791,7 +77775,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Docente")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Area")]),
+        _c("th", [_vm._v("Área")]),
         _vm._v(" "),
         _c("th", [_vm._v("Recepción")]),
         _vm._v(" "),
@@ -78211,7 +78195,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("label", { staticClass: "col-5 col-form-label" }, [
-              _vm._v("Genero (*)")
+              _vm._v("Género (*)")
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-6" }, [
@@ -78490,7 +78474,7 @@ var render = function() {
             _c("br"),
             _vm._v(" "),
             _c("label", { staticClass: "col-5 col-form-label" }, [
-              _vm._v("Grupo Etnico (*)")
+              _vm._v("Grupo étnico (*)")
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-6" }, [
@@ -78576,7 +78560,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("label", { staticClass: "col-5 col-form-label" }, [
-              _vm._v("Cedula (*)")
+              _vm._v("Cédula (*)")
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-6 form-group" }, [
@@ -85489,7 +85473,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Docente")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Area")]),
+        _c("th", [_vm._v("Área")]),
         _vm._v(" "),
         _c("th", [_vm._v("Recepción")]),
         _vm._v(" "),
@@ -91111,7 +91095,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Docente")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Area")]),
+        _c("th", [_vm._v("Área")]),
         _vm._v(" "),
         _c("th", [_vm._v("Recepción")]),
         _vm._v(" "),
@@ -92094,7 +92078,7 @@ var render = function() {
             _c("br"),
             _vm._v(" "),
             _c("label", { staticClass: "col-5 col-form-label" }, [
-              _vm._v("Cedula (*)")
+              _vm._v("Cédula (*)")
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-6 form-group" }, [
@@ -92109,7 +92093,7 @@ var render = function() {
                 ],
                 staticClass: "form-control",
                 attrs: {
-                  placeholder: "Cedula",
+                  placeholder: "Cédula",
                   onkeypress:
                     "return (event.charCode >= 48 && event.charCode <= 57)"
                 },
@@ -95030,7 +95014,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Asunto")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Tipo de tramite")]),
+        _c("th", [_vm._v("Tipo de trámite")]),
         _vm._v(" "),
         _c("th", [_vm._v("Motivo de archivo")]),
         _vm._v(" "),
@@ -98097,7 +98081,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Docente")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Area")]),
+        _c("th", [_vm._v("Área")]),
         _vm._v(" "),
         _c("th", [_vm._v("Recepción")]),
         _vm._v(" "),

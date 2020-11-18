@@ -16,7 +16,7 @@
                     <tr>
                       <th>Fecha entrevista Asesor</th>
                       <th>Asunto</th>
-                      <th>Tipo de tramite</th>
+                      <th>Tipo de trámite</th>
                       <th>Motivo de archivo</th>
                       <th>Fecha del archivo</th>
                       <th>Entidad reclamante</th>
