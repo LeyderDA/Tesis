@@ -1841,16 +1841,9 @@
               </button>
             </div>
             <div class="modal-body">
-              <label class="col-12 col-form-label">USERNAME</label>
-              <div class="col-12 form-group">
-                <input
-                  class="form-control"
-                  placeholder="USERNAME"
-                  v-model="usuario.persona.username"
-                />
-              </div>
+             
 
-              <label class="col-12 col-form-label">CEDULA</label>
+              <label class="col-12 col-form-label">CÉDULA</label>
               <div class="col-12 form-group">
                 <input
                   class="form-control"
@@ -1878,6 +1871,8 @@
                 />
               </div>
             </div>
+            <br>
+            <br>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">
                 Cerrar
@@ -2013,6 +2008,12 @@ export default {
           nombre: "",
         },
       },
+      notificaiones:{
+      id: "",
+      mensaje: "",
+      id_usuario : "", 
+      },
+
 
       usuario: {
         id: "",
@@ -2240,9 +2241,7 @@ export default {
         const params = {
           recp_id: this.recepcion.id,
           usu_id: this.usuario.persona.id,
-        };
-        this.usuario.persona.cedula = "";
-
+        };     
         axios.post("/api/asigrecep", params).then((res) => {
           if (res.data == null) {
             swal({
@@ -2266,6 +2265,15 @@ export default {
             console.log(res.data);
           });
         });
+           
+    const param = {
+          mensaje: "si sirve",
+          id_usuario: this.usuario.persona.id,
+        };     
+        axios.post("/api/notificaciones", param).then((res) => {
+
+        });
+
       }
     },
 
@@ -2368,8 +2376,8 @@ export default {
         fechapublicacion: this.recepcion.fechapublicacion,
         fecharetiro: this.recepcion.fecharetiro,
         estado: this.recepcion.estado,
-        recla_id: this.recepcion.recla_id,
-        area_id: this.area.id.substr(0, 1),
+        recla_id: this.usuario.persona.id,
+        //area_id: this.area.id.substr(0, 1),
         instjuri: this.recepcion.instjuri,
         tramitejuri: this.recepcion.tramitejuri,
       };

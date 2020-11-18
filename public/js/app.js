@@ -14261,14 +14261,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     var _ref;
@@ -14517,17 +14509,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       axios.get("/api/reclamante2/" + this.usuario.persona.cedula).then(function (res) {
         if (res.data[0] == null) {
-          _this8.usuario.persona.id = "";
-          _this8.usuario.persona.username = "";
+          _this8.usuario.id = "";
           _this8.usuario.persona.cedula = "";
           _this8.usuario.persona.prinom = "";
           _this8.usuario.persona.priape = "";
           console.log(_this8.usuario);
           _this8.esta = false;
+          console.log('entro');
         } else {
-          console.log(res.data[0]);
           var person = res.data[0];
           _this8.usuario.persona = person;
+          console.log(usuario.persona.id);
           _this8.esta = true;
         }
       });
@@ -14649,8 +14641,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         fechapublicacion: this.recepcion.fechapublicacion,
         fecharetiro: this.recepcion.fecharetiro,
         estado: this.recepcion.estado,
-        recla_id: this.recepcion.recla_id,
-        area_id: this.area.id,
+        recla_id: usuario.persona.id,
         instjuri: this.recepcion.instjuri,
         tramitejuri: this.recepcion.tramitejuri
       };
@@ -17183,11 +17174,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     var _ref;
@@ -17304,6 +17290,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           id: "",
           nombre: ""
         }
+      },
+      notificaiones: {
+        id: "",
+        mensaje: "",
+        id_usuario: ""
       }
     }, _defineProperty(_ref, "usuario", {
       id: "",
@@ -17529,7 +17520,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           recp_id: this.recepcion.id,
           usu_id: this.usuario.persona.id
         };
-        this.usuario.persona.cedula = "";
         axios.post("/api/asigrecep", params).then(function (res) {
           if (res.data == null) {
             swal({
@@ -17554,6 +17544,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             console.log(res.data);
           });
         });
+        var param = {
+          mensaje: "si sirve",
+          id_usuario: this.usuario.persona.id
+        };
+        axios.post("/api/notificaciones", param).then(function (res) {});
       }
     },
     buscarrecl: function buscarrecl() {
@@ -17653,8 +17648,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         fechapublicacion: this.recepcion.fechapublicacion,
         fecharetiro: this.recepcion.fecharetiro,
         estado: this.recepcion.estado,
-        recla_id: this.recepcion.recla_id,
-        area_id: this.area.id.substr(0, 1),
+        recla_id: this.usuario.persona.id,
+        //area_id: this.area.id.substr(0, 1),
         instjuri: this.recepcion.instjuri,
         tramitejuri: this.recepcion.tramitejuri
       };
@@ -58108,6 +58103,38 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: { name: "buscarqr" } }
+                      },
+                      [_vm._v("Buscar por QR")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: { name: "crearfirma" } }
+                      },
+                      [_vm._v("Crear Firma")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
                 _c("div", { staticClass: "btn-group" }, [
                   _vm._m(1),
                   _vm._v(" "),
@@ -58450,34 +58477,8 @@ var staticRenderFns = [
         staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
-      [_vm._v("\n            Personas "), _c("span", { staticClass: "caret" })]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-default dropdown-toggle nav-link",
-        attrs: { type: "button", "data-toggle": "dropdown" }
-      },
-      [_vm._v("\n            Usuarios "), _c("span", { staticClass: "caret" })]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-default dropdown-toggle nav-link",
-        attrs: { type: "button", "data-toggle": "dropdown" }
-      },
       [
-        _vm._v("\n            Reclamantes "),
+        _vm._v("\n              Personas "),
         _c("span", { staticClass: "caret" })
       ]
     )
@@ -58492,7 +58493,10 @@ var staticRenderFns = [
         staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
-      [_vm._v("\n            Recepciones "), _c("span")]
+      [
+        _vm._v("\n              Usuarios "),
+        _c("span", { staticClass: "caret" })
+      ]
     )
   },
   function() {
@@ -58505,7 +58509,10 @@ var staticRenderFns = [
         staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
-      [_vm._v("\n            Gestiones "), _c("span", { staticClass: "caret" })]
+      [
+        _vm._v("\n              Reclamantes "),
+        _c("span", { staticClass: "caret" })
+      ]
     )
   },
   function() {
@@ -58518,7 +58525,36 @@ var staticRenderFns = [
         staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
-      [_vm._v("\n            Estadisticas "), _c("span")]
+      [_vm._v("\n              Recepciones "), _c("span")]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-default dropdown-toggle nav-link",
+        attrs: { type: "button", "data-toggle": "dropdown" }
+      },
+      [
+        _vm._v("\n              Gestiones "),
+        _c("span", { staticClass: "caret" })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-default dropdown-toggle nav-link",
+        attrs: { type: "button", "data-toggle": "dropdown" }
+      },
+      [_vm._v("\n              Estadisticas "), _c("span")]
     )
   }
 ]
@@ -73473,7 +73509,7 @@ var render = function() {
                         staticClass: "nav-link",
                         attrs: { to: { name: "crearfirma" } }
                       },
-                      [_vm._v("Firmar Documento")]
+                      [_vm._v("Crear Firma")]
                     )
                   ],
                   1
@@ -85045,39 +85081,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
                     _c("label", { staticClass: "col-12 col-form-label" }, [
-                      _vm._v("USERNAME")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-12 form-group" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.usuario.persona.username,
-                            expression: "usuario.persona.username"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { placeholder: "USERNAME" },
-                        domProps: { value: _vm.usuario.persona.username },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.usuario.persona,
-                              "username",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-12 col-form-label" }, [
-                      _vm._v("CEDULA")
+                      _vm._v("CÉDULA")
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-12 form-group" }, [
@@ -85727,7 +85731,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n              Mostrar Usuario\n            ")]
+        [_vm._v("\n              Mostrar Usuarioo\n            ")]
       ),
       _vm._v(" "),
       _c(
@@ -85752,7 +85756,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n              Mostrar Usuario\n            ")]
+        [_vm._v("\n              Mostrar Usuarioo\n            ")]
       ),
       _vm._v(" "),
       _c(
@@ -90691,39 +90695,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
                     _c("label", { staticClass: "col-12 col-form-label" }, [
-                      _vm._v("USERNAME")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-12 form-group" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.usuario.persona.username,
-                            expression: "usuario.persona.username"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { placeholder: "USERNAME" },
-                        domProps: { value: _vm.usuario.persona.username },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.usuario.persona,
-                              "username",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-12 col-form-label" }, [
-                      _vm._v("CEDULA")
+                      _vm._v("CÉDULA")
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-12 form-group" }, [
@@ -90822,6 +90794,10 @@ var render = function() {
                       })
                     ])
                   ]),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("br"),
                   _vm._v(" "),
                   _vm._m(32)
                 ])

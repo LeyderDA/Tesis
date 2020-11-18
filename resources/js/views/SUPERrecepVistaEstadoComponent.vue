@@ -1445,7 +1445,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
-                Mostrar Usuario
+                Mostrar Usuarioo
               </h5>
               <button
                 type="button"
@@ -1499,7 +1499,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
-                Mostrar Usuario
+                Mostrar Usuarioo
               </h5>
               <button
                 type="button"
@@ -1511,16 +1511,8 @@
               </button>
             </div>
             <div class="modal-body">
-              <label class="col-12 col-form-label">USERNAME</label>
-              <div class="col-12 form-group">
-                <input
-                  class="form-control"
-                  placeholder="USERNAME"
-                  v-model="usuario.persona.username"
-                />
-              </div>
-
-              <label class="col-12 col-form-label">CEDULA</label>
+             
+              <label class="col-12 col-form-label">CÉDULA</label>
               <div class="col-12 form-group">
                 <input
                   class="form-control"
@@ -1815,17 +1807,18 @@ export default {
         .get("/api/reclamante2/" + this.usuario.persona.cedula)
         .then((res) => {
           if (res.data[0] == null) {
-            this.usuario.persona.id = "";
-            this.usuario.persona.username = "";
+            this.usuario.id = "";
             this.usuario.persona.cedula = "";
             this.usuario.persona.prinom = "";
             this.usuario.persona.priape = "";
             console.log(this.usuario);
             this.esta = false;
+            console.log('entro');
           } else {
-            console.log(res.data[0]);
+
             let person = res.data[0];
             this.usuario.persona = person;
+             console.log(usuario.persona.id);
             this.esta = true;
           }
         });
@@ -1948,8 +1941,7 @@ export default {
         fechapublicacion: this.recepcion.fechapublicacion,
         fecharetiro: this.recepcion.fecharetiro,
         estado: this.recepcion.estado,
-        recla_id: this.recepcion.recla_id,
-        area_id: this.area.id,
+        recla_id: usuario.persona.id,
         instjuri: this.recepcion.instjuri,
         tramitejuri: this.recepcion.tramitejuri,
       };

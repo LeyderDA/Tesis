@@ -29,7 +29,16 @@
               >Reportes</router-link
             >
           </li>
-
+           <li class="nav-item">
+            <router-link class="nav-link" :to="{ name: 'buscarqr' }"
+              >Buscar por QR</router-link
+            >
+          </li>
+<li class="nav-item">
+            <router-link class="nav-link" :to="{ name: 'crearfirma' }"
+              >Crear Firma</router-link
+            >
+          </li>
 
           <div class="btn-group">
             <button

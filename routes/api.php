@@ -136,3 +136,9 @@ Route::put('/archivogestion/{id}', 'ArchivosGestionesController@update')->name('
 //RUTAS DE API PARA ARCHIVOS DE LOS RECLAMANTES
 Route::post('/archivoRecla', 'ArchivosReclamantesController@store')->name('ARCHGuardar');
 Route::post('/archivoR', 'ArchivosReclamantesController@storeARCH')->name('ARCHGuardar');
+
+//RUTAS PARA LOS MENSAJES
+//RUTAS DE API PARA RECLAMANTES
+Route::post('/notificaciones', 'NotificacionesController@store')->name('reclamanteGuardar');
+Route::get('/notificaciones', 'NotificacionesController@index')->name('reclamanteListar');
+Route::delete('/notificaciones/{id}', 'NotificacionesController@destroy')->name('reclamanteEliminar');
