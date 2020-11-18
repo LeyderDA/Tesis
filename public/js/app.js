@@ -21044,6 +21044,11 @@ __webpack_require__.r(__webpack_exports__);
         entidadelantramite: "",
         recp_id: ""
       },
+      notificaiones: {
+        id: "",
+        mensaje: "",
+        id_usuario: ""
+      },
       esta: false,
       estado: "disable",
       recepcioness: [],
@@ -21129,6 +21134,7 @@ __webpack_require__.r(__webpack_exports__);
     editarForm: function editarForm(recepcion, index) {
       this.recepcion = recepcion;
       this.recepcion.index = index;
+      console.log(recepcion);
     },
     editar: function editar() {
       var _this5 = this;
@@ -21142,6 +21148,11 @@ __webpack_require__.r(__webpack_exports__);
           showConfirmButton: true
         });
       } else {
+        var param = {
+          mensaje: "Se agregó una observación a una de tus recepciones",
+          id_usuario: this.recepcion.usu_id
+        };
+        axios.post("/api/notificaciones", param).then(function (res) {});
         var params = {
           obsrv: this.observaciones.obsrv,
           recp_id: this.recepcion.id
@@ -73708,22 +73719,6 @@ var render = function() {
                         attrs: { to: { name: "home" } }
                       },
                       [_vm._v("Inicio")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "nav-item" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link",
-                        attrs: { to: { name: "notificaciones" } }
-                      },
-                      [_vm._v("Notificaciones")]
                     )
                   ],
                   1

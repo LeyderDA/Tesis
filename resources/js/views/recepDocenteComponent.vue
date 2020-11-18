@@ -1201,6 +1201,11 @@ export default {
         entidadelantramite: "",
         recp_id: "",
       },
+ notificaiones:{
+      id: "",
+      mensaje: "",
+      id_usuario : "", 
+      },
 
       esta: false,
       estado: "disable",
@@ -1283,6 +1288,7 @@ export default {
     editarForm(recepcion, index) {
       this.recepcion = recepcion;
       this.recepcion.index = index;
+      console.log(recepcion);
     },
 
     editar() {
@@ -1295,6 +1301,16 @@ export default {
           showConfirmButton: true,
         });
       } else {
+        
+       const param = {
+          mensaje: "Se agregó una observación a una de tus recepciones",
+          id_usuario: this.recepcion.usu_id,
+        };     
+        axios.post("/api/notificaciones", param).then((res) => {
+        });
+
+
+
         const params = {
           obsrv: this.observaciones.obsrv,
           recp_id: this.recepcion.id,
