@@ -19,11 +19,11 @@
                   </thead>
                   <tbody>
                     <tr
-                      v-for="(notificaciones, index) in personass"
+                      v-for="(notificaciones, index) in mensajess"
                       :key="notificaciones.index"
                     >
                      
-                      <td>{{ notificaciones.mensaje }}</td>
+                      <td>{{notificaciones.mensaje}}</td>
                       <td>
 
                         <button
@@ -56,14 +56,14 @@ export default {
         mensajes: "",
        
       },
-      personass: [],
+      mensajess: [],
       errors: [],
     };
   },
   created() {
     axios.get("/api/notificaciones").then((res) => {
-      this.personass = res.data;
-      console.log(this.personass);
+      this.mensajess = res.data;
+     
     });
   },
   methods: {
@@ -73,7 +73,7 @@ export default {
       );
       if (confirmacion) {
         axios.delete("/api/notificaciones/" +  notificaciones.id).then(() => {
-          this.personass.splice(index, 1);
+          this.mensajess.splice(index, 1);
           swal({
             type: "success",
             timer: 3000,

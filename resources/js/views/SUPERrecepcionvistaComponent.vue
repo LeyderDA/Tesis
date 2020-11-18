@@ -2417,8 +2417,14 @@ export default {
         });
     },
 
-    // ---
+    // -----------------------------------------------------------------------------------------------
     editarEST() {
+       const param = {
+          mensaje: "Tienes asignada una recepción, revisa tus Recepciones",
+          id_usuario: this.usuarioo.persona.id,
+        };     
+        axios.post("/api/notificaciones", param).then((res) => {
+        });
       const params = {
         usu_id: this.usuarioo.persona.id,
       };
@@ -2440,8 +2446,8 @@ export default {
               title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
               text: "La Recepción se ha asignado",
               showConfirmButton: false,
-            });
-          }
+            });     
+          }        
           axios.get("/api/recepcionSUPER").then((res) => {
             this.recepcioness = res.data;
             console.log(res.data);
@@ -2455,7 +2461,7 @@ export default {
 
             alert(this.errors.recepcionado[0]);
           }
-        });
+        });           
     },
     // ---
 

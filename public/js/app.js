@@ -6258,7 +6258,7 @@ __webpack_require__.r(__webpack_exports__);
         id: "",
         mensajes: ""
       },
-      personass: [],
+      mensajess: [],
       errors: []
     };
   },
@@ -6266,8 +6266,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.get("/api/notificaciones").then(function (res) {
-      _this.personass = res.data;
-      console.log(_this.personass);
+      _this.mensajess = res.data;
     });
   },
   methods: {
@@ -6278,7 +6277,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (confirmacion) {
         axios["delete"]("/api/notificaciones/" + notificaciones.id).then(function () {
-          _this2.personass.splice(index, 1);
+          _this2.mensajess.splice(index, 1);
 
           swal({
             type: "success",
@@ -17786,10 +17785,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       });
     },
-    // ---
+    // -----------------------------------------------------------------------------------------------
     editarEST: function editarEST() {
       var _this15 = this;
 
+      var param = {
+        mensaje: "Tienes asignada una recepción, revisa tus Recepciones",
+        id_usuario: this.usuarioo.persona.id
+      };
+      axios.post("/api/notificaciones", param).then(function (res) {});
       var params = {
         usu_id: this.usuarioo.persona.id
       };
@@ -58197,6 +58201,22 @@ var render = function() {
                       "router-link",
                       {
                         staticClass: "nav-link",
+                        attrs: { to: { name: "notificaciones" } }
+                      },
+                      [_vm._v("Notificaciones")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
                         attrs: { to: { name: "reportes" } }
                       },
                       [_vm._v("Reportes")]
@@ -58579,8 +58599,34 @@ var staticRenderFns = [
         staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
+      [_vm._v("\n            Personas "), _c("span", { staticClass: "caret" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-default dropdown-toggle nav-link",
+        attrs: { type: "button", "data-toggle": "dropdown" }
+      },
+      [_vm._v("\n            Usuarios "), _c("span", { staticClass: "caret" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-default dropdown-toggle nav-link",
+        attrs: { type: "button", "data-toggle": "dropdown" }
+      },
       [
-        _vm._v("\n              Personas "),
+        _vm._v("\n            Reclamantes "),
         _c("span", { staticClass: "caret" })
       ]
     )
@@ -58595,10 +58641,7 @@ var staticRenderFns = [
         staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
-      [
-        _vm._v("\n              Usuarios "),
-        _c("span", { staticClass: "caret" })
-      ]
+      [_vm._v("\n            Recepciones "), _c("span")]
     )
   },
   function() {
@@ -58611,10 +58654,7 @@ var staticRenderFns = [
         staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
-      [
-        _vm._v("\n              Reclamantes "),
-        _c("span", { staticClass: "caret" })
-      ]
+      [_vm._v("\n            Gestiones "), _c("span", { staticClass: "caret" })]
     )
   },
   function() {
@@ -58627,36 +58667,7 @@ var staticRenderFns = [
         staticClass: "btn btn-default dropdown-toggle nav-link",
         attrs: { type: "button", "data-toggle": "dropdown" }
       },
-      [_vm._v("\n              Recepciones "), _c("span")]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-default dropdown-toggle nav-link",
-        attrs: { type: "button", "data-toggle": "dropdown" }
-      },
-      [
-        _vm._v("\n              Gestiones "),
-        _c("span", { staticClass: "caret" })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-default dropdown-toggle nav-link",
-        attrs: { type: "button", "data-toggle": "dropdown" }
-      },
-      [_vm._v("\n              Estadisticas "), _c("span")]
+      [_vm._v("\n            Estadisticas "), _c("span")]
     )
   }
 ]
@@ -67858,7 +67869,7 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "tbody",
-                        _vm._l(_vm.personass, function(notificaciones, index) {
+                        _vm._l(_vm.mensajess, function(notificaciones, index) {
                           return _c("tr", { key: notificaciones.index }, [
                             _c("td", [_vm._v(_vm._s(notificaciones.mensaje))]),
                             _vm._v(" "),
@@ -73697,6 +73708,22 @@ var render = function() {
                         attrs: { to: { name: "home" } }
                       },
                       [_vm._v("Inicio")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: { name: "notificaciones" } }
+                      },
+                      [_vm._v("Notificaciones")]
                     )
                   ],
                   1
