@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 use App\Notificaciones;
 class NotificacionesController extends Controller
 {
+
+    public function index()
+    {
+        $areas = Notificaciones::all();
+        return  response()->json($areas);
+    }
     public function destroy($id)
     {
         $not = Notificaciones::find($id);

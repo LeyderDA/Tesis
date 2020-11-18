@@ -181,6 +181,13 @@ export default new Router({
         },
 
         {
+            path: '/Notificaciones',
+            name: 'notificaciones',
+            component: require('./views/MensajesComponent.vue').default
+
+        },
+
+        {
             path: '/RECEPESTADOSUPER',
             name: 'recepestadosuper',
             component: require('./views/SUPERrecepVistaEstadoComponent.vue').default

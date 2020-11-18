@@ -2267,7 +2267,7 @@ export default {
         });
            
     const param = {
-          mensaje: "si sirve",
+          mensaje: "Tienes asignada una recepción, revisa tus Recepciones",
           id_usuario: this.usuario.persona.id,
         };     
         axios.post("/api/notificaciones", param).then((res) => {
