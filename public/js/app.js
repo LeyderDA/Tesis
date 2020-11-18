@@ -73710,6 +73710,22 @@ var render = function() {
                       "router-link",
                       {
                         staticClass: "nav-link",
+                        attrs: { to: { name: "notificaciones" } }
+                      },
+                      [_vm._v("Notificaciones")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
                         attrs: { to: { name: "buscarqr" } }
                       },
                       [_vm._v("Buscar por QR")]
@@ -74004,6 +74020,22 @@ var render = function() {
                         attrs: { to: { name: "home" } }
                       },
                       [_vm._v("Inicio")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: { name: "notificaciones" } }
+                      },
+                      [_vm._v("Notificaciones")]
                     )
                   ],
                   1
