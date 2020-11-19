@@ -38,7 +38,7 @@
                       <td>{{ reclamante.discapavictima }}</td>
                       <td>{{ reclamante.estravictima }}</td>
                       <td>{{ reclamante.embaravictima }}</td>
-                      <td>{{ reclamante.grupetnicovictima }}</td>
+                      <td>{{ reclamante.descretnico }}</td>
                       <td>{{ reclamante.persoentidreclama }}</td>
 
                       <td>
@@ -228,8 +228,8 @@
                     <option value="No">No</option>
                   </select>
                 </div>
-                <br />
-                <label class="col-12 col-form-label">Grupo Etnico</label>
+                <br>
+                <label class="col-12 col-form-label">Grupo étnico (*)</label>
 
                 <div class="col-12">
                   <select
@@ -238,11 +238,24 @@
                     v-model="reclamante.grupetnicovictima"
                   >
                     <option value="">Selecciona</option>
-                    <option value="Si">Si</option>
-                    <option value="No">No</option>
+                    <option value="SI">Si</option>
+                    <option value="NO">No</option>
                   </select>
                 </div>
                 <br />
+                
+                <label class="col-12 col-form-label"
+                  >Descripción del grupo étnico</label
+                >
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Descripción del grupo étnico"
+                    v-model="reclamante.descretnico"
+                    :disabled="!isFormValidetnia()"
+                  />
+                </div>
+                
                 <label class="col-12 col-form-label">Entidad que reclama</label>
 
                 <div class="col-12 form-group">
@@ -552,6 +565,7 @@ export default {
         embaravictima: "",
         grupetnicovictima: "",
         persoentidreclama: "",
+         descretnico: "",
         per_id: "",
         descrdiscap: "",
         email: "",
@@ -585,6 +599,9 @@ export default {
     });
   },
   methods: {
+     isFormValidetnia: function () {
+      return this.reclamante.grupetnicovictima != "NO";
+    },
     agregarArchivo() {
       if (!this.reclamante.id) {
         swal({
@@ -659,6 +676,7 @@ export default {
         embaravictima: this.reclamante.embaravictima,
         grupetnicovictima: this.reclamante.grupetnicovictima,
         persoentidreclama: this.reclamante.persoentidreclama,
+        descretnico:this.reclamante.descretnico,
         per_id: this.reclamante.persona.id,
         descrdiscap: this.reclamante.descrdiscap,
       };
@@ -727,6 +745,7 @@ export default {
         embaravictima: this.reclamante.embaravictima,
         grupetnicovictima: this.reclamante.grupetnicovictima,
         persoentidreclama: this.reclamante.persoentidreclama,
+        descretnico:this.reclamante.descretnico,
         per_id: this.reclamante.persona.id,
         descrdiscap: this.reclamante.descrdiscap,
         email: this.reclamante.email,

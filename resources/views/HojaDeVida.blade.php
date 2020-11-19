@@ -17,16 +17,16 @@
                               <?php $content = DB::table('fotos_estudiantes')->select('id','Foto')->where('est_id',$User->id)->get(); ?>                              
                               @foreach($content as $contenido)                             
                                          
-                             <center>
+                            
                                 <img src="/storage/FotosEstudiantes/{{$contenido->Foto}}" width="200" height="200">
-                             </center>
+                       
                                
                              </a>          
                             @endforeach 
                               
                             <?php $per = DB::table('personas')->select('id','cedula','prinom','segnom','priape','segape','tel','direc')->where('id',$User->per_id)->get(); ?>  
                             @foreach($per as $persona)                             
-                              <center>
+                             
                                 <br>
                                 <br> 
                                 <h5 class="text mb-2 card-title">Usuario: {{$User->username}}</h5>
@@ -35,19 +35,13 @@
                                 <br>
                                 <h5 class="text mb-2 card-title">Cédula: {{$persona->cedula}}</h5>
                                 <br>
-                                <h5 class="text mb-2 card-title">Primer Nombre: {{$persona->prinom}}</h5>
-                                <br>
-                                <h5 class="text mb-2 card-title">Segundo Nombre: {{$persona->segnom}}</h5>
-                                <br>
-                                <h5 class="text mb-2 card-title">Primer Apellido: {{$persona->priape}}</h5>
-                                <br>
-                                <h5 class="text mb-2 card-title">Segundo Apellido: {{$persona->segape}}</h5>
-                                <br>
+                                <h5 class="text mb-2 card-title">Nombre: {{$persona->prinom}} {{$persona->segnom}} {{$persona->priape}} {{$persona->segape}}</h5>
+                                <br> 
                                 <h5 class="text mb-2 card-title">Celular: {{$persona->tel}}</h5>
                                 <br>
                                 <h5 class="text mb-2 card-title">Dirección: {{$persona->direc}}</h5>
                                 <br>
-                                  </center>                        
+                                                        
                           
                            
                            </a>          

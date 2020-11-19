@@ -1,12 +1,12 @@
 <template>
-   <div class="card" style="margin-top:25px">
+  <div class="card" style="margin-top: 25px">
     <div>
       <h2 class="text-center mb-2 card-title">Registrando Usuario</h2>
     </div>
     <div class="card-body row">
       <form>
         <div class="row">
-           <label class="col-5 col-form-label">Email (*):</label>
+          <label class="col-5 col-form-label">Email (*):</label>
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -48,8 +48,7 @@
             />
           </div>
 
-
-           <label class="col-5 col-form-label">Discapacidad (*)</label>
+          <label class="col-5 col-form-label">Discapacidad (*)</label>
           <div class="col-6">
             <select
               class="form-control"
@@ -59,15 +58,14 @@
               <option value="">Selecciona</option>
               <option value="SI">SI</option>
               <option value="NO">NO</option>
-              
             </select>
           </div>
           <br />
           <br />
 
-       
-
-          <label class="col-5 col-form-label">Descripción de discapacidad</label>
+          <label class="col-5 col-form-label"
+            >Descripción de discapacidad</label
+          >
           <div class="col-6 form-group">
             <input
               class="form-control"
@@ -76,7 +74,6 @@
               :disabled="!isFormValidDiscapacidad()"
             />
           </div>
-
 
           <label class="col-5 col-form-label">Estrato (*)</label>
           <div class="col-6">
@@ -118,12 +115,24 @@
               v-model="reclamante.grupetnicovictima"
             >
               <option value="">Selecciona</option>
-              <option value="Si">Si</option>
-              <option value="No">No</option>
+              <option value="SI">Si</option>
+              <option value="NO">No</option>
             </select>
           </div>
           <br />
           <br />
+
+          <label class="col-5 col-form-label"
+            >Descripción del grupo étnico</label
+          >
+          <div class="col-6 form-group">
+            <input
+              class="form-control"
+              placeholder="Descripción del grupo étnico"
+              v-model="reclamante.descretnico"
+              :disabled="!isFormValidetnia()"
+            />
+          </div>
 
           <label class="col-5 col-form-label"
             >Entidad o persona que reclama (*)</label
@@ -398,8 +407,9 @@ export default {
         embaravictima: "",
         grupetnicovictima: "",
         persoentidreclama: "",
+        descretnico: "",
         per_id: "",
-        email:"",
+        email: "",
 
         persona: {
           id: "",
@@ -447,6 +457,10 @@ export default {
       return this.reclamante.discapavictima != "NO";
     },
 
+    isFormValidetnia: function () {
+      return this.reclamante.grupetnicovictima != "NO";
+    },
+
     agregar() {
       if (
         !this.reclamante.enfodifervictima ||
@@ -477,10 +491,11 @@ export default {
           embaravictima: this.reclamante.embaravictima,
           grupetnicovictima: this.reclamante.grupetnicovictima,
           persoentidreclama: this.reclamante.persoentidreclama,
+          descretnico: this.reclamante.descretnico,
           per_id: this.reclamante.persona.id,
           email: this.reclamante.email,
           descrdiscap: this.reclamante.descrdiscap,
-        }; 
+        };
 
         this.reclamante.enfodifervictima = "";
         this.reclamante.genevictima = "";
@@ -493,6 +508,7 @@ export default {
         this.reclamante.persona.cedula = "";
         this.reclamante.email = "";
         this.reclamante.descrdiscap = "";
+        this.reclamante.descretnico = "";
 
         axios.post("/api/reclamante", params).then((res) => {
           if (res.data == null) {

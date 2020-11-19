@@ -11,7 +11,7 @@ class Reclamante extends Model
     [
         'id','enfodifervictima','genevictima','edadvictima','discapavictima',
         'estravictima','embaravictima','grupetnicovictima','persoentidreclama',
-        'per_id','email','descrdiscap',
+        'per_id','email','descrdiscap','descretnico',
     ];
 
     public function Persona()

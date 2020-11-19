@@ -23,6 +23,7 @@ class CreateReclamTable extends Migration
             $table->string('estravictima',5);
             $table->string('embaravictima',10);
             $table->string('grupetnicovictima',20);
+            $table->string('descretnico',30)->nullable();
             $table->string('persoentidreclama',50);
             $table->string('email')->unique(); 
            

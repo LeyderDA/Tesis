@@ -11326,6 +11326,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -11358,6 +11367,7 @@ __webpack_require__.r(__webpack_exports__);
         embaravictima: "",
         grupetnicovictima: "",
         persoentidreclama: "",
+        descretnico: "",
         per_id: "",
         email: "",
         persona: {
@@ -11401,6 +11411,9 @@ __webpack_require__.r(__webpack_exports__);
     isFormValidDiscapacidad: function isFormValidDiscapacidad() {
       return this.reclamante.discapavictima != "NO";
     },
+    isFormValidetnia: function isFormValidetnia() {
+      return this.reclamante.grupetnicovictima != "NO";
+    },
     agregar: function agregar() {
       var _this2 = this;
 
@@ -11422,6 +11435,7 @@ __webpack_require__.r(__webpack_exports__);
           embaravictima: this.reclamante.embaravictima,
           grupetnicovictima: this.reclamante.grupetnicovictima,
           persoentidreclama: this.reclamante.persoentidreclama,
+          descretnico: this.reclamante.descretnico,
           per_id: this.reclamante.persona.id,
           email: this.reclamante.email,
           descrdiscap: this.reclamante.descrdiscap
@@ -11437,6 +11451,7 @@ __webpack_require__.r(__webpack_exports__);
         this.reclamante.persona.cedula = "";
         this.reclamante.email = "";
         this.reclamante.descrdiscap = "";
+        this.reclamante.descretnico = "";
         axios.post("/api/reclamante", params).then(function (res) {
           if (res.data == null) {
             swal({
@@ -11478,6 +11493,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-dropzone/dist/vue2Dropzone.min.css */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.min.css");
 /* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -12029,6 +12057,7 @@ __webpack_require__.r(__webpack_exports__);
         embaravictima: "",
         grupetnicovictima: "",
         persoentidreclama: "",
+        descretnico: "",
         per_id: "",
         descrdiscap: "",
         email: "",
@@ -12061,6 +12090,9 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
+    isFormValidetnia: function isFormValidetnia() {
+      return this.reclamante.grupetnicovictima != "NO";
+    },
     agregarArchivo: function agregarArchivo() {
       var _this2 = this;
 
@@ -12137,6 +12169,7 @@ __webpack_require__.r(__webpack_exports__);
         embaravictima: this.reclamante.embaravictima,
         grupetnicovictima: this.reclamante.grupetnicovictima,
         persoentidreclama: this.reclamante.persoentidreclama,
+        descretnico: this.reclamante.descretnico,
         per_id: this.reclamante.persona.id,
         descrdiscap: this.reclamante.descrdiscap
       };
@@ -12207,6 +12240,7 @@ __webpack_require__.r(__webpack_exports__);
         embaravictima: this.reclamante.embaravictima,
         grupetnicovictima: this.reclamante.grupetnicovictima,
         persoentidreclama: this.reclamante.persoentidreclama,
+        descretnico: this.reclamante.descretnico,
         per_id: this.reclamante.persona.id,
         descrdiscap: this.reclamante.descrdiscap,
         email: this.reclamante.email
@@ -78520,9 +78554,9 @@ var render = function() {
                     _vm._v("Selecciona")
                   ]),
                   _vm._v(" "),
-                  _c("option", { attrs: { value: "Si" } }, [_vm._v("Si")]),
+                  _c("option", { attrs: { value: "SI" } }, [_vm._v("Si")]),
                   _vm._v(" "),
-                  _c("option", { attrs: { value: "No" } }, [_vm._v("No")])
+                  _c("option", { attrs: { value: "NO" } }, [_vm._v("No")])
                 ]
               )
             ]),
@@ -78530,6 +78564,37 @@ var render = function() {
             _c("br"),
             _vm._v(" "),
             _c("br"),
+            _vm._v(" "),
+            _c("label", { staticClass: "col-5 col-form-label" }, [
+              _vm._v("Descripción del grupo étnico")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-6 form-group" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.reclamante.descretnico,
+                    expression: "reclamante.descretnico"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  placeholder: "Descripción del grupo étnico",
+                  disabled: !_vm.isFormValidetnia()
+                },
+                domProps: { value: _vm.reclamante.descretnico },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.reclamante, "descretnico", $event.target.value)
+                  }
+                }
+              })
+            ]),
             _vm._v(" "),
             _c("label", { staticClass: "col-5 col-form-label" }, [
               _vm._v("Entidad o persona que reclama (*)")
@@ -79331,9 +79396,7 @@ var render = function() {
                               _vm._v(_vm._s(reclamante.embaravictima))
                             ]),
                             _vm._v(" "),
-                            _c("td", [
-                              _vm._v(_vm._s(reclamante.grupetnicovictima))
-                            ]),
+                            _c("td", [_vm._v(_vm._s(reclamante.descretnico))]),
                             _vm._v(" "),
                             _c("td", [
                               _vm._v(_vm._s(reclamante.persoentidreclama))
@@ -79839,7 +79902,7 @@ var render = function() {
                       _c("br"),
                       _vm._v(" "),
                       _c("label", { staticClass: "col-12 col-form-label" }, [
-                        _vm._v("Grupo Etnico")
+                        _vm._v("Grupo étnico (*)")
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-12" }, [
@@ -79881,11 +79944,11 @@ var render = function() {
                               _vm._v("Selecciona")
                             ]),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "Si" } }, [
+                            _c("option", { attrs: { value: "SI" } }, [
                               _vm._v("Si")
                             ]),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "No" } }, [
+                            _c("option", { attrs: { value: "NO" } }, [
                               _vm._v("No")
                             ])
                           ]
@@ -79893,6 +79956,41 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("br"),
+                      _vm._v(" "),
+                      _c("label", { staticClass: "col-12 col-form-label" }, [
+                        _vm._v("Descripción del grupo étnico")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-12 form-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.reclamante.descretnico,
+                              expression: "reclamante.descretnico"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            placeholder: "Descripción del grupo étnico",
+                            disabled: !_vm.isFormValidetnia()
+                          },
+                          domProps: { value: _vm.reclamante.descretnico },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.reclamante,
+                                "descretnico",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
                       _vm._v(" "),
                       _c("label", { staticClass: "col-12 col-form-label" }, [
                         _vm._v("Entidad que reclama")
