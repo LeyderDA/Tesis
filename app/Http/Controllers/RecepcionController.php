@@ -171,6 +171,14 @@ class RecepcionController extends Controller
         return  response()->json($re);
     }
 
+    public function updateRECLA(Request $request, $id)
+    {
+        $re = Recepcion::find($id);     
+        $re->recla_id = $request->recla_id;
+        $re->save();       
+        return  response()->json($re);
+    }
+
     public function updateABOGADO(Request $request, $id)
     {
         $re = Recepcion::find($id);     

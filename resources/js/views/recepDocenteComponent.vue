@@ -12,12 +12,12 @@
               <table class="table text-center">
                 <thead>
                   <tr>
-                    <th>Estudiante</th>
+                    <th>Abogado en formación quien recepciona</th>
                     <th>Recepcionado</th>
                     <th>Consultorio</th>
                     <th>Usuario</th>
-                    <th>Quien recepciona</th>
-                    <th>Docente</th>
+                    <th>Abogado en formación asignado</th>
+                    <th>Docente asignado</th>
                     <th>Área</th>
                     <th>Recepción</th>
                     <th>Agregar observación</th>
@@ -27,28 +27,15 @@
                 <tbody>
                   <tr v-for="recepcion in recepcioness" :key="recepcion.index">
                     <td>
-                      <div>
-                        <center>
-                          <a
-                            :href="'/HojaDeVidaROLES/' + recepcion.usu_id"
-                            target="_blank"
-                            ><i
-                              title="Ver Estudiante"
-                              class="fas fa-user fa-2x"
-                              style="color: black"
-                            ></i
-                          ></a>
-                        </center>
-                      </div>
-                      <!-- <button
+                      <button
                         class="btn btn-sm"
                         data-toggle="modal"
-                        data-target="#MOSTRARModalEST"
+                        data-target="#MOSTRARModalRECEP"
                         @click="editarForm(recepcion)"
-                        title="Mostrar Estudiante"
+                        title="Mostrar quien recepciona"
                       >
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
-                      </button> -->
+                      </button>
                     </td>
                     <td>{{ recepcion.recepcionado }}</td>
                     <td>{{ recepcion.consultorio }}</td>
@@ -64,15 +51,19 @@
                       </button>
                     </td>
                     <td>
-                      <button
-                        class="btn btn-sm"
-                        data-toggle="modal"
-                        data-target="#MOSTRARModalRECEP"
-                        @click="editarForm(recepcion)"
-                        title="Mostrar quien recepciona"
-                      >
-                        <i class="fas fa-eye fa-2x" style="color: black"></i>
-                      </button>
+                      <div>
+                        <center>
+                          <a
+                            :href="'/HojaDeVidaROLES/' + recepcion.usu_id"
+                            target="_blank"
+                            ><i
+                              title="Ver Estudiante"
+                              class="fas fa-user fa-2x"
+                              style="color: black"
+                            ></i
+                          ></a>
+                        </center>
+                      </div>
                     </td>
                     <td>
                       <button
@@ -156,7 +147,7 @@
                 disabled
               />
               <center>
-                <label class="col-12 col-form-label">Click en el ícono</label>
+                <label class="col-12 col-form-label">Clic en el ícono</label>
               </center>
 
               <center>
@@ -193,7 +184,7 @@
         </div>
       </div>
       <!--modal de MOSTRAR EL RECE -->
-        <!--modal de MOSTRAR EL DOCENTE-->
+      <!--modal de MOSTRAR EL DOCENTE-->
       <div
         class="modal fade"
         id="MOSTRARModalDOC"
@@ -223,7 +214,7 @@
                 disabled
               />
               <center>
-                <label class="col-12 col-form-label">Click en el ícono</label>
+                <label class="col-12 col-form-label">Clic en el ícono</label>
               </center>
               <center>
                 <button
@@ -427,7 +418,7 @@
               disabled
             />
             <center>
-              <label class="col-12 col-form-label">Click en el ícono</label>
+              <label class="col-12 col-form-label">Clic en el ícono</label>
             </center>
             <center>
               <button
@@ -891,142 +882,142 @@
       </div>
     </div>
     <!--modal de MOSTRAR EL RECLAMANTE -->
-    
-  <!--modal de MOSTRAR EL DOCENTE REAL -->
-      <div
-        class="modal fade"
-        id="MOSTRARModalDOO"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-        data-backdrop="static"
-        data-keyboard="false"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
-                Datos del docente
-              </h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
 
-            <div class="modal-body">
+    <!--modal de MOSTRAR EL DOCENTE REAL -->
+    <div
+      class="modal fade"
+      id="MOSTRARModalDOO"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+      data-backdrop="static"
+      data-keyboard="false"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Datos del docente
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <input
+              type="hidden"
+              class="form-control"
+              placeholder="id"
+              v-model="usurecep.usuario.persona.id"
+              disabled
+            />
+            <div>
+              <center>
+                <a
+                  :href="'/HojaDeVidaROLES/' + usurecep.usuario.persona.id"
+                  target="_blank"
+                  ><i
+                    title="Ver Usuario"
+                    class="fas fa-user fa-5x"
+                    style="color: black"
+                  ></i
+                ></a>
+              </center>
+            </div>
+            <label class="col-5 col-form-label">Usuario:</label>
+            <div class="col-12 form-group">
               <input
-                type="hidden"
                 class="form-control"
-                placeholder="id"
-                v-model="usurecep.usuario.persona.id"
+                placeholder="Username"
+                v-model="usurecep.usuario.persona.username"
                 disabled
               />
-              <div>
-                <center>
-                  <a
-                    :href="'/HojaDeVidaROLES/' + usurecep.usuario.persona.id"
-                    target="_blank"
-                    ><i
-                      title="Ver Usuario"
-                      class="fas fa-user fa-5x"
-                      style="color: black"
-                    ></i
-                  ></a>
-                </center>
-              </div>
-              <label class="col-5 col-form-label">Usuario:</label>
-              <div class="col-12 form-group">
-                <input
-                  class="form-control"
-                  placeholder="Username"
-                  v-model="usurecep.usuario.persona.username"
-                  disabled
-                />
-              </div>
+            </div>
 
-              <label class="col-5 col-form-label">Email:</label>
-              <div class="col-12 form-group">
-                <input
-                  class="form-control"
-                  placeholder="Email"
-                  v-model="usurecep.usuario.persona.email"
-                  disabled
-                />
-              </div>
-              <label class="col-5 col-form-label">Cédula:</label>
-              <div class="col-12 form-group">
-                <input
-                  class="form-control"
-                  placeholder="Cédula"
-                  v-model="usurecep.usuario.persona.cedula"
-                  disabled
-                />
-              </div>
-              <label class="col-12 col-form-label">Primer nombre:</label>
-              <div class="col-12 form-group">
-                <input
-                  class="form-control"
-                  placeholder="Nombre de persona"
-                  v-model="usurecep.usuario.persona.prinom"
-                  disabled
-                />
-              </div>
-              <label class="col-12 col-form-label">Segundo nombre:</label>
-              <div class="col-12 form-group">
-                <input
-                  class="form-control"
-                  placeholder="Nombre de persona"
-                  v-model="usurecep.usuario.persona.segnom"
-                  disabled
-                />
-              </div>
-              <label class="col-12 col-form-label">Primer Apellido:</label>
-              <div class="col-12 form-group">
-                <input
-                  class="form-control"
-                  placeholder="Apellido de persona"
-                  v-model="usurecep.usuario.persona.priape"
-                  disabled
-                />
-              </div>
-              <label class="col-12 col-form-label">Segundo Apellido:</label>
-              <div class="col-12 form-group">
-                <input
-                  class="form-control"
-                  placeholder="Apellido de persona"
-                  v-model="usurecep.usuario.persona.segape"
-                  disabled
-                />
-              </div>
+            <label class="col-5 col-form-label">Email:</label>
+            <div class="col-12 form-group">
+              <input
+                class="form-control"
+                placeholder="Email"
+                v-model="usurecep.usuario.persona.email"
+                disabled
+              />
+            </div>
+            <label class="col-5 col-form-label">Cédula:</label>
+            <div class="col-12 form-group">
+              <input
+                class="form-control"
+                placeholder="Cédula"
+                v-model="usurecep.usuario.persona.cedula"
+                disabled
+              />
+            </div>
+            <label class="col-12 col-form-label">Primer nombre:</label>
+            <div class="col-12 form-group">
+              <input
+                class="form-control"
+                placeholder="Nombre de persona"
+                v-model="usurecep.usuario.persona.prinom"
+                disabled
+              />
+            </div>
+            <label class="col-12 col-form-label">Segundo nombre:</label>
+            <div class="col-12 form-group">
+              <input
+                class="form-control"
+                placeholder="Nombre de persona"
+                v-model="usurecep.usuario.persona.segnom"
+                disabled
+              />
+            </div>
+            <label class="col-12 col-form-label">Primer Apellido:</label>
+            <div class="col-12 form-group">
+              <input
+                class="form-control"
+                placeholder="Apellido de persona"
+                v-model="usurecep.usuario.persona.priape"
+                disabled
+              />
+            </div>
+            <label class="col-12 col-form-label">Segundo Apellido:</label>
+            <div class="col-12 form-group">
+              <input
+                class="form-control"
+                placeholder="Apellido de persona"
+                v-model="usurecep.usuario.persona.segape"
+                disabled
+              />
+            </div>
 
-              <br />
-              <br />
+            <br />
+            <br />
 
-              <div class="col-12 form-group">
-                <div style="width: 100px; height: 30px; margin: 0 auto">
-                  <button
-                    name="CERRAR"
-                    class="btn btn-primary"
-                    @click="limpiame()"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                    type="button"
-                  >
-                    CERRAR
-                  </button>
-                </div>
+            <div class="col-12 form-group">
+              <div style="width: 100px; height: 30px; margin: 0 auto">
+                <button
+                  name="CERRAR"
+                  class="btn btn-primary"
+                  @click="limpiame()"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                  type="button"
+                >
+                  CERRAR
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!--modal de MOSTRAR EL DOCENTE -->
+    </div>
+    <!--modal de MOSTRAR EL DOCENTE -->
 
     <!--modal de agg NOTAS AL ESTUDIANTE -->
     <div
@@ -1201,10 +1192,10 @@ export default {
         entidadelantramite: "",
         recp_id: "",
       },
- notificaiones:{
-      id: "",
-      mensaje: "",
-      id_usuario : "", 
+      notificaiones: {
+        id: "",
+        mensaje: "",
+        id_usuario: "",
       },
 
       esta: false,
@@ -1234,7 +1225,7 @@ export default {
         }
       });
     },
- buscarDOC() {
+    buscarDOC() {
       axios.get("/api/recepcionDO/" + this.recepcion.id).then((res) => {
         if (res.data[0] == null) {
           console.log(res.data[0]);
@@ -1301,15 +1292,11 @@ export default {
           showConfirmButton: true,
         });
       } else {
-        
-       const param = {
+        const param = {
           mensaje: "Se agregó una observación a una de tus recepciones",
           id_usuario: this.recepcion.usu_id,
-        };     
-        axios.post("/api/notificaciones", param).then((res) => {
-        });
-
-
+        };
+        axios.post("/api/notificaciones", param).then((res) => {});
 
         const params = {
           obsrv: this.observaciones.obsrv,

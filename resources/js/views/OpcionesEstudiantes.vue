@@ -34,6 +34,11 @@
             >
           </li>
           <li class="nav-item">
+            <router-link class="nav-link" :to="{ name: 'observaciones' }"
+              >Ver Observaciones</router-link
+            >
+          </li>
+          <li class="nav-item">
             <router-link class="nav-link" :to="{ name: 'gestest' }"
               >Ver Gestiones</router-link
             >

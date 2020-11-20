@@ -11,12 +11,12 @@
               <table class="table text-center">
                 <thead>
                   <tr>
-                    <th>Estudiante</th>
+                    <th>Abogado en formación quien recepciona</th>
                     <th>Recepcionado</th>
                     <th>Consultorio</th>
                     <th>Usuario</th>
-                    <th>Quien Recepciona</th>
-                    <th>Docente</th>
+                    <th>Abogado en formación asignado</th>
+                    <th>Docente asignado</th>
                     <th>Área</th>
                     <th>Recepción</th>
                     <th>Asignar Recepción</th>
@@ -29,28 +29,15 @@
                     :key="recepcion.index"
                   >
                     <td>
-                      <div>
-                        <center>
-                          <a
-                            :href="'/HojaDeVidaROLES/' + recepcion.usu_id"
-                            target="_blank"
-                            ><i
-                              title="Ver Usuario"
-                              class="fas fa-user fa-2x"
-                              style="color: black"
-                            ></i
-                          ></a>
-                        </center>
-                      </div>
-                      <!-- <button
+                      <button
                         class="btn btn-sm"
                         data-toggle="modal"
-                        data-target="#MOSTRARModalEST"
+                        data-target="#MOSTRARModalRECEP"
                         @click="editarForm(recepcion)"
-                        title="Mostrar Estudiante"
+                        title="Mostrar quien recepciona"
                       >
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
-                      </button> -->
+                      </button>
                     </td>
                     <td>{{ recepcion.recepcionado }}</td>
                     <td>{{ recepcion.consultorio }}</td>
@@ -65,18 +52,22 @@
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
                     </td>
-                    <td>
-                      <button
-                        class="btn btn-sm"
-                        data-toggle="modal"
-                        data-target="#MOSTRARModalRECEP"
-                        @click="editarForm(recepcion)"
-                        title="Mostrar quien recepciona"
-                      >
-                        <i class="fas fa-eye fa-2x" style="color: black"></i>
-                      </button>
-                    </td>
 
+                    <td>
+                      <div>
+                        <center>
+                          <a
+                            :href="'/HojaDeVidaROLES/' + recepcion.usu_id"
+                            target="_blank"
+                            ><i
+                              title="Ver Usuario"
+                              class="fas fa-user fa-2x"
+                              style="color: black"
+                            ></i
+                          ></a>
+                        </center>
+                      </div>
+                    </td>
                     <td>
                       <button
                         class="btn btn-sm"
@@ -123,6 +114,17 @@
                       >
                         <i class="fas fa-pencil-alt fa-1.5x"></i>
                       </button>
+                      <br />
+                      <button
+                        class="btn btn-sm"
+                        data-toggle="modal"
+                        data-target="#editarModalRR"
+                        @click="editarForm(recepcion, index)"
+                        title="Editar Usuario"
+                      >
+                        <i class="fas fa-pen-alt fa-1.5x"></i>
+                      </button>
+                      <br />
                       <button
                         class="btn btn-danger btn-sm"
                         @click="eliminar(recepcion, index)"
@@ -189,7 +191,7 @@
                 disabled
               />
               <center>
-                <label class="col-12 col-form-label">Click en el ícono</label>
+                <label class="col-12 col-form-label">Clic en el ícono</label>
               </center>
               <center>
                 <button
@@ -255,7 +257,7 @@
                 disabled
               />
               <center>
-                <label class="col-12 col-form-label">Click en el ícono</label>
+                <label class="col-12 col-form-label">Clic en el ícono</label>
               </center>
               <center>
                 <button
@@ -427,9 +429,7 @@
       </div>
       <!--modal de MOSTRAR EL RECEP -->
 
-
-
-  <!--modal de MOSTRAR EL DOCENTE REAL -->
+      <!--modal de MOSTRAR EL DOCENTE REAL -->
       <div
         class="modal fade"
         id="MOSTRARModalDOO"
@@ -565,26 +565,6 @@
       </div>
       <!--modal de MOSTRAR EL DOCENTE -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       <!--modal de MOSTRAR EL ESTUDIANTE-->
       <div
         class="modal fade"
@@ -617,7 +597,7 @@
                 disabled
               />
               <center>
-                <label class="col-12 col-form-label">Click en el ícono</label>
+                <label class="col-12 col-form-label">Clic en el ícono</label>
               </center>
               <center>
                 <button
@@ -868,7 +848,57 @@
                   v-model="recepcion.tramitejuri"
                 />
               </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                name="CERRAR"
+                class="btn btn-danger"
+                data-dismiss="modal"
+                aria-label="Close"
+                type="button"
+              >
+                CERRAR
+              </button>
 
+              <button
+                type="button"
+                class="btn btn-primary"
+                @click="editar()"
+                data-dismiss="modal"
+              >
+                Guardar Cambios
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal de editar -->
+
+      <!--modal de editar reclamante -->
+      <div
+        class="modal fade"
+        id="editarModalRR"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Editar Recepción
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
               <label class="col-12 col-form-label"
                 >En caso de que quieras cambiar el usuario digita la cédula:
               </label>
@@ -913,7 +943,7 @@
               <button
                 type="button"
                 class="btn btn-primary"
-                @click="editar()"
+                @click="editarReclamante()"
                 data-dismiss="modal"
               >
                 Guardar Cambios
@@ -922,7 +952,7 @@
           </div>
         </div>
       </div>
-      <!--modal de editar -->
+      <!--modal de editar reclamante -->
 
       <!--modal de editar AREA-->
       <div
@@ -1335,7 +1365,7 @@
                 />
               </div>
 
-              <label class="col-12 col-form-label">Tramite Jurídico:</label>
+              <label class="col-12 col-form-label">Trámite Jurídico:</label>
               <div class="col-12 form-group">
                 <input
                   class="form-control"
@@ -1841,8 +1871,6 @@
               </button>
             </div>
             <div class="modal-body">
-             
-
               <label class="col-12 col-form-label">CÉDULA</label>
               <div class="col-12 form-group">
                 <input
@@ -1871,8 +1899,8 @@
                 />
               </div>
             </div>
-            <br>
-            <br>
+            <br />
+            <br />
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">
                 Cerrar
@@ -2008,12 +2036,11 @@ export default {
           nombre: "",
         },
       },
-      notificaiones:{
-      id: "",
-      mensaje: "",
-      id_usuario : "", 
+      notificaiones: {
+        id: "",
+        mensaje: "",
+        id_usuario: "",
       },
-
 
       usuario: {
         id: "",
@@ -2241,7 +2268,7 @@ export default {
         const params = {
           recp_id: this.recepcion.id,
           usu_id: this.usuario.persona.id,
-        };     
+        };
         axios.post("/api/asigrecep", params).then((res) => {
           if (res.data == null) {
             swal({
@@ -2265,15 +2292,12 @@ export default {
             console.log(res.data);
           });
         });
-           
-    const param = {
+
+        const param = {
           mensaje: "Tienes asignada una recepción, revisa tus Recepciones",
           id_usuario: this.usuario.persona.id,
-        };     
-        axios.post("/api/notificaciones", param).then((res) => {
-
-        });
-
+        };
+        axios.post("/api/notificaciones", param).then((res) => {});
       }
     },
 
@@ -2366,6 +2390,45 @@ export default {
       this.recepcion.index = index;
       console.log(recepcion);
     },
+    editarReclamante() {
+      const params = {
+        recla_id: this.usuario.persona.id,
+      };
+      axios
+        .put("/api/recepcionReclamante/" + this.recepcion.id, params)
+        .then((res) => {
+          if (res.data == null) {
+            swal({
+              type: "error",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "El usuario no se ha actualizado",
+              showConfirmButton: false,
+            });
+          } else {
+            swal({
+              type: "success",
+              timer: 3000,
+              title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
+              text: "El usuario se ha actualizado",
+              showConfirmButton: false,
+            });
+          }
+          axios.get("/api/recepcionSUPER").then((res) => {
+            this.recepcioness = res.data;
+            console.log(res.data);
+          });
+        })
+        .catch((error) => {
+          if (error.response.status == 422) {
+            this.errors = error.response.data.errors;
+
+            //let mensaje='Error con alguno de los campos';
+
+            alert(this.errors.recepcionado[0]);
+          }
+        });
+    },
     editar() {
       const params = {
         recepcionado: this.recepcion.recepcionado,
@@ -2376,8 +2439,8 @@ export default {
         fechapublicacion: this.recepcion.fechapublicacion,
         fecharetiro: this.recepcion.fecharetiro,
         estado: this.recepcion.estado,
-        recla_id: this.usuario.persona.id,
-        //area_id: this.area.id.substr(0, 1),
+        recla_id: this.recepcion.recla_id,
+        //recla_id: this.usuario.persona.id,
         instjuri: this.recepcion.instjuri,
         tramitejuri: this.recepcion.tramitejuri,
       };
@@ -2419,12 +2482,11 @@ export default {
 
     // -----------------------------------------------------------------------------------------------
     editarEST() {
-       const param = {
-          mensaje: "Tienes asignada una recepción, revisa tus Recepciones",
-          id_usuario: this.usuarioo.persona.id,
-        };     
-        axios.post("/api/notificaciones", param).then((res) => {
-        });
+      const param = {
+        mensaje: "Tienes asignada una recepción, revisa tus Recepciones",
+        id_usuario: this.usuarioo.persona.id,
+      };
+      axios.post("/api/notificaciones", param).then((res) => {});
       const params = {
         usu_id: this.usuarioo.persona.id,
       };
@@ -2446,8 +2508,8 @@ export default {
               title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
               text: "La Recepción se ha asignado",
               showConfirmButton: false,
-            });     
-          }        
+            });
+          }
           axios.get("/api/recepcionSUPER").then((res) => {
             this.recepcioness = res.data;
             console.log(res.data);
@@ -2461,7 +2523,7 @@ export default {
 
             alert(this.errors.recepcionado[0]);
           }
-        });           
+        });
     },
     // ---
 

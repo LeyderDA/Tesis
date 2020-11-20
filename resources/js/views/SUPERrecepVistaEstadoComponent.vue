@@ -13,12 +13,12 @@
               <table class="table text-center">
                 <thead>
                   <tr>
-                    <th>Estudiante</th>
+                    <th>Abogado en formación quien recepciona</th>
                     <th>Recepcionado</th>
                     <th>Consultorio</th>
                     <th>Usuario</th>
-                    <th>Quien recepciona</th>
-                    <th>Docente</th>
+                    <th>Abogado en formación asignado</th>
+                    <th>Docente asignado</th>
                     <th>Área</th>
                     <th>Recepción</th>
                     <th>Opciones</th>
@@ -30,28 +30,15 @@
                     :key="recepcion.index"
                   >
                     <td>
-                      <!-- <button
+                      <button
                         class="btn btn-sm"
                         data-toggle="modal"
-                        data-target="#MOSTRARModalEST"
+                        data-target="#MOSTRARModalRECEP"
                         @click="editarForm(recepcion)"
-                        title="Mostrar Estudiante"
+                        title="Mostrar recepcionista"
                       >
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
-                      </button> -->
-                      <div>
-                        <center>
-                          <a
-                            :href="'/HojaDeVidaROLES/' + recepcion.usu_id"
-                            target="_blank"
-                            ><i
-                              title="Ver Usuario"
-                              class="fas fa-user fa-2x"
-                              style="color: black"
-                            ></i
-                          ></a>
-                        </center>
-                      </div>
+                      </button>
                     </td>
                     <td>{{ recepcion.recepcionado }}</td>
                     <td>{{ recepcion.consultorio }}</td>
@@ -67,15 +54,19 @@
                       </button>
                     </td>
                     <td>
-                      <button
-                        class="btn btn-sm"
-                        data-toggle="modal"
-                        data-target="#MOSTRARModalRECEP"
-                        @click="editarForm(recepcion)"
-                        title="Mostrar recepcionista"
-                      >
-                        <i class="fas fa-eye fa-2x" style="color: black"></i>
-                      </button>
+                      <div>
+                        <center>
+                          <a
+                            :href="'/HojaDeVidaROLES/' + recepcion.usu_id"
+                            target="_blank"
+                            ><i
+                              title="Ver Usuario"
+                              class="fas fa-user fa-2x"
+                              style="color: black"
+                            ></i
+                          ></a>
+                        </center>
+                      </div>
                     </td>
                     <td>
                       <button
@@ -83,7 +74,7 @@
                         data-toggle="modal"
                         data-target="#MOSTRARModalDOC"
                         @click="editarForm(recepcion)"
-                        title="Mostrar recepcionista"
+                        title="Mostrar docente"
                       >
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
@@ -166,7 +157,7 @@
                 disabled
               />
               <center>
-                <label class="col-12 col-form-label">Click en el ícono</label>
+                <label class="col-12 col-form-label">Clic en el ícono</label>
               </center>
               <center>
                 <button
@@ -230,7 +221,7 @@
                 disabled
               />
               <center>
-                <label class="col-12 col-form-label">Click en el ícono</label>
+                <label class="col-12 col-form-label">Clic en el ícono</label>
               </center>
               <center>
                 <button
@@ -547,7 +538,7 @@
                 disabled
               />
               <center>
-                <label class="col-12 col-form-label">Click en el ícono</label>
+                <label class="col-12 col-form-label">Clic en el ícono</label>
               </center>
               <center>
                 <button
@@ -806,36 +797,6 @@
                   v-model="recepcion.tramitejuri"
                 />
               </div>
-
-              <label class="col-12 col-form-label"
-                >En caso de que quieras cambiar el reclamante digita la cédula:
-              </label>
-
-              <label class="col-12 col-form-label">Cédula Reclamante:</label>
-              <div class="col-12 form-group">
-                <input
-                  class="form-control"
-                  placeholder="Cédula del Reclamante"
-                  v-model="usuario.persona.cedula"
-                  disabled
-                />
-              </div>
-              <br />
-
-              <!--buscar reclamante -->
-              <div class="col-12 form-group" v-if="true">
-                <button
-                  class="btn btn-primary btn-block"
-                  data-toggle="modal"
-                  data-target="#buscarModalReclam"
-                  @click="buscarreclaced()"
-                  :disabled="!isFormValidReclamante()"
-                >
-                  B.Reclamante
-                  <i class="fas fa-search fa-1x" style="color: black"></i>
-                </button>
-              </div>
-              <!--buscar reclamante -->
             </div>
             <div class="modal-footer">
               <button
@@ -1922,7 +1883,8 @@ export default {
         fechapublicacion: this.recepcion.fechapublicacion,
         fecharetiro: this.recepcion.fecharetiro,
         estado: this.recepcion.estado,
-        recla_id: usuario.persona.id,
+        recla_id: this.recepcion.recla_id,
+        //recla_id: usuario.persona.id,
         instjuri: this.recepcion.instjuri,
         tramitejuri: this.recepcion.tramitejuri,
       };

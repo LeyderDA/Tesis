@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="card">
-          <div class="card-header">Modulo Area</div>
+          <div class="card-header">Modulo Área</div>
           <div class="card-body row">
             <label class="col-5 col-form-label">Nombre del área (*)</label>
             <div class="col-6">

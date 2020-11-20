@@ -57,6 +57,7 @@ Route::get('/recepcion', 'RecepcionController@index')->name('recepcionListar');
 Route::get('/recepcionn', 'RecepcionController@indexx')->name('recepcionListar2');
 Route::delete('/recepcion/{id}', 'RecepcionController@destroy')->name('recepcionEliminar');
 Route::put('/recepcion/{id}', 'RecepcionController@update')->name('recepcionActualizar');
+Route::put('/recepcionReclamante/{id}', 'RecepcionController@updateRECLA')->name('recepcionAct');
 Route::put('/recepcionAreUpdate/{id}', 'RecepcionController@updateArea')->name('recepcionActualizarArea');
 
 Route::put('/recepcionaABO/{id}', 'RecepcionController@updateABOGADO')->name('recepcionActualizarAbogado');

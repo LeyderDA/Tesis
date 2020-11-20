@@ -11,12 +11,12 @@
               <table class="table text-center">
                 <thead>
                   <tr>
-                    <th>Estudiante</th>
+                    <th>Abogado en formación quien recepciona</th>
                     <th>Recepcionado</th>
                     <th>Consultorio</th>
                     <th>Usuario</th>
-                    <th>Quien Recepciona</th>
-                    <th>Docente</th>
+                    <th>Abogado en formación asignado</th>
+                    <th>Docente asignado</th>
                     <th>Área</th>
                     <th>Recepción</th>
                     <th>Agregar Gestión</th>
@@ -26,19 +26,15 @@
                 <tbody>
                   <tr v-for="recepcion in recepcioness" :key="recepcion.index">
                     <td>
-                      <div>
-                        <center>
-                          <a
-                            :href="'/HojaDeVidaROLES/' + recepcion.usu_id"
-                            target="_blank"
-                            ><i
-                              title="Ver Usuario"
-                              class="fas fa-user fa-2x"
-                              style="color: black"
-                            ></i
-                          ></a>
-                        </center>
-                      </div>
+                      <button
+                        class="btn btn-sm"
+                        data-toggle="modal"
+                        data-target="#MOSTRARModalRECEP"
+                        @click="editarForm(recepcion)"
+                        title="Mostrar quien recepciona"
+                      >
+                        <i class="fas fa-eye fa-2x" style="color: black"></i>
+                      </button>
                     </td>
 
                     <td>{{ recepcion.recepcionado }}</td>
@@ -56,15 +52,19 @@
                     </td>
 
                     <td>
-                      <button
-                        class="btn btn-sm"
-                        data-toggle="modal"
-                        data-target="#MOSTRARModalRECEP"
-                        @click="editarForm(recepcion)"
-                        title="Mostrar quien recepciona"
-                      >
-                        <i class="fas fa-eye fa-2x" style="color: black"></i>
-                      </button>
+                      <div>
+                        <center>
+                          <a
+                            :href="'/HojaDeVidaROLES/' + recepcion.usu_id"
+                            target="_blank"
+                            ><i
+                              title="Ver Usuario"
+                              class="fas fa-user fa-2x"
+                              style="color: black"
+                            ></i
+                          ></a>
+                        </center>
+                      </div>
                     </td>
                     <td>
                       <button
@@ -223,7 +223,7 @@
                 disabled
               />
               <center>
-                <label class="col-12 col-form-label">Click en el ícono</label>
+                <label class="col-12 col-form-label">Clic en el ícono</label>
               </center>
               <center>
                 <button
@@ -881,7 +881,7 @@
                 disabled
               />
               <center>
-                <label class="col-12 col-form-label">Click en el ícono</label>
+                <label class="col-12 col-form-label">Clic en el ícono</label>
               </center>
               <center>
                 <button
