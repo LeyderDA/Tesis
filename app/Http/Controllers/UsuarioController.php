@@ -22,6 +22,58 @@ class UsuarioController extends Controller
             return  response()->json($usuarios);
         }
     }
+    public function indexABOGADO(Request $request)
+    {  
+        $usuarios = User::all()->where("rol_id","=",3);
+        if($request->ajax()){
+            foreach ($usuarios as $usua){
+                $usua->persona;
+            }
+            return $usuarios;
+        }else{
+            return  response()->json($usuarios);
+        }
+    }
+
+    public function indexDOCENTE(Request $request)
+    {  
+        $usuarios = User::all()->where("rol_id","=",4);
+        if($request->ajax()){
+            foreach ($usuarios as $usua){
+                $usua->persona;
+            }
+            return $usuarios;
+        }else{
+            return  response()->json($usuarios);
+        }
+    }
+
+    public function indexADMINISTRATIVO(Request $request)
+    {  
+        $usuarios = User::all()->where("rol_id","=",2);
+        if($request->ajax()){
+            foreach ($usuarios as $usua){
+                $usua->persona;
+            }
+            return $usuarios;
+        }else{
+            return  response()->json($usuarios);
+        }
+    }
+
+    public function indexADMINISTRADOR(Request $request)
+    {  
+        $usuarios = User::all()->where("rol_id","=",1);
+        if($request->ajax()){
+            foreach ($usuarios as $usua){
+                $usua->persona;
+            }
+            return $usuarios;
+        }else{
+            return  response()->json($usuarios);
+        }
+    }
+
 
     /**
      * Show the form for creating a new resource.

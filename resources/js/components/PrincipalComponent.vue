@@ -17,7 +17,7 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <ul class="navbar-nav mr-auto mt-8 mt-lg-12">
           <li class="nav-item">
             <router-link class="nav-link" :to="{ name: 'home' }"
               >Inicio</router-link
@@ -84,7 +84,27 @@
 
               <li class="nav-item">
                 <router-link class="nav-link" :to="{ name: 'usuariovista' }"
-                  >Ver lista de roles</router-link
+                  >Ver lista de todos roles</router-link
+                >
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'userdocente' }"
+                  >Ver lista de los docentes</router-link
+                >
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'useradminis' }"
+                  >Ver lista de los estudiantes con cargo administrativos</router-link
+                >
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'userabogado' }"
+                  >Ver lista de los abogados en formación</router-link
+                >
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'useradmin' }"
+                  >Ver Administrator(es)</router-link
                 >
               </li>
             </ul>

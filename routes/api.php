@@ -36,6 +36,13 @@ Route::get('/persona/{id}', 'PersonaController@buscar')->name('personabuscar');
 //RUTAS DE API PARA USUARIOS
 Route::post('/user', 'UsuarioController@store')->name('usuarioGuardar');
 Route::get('/user', 'UsuarioController@index')->name('usuarioListar');
+
+Route::get('/userADMIN', 'UsuarioController@indexADMINISTRADOR');
+Route::get('/userADMINISTRA', 'UsuarioController@indexADMINISTRATIVO');
+Route::get('/userDOCENTE', 'UsuarioController@indexDOCENTE');
+Route::get('/userABOGADO', 'UsuarioController@indexABOGADO');
+
+
 Route::delete('/user/{id}', 'UsuarioController@destroy')->name('usuarioEliminar');
 Route::put('/user/{id}', 'UsuarioController@update')->name('usuarioActualizar');
 Route::get('/user/{id}', 'UsuarioController@buscar')->name('userbuscar');

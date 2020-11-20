@@ -2,7 +2,7 @@
   <div class="card" style="margin-top: 25px">
     <div>
       <br />
-      <h2 class="text-center mb-2 card-title">Listado total de roles</h2>
+      <h2 class="text-center mb-2 card-title">Listado de Administradores</h2>
     </div>
     <div class="card-body row">
       <div class="row justify-content-center col"></div>
@@ -41,8 +41,8 @@
                             <option value="">Selecciona un Rol</option>
                             <option value="1">Director</option>
                             <option value="2">Administrativo</option>
-                            <option value="3">Estudiante</option>
-                            <option value="4">Docente</option>                           
+                           <option value="3">Estudiante</option>
+                            <option value="4">Docente</option>    
                           </select>
                         </div>
                       </td>
@@ -250,7 +250,7 @@ export default {
     };
   },
   created() {
-    axios.get("/api/user").then((res) => {
+    axios.get("/api/userADMIN").then((res) => {
       this.usuarioss = res.data;
     });
   },

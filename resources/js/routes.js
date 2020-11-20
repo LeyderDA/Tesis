@@ -228,6 +228,35 @@ export default new Router({
 
         },
 
+
+        {
+            path: '/USERADMIN',
+            name: 'useradmin',
+            component: require('./views/UserAdminComponent.vue').default
+
+        },
+
+        {
+            path: '/USERADMINIS',
+            name: 'useradminis',
+            component: require('./views/UserAdministrativosComponent.vue').default
+
+        },
+
+        {
+            path: '/USERABOGADO',
+            name: 'userabogado',
+            component: require('./views/UserAbogadoComponent.vue').default
+
+        },
+
+        {
+            path: '/USERDOCENTE',
+            name: 'userdocente',
+            component: require('./views/UserDocentesComponent.vue').default
+
+        },
+
         
        
     ],
