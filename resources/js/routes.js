@@ -257,6 +257,15 @@ export default new Router({
 
         },
 
+
+        {
+            path: '/PersonaUSU',
+            name: 'personausu',
+            component: require('./views/PersonavistausuariosComponent.vue').default
+
+        },
+
+
         
        
     ],

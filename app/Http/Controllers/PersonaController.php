@@ -7,13 +7,50 @@ use Illuminate\Http\Request;
 
 class PersonaController extends Controller
 {
-    public function index()
-    {   
-        $per = Persona::all();
-        return  response()->json($per);
+    // public function index()
+    // {   
+    //     $per = Persona::all();
+    //     return  response()->json($per);
    
       
+    // }
+
+    public function index(Request $request)
+    {                   
+        $personas = Persona::join("users","users.per_id","=","personas.id")
+       
+        ->select('personas.*', 
+        'users.rol_id'     
+        )
+        ->orderBy('personas.id', 'asc')
+        ->get();
+                      if ($request->ajax()) {
+                          foreach ($personas as $rec) {                                                     
+                              $rec->user;                        
+                          }
+                          return $personas;
+                      } else {
+                          return  response()->json($personas);
+                      }   
     }
+
+    public function indexReclamantes(Request $request)
+    {                   
+        $personas = Persona::join("reclamantes","reclamantes.per_id","=","personas.id")
+       
+        ->select('personas.*')
+        ->orderBy('personas.id', 'asc')
+        ->get();
+                      if ($request->ajax()) {
+                          foreach ($personas as $rec) {                                                     
+                              $rec->user;                        
+                          }
+                          return $personas;
+                      } else {
+                          return  response()->json($personas);
+                      }   
+    }
+
 
     /**
      * Show the form for creating a new resource.

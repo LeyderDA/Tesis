@@ -61,7 +61,12 @@
               </li>
               <li class="nav-item">
                 <router-link class="nav-link" :to="{ name: 'personavista' }"
-                  >Ver lista de Personas</router-link
+                  >lista de Personas con rol</router-link
+                >
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'personausu' }"
+                  >lista de Personas de tipo Usuario</router-link
                 >
               </li>
             </ul>

@@ -23,7 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware();
 Route::get('/area', 'HomeController@index')->name('area')->middleware('Administrativo_Middleware');
 Route::get('/ALLGestion', 'HomeController@index')->name('area')->middleware('Administrativo_Middleware');
 
-
+Route::get('/PersonaUSU', 'HomeController@index')->middleware('Administrativo_Middleware');
 
 Route::get('/USERADMIN', 'HomeController@index')->middleware('Administrativo_Middleware');
 Route::get('/USERADMINIS', 'HomeController@index')->middleware('Administrativo_Middleware');
