@@ -74,7 +74,7 @@
                         data-toggle="modal"
                         data-target="#MOSTRARModalDOC"
                         @click="editarForm(recepcion)"
-                        title="Mostrar recepcionista"
+                        title="Mostrar docente"
                       >
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
                       </button>
