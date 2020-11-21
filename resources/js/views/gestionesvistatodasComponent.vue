@@ -547,6 +547,45 @@
                     disabled
                   />
                 </div>
+                     <label class="col-12 col-form-label"
+                  >Institución Jurídica:</label
+                >
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="recepcion"
+                    v-model="gestion.instjuri"
+                    disabled
+                  />
+                </div>
+                <label class="col-12 col-form-label">Trámite Jurídico:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="recepcion"
+                    v-model="gestion.tramitejuri"
+                    disabled
+                  />
+                </div>
+                <br />
+                <label class="col-12 col-form-label"
+                  >Abogado en formación quien recepciona:</label
+                >
+                <br />
+                <center>
+                  <button
+                    class="btn btn-sm"
+                    data-toggle="modal"
+                    data-target="#MOSTRARModalRECEP"
+                    @click="editarForm(gestion)"
+                    title="Mostrar quien recepciona"
+                  >
+                    <i class="fas fa-user fa-3x" style="color: black"></i>
+                  </button>
+                </center>
+
+                <br />
+
                 <label class="col-5 col-form-label">Usuario:</label>
 
                 <center>
@@ -591,27 +630,7 @@
                   </button>
                 </center>
 
-                <label class="col-12 col-form-label"
-                  >Institución Jurídica:</label
-                >
-                <div class="col-12 form-group">
-                  <input
-                    class="form-control"
-                    placeholder="recepcion"
-                    v-model="gestion.instjuri"
-                    disabled
-                  />
-                </div>
-                <label class="col-12 col-form-label">Trámite Jurídico:</label>
-                <div class="col-12 form-group">
-                  <input
-                    class="form-control"
-                    placeholder="recepcion"
-                    v-model="gestion.tramitejuri"
-                    disabled
-                  />
-                </div>
-                <br />
+           
                 <br />
                 <div class="col-12 form-group">
                   <div style="width: 100px; height: 30px; margin: 0 auto">
@@ -631,6 +650,208 @@
           </div>
         </div>
         <!--modal de MOSTRAR recepcion -->
+        <!--modal de MOSTRAR EL RECEPCIONISTA-->
+        <div
+          class="modal fade"
+          id="MOSTRARModalRECEP"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Buscar Recepcionador
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <input
+                  type="hidden"
+                  placeholder="id recep"
+                  v-model="gestion.recp_id"
+                  disabled
+                />
+                <center>
+                  <label class="col-12 col-form-label">Clic en el ícono</label>
+                </center>
+                <center>
+                  <button
+                    class="btn btn-sm"
+                    data-toggle="modal"
+                    data-target="#MOSTRARModalRE"
+                    @click="buscarrecep()"
+                    title="Mostrar quien recepciona"
+                  >
+                    <i class="fas fa-eye fa-5x" style="color: black"></i>
+                  </button>
+                </center>
+
+                <br />
+
+                <div class="col-12 form-group">
+                  <div style="width: 100px; height: 30px; margin: 0 auto">
+                    <button
+                      name="CERRAR"
+                      class="btn btn-primary"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                      type="button"
+                    >
+                      CERRAR
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--modal de MOSTRAR EL RECE -->
+        <!--modal de MOSTRAR EL RECE -->
+        <div
+          class="modal fade"
+          id="MOSTRARModalRE"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+          data-backdrop="static"
+          data-keyboard="false"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Datos de quien recepciona
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <input
+                  type="hidden"
+                  class="form-control"
+                  placeholder="id"
+                  v-model="usurecep.usuario.persona.id"
+                  disabled
+                />
+                <div>
+                  <center>
+                    <a
+                      :href="'/HojaDeVidaROLES/' + usurecep.usuario.persona.id"
+                      target="_blank"
+                      ><i
+                        title="Ver Usuario"
+                        class="fas fa-user fa-5x"
+                        style="color: black"
+                      ></i
+                    ></a>
+                  </center>
+                </div>
+                <label class="col-5 col-form-label">Usuario:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Username"
+                    v-model="usurecep.usuario.persona.username"
+                    disabled
+                  />
+                </div>
+
+                <label class="col-5 col-form-label">Email:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Email"
+                    v-model="usurecep.usuario.persona.email"
+                    disabled
+                  />
+                </div>
+                <label class="col-5 col-form-label">Cédula:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Cédula"
+                    v-model="usurecep.usuario.persona.cedula"
+                    disabled
+                  />
+                </div>
+                <label class="col-12 col-form-label">Primer nombre:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Nombre de persona"
+                    v-model="usurecep.usuario.persona.prinom"
+                    disabled
+                  />
+                </div>
+                <label class="col-12 col-form-label">Segundo nombre:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Nombre de persona"
+                    v-model="usurecep.usuario.persona.segnom"
+                    disabled
+                  />
+                </div>
+                <label class="col-12 col-form-label">Primer Apellido:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Apellido de persona"
+                    v-model="usurecep.usuario.persona.priape"
+                    disabled
+                  />
+                </div>
+                <label class="col-12 col-form-label">Segundo Apellido:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Apellido de persona"
+                    v-model="usurecep.usuario.persona.segape"
+                    disabled
+                  />
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-12 form-group">
+                  <div style="width: 100px; height: 30px; margin: 0 auto">
+                    <button
+                      name="CERRAR"
+                      class="btn btn-primary"
+                      @click="limpiame()"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                      type="button"
+                    >
+                      CERRAR
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--modal de MOSTRAR EL RECEP -->
+
         <!--modal de MOSTRAR EL DOCENTE-->
         <div
           class="modal fade"
@@ -1076,6 +1297,19 @@ export default {
           console.log(res.data[0]);
           let recep = res.data[0];
           this.gestion.recepcion = recep;
+          this.esta = true;
+        }
+      });
+    },
+    buscarrecep() {
+      axios.get("/api/recepcionRE/" + this.gestion.recp_id).then((res) => {
+        if (res.data[0] == null) {
+          console.log(res.data[0]);
+          this.esta = false;
+        } else {
+          console.log(res.data[0]);
+          let person = res.data[0];
+          this.usurecep.usuario.persona = person;
           this.esta = true;
         }
       });
