@@ -1,6 +1,6 @@
 <template>
-   <div class="card" style="margin-top:25px">
-     <br>
+  <div class="card" style="margin-top: 25px">
+    <br />
     <div>
       <h1 class="text-center mb-2 card-title">Asignaciones</h1>
     </div>
@@ -90,28 +90,27 @@
                 </button>
               </div>
               <div class="modal-body">
+                <input
+                  type="hidden"
+                  class="form-control"
+                  placeholder="id"
+                  v-model="usurecep.usu_id"
+                  disabled
+                />
 
-                 <input
-                type="hidden"
-                class="form-control"
-                placeholder="id"
-                v-model="usurecep.usu_id"
-                disabled
-              />
-
-               <div>
-                <center>
-                  <a
-                    :href="'/HojaDeVidaROLES/' + usurecep.usu_id"
-                    target="_blank"
-                    ><i
-                      title="Ver Usuario"
-                      class="fas fa-user fa-5x"
-                      style="color: black"
-                    ></i
-                  ></a>
-                </center>
-              </div>
+                <div>
+                  <center>
+                    <a
+                      :href="'/HojaDeVidaROLES/' + usurecep.usu_id"
+                      target="_blank"
+                      ><i
+                        title="Ver Usuario"
+                        class="fas fa-user fa-5x"
+                        style="color: black"
+                      ></i
+                    ></a>
+                  </center>
+                </div>
 
                 <label class="col-12 col-form-label">Username</label>
                 <div class="col-12 form-group">
@@ -123,7 +122,7 @@
                   />
                 </div>
 
-                  <label class="col-12 col-form-label">Email</label>
+                <label class="col-12 col-form-label">Email</label>
                 <div class="col-12 form-group">
                   <input
                     class="form-control"
@@ -294,9 +293,6 @@
                   />
                 </div>
 
-
-
-
                 <label class="col-12 col-form-label">Fecha de retiro</label>
                 <div class="col-12 form-group">
                   <input
@@ -335,72 +331,54 @@
                   />
                 </div>
                 <!-- ----------------------------------------- -->
-  <label class="col-12 col-form-label"
+                <label class="col-12 col-form-label"
                   >Intitución Jurídica:</label
                 >
                 <div class="col-12 form-group">
                   <input
                     class="form-control"
-            
-                  
                     v-model="usurecep.instjuri"
                     disabled
                   />
                 </div>
 
-                  <label class="col-12 col-form-label"
-                  >Trámite Jurídico:</label
-                >
+                <label class="col-12 col-form-label">Trámite Jurídico:</label>
                 <div class="col-12 form-group">
                   <input
                     class="form-control"
-                    
-                    
                     v-model="usurecep.tramitejuri"
                     disabled
                   />
                 </div>
 
-                  <label class="col-12 col-form-label"
-                  >Nota primer corte:</label
-                >
+                <label class="col-12 col-form-label">Nota primer corte:</label>
                 <div class="col-12 form-group">
                   <input
                     class="form-control"
-               
-              
                     v-model="usurecep.notpricort"
                     disabled
                   />
                 </div>
 
-                  <label class="col-12 col-form-label"
-                  >Nota primer corte:</label
-                >
+                <label class="col-12 col-form-label">Nota primer corte:</label>
                 <div class="col-12 form-group">
                   <input
                     class="form-control"
-                 
-                   
                     v-model="usurecep.notsegcort"
                     disabled
                   />
                 </div>
 
-                  <label class="col-12 col-form-label"
-                  >Nota primer corte:</label
-                >
+                <label class="col-12 col-form-label">Nota primer corte:</label>
                 <div class="col-12 form-group">
                   <input
                     class="form-control"
-                   
-                  
                     v-model="usurecep.nottercort"
                     disabled
                   />
                 </div>
 
-<!-- ----------------------------------------- -->
+                <!-- ----------------------------------------- -->
               </div>
               <div class="modal-footer">
                 <button

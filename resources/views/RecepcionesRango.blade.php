@@ -41,7 +41,21 @@
         
                         )
                         ->where('created_at','>=',$FechaIni)->where('created_at','<=',$FechaFin)
-                        ->get(); ?>                                                            
+                        ->get(); ?> 
+                        
+                        
+
+                        <?php $activos = DB::table('recepciones')
+                        ->where('created_at','>=',$FechaIni)->where('created_at','<=',$FechaFin)
+                        ->where('estado','=',1)->count();?>
+
+                        <?php $inactivos = DB::table('recepciones')
+                        ->where('created_at','>=',$FechaIni)->where('created_at','<=',$FechaFin)
+                        ->where('estado','=',0)->count();?>
+
+
+
+
                         @foreach($content as $recep)                                             
                         <tr >                
                           <td>{{$recep->recepcionado}}</td>   
@@ -58,7 +72,8 @@
                         
                     </tbody>
                   </table>
-                  
+                  <label class="col-12 col-form-label">Total de Casos activos: {{$activos}}</label>
+                  <label class="col-12 col-form-label">Total de Casos inactivos: {{$inactivos}}</label>
                 </div>
               </div>
             </div>

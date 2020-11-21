@@ -3413,28 +3413,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -65909,7 +65887,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                  Mostrar Usuario\n                ")]
+        [_vm._v("\n                Mostrar Usuario\n              ")]
       ),
       _vm._v(" "),
       _c(
@@ -65937,7 +65915,7 @@ var staticRenderFns = [
           staticClass: "btn btn-danger",
           attrs: { type: "button", "data-dismiss": "modal" }
         },
-        [_vm._v("\n                  Cerrar\n                ")]
+        [_vm._v("\n                Cerrar\n              ")]
       )
     ])
   },
@@ -65949,7 +65927,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                  Datos de la Recepción\n                ")]
+        [_vm._v("\n                Datos de la Recepción\n              ")]
       ),
       _vm._v(" "),
       _c(
@@ -65977,7 +65955,7 @@ var staticRenderFns = [
           staticClass: "btn btn-danger",
           attrs: { type: "button", "data-dismiss": "modal" }
         },
-        [_vm._v("\n                  Cerrar\n                ")]
+        [_vm._v("\n                Cerrar\n              ")]
       )
     ])
   }
