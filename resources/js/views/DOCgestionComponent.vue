@@ -1,8 +1,8 @@
 <template>
-   <div class="card" style="margin-top:25px">
-     <br>
+  <div class="card" style="margin-top: 25px">
+    <br />
     <div>
-      <h1 class="text-center mb-2 card-title">Lista de mis gestiones relacionadas</h1>
+      <h1 class="text-center mb-2 card-title">Lista de todas las gestiones</h1>
     </div>
     <div class="card-body row">
       <br />
@@ -297,10 +297,9 @@
                 <h5 class="modal-title" id="exampleModalLabel">Gestión</h5>
               </div>
               <div class="modal-body">
-                
                 <div class="col-12 form-group">
                   <input
-                  type="hidden"
+                    type="hidden"
                     class="form-control"
                     placeholder="Recepción"
                     v-model="gestion.recepcion.id"
@@ -432,6 +431,15 @@
                     <option value="0">Inactivo</option>
                   </select>
                 </div>
+                <label class="col-5 col-form-label">Area:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="recepcion"
+                    v-model="gestion.nombre"
+                    disabled
+                  />
+                </div>
 
                 <label class="col-5 col-form-label">Fecha de radicado:</label>
                 <div class="col-12 form-group">
@@ -512,16 +520,682 @@
                   />
                 </div>
 
-                <label class="col-5 col-form-label">Area:</label>
+                <label class="col-5 col-form-label">Nota primer Corte:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Nota primer Corte"
+                    v-model="gestion.notpricort"
+                    disabled
+                  />
+                </div>
+                <label class="col-5 col-form-label">Nota segundo Corte:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Nota segundo Corte"
+                    v-model="gestion.notsegcort"
+                    disabled
+                  />
+                </div>
+                <label class="col-5 col-form-label">Nota tercer Corte:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Nota tercer Corte"
+                    v-model="gestion.nottercort"
+                    disabled
+                  />
+                </div>
+                     <label class="col-12 col-form-label"
+                  >Institución Jurídica:</label
+                >
                 <div class="col-12 form-group">
                   <input
                     class="form-control"
                     placeholder="recepcion"
-                    v-model="gestion.nombre"
+                    v-model="gestion.instjuri"
+                    disabled
+                  />
+                </div>
+                <label class="col-12 col-form-label">Trámite Jurídico:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="recepcion"
+                    v-model="gestion.tramitejuri"
+                    disabled
+                  />
+                </div>
+                <br />
+                <label class="col-12 col-form-label"
+                  >Abogado en formación quien recepciona:</label
+                >
+                <br />
+                <center>
+                  <button
+                    class="btn btn-sm"
+                    data-toggle="modal"
+                    data-target="#MOSTRARModalRECEP"
+                    @click="editarForm(gestion)"
+                    title="Mostrar quien recepciona"
+                  >
+                    <i class="fas fa-user fa-3x" style="color: black"></i>
+                  </button>
+                </center>
+
+                <br />
+
+                <label class="col-5 col-form-label">Usuario:</label>
+
+                <center>
+                  <button
+                    class="btn btn-sm"
+                    data-toggle="modal"
+                    data-target="#MOSTRARModalRECLAMANTE"
+                    @click="editarForm(gestion, index)"
+                    title="Mostrar los datos del usuario"
+                  >
+                    <i class="fas fa-user fa-3x" style="color: black"></i>
+                  </button>
+                </center>
+
+                <br />
+                <label class="col-12 col-form-label"
+                  >Abogado en formación asignado:
+                </label>
+                <center>
+                  <a
+                    :href="'/HojaDeVidaROLES/' + gestion.usu_id"
+                    target="_blank"
+                    ><i
+                      title="Ver Usuario"
+                      class="fas fa-user fa-3x"
+                      style="color: black"
+                    ></i
+                  ></a>
+                </center>
+                <br />
+                <label class="col-12 col-form-label">Docente:</label>
+                <br />
+                <center>
+                  <button
+                    class="btn btn-sm"
+                    data-toggle="modal"
+                    data-target="#MOSTRARModalDOC"
+                    @click="editarForm(gestion)"
+                    title="Mostrar docente"
+                  >
+                    <i class="fas fa-user fa-3x" style="color: black"></i>
+                  </button>
+                </center>
+
+           
+                <br />
+                <div class="col-12 form-group">
+                  <div style="width: 100px; height: 30px; margin: 0 auto">
+                    <button
+                      name="CERRAR"
+                      class="btn btn-primary"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                      type="button"
+                    >
+                      CERRAR
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--modal de MOSTRAR recepcion -->
+        <!--modal de MOSTRAR EL RECEPCIONISTA-->
+        <div
+          class="modal fade"
+          id="MOSTRARModalRECEP"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Buscar Recepcionador
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <input
+                  type="hidden"
+                  placeholder="id recep"
+                  v-model="gestion.recp_id"
+                  disabled
+                />
+                <center>
+                  <label class="col-12 col-form-label">Clic en el ícono</label>
+                </center>
+                <center>
+                  <button
+                    class="btn btn-sm"
+                    data-toggle="modal"
+                    data-target="#MOSTRARModalRE"
+                    @click="buscarrecep()"
+                    title="Mostrar quien recepciona"
+                  >
+                    <i class="fas fa-eye fa-5x" style="color: black"></i>
+                  </button>
+                </center>
+
+                <br />
+
+                <div class="col-12 form-group">
+                  <div style="width: 100px; height: 30px; margin: 0 auto">
+                    <button
+                      name="CERRAR"
+                      class="btn btn-primary"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                      type="button"
+                    >
+                      CERRAR
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--modal de MOSTRAR EL RECE -->
+        <!--modal de MOSTRAR EL RECE -->
+        <div
+          class="modal fade"
+          id="MOSTRARModalRE"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+          data-backdrop="static"
+          data-keyboard="false"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Datos de quien recepciona
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <input
+                  type="hidden"
+                  class="form-control"
+                  placeholder="id"
+                  v-model="usurecep.usuario.persona.id"
+                  disabled
+                />
+                <div>
+                  <center>
+                    <a
+                      :href="'/HojaDeVidaROLES/' + usurecep.usuario.persona.id"
+                      target="_blank"
+                      ><i
+                        title="Ver Usuario"
+                        class="fas fa-user fa-5x"
+                        style="color: black"
+                      ></i
+                    ></a>
+                  </center>
+                </div>
+                <label class="col-5 col-form-label">Usuario:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Username"
+                    v-model="usurecep.usuario.persona.username"
                     disabled
                   />
                 </div>
 
+                <label class="col-5 col-form-label">Email:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Email"
+                    v-model="usurecep.usuario.persona.email"
+                    disabled
+                  />
+                </div>
+                <label class="col-5 col-form-label">Cédula:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Cédula"
+                    v-model="usurecep.usuario.persona.cedula"
+                    disabled
+                  />
+                </div>
+                <label class="col-12 col-form-label">Primer nombre:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Nombre de persona"
+                    v-model="usurecep.usuario.persona.prinom"
+                    disabled
+                  />
+                </div>
+                <label class="col-12 col-form-label">Segundo nombre:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Nombre de persona"
+                    v-model="usurecep.usuario.persona.segnom"
+                    disabled
+                  />
+                </div>
+                <label class="col-12 col-form-label">Primer Apellido:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Apellido de persona"
+                    v-model="usurecep.usuario.persona.priape"
+                    disabled
+                  />
+                </div>
+                <label class="col-12 col-form-label">Segundo Apellido:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Apellido de persona"
+                    v-model="usurecep.usuario.persona.segape"
+                    disabled
+                  />
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-12 form-group">
+                  <div style="width: 100px; height: 30px; margin: 0 auto">
+                    <button
+                      name="CERRAR"
+                      class="btn btn-primary"
+                      @click="limpiame()"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                      type="button"
+                    >
+                      CERRAR
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--modal de MOSTRAR EL RECEP -->
+
+        <!--modal de MOSTRAR EL DOCENTE-->
+        <div
+          class="modal fade"
+          id="MOSTRARModalDOC"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Buscar Docente
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <input
+                  type="hidden"
+                  placeholder="id recep"
+                  v-model="gestion.recp_id"
+                  disabled
+                />
+                <center>
+                  <label class="col-12 col-form-label">Clic en el ícono</label>
+                </center>
+                <center>
+                  <button
+                    class="btn btn-sm"
+                    data-toggle="modal"
+                    data-target="#MOSTRARModalDOO"
+                    @click="buscarDOC()"
+                    title="Mostrar Docente"
+                  >
+                    <i class="fas fa-eye fa-5x" style="color: black"></i>
+                  </button>
+                </center>
+
+                <br />
+
+                <div class="col-12 form-group">
+                  <div style="width: 100px; height: 30px; margin: 0 auto">
+                    <button
+                      name="CERRAR"
+                      class="btn btn-primary"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                      type="button"
+                    >
+                      CERRAR
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--modal de MOSTRAR EL DOCENTE -->
+        <!--modal de MOSTRAR EL DOCENTE REAL -->
+        <div
+          class="modal fade"
+          id="MOSTRARModalDOO"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+          data-backdrop="static"
+          data-keyboard="false"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Datos del docente
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <input
+                  type="hidden"
+                  class="form-control"
+                  placeholder="id"
+                  v-model="usurecep.usuario.persona.id"
+                  disabled
+                />
+                <div>
+                  <center>
+                    <a
+                      :href="'/HojaDeVidaROLES/' + usurecep.usuario.persona.id"
+                      target="_blank"
+                      ><i
+                        title="Ver Usuario"
+                        class="fas fa-user fa-5x"
+                        style="color: black"
+                      ></i
+                    ></a>
+                  </center>
+                </div>
+                <label class="col-5 col-form-label">Usuario:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Username"
+                    v-model="usurecep.usuario.persona.username"
+                    disabled
+                  />
+                </div>
+
+                <label class="col-5 col-form-label">Email:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Email"
+                    v-model="usurecep.usuario.persona.email"
+                    disabled
+                  />
+                </div>
+                <label class="col-5 col-form-label">Cédula:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Cédula"
+                    v-model="usurecep.usuario.persona.cedula"
+                    disabled
+                  />
+                </div>
+                <label class="col-12 col-form-label">Primer nombre:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Nombre de persona"
+                    v-model="usurecep.usuario.persona.prinom"
+                    disabled
+                  />
+                </div>
+                <label class="col-12 col-form-label">Segundo nombre:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Nombre de persona"
+                    v-model="usurecep.usuario.persona.segnom"
+                    disabled
+                  />
+                </div>
+                <label class="col-12 col-form-label">Primer Apellido:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Apellido de persona"
+                    v-model="usurecep.usuario.persona.priape"
+                    disabled
+                  />
+                </div>
+                <label class="col-12 col-form-label">Segundo Apellido:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Apellido de persona"
+                    v-model="usurecep.usuario.persona.segape"
+                    disabled
+                  />
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-12 form-group">
+                  <div style="width: 100px; height: 30px; margin: 0 auto">
+                    <button
+                      name="CERRAR"
+                      class="btn btn-primary"
+                      @click="limpiame()"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                      type="button"
+                    >
+                      CERRAR
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--modal de MOSTRAR EL DOCENTE -->
+
+        <!--modal de MOSTRAR EL RECLAMANTE-->
+        <div
+          class="modal fade"
+          id="MOSTRARModalRECLAMANTE"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Datos del Usuario
+                </h5>
+              </div>
+              <div class="modal-body">
+                <div>
+                  <center>
+                    <a
+                      :href="'/HojaDeVidaR/' + gestion.recla_id"
+                      target="_blank"
+                      ><i
+                        title="Ver Usuario"
+                        class="fas fa-user fa-5x"
+                        style="color: black"
+                      ></i
+                    ></a>
+                  </center>
+                </div>
+
+                <label class="col-5 col-form-label">Email:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="email"
+                    v-model="gestion.email"
+                    disabled
+                  />
+                </div>
+                <label class="col-12 col-form-label"
+                  >Nombre del reclamante:</label
+                >
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="nombre de persona"
+                    v-model="gestion.prinom"
+                    disabled
+                  />
+                </div>
+                <label class="col-12 col-form-label"
+                  >Apellido del reclamante:</label
+                >
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="nombre de persona"
+                    v-model="gestion.priape"
+                    disabled
+                  />
+                </div>
+                <label class="col-12 col-form-label"
+                  >Enfoque diferencial:</label
+                >
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="enfoque diferencial"
+                    v-model="gestion.enfodifervictima"
+                    disabled
+                  />
+                </div>
+                <label class="col-12 col-form-label">Genero:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="genero"
+                    v-model="gestion.genevictima"
+                    disabled
+                  />
+                </div>
+                <label class="col-12 col-form-label">Edad:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="edad"
+                    v-model="gestion.edadvictima"
+                    disabled
+                  />
+                </div>
+                <label class="col-12 col-form-label">Discapacidad:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="discapacidad"
+                    v-model="gestion.discapavictima"
+                    disabled
+                  />
+                </div>
+
+                <label class="col-12 col-form-label">Estrato:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="estrato"
+                    v-model="gestion.estravictima"
+                    disabled
+                  />
+                </div>
+
+                <label class="col-12 col-form-label">Embarazo:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="embarazo"
+                    v-model="gestion.embaravictima"
+                    disabled
+                  />
+                </div>
+
+                <label class="col-12 col-form-label">Grupo Etnico:</label>
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="grupo etnico"
+                    v-model="gestion.grupetnicovictima"
+                    disabled
+                  />
+                </div>
+
+                <label class="col-12 col-form-label"
+                  >Entidad que reclama:</label
+                >
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    placeholder="entidad"
+                    v-model="gestion.persoentidreclama"
+                    disabled
+                  />
+                </div>
                 <br />
                 <br />
 
@@ -542,7 +1216,7 @@
             </div>
           </div>
         </div>
-        <!--modal de MOSTRAR recepcion -->
+        <!--modal de MOSTRAR EL RECLAMANTE -->
       </div>
     </div>
   </div>
@@ -577,6 +1251,21 @@ export default {
           fecharetiro: "",
         },
       },
+      usurecep: {
+        id: "",
+        usuario: {
+          persona: {
+            id: "",
+            cedula: "",
+            prinom: "",
+            segnom: "",
+            priape: "",
+            segape: "",
+            tel: "",
+            direc: "",
+          },
+        },
+      },
 
       esta: false,
       gestioness: [],
@@ -587,6 +1276,7 @@ export default {
   created() {
     axios.get("/api/gestionSUPERfiltro").then((res) => {
       this.gestioness = res.data;
+      console.log(this.gestioness);
     });
   },
   methods: {
@@ -611,7 +1301,35 @@ export default {
         }
       });
     },
-
+    buscarrecep() {
+      axios.get("/api/recepcionRE/" + this.gestion.recp_id).then((res) => {
+        if (res.data[0] == null) {
+          console.log(res.data[0]);
+          this.esta = false;
+        } else {
+          console.log(res.data[0]);
+          let person = res.data[0];
+          this.usurecep.usuario.persona = person;
+          this.esta = true;
+        }
+      });
+    },
+    buscarDOC() {
+      axios.get("/api/recepcionDO/" + this.gestion.recp_id).then((res) => {
+        if (res.data[0] == null) {
+          console.log(res.data[0]);
+          this.esta = false;
+        } else {
+          console.log(res.data[0]);
+          let person = res.data[0];
+          this.usurecep.usuario.persona = person;
+          this.esta = true;
+        }
+      });
+    },
+    limpiame() {
+      this.usurecep.usuario.persona = "";
+    },
     editarForm(gestion, index) {
       this.gestion = gestion;
       this.gestion.index = index;
