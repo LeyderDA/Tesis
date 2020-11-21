@@ -3364,6 +3364,77 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -65629,6 +65700,166 @@ var render = function() {
                             }
                           }
                         })
+                      ]),
+                      _vm._v(" "),
+                      _c("label", { staticClass: "col-12 col-form-label" }, [
+                        _vm._v("Intitución Jurídica:")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-12 form-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.usurecep.instjuri,
+                              expression: "usurecep.instjuri"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { disabled: "" },
+                          domProps: { value: _vm.usurecep.instjuri },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.usurecep,
+                                "instjuri",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("label", { staticClass: "col-12 col-form-label" }, [
+                        _vm._v("Trámite Jurídico:")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-12 form-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.usurecep.tramitejuri,
+                              expression: "usurecep.tramitejuri"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { disabled: "" },
+                          domProps: { value: _vm.usurecep.tramitejuri },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.usurecep,
+                                "tramitejuri",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("label", { staticClass: "col-12 col-form-label" }, [
+                        _vm._v("Nota primer corte:")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-12 form-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.usurecep.notpricort,
+                              expression: "usurecep.notpricort"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { disabled: "" },
+                          domProps: { value: _vm.usurecep.notpricort },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.usurecep,
+                                "notpricort",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("label", { staticClass: "col-12 col-form-label" }, [
+                        _vm._v("Nota primer corte:")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-12 form-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.usurecep.notsegcort,
+                              expression: "usurecep.notsegcort"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { disabled: "" },
+                          domProps: { value: _vm.usurecep.notsegcort },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.usurecep,
+                                "notsegcort",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("label", { staticClass: "col-12 col-form-label" }, [
+                        _vm._v("Nota primer corte:")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-12 form-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.usurecep.nottercort,
+                              expression: "usurecep.nottercort"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { disabled: "" },
+                          domProps: { value: _vm.usurecep.nottercort },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.usurecep,
+                                "nottercort",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
                       ])
                     ]),
                     _vm._v(" "),
@@ -65678,7 +65909,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                Mostrar Usuario\n              ")]
+        [_vm._v("\n                  Mostrar Usuario\n                ")]
       ),
       _vm._v(" "),
       _c(
@@ -65706,7 +65937,7 @@ var staticRenderFns = [
           staticClass: "btn btn-danger",
           attrs: { type: "button", "data-dismiss": "modal" }
         },
-        [_vm._v("\n                Cerrar\n              ")]
+        [_vm._v("\n                  Cerrar\n                ")]
       )
     ])
   },
@@ -65718,7 +65949,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n                Datos de la Recepción\n              ")]
+        [_vm._v("\n                  Datos de la Recepción\n                ")]
       ),
       _vm._v(" "),
       _c(
@@ -65746,7 +65977,7 @@ var staticRenderFns = [
           staticClass: "btn btn-danger",
           attrs: { type: "button", "data-dismiss": "modal" }
         },
-        [_vm._v("\n                Cerrar\n              ")]
+        [_vm._v("\n                  Cerrar\n                ")]
       )
     ])
   }

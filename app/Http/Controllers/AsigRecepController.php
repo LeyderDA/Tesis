@@ -25,6 +25,13 @@ class AsigRecepController extends Controller
         ,'recepciones.fechapublicacion'
         ,'recepciones.fecharetiro'
         ,'recepciones.estado'
+
+        ,'recepciones.notpricort'
+        ,'recepciones.notsegcort'
+        ,'recepciones.nottercort'
+        ,'recepciones.instjuri'
+        ,'recepciones.tramitejuri'
+
         ,'areas.nombre'
         ,'personas.cedula'
         ,'personas.prinom'

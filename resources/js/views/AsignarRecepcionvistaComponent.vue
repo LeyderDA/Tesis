@@ -293,6 +293,10 @@
                     disabled
                   />
                 </div>
+
+
+
+
                 <label class="col-12 col-form-label">Fecha de retiro</label>
                 <div class="col-12 form-group">
                   <input
@@ -330,6 +334,73 @@
                     disabled
                   />
                 </div>
+                <!-- ----------------------------------------- -->
+  <label class="col-12 col-form-label"
+                  >Intitución Jurídica:</label
+                >
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+            
+                  
+                    v-model="usurecep.instjuri"
+                    disabled
+                  />
+                </div>
+
+                  <label class="col-12 col-form-label"
+                  >Trámite Jurídico:</label
+                >
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                    
+                    
+                    v-model="usurecep.tramitejuri"
+                    disabled
+                  />
+                </div>
+
+                  <label class="col-12 col-form-label"
+                  >Nota primer corte:</label
+                >
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+               
+              
+                    v-model="usurecep.notpricort"
+                    disabled
+                  />
+                </div>
+
+                  <label class="col-12 col-form-label"
+                  >Nota primer corte:</label
+                >
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                 
+                   
+                    v-model="usurecep.notsegcort"
+                    disabled
+                  />
+                </div>
+
+                  <label class="col-12 col-form-label"
+                  >Nota primer corte:</label
+                >
+                <div class="col-12 form-group">
+                  <input
+                    class="form-control"
+                   
+                  
+                    v-model="usurecep.nottercort"
+                    disabled
+                  />
+                </div>
+
+<!-- ----------------------------------------- -->
               </div>
               <div class="modal-footer">
                 <button
