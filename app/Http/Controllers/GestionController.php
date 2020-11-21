@@ -24,7 +24,10 @@ class GestionController extends Controller
 
         $gestiones = Gestion::
         join("recepciones","gestion_tramites.recp_id","=","recepciones.id")
-        ->join("areas","recepciones.area_id","=","areas.id")      
+        ->join("areas","recepciones.area_id","=","areas.id")  
+        ->join("usurecep","usurecep.recp_id","=","recepciones.id")    
+        ->join("reclamantes","reclamantes.id","=","recepciones.recla_id") 
+        ->join("personas","reclamantes.per_id","=","personas.id")       
         ->select('gestion_tramites.*', 
         'recepciones.recepcionado',
         'recepciones.fecharadicado',
@@ -34,9 +37,33 @@ class GestionController extends Controller
         'recepciones.fechapublicacion',
         'recepciones.fecharetiro',
         'recepciones.estado',
-        'areas.nombre'
+        'areas.nombre',
+        'reclamantes.enfodifervictima',
+        'reclamantes.genevictima',
+        'reclamantes.edadvictima',
+        'reclamantes.discapavictima',
+        'reclamantes.estravictima',
+        'reclamantes.embaravictima',
+        'reclamantes.grupetnicovictima',
+        'reclamantes.persoentidreclama',
+        'reclamantes.email',
+        'recepciones.notpricort',
+        'recepciones.notsegcort',
+        'recepciones.nottercort',
+        'recepciones.recla_id',
+        'recepciones.usu_id',
+        'recepciones.instjuri',
+        'recepciones.tramitejuri',
+        'areas.nombre',
+
+        'personas.cedula',
+        'personas.prinom',
+        'personas.segnom',
+        'personas.priape',
+        'personas.segape'   
         )
         ->orderBy('gestion_tramites.id', 'asc')
+        ->groupBy('gestion_tramites.id')
         ->where('recepciones.usu_id','=',$id)
         ->get();
         
