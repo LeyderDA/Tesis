@@ -82136,7 +82136,7 @@ var render = function() {
                 attrs: {
                   placeholder: "Primer Nombre",
                   onkeypress:
-                    "return ((event.charCode >= 65 && event.charCode <= 90) || \n             (event.charCode >= 97 && event.charCode <= 122))||\n             event.charCode == [241]|| event.charCode == [209]||            \n             event.charCode == [ 32] ||"
+                    "return ((event.charCode >= 65 && event.charCode <= 90) || \n              (event.charCode >= 97 && event.charCode <= 122)||\n             event.charCode == [241]|| event.charCode == [209]||            \n             event.charCode == [32] ||event.charCode == [239])"
                 },
                 domProps: { value: _vm.personas.prinom },
                 on: {
@@ -82168,7 +82168,7 @@ var render = function() {
                 attrs: {
                   placeholder: "Segundo Nombre",
                   onkeypress:
-                    "return ((event.charCode >= 65 && event.charCode <= 90) || \n              (event.charCode >= 97 && event.charCode <= 122))||\n             event.charCode == [241]|| event.charCode == [209]||            \n             event.charCode == [ 32] ||"
+                    "return ((event.charCode >= 65 && event.charCode <= 90) || \n              (event.charCode >= 97 && event.charCode <= 122)||\n             event.charCode == [241]|| event.charCode == [209]||            \n             event.charCode == [32] ||event.charCode == [239])"
                 },
                 domProps: { value: _vm.personas.segnom },
                 on: {
@@ -82200,7 +82200,7 @@ var render = function() {
                 attrs: {
                   placeholder: "Primer Apellido",
                   onkeypress:
-                    "return ((event.charCode >= 65 && event.charCode <= 90) || \n              (event.charCode >= 97 && event.charCode <= 122))||\n             event.charCode == [241]|| event.charCode == [209]||            \n             event.charCode == [ 32] ||"
+                    "return ((event.charCode >= 65 && event.charCode <= 90) || \n               (event.charCode >= 97 && event.charCode <= 122)||\n             event.charCode == [241]|| event.charCode == [209]||            \n             event.charCode == [32] ||event.charCode == [239])"
                 },
                 domProps: { value: _vm.personas.priape },
                 on: {
@@ -82232,7 +82232,7 @@ var render = function() {
                 attrs: {
                   placeholder: "Segundo Apellido",
                   onkeypress:
-                    "return ((event.charCode >= 65 && event.charCode <= 90) || \n               (event.charCode >= 97 && event.charCode <= 122))||\n             event.charCode == [241]|| event.charCode == [209]||            \n             event.charCode == [ 32] ||"
+                    "return ((event.charCode >= 65 && event.charCode <= 90) || \n               (event.charCode >= 97 && event.charCode <= 122)||\n             event.charCode == [241]|| event.charCode == [209]||            \n             event.charCode == [32] ||event.charCode == [239])"
                 },
                 domProps: { value: _vm.personas.segape },
                 on: {
