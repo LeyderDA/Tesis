@@ -11,5 +11,6 @@ class HistorialRecepciones extends Model
     [
         'id','id_recp','recepcionado','fecharadicado','fecharecepcionado','consultorio','fechareparto',
         'fechapublicacion','fecharetiro','estado','notpricort','notsegcort','nottercort','area','usuario','reclamante',
+        'instjuri','tramitejuri',
     ];
 }

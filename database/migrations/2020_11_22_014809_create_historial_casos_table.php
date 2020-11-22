@@ -30,6 +30,8 @@ class CreateHistorialCasosTable extends Migration
             $table->string('reclamante')->nullable();                    
             $table->string('area')->nullable();         
             $table->string('usuario')->nullable(); 
+            $table->string('instjuri',100);
+            $table->string('tramitejuri',100);
             $table->timestamps();
         });
     }

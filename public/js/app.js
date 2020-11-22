@@ -19625,12 +19625,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     },
     // -----------------------------------------------------------------------------------------------
-    editarEST: function editarEST(recepcion) {
+    editarEST: function editarEST(recepcion, index) {
       var _this16 = this;
 
-      this.recepcion = recepcion;
       console.log(recepcion);
-      var par = {
+      var parametros = {
         id_recp: recepcion.id,
         recepcionado: recepcion.recepcionado,
         fecharadicado: recepcion.fecharadicado,
@@ -19643,11 +19642,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         reclamante: recepcion.prinom,
         usuario: recepcion.usu_id,
         area: recepcion.nombre,
-        notpricort: recepcion.notpricor,
+        notpricort: recepcion.notpricort,
         notsegcort: recepcion.notsegcort,
-        nottercort: recepcion.nottercort
+        nottercort: recepcion.nottercort,
+        instjuri: recepcion.instjuri,
+        tramitejuri: recepcion.tramitejuri
       };
-      axios.post("/api/recepcionHistorial", par).then(function (res) {
+      axios.post("/api/recepcionHistorial", parametros).then(function (res) {
         if (res.data == null) {} else {}
       });
       var param = {

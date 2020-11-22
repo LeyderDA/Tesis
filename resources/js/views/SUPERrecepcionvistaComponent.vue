@@ -2478,11 +2478,10 @@ export default {
     },
 
     // -----------------------------------------------------------------------------------------------
-    editarEST(recepcion) {
- this.recepcion = recepcion;
-      
-      console.log(recepcion);
- const par = {
+    editarEST(recepcion, index) {
+ console.log(recepcion);
+
+ const parametros = {
           id_recp: recepcion.id,
           recepcionado: recepcion.recepcionado,
           fecharadicado: recepcion.fecharadicado,
@@ -2495,13 +2494,15 @@ export default {
           reclamante: recepcion.prinom,
           usuario: recepcion.usu_id,
           area: recepcion.nombre,
-          notpricort: recepcion.notpricor,
+          notpricort: recepcion.notpricort,
           notsegcort: recepcion.notsegcort,
           nottercort: recepcion.nottercort,
+          instjuri: recepcion.instjuri,
+          tramitejuri: recepcion.tramitejuri
         };
 
-        axios.post("/api/recepcionHistorial", par).then((res) => {
-          if (res.data == null) {
+        axios.post("/api/recepcionHistorial", parametros).then((res) => {
+           if (res.data == null) {
           } else {
           }
         });
