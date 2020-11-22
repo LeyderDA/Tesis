@@ -2618,7 +2618,7 @@ __webpack_require__.r(__webpack_exports__);
               type: "error",
               timer: 3000,
               title: "EL PROCESO SE NO REALIZÓ PORQUE TIENE ERRORES",
-              text: "El AREA no se ha registrado con exito",
+              text: "El ÁREA no se ha registrado con exito",
               showConfirmButton: false
             });
           } else {
@@ -2626,7 +2626,7 @@ __webpack_require__.r(__webpack_exports__);
               type: "success",
               timer: 3000,
               title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-              text: "El AREA se ha registrado",
+              text: "El ÁREA se ha registrado",
               showConfirmButton: false
             });
           }
@@ -19075,12 +19075,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     var _ref;
@@ -19281,9 +19275,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       });
     },
-    buscarusucedAB: function buscarusucedAB() {
+    buscarusucedAB: function buscarusucedAB(recepcion) {
       var _this5 = this;
 
+      this.recepcion = recepcion;
+      console.log(recepcion);
       axios.get("/api/user3/" + this.usuarioo.persona.cedula).then(function (res) {
         if (res.data[0] == null) {
           _this5.usuarioo.persona.id = "";
@@ -19629,16 +19625,41 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     },
     // -----------------------------------------------------------------------------------------------
-    editarEST: function editarEST() {
+    editarEST: function editarEST(recepcion) {
       var _this16 = this;
 
+      this.recepcion = recepcion;
+      console.log(recepcion);
+      var par = {
+        id_recp: recepcion.id,
+        recepcionado: recepcion.recepcionado,
+        fecharadicado: recepcion.fecharadicado,
+        fecharecepcionado: recepcion.fecharecepcionado,
+        consultorio: recepcion.consultorio,
+        fechareparto: recepcion.fechareparto,
+        fechapublicacion: recepcion.fechapublicacion,
+        fecharetiro: recepcion.fecharetiro,
+        estado: recepcion.estado,
+        reclamante: recepcion.prinom,
+        usuario: recepcion.usu_id,
+        area: recepcion.nombre,
+        notpricort: recepcion.notpricor,
+        notsegcort: recepcion.notsegcort,
+        nottercort: recepcion.nottercort
+      };
+      axios.post("/api/recepcionHistorial", par).then(function (res) {
+        if (res.data == null) {} else {}
+      });
       var param = {
         mensaje: "Tienes asignada una recepción, revisa tus Recepciones",
         id_usuario: this.usuarioo.persona.id
       };
       axios.post("/api/notificaciones", param).then(function (res) {});
       var params = {
-        usu_id: this.usuarioo.persona.id
+        usu_id: this.usuarioo.persona.id,
+        notpricort: "",
+        notsegcort: "",
+        nottercort: ""
       };
       axios.put("/api/recepcionaABO/" + this.recepcion.id, params).then(function (res) {
         if (res.data == null) {
@@ -95516,7 +95537,7 @@ var render = function() {
                               },
                               on: {
                                 click: function($event) {
-                                  return _vm.editarForm(recepcion, index)
+                                  return _vm.editarForm(recepcion)
                                 }
                               }
                             },
@@ -97692,12 +97713,34 @@ var render = function() {
                           _vm._v(" "),
                           _vm._m(16),
                           _vm._v(" "),
-                          _vm._m(17)
+                          _c("div", { staticClass: "col-12 form-group" }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: {
+                                  "data-toggle": "modal",
+                                  "data-target": "#aggabModal",
+                                  title: "Asignar caso al Docente"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.editarForm(_vm.recepcion)
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                  Asignar abogado en formación\n                "
+                                )
+                              ]
+                            )
+                          ])
                         ])
                       : undefined
                   ]),
                   _vm._v(" "),
-                  _vm._m(18)
+                  _vm._m(17)
                 ])
               ]
             )
@@ -97724,7 +97767,7 @@ var render = function() {
               { staticClass: "modal-dialog", attrs: { role: "document" } },
               [
                 _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(19),
+                  _vm._m(18),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
                     _c("input", {
@@ -97870,7 +97913,7 @@ var render = function() {
               { staticClass: "modal-dialog", attrs: { role: "document" } },
               [
                 _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(20),
+                  _vm._m(19),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
                     _c("input", {
@@ -97960,7 +98003,7 @@ var render = function() {
                               },
                               on: {
                                 click: function($event) {
-                                  return _vm.buscarusucedAB()
+                                  return _vm.buscarusucedAB(_vm.recepcion)
                                 }
                               }
                             },
@@ -98020,7 +98063,7 @@ var render = function() {
               { staticClass: "modal-dialog", attrs: { role: "document" } },
               [
                 _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(21),
+                  _vm._m(20),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
                     _c("input", {
@@ -98168,7 +98211,7 @@ var render = function() {
               { staticClass: "modal-dialog", attrs: { role: "document" } },
               [
                 _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(22),
+                  _vm._m(21),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
                     _c("label", { staticClass: "col-12 col-form-label" }, [
@@ -98432,7 +98475,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("br"),
                     _vm._v(" "),
-                    _vm._m(23)
+                    _vm._m(22)
                   ])
                 ])
               ]
@@ -98458,7 +98501,7 @@ var render = function() {
               { staticClass: "modal-dialog", attrs: { role: "document" } },
               [
                 _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(24),
+                  _vm._m(23),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
                     _c(
@@ -98870,7 +98913,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("br"),
                     _vm._v(" "),
-                    _vm._m(25)
+                    _vm._m(24)
                   ])
                 ])
               ]
@@ -98896,7 +98939,7 @@ var render = function() {
               { staticClass: "modal-dialog", attrs: { role: "document" } },
               [
                 _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(26),
+                  _vm._m(25),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
                     _c("input", {
@@ -98950,7 +98993,7 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _vm._m(27)
+                  _vm._m(26)
                 ])
               ]
             )
@@ -98975,7 +99018,7 @@ var render = function() {
               { staticClass: "modal-dialog", attrs: { role: "document" } },
               [
                 _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(28),
+                  _vm._m(27),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
                     _c("input", {
@@ -99029,7 +99072,7 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _vm._m(29)
+                  _vm._m(28)
                 ])
               ]
             )
@@ -99054,7 +99097,7 @@ var render = function() {
               { staticClass: "modal-dialog", attrs: { role: "document" } },
               [
                 _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(30),
+                  _vm._m(29),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
                     _c("label", { staticClass: "col-12 col-form-label" }, [
@@ -99231,7 +99274,7 @@ var render = function() {
               { staticClass: "modal-dialog", attrs: { role: "document" } },
               [
                 _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(31),
+                  _vm._m(30),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
                     _c("input", {
@@ -99417,7 +99460,7 @@ var render = function() {
                         attrs: { type: "button", "data-dismiss": "modal" },
                         on: {
                           click: function($event) {
-                            return _vm.editarEST()
+                            return _vm.editarEST(_vm.recepcion)
                           }
                         }
                       },
@@ -99462,7 +99505,7 @@ var render = function() {
               { staticClass: "modal-dialog", attrs: { role: "document" } },
               [
                 _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(32),
+                  _vm._m(31),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
                     _c("label", { staticClass: "col-12 col-form-label" }, [
@@ -99570,7 +99613,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
-                  _vm._m(33)
+                  _vm._m(32)
                 ])
               ]
             )
@@ -99975,29 +100018,6 @@ var staticRenderFns = [
         [
           _vm._v(
             "\n                  Asignar quien recepciona\n                "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 form-group" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-primary",
-          attrs: {
-            "data-toggle": "modal",
-            "data-target": "#aggabModal",
-            title: "Asignar caso al Docente"
-          }
-        },
-        [
-          _vm._v(
-            "\n                  Asignar abogado en formación\n                "
           )
         ]
       )

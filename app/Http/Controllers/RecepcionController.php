@@ -9,6 +9,7 @@ use App\Nota;
 use App\User;
 use App\Area;
 use App\RespaldoRecepciones;
+use App\HistorialRecepciones;
 use App\Http\Controllers\request_id;
 use Illuminate\Http\Request;
 
@@ -183,6 +184,9 @@ class RecepcionController extends Controller
     {
         $re = Recepcion::find($id);     
         $re->usu_id = $request->usu_id;
+        $re->notpricort = $request->notpricort;
+        $re->notsegcort = $request->notsegcort;
+        $re->nottercort = $request->nottercort;
         $re->save();
         $re->reclamante;
         $re->area;
@@ -323,7 +327,30 @@ class RecepcionController extends Controller
         $re->save();       
         return  response()->json($re);
     }
-
+    public function storeHistorial(Request $request)
+    {
+        $re = new HistorialRecepciones();
+        $re->id_recp = $request->id_recp;
+        $re->recepcionado = $request->recepcionado;
+        $re->fecharadicado = $request->fecharadicado;
+        $re->fecharecepcionado = $request->fecharecepcionado;
+        $re->consultorio = $request->consultorio;
+        $re->fechareparto = $request->fechareparto;
+        $re->fechapublicacion = $request->fechapublicacion;
+        $re->fecharetiro = $request->fecharetiro;
+        $re->estado = $request->estado;      
+        $re->notpricort = $request->notpricort;
+        $re->notsegcort = $request->notsegcort;
+        $re->nottercort = $request->nottercort;
+        $re->usuario = $request->usuario;
+        $re->reclamante = $request->reclamante;
+        $re->instjuri = $request->instjuri;
+        $re->tramitejuri = $request->tramitejuri;
+        $re->area = $request->area;
+        $re->save();       
+        return  response()->json($re);
+    }
+    
 
     public function mostrarArchivosRoles($fecha_ini,$fecha_fin)
     { 

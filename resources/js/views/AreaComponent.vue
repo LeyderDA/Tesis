@@ -154,7 +154,7 @@ export default {
               type: "error",
               timer: 3000,
               title: "EL PROCESO SE NO REALIZÓ PORQUE TIENE ERRORES",
-              text: "El AREA no se ha registrado con exito",
+              text: "El ÁREA no se ha registrado con exito",
               showConfirmButton: false,
             });
           } else {
@@ -162,7 +162,7 @@ export default {
               type: "success",
               timer: 3000,
               title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
-              text: "El AREA se ha registrado",
+              text: "El ÁREA se ha registrado",
               showConfirmButton: false,
             });
           }

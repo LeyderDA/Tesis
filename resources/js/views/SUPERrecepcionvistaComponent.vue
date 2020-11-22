@@ -46,7 +46,7 @@
                         class="btn btn-sm"
                         data-toggle="modal"
                         data-target="#MOSTRARModalRECLAMANTE"
-                        @click="editarForm(recepcion, index)"
+                        @click="editarForm(recepcion)"
                         title="Mostrar los datos del usuario"
                       >
                         <i class="fas fa-eye fa-2x" style="color: black"></i>
@@ -1059,6 +1059,7 @@
                     class="btn btn-primary"
                     data-toggle="modal"
                     data-target="#aggabModal"
+                    @click="editarForm(recepcion)"
                     title="Asignar caso al Docente"
                   >
                     Asignar abogado en formación
@@ -1219,7 +1220,7 @@
                   class="btn btn-primary btn-block"
                   data-toggle="modal"
                   data-target="#buscarModalAB"
-                  @click="buscarusucedAB()"
+                  @click="buscarusucedAB(recepcion)"
                   :disabled="!isFormValidusuario2()"
                 >
                   Buscar abogado en formación
@@ -1238,14 +1239,6 @@
                 CERRAR
               </button>
 
-              <!-- <button
-                type="button"
-                class="btn btn-primary"
-                @click="editarEST()"
-                data-dismiss="modal"
-              >
-                ASIGNAR
-              </button> -->
             </div>
           </div>
         </div>
@@ -1808,6 +1801,7 @@
                 placeholder="USERNAME"
                 v-model="usuarioo.persona.username"
               />
+              
 
               <label class="col-12 col-form-label">CEDULA</label>
 
@@ -1827,7 +1821,7 @@
               <button
                 type="button"
                 class="btn btn-primary"
-                @click="editarEST()"
+                @click="editarEST(recepcion)"
                 data-dismiss="modal"
               >
                 ASIGNAR
@@ -2124,7 +2118,10 @@ export default {
       });
     },
 
-    buscarusucedAB() {
+    buscarusucedAB(recepcion) {
+       this.recepcion = recepcion;
+     
+      console.log(recepcion);
       axios.get("/api/user3/" + this.usuarioo.persona.cedula).then((res) => {
         if (res.data[0] == null) {
           this.usuarioo.persona.id = "";
@@ -2481,7 +2478,36 @@ export default {
     },
 
     // -----------------------------------------------------------------------------------------------
-    editarEST() {
+    editarEST(recepcion) {
+ this.recepcion = recepcion;
+      
+      console.log(recepcion);
+ const par = {
+          id_recp: recepcion.id,
+          recepcionado: recepcion.recepcionado,
+          fecharadicado: recepcion.fecharadicado,
+          fecharecepcionado: recepcion.fecharecepcionado,
+          consultorio: recepcion.consultorio,
+          fechareparto: recepcion.fechareparto,
+          fechapublicacion: recepcion.fechapublicacion,
+          fecharetiro: recepcion.fecharetiro,
+          estado: recepcion.estado,
+          reclamante: recepcion.prinom,
+          usuario: recepcion.usu_id,
+          area: recepcion.nombre,
+          notpricort: recepcion.notpricor,
+          notsegcort: recepcion.notsegcort,
+          nottercort: recepcion.nottercort,
+        };
+
+        axios.post("/api/recepcionHistorial", par).then((res) => {
+          if (res.data == null) {
+          } else {
+          }
+        });
+
+
+      
       const param = {
         mensaje: "Tienes asignada una recepción, revisa tus Recepciones",
         id_usuario: this.usuarioo.persona.id,
@@ -2489,6 +2515,9 @@ export default {
       axios.post("/api/notificaciones", param).then((res) => {});
       const params = {
         usu_id: this.usuarioo.persona.id,
+        notpricort: "",
+        notsegcort: "",
+        nottercort: "",
       };
       axios
         .put("/api/recepcionaABO/" + this.recepcion.id, params)
