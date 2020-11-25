@@ -2,7 +2,7 @@
   <div class="card" style="margin-top:25px">
     <br />
     <div>
-      <h1 class="text-center mb-2 card-title">Busqueda por QR</h1>
+      <h1 class="text-center mb-2 card-title">Búsqueda por QR</h1>
     </div>
     <div class="card-body row">
       <div class="container">

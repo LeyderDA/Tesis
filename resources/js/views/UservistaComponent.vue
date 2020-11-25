@@ -15,7 +15,7 @@
                 <table class="table text-center">
                   <thead>
                     <tr>
-                      <th>Username</th>
+                      <th>Nombre de usuario</th>
                       <th>Rol</th>
                       <th>Email</th>
                       <th>Nombre Persona</th>

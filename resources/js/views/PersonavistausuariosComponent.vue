@@ -2,7 +2,7 @@
   <div class="card" style="margin-top:25px">
     <div>
       <br />
-      <h2 class="text-center mb-2 card-title">Listado de personas que que son usuarios</h2>
+      <h2 class="text-center mb-2 card-title">Listado de personas que son usuarios</h2>
     </div>
     <div class="card-body row">
       <div class="container">
@@ -34,7 +34,7 @@
                       <td>{{ personas.segnom }}</td>
                       <td>{{ personas.priape }}</td>
                       <td>{{ personas.segape }}</td>
-                      <td>{{"Usuario" }}</td>
+                      <td>{{"Usuario"}}</td>
                       <td>{{ personas.tel }}</td>
                       <td>{{ personas.direc }}</td>
                       <td>

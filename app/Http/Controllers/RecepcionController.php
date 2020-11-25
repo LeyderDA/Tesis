@@ -321,8 +321,6 @@ class RecepcionController extends Controller
         $re->nottercort = $request->nottercort;
         $re->usuario = $request->usuario;
         $re->reclamante = $request->reclamante;
-        $re->instjuri = $request->instjuri;
-        $re->tramitejuri = $request->tramitejuri;
         $re->area = $request->area;
         $re->save();       
         return  response()->json($re);

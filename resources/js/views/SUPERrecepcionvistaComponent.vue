@@ -2333,7 +2333,7 @@ export default {
     },
 
     eliminar(recepcion, index) {
-      console.log(recepcion);
+      // console.log(recepcion);
       const confirmacion = confirm(
         `Confirma Eliminar Recepcion del area de: ${recepcion.area.nombre}`
       );
@@ -2362,15 +2362,15 @@ export default {
           } else {
           }
         });
-        axios.delete("/api/recepcion/" + recepcion.id).then(() => {
+        axios.delete("/api/recepcion/" + recepcion.id).then((res) => {
           this.recepcioness.splice(index, 1);
-          swal({
+             swal({
             type: "success",
             timer: 3000,
             title: "EL PROCESO SE REALIZÓ SATISFACTORIAMENTE",
             text: "La recepción se ha eliminado con exito",
             showConfirmButton: false,
-          });
+          });                
         });
       }
     },

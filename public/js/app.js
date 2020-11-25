@@ -19491,7 +19491,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     eliminar: function eliminar(recepcion, index) {
       var _this13 = this;
 
-      console.log(recepcion);
+      // console.log(recepcion);
       var confirmacion = confirm("Confirma Eliminar Recepcion del area de: ".concat(recepcion.area.nombre));
 
       if (confirmacion) {
@@ -19515,7 +19515,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         axios.post("/api/recepcionRespaldo", params).then(function (res) {
           if (res.data == null) {} else {}
         });
-        axios["delete"]("/api/recepcion/" + recepcion.id).then(function () {
+        axios["delete"]("/api/recepcion/" + recepcion.id).then(function (res) {
           _this13.recepcioness.splice(index, 1);
 
           swal({
@@ -66054,7 +66054,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("h1", { staticClass: "text-center mb-2 card-title" }, [
-        _vm._v("Busqueda por QR")
+        _vm._v("Búsqueda por QR")
       ])
     ])
   }
@@ -83295,7 +83295,7 @@ var staticRenderFns = [
       _c("br"),
       _vm._v(" "),
       _c("h2", { staticClass: "text-center mb-2 card-title" }, [
-        _vm._v("Listado de personas que que son usuarios")
+        _vm._v("Listado de personas que son usuarios")
       ])
     ])
   },
@@ -86375,7 +86375,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("\n              Agregar Gestion\n            ")]
+        [_vm._v("\n              Agregar Gestión\n            ")]
       ),
       _vm._v(" "),
       _c(
@@ -103351,7 +103351,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Username")]),
+        _c("th", [_vm._v("Nombre de usuario")]),
         _vm._v(" "),
         _c("th", [_vm._v("Rol")]),
         _vm._v(" "),
@@ -103912,7 +103912,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Username")]),
+        _c("th", [_vm._v("Nombre de usuario")]),
         _vm._v(" "),
         _c("th", [_vm._v("Rol")]),
         _vm._v(" "),
