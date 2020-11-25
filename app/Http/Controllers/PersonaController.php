@@ -22,7 +22,7 @@ class PersonaController extends Controller
         ->select('personas.*', 
         'users.rol_id'     
         )
-        ->orderBy('personas.id', 'asc')
+        ->orderBy('users.rol_id', 'asc')
         ->get();
                       if ($request->ajax()) {
                           foreach ($personas as $rec) {                                                     

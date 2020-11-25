@@ -6,6 +6,7 @@ use App\User;
 use App\Recepcion;
 use App\Gestion;
 use App\Area;
+use App\Reclamante;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -36,6 +37,24 @@ class UserSeeder extends Seeder
         $user->rol_id=1;
         $user->per_id=$persona->id;
         $user->save();
+
+        $p=new Persona();
+        $p->cedula='1098645325';
+        $p->prinom='Irma';  
+        $p->segnom='Yolanda';
+        $p->priape='Díaz';
+        $p->segape='Mora';
+        $p->tel='3103336990';
+        $p->direc='Cúcuta';
+        $p->save();
+        
+        $u=new User();
+        $u->username = 'IrmaDM';
+        $u->email = 'consultoriojuridicovilla@unipamplona.edu.co';
+        $u->password = Hash::make('Admin3Unpo*codet0d');
+        $u->rol_id=1;
+        $u->per_id=$p->id;
+        $u->save();
 
         //estudiantes administrativos
         $persona2=new Persona();
@@ -93,7 +112,7 @@ class UserSeeder extends Seeder
         $user4->save();
 //------------------------------------
         $persona5=new Persona();
-        $persona5->cedula='10965879568';
+        $persona5->cedula='10965879567';
         $persona5->prinom='Milena';
         $persona5->segnom='Andrea';
         $persona5->priape='Perez';
@@ -225,6 +244,7 @@ class UserSeeder extends Seeder
         $user11->save();
         //------------------------------------
 
+       
 
         //PROFESORES
         
@@ -318,6 +338,148 @@ class UserSeeder extends Seeder
         $user16->per_id=$persona16->id;
         $user16->save();
         //------------------------------------
+
+  
+        //------------------------------------
+         //RECLAMANTES
+
+         $per1=new Persona();
+         $per1->cedula='609568748';
+         $per1->prinom='Jordan';
+         $per1->segnom='Miguel';
+         $per1->priape='Suarez';
+         $per1->segape='Quintana';
+         $per1->tel='3114855548';
+         $per1->direc='Cúcuta';
+         $per1->save();
+ 
+ 
+         $reclamantes=new Reclamante();
+         $reclamantes->enfodifervictima='POBLACION VULNERABLE';
+         $reclamantes->genevictima='M';
+         $reclamantes->edadvictima='45';
+         $reclamantes->discapavictima='SI';
+         $reclamantes->descrdiscap='CIEGO';
+         $reclamantes->estravictima='1';
+         $reclamantes->embaravictima='NO';
+         $reclamantes->grupetnicovictima='SI';
+         $reclamantes->descretnico='INDÍGENA';
+         $reclamantes->persoentidreclama='COOMEVA';
+         $reclamantes->email='jordanmiguel895@gmail.com'; 
+         $reclamantes->per_id=$per1->id;
+         $reclamantes->save();
+         //------------------------------------
+
+         $per2=new Persona();
+         $per2->cedula='10986354285';
+         $per2->prinom='Samuel';
+         $per2->segnom='José';
+         $per2->priape='Gomez';
+         $per2->segape='Garnica';
+         $per2->tel='3145698754';
+         $per2->direc='Cúcuta';
+         $per2->save();
+ 
+         $reclamantes2=new Reclamante();
+         $reclamantes2->enfodifervictima='POBLACION VULNERABLE';
+         $reclamantes2->genevictima='M';
+         $reclamantes2->edadvictima='45';
+         $reclamantes2->discapavictima='SI';
+         $reclamantes2->descrdiscap='Monoplejia';
+         $reclamantes2->estravictima='1';
+         $reclamantes2->embaravictima='NO';
+         $reclamantes2->grupetnicovictima='NO';
+         $reclamantes2->descretnico='';
+         $reclamantes2->persoentidreclama='MEDIMAS';
+         $reclamantes2->email='samuelgogar@gmail.com'; 
+         $reclamantes2->per_id=$per2->id;
+         $reclamantes2->save();
+
+         //------------------------------------
+
+         $per3=new Persona();
+         $per3->cedula='10847596824';
+         $per3->prinom='Danna';
+         $per3->segnom='Marisela';
+         $per3->priape='Peña';
+         $per3->segape='Londoño';
+         $per3->tel='3156984521';
+         $per3->direc='Cúcuta';
+         $per3->save();
+ 
+ 
+         $reclamantes3=new Reclamante();
+         $reclamantes3->enfodifervictima='POBLACION VULNERABLE';
+         $reclamantes3->genevictima='F';
+         $reclamantes3->edadvictima='25';
+         $reclamantes3->discapavictima='NO';
+         $reclamantes3->descrdiscap='';
+         $reclamantes3->estravictima='2';
+         $reclamantes3->embaravictima='SI';
+         $reclamantes3->grupetnicovictima='NO';
+         $reclamantes3->descretnico='';
+         $reclamantes3->persoentidreclama='COMPENSAR';
+         $reclamantes3->email='penalondonomarisela@gmail.com'; 
+         $reclamantes3->per_id=$per3->id;
+         $reclamantes3->save();
+         //------------------------------------
+
+
+         $per4=new Persona();
+         $per4->cedula='60388994';
+         $per4->prinom='Kanny';
+         $per4->segnom='Mary';
+         $per4->priape='Yepez';
+         $per4->segape='Lisboa';
+         $per4->tel='3158289567';
+         $per4->direc='Cúcuta';
+         $per4->save();
+ 
+ 
+         $reclamantes4=new Reclamante();
+         $reclamantes4->enfodifervictima='POBLACION VULNERABLE';
+         $reclamantes4->genevictima='F';
+         $reclamantes4->edadvictima='47';
+         $reclamantes4->discapavictima='NO';
+         $reclamantes4->descrdiscap='';
+         $reclamantes4->estravictima='1';
+         $reclamantes4->embaravictima='NO';
+         $reclamantes4->grupetnicovictima='SI';
+         $reclamantes4->descretnico='INDÍGENA';
+         $reclamantes4->persoentidreclama='COOMEVA';
+         $reclamantes4->email='kannylisboa135@gmail.com'; 
+         $reclamantes4->per_id=$per4->id;
+         $reclamantes4->save();
+         //------------------------------------
+
+         $per5=new Persona();
+         $per5->cedula='10968754968';
+         $per5->prinom='Luz';
+         $per5->segnom='Andreina';
+         $per5->priape='Caballero';
+         $per5->segape='Quintero';
+         $per5->tel='3135569978';
+         $per5->direc='Cúcuta';
+         $per5->save();
+ 
+         $reclamantes=new Reclamante();
+         $reclamantes->enfodifervictima='POBLACION VULNERABLE';
+         $reclamantes->genevictima='F';
+         $reclamantes->edadvictima='18';
+         $reclamantes->discapavictima='NO';
+         $reclamantes->descrdiscap='';
+         $reclamantes->estravictima='2';
+         $reclamantes->embaravictima='NO';
+         $reclamantes->grupetnicovictima='NO';
+         $reclamantes->descretnico='';
+         $reclamantes->persoentidreclama='COOMEVA';
+         $reclamantes->email='andreinacaballero10@gmail.com'; 
+         $reclamantes->per_id=$per5->id;
+         $reclamantes->save();
+         //------------------------------------
+
+
+
     }
 
 }
