@@ -462,23 +462,123 @@ class UserSeeder extends Seeder
          $per5->direc='Cúcuta';
          $per5->save();
  
-         $reclamantes=new Reclamante();
-         $reclamantes->enfodifervictima='POBLACION VULNERABLE';
-         $reclamantes->genevictima='F';
-         $reclamantes->edadvictima='18';
-         $reclamantes->discapavictima='NO';
-         $reclamantes->descrdiscap='';
-         $reclamantes->estravictima='2';
-         $reclamantes->embaravictima='NO';
-         $reclamantes->grupetnicovictima='NO';
-         $reclamantes->descretnico='';
-         $reclamantes->persoentidreclama='COOMEVA';
-         $reclamantes->email='andreinacaballero10@gmail.com'; 
-         $reclamantes->per_id=$per5->id;
-         $reclamantes->save();
+         $reclamantes5=new Reclamante();
+         $reclamantes5->enfodifervictima='POBLACION VULNERABLE';
+         $reclamantes5->genevictima='F';
+         $reclamantes5->edadvictima='18';
+         $reclamantes5->discapavictima='NO';
+         $reclamantes5->descrdiscap='';
+         $reclamantes5->estravictima='2';
+         $reclamantes5->embaravictima='NO';
+         $reclamantes5->grupetnicovictima='NO';
+         $reclamantes5->descretnico='';
+         $reclamantes5->persoentidreclama='COOMEVA';
+         $reclamantes5->email='andreinacaballero10@gmail.com'; 
+         $reclamantes5->per_id=$per5->id;
+         $reclamantes5->save();
          //------------------------------------
+            
+         
+         //AREAS
+         
+         $Area1 = new Area();
+         $Area1->nombre = 'PENAL';
+         $Area1->save();
+
+         $Area2 = new Area();
+         $Area2->nombre = 'LABORAL';
+         $Area2->save();
+
+         $Area3 = new Area();
+         $Area3->nombre = 'FAMILIA';
+         $Area3->save();
+
+         $Area4 = new Area();
+         $Area4->nombre = 'PÚBLICA';
+         $Area4->save();
 
 
+          //RECEPCIONES
+
+          $re= new Recepcion();
+          $re->recepcionado = 'CONSULTORIO JURÍDICO';
+          $re->fecharadicado= '2020-10-25 16:59:17';
+          $re->fecharecepcionado= '2020-11-25 16:59:17';
+          $re->consultorio='II';
+       
+       
+          $re->estado= '1';
+          
+          $re->recla_id=$reclamantes->id;
+          $re->area_id= $Area1->id;
+        
+          $re->instjuri= 'Indefinido';
+          $re->tramitejuri= 'Indefinido';
+          $re->save();
+
+          
+          $re2= new Recepcion();
+          $re2->recepcionado = 'CONSULTORIO JURÍDICO';
+          $re2->fecharadicado= '2020-09-22 16:59:17';
+          $re2->fecharecepcionado= '2020-10-29 16:59:17';
+          $re2->consultorio= 'IV';
+          
+          $re2->estado= '1';
+         
+          $re2->recla_id= $reclamantes2->id;
+          $re2->area_id= $Area2->id;
+         
+          $re2->instjuri= 'Indefinido';
+          $re2->tramitejuri= 'Indefinido';
+          $re2->save();
+
+          
+          $re3= new Recepcion();
+          $re3->recepcionado = 'CONSULTORIO JURÍDICO';
+          $re3->fecharadicado= '2020-10-25 16:59:17';
+          $re3->fecharecepcionado= '2020-11-25 16:59:17';
+          $re3->consultorio= 'IV';
+         
+          $re3->estado= '1';
+          
+          $re3->recla_id=$reclamantes3->id;
+          $re3->area_id=$Area3->id;
+          
+          $re3->instjuri= 'Indefinido';
+          $re3->tramitejuri= 'Indefinido';
+          $re3->save();
+
+          
+          $re4= new Recepcion();
+          $re4->recepcionado = 'CONSULTORIO JURÍDICO';
+          $re4->fecharadicado= '2020-10-25 16:59:17';
+          $re4->fecharecepcionado= '2020-11-25 16:59:17';
+          $re4->consultorio= 'II';
+          
+          $re4->estado= '1';
+         
+          $re4->recla_id=$reclamantes4->id;
+          $re4->area_id=$Area1->id;
+          
+          $re4->instjuri= 'Indefinido';
+          $re4->tramitejuri= 'Indefinido';
+          $re4->save();
+
+          
+          $re5= new Recepcion();
+          $re5->recepcionado = 'CONSULTORIO JURÍDICO';
+          $re5->fecharadicado= '2020-10-25 16:59:17';
+          $re5->fecharecepcionado= '2020-11-25 16:59:17';
+          $re5->consultorio= 'IV';
+         
+          $re5->estado= '1';
+         
+          $re5->recla_id=$reclamantes5->id;
+          $re5->area_id= $Area4->id;
+         
+          $re5->instjuri= 'Indefinido';
+          $re5->tramitejuri= 'Indefinido';
+          $re5->save();
 
     }
 

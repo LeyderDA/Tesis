@@ -1469,18 +1469,18 @@ export default {
     agregargestion() {
       if (
         !this.gestion.amplhechos ||
-        !this.gestion.fechentrevasesor ||
+        // !this.gestion.fechentrevasesor ||
         !this.gestion.tipotramite ||
         !this.gestion.asuntotramite ||
         !this.gestion.motivoarchivo ||
-        !this.gestion.fechaarchivo ||
+        // !this.gestion.fechaarchivo ||
         !this.gestion.obsrvtramite ||
         !this.gestion.actuarealizadas ||
         !this.gestion.actjuridirealzadas ||
         !this.gestion.resulactuacion ||
         !this.gestion.entidadelantramite ||
         !this.recepcion.id ||
-        !this.gestion.fechpriact ||
+        // !this.gestion.fechpriact ||
         !this.gestion.n_act ||
         !this.gestion.n_aseso ||
         !this.gestion.n_autor ||

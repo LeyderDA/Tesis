@@ -12649,7 +12649,10 @@ __webpack_require__.r(__webpack_exports__);
     agregargestion: function agregargestion() {
       var _this8 = this;
 
-      if (!this.gestion.amplhechos || !this.gestion.fechentrevasesor || !this.gestion.tipotramite || !this.gestion.asuntotramite || !this.gestion.motivoarchivo || !this.gestion.fechaarchivo || !this.gestion.obsrvtramite || !this.gestion.actuarealizadas || !this.gestion.actjuridirealzadas || !this.gestion.resulactuacion || !this.gestion.entidadelantramite || !this.recepcion.id || !this.gestion.fechpriact || !this.gestion.n_act || !this.gestion.n_aseso || !this.gestion.n_autor || !this.gestion.asesor) {
+      if (!this.gestion.amplhechos || // !this.gestion.fechentrevasesor ||
+      !this.gestion.tipotramite || !this.gestion.asuntotramite || !this.gestion.motivoarchivo || // !this.gestion.fechaarchivo ||
+      !this.gestion.obsrvtramite || !this.gestion.actuarealizadas || !this.gestion.actjuridirealzadas || !this.gestion.resulactuacion || !this.gestion.entidadelantramite || !this.recepcion.id || // !this.gestion.fechpriact ||
+      !this.gestion.n_act || !this.gestion.n_aseso || !this.gestion.n_autor || !this.gestion.asesor) {
         swal({
           type: "error",
           timer: 20000,
@@ -17084,7 +17087,9 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     agregar: function agregar() {
-      if (!this.recepcion.recepcionado || !this.recepcion.fecharadicado || !this.recepcion.fecharecepcionado || !this.recepcion.consultorio || !this.recepcion.instjuri || !this.recepcion.tramitejuri || //!this.recepcion.fechareparto ||
+      if (!this.recepcion.recepcionado || // !this.recepcion.fecharadicado ||
+      // !this.recepcion.fecharecepcionado ||
+      !this.recepcion.consultorio || !this.recepcion.instjuri || !this.recepcion.tramitejuri || //!this.recepcion.fechareparto ||
       //!this.recepcion.fechapublicacion ||
       //!this.recepcion.fecharetiro ||
       !this.recepcion.estado || !this.usuario.persona.id || //!this.usuarioo.persona.id ||

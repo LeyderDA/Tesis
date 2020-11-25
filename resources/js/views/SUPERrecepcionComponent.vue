@@ -518,8 +518,8 @@ export default {
     agregar() {
       if (
         !this.recepcion.recepcionado ||
-        !this.recepcion.fecharadicado ||
-        !this.recepcion.fecharecepcionado ||
+        // !this.recepcion.fecharadicado ||
+        // !this.recepcion.fecharecepcionado ||
         !this.recepcion.consultorio ||
         !this.recepcion.instjuri ||
         !this.recepcion.tramitejuri ||
